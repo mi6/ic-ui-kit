@@ -1496,7 +1496,7 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
     </template>
     <ic-button class="ic-button-size-medium ic-button-variant-primary" exportparts="button" slot="actions">
       <template shadowrootmode="open">
-        <button class="button" part="button" type="button">
+        <button class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>
@@ -4537,10 +4537,10 @@ exports[`ic-data-table should render ic-link if data contains href 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -4554,10 +4554,10 @@ exports[`ic-data-table should render ic-link if data contains href 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -4571,10 +4571,10 @@ exports[`ic-data-table should render ic-link if data contains href 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -4588,10 +4588,10 @@ exports[`ic-data-table should render ic-link if data contains href 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -5494,6 +5494,224 @@ exports[`ic-data-table should render the updating state when the \`updating\` pr
 </ic-data-table>
 `;
 
+exports[`ic-data-table should render with Age column hidden 1`] = `
+<ic-data-table>
+  <template shadowrootmode="open">
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      John Smith
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Accounts
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      1
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Sally Jones
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      2
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Tim Rayes
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Sales
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      3
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Luke Fisher
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      4
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Jane Lock
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      5
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Margaret Hale
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      HR
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      6
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="assertive" class="sr-only"></div>
+    </div>
+  </template>
+</ic-data-table>
+`;
+
 exports[`ic-data-table should render with a slotted ic-data-table-title-bar 1`] = `
 <ic-data-table>
   <template shadowrootmode="open">
@@ -6050,7 +6268,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" selectitemsperpageonenter="" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </template>
@@ -7157,7 +7375,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" selectitemsperpageonenter="" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </template>
@@ -8149,7 +8367,7 @@ exports[`ic-data-table should render with pagination 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="20" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" selectitemsperpageonenter="" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="20" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </template>
@@ -8638,7 +8856,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" selectitemsperpageonenter="" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </template>
@@ -8887,7 +9105,7 @@ exports[`ic-data-table should render with row overrides set via rowOptions 1`] =
       </div>
       <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" selectitemsperpageonenter="" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </template>
@@ -12546,10 +12764,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -12563,10 +12781,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -12580,10 +12798,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -12597,10 +12815,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -12868,10 +13086,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-name">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -12885,10 +13103,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -12902,10 +13120,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -12919,10 +13137,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -13190,10 +13408,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Remove sort" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Remove sort" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-name">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -13207,10 +13425,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -13224,10 +13442,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -13241,10 +13459,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -13512,10 +13730,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Sort ascending" class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Sort ascending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -13529,10 +13747,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-age">
+                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-age">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -13546,10 +13764,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -13563,10 +13781,10 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -18247,10 +18465,10 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     </template>
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-name">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -18267,10 +18485,10 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     </template>
                     Age
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -18287,10 +18505,10 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     </template>
                     Department
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -18307,10 +18525,10 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     </template>
                     Employee Number
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -18327,10 +18545,10 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     </template>
                     Job Title
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-jobTitle">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-jobTitle">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-jobTitle">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-jobTitle" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-jobTitle">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-jobTitle" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -19689,10 +19907,10 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     </template>
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-name">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -19709,10 +19927,10 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     </template>
                     Age
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -19729,10 +19947,10 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     </template>
                     Department
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -19749,10 +19967,10 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     </template>
                     Employee Number
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -19769,10 +19987,10 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     </template>
                     Job Title
                   </ic-typography>
-                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-jobTitle">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-jobTitle">
                     <template shadowrootmode="open">
-                      <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-jobTitle">
-                        <button aria-label="Sort ascending" class="button" part="button" type="button">
+                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-jobTitle" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-jobTitle">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-jobTitle" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>

@@ -1260,9 +1260,12 @@ export class DataTable {
   private createUpdatingIndicator = () => {
     const { description, max, min, progress, monochrome } =
       this.updatingOptions || {};
+    const visibleColumnCount = this.columns.filter(
+      (col) => col.hidden !== true
+    ).length;
     return (
       <th
-        colSpan={this.columns.length + (this.rowSelection && this.data ? 1 : 0)}
+        colSpan={visibleColumnCount + (this.rowSelection && this.data ? 1 : 0)}
         class="updating-state"
       >
         <ic-loading-indicator
@@ -1520,81 +1523,80 @@ export class DataTable {
       ? variableRowHeightVal !== "auto" && variableRowHeightVal
       : this.globalRowHeight !== "auto" && this.globalRowHeight;
 
-    return this.columns.map((columnName, index) => {
-      const cell = this.getObjectValue(row, columnName["key"]);
-      const columnProps = this.columns[index];
-      const cellSlotName = `${columnProps?.key}-${rowIndex}`;
-      const hasIcon = this.isObject(cell) && Object.keys(cell).includes("icon");
-      const cellValue = (key: string) => this.getObjectValue(cell, key);
+    return this.columns.map((column, index) => {
+      if (column.hidden !== true) {
+        const cell = this.getObjectValue(row, column["key"]);
+        const cellValue = (key: string) => this.getObjectValue(cell, key);
 
-      if (rowKeys[index] === "header") {
-        return (
-          <th
-            scope="row"
-            colSpan={cellValue("colspan")}
-            class={{
-              ["row-header"]: true,
-              [`row-header-alignment-${cellValue("cellAlignment")}`]:
-                !!cellValue("cellAlignment"),
-              ["row-header-sticky"]: this.stickyRowHeaders,
-            }}
-          >
-            {cellValue("title")}
-          </th>
+        if (rowKeys[index] === "header") {
+          return (
+            <th
+              scope="row"
+              colSpan={cellValue("colspan")}
+              class={{
+                ["row-header"]: true,
+                [`row-header-alignment-${cellValue("cellAlignment")}`]:
+                  !!cellValue("cellAlignment"),
+                ["row-header-sticky"]: this.stickyRowHeaders,
+              }}
+            >
+              {cellValue("title")}
+            </th>
+          );
+        }
+
+        const CellContent = this.createCellContent(
+          column,
+          cell,
+          `${column?.key}-${rowIndex}`,
+          rowOptions,
+          this.isObject(cell) && Object.keys(cell).includes("icon"),
+          cellValue,
+          rowEmphasis,
+          currentRowHeight || undefined
         );
-      }
 
-      const CellContent = this.createCellContent(
-        columnProps,
-        cell,
-        cellSlotName,
-        rowOptions,
-        hasIcon,
-        cellValue,
-        rowEmphasis,
-        currentRowHeight || undefined
-      );
-
-      if (rowKeys[index] !== "rowOptions") {
-        return (
-          <td
-            class={{
-              ["table-cell"]: true,
-              [`table-density-${this.density}`]: this.notDefaultDensity(),
-              ["with-overflow"]: columnProps?.dataType === "element",
-              [`cell-vertical-align-${
-                columnProps?.columnAlignment?.vertical ||
-                rowOptions?.rowAlignment?.vertical ||
-                rowAlignment ||
-                this.getCellAlignment(cell, "vertical")
-              }`]:
-                !!columnProps?.columnAlignment?.vertical ||
-                !!rowOptions?.rowAlignment?.vertical ||
-                !!rowAlignment ||
-                !!this.getCellAlignment(cell, "vertical"),
-            }}
-            style={{ ...this.getColumnWidth(columnProps.columnWidth) }}
-          >
-            {this.isObject(cell) &&
-            Object.keys(cell).includes("actionElement") ? (
-              <div class="cell-grid-wrapper">
-                {CellContent}
-                <span
-                  class="action-element"
-                  innerHTML={cellValue("actionElement")}
-                  // eslint-disable-next-line react/jsx-no-bind
-                  onClick={
-                    cell.actionOnClick
-                      ? (event) => this.handleClick(event, cell.actionOnClick)
-                      : undefined
-                  }
-                ></span>
-              </div>
-            ) : (
-              CellContent
-            )}
-          </td>
-        );
+        if (rowKeys[index] !== "rowOptions") {
+          return (
+            <td
+              class={{
+                ["table-cell"]: true,
+                [`table-density-${this.density}`]: this.notDefaultDensity(),
+                ["with-overflow"]: column?.dataType === "element",
+                [`cell-vertical-align-${
+                  column?.columnAlignment?.vertical ||
+                  rowOptions?.rowAlignment?.vertical ||
+                  rowAlignment ||
+                  this.getCellAlignment(cell, "vertical")
+                }`]:
+                  !!column?.columnAlignment?.vertical ||
+                  !!rowOptions?.rowAlignment?.vertical ||
+                  !!rowAlignment ||
+                  !!this.getCellAlignment(cell, "vertical"),
+              }}
+              style={{ ...this.getColumnWidth(column.columnWidth) }}
+            >
+              {this.isObject(cell) &&
+              Object.keys(cell).includes("actionElement") ? (
+                <div class="cell-grid-wrapper">
+                  {CellContent}
+                  <span
+                    class="action-element"
+                    innerHTML={cellValue("actionElement")}
+                    // eslint-disable-next-line react/jsx-no-bind
+                    onClick={
+                      cell.actionOnClick
+                        ? (event) => this.handleClick(event, cell.actionOnClick)
+                        : undefined
+                    }
+                  ></span>
+                </div>
+              ) : (
+                CellContent
+              )}
+            </td>
+          );
+        }
       }
     });
   };
@@ -1610,38 +1612,51 @@ export class DataTable {
           title,
           columnWidth,
           excludeColumnFromSort,
+          hidden,
         },
         index
-      ) => (
-        <th
-          scope="col"
-          class={{
-            ["column-header"]: true,
-            [`table-density-${this.density}`]: this.notDefaultDensity(),
-            ["updating-state-headers"]: this.updating && !this.loading,
-          }}
-          style={{ ...this.getColumnWidth(columnWidth) }}
-          colSpan={colspan}
-        >
-          <div
+      ) =>
+        hidden !== true && (
+          <th
+            scope="col"
             class={{
-              "column-header-inner-container": true,
-              "truncation-tooltip": this.columnHeaderTruncation,
-              [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
+              ["column-header"]: true,
+              [`table-density-${this.density}`]: this.notDefaultDensity(),
+              ["updating-state-headers"]: this.updating && !this.loading,
             }}
+            style={{ ...this.getColumnWidth(columnWidth) }}
+            colSpan={colspan}
           >
-            {isSlotUsed(this.el, `${key}-column-icon`) ? (
-              <slot name={`${key}-column-icon`} />
-            ) : (
-              icon &&
-              !icon.hideOnHeader && (
-                <span class="icon" innerHTML={icon.icon}></span>
-              )
-            )}
-            {this.columnHeaderTruncation ? (
-              <ic-tooltip label={title} target={`column-header-${index}`}>
+            <div
+              class={{
+                "column-header-inner-container": true,
+                "truncation-tooltip": this.columnHeaderTruncation,
+                [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
+              }}
+            >
+              {isSlotUsed(this.el, `${key}-column-icon`) ? (
+                <slot name={`${key}-column-icon`} />
+              ) : (
+                icon &&
+                !icon.hideOnHeader && (
+                  <span class="icon" innerHTML={icon.icon}></span>
+                )
+              )}
+              {this.columnHeaderTruncation ? (
+                <ic-tooltip label={title} target={`column-header-${index}`}>
+                  <ic-typography
+                    id={`column-header-${index}`}
+                    variant="body"
+                    class={{
+                      ["column-header-text"]: true,
+                      [`text-${this.density}`]: this.notDefaultDensity(),
+                    }}
+                  >
+                    {title}
+                  </ic-typography>
+                </ic-tooltip>
+              ) : (
                 <ic-typography
-                  id={`column-header-${index}`}
                   variant="body"
                   class={{
                     ["column-header-text"]: true,
@@ -1650,56 +1665,45 @@ export class DataTable {
                 >
                   {title}
                 </ic-typography>
-              </ic-tooltip>
-            ) : (
+              )}
+              {this.sortable && !excludeColumnFromSort && (
+                <ic-button
+                  variant="icon-tertiary"
+                  id={`sort-button-${key}`}
+                  aria-label={this.getSortButtonLabel(key)}
+                  // eslint-disable-next-line react/jsx-no-bind
+                  onClick={() => this.sortRows(key)}
+                  innerHTML={
+                    this.SORT_ICONS[
+                      this.sortedColumn === key
+                        ? this.sortedColumnOrder
+                        : "unsorted"
+                    ]
+                  }
+                  class={{
+                    ["sort-button"]: true,
+                    ["sort-button-unsorted"]:
+                      this.sortedColumn !== key ||
+                      this.sortedColumnOrder === "unsorted",
+                  }}
+                ></ic-button>
+              )}
+            </div>
+            {this.columnHeaderTruncation && (
               <ic-typography
                 variant="body"
+                aria-hidden="true"
                 class={{
                   ["column-header-text"]: true,
+                  ["dummy-column-header-text"]: this.columnHeaderTruncation,
                   [`text-${this.density}`]: this.notDefaultDensity(),
                 }}
               >
                 {title}
               </ic-typography>
             )}
-            {this.sortable && !excludeColumnFromSort && (
-              <ic-button
-                variant="icon-tertiary"
-                id={`sort-button-${key}`}
-                aria-label={this.getSortButtonLabel(key)}
-                // eslint-disable-next-line react/jsx-no-bind
-                onClick={() => this.sortRows(key)}
-                innerHTML={
-                  this.SORT_ICONS[
-                    this.sortedColumn === key
-                      ? this.sortedColumnOrder
-                      : "unsorted"
-                  ]
-                }
-                class={{
-                  ["sort-button"]: true,
-                  ["sort-button-unsorted"]:
-                    this.sortedColumn !== key ||
-                    this.sortedColumnOrder === "unsorted",
-                }}
-              ></ic-button>
-            )}
-          </div>
-          {this.columnHeaderTruncation && (
-            <ic-typography
-              variant="body"
-              aria-hidden="true"
-              class={{
-                ["column-header-text"]: true,
-                ["dummy-column-header-text"]: this.columnHeaderTruncation,
-                [`text-${this.density}`]: this.notDefaultDensity(),
-              }}
-            >
-              {title}
-            </ic-typography>
-          )}
-        </th>
-      )
+          </th>
+        )
     );
 
   private onRowClick = (row: IcDataTableDataType) => {

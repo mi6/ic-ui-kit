@@ -23,6 +23,7 @@ import {
   COLS_ELEMENTS,
   COLS_ELEMENTS_SINGLE_ACTION,
   COLS_EXCLUDE_SORT,
+  COLS_HIDDEN,
   DATA,
   DATA_CELL_ALIGNMENT,
   ICON_COLS,
@@ -284,6 +285,23 @@ describe("IcDataTables", () => {
       },
     });
     cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
+  });
+
+  it("should render with Age column hidden", () => {
+    mount(
+      <IcDataTable columns={COLS_HIDDEN} data={DATA} caption="Data Tables" />
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "/hidden-column",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 
   it("should sort data when the sort button is clicked", () => {
