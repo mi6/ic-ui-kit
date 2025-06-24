@@ -381,6 +381,7 @@ export class DataTable {
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
     this.headerResizeObserver?.disconnect();
+    window.removeEventListener("resize", this.handleResize);
   }
 
   componentWillLoad(): void {
@@ -455,7 +456,7 @@ export class DataTable {
     if (this.globalRowHeight !== "auto") {
       this.updateSetRowHeight();
     }
-    window.addEventListener("resize", this.updateCellHeightsWithDescriptions);
+    window.addEventListener("resize", this.handleResize);
 
     this.icColumnsLoaded.emit();
     if (this.data && !this.loading && !this.updating) this.icDataLoaded.emit();
@@ -504,6 +505,7 @@ export class DataTable {
 
   componentDidRender(): void {
     this.fixCellTooltips();
+    this.fixCellSelect();
     this.updateCellHeightsWithDescriptions();
     this.adjustWidthForActionElement();
   }
@@ -540,6 +542,11 @@ export class DataTable {
         this.prevTableContainerWidth = tableContainerWidth;
       }
     }
+  };
+
+  private handleResize = () => {
+    this.updateCellHeightsWithDescriptions();
+    this.fixCellSelect();
   };
 
   private getRowHeight = (cellContainer: HTMLElement) =>
@@ -2186,6 +2193,26 @@ export class DataTable {
     tooltip?.setExternalPopperProps({
       strategy: "fixed",
     });
+  };
+
+  private fixCellSelect = () => {
+    this.el.shadowRoot
+      ?.querySelectorAll(".data-type-element")
+      ?.forEach((element) => {
+        const children = Array.from(element.children);
+        children?.forEach((el) => {
+          if (el.tagName === "IC-SELECT") {
+            const menu = el.shadowRoot?.querySelector("ic-menu");
+            menu?.setExternalPopperProps({
+              strategy: "fixed",
+            });
+            (el as HTMLIcSelectElement).style.setProperty(
+              "--input-width",
+              `${element.clientWidth}px`
+            );
+          }
+        });
+      });
   };
 
   private fixCellTooltips = () => {

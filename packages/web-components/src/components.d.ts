@@ -19,6 +19,7 @@ import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-inpu
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
+import { Options } from "@popperjs/core";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
@@ -34,7 +35,6 @@ import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-import { Options } from "@popperjs/core";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -49,6 +49,7 @@ export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-inpu
 export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
+export { Options } from "@popperjs/core";
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 export { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
@@ -64,7 +65,6 @@ export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { Options } from "@popperjs/core";
 export namespace Components {
     interface IcAccordion {
         /**
@@ -1107,6 +1107,10 @@ export namespace Components {
          */
         "searchMode": IcSearchBarSearchModes;
         "selectOnEnter": boolean;
+        /**
+          * @param props object - createPopper props set externally
+         */
+        "setExternalPopperProps": <T extends Partial<Options>>(props: T) => Promise<void>;
         /**
           * The size of the menu.
          */

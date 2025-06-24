@@ -1071,7 +1071,7 @@ export const DATA_ELEMENTS_PAGINATION = [
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("5")'>5</ic-button>`,
+    actions: `<ic-select placeholder="Placeholder goes here"></ic-select>`,
     firstName: "Luke",
     age: 18,
     jobTitle: "Junior Developer",
@@ -1106,7 +1106,7 @@ export const DATA_ELEMENTS_PAGINATION = [
     address: "10 High Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("10")'>10</ic-button>`,
+    actions: `<ic-select placeholder="Placeholder goes here"></ic-select>`,
     firstName: "Ben",
     age: 40,
     jobTitle: "Team Lead",
