@@ -6,10 +6,12 @@ import {
   IcButton,
   IcEmptyState,
   IcLink,
+  IcMenuItem,
+  IcPopoverMenu,
   IcTypography,
   SlottedSVG,
 } from "@ukic/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import readme from "../../../canary-web-components/src/components/ic-data-table/readme.md";
 import {
   ACTION_DATA_ELEMENTS,
@@ -523,18 +525,34 @@ export const SlottedElementsWithPagination = {
           { label: "10", value: "10" },
         ],
         showItemsPerPageControl: true,
-        selectedItemsPerPage: "5",
+        selectedItemsPerPage: 5,
       }}
     >
-      {DATA_REACT_ELEMENTS_PAGINATION.map((_, index) => (
-        <IcButton
-          key={`actions-${index}`}
-          slot={`actions-${index}`}
-          onClick={() => console.log(`${index + 1}`)}
-        >
-          {index + 1}
-        </IcButton>
-      ))}
+      {DATA_REACT_ELEMENTS_PAGINATION.map((_, index) => {
+        const popoverRef = useRef();
+        return (
+          <div key={`actions-${index}`} slot={`actions-${index}`}>
+            <IcButton
+              id={`popover-anchor-${index}`}
+              onClick={() => {
+                if (popoverRef.current) {
+                  popoverRef.current.open = !popoverRef.current.open;
+                }
+              }}
+            >
+              {index + 1}
+            </IcButton>
+            <IcPopoverMenu
+              ref={popoverRef}
+              anchor={`popover-anchor-${index}`}
+              aria-label="popover"
+            >
+              <IcMenuItem label="Copy code"></IcMenuItem>
+              <IcMenuItem label="Logout" variant="destructive"></IcMenuItem>
+            </IcPopoverMenu>
+          </div>
+        );
+      })}
     </IcDataTable>
   ),
   name: "Slotted elements with pagination",

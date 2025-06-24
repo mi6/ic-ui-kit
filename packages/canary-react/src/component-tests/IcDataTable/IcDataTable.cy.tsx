@@ -74,6 +74,7 @@ import {
   IcSortEventDetail,
 } from "@ukic/canary-web-components";
 import {
+  DataTableWithPopover,
   multipleColumnWidth,
   newData,
   singleColumnTruncationWidth,
@@ -1717,6 +1718,22 @@ describe("IcDataTables with IcPaginationBar", () => {
     cy.compareSnapshot({
       name: "/pagination-with-select",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render a popover menu above the pagination bar", () => {
+    mount(<DataTableWithPopover />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.get(DATA_TABLE_SELECTOR).find("div").eq(4).click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/pagination-with-popover",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
