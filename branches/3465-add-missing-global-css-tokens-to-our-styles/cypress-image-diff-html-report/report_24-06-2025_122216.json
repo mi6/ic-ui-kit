@@ -1,7 +1,7 @@
 {
   "total": 810,
-  "totalPassed": 803,
-  "totalFailed": 7,
+  "totalPassed": 809,
+  "totalFailed": 1,
   "totalSuites": 43,
   "suites": [
     {
@@ -5191,47 +5191,47 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/hidden-label.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/options-no-filtering",
-          "percentage": 0.00938083151964686,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/options-no-filtering.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/options-no-filtering.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/options-no-filtering.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/empty-option-list-text",
-          "percentage": 0.00938083151964686,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/empty-option-list-text.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/empty-option-list-text.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/empty-option-list-text.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/characters-until-suggestion-no-show",
-          "percentage": 0.008,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/characters-until-suggestion-no-show.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/characters-until-suggestion-no-show.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/characters-until-suggestion-no-show.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/characters-until-suggestion-show",
-          "percentage": 0.00938083151964686,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/characters-until-suggestion-show.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/characters-until-suggestion-show.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/characters-until-suggestion-show.png"
         },
         {
@@ -5246,14 +5246,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/small.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/long-option-label",
-          "percentage": 0.008717797887081347,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/long-option-label.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/long-option-label.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/long-option-label.png"
         },
         {
@@ -5279,14 +5279,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/readonly.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSearchBar.cy.tsx/spellcheck",
-          "percentage": 0,
+          "percentage": 0.00824621125123532,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/spellcheck.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/spellcheck.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/spellcheck.png"
         },
         {
@@ -7600,14 +7600,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx/custom-text-field.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTextField.cy.tsx/focused-input-text-field",
-          "percentage": 0.00938083151964686,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx/focused-input-text-field.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx/focused-input-text-field.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx/focused-input-text-field.png"
         },
         {
@@ -8769,14 +8769,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-app-icon-title.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx/mobile-search",
-          "percentage": 0.007998000749687637,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-search.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx/mobile-search.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-search.png"
         },
         {
@@ -9173,9 +9173,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-24T11:10:38.869Z",
-  "endedAt": "2025-06-24T11:29:00.322Z",
-  "duration": 1003774,
+  "startedAt": "2025-06-24T12:22:16.717Z",
+  "endedAt": "2025-06-24T12:39:34.960Z",
+  "duration": 940506,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
