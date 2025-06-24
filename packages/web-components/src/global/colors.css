@@ -824,7 +824,7 @@
   );
   --ic-atoms-input-select-content-divider-dark: var(--ic-color-icon-grey-light);
   --ic-atoms-input-select-content-text-cursor-light: var(
-    --ic-color-text-action
+    --ic-color-text-action-light
   );
   --ic-atoms-input-select-content-text-cursor-dark: var(
     --ic-color-text-action-dark
@@ -865,7 +865,9 @@
   --ic-atoms-input-text-area-content-disabled-dark: var(
     --ic-color-text-disabled-dark
   );
-  --ic-atoms-input-text-area-content-cursor-light: var(--ic-color-text-action);
+  --ic-atoms-input-text-area-content-cursor-light: var(
+    --ic-color-text-action-light
+  );
   --ic-atoms-input-text-area-content-cursor-dark: var(
     --ic-color-text-action-dark
   );
