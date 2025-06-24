@@ -1,7 +1,7 @@
 {
   "total": 810,
-  "totalPassed": 802,
-  "totalFailed": 8,
+  "totalPassed": 803,
+  "totalFailed": 7,
   "totalSuites": 43,
   "suites": [
     {
@@ -5279,14 +5279,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/readonly.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/spellcheck",
-          "percentage": 0.00824621125123532,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/spellcheck.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/spellcheck.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/spellcheck.png"
         },
         {
@@ -9173,9 +9173,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-24T09:37:19.311Z",
-  "endedAt": "2025-06-24T09:55:50.585Z",
-  "duration": 1012891,
+  "startedAt": "2025-06-24T10:03:58.845Z",
+  "endedAt": "2025-06-24T10:22:41.115Z",
+  "duration": 1023913,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
