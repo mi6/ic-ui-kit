@@ -158,7 +158,10 @@
       "nargs",
       "testid",
       "shadowrootmode",
-      "HMGCC"
+      "HMGCC",
+      "Déja",
+      "consectetuer",
+      "facilisi"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [
