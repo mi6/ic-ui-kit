@@ -1,6 +1,9 @@
 /* istanbul ignore file */
 
-import { IcDataTableColumnObject } from "./ic-data-table.types";
+import {
+  IcDataTableColumnObject,
+  IcSortEventDetail,
+} from "./ic-data-table.types";
 
 /* eslint-disable */
 const name1 = "John Smith";
@@ -89,6 +92,37 @@ export const COLS_WIDTH: IcDataTableColumnObject[] = [
     key: "address",
     title: "Address",
     dataType: "address",
+  },
+];
+
+export const COLS_DISABLE_AUTO_SORT: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+    disableAutoSort: true,
+  },
+  {
+    key: "lastName",
+    title: "Last name",
+    dataType: "string",
+  },
+  {
+    key: "age",
+    title: "Age",
+    dataType: "number",
+  },
+  {
+    key: "jobTitle",
+    title: "Job title",
+    dataType: "string",
+    excludeColumnFromSort: true,
+  },
+  {
+    key: "address",
+    title: "Address",
+    dataType: "address",
+    excludeColumnFromSort: true,
   },
 ];
 
@@ -1634,6 +1668,39 @@ export const DisableSort = (): HTMLIcDataTableElement => {
     }
     dataTable.data = [...DATA];
   });
+  return dataTable;
+};
+
+export const DisableAutoSortColumns = () => {
+  const originalData = [...DATA];
+  const dataTable = createDataTableElement(
+    "Disable sort on columns",
+    COLS_DISABLE_AUTO_SORT,
+    DATA
+  );
+  dataTable.setAttribute("sortable", "true");
+  dataTable.addEventListener(
+    "icSortChange",
+    (event: CustomEvent<IcSortEventDetail>) => {
+      const { columnName, sorted } = event.detail;
+      console.log("Sort changed", columnName, sorted);
+      if (columnName !== "firstName") return;
+
+      if (sorted === "unsorted") {
+        DATA.splice(0, DATA.length, ...originalData);
+      } else {
+        const sortedAscending = sorted === "ascending";
+        DATA.sort((a, b) => {
+          if (a[columnName] < b[columnName]) return sortedAscending ? -1 : 1;
+          if (a[columnName] > b[columnName]) return sortedAscending ? 1 : -1;
+          return 0;
+        });
+      }
+      dataTable.data = [...DATA];
+      console.log("Custom sort applied");
+    }
+  );
+
   return dataTable;
 };
 

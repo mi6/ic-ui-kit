@@ -41,6 +41,7 @@ export type IcDataTableColumnObject = {
   };
   excludeColumnFromSort?: boolean;
   hidden?: boolean;
+  disableAutoSort?: boolean;
 };
 
 export type IcLoadingOptions = {

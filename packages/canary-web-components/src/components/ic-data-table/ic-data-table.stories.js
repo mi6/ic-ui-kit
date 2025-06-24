@@ -12,6 +12,7 @@ import {
   DataTableSizing,
   Dense,
   DevArea,
+  DisableAutoSortColumns,
   DisableSort,
   Embedded,
   Empty,
@@ -144,6 +145,14 @@ export const SortOptionsExample = {
 export const DisableSortExample = {
   render: () => DisableSort(),
   name: "Disable sort",
+};
+
+/**
+ * Alternatively, set `disable-auto-sort` to `true` within the column object to have it apply only to certain columns that may require special custom sorting.
+ */
+export const DisableAutoSortOnColumns = {
+  render: () => DisableAutoSortColumns(),
+  name: "Disable sort on columns",
 };
 
 /**
