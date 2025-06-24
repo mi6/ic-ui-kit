@@ -1,6 +1,6 @@
 {
-  "total": 808,
-  "totalPassed": 808,
+  "total": 810,
+  "totalPassed": 810,
   "totalFailed": 0,
   "totalSuites": 43,
   "suites": [
@@ -3899,6 +3899,28 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx/determinate-circular-with-inner-label.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/determinate-circular-with-inner-label.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLoadingIndicator.cy.tsx/loading-indicator-within-dialog-small",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
+          "specFilename": "IcLoadingIndicator.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx/loading-indicator-within-dialog-small.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/loading-indicator-within-dialog-small.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLoadingIndicator.cy.tsx/loading-indicator-within-dialog-custom-diameter",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
+          "specFilename": "IcLoadingIndicator.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx/loading-indicator-within-dialog-custom-diameter.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/loading-indicator-within-dialog-custom-diameter.png"
         },
         {
           "status": "pass",
@@ -8638,6 +8660,17 @@
         },
         {
           "status": "pass",
+          "name": "IcTopNavigation.cy.tsx/navigation-item-with-focus-indicator",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
+          "specFilename": "IcTopNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/navigation-item-with-focus-indicator.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/navigation-item-with-focus-indicator.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx/slotted-navigation-items",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8737,17 +8770,6 @@
         },
         {
           "status": "pass",
-          "name": "IcTopNavigation.cy.tsx/mobile-status-version",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
-          "specFilename": "IcTopNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-status-version.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-status-version.png"
-        },
-        {
-          "status": "pass",
           "name": "IcTopNavigation.cy.tsx/mobile-search",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8792,6 +8814,17 @@
         },
         {
           "status": "pass",
+          "name": "IcTopNavigation.cy.tsx/mobile-long-text-open",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
+          "specFilename": "IcTopNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-long-text-open.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-long-text-open.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx/mobile-long-single-word-app-title",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8833,17 +8866,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-navigation-group.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-navigation-group.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTopNavigation.cy.tsx/mobile-open-menu",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
-          "specFilename": "IcTopNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-open-menu.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-open-menu.png"
         },
         {
           "status": "pass",
@@ -8935,14 +8957,14 @@
         },
         {
           "status": "pass",
-          "name": "IcTopNavigation.cy.tsx/mobile-navigation-items-high-contrast",
+          "name": "IcTopNavigation.cy.tsx/mobile-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-navigation-items-high-contrast.png",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-high-contrast.png",
           "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-navigation-items-high-contrast.png"
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-high-contrast.png"
         },
         {
           "status": "pass",
@@ -9151,9 +9173,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-18T07:43:31.978Z",
-  "endedAt": "2025-06-18T08:00:29.083Z",
-  "duration": 919129,
+  "startedAt": "2025-06-24T06:28:20.386Z",
+  "endedAt": "2025-06-24T06:45:55.156Z",
+  "duration": 956866,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
