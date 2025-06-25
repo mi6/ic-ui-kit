@@ -188,13 +188,16 @@ export const getInputValidationTextID = (id: string): string =>
   id + "-validation-text";
 
 export const getInputDescribedByText = (
+  el: HTMLElement,
   inputId: string,
   helperText: boolean,
   validationText: boolean
 ): string =>
-  `${helperText ? getInputHelperTextID(inputId) : ""} ${
-    validationText ? getInputValidationTextID(inputId) : ""
-  }`.trim();
+  `${
+    isSlotUsed(el, "helper-text") || helperText
+      ? getInputHelperTextID(inputId)
+      : ""
+  } ${validationText ? getInputValidationTextID(inputId) : ""}`.trim();
 
 /**
  * This method helps to understand the context in which a component exists,
@@ -214,35 +217,31 @@ export const getBrandFromContext = (
 ): IcBrandForeground => {
   const parentElement =
     el.parentElement || (<ShadowRoot>el.getRootNode()).host.parentElement;
-  const blockColorParent = parentElement?.closest(
-    IC_BLOCK_COLOR_COMPONENTS.join(",")
-  );
+  const blockColorParent = parentElement?.closest(IC_BLOCK_COLOR_COMPONENTS);
 
-  // If within a block color component
-  if (blockColorParent) {
-    const parentTag = blockColorParent.tagName.toLowerCase();
-    const currentTag = el.tagName.toLowerCase();
+  if (!blockColorParent) return IcBrandForegroundEnum.Default;
 
-    if (IC_BLOCK_COLOR_EXCEPTIONS[parentTag]?.includes(currentTag)) {
-      return IcBrandForegroundEnum.Default;
-    } else if (
-      brandFromEvent !== null &&
-      !IC_FIXED_COLOR_COMPONENTS.includes(parentTag)
-    ) {
-      return brandFromEvent;
-    } else if (
-      blockColorParent.classList.contains(
-        `${parentTag}-${IcBrandForegroundEnum.Dark}`
-      ) ||
-      blockColorParent.classList.contains(IcBrandForegroundEnum.Dark)
-    ) {
-      return IcBrandForegroundEnum.Dark;
-    }
+  const parentTag = blockColorParent.tagName.toLowerCase();
 
+  if (
+    IC_BLOCK_COLOR_EXCEPTIONS[parentTag]?.includes(el.tagName.toLowerCase())
+  ) {
+    return IcBrandForegroundEnum.Default;
+  } else if (
+    brandFromEvent !== null &&
+    !IC_FIXED_COLOR_COMPONENTS.includes(parentTag)
+  ) {
+    return brandFromEvent;
+  } else if (
+    blockColorParent.classList.contains(
+      `${parentTag}-${IcBrandForegroundEnum.Dark}`
+    ) ||
+    blockColorParent.classList.contains(IcBrandForegroundEnum.Dark)
+  ) {
+    return IcBrandForegroundEnum.Dark;
+  } else {
     return IcBrandForegroundEnum.Light;
   }
-
-  return IcBrandForegroundEnum.Default;
 };
 
 /**
@@ -268,15 +267,16 @@ export const handleHiddenFormButtonClick = (
   form: HTMLFormElement,
   button: HTMLIcButtonElement | HTMLButtonElement
 ): void => {
-  const hiddenFormButton = document.createElement("button");
+  const hiddenFormButton =
+    document.querySelector<HTMLButtonElement>("#hidden-form-button") ??
+    document.createElement("button");
 
-  button.type && hiddenFormButton.setAttribute("type", button.type);
+  hiddenFormButton.setAttribute("type", button.type ?? "button");
+  hiddenFormButton.id = "hidden-form-button";
   hiddenFormButton.style.display = "none";
 
   form.appendChild(hiddenFormButton);
-
   hiddenFormButton.click();
-  hiddenFormButton.remove();
 };
 
 export const isEmptyString = (value?: string): boolean =>
@@ -403,17 +403,11 @@ export const getCssProperty = (cssVar: string): string =>
  * This is a similar calculation to its CSS counterpart: "--ic-brand-text-color"
  * @returns number representing the brightness of the theme colour
  */
-export const getBrandColorBrightness = (): number => {
-  const themeRed = getCssProperty("--ic-brand-color-primary-r");
-  const themeGreen = getCssProperty("--ic-brand-color-primary-g");
-  const themeBlue = getCssProperty("--ic-brand-color-primary-b");
-  return (
-    (parseInt(themeRed) * 299 +
-      parseInt(themeGreen) * 587 +
-      parseInt(themeBlue) * 114) /
-    1000
-  );
-};
+export const getBrandColorBrightness = (): number =>
+  (parseInt(getCssProperty("--ic-brand-color-primary-r")) * 299 +
+    parseInt(getCssProperty("--ic-brand-color-primary-g")) * 587 +
+    parseInt(getCssProperty("--ic-brand-color-primary-b")) * 114) /
+  1000;
 
 /**
  * Returns if dark or light foreground colors should be used for color contrast reasons

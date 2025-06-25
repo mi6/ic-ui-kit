@@ -44,6 +44,8 @@
 
 | Event                 | Description                                                                                       | Type                                                                                      |
 | --------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `icColumnsLoaded`     | Emitted when the columns have finished loading after being updated or initially rendered.         | `CustomEvent<void>`                                                                       |
+| `icDataLoaded`        | Emitted when the data has finished loading after being updated or initially rendered.             | `CustomEvent<void>`                                                                       |
 | `icRowHeightChange`   | Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.    | `CustomEvent<void>`                                                                       |
 | `icSelectAllRows`     | Emitted when all rows are selected or deselected in the data table via the "select all" checkbox. | `CustomEvent<IcDataTableDataType[]>`                                                      |
 | `icSelectedRowChange` | Emitted when the selected row changes in the data table.                                          | `CustomEvent<{ row: IcDataTableDataType \| null; selectedRows: IcDataTableDataType[]; }>` |

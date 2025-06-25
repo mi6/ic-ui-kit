@@ -15,9 +15,11 @@ import {
   ACTION_DATA_ELEMENTS,
   COLS,
   COLS_ALIGNMENT,
+  COLS_DISABLE_AUTO_SORT,
   COLS_ELEMENTS,
   COLS_ELEMENTS_SINGLE_ACTION,
   COLS_EXCLUDE_SORT,
+  COLS_HIDDEN,
   COLS_WIDTH,
   COLUMNS_NO_TEXT_WRAP,
   COLUMNS_TEXT_WRAP,
@@ -238,6 +240,42 @@ export const DisableSort = {
 };
 
 /**
+ * Alternatively, set `disableAutoSort` to `true` within the column object to have it apply only to certain columns that may require special custom sorting.
+ */
+export const DisableAutoSortOnColumns = {
+  render: () => {
+    const ExternalData = [...DATA];
+
+    const handleSort = ({ columnName, sorted }) => {
+      console.log("Sort changed", columnName, sorted);
+      if (columnName !== "firstName") return;
+
+      const sortedAscending = sorted === "ascending";
+      ExternalData.sort((a, b) => {
+        if (a[columnName] < b[columnName]) return sortedAscending ? -1 : 1;
+        if (a[columnName] > b[columnName]) return sortedAscending ? 1 : -1;
+        return 0;
+      });
+      console.log("Custom sort applied");
+    };
+
+    return (
+      <IcDataTable
+        columns={COLS_DISABLE_AUTO_SORT}
+        data={ExternalData}
+        caption="Disable auto sort on columns"
+        sortable
+        onIcSortChange={(e) => handleSort(e.detail)}
+        sortOptions={{
+          sortOrders: ["ascending", "descending"],
+        }}
+      />
+    );
+  },
+  name: "Disable sort on columns",
+};
+
+/**
  * Adding 'excludeColumnFromSort: true` to the column object excludes that column from displaying the sort button.
  */
 export const ExcludeColumnsFromSort = {
@@ -252,6 +290,41 @@ export const ExcludeColumnsFromSort = {
   name: "Exclude columns from sort",
 };
 
+/**
+ * Adding 'hidden: true` to the column object hides that column. In this example, the Age column is hidden.
+ */
+export const HideColumnExample = {
+  render: () => {
+    const [columns, setColumns] = useState(COLS_HIDDEN);
+    const setAgeHidden = (hidden) => {
+      const updatedColumns = columns.map((col) => {
+        if (col.key === "age") {
+          return { ...col, hidden };
+        }
+        return col;
+      });
+      setColumns(updatedColumns);
+    }
+    return (
+      <>
+        <IcDataTable
+          caption="Hide Column"
+          columns={columns}
+          data={DATA}
+        />
+        <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
+          <IcButton onClick={() => setAgeHidden(false)}>
+            Show Age
+          </IcButton>
+          <IcButton onClick={() => setAgeHidden(true)}>
+            Hide Age
+          </IcButton>
+        </div>
+      </>
+    );
+  },
+  name: "Column visibility",
+};
 /**
  * Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `showPagination` to `true` will add the `IcPagination` component to the bottom of the table. There a several sub components within pagination which are set via the `paginationBarOptions` prop:
  * - `itemsPerPageOptions` which allows customization of how many items appear on each page. This requires a collection with `label` and `value` key pairs.
@@ -423,7 +496,7 @@ export const LinksElementsInData = {
           </IcButton>
           <div key={`actions2-${index}`} slot={`actions2-${index}`}>
             <IcButton
-              variant="icon"
+              variant="icon-tertiary"
               aria-label="Delete row (nested tooltip)"
               onClick={() => console.log("Delete")}
             >
@@ -675,13 +748,13 @@ export const CustomTitleBar = {
         metadata="128 items | 32gb | Updated: 01/02/03"
       >
         <IcButton slot="primary-action">Primary</IcButton>
-        <IcButton slot="custom-actions" variant="icon" aria-label="Icon 1">
+        <IcButton slot="custom-actions" variant="icon-tertiary" aria-label="Icon 1">
           <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
         </IcButton>
-        <IcButton slot="custom-actions" variant="icon" aria-label="Icon 2">
+        <IcButton slot="custom-actions" variant="icon-tertiary" aria-label="Icon 2">
           <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
         </IcButton>
-        <IcButton slot="custom-actions" variant="icon" aria-label="Icon 3">
+        <IcButton slot="custom-actions" variant="icon-tertiary" aria-label="Icon 3">
           <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
         </IcButton>
         <IcTypography slot="description" variant="body">
@@ -939,12 +1012,14 @@ const defaultArgs = {
   columnHeaderTruncation: true,
   columns: LONG_COLS,
   data: LONG_DATA,
+  defaultColumn: "",
   density: "default",
+  disableAutoSort: false,
   embedded: false,
   globalRowHeight: 40,
   height: "",
   hideColumnHeaders: false,
-  rowSelection: false,
+  hideDensitySelect: false,
   loading: false,
   loadingDesc: "loading",
   loadingLabel: "Loading data...",
@@ -970,93 +1045,91 @@ const defaultArgs = {
   paginationItemLabel: "Item",
   paginationPageLabel: "Page",
   paginationHideRangeLabel: false,
+  rowSelection: false,
   showPagination: true,
   sortable: false,
-  disableAutoSort: false,
   sortOrders: ["unsorted", "ascending", "descending"],
-  defaultColumn: "",
   stickyColumnHeaders: false,
   stickyRowHeaders: false,
+  tableLayout: "fixed",
+  theme: "inherit",
+  titleBarSlot: true,
+  titleBarDesc: "Title bar description",
+  titleBarHeading: "Title bar heading",
+  truncationPattern: "tooltip",
+  titleBarMetadata: "128 items | 32gb | Updated: 01/02/03",
+  titleBarPrimaryActionSlot: true,
+  titleBarCustomActionSlot: true,
   updating: false,
   updatingDesc: "loading",
   updatingMax: 100,
   updatingMin: 0,
   updatingProgress: 50,
-  titleBarSlot: true,
-  titleBarDesc: "Title bar description",
-  titleBarHeading: "Title bar heading",
-  truncationPattern: "tooltip",
-  hideDensitySelect: false,
-  tableLayout: "fixed",
-  titleBarMetadata: "128 items | 32gb | Updated: 01/02/03",
-  titleBarPrimaryActionSlot: true,
-  titleBarCustomActionSlot: true,
   width: "",
-  theme: "inherit",
 };
 
 /**
  * Go to the <ic-link href="/?path=/story/react-components-data-table--playground">separate page for the playground example</ic-link> to view the prop controls.
  */
 export const Playground = {
-  render: (args) => (
+  render:(args) => (
     <IcDataTable
       caption={args.caption}
       columnHeaderTruncation={args.columnHeaderTruncation}
       columns={args.columns}
       data={args.data}
       density={args.density}
+      disableAutoSort={args.disableAutoSort}
       embedded={args.embedded}
       globalRowHeight={args.globalRowHeight}
       height={args.height}
       hideColumnHeaders={args.hideColumnHeaders}
-      rowSelection={args.rowSelection}
       loading={args.loading}
       loadingOptions={{
-        description: args.loadingDesc,
-        label: args.loadingLabel,
-        labelDuration: args.loadingLabelDuration,
-        max: args.loadingMax,
-        min: args.loadingMin,
-        progress: args.loadingProgress,
-        overlay: args.loadingOverlay,
+        description:args.loadingDesc,
+        label:args.loadingLabel,
+        labelDuration:args.loadingLabelDuration,
+        max:args.loadingMax,
+        min:args.loadingMin,
+        progress:args.loadingProgress,
+        overlay:args.loadingOverlay,
       }}
       minimumLoadingDisplayDuration={args.minimumLoadingDisplayDuration}
       paginationBarOptions={{
-        itemsPerPageOptions: args.paginationItemsPerPageOptions,
-        rangeLabelType: args.paginationRangeLabelType,
-        type: args.paginationType,
-        selectedItemsPerPage: args.paginationSelectedItemsPerPage,
-        selectItemsPerPageOnEnter: args.paginationSelectItemsPerPageOnEnter,
+        itemsPerPageOptions:args.paginationItemsPerPageOptions,
+        rangeLabelType:args.paginationRangeLabelType,
+        type:args.paginationType,
+        selectedItemsPerPage:args.paginationSelectedItemsPerPage,
+        selectItemsPerPageOnEnter:args.paginationSelectItemsPerPageOnEnter,
         setToFirstPageOnPaginationChange:
           args.paginationSetToFirstPageOnPaginationChange,
-        showGoToPageControl: args.paginationShowGoToPageControl,
-        showItemsPerPageControl: args.paginationShowItemsPerPageControl,
-        alignment: args.paginationAlignment,
-        pageLabel: args.paginationPageLabel,
-        itemLabel: args.paginationItemLabel,
-        hideRangeLabel: args.paginationHideRangeLabel,
+        showGoToPageControl:args.paginationShowGoToPageControl,
+        showItemsPerPageControl:args.paginationShowItemsPerPageControl,
+        alignment:args.paginationAlignment,
+        pageLabel:args.paginationPageLabel,
+        itemLabel:args.paginationItemLabel,
+        hideRangeLabel:args.paginationHideRangeLabel,
       }}
+      rowSelection={args.rowSelection}
       showPagination={args.showPagination}
       sortable={args.sortable}
-      disableAutoSort={args.disableAutoSort}
       sortOptions={{
-        sortOrders: args.sortOrders,
-        defaultColumn: args.defaultColumn,
+        sortOrders:args.sortOrders,
+        defaultColumn:args.defaultColumn,
       }}
       stickyColumnHeaders={args.stickyColumnHeaders}
       stickyRowHeaders={args.stickyRowHeaders}
       tableLayout={args.tableLayout}
+      theme={args.theme}
       truncationPattern={args.truncationPattern}
       updating={args.updating}
       updatingOptions={{
-        description: args.updatingDesc,
-        max: args.updatingMax,
-        min: args.updatingMin,
-        progress: args.updatingProgress,
+        description:args.updatingDesc,
+        max:args.updatingMax,
+        min:args.updatingMin,
+        progress:args.updatingProgress,
       }}
       width={args.width}
-      theme={args.theme}
     >
       <IcDataTableTitleBar
         slot={args.titleBarSlot}
@@ -1068,7 +1141,7 @@ export const Playground = {
         <IcButton slot={args.titleBarPrimaryActionSlot}>Primary</IcButton>
         <IcButton
           slot={args.titleBarCustomActionSlot}
-          variant="icon"
+          variant="icon-tertiary"
           aria-label="Icon 1"
         >
           <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
@@ -1076,57 +1149,57 @@ export const Playground = {
       </IcDataTableTitleBar>
     </IcDataTable>
   ),
-  args: defaultArgs,
-  argTypes: {
-    density: {
-      options: ["default", "dense", "spacious"],
-      control: { type: "inline-radio" },
+  args:defaultArgs,
+  argTypes:{
+    density:{
+      options:["default", "dense", "spacious"],
+      control:{ type: "inline-radio" },
     },
-    globalRowHeight: {
-      control: { type: "text" },
+    globalRowHeight:{
+      control:{ type: "text" },
     },
-    paginationRangeLabelType: {
-      options: ["page", "data"],
-      control: { type: "inline-radio" },
+    paginationRangeLabelType:{
+      options:["page", "data"],
+      control:{ type: "inline-radio" },
     },
-    paginationType: {
-      options: ["simple", "complex"],
-      control: { type: "inline-radio" },
+    paginationType:{
+      options:["simple", "complex"],
+      control:{ type: "inline-radio" },
     },
-    paginationAlignment: {
-      options: ["left", "right", "space-between"],
-      control: { type: "inline-radio" },
+    paginationAlignment:{
+      options:["left", "right", "space-between"],
+      control:{ type: "inline-radio" },
     },
-    tableLayout: {
-      options: ["fixed", "auto"],
-      control: { type: "inline-radio" },
+    tableLayout:{
+      options:["fixed", "auto"],
+      control:{ type: "inline-radio" },
     },
-    truncationPattern: {
-      options: ["tooltip", "show-hide"],
-      control: { type: "inline-radio" },
+    truncationPattern:{
+      options:["tooltip", "show-hide"],
+      control:{ type: "inline-radio" },
     },
-    titleBarSlot: {
-      mapping: {
-        true: "title-bar",
-        false: "",
+    titleBarSlot:{
+      mapping:{
+        true:"title-bar",
+        false:"",
       },
     },
-    titleBarPrimaryActionSlot: {
-      mapping: {
-        true: "primary-action",
-        false: "",
+    titleBarPrimaryActionSlot:{
+      mapping:{
+        true:"primary-action",
+        false:"",
       },
     },
-    titleBarCustomActionSlot: {
-      mapping: {
-        true: "custom-actions",
-        false: "",
+    titleBarCustomActionSlot:{
+      mapping:{
+        true:"custom-actions",
+        false:"",
       },
     },
-    theme: {
-      options: ["inherit", "light", "dark"],
-      control: { type: "inline-radio" },
+    theme:{
+      options:["inherit", "light", "dark"],
+      control:{ type: "inline-radio" },
     },
   },
-  name: "Playground",
+  name:"Playground",
 };

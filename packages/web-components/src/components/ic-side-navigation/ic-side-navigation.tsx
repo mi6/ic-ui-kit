@@ -262,9 +262,7 @@ export class SideNavigation {
   };
 
   private toggleMenuExpanded = (expanded: boolean): void => {
-    if (this.deviceSize > DEVICE_SIZES.S) {
-      this.menuExpanded = expanded;
-    }
+    this.menuExpanded = expanded;
 
     if (this.menuExpanded) {
       this.setAndRemoveNoWrapAfterMenuExpanded();
@@ -566,25 +564,26 @@ export class SideNavigation {
   private resizeObserverCallback = (currSize: number) => {
     this.deviceSize = currSize;
 
-    const isSmallAndDisableTopBar =
+    const isSDeviceEnableTop =
       currSize === DEVICE_SIZES.S && !this.disableTopBarBehaviour;
 
     if (!this.disableAutoParentStyling) {
       const topBarHeight =
         this.el.shadowRoot?.querySelector(".top-bar")?.scrollHeight;
-      this.setParentPaddingTop(
-        isSmallAndDisableTopBar ? `${topBarHeight}px` : "0"
-      );
-      if (isSmallAndDisableTopBar) this.setParentPaddingLeft("0");
-      if (isSmallAndDisableTopBar && this.inline) {
+      this.setParentPaddingTop(isSDeviceEnableTop ? `${topBarHeight}px` : "0");
+      if (isSDeviceEnableTop) this.setParentPaddingLeft("0");
+      if (isSDeviceEnableTop && this.inline) {
         this.el.parentElement?.style.setProperty(
           "height",
           `calc(100% - ${topBarHeight}px)`
         );
-      } else if (!isSmallAndDisableTopBar) {
+      } else if (!isSDeviceEnableTop) {
         this.el.parentElement?.style.setProperty("height", "100%");
       }
     }
+
+    const notSmallDisableTop =
+      currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour;
 
     if (!this.disableAutoParentStyling) {
       const paddingLeft = `calc(var(--ic-space-xxl) ${
@@ -595,15 +594,12 @@ export class SideNavigation {
         this.setParentPaddingTop("0");
         this.setParentPaddingLeft("0");
       } else if (
-        (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
+        notSmallDisableTop &&
         currSize <= DEVICE_SIZES.M &&
         this.static
       ) {
         this.setParentPaddingLeft(paddingLeft);
-      } else if (
-        (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
-        currSize <= DEVICE_SIZES.L
-      ) {
+      } else if (notSmallDisableTop && currSize <= DEVICE_SIZES.L) {
         this.setParentPaddingLeft(
           this.static && this.menuExpanded
             ? "calc(var(--ic-space-xl) * 10)"
@@ -749,11 +745,13 @@ export class SideNavigation {
 
     const isSDevice =
       !this.disableTopBarBehaviour && this.deviceSize === DEVICE_SIZES.S;
+    const isSDeviceDisableTop =
+      this.disableTopBarBehaviour && this.deviceSize === DEVICE_SIZES.S;
     const isMdDevice = this.deviceSize === DEVICE_SIZES.M;
     const isLgDevice = this.deviceSize >= DEVICE_SIZES.L;
     const isAppNameSubtitleVariant = this.deviceSizeAppTitle === DEVICE_SIZES.S;
     const displayExpandBtn =
-      isMdDevice || this.disableTopBarBehaviour || (isLgDevice && !this.static);
+      isMdDevice || isSDeviceDisableTop || (isLgDevice && !this.static);
 
     const topBarProps: IcTopBar = {
       isSDevice,

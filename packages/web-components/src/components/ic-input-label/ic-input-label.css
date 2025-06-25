@@ -15,7 +15,8 @@ ic-input-label.ic-input-label-readonly {
   --ic-typography-color: var(--ic-input-label-readonly-typography-color);
 }
 
-ic-input-label .helpertext {
+ic-input-label .helpertext,
+ic-input-label .helpertext ::slotted(*) {
   margin-top: var(--ic-space-xxxs);
   padding-bottom: var(--ic-input-label-helpertext-padding, 0);
 

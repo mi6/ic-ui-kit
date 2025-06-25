@@ -23,12 +23,20 @@ ic-input-label.error {
   --ic-input-label-helper-text-color: var(--ic-checkbox-group-subtitle-error);
 }
 
-ic-input-label ic-typography {
+ic-input-label:not(.with-helper) .ic-typography-label,
+ic-input-label .helpertext {
   margin-bottom: var(--ic-space-sm);
 }
 
-:host(.ic-checkbox-group-small) ic-input-label ic-typography {
+:host(.ic-checkbox-group-small)
+  ic-input-label:not(.with-helper)
+  .ic-typography-label,
+:host(.ic-checkbox-group-small) ic-input-label .helpertext {
   margin-bottom: calc(var(--ic-space-sm) / 2);
+}
+
+ic-input-label .helpertext {
+  display: block;
 }
 
 ic-input-validation {

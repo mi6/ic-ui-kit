@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.20](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.19...@ukic/canary-react@3.0.0-canary.20) (2025-06-25)
+
+### Bug Fixes
+
+- **canary-react:** add Cypress test with open select menu at bottom of data table ([7862d5d](https://github.com/mi6/ic-ui-kit/commit/7862d5dcd06fd6490e35efea88b3e7cb82b6c09f))
+- **canary-react:** fixes data-table hover and select colors ([4002898](https://github.com/mi6/ic-ui-kit/commit/4002898d09c2c16e3a05fdbe99f0b7f6d647d39b))
+- **canary-react:** remove focusInset prop from tree view ([acdbb99](https://github.com/mi6/ic-ui-kit/commit/acdbb991755d1db21793b04b380d9894cbfcb8ae))
+
+### Features
+
+- **canary-react:** add Cypress tests for helper text slots and update stories ([208d2f0](https://github.com/mi6/ic-ui-kit/commit/208d2f03e3d99236ea126dd1bec1fc7c139ecc51)), closes [.#3165](https://github.com/./issues/3165)
+- **canary-react:** added disableAutoSort to column object ([217f3b7](https://github.com/mi6/ic-ui-kit/commit/217f3b7a8476bb5b2f88a507854a03efe9e63b51))
+- **canary-react:** adds support for hiding columns ([6e31241](https://github.com/mi6/ic-ui-kit/commit/6e31241459364c912e0d7be5e0fdc49403901029))
+- **canary-react:** updated IcTreeView story ([b3ae26c](https://github.com/mi6/ic-ui-kit/commit/b3ae26ca67b74da39094c0e033e3f6d3c78bdf35))
+
 # [3.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.18...@ukic/canary-react@3.0.0-canary.19) (2025-06-11)
 
 ### Bug Fixes

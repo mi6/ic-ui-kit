@@ -179,50 +179,80 @@ export const LongWordAppTitle = (): ReactElement => {
 
 export const WithNavItems = (): ReactElement => {
   return (
-    <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
-      <ReusableAppIcon />
-      <IcSearchBar slot="search" label="Search" placeholder="Search" />
-      <IcNavigationButton label="Button One" slot="buttons">
-        <ReusableIcon />
-      </IcNavigationButton>
-      <IcNavigationItem slot="navigation" label="One" href="/" />
-      <IcNavigationItem
-        slot="navigation"
-        label="Two"
-        href="/"
-        target="_blank"
-      />
-      <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-    </IcTopNavigation>
+    <div style={{ overflowY: "hidden" }}>
+      <IcTopNavigation
+        appTitle="ApplicationName"
+        status="alpha"
+        version="v0.0.7"
+      >
+        <ReusableAppIcon />
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <ReusableIcon />
+        </IcNavigationButton>
+        <IcNavigationItem slot="navigation" label="One" href="/" />
+        <IcNavigationItem
+          slot="navigation"
+          label="Two"
+          href="/"
+          target="_blank"
+        />
+        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
+      </IcTopNavigation>
+    </div>
   );
 };
 
 export const WithSlottedNavItems = (): ReactElement => {
   return (
-    <IcTopNavigation status="alpha" version="v0.0.7">
-      <ReusableAppIcon />
-      <a href="/" slot="app-title">
-        ApplicationName
-      </a>
-      <IcSearchBar slot="search" label="Search" placeholder="Search" />
-      <IcNavigationButton label="Button One" slot="buttons">
-        <ReusableIcon />
-      </IcNavigationButton>
-      <IcNavigationItem slot="navigation">
-        <a href="/">One</a>
-      </IcNavigationItem>
-      <IcNavigationItem slot="navigation">
-        <a href="/">Two</a>
-      </IcNavigationItem>
-      <IcNavigationItem slot="navigation">
-        <a href="/">Three</a>
-      </IcNavigationItem>
-    </IcTopNavigation>
+    <div style={{ overflowY: "hidden" }}>
+      <IcTopNavigation status="alpha" version="v0.0.7">
+        <ReusableAppIcon />
+        <a href="/" slot="app-title">
+          ApplicationName
+        </a>
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <ReusableIcon />
+        </IcNavigationButton>
+        <IcNavigationItem slot="navigation">
+          <a href="/">One</a>
+        </IcNavigationItem>
+        <IcNavigationItem slot="navigation">
+          <a href="/">Two</a>
+        </IcNavigationItem>
+        <IcNavigationItem slot="navigation">
+          <a href="/">Three</a>
+        </IcNavigationItem>
+      </IcTopNavigation>
+    </div>
   );
 };
 
 export const WithNavGroup = (): ReactElement => {
   return (
+    <div style={{ overflowY: "hidden" }}>
+      <IcTopNavigation
+        appTitle="ApplicationName"
+        status="alpha"
+        version="v0.0.7"
+      >
+        <ReusableAppIcon />
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <ReusableIcon />
+        </IcNavigationButton>
+        <IcNavigationGroup slot="navigation" label="Navigation Group">
+          <IcNavigationItem label="One" href="/" selected />
+          <IcNavigationItem label="Two" href="/" target="_blank" />
+        </IcNavigationGroup>
+      </IcTopNavigation>
+    </div>
+  );
+};
+
+export const WithSlottedNavGroup = (): ReactElement => (
+  <div style={{ overflowY: "hidden" }}>
     <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
       <ReusableAppIcon />
       <IcSearchBar slot="search" label="Search" placeholder="Search" />
@@ -230,78 +260,68 @@ export const WithNavGroup = (): ReactElement => {
         <ReusableIcon />
       </IcNavigationButton>
       <IcNavigationGroup slot="navigation" label="Navigation Group">
-        <IcNavigationItem label="One" href="/" selected />
-        <IcNavigationItem label="Two" href="/" target="_blank" />
+        <IcNavigationItem>
+          <a href="/">One</a>
+        </IcNavigationItem>
+        <IcNavigationItem>
+          <a href="/">Two</a>
+        </IcNavigationItem>
       </IcNavigationGroup>
     </IcTopNavigation>
-  );
-};
-
-export const WithSlottedNavGroup = (): ReactElement => (
-  <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
-    <ReusableAppIcon />
-    <IcSearchBar slot="search" label="Search" placeholder="Search" />
-    <IcNavigationButton label="Button One" slot="buttons">
-      <ReusableIcon />
-    </IcNavigationButton>
-    <IcNavigationGroup slot="navigation" label="Navigation Group">
-      <IcNavigationItem>
-        <a href="/">One</a>
-      </IcNavigationItem>
-      <IcNavigationItem>
-        <a href="/">Two</a>
-      </IcNavigationItem>
-    </IcNavigationGroup>
-  </IcTopNavigation>
+  </div>
 );
 
 export const CentreAligned = (): ReactElement => {
   return (
-    <IcTopNavigation
-      appTitle="ApplicationName"
-      status="alpha"
-      version="v0.0.7"
-      contentAligned="center"
-    >
-      <ReusableAppIcon />
-      <IcSearchBar slot="search" label="Search" placeholder="Search" />
-      <IcNavigationButton label="Button One" slot="buttons">
-        <ReusableIcon />
-      </IcNavigationButton>
-      <IcNavigationItem slot="navigation" label="One" href="/" />
-      <IcNavigationItem
-        slot="navigation"
-        label="Two"
-        href="/"
-        target="_blank"
-      />
-      <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-    </IcTopNavigation>
+    <div style={{ overflowY: "hidden" }}>
+      <IcTopNavigation
+        appTitle="ApplicationName"
+        status="alpha"
+        version="v0.0.7"
+        contentAligned="center"
+      >
+        <ReusableAppIcon />
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <ReusableIcon />
+        </IcNavigationButton>
+        <IcNavigationItem slot="navigation" label="One" href="/" />
+        <IcNavigationItem
+          slot="navigation"
+          label="Two"
+          href="/"
+          target="_blank"
+        />
+        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
+      </IcTopNavigation>
+    </div>
   );
 };
 
 export const LeftAligned = (): ReactElement => {
   return (
-    <IcTopNavigation
-      appTitle="ApplicationName"
-      status="alpha"
-      version="v0.0.7"
-      contentAligned="left"
-    >
-      <ReusableAppIcon />
-      <IcSearchBar slot="search" label="Search" placeholder="Search" />
-      <IcNavigationButton label="Button One" slot="buttons">
-        <ReusableIcon />
-      </IcNavigationButton>
-      <IcNavigationItem slot="navigation" label="One" href="/" />
-      <IcNavigationItem
-        slot="navigation"
-        label="Two"
-        href="/"
-        target="_blank"
-      />
-      <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-    </IcTopNavigation>
+    <div style={{ overflowY: "hidden" }}>
+      <IcTopNavigation
+        appTitle="ApplicationName"
+        status="alpha"
+        version="v0.0.7"
+        contentAligned="left"
+      >
+        <ReusableAppIcon />
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <ReusableIcon />
+        </IcNavigationButton>
+        <IcNavigationItem slot="navigation" label="One" href="/" />
+        <IcNavigationItem
+          slot="navigation"
+          label="Two"
+          href="/"
+          target="_blank"
+        />
+        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
+      </IcTopNavigation>
+    </div>
   );
 };
 
@@ -328,7 +348,7 @@ export const HorizontalScroll = (): ReactElement => {
 
 export const Brand = (): ReactElement => {
   return (
-    <div>
+    <div style={{ overflowY: "hidden" }}>
       <IcTheme brandColor="rgb(255, 201, 60)" />
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -355,7 +375,7 @@ export const Brand = (): ReactElement => {
 
 export const BrandWithSlottedNavItems = (): ReactElement => {
   return (
-    <div>
+    <div style={{ overflowY: "hidden" }}>
       <IcTheme brandColor="rgb(255, 201, 60)" />
       <IcTopNavigation status="alpha" version="v0.0.7">
         <ReusableAppIcon />
@@ -382,25 +402,27 @@ export const BrandWithSlottedNavItems = (): ReactElement => {
 
 export const ThemeDark = (): ReactElement => {
   return (
-    <IcTopNavigation
-      appTitle="ApplicationName"
-      status="alpha"
-      version="v0.0.7"
-      theme="dark"
-    >
-      <ReusableAppIcon />
-      <IcSearchBar slot="search" label="Search" placeholder="Search" />
-      <IcNavigationButton label="Button One" slot="buttons">
-        <ReusableIcon />
-      </IcNavigationButton>
-      <IcNavigationItem slot="navigation" label="One" href="/" />
-      <IcNavigationItem
-        slot="navigation"
-        label="Two"
-        href="/"
-        target="_blank"
-      />
-      <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-    </IcTopNavigation>
+    <div style={{ overflowY: "hidden" }}>
+      <IcTopNavigation
+        appTitle="ApplicationName"
+        status="alpha"
+        version="v0.0.7"
+        theme="dark"
+      >
+        <ReusableAppIcon />
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <ReusableIcon />
+        </IcNavigationButton>
+        <IcNavigationItem slot="navigation" label="One" href="/" />
+        <IcNavigationItem
+          slot="navigation"
+          label="Two"
+          href="/"
+          target="_blank"
+        />
+        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
+      </IcTopNavigation>
+    </div>
   );
 };

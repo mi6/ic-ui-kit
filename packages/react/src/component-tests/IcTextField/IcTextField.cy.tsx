@@ -46,6 +46,7 @@ import {
   DarkThemeReadOnly,
   HiddenInput,
   DarkThemeDisabled,
+  HelperTextSlot,
 } from "./IcTextFieldTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
@@ -519,6 +520,18 @@ describe("IcTextField visual regression tests", () => {
     cy.wait(100).compareSnapshot({
       name: "/dark-theme-readonly-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+    });
+  });
+
+  it("should render with slotted helper text", () => {
+    mount(<HelperTextSlot />);
+
+    cy.checkA11yWithWait(undefined, 500);
+
+    // Check positioning matches normal helper text
+    cy.compareSnapshot({
+      name: "/icon-value-max-characters",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 });

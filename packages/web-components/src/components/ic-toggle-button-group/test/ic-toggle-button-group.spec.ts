@@ -27,7 +27,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
         <mock:shadow-root>
           <ic-button aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
+              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -40,7 +40,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
         <mock:shadow-root>
           <ic-button aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
+              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -53,7 +53,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
         <mock:shadow-root>
           <ic-button aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
+              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -76,7 +76,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
         <mock:shadow-root>
           <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -89,7 +89,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
         <mock:shadow-root>
           <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -102,7 +102,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
         <mock:shadow-root>
           <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>

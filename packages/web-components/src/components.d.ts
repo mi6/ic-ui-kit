@@ -19,6 +19,7 @@ import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-inpu
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
+import { Options } from "@popperjs/core";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
@@ -34,7 +35,6 @@ import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-import { Options } from "@popperjs/core";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -49,6 +49,7 @@ export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-inpu
 export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
+export { Options } from "@popperjs/core";
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 export { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
@@ -64,7 +65,6 @@ export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { Options } from "@popperjs/core";
 export namespace Components {
     interface IcAccordion {
         /**
@@ -1008,11 +1008,11 @@ export namespace Components {
         /**
           * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
-        "description"?: string;
+        "description": string;
         /**
           * If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         "innerLabel"?: number;
         /**
           * The label to be displayed beneath the loading indicator. Display a changing label by supplying an array of messages.
@@ -1021,19 +1021,19 @@ export namespace Components {
         /**
           * The time in milliseconds before the label changes.
          */
-        "labelDuration"?: number;
+        "labelDuration": number;
         /**
           * The maximum value that the progress value can take. Used to calculate the proportional width of the progress bar.
          */
-        "max"?: number;
+        "max": number;
         /**
           * The minimum value that the progress value can take. Used to calculate the proportional width of the progress bar.
          */
-        "min"?: number;
+        "min": number;
         /**
           * If `true`, the element will display as black and white.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.
          */
@@ -1041,15 +1041,15 @@ export namespace Components {
         /**
           * The size of the loading indicator.
          */
-        "size"?: IcLoadingSizes;
+        "size": IcLoadingSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The type of indicator, either linear or circular.
          */
-        "type"?: IcLoadingTypes;
+        "type": IcLoadingTypes;
     }
     interface IcMenu {
         /**
@@ -1107,6 +1107,10 @@ export namespace Components {
          */
         "searchMode": IcSearchBarSearchModes;
         "selectOnEnter": boolean;
+        /**
+          * @param props object - createPopper props set externally
+         */
+        "setExternalPopperProps": <T extends Partial<Options>>(props: T) => Promise<void>;
         /**
           * The size of the menu.
          */
@@ -1180,7 +1184,7 @@ export namespace Components {
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
-        "download"?: string | boolean;
+        "download": string | boolean;
         /**
           * The URL that the link points to. This will render the button as an "a" tag.
          */
@@ -1212,13 +1216,17 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationGroup {
         /**
           * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
         "expandable": boolean;
+        /**
+          * If `true`, the expandable group will be expanded by default when in an ic-side-navigation component. To enable this prop, `expandable` must also be set to `true`.
+         */
+        "expanded": boolean;
         /**
           * The label to display on the group.
          */
@@ -1623,6 +1631,10 @@ export namespace Components {
           * The placeholder value to display.
          */
         "placeholder": string;
+        /**
+          * If `true` the parent form will not submit when the icSubmitSearch event fires.
+         */
+        "preventFormSubmitOnSearch": boolean;
         /**
           * If `true`, the readonly state will be set.
          */
@@ -4666,6 +4678,10 @@ declare namespace LocalJSX {
          */
         "expandable"?: boolean;
         /**
+          * If `true`, the expandable group will be expanded by default when in an ic-side-navigation component. To enable this prop, `expandable` must also be set to `true`.
+         */
+        "expanded"?: boolean;
+        /**
           * The label to display on the group.
          */
         "label": string;
@@ -5113,6 +5129,10 @@ declare namespace LocalJSX {
           * The placeholder value to display.
          */
         "placeholder"?: string;
+        /**
+          * If `true` the parent form will not submit when the icSubmitSearch event fires.
+         */
+        "preventFormSubmitOnSearch"?: boolean;
         /**
           * If `true`, the readonly state will be set.
          */

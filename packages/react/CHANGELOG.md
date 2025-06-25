@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.4.0...@ukic/react@3.5.0) (2025-06-25)
+
+### Bug Fixes
+
+- **react:** updated loading logic to have fallback values if element width initially zero ([b0e111f](https://github.com/mi6/ic-ui-kit/commit/b0e111f7ee3a56168736a0541271516563bf7c13))
+
+### Features
+
+- **react:** add expanded prop to navigation group for use in side navigation ([af37114](https://github.com/mi6/ic-ui-kit/commit/af3711441fb624953b8b080492f5d30fedbf4d5b))
+- **react:** update tests and stories to reflect addition of new helper text slots ([e4c42c2](https://github.com/mi6/ic-ui-kit/commit/e4c42c22b12ce006107fd195c787a6cace86a921)), closes [.#3165](https://github.com/./issues/3165)
+
 # [3.4.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.3.0...@ukic/react@3.4.0) (2025-06-11)
 
 ### Bug Fixes

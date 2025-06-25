@@ -12,12 +12,14 @@ import {
   DataTableSizing,
   Dense,
   DevArea,
+  DisableAutoSortColumns,
   DisableSort,
   Embedded,
   Empty,
   EmptySlotted,
   ExcludeColumnsFromSort,
   HeaderTruncation,
+  HiddenCol,
   LargeDataSet,
   LinksHTMLElements,
   Loading,
@@ -146,11 +148,27 @@ export const DisableSortExample = {
 };
 
 /**
+ * Alternatively, set `disable-auto-sort` to `true` within the column object to have it apply only to certain columns that may require special custom sorting.
+ */
+export const DisableAutoSortOnColumns = {
+  render: () => DisableAutoSortColumns(),
+  name: "Disable sort on columns",
+};
+
+/**
  * Adding 'excludeColumnFromSort: true` to the column object excludes that column from displaying the sort button.
  */
 export const ExcludeColumnsFromSortExample = {
   render: () => ExcludeColumnsFromSort(),
   name: "Exclude columns from sort",
+};
+
+/**
+ * Adding 'hidden: true` to the column object hides that column. In this example, the Age column is hidden.
+ */
+export const HideColumnExample = {
+  render: () => HiddenCol(),
+  name: "Column visibility",
 };
 
 /**

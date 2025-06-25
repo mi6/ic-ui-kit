@@ -723,4 +723,78 @@ describe("ic-search-bar search", () => {
       page.rootInstance.options
     );
   });
+
+  it("should submit parent form on icSubmitSearch", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, Button, Menu, InputContainer, InputLabel],
+      html: `
+        <form id="form" onsubmit=>
+          <ic-search-bar label="Test label" value="test"></ic-search-bar>
+        </form>
+      `,
+    });
+
+    // IcButton should contain HTML button with type="submit"
+    const submitButton =
+      page.root?.shadowRoot?.querySelector<HTMLIcButtonElement>(
+        "#search-submit-button"
+      );
+    expect(
+      submitButton?.shadowRoot
+        ?.querySelector<HTMLButtonElement>('[aria-label="Search"]')
+        ?.getAttribute("type")
+    ).toBe("submit");
+
+    page.win.addEventListener("click", (ev) =>
+      console.log((ev.target as HTMLButtonElement)?.id)
+    );
+    const consoleSpy = jest.spyOn(console, "log");
+
+    submitButton?.click();
+
+    const hiddenFormButton = page.body.querySelector<HTMLButtonElement>(
+      "#hidden-form-button"
+    );
+
+    // LightDOM button should be created with type="submit" and clicked
+    expect(hiddenFormButton?.getAttribute("type")).toBe("submit"); // will submit form on click
+    expect(consoleSpy).toHaveBeenCalledWith("hidden-form-button"); // hidden form button clicked
+  });
+
+  it("should not submit parent form on icSubmitSearch if preventFormSubmitOnSearch is true", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, Button, Menu, InputContainer, InputLabel],
+      html: `
+        <form id="form">
+          <ic-search-bar prevent-form-submit-on-search="true" label="Test label" value="test"></ic-search-bar>
+        </form>
+      `,
+    });
+
+    // IcButton should contain HTML button with type="button"
+    const submitButton =
+      page.root?.shadowRoot?.querySelector<HTMLIcButtonElement>(
+        "#search-submit-button"
+      );
+    expect(
+      submitButton?.shadowRoot
+        ?.querySelector<HTMLButtonElement>('[aria-label="Search"]')
+        ?.getAttribute("type")
+    ).toBe("button");
+
+    page.win.addEventListener("click", (ev) =>
+      console.log((ev.target as HTMLButtonElement)?.id)
+    );
+    const consoleSpy = jest.spyOn(console, "log");
+
+    submitButton?.click();
+
+    const hiddenFormButton = page.body.querySelector<HTMLButtonElement>(
+      "#hidden-form-button"
+    );
+
+    // LightDOM button should be created with type="button" and clicked
+    expect(hiddenFormButton?.getAttribute("type")).toBe("button"); // will not submit form on click
+    expect(consoleSpy).toHaveBeenCalledWith("hidden-form-button"); // hidden form button clicked
+  });
 });

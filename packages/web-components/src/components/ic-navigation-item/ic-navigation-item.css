@@ -91,6 +91,12 @@ svg {
   cursor: pointer;
 }
 
+:host(.navigation-item:not(.navigation-item-page-header, .navigation-item-side-menu, .navigation-item-top-nav-child))
+  ::slotted(a:hover:not(:focus)),
+:host(.navigation-item-side-nav.navigation-item) .link:hover:not(:focus) {
+  background-color: var(--ic-brand-hover) !important;
+}
+
 :host(.navigation-item:not(.navigation-item-top-nav-child, .navigation-item-side-menu, .navigation-item-top-nav-child-selected
       .navigation-item-side-menu-selected))
   .focus-indicator:focus-within {
@@ -516,10 +522,6 @@ svg {
   margin: 0 auto;
   box-shadow: inset 0.313rem 0 0 var(--ic-brand-text-color);
   border-radius: 0;
-}
-
-:host(.navigation-item-side-nav.navigation-item) .link:hover:not(:focus) {
-  background-color: var(--ic-brand-hover) !important;
 }
 
 :host(.navigation-item-page-header).link,

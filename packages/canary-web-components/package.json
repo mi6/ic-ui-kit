@@ -1,6 +1,6 @@
 {
   "name": "@ukic/canary-web-components",
-  "version": "3.0.0-canary.19",
+  "version": "3.0.0-canary.20",
   "description": "A web component UI library compiled with StencilJS",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.js",
@@ -27,8 +27,7 @@
     "build": "stencil build",
     "build:watch": "npm run build -- --watch",
     "test": "stencil test --spec --passWithNoTests",
-    "test-e2e": "stencil test --e2e --passWithNoTests",
-    "test:watch": "stencil test --spec --e2e --watchAll",
+    "test:watch": "stencil test --spec --watchAll",
     "test-a11y": "jest",
     "create-component": "stencil generate",
     "storybook": "npm-run-all --parallel build:watch start-storybook",
@@ -45,7 +44,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@stencil/core": "^4.26.0",
-    "@ukic/web-components": "^3.4.0"
+    "@ukic/web-components": "^3.5.0"
   },
   "peerDependencies": {
     "@ukic/fonts": "^3.1.0"
@@ -80,7 +79,6 @@
     "kill-port-process": "^3.2.1",
     "lit": "^2.0.2",
     "npm-run-all": "^4.1.5",
-    "puppeteer": "^13.1.3",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-markdown": "^8.0.7",

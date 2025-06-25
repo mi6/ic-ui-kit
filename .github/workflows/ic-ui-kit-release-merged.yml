@@ -82,35 +82,7 @@ jobs:
 
       - name: Unit Component tests
         run: npm run test:coverage-ci
-
-  ic-ui-kit-e2e-tests:
-    needs: [check-updates]
-    name: "E2E tests"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
-      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: |
-          npm ci
-          npm run bootstrap -- -- --ci
-
-      - name: E2E core tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_e2e_tests
-        run: npm run test-e2e
-
-      - name: Build core components
-        if: ${{ steps.core_e2e_tests.outcome == 'skipped' && needs.check-updates.outputs.canary == 'true' }}
-        run: npm run build
-
-      - name: E2E canary tests
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        run: npm run test-e2e:canary
-
+  
   ic-ui-kit-cypress-tests:
     needs: [check-updates]
     name: "Cypress tests"
@@ -137,16 +109,10 @@ jobs:
         id: canary_cypress_tests
         run: npm run test-cypress:ci:canary
 
-      - name: Cypress performance tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_cypress_performance_tests
-        run: npm run test-cypress-perf:ci
-
   ic-ui-kit-publish:
     needs:
       [
         ic-ui-kit-static-analysis-tests,
-        ic-ui-kit-e2e-tests,
         ic-ui-kit-cypress-tests,
       ]
     name: "Publish production packages"

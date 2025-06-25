@@ -40,6 +40,8 @@ export type IcDataTableColumnObject = {
     hideOnHeader?: boolean;
   };
   excludeColumnFromSort?: boolean;
+  hidden?: boolean;
+  disableAutoSort?: boolean;
 };
 
 export type IcLoadingOptions = {

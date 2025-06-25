@@ -616,9 +616,6 @@
       min(255, calc(var(--ic-brand-calc) + 77)) / 20%
   );
 
-  /* data tables */
-  --ic-table-row-selected: #c7d7ef;
-
   /* ICONS */
   --ic-color-icon-brand: var(--ic-architectural-20);
   --ic-color-icon-neutral: var(--ic-architectural-950);
@@ -636,7 +633,7 @@
   --ic-color-icon-grey-lighter: var(--ic-architectural-100);
   --ic-color-icon-grey-light: var(--ic-architectural-200);
   --ic-color-icon-grey-dark: var(--ic-architectural-500);
-  --ic-color-icon-grey-darker: var(--ic-architectural-700);
+  --ic-color-icon-grey-darker: var(--ic-architectural-800);
   --ic-color-icon-action-default-light: var(--ic-blue-800);
   --ic-color-icon-action-default-dark: var(--ic-blue-400);
   --ic-color-icon-action-hover: var(--ic-blue-1100);

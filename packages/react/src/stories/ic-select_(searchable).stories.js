@@ -3,7 +3,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState, useEffect, useRef } from "react";
 
-import { IcButton, IcSelect, IcTypography } from "../components";
+import { IcButton, IcLink, IcSelect, IcTypography } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const defaultArgs = {
@@ -388,13 +388,28 @@ export const WithDescriptionsIncludedInSearch = {
 export const HelperText = {
   render: () => {
     return (
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={options}
-        searchable
-        helperText="Select one option from the list"
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
+      <>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          searchable
+          helperText="Select one option from the list"
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        />
+        <br />
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          searchable
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        >
+          <IcTypography variant="caption" slot="helper-text">
+            <span>
+              Slotted helper text with a <IcLink href="#">link</IcLink>
+            </span>
+          </IcTypography>
+        </IcSelect>
+      </>
     );
   },
 

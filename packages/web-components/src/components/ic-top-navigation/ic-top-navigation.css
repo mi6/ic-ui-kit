@@ -165,6 +165,7 @@ slot[name="app-icon"]::slotted(*) {
   fill: var(--ic-top-navigation-logo);
   width: 2em;
   height: 2em;
+  cursor: pointer;
 }
 
 slot[name="toggle-icon"] svg {

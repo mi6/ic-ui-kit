@@ -23,6 +23,7 @@ import {
   COLS_ELEMENTS,
   COLS_ELEMENTS_SINGLE_ACTION,
   COLS_EXCLUDE_SORT,
+  COLS_HIDDEN,
   DATA,
   DATA_CELL_ALIGNMENT,
   ICON_COLS,
@@ -48,6 +49,8 @@ import {
   ACTION_DATA_ELEMENTS,
   DATA_WITH_EMPTY_VALUES,
   LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
+  DATA_ELEMENTS_PAGINATION,
+  COLS_DISABLE_AUTO_SORT,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -106,7 +109,7 @@ const TABLE_CELL_TOOLTIP_SELECTOR = ".table-cell:last-child ic-tooltip";
 const TRUNCATION_SHOW_HIDE_SELECTOR = ".truncation-show-hide";
 const TRUNCATION_TOOLTIP_SELECTOR = ".truncation-tooltip";
 const TABLE_CELL_FIRST_CHILD_SELECTOR = ".table-cell:first-child";
-const ICON_BUTTON = "ic-button.ic-button-variant-icon";
+const ICON_BUTTON = "ic-button.ic-button-variant-icon-tertiary";
 const ACTION_ELEMENT = "action-element";
 const BUTTON_SELECTOR = "button";
 const IC_BUTTON_SELECTOR = "ic-button";
@@ -182,6 +185,34 @@ export const ExternalSortDataTable = (): ReactElement => {
       caption="Data Tables"
       sortable
       disableAutoSort
+      onIcSortChange={(e) => handleSort(e.detail)}
+      sortOptions={{
+        sortOrders: ["ascending", "descending"],
+      }}
+    />
+  );
+};
+
+export const ExternalSortColumnDataTable = (): ReactElement => {
+  const ExternalData = [...DATA];
+
+  const handleSort = ({ columnName, sorted }: IcSortEventDetail) => {
+    if (columnName !== "firstName") return;
+
+    const sortedAscending = sorted === "ascending";
+    ExternalData.sort((a, b) => {
+      if (a[columnName] < b[columnName]) return sortedAscending ? -1 : 1;
+      if (a[columnName] > b[columnName]) return sortedAscending ? 1 : -1;
+      return 0;
+    });
+  };
+
+  return (
+    <IcDataTable
+      columns={COLS_DISABLE_AUTO_SORT}
+      data={ExternalData}
+      caption="Disable auto sort on columns"
+      sortable
       onIcSortChange={(e) => handleSort(e.detail)}
       sortOptions={{
         sortOrders: ["ascending", "descending"],
@@ -284,6 +315,23 @@ describe("IcDataTables", () => {
       },
     });
     cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
+  });
+
+  it("should render with Age column hidden", () => {
+    mount(
+      <IcDataTable columns={COLS_HIDDEN} data={DATA} caption="Data Tables" />
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "/hidden-column",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 
   it("should sort data when the sort button is clicked", () => {
@@ -419,6 +467,42 @@ describe("IcDataTables", () => {
 
   it("should sort data externally if disableAutoSort is true", () => {
     mount(<ExternalSortDataTable />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, SORT_ASCENDING);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .find("td")
+      .eq(0)
+      .should(HAVE_TEXT, "Joe");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Sort descending");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .find("td")
+      .eq(0)
+      .should(HAVE_TEXT, "Sarah");
+
+    cy.checkA11yWithWait();
+  });
+
+  it("should sort data externally if disableAutoSort is true on a column", () => {
+    mount(<ExternalSortColumnDataTable />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
@@ -847,7 +931,7 @@ describe("IcDataTables", () => {
           </IcButton>
           <IcButton
             slot="custom-actions"
-            variant="icon"
+            variant="icon-tertiary"
             aria-label="Icon Button"
             className="custom-action-button"
             onClick={cy.stub().as("customActionClick")}
@@ -1614,6 +1698,29 @@ describe("IcDataTables with IcPaginationBar", () => {
             expect(hideRangeLabel).to.be.true;
           });
       });
+  });
+
+  it("should render a select menu above the pagination bar", () => {
+    mount(
+      <IcDataTable
+        caption="Data tables"
+        columns={COLS_ELEMENTS_SINGLE_ACTION}
+        data={DATA_ELEMENTS_PAGINATION}
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".data-type-element").eq(9).click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/pagination-with-select",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 });
 
@@ -4474,7 +4581,7 @@ describe("IcDataTable row deletion", () => {
               </IcButton>
               <IcButton
                 key={`actions2-${index}`}
-                variant="icon"
+                variant="icon-tertiary"
                 slot={`actions2-${index}`}
                 onClick={() =>
                   setNextData(nextData.filter((_, i) => i !== index))
@@ -4535,7 +4642,7 @@ describe("IcDataTable row deletion", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="icon"
+              variant="icon-tertiary"
               slot={`actions2-${index}`}
               onClick={() => nextData.splice(index, 1)}
               aria-label="Add info"
@@ -4585,7 +4692,7 @@ describe("IcDataTable row deletion", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="icon"
+              variant="icon-tertiary"
               slot={`actions2-${index}`}
               onClick={() => data.splice(index, 1)}
               aria-label="Add info"
@@ -5045,7 +5152,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="icon"
+              variant="icon-tertiary"
               slot={`actions2-${index}`}
               onClick={() => nextData.splice(index, 1)}
               aria-label="Add info"
@@ -5111,13 +5218,25 @@ describe("Dark mode", () => {
           metadata="128 items | 32gb | Updated: 01/02/03"
         >
           <IcButton slot="primary-action">Primary</IcButton>
-          <IcButton slot="custom-actions" variant="icon" aria-label="Icon 1">
+          <IcButton
+            slot="custom-actions"
+            variant="icon-tertiary"
+            aria-label="Icon 1"
+          >
             <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
           </IcButton>
-          <IcButton slot="custom-actions" variant="icon" aria-label="Icon 2">
+          <IcButton
+            slot="custom-actions"
+            variant="icon-tertiary"
+            aria-label="Icon 2"
+          >
             <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
           </IcButton>
-          <IcButton slot="custom-actions" variant="icon" aria-label="Icon 3">
+          <IcButton
+            slot="custom-actions"
+            variant="icon-tertiary"
+            aria-label="Icon 3"
+          >
             <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
           </IcButton>
           <IcTypography slot="description" variant="body">
@@ -5368,7 +5487,7 @@ describe("Dark mode", () => {
 
   // test skipped as seems to be getting light hover styling applied
   // this will be investigated in #3525
-  it.skip("should render cell descriptions and icons in dark mode", () => {
+  it("should render cell descriptions and icons in dark mode", () => {
     mount(
       <IcDataTable
         columns={COLS}

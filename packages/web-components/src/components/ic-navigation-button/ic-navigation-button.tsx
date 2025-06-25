@@ -2,26 +2,28 @@ import {
   Component,
   Element,
   Host,
-  Prop,
-  State,
-  h,
   Listen,
   Method,
+  Prop,
+  State,
   forceUpdate,
+  h,
 } from "@stencil/core";
 
 import {
+  IC_BLOCK_COLOR_COMPONENTS,
+  IC_INHERITED_ARIA,
+} from "../../utils/constants";
+import {
   getBrandForegroundAppearance,
   inheritAttributes,
-  onComponentRequiredPropUndefined,
   isSlotUsed,
+  onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
-import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
   IcBrand,
   IcBrandForeground,
   IcBrandForegroundEnum,
-  IcBrandForegroundNoDefault,
   IcThemeMode,
 } from "../../utils/types";
 import { IcNavButtonModes } from "./ic-navigation-button.types";
@@ -47,8 +49,6 @@ export class NavigationButton {
 
   @Element() el: HTMLIcNavigationButtonElement;
 
-  @State() initialAppearance: IcBrandForegroundNoDefault | IcBrandForeground =
-    getBrandForegroundAppearance();
   /**
    * The display mode.
    */
@@ -57,7 +57,7 @@ export class NavigationButton {
   /**
    * If `true`, the user can save the linked URL instead of navigating to it.
    */
-  @Prop() download?: string | boolean = false;
+  @Prop() download: string | boolean = false;
 
   /**
    * The URL that the link points to. This will render the button as an "a" tag.
@@ -92,13 +92,14 @@ export class NavigationButton {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop({ mutable: true }) theme: IcThemeMode = "inherit";
 
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.el, MUTABLE_ATTRIBUTES);
   }
 
   componentDidLoad(): void {
+    this.updateTheme();
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
       "Navigation Button"
@@ -111,8 +112,9 @@ export class NavigationButton {
   }
 
   componentWillRender(): void {
-    const iconEl = this.el.querySelector(`[slot="icon"]`);
-    iconEl !== null && iconEl.setAttribute("viewBox", "0 0 24 24");
+    this.el
+      .querySelector(`[slot="icon"]`)
+      ?.setAttribute("viewBox", "0 0 24 24");
   }
 
   disconnectedCallback(): void {
@@ -130,8 +132,8 @@ export class NavigationButton {
   }
 
   @Listen("brandChange", { target: "document" })
-  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
-    this.initialAppearance = ev.detail.mode;
+  brandChangeHandler({ detail: { mode } }: CustomEvent<IcBrand>): void {
+    this.updateTheme(mode);
   }
 
   /**
@@ -139,12 +141,12 @@ export class NavigationButton {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.buttonEl) {
-      this.buttonEl.focus();
-    }
+    this.buttonEl?.setFocus();
   }
 
-  // triggered when attributes of host element change
+  /**
+   * Triggered when attributes of host element change
+   */
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
     mutationList.forEach(({ attributeName }) => {
@@ -161,58 +163,61 @@ export class NavigationButton {
     }
   };
 
+  private updateTheme(
+    mode: IcBrandForeground = getBrandForegroundAppearance()
+  ) {
+    if (this.el.parentElement?.closest(IC_BLOCK_COLOR_COMPONENTS)) return;
+
+    this.theme =
+      mode === IcBrandForegroundEnum.Light
+        ? IcBrandForegroundEnum.Dark
+        : IcBrandForegroundEnum.Light;
+  }
+
   render() {
-    const { href, target, rel, download, referrerpolicy } = this;
+    const {
+      download,
+      href,
+      inheritedAttributes,
+      label,
+      mode,
+      referrerpolicy,
+      rel,
+      target,
+      theme,
+    } = this;
 
-    let label = "";
-    let className = "";
-    let variant: "icon" | "tertiary" = "icon";
-    let appearance: IcBrandForeground | IcBrandForegroundEnum.Default =
-      this.initialAppearance;
-    let size: "medium" | "large" = "large";
-    let fullWidth = false;
-    let disableTooltip = false;
-
-    if (this.mode === "menu") {
-      label = this.label;
-      variant = "tertiary";
-      appearance = IcBrandForegroundEnum.Default;
-      size = "medium";
-      fullWidth = true;
-      className = "popout-menu-button";
-      disableTooltip = true;
-    }
+    const isMenuMode = mode === "menu";
 
     const buttonProps = {
-      variant,
-      appearance,
-      size,
-      href,
-      target,
-      rel,
       download,
+      href,
       referrerpolicy,
-      fullWidth,
-      disableTooltip,
+      rel,
+      target,
+      theme,
     };
 
     return (
       <Host
         class={{
-          ["in-side-menu"]: this.mode === "menu",
-          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+          "in-side-menu": isMenuMode,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         <ic-button
-          class={className}
-          aria-label={variant == "icon" ? this.label : null}
           ref={(el) => (this.buttonEl = el)}
+          class={{ "popout-menu-button": isMenuMode }}
+          aria-label={!isMenuMode ? label : null}
+          disableTooltip={isMenuMode}
+          fullWidth={isMenuMode}
+          monochrome={!isMenuMode}
+          size={isMenuMode ? "medium" : "large"}
+          variant={isMenuMode ? "tertiary" : "icon"}
           {...buttonProps}
-          {...this.inheritedAttributes}
-          monochrome={this.mode !== "menu"}
-          theme={getBrandForegroundAppearance() == "light" ? "light" : "dark"}
+          {...inheritedAttributes}
         >
-          {label}
+          {isMenuMode ? label : ""}
           <slot slot="left-icon" name="icon"></slot>
           {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
         </ic-button>

@@ -672,21 +672,26 @@ ic-theme,
 
   /* Data table */
   --ic-data-table-border: var(--ic-color-border-neutral-default);
+  --ic-data-table-cell-background: var(--ic-color-background-primary);
+  --ic-data-table-cell-background-hover: var(--ic-action-default-bg-hover);
   --ic-data-table-cell-background-selected: var(
     --ic-action-default-bg-hover-24
   );
+  --ic-data-table-cell-background-selected-hover: var(
+    --ic-action-default-bg-pressed-hover-34
+  );
+  --ic-data-table-cell-background-stripe: var(--ic-color-background-secondary);
+  --ic-data-table-cell-data-description: var(--ic-color-text-secondary);
+  --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
   --ic-data-table-icon-button-background-hover: var(--ic-action-dark-bg-hover);
   --ic-data-table-icon-button-background-pressed: var(
     --ic-action-dark-bg-pressed
   );
   --ic-data-table-sort-toggle-icon: var(--ic-color-icon-neutral);
   --ic-data-table-sort-toggle-icon-disabled: var(--ic-color-icon-disabled-mid);
-  --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-dark);
+  --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-darker);
   --ic-data-table-header-background: var(--ic-color-background-secondary-40);
   --ic-data-table-header-keyline: var(--ic-color-keyline);
-  --ic-data-table-cell-background: var(--ic-color-background-primary);
-  --ic-data-table-cell-background-stripe: var(--ic-color-background-secondary);
-  --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
   --ic-data-table-text-low-emphasis: var(--ic-color-text-secondary);
   --ic-data-table-text-default-emphasis: var(--ic-color-text-primary);
   --ic-data-table-text-high-emphasis: var(--ic-color-text-primary);
@@ -698,17 +703,12 @@ ic-theme,
   --ic-data-table-icon-default-emphasis: var(--ic-color-icon-grey-darker);
   --ic-data-table-icon-high-emphasis: var(--ic-color-icon-neutral);
   --ic-data-table-icon-low-emphasis: var(--ic-color-icon-grey-dark);
-  --ic-data-table-cell-background-hover: var(--ic-action-default-bg-hover);
-  --ic-data-table-cell-background-selected-hover: var(
-    --ic-action-default-bg-pressed-hover-34
-  );
   --ic-data-table-header-text: var(--ic-color-text-primary);
   --ic-data-table-overlay-background: var(--ic-color-background-primary);
   --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-dark);
   --ic-data-table-loading-indicator-overlay-background: var(
     --ic-architectural-black
   );
-  --ic-data-table-cell-description-text: var(--ic-color-text-secondary-light);
 
   /* Data table title bar */
   --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -2099,9 +2099,19 @@ ic-theme,
 
     /* Data table */
     --ic-data-table-border: var(--ic-color-border-neutral-default);
+    --ic-data-table-cell-background: var(--ic-color-background-primary);
+    --ic-data-table-cell-background-hover: var(--ic-action-default-bg-hover);
     --ic-data-table-cell-background-selected: var(
-      --ic-action-light-bg-hover-24
+      --ic-action-default-bg-hover-24
     );
+    --ic-data-table-cell-background-selected-hover: var(
+      --ic-action-default-bg-pressed-hover-34
+    );
+    --ic-data-table-cell-background-stripe: var(
+      --ic-color-background-neutral-light
+    );
+    --ic-data-table-cell-data-description: var(--ic-color-text-secondary-dark);
+    --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
     --ic-data-table-icon-button-background-hover: var(
       --ic-action-light-bg-hover
     );
@@ -2110,16 +2120,11 @@ ic-theme,
     );
     --ic-data-table-sort-toggle-icon: var(--ic-color-icon-inverted);
     --ic-data-table-sort-toggle-icon-disabled: var(--ic-color-icon-disabled);
-    --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-light);
+    --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-lighter);
     --ic-data-table-header-background: var(
       --ic-color-background-secondary-dark
     );
     --ic-data-table-header-keyline: var(--ic-color-keyline);
-    --ic-data-table-cell-background: var(--ic-color-background-primary);
-    --ic-data-table-cell-background-stripe: var(
-      --ic-color-background-secondary
-    );
-    --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
     --ic-data-table-text-low-emphasis: var(--ic-color-text-secondary);
     --ic-data-table-text-default-emphasis: var(--ic-color-text-primary);
     --ic-data-table-text-high-emphasis: var(--ic-color-text-primary);
@@ -2131,17 +2136,12 @@ ic-theme,
     --ic-data-table-icon-default-emphasis: var(--ic-color-icon-grey-lighter);
     --ic-data-table-icon-high-emphasis: var(--ic-color-icon-inverted);
     --ic-data-table-icon-low-emphasis: var(--ic-color-icon-grey-light);
-    --ic-data-table-cell-background-hover: var(--ic-action-light-bg-hover);
-    --ic-data-table-cell-background-selected-hover: var(
-      --ic-action-light-bg-pressed-34
-    );
     --ic-data-table-header-text: var(--ic-color-text-primary);
     --ic-data-table-overlay-background: var(--ic-color-background-primary);
     --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-light);
     --ic-data-table-loading-indicator-overlay-background: var(
       --ic-architectural-black
     );
-    --ic-data-table-cell-description-text: var(--ic-color-text-secondary-dark);
 
     /* Data table title bar */
     --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -3576,19 +3576,28 @@ ic-theme,
 
   /* Data table */
   --ic-data-table-border: var(--ic-color-border-neutral-default);
-  --ic-data-table-cell-background-selected: var(--ic-action-light-bg-hover-24);
+  --ic-data-table-cell-background: var(--ic-color-background-primary);
+  --ic-data-table-cell-background-hover: var(--ic-action-default-bg-hover);
+  --ic-data-table-cell-background-selected: var(
+    --ic-action-default-bg-hover-24
+  );
+  --ic-data-table-cell-background-selected-hover: var(
+    --ic-action-default-bg-pressed-hover-34
+  );
+  --ic-data-table-cell-background-stripe: var(
+    --ic-color-background-neutral-light
+  );
+  --ic-data-table-cell-data-description: var(--ic-color-text-secondary-dark);
+  --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
   --ic-data-table-icon-button-background-hover: var(--ic-action-light-bg-hover);
   --ic-data-table-icon-button-background-pressed: var(
     --ic-action-light-bg-pressed
   );
   --ic-data-table-sort-toggle-icon: var(--ic-color-icon-inverted);
   --ic-data-table-sort-toggle-icon-disabled: var(--ic-color-icon-disabled);
-  --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-light);
+  --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-lighter);
   --ic-data-table-header-background: var(--ic-color-background-secondary-dark);
   --ic-data-table-header-keyline: var(--ic-color-keyline);
-  --ic-data-table-cell-background: var(--ic-color-background-primary);
-  --ic-data-table-cell-background-stripe: var(--ic-color-background-secondary);
-  --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
   --ic-data-table-text-low-emphasis: var(--ic-color-text-secondary);
   --ic-data-table-text-default-emphasis: var(--ic-color-text-primary);
   --ic-data-table-text-high-emphasis: var(--ic-color-text-primary);
@@ -3603,17 +3612,12 @@ ic-theme,
   --ic-data-table-icon-default-emphasis: var(--ic-color-icon-grey-lighter);
   --ic-data-table-icon-high-emphasis: var(--ic-color-icon-inverted);
   --ic-data-table-icon-low-emphasis: var(--ic-color-icon-grey-light);
-  --ic-data-table-cell-background-hover: var(--ic-action-light-bg-hover);
-  --ic-data-table-cell-background-selected-hover: var(
-    --ic-action-light-bg-pressed-34
-  );
   --ic-data-table-header-text: var(--ic-color-text-primary);
   --ic-data-table-overlay-background: var(--ic-color-background-primary);
   --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-light);
   --ic-data-table-loading-indicator-overlay-background: var(
     --ic-architectural-black
   );
-  --ic-data-table-cell-description-text: var(--ic-color-text-secondary-dark);
 
   /* Data table title bar */
   --ic-data-table-title-bar-title: var(--ic-color-text-primary);

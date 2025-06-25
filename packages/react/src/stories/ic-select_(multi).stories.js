@@ -3,7 +3,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { useRef, useState } from "react";
 
-import { IcSelect } from "../components";
+import { IcLink, IcSelect, IcTypography } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const defaultArgs = {
@@ -329,13 +329,28 @@ export const WithDescriptions = {
 export const HelperText = {
   render: () => {
     return (
-      <IcSelect
-        label="What are your favourite types of coffee?"
-        options={options}
-        multiple
-        helperText="Select some options from the list"
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
+      <>
+        <IcSelect
+          label="What are your favourite types of coffee?"
+          options={options}
+          multiple
+          helperText="Select some options from the list"
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        />
+        <br />
+        <IcSelect
+          label="What are your favourite types of coffee?"
+          options={options}
+          multiple
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        >
+          <IcTypography variant="caption" slot="helper-text">
+            <span>
+              Slotted helper text with a <IcLink href="#">link</IcLink>
+            </span>
+          </IcTypography>
+        </IcSelect>
+      </>
     );
   },
 

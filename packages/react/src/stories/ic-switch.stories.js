@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from "react";
-import { IcSwitch, IcButton } from "../components";
+import { IcButton, IcLink, IcSwitch, IcTypography } from "../components";
 
 const defaultArgs = {
   label: "Custom Switch",
@@ -108,7 +108,16 @@ export const RightAdornment = {
 
 export const HelperText = {
   render: () => (
-    <IcSwitch label="Helper text" helperText="This is some helper text" />
+    <>
+      <IcSwitch label="Helper text" helperText="This is some helper text" />
+      <IcSwitch label="Label">
+        <IcTypography variant="caption" slot="helper-text">
+          <span>
+            Slotted helper text with a <IcLink href="#">link</IcLink>
+          </span>
+        </IcTypography>
+      </IcSwitch>
+    </>
   ),
   name: "Helper text",
 };
