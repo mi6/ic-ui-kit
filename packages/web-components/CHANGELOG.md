@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.4.0...@ukic/web-components@3.5.0) (2025-06-25)
+
+### Bug Fixes
+
+- **web-components:** add hover state to slotted nav items ([b0b2ad0](https://github.com/mi6/ic-ui-kit/commit/b0b2ad01a409c9867825724e8a06a5563cbf309c)), closes [.#3649](https://github.com/./issues/3649)
+- **web-components:** fixed double tab on top-nav title ([d536b08](https://github.com/mi6/ic-ui-kit/commit/d536b08b9d7c84792193140c0190a740c05174c7))
+- **web-components:** fixes data-table hover and select colors ([4a33d02](https://github.com/mi6/ic-ui-kit/commit/4a33d02112f96d4dbee61ce49a99098402b14808))
+- **web-components:** ic-button has tabindex of 0 ([1a96b61](https://github.com/mi6/ic-ui-kit/commit/1a96b61440c096a1236a6897f24749fdf0a3b753))
+- **web-components:** modify the behaviour of the expand button on Side Navigation ([fcdd6ff](https://github.com/mi6/ic-ui-kit/commit/fcdd6ff9ef41287ca1080f99bdbe52062e84251b))
+- **web-components:** navigation-buttons now correctly calculate their theme based on the brand ([5e1477f](https://github.com/mi6/ic-ui-kit/commit/5e1477f968fca85c59617045d9a384166165d81c))
+- **web-components:** remove aria-label from ic-search-bar when using visible label ([8231575](https://github.com/mi6/ic-ui-kit/commit/82315753ed3d31425b7042b3716432e3d39b9dff))
+- **web-components:** switching type now correctly renders the indicator ([846f16c](https://github.com/mi6/ic-ui-kit/commit/846f16cb7956c699615fa24024ffb9757572f38a))
+- **web-components:** update menu to have setExternalPopperProps internal method ([175307d](https://github.com/mi6/ic-ui-kit/commit/175307d9f0813ddbc7b55a7f86c7b1e8bee5a11a)), closes [#2394](https://github.com/mi6/ic-ui-kit/issues/2394)
+- **web-components:** updated loading logic to have fallback values for when element has 0 width ([fd2e3c0](https://github.com/mi6/ic-ui-kit/commit/fd2e3c0eba07b23fda8a45b169aef1b7c6ef8abf))
+
+### Features
+
+- **web-components:** add expanded prop to navigation group for use in side navigation ([d77e088](https://github.com/mi6/ic-ui-kit/commit/d77e088f3b39d6fa6e068a5abc78ee47650e49ab))
+- **web-components:** add helper text slot to components which use ic-input-label ([f73195e](https://github.com/mi6/ic-ui-kit/commit/f73195e2fd4f4d6330e481c877386e729c0acd26)), closes [.#3165](https://github.com/./issues/3165)
+- **web-components:** add preventFormSubmitOnSearch prop to ic-search-bar ([a504778](https://github.com/mi6/ic-ui-kit/commit/a5047786d83a46e55dc4e0acaf7c671e38b40c60))
+
 # [3.4.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.3.0...@ukic/web-components@3.4.0) (2025-06-11)
 
 ### Bug Fixes

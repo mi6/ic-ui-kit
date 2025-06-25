@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.20](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.19...@ukic/canary-web-components@3.0.0-canary.20) (2025-06-25)
+
+### Bug Fixes
+
+- **canary-web-components:** add fixCellSelect function to make select menu visible above pagination ([aebe9d2](https://github.com/mi6/ic-ui-kit/commit/aebe9d21c788d76b76b167c3fb696428b5d98ac7)), closes [#2394](https://github.com/mi6/ic-ui-kit/issues/2394)
+- **canary-web-components:** fixes data-table hover and select colors ([d38c5c9](https://github.com/mi6/ic-ui-kit/commit/d38c5c955fef3be86708afb7f47bec436d724f40))
+- **canary-web-components:** remove focusInset prop from tree view ([34f97d4](https://github.com/mi6/ic-ui-kit/commit/34f97d48ca29ef82cb1e38a491c4f1b7d899e100)), closes [#2938](https://github.com/mi6/ic-ui-kit/issues/2938)
+
+### Features
+
+- **canary-web-components:** added disableAutoSort to the column object ([f5fd605](https://github.com/mi6/ic-ui-kit/commit/f5fd605c4181dc8b862fc4bca535dbd0d3306abf))
+- **canary-web-components:** added new event for when columns and data have finished loading into a table ([4331234](https://github.com/mi6/ic-ui-kit/commit/43312342963b5d0cb59d62141034fe9b6e61f359))
+- **canary-web-components:** added treeItemId prop to IcTreeItem ([8eae266](https://github.com/mi6/ic-ui-kit/commit/8eae266568baae8d66c8715302b2916e91dd0298)), closes [#3670](https://github.com/mi6/ic-ui-kit/issues/3670)
+- **canary-web-components:** adds support for hiding columns ([afcf399](https://github.com/mi6/ic-ui-kit/commit/afcf3991086d4ce5ed2976006bacfc23332f1e71))
+- **canary-web-components:** update date input and date picker to have helper text slots ([705e7e7](https://github.com/mi6/ic-ui-kit/commit/705e7e7ff61cd415337bed93d266b10e3031b226)), closes [.#3165](https://github.com/./issues/3165)
+
 # [3.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.18...@ukic/canary-web-components@3.0.0-canary.19) (2025-06-11)
 
 ### Bug Fixes
