@@ -195,7 +195,10 @@ export class Badge {
   };
 
   private setPositionInTopNavigation = () => {
-    this.position = this.isInMobileMode() ? "inline" : this.initialPosition;
+    this.position =
+      this.isInMobileMode() || this.isInNavigationItem()
+        ? "inline"
+        : this.initialPosition;
   };
 
   private setPositionInSideNavigation = () => {
@@ -237,6 +240,12 @@ export class Badge {
         greatGrandparentEl?.tagName === SIDE_NAVIGATION) &&
         greatGrandparentEl.classList.contains("mobile-mode"))
     );
+  };
+
+  private isInNavigationItem = (): boolean => {
+    const parentEl = this.el.parentElement;
+    if (!parentEl) return false;
+    return parentEl.tagName === "IC-NAVIGATION-ITEM";
   };
 
   private isAccessibleLabelDefined = () =>

@@ -242,14 +242,7 @@ export class NavigationItem {
     );
     const slottedBadgeEl = this.el.querySelector('[slot="badge"]');
     const BadgeComponent = slottedBadgeEl && (
-      <div
-        class={
-          slottedBadgeEl.getAttribute("position") === "inline" ||
-          this.inTopNavSideMenu
-            ? "inline-badge"
-            : "badge"
-        }
-      >
+      <div class="inline-badge">
         <slot name="badge"></slot>
       </div>
     );
