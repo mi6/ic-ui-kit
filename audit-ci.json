@@ -80,7 +80,7 @@
     {
       "GHSA-pq67-2wwv-3xjx": {
         "active": true,
-        "notes": "issue in puppeteer",
+        "notes": "issue in puppeteer used in '@cypress-audit/lighthouse' - no current fix",
         "expiry": "24 July 2025"
       }
     },
@@ -101,7 +101,7 @@
     {
       "GHSA-8cj5-5rvv-wf4v": {
         "active": true,
-        "notes": "is in tar-fs within puppeteer v13",
+        "notes": "issue in tar-fs in puppeteer used in '@cypress-audit/lighthouse' - no current fix",
         "expiry": "24 July 2025"
       }
     },
