@@ -9,6 +9,7 @@ import {
   IcDeviceSizes,
   IcColor,
   IcBrandForegroundNoDefault,
+  IcThemeMode,
 } from "./types";
 
 import {
@@ -694,4 +695,22 @@ export const renderDynamicChildSlots = (
   if (hasDynamicChildSlots(mutationList, slotNames)) {
     forceUpdate(ref);
   }
+};
+
+export const getElementInheritedTheme = (el: HTMLElement): IcThemeMode => {
+  const blockParentTheme =
+    el.parentElement?.closest<HTMLIcTopNavigationElement>(
+      IC_BLOCK_COLOR_COMPONENTS
+    )?.theme;
+
+  if (blockParentTheme && blockParentTheme !== "inherit")
+    return blockParentTheme;
+
+  const wrapperTheme = el.parentElement?.closest("ic-theme")?.theme;
+
+  if (wrapperTheme && wrapperTheme !== "system") return wrapperTheme;
+
+  return window.matchMedia?.("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 };
