@@ -15,7 +15,14 @@ import {
   IcLink,
 } from "@ukic/react";
 import { IcPaginationBarOptions } from "@ukic/canary-web-components/src/utils/types";
-import { mdiAccountGroup, mdiImage, mdiPlus } from "@mdi/js";
+import {
+  mdiAccountGroup,
+  mdiCellphone,
+  mdiContentCopy,
+  mdiDownload,
+  mdiImage,
+  mdiPlus,
+} from "@mdi/js";
 
 import {
   COLS,
@@ -1242,107 +1249,244 @@ describe("IcDataTables", () => {
     });
   });
 
-  it("should render an element in the table cell if the data prop contains the actionElement key", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={ACTION_DATA_ELEMENTS}
-        caption="Data tables"
-      ></IcDataTable>
-    );
+  context("which uses action elements from the data", () => {
+    it("should render an element in the table cell if the data prop contains the actionElement key", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={ACTION_DATA_ELEMENTS}
+          caption="Data tables"
+        ></IcDataTable>
+      );
 
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-      .eq(0)
-      .find("span")
-      .should(HAVE_CLASS, ACTION_ELEMENT)
-      .find(IC_BUTTON_SELECTOR)
-      .should(BE_VISIBLE);
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+        .eq(0)
+        .find("span")
+        .should(HAVE_CLASS, ACTION_ELEMENT)
+        .find(IC_BUTTON_SELECTOR)
+        .should(BE_VISIBLE);
 
-    // cy.checkA11yWithWait(undefined, 300);
+      // cy.checkA11yWithWait(undefined, 300);
 
-    cy.compareSnapshot({
-      name: "/action-elements",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
-      cypressScreenshotOptions: {
-        capture: "viewport",
-      },
+      cy.compareSnapshot({
+        name: "/action-elements",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
+        cypressScreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should show tooltips on action elements", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={ACTION_DATA_ELEMENTS}
+          caption="Data tables"
+        ></IcDataTable>
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+        .eq(0)
+        .find("span")
+        .should(HAVE_CLASS, ACTION_ELEMENT)
+        .find(IC_BUTTON_SELECTOR)
+        .eq(1)
+        .shadow()
+        .find("button")
+        .realHover();
+
+      cy.checkA11yWithWait(undefined, 1000);
+
+      cy.compareSnapshot({
+        name: "/action-elements-tooltip",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
+        cypressScreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+
+      cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
+    });
+
+    it("should not render an element in the table cell if the data prop does not contain the actionElement key", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={ACTION_DATA_ELEMENTS}
+          caption="Data tables"
+        ></IcDataTable>
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+        .eq(1)
+        .find("span")
+        .should("not.exist");
+    });
+
+    it("should apply styling to the cell container if an action element is present in the cell", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={ACTION_DATA_ELEMENTS}
+          caption="Data tables"
+        ></IcDataTable>
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+        .eq(0)
+        .find("div")
+        .eq(0)
+        .should(HAVE_CLASS, "cell-grid-wrapper")
+        .should(HAVE_CSS, "grid-template-columns", "156.797px 32px");
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
+        .should(HAVE_CLASS, ACTION_ELEMENT)
+        .should(HAVE_CSS, "justify-content", "right");
     });
   });
 
-  it("should show tooltips on action elements", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={ACTION_DATA_ELEMENTS}
-        caption="Data tables"
-      ></IcDataTable>
-    );
+  context("which uses slotted action elements", () => {
+    const mountTableWithSlottedActionElement = (onClick?: () => void) => {
+      mount(
+        <IcDataTable
+          caption="Slotted Action Element"
+          columns={COLS}
+          data={DATA}
+        >
+          <div slot="firstName-0-action-element" style={{ display: "flex" }}>
+            <IcButton
+              variant="icon"
+              size="small"
+              onClick={onClick}
+              aria-label="Download data"
+              data-testid="download-button"
+            >
+              <SlottedSVG path={mdiDownload} viewBox="0 0 24 24" />
+            </IcButton>
+            <IcButton
+              variant="icon"
+              size="small"
+              onClick={onClick}
+              aria-label="Call phone"
+              data-testid="cellphone-button"
+            >
+              <SlottedSVG path={mdiCellphone} viewBox="0 0 24 24" />
+            </IcButton>
+            <IcButton
+              variant="icon"
+              size="small"
+              onClick={onClick}
+              aria-label="Copy data"
+              data-testid="copy-button"
+            >
+              <SlottedSVG path={mdiContentCopy} viewBox="0 0 24 24" />
+            </IcButton>
+          </div>
+        </IcDataTable>
+      );
+    };
 
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    // Can be re-enabled once snapshots have been generated
+    it.skip("should render an element in the table cell if the correct slot is used", () => {
+      mountTableWithSlottedActionElement();
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-      .eq(0)
-      .find("span")
-      .should(HAVE_CLASS, ACTION_ELEMENT)
-      .find(IC_BUTTON_SELECTOR)
-      .eq(1)
-      .shadow()
-      .find("button")
-      .realHover();
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.checkA11yWithWait(undefined, 1000);
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+        .eq(0)
+        .find("span")
+        .should(HAVE_CLASS, ACTION_ELEMENT)
+        .find("slot")
+        .should(HAVE_ATTR, "name", "firstName-0-action-element");
 
-    cy.compareSnapshot({
-      name: "/action-elements-tooltip",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
-      cypressScreenshotOptions: {
-        capture: "viewport",
-      },
+      cy.checkA11yWithWait(undefined, 300);
+
+      cy.compareSnapshot({
+        name: "/slotted-action-elements",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
+        cypressScreenshotOptions: {
+          capture: "viewport",
+        },
+      });
     });
 
-    cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
-  });
+    it("should work with a passed in onClick", () => {
+      const onClickStub = cy.stub();
+      mountTableWithSlottedActionElement(onClickStub);
 
-  it("should not render an element in the table cell if the data prop does not contain the actionElement key", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={ACTION_DATA_ELEMENTS}
-        caption="Data tables"
-      ></IcDataTable>
-    );
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
+      cy.get('[data-testid="download-button"]').click();
+      cy.get('[data-testid="cellphone-button"]').click();
+      cy.get('[data-testid="copy-button"]')
+        .click()
+        .then(() => {
+          expect(onClickStub).to.be.calledThrice;
+        });
+    });
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-      .eq(1)
-      .find("span")
-      .should("not.exist");
-  });
+    // Can be re-enabled once snapshots have been generated
+    it.skip("should show tooltips on action elements", () => {
+      mountTableWithSlottedActionElement();
 
-  it("should apply styling to the cell container if an action element is present in the cell", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={ACTION_DATA_ELEMENTS}
-        caption="Data tables"
-      ></IcDataTable>
-    );
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+      cy.get('[data-testid="copy-button"]').shadow().find("button").realHover();
 
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
+      cy.checkA11yWithWait(undefined, 1000);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-      .eq(0)
-      .find("div")
-      .eq(0)
-      .should(HAVE_CLASS, "cell-grid-wrapper")
-      .should(HAVE_CSS, "grid-template-columns", "156.797px 32px");
+      cy.compareSnapshot({
+        name: "/slotted-action-elements-tooltip",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
+        cypressScreenshotOptions: {
+          capture: "viewport",
+        },
+      });
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
-      .should(HAVE_CLASS, ACTION_ELEMENT)
-      .should(HAVE_CSS, "justify-content", "right");
+      cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
+    });
+
+    it("should not render an element in the table cell if the slot is not used", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={DATA}
+          caption="Data tables"
+        ></IcDataTable>
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+        .eq(1)
+        .find("span")
+        .should(NOT_EXIST);
+    });
+
+    it("should apply styling to the cell container if an action element is present in the cell", () => {
+      mountTableWithSlottedActionElement();
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+        .eq(0)
+        .find("div")
+        .eq(0)
+        .should(HAVE_CLASS, "cell-grid-wrapper")
+        .should(HAVE_CSS, "grid-template-columns", "108.797px 80px");
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
+        .should(HAVE_CLASS, ACTION_ELEMENT)
+        .should(HAVE_CSS, "justify-content", "right");
+    });
   });
 
   it("should render empty data values", () => {

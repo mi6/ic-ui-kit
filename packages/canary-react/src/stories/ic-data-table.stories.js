@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { mdiAccountGroup, mdiDelete, mdiImage } from "@mdi/js";
+import { mdiAccountGroup, mdiCellphone, mdiContentCopy, mdiDelete, mdiDownload, mdiImage } from "@mdi/js";
 import {
   IcButton,
   IcEmptyState,
@@ -922,6 +922,32 @@ export const ActionElement = {
     />
   ),
   name: "Action element",
+};
+
+/**
+* The cells can contain a slotted `actionElement`. The `actionElement` will be displayed to the right of the cell data.
+*/
+export const SlottedActionElement = {
+  render: () => (
+   <IcDataTable
+     caption="Slotted Action Element"
+     columns={COLS}
+     data={DATA}
+   >
+     <div slot="firstName-0-action-element" style={{display: "flex"}}>
+       <IcButton variant="icon" size="small" aria-label="Download data" onClick={() => alert("Download button clicked")}>
+         <SlottedSVG path={mdiDownload} viewBox="0 0 24 24" />
+       </IcButton>
+       <IcButton variant="icon" size="small" aria-label="Call phone" onClick={() => alert("Cellphone button clicked")}>
+         <SlottedSVG path={mdiCellphone} viewBox="0 0 24 24" />
+       </IcButton>
+       <IcButton variant="icon" size="small" aria-label="Copy data" onClick={() => alert("Copy button clicked")}>
+         <SlottedSVG path={mdiContentCopy} viewBox="0 0 24 24" />
+       </IcButton>
+     </div>
+   </IcDataTable>
+ ),
+  name: "Slotted action element",
 };
 
 /**
