@@ -90,7 +90,7 @@
 
 :host(.footer-link-light) ::slotted(svg),
 :host(.footer-link-dark) ::slotted(svg) {
-  fill: var(--ic-footer-icon);
+  fill: var(--ic-footer-logo);
 }
 
 :host(.footer-logo-link) {

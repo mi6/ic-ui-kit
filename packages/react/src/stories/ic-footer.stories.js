@@ -148,7 +148,7 @@ export const UngroupedLinks = {
       <IcFooterLink slot="link" href="/">
         Styles
       </IcFooterLink>
-      <IcFooterLink slot="link" href="/">
+      <IcFooterLink slot="link" href="/" target="_blank">
         Components
       </IcFooterLink>
       <IcFooterLink slot="link" href="/">
@@ -188,7 +188,7 @@ export const GroupedLinks = {
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
-        <IcFooterLink href="/">Components</IcFooterLink>
+        <IcFooterLink href="/" target="_blank">Components</IcFooterLink>
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
@@ -371,7 +371,7 @@ export const Brand = {
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
-        <IcFooterLink href="/">Components</IcFooterLink>
+        <IcFooterLink href="/" target="_blank">Components</IcFooterLink>
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>

@@ -150,9 +150,13 @@
   color: var(--ic-footer-link) !important;
 }
 
+:host(.footer-link) .ic-link-open-in-new-icon > svg {
+  fill: var(--ic-footer-icon) !important;
+}
+
 /** High Contrast **/
 @media (forced-colors: active) {
-  .ic-link-open-in-new-icon > svg {
-    fill: currentcolor;
+  :host(.ic-link) .ic-link-open-in-new-icon > svg {
+    fill: currentcolor !important;
   }
 }
