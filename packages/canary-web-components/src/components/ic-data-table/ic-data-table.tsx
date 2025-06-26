@@ -505,7 +505,7 @@ export class DataTable {
 
   componentDidRender(): void {
     this.fixCellTooltips();
-    this.fixCellSelect();
+    this.fixCellOverflow();
     this.updateCellHeightsWithDescriptions();
     this.adjustWidthForActionElement();
   }
@@ -546,7 +546,7 @@ export class DataTable {
 
   private handleResize = () => {
     this.updateCellHeightsWithDescriptions();
-    this.fixCellSelect();
+    this.fixCellOverflow();
   };
 
   private getRowHeight = (cellContainer: HTMLElement) =>
@@ -2197,12 +2197,15 @@ export class DataTable {
     });
   };
 
-  private fixCellSelect = () => {
+  private fixCellOverflow = () => {
     this.el.shadowRoot
       ?.querySelectorAll(".data-type-element")
       ?.forEach((element) => {
-        const children = Array.from(element.children);
-        children?.forEach((el) => {
+        let children: any = Array.from(element.children);
+        if (children.length === 1 && children[0].tagName === "SLOT") {
+          children = getSlotElements(element);
+        }
+        children?.forEach((el: any) => {
           if (el.tagName === "IC-SELECT") {
             const menu = el.shadowRoot?.querySelector("ic-menu");
             menu?.setExternalPopperProps({
@@ -2212,6 +2215,11 @@ export class DataTable {
               "--input-width",
               `${element.clientWidth}px`
             );
+          } else {
+            const popover = el.querySelector("ic-popover-menu");
+            popover?.setExternalPopperProps({
+              strategy: "fixed",
+            });
           }
         });
       });
