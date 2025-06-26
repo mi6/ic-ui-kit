@@ -27,7 +27,6 @@
   box-sizing: border-box;
   box-shadow: var(--ic-elevation-overlay);
   display: none;
-  overflow-x: clip;
 }
 
 :host(.on-dialog) {
