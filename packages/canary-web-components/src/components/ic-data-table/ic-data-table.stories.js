@@ -40,6 +40,7 @@ import {
   Updating,
   UpdatingData,
   SelectWithCheckbox,
+  SlottedActionElement,
 } from "./story-data";
 
 export default {
@@ -451,6 +452,14 @@ export const TableSizingAndColumnWidth = {
 export const ActionElementAndOnClickAction = {
   render: () => ActionElement(),
   name: "Action element",
+};
+
+/**
+ * The cells can contain a slotted `actionElement`. The `actionElement` will be displayed to the right of the cell data.
+ */
+export const SlottedActionElements = {
+  render: () => SlottedActionElement(),
+  name: "Slotted action element",
 };
 
 /**

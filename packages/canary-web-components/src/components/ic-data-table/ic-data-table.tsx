@@ -1356,12 +1356,23 @@ export class DataTable {
 
   private adjustWidthForActionElement = () => {
     const elements = this.el.shadowRoot?.querySelectorAll(".action-element");
-    elements?.forEach((element) => {
-      const width = (element.firstChild as HTMLElement).getBoundingClientRect()
-        .width;
-      const gridWrapper = element.closest<HTMLElement>(".cell-grid-wrapper");
-      if (gridWrapper)
+    elements?.forEach((actionElementSpan) => {
+      let width = 0;
+      const actionElement = actionElementSpan.firstChild as HTMLElement;
+      if (actionElement.tagName.toLowerCase() === "slot") {
+        const slottedActionElement =
+          this.getSlottedActionElement(actionElement);
+        if (slottedActionElement) {
+          width = slottedActionElement.getBoundingClientRect().width;
+        }
+      } else {
+        width = actionElement.getBoundingClientRect().width;
+      }
+      const gridWrapper =
+        actionElementSpan.closest<HTMLElement>(".cell-grid-wrapper");
+      if (gridWrapper) {
         gridWrapper.style.gridTemplateColumns = `auto calc(${width}px + var(--ic-space-xs))`;
+      }
     });
   };
 
@@ -1552,10 +1563,12 @@ export class DataTable {
           );
         }
 
+        const cellSlotName = `${column?.key}-${rowIndex}`;
+
         const CellContent = this.createCellContent(
           column,
           cell,
-          `${column?.key}-${rowIndex}`,
+          cellSlotName,
           rowOptions,
           this.isObject(cell) && Object.keys(cell).includes("icon"),
           cellValue,
@@ -1583,8 +1596,15 @@ export class DataTable {
               }}
               style={{ ...this.getColumnWidth(column.columnWidth) }}
             >
-              {this.isObject(cell) &&
-              Object.keys(cell).includes("actionElement") ? (
+              {isSlotUsed(this.el, `${cellSlotName}-action-element`) ? (
+                <div class="cell-grid-wrapper">
+                  {CellContent}
+                  <span class="action-element">
+                    <slot name={`${cellSlotName}-action-element`} />
+                  </span>
+                </div>
+              ) : this.isObject(cell) &&
+                Object.keys(cell).includes("actionElement") ? (
                 <div class="cell-grid-wrapper">
                   {CellContent}
                   <span
@@ -1818,6 +1838,13 @@ export class DataTable {
           </tr>
         );
       });
+  };
+
+  private getSlottedActionElement = (
+    actionElement: HTMLElement
+  ): Element | null => {
+    const slotName = actionElement.getAttribute("name");
+    return this.el.querySelector(`[slot="${slotName}"]`);
   };
 
   private getObjectValue = (cell: object, key: string) =>
@@ -2229,7 +2256,18 @@ export class DataTable {
 
     this.el.shadowRoot
       ?.querySelectorAll(".action-element")
-      ?.forEach((actionElementSpan) => this.fixCellTooltip(actionElementSpan));
+      ?.forEach((actionElementSpan) => {
+        const actionElement = actionElementSpan.firstChild as HTMLElement;
+        if (actionElement.tagName.toLowerCase() === "slot") {
+          const slottedActionElement =
+            this.getSlottedActionElement(actionElement);
+          if (slottedActionElement) {
+            this.fixCellTooltip(slottedActionElement);
+          }
+        } else {
+          this.fixCellTooltip(actionElementSpan);
+        }
+      });
   };
 
   private handleClick = (event: Event, callback: (event: Event) => void) =>

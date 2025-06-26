@@ -41,6 +41,13 @@ const MOCK_TOOLTIP = {
 const CELL_TYPOGRAPHY = ".table-cell ic-typography";
 const TABLE_CONTAINER_CLASS = ".table-container";
 
+const copyIconSVG =
+  '<svg aria-label="copy-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg>';
+const cellphoneIconSVG =
+  '<svg aria-label="cellphone-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>';
+const downloadIconSVG =
+  '<svg aria-label="download-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>';
+
 const columns: IcDataTableColumnObject[] = [
   { key: "name", title: "Name", dataType: "string" },
   { key: "age", title: "Age", dataType: "number" },
@@ -3135,5 +3142,63 @@ describe(icDataTable, () => {
     actionEl.click();
     await page.waitForChanges();
     expect(page.rootInstance.handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it("should test slotted action elements", async () => {
+    const mockCallback = jest.fn((x) => x + 1);
+
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table caption="test table" columns={columns} data={data}>
+          <div slot="name-0-action-element" style={{ display: "flex" }}>
+            <ic-button
+              variant="icon"
+              size="small"
+              onClick={mockCallback(1)}
+              aria-label="Download data"
+              id="download-button"
+              innerHTML={downloadIconSVG}
+            ></ic-button>
+            <ic-button
+              variant="icon"
+              size="small"
+              onClick={mockCallback(2)}
+              aria-label="Call phone"
+              id="cellphone-button"
+              innerHTML={cellphoneIconSVG}
+            ></ic-button>
+            <ic-button
+              variant="icon"
+              size="small"
+              onClick={mockCallback(3)}
+              aria-label="Copy data"
+              id="copy-button"
+              innerHTML={copyIconSVG}
+            ></ic-button>
+          </div>
+        </ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+    const dataTable = document.querySelector(icDataTable);
+    const actionEl = dataTable?.shadowRoot?.querySelector(".action-element");
+
+    const downloadButton =
+      actionEl?.querySelector<HTMLIcButtonElement>("#download-button");
+    downloadButton?.click();
+
+    const cellphoneButton =
+      actionEl?.querySelector<HTMLIcButtonElement>("#cellphone-button");
+    cellphoneButton?.click();
+
+    const copyButton =
+      actionEl?.querySelector<HTMLIcButtonElement>("#copy-button");
+    copyButton?.click();
+
+    expect(mockCallback.mock.results[0].value).toEqual(2);
+    expect(mockCallback.mock.results[1].value).toEqual(3);
+    expect(mockCallback.mock.results[2].value).toEqual(4);
   });
 });
