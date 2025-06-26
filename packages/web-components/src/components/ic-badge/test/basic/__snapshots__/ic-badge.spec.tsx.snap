@@ -188,7 +188,7 @@ exports[`ic-badge should render slotted in a navigation item: should render slot
         <ic-typography variant="label">
           Navigation
         </ic-typography>
-        <div class="badge">
+        <div class="inline-badge">
           <slot name="badge"></slot>
         </div>
         <div class="chevron-container"></div>

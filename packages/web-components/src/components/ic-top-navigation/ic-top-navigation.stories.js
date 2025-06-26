@@ -457,7 +457,15 @@ export const WithGroupedNavigation = {
         label="Navigation group (expandable on mobile)"
         expandable="true"
       >
-        <ic-navigation-item label="One" href="/"></ic-navigation-item>
+        <ic-navigation-item label="One" href="/">
+          <ic-badge
+            label="1"
+            slot="badge"
+            custom-color="#d4351c"
+            variant="custom"
+            theme="dark"
+          ></ic-badge>
+        </ic-navigation-item>
         <ic-navigation-item label="Two" href="/"></ic-navigation-item>
         <ic-navigation-item label="Three" href="/"></ic-navigation-item>
         <ic-navigation-item label="Four" href="/"></ic-navigation-item>
@@ -477,7 +485,16 @@ export const WithGroupedNavigation = {
       </ic-navigation-group>
       <ic-navigation-group slot="navigation" label="Second navigation group">
         <ic-navigation-item label="Another One" href="/"></ic-navigation-item>
-        <ic-navigation-item label="Another Two" href="/"></ic-navigation-item>
+        <ic-navigation-item label="Another Two" href="/">
+          <ic-badge
+            label="1"
+            slot="badge"
+            custom-color="#d4351c"
+            variant="custom"
+            theme="dark"
+            position="far"
+          ></ic-badge>
+        </ic-navigation-item>
         <ic-navigation-item label="Another Three" href="/"></ic-navigation-item>
         <ic-navigation-item label="Another Four" href="/"></ic-navigation-item>
         <ic-navigation-item label="Another Five" href="/"></ic-navigation-item>

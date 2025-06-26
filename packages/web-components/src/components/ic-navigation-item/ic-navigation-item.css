@@ -193,7 +193,7 @@ svg {
 :host(.navigation-item-top-nav-child) .link,
 :host(.navigation-item-top-nav-child) ::slotted(a) {
   height: 2.5rem;
-  width: fit-content;
+  width: calc(100% - var(--ic-space-xl));
   min-width: 9.063rem;
   color: var(--ic-top-navigation-nav-item);
   display: flex;
