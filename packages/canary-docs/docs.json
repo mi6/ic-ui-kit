@@ -6,6 +6,625 @@
   },
   "components": [
     {
+      "filePath": "src/components/ic-calendar/ic-calendar.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-calendar",
+      "readme": "# ic-calendar\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "dateFormat",
+          "type": "\"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\"",
+          "complexType": {
+            "original": "IcDateFormat",
+            "resolved": "\"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\"",
+            "references": {
+              "IcDateFormat": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcDateFormat"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "date-format",
+          "reflectToAttr": false,
+          "docs": "The format in which the date will be displayed.",
+          "docsTags": [],
+          "default": "\"DD/MM/YYYY\"",
+          "values": [
+            {
+              "value": "DD/MM/YYYY",
+              "type": "string"
+            },
+            {
+              "value": "MM/DD/YYYY",
+              "type": "string"
+            },
+            {
+              "value": "YYYY/MM/DD",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disableDays",
+          "type": "IcWeekDays[] | undefined",
+          "complexType": {
+            "original": "IcWeekDays[]",
+            "resolved": "IcWeekDays[] | undefined",
+            "references": {
+              "IcWeekDays": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcWeekDays"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The days of the week to disable.",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "IcWeekDays[]"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disableFuture",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-future",
+          "reflectToAttr": false,
+          "docs": "If `true`, dates in the future are not allowed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disablePast",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-past",
+          "reflectToAttr": false,
+          "docs": "If `true`, dates in the past are not allowed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If `true`, the disabled state will be set.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "max",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "min",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "openAtDate",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "open-at-date",
+          "reflectToAttr": false,
+          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showClearButton",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-clear-button",
+          "reflectToAttr": false,
+          "docs": "If `true`, the `Clear` button on the calendar will be visible.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showDaysOutsideMonth",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-days-outside-month",
+          "reflectToAttr": false,
+          "docs": "If `true`, days outside the current month will be visible in the calendar.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showTodayButton",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-today-button",
+          "reflectToAttr": false,
+          "docs": "If `true`, the `Go to today` button on the calendar will be visible.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the calendar to be displayed.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "startOfWeek",
+          "type": "IcWeekDays.Friday | IcWeekDays.Monday | IcWeekDays.Saturday | IcWeekDays.Sunday | IcWeekDays.Thursday | IcWeekDays.Tuesday | IcWeekDays.Wednesday",
+          "complexType": {
+            "original": "IcWeekDays",
+            "resolved": "IcWeekDays.Friday | IcWeekDays.Monday | IcWeekDays.Saturday | IcWeekDays.Sunday | IcWeekDays.Thursday | IcWeekDays.Tuesday | IcWeekDays.Wednesday",
+            "references": {
+              "IcWeekDays": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcWeekDays"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "start-of-week",
+          "reflectToAttr": false,
+          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\nDefault is Monday.",
+          "docsTags": [],
+          "default": "IcWeekDays.Monday",
+          "values": [
+            {
+              "type": "IcWeekDays.Friday"
+            },
+            {
+              "type": "IcWeekDays.Monday"
+            },
+            {
+              "type": "IcWeekDays.Saturday"
+            },
+            {
+              "type": "IcWeekDays.Sunday"
+            },
+            {
+              "type": "IcWeekDays.Thursday"
+            },
+            {
+              "type": "IcWeekDays.Tuesday"
+            },
+            {
+              "type": "IcWeekDays.Wednesday"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the calendar to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "Date | null | string | undefined",
+          "complexType": {
+            "original": "Date | string | null | undefined",
+            "resolved": "Date | null | string | undefined",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of the calendar and the date visible when the calendar opens.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "icCalendarClearButtonClick",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "icCalendarDaySelect",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a day is selected.",
+          "docsTags": []
+        },
+        {
+          "event": "icCalendarMonthSelect",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a month is selected.",
+          "docsTags": []
+        },
+        {
+          "event": "icCalendarYearSelect",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a year is selected.",
+          "docsTags": []
+        },
+        {
+          "event": "icChange",
+          "detail": "{ selectedDate: Date | null; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ selectedDate: Date | null }",
+            "resolved": "{ selectedDate: Date | null; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-calendar",
+          "annotation": "prop",
+          "docs": "z-index of calendar."
+        }
+      ],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "ic-date-picker"
+      ],
+      "dependencies": [
+        "ic-button",
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-calendar": [
+          "ic-button",
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-date-picker": [
+          "ic-calendar"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
@@ -428,13 +1047,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--card-horizontal-width",
-          "annotation": "prop",
-          "docs": "Width of the horizontal card"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "badge",
@@ -3675,6 +4288,11 @@
           "target": "document",
           "capture": false,
           "passive": false
+        },
+        {
+          "event": "icChange",
+          "capture": false,
+          "passive": false
         }
       ],
       "styles": [
@@ -3684,9 +4302,9 @@
           "docs": "z-index of date picker."
         },
         {
-          "name": "--input-width",
-          "annotation": "prop",
-          "docs": "Width of the input field"
+          "event": "icChange",
+          "capture": false,
+          "passive": false
         }
       ],
       "slots": [
@@ -3698,14 +4316,22 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "ic-button",
         "ic-date-input",
-        "ic-typography"
+        "ic-calendar"
       ],
       "dependencyGraph": {
         "ic-date-picker": [
-          "ic-button",
           "ic-date-input",
+          "ic-calendar"
+        ],
+        "ic-date-input": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-button",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
           "ic-typography"
         ],
         "ic-button": [
@@ -3719,17 +4345,11 @@
         "ic-tooltip": [
           "ic-typography"
         ],
-        "ic-date-input": [
-          "ic-input-container",
-          "ic-input-label",
-          "ic-input-component-container",
-          "ic-button",
-          "ic-input-validation"
-        ],
-        "ic-input-label": [
+        "ic-input-validation": [
           "ic-typography"
         ],
-        "ic-input-validation": [
+        "ic-calendar": [
+          "ic-button",
           "ic-typography"
         ]
       }
@@ -6090,13 +6710,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--tree-view-width",
-          "annotation": "prop",
-          "docs": "Width of the tree view"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "heading",
@@ -6125,6 +6739,26 @@
     }
   ],
   "typeLibrary": {
+    "src/utils/types.ts::IcDateFormat": {
+      "declaration": "export type IcDateFormat = \"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcWeekDays": {
+      "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcSizes": {
+      "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcThemeMode": {
+      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-card-horizontal/ic-card-horizontal.types.ts::IcCardSizes": {
       "declaration": "export type IcCardSizes = \"small\" | \"medium\" | \"large\" | \"extra-large\";",
       "docstring": "",
@@ -6165,11 +6799,6 @@
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
-    "src/utils/types.ts::IcThemeMode": {
-      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
       "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
       "docstring": "",
@@ -6204,21 +6833,6 @@
       "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
-    },
-    "src/utils/types.ts::IcDateFormat": {
-      "declaration": "export type IcDateFormat = \"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcWeekDays": {
-      "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcSizes": {
-      "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcInformationStatusOrEmpty": {
       "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
