@@ -1,7 +1,7 @@
 {
   "total": 810,
-  "totalPassed": 806,
-  "totalFailed": 4,
+  "totalPassed": 810,
+  "totalFailed": 0,
   "totalSuites": 43,
   "suites": [
     {
@@ -3813,14 +3813,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/determinate-circular-with-icon.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx/determinate-linears-with-3-sizes",
-          "percentage": 0.021111946516469905,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx/determinate-linears-with-3-sizes.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcLoadingIndicator.cy.tsx/determinate-linears-with-3-sizes.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/determinate-linears-with-3-sizes.png"
         },
         {
@@ -3846,14 +3846,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/determinate-circular-light-with-icon.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx/dark-mode-colours",
-          "percentage": 0.004898979485566357,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx/dark-mode-colours.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcLoadingIndicator.cy.tsx/dark-mode-colours.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/dark-mode-colours.png"
         },
         {
@@ -3868,14 +3868,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/light-monochrome-colours.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx/determinate-linears-light-with-3-sizes",
-          "percentage": 0.007928249671720919,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx/determinate-linears-light-with-3-sizes.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcLoadingIndicator.cy.tsx/determinate-linears-light-with-3-sizes.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/determinate-linears-light-with-3-sizes.png"
         },
         {
@@ -3945,14 +3945,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/determinate-circular-with-icon-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx/determinate-linears-with-3-sizes-high-contrast",
-          "percentage": 0.08691539400063555,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx/determinate-linears-with-3-sizes-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcLoadingIndicator.cy.tsx/determinate-linears-with-3-sizes-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx/determinate-linears-with-3-sizes-high-contrast.png"
         },
         {
@@ -9173,9 +9173,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-27T14:45:38.586Z",
-  "endedAt": "2025-06-27T15:03:10.901Z",
-  "duration": 954679,
+  "startedAt": "2025-06-30T15:18:45.775Z",
+  "endedAt": "2025-06-30T15:35:52.580Z",
+  "duration": 928237,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
