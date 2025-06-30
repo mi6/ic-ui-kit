@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState, useEffect, useRef } from "react";
-import { IcSearchBar, IcTypography } from "../components";
+import { IcButton, IcSearchBar, IcTypography } from "../components";
 
 const ExternalFiltering = () => {
   const mockData = [
@@ -203,20 +203,37 @@ export const WithOptionsNoFiltering = {
 
 export const InAForm = {
   render: () => (
-    <form onSubmit={() => console.log("form submit")}>
-      <IcSearchBar label="What is your favourite coffee?" />
+      <form onSubmit={(ev) => {
+        ev.preventDefault();
+        console.log(ev);
+      }}>
+        <IcSearchBar label="Submits form on search" onIcSubmitSearch={(ev) => console.log(ev)}/>
+        <IcSearchBar preventFormSubmitOnSearch label="Doesn't submit form on search" onIcSubmitSearch={(ev) => console.log(ev)}/>
+        <IcButton type="submit">Submit</IcButton>
     </form>
-  ),
+    ),
 
   name: "In a form",
 };
 
 export const HelperText = {
   render: () => (
+    <>
     <IcSearchBar
       label="What is your favourite coffee?"
       helperText="Some helper text"
     />
+    <br />
+    <IcSearchBar
+      label="What is your favourite coffee?"
+    >
+      <IcTypography variant="caption" slot="helper-text">
+        <span>
+          Slotted helper text with a <IcLink href="#">link</IcLink>
+        </span>
+      </IcTypography>
+    </IcSearchBar>
+    </>
   ),
   name: "Helper text",
 };

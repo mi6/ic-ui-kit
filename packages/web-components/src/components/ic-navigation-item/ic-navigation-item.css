@@ -91,8 +91,9 @@ svg {
   cursor: pointer;
 }
 
-:host(.navigation-item:not(.navigation-item-page-header, .navigation-item-side-menu))
-  ::slotted(a:hover:not(:focus)) {
+:host(.navigation-item:not(.navigation-item-page-header, .navigation-item-side-menu, .navigation-item-top-nav-child))
+  ::slotted(a:hover:not(:focus)),
+:host(.navigation-item-side-nav.navigation-item) .link:hover:not(:focus) {
   background-color: var(--ic-brand-hover) !important;
 }
 
@@ -192,7 +193,7 @@ svg {
 :host(.navigation-item-top-nav-child) .link,
 :host(.navigation-item-top-nav-child) ::slotted(a) {
   height: 2.5rem;
-  width: fit-content;
+  width: calc(100% - var(--ic-space-xl));
   min-width: 9.063rem;
   color: var(--ic-top-navigation-nav-item);
   display: flex;
@@ -210,11 +211,8 @@ svg {
   letter-spacing: var(--ic-font-letter-spacing-0pt005) !important;
 }
 
-:host(.navigation-item-top-nav-child) .link:hover:not(:focus) {
-  background-color: var(--ic-top-navigation-nav-item-hover) !important;
-}
-
-:host(.navigation-item-top-nav-child) ::slotted(a:hover):not(:focus) {
+:host(.navigation-item-top-nav-child) .link:hover:not(:focus),
+:host(.navigation-item-top-nav-child) ::slotted(a:hover:not(:focus)) {
   background-color: var(--ic-top-navigation-nav-item-hover) !important;
 }
 
@@ -237,13 +235,13 @@ svg {
 }
 
 :host(.navigation-item-top-nav-child) .link:active:not(:focus),
-:host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus) {
+:host(.navigation-item-top-nav-child) ::slotted(a:active:not(:focus)) {
   outline: var(--ic-hc-focus-outline);
   background-color: var(--ic-top-navigation-nav-item-pressed);
 }
 
-:host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus),
-:host(.navigation-item-side-menu) ::slotted(a:active):not(:focus) {
+:host(.navigation-item-top-nav-child) ::slotted(a:active:not(:focus)),
+:host(.navigation-item-side-menu) ::slotted(a:active:not(:focus)) {
   background-color: var(--ic-top-navigation-nav-item-pressed) !important;
 }
 
@@ -524,10 +522,6 @@ svg {
   margin: 0 auto;
   box-shadow: inset 0.313rem 0 0 var(--ic-brand-text-color);
   border-radius: 0;
-}
-
-:host(.navigation-item-side-nav.navigation-item) .link:hover:not(:focus) {
-  background-color: var(--ic-brand-hover) !important;
 }
 
 :host(.navigation-item-page-header).link,

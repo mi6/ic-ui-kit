@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import React from "react";
 // import { IcToggleButtonGroup, IcToggleButton } from "../../components";
@@ -21,6 +21,7 @@ import {
   ToggleGroupLoadingDark,
   ToggleGroupLoadingLight,
   ToggleGroupMulti,
+  ToggleGroupNextToSingularToggle,
   ToggleGroupSingle,
   ToggleGroupSmall,
 } from "./IcToggleButtonGroupTestData";
@@ -170,6 +171,16 @@ describe("IcToggleButtonGroup", () => {
       cy.compareSnapshot({
         name: "/full-width",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
+      });
+    });
+
+    it("should render the same height as toggle buttons outside of a group", () => {
+      mount(<ToggleGroupNextToSingularToggle />);
+
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "/same-height",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
       });
     });
 

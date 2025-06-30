@@ -45,6 +45,9 @@ import Calendar from "../../assets/calendar.svg";
 
 let inputIds = 0;
 
+/**
+ * @slot helper-text - Content is set as the helper text for the date input.
+ */
 @Component({
   tag: "ic-date-input",
   styleUrl: "ic-date-input.css",
@@ -1019,6 +1022,7 @@ export class DateInput {
     const labelledBy = `${labelEl?.id ?? ""} ${
       this.screenReaderInfoId
     } ${getInputDescribedByText(
+      this.el,
       this.inputId,
       this.helperText !== "" && this.helperText !== this.defaultHelperText,
       hasValidation
@@ -1634,7 +1638,9 @@ export class DateInput {
               hideLabel={hideLabel}
               helperText={!hideHelperText ? helperText : ""}
               disabled={disabled}
-            ></ic-input-label>
+            >
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
           )}
           <span id={this.screenReaderInfoId} class="sr-only" aria-hidden="true">
             {this.getScreenReaderInfo(validationStatus)}

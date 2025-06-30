@@ -19,6 +19,7 @@ import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-inpu
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
+import { Options } from "@popperjs/core";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
@@ -34,7 +35,6 @@ import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-import { Options } from "@popperjs/core";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -49,6 +49,7 @@ export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-inpu
 export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
+export { Options } from "@popperjs/core";
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 export { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
@@ -64,7 +65,6 @@ export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { Options } from "@popperjs/core";
 export namespace Components {
     interface IcAccordion {
         /**
@@ -1008,11 +1008,11 @@ export namespace Components {
         /**
           * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
-        "description"?: string;
+        "description": string;
         /**
           * If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         "innerLabel"?: number;
         /**
           * The label to be displayed beneath the loading indicator. Display a changing label by supplying an array of messages.
@@ -1021,19 +1021,19 @@ export namespace Components {
         /**
           * The time in milliseconds before the label changes.
          */
-        "labelDuration"?: number;
+        "labelDuration": number;
         /**
           * The maximum value that the progress value can take. Used to calculate the proportional width of the progress bar.
          */
-        "max"?: number;
+        "max": number;
         /**
           * The minimum value that the progress value can take. Used to calculate the proportional width of the progress bar.
          */
-        "min"?: number;
+        "min": number;
         /**
           * If `true`, the element will display as black and white.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.
          */
@@ -1041,15 +1041,15 @@ export namespace Components {
         /**
           * The size of the loading indicator.
          */
-        "size"?: IcLoadingSizes;
+        "size": IcLoadingSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The type of indicator, either linear or circular.
          */
-        "type"?: IcLoadingTypes;
+        "type": IcLoadingTypes;
     }
     interface IcMenu {
         /**
@@ -1107,6 +1107,10 @@ export namespace Components {
          */
         "searchMode": IcSearchBarSearchModes;
         "selectOnEnter": boolean;
+        /**
+          * @param props object - createPopper props set externally
+         */
+        "setExternalPopperProps": <T extends Partial<Options>>(props: T) => Promise<void>;
         /**
           * The size of the menu.
          */
@@ -1180,7 +1184,7 @@ export namespace Components {
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
-        "download"?: string | boolean;
+        "download": string | boolean;
         /**
           * The URL that the link points to. This will render the button as an "a" tag.
          */
@@ -1212,13 +1216,17 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationGroup {
         /**
           * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
-        "expandable"?: boolean;
+        "expandable": boolean;
+        /**
+          * If `true`, the expandable group will be expanded by default when in an ic-side-navigation component. To enable this prop, `expandable` must also be set to `true`.
+         */
+        "expanded": boolean;
         /**
           * The label to display on the group.
          */
@@ -1230,20 +1238,20 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationItem {
-        "collapsedIconLabel"?: boolean;
-        "displayNavigationTooltip"?: boolean;
+        "collapsedIconLabel": boolean;
+        "displayNavigationTooltip": boolean;
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
-        "download"?: string | boolean;
-        "expandable"?: boolean;
+        "download": string | boolean;
+        "expandable": boolean;
         /**
           * The destination of the navigation item.
          */
-        "href"?: string;
+        "href": string;
         /**
           * The human language of the linked URL.
          */
@@ -1263,7 +1271,7 @@ export namespace Components {
         /**
           * If `true`, the navigation item will be set in a selected state.
          */
-        "selected"?: boolean;
+        "selected": boolean;
         /**
           * Sets focus on the nav item.
          */
@@ -1275,7 +1283,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationMenu {
         /**
@@ -1431,6 +1439,10 @@ export namespace Components {
         "openFromParent": () => Promise<void>;
         "parentLabel"?: string;
         "parentPopover"?: HTMLIcPopoverMenuElement;
+        /**
+          * @param props object - createPopper props set externally
+         */
+        "setExternalPopperProps": <T extends Partial<Options>>(props: T) => Promise<void>;
         /**
           * The unique identifier for a popover submenu.
          */
@@ -1624,6 +1636,10 @@ export namespace Components {
          */
         "placeholder": string;
         /**
+          * If `true` the parent form will not submit when the icSubmitSearch event fires.
+         */
+        "preventFormSubmitOnSearch": boolean;
+        /**
           * If `true`, the readonly state will be set.
          */
         "readonly": boolean;
@@ -1805,6 +1821,10 @@ export namespace Components {
           * The app title to be displayed. This is required, unless a slotted app title link is used.
          */
         "appTitle"?: string;
+        /**
+          * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+         */
+        "closeOnNavItemClick"?: boolean;
         /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
          */
@@ -2070,7 +2090,7 @@ export namespace Components {
     interface IcTextField {
         "ariaActiveDescendant"?: string;
         "ariaAutocomplete"?: IcAriaAutocompleteTypes;
-        "ariaExpanded": string | undefined;
+        "ariaExpanded": string | null;
         "ariaOwns"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
@@ -2177,7 +2197,7 @@ export namespace Components {
           * If `true`, the multiline text area will be resizeable.
          */
         "resize": boolean;
-        "role": string | undefined;
+        "role": string | null;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
@@ -2279,19 +2299,19 @@ export namespace Components {
         /**
           * If `true`, the toggle button will be in a checked state.
          */
-        "checked"?: boolean;
+        "checked": boolean;
         /**
           * If `true`, the toggle button will be in disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * If `true`, the toggle button will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The placement of the icon in relation to the toggle button label.
          */
-        "iconPlacement"?: IcIconPlacementOptions;
+        "iconPlacement": IcIconPlacementOptions;
         /**
           * The label to display in the toggle button. This is required for the default variant of toggle buttons.
          */
@@ -2299,33 +2319,33 @@ export namespace Components {
         /**
           * If `true`, the toggle button will be in loading state.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * The size of the toggle button to be displayed.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The position of the tooltip in relation to the toggle button.
          */
-        "tooltipPlacement"?: IcButtonTooltipPlacement;
+        "tooltipPlacement": IcButtonTooltipPlacement;
         /**
           * The variant of the toggle button.
          */
-        "variant"?: "default" | "icon";
+        "variant": "default" | "icon";
     }
     interface IcToggleButtonGroup {
         /**
           * The accessible label of the toggle button group component to provide context for screen reader users.
          */
-        "accessibleLabel"?: string;
+        "accessibleLabel": string;
         /**
           * If `true`, the toggle button group will be set to the disabled state.
          */
@@ -2333,35 +2353,35 @@ export namespace Components {
         /**
           * If `true`, the toggle button group will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The placement of the icons in relation to the toggle button labels.
          */
-        "iconPlacement"?: "left" | "right" | "top";
+        "iconPlacement"?: IcIconPlacementOptions;
         /**
           * If `true`, the toggle button group will be in loading state.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */
-        "selectMethod"?: IcSelectMethodTypes;
+        "selectMethod": IcSelectMethodTypes;
         /**
           * Sets whether single or multiple options can be toggled. If `multi`, then the `selectMethod` is always `manual`.
          */
-        "selectType"?: IcSelectTypes;
+        "selectType": IcSelectTypes;
         /**
           * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The position of the tooltip in relation to the toggle buttons.
          */
@@ -2421,35 +2441,35 @@ export namespace Components {
         /**
           * The alignment of the top navigation content.
          */
-        "contentAligned"?: IcAlignment;
+        "contentAligned": IcAlignment;
         /**
           * Can set a custom breakpoint for the top navigation to switch to mobile mode. Must be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.
          */
-        "customMobileBreakpoint"?: IcDeviceSizes;
+        "customMobileBreakpoint": IcDeviceSizes;
         /**
           * The URL to navigate to when the app title is clicked.
          */
-        "href"?: string;
+        "href": string;
         /**
           * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
          */
-        "inline"?: boolean;
+        "inline": boolean;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
-        "shortAppTitle"?: string;
+        "shortAppTitle": string;
         /**
           * The status info to be displayed.
          */
-        "status"?: string;
+        "status": string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The version info to be displayed.
          */
-        "version"?: string;
+        "version": string;
     }
     interface IcTypography {
         /**
@@ -4662,6 +4682,10 @@ declare namespace LocalJSX {
          */
         "expandable"?: boolean;
         /**
+          * If `true`, the expandable group will be expanded by default when in an ic-side-navigation component. To enable this prop, `expandable` must also be set to `true`.
+         */
+        "expanded"?: boolean;
+        /**
           * The label to display on the group.
          */
         "label": string;
@@ -5110,6 +5134,10 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
+          * If `true` the parent form will not submit when the icSubmitSearch event fires.
+         */
+        "preventFormSubmitOnSearch"?: boolean;
+        /**
           * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
@@ -5323,6 +5351,10 @@ declare namespace LocalJSX {
           * The app title to be displayed. This is required, unless a slotted app title link is used.
          */
         "appTitle"?: string;
+        /**
+          * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+         */
+        "closeOnNavItemClick"?: boolean;
         /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
          */
@@ -5602,7 +5634,7 @@ declare namespace LocalJSX {
     interface IcTextField {
         "ariaActiveDescendant"?: string;
         "ariaAutocomplete"?: IcAriaAutocompleteTypes;
-        "ariaExpanded"?: string | undefined;
+        "ariaExpanded"?: string | null;
         "ariaOwns"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
@@ -5734,7 +5766,7 @@ declare namespace LocalJSX {
           * If `true`, the multiline text area will be resizeable.
          */
         "resize"?: boolean;
-        "role"?: string | undefined;
+        "role"?: string | null;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
@@ -5901,7 +5933,7 @@ declare namespace LocalJSX {
         /**
           * The placement of the icons in relation to the toggle button labels.
          */
-        "iconPlacement"?: "left" | "right" | "top";
+        "iconPlacement"?: IcIconPlacementOptions;
         /**
           * If `true`, the toggle button group will be in loading state.
          */

@@ -39,6 +39,15 @@ describe("ic-navigation-group", () => {
     expect(page.root).toMatchSnapshot("renders-expandable");
   });
 
+  it("should render as expandable and collapsed", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup],
+      html: `<ic-navigation-group label="Group label" expandable="true" expanded="false"></ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+    expect(page.root).toMatchSnapshot("renders-expanded-false");
+  });
+
   it("should render correctly when in a top navigation when not expandable", async () => {
     const page = await newSpecPage({
       components: [NavigationGroup],
@@ -154,10 +163,13 @@ describe("ic-navigation-group", () => {
     await page.rootInstance.showDropdown();
     await page.waitForChanges();
     expect(page.rootInstance.dropdownOpen).toBe(true);
-    await page.rootInstance.handleTopNavKeydown({ key: "Escape" });
+
+    page.rootInstance.navigationType = "top";
+    await page.waitForChanges();
+    await page.rootInstance.handleKeydown({ key: "Escape" });
     await page.waitForChanges();
     expect(page.rootInstance.dropdownOpen).toBe(false);
-    await page.rootInstance.handleTopNavKeydown({ key: "Enter" });
+    await page.rootInstance.handleKeydown({ key: "Enter" });
     await page.waitForChanges();
     expect(page.rootInstance.dropdownOpen).toBe(true);
   });
@@ -328,7 +340,8 @@ describe("ic-navigation-group", () => {
       ?.shadowRoot?.querySelector("a");
     expect(navItemLink?.tabIndex).toBe(-1);
 
-    await page.rootInstance.setGroupedNavItemTabIndex("0");
+    page.rootInstance.expanded = false;
+    await page.rootInstance.toggleExpanded();
     await page.waitForChanges();
     navItemLink = page.root
       ?.querySelector("ic-navigation-item")

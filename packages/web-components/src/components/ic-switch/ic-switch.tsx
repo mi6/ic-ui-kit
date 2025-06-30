@@ -24,6 +24,7 @@ import { IcSizesNoLarge, IcThemeMode } from "../../utils/types";
 let inputIds = 0;
 
 /**
+ * @slot helper-text - Content is set as the helper text for the switch.
  * @slot right-adornment - Content is placed to the right of switch.
  */
 @Component({
@@ -196,13 +197,15 @@ export class Switch {
               for={inputId}
               label={label}
               helperText={helperText}
-              readonly={true}
+              readonly={false}
               disabled={disabled}
               class={{
                 "ic-switch-label": true,
                 "ic-switch-label-small": isSmall,
               }}
-            ></ic-input-label>
+            >
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
           )}
           {!hideLabel && <span class="ic-switch-line-break"></span>}
           <input
@@ -211,6 +214,7 @@ export class Switch {
             aria-label={label}
             aria-checked={checkedState ? "true" : "false"}
             aria-describedby={getInputDescribedByText(
+              this.el,
               inputId,
               helperText !== "",
               false

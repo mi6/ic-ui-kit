@@ -1,6 +1,9 @@
 /* istanbul ignore file */
 
-import { IcDataTableColumnObject } from "./ic-data-table.types";
+import {
+  IcDataTableColumnObject,
+  IcSortEventDetail,
+} from "./ic-data-table.types";
 
 /* eslint-disable */
 const name1 = "John Smith";
@@ -24,11 +27,11 @@ const userIconSVG =
 const alertIconSVG =
   '<svg aria-label="alert-icon" xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 24 24" fill="#000000"><path d="M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z"/></svg>';
 const copyButton =
-  '<ic-button data-testid="copy-button" variant="icon" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="copy-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg> </ic-button>';
+  '<ic-button data-testid="copy-button" variant="icon-tertiary" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="copy-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg> </ic-button>';
 const cellphoneButton =
-  '<ic-button data-testid="cellphone-button" variant="icon" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="cellphone-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg> </ic-button>';
+  '<ic-button data-testid="cellphone-button" variant="icon-tertiary" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="cellphone-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg> </ic-button>';
 const downloadButton =
-  '<ic-button data-testid="download-button" variant="icon" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="download-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg> </ic-button>';
+  '<ic-button data-testid="download-button" variant="icon-tertiary" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="download-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg> </ic-button>';
 
 // TODO: Add columnOptions
 export const COLS: IcDataTableColumnObject[] = [
@@ -92,6 +95,37 @@ export const COLS_WIDTH: IcDataTableColumnObject[] = [
   },
 ];
 
+export const COLS_DISABLE_AUTO_SORT: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+    disableAutoSort: true,
+  },
+  {
+    key: "lastName",
+    title: "Last name",
+    dataType: "string",
+  },
+  {
+    key: "age",
+    title: "Age",
+    dataType: "number",
+  },
+  {
+    key: "jobTitle",
+    title: "Job title",
+    dataType: "string",
+    excludeColumnFromSort: true,
+  },
+  {
+    key: "address",
+    title: "Address",
+    dataType: "address",
+    excludeColumnFromSort: true,
+  },
+];
+
 export const COLS_EXCLUDE_SORT: IcDataTableColumnObject[] = [
   {
     key: "firstName",
@@ -120,6 +154,35 @@ export const COLS_EXCLUDE_SORT: IcDataTableColumnObject[] = [
     title: "Address",
     dataType: "address",
     excludeColumnFromSort: true,
+  },
+];
+
+export const COLS_HIDDEN: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  {
+    key: "lastName",
+    title: "Last name",
+    dataType: "string",
+  },
+  {
+    key: "age",
+    title: "Age",
+    dataType: "number",
+    hidden: true,
+  },
+  {
+    key: "jobTitle",
+    title: "Job title",
+    dataType: "string",
+  },
+  {
+    key: "address",
+    title: "Address",
+    dataType: "address",
   },
 ];
 
@@ -1042,7 +1105,7 @@ export const DATA_ELEMENTS_PAGINATION = [
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("5")'>5</ic-button>`,
+    actions: `<ic-select placeholder="Placeholder goes here"></ic-select>`,
     firstName: "Luke",
     age: 18,
     jobTitle: "Junior Developer",
@@ -1077,7 +1140,7 @@ export const DATA_ELEMENTS_PAGINATION = [
     address: "10 High Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("10")'>10</ic-button>`,
+    actions: `<ic-select placeholder="Placeholder goes here"></ic-select>`,
     firstName: "Ben",
     age: 40,
     jobTitle: "Team Lead",
@@ -1237,7 +1300,7 @@ export const ACTION_DATA_ELEMENTS = [
     lastName: "Smith",
     age: {
       data: 45,
-      actionElement: `<ic-button variant="icon" id="small-button" size="small" aria-label="you can disable tooltips on icon buttons"> <svg aria-label="refresh button" xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
+      actionElement: `<ic-button variant="icon-tertiary" id="small-button" size="small" aria-label="you can disable tooltips on icon buttons"> <svg aria-label="refresh button" xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
     },
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
@@ -1444,6 +1507,34 @@ export const DataTableSizing = (): HTMLElement => {
   return dataTable;
 };
 
+export const HiddenCol = (): HTMLElement => {
+  const dataTable = createDataTableElement("Basic Table", COLS_HIDDEN, DATA);
+  const setColumnVisible = (visible: boolean) => {
+    const cols = [...COLS_HIDDEN];
+    cols[2].hidden = !visible;
+    dataTable.columns = cols;
+  };
+  const showButton = document.createElement("ic-button");
+  const hideButton = document.createElement("ic-button");
+  showButton.innerHTML = "Show Age";
+  hideButton.innerHTML = "Hide Age";
+  showButton.addEventListener("click", () => setColumnVisible(true));
+  hideButton.addEventListener("click", () => setColumnVisible(false));
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", showButton);
+  buttonWrapper.insertAdjacentElement("beforeend", hideButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  dataTable.insertAdjacentElement("afterend", buttonWrapper);
+
+  return wrapper;
+};
+
 // Used for table overflow testing
 // export const TableOverflow = (): HTMLElement => {
 //   const wrapper = document.createElement('div');
@@ -1577,6 +1668,39 @@ export const DisableSort = (): HTMLIcDataTableElement => {
     }
     dataTable.data = [...DATA];
   });
+  return dataTable;
+};
+
+export const DisableAutoSortColumns = () => {
+  const originalData = [...DATA];
+  const dataTable = createDataTableElement(
+    "Disable sort on columns",
+    COLS_DISABLE_AUTO_SORT,
+    DATA
+  );
+  dataTable.setAttribute("sortable", "true");
+  dataTable.addEventListener(
+    "icSortChange",
+    (event: CustomEvent<IcSortEventDetail>) => {
+      const { columnName, sorted } = event.detail;
+      console.log("Sort changed", columnName, sorted);
+      if (columnName !== "firstName") return;
+
+      if (sorted === "unsorted") {
+        DATA.splice(0, DATA.length, ...originalData);
+      } else {
+        const sortedAscending = sorted === "ascending";
+        DATA.sort((a, b) => {
+          if (a[columnName] < b[columnName]) return sortedAscending ? -1 : 1;
+          if (a[columnName] > b[columnName]) return sortedAscending ? 1 : -1;
+          return 0;
+        });
+      }
+      dataTable.data = [...DATA];
+      console.log("Custom sort applied");
+    }
+  );
+
   return dataTable;
 };
 
@@ -1965,6 +2089,12 @@ export const DevArea = (): HTMLElement => {
   dataTable.sortable = true;
   dataTable.variableRowHeight = undefined;
   dataTable.showPagination = true;
+  dataTable.addEventListener("icDataLoaded", () => {
+    console.log("Data loaded");
+  });
+  dataTable.addEventListener("icColumnsLoaded", () => {
+    console.log("Columns loaded");
+  });
 
   const description = document.createElement("ic-typography");
   description.innerHTML = `

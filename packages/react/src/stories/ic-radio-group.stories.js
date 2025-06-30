@@ -4,9 +4,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
   IcButton,
+  IcLink,
   IcRadioGroup,
   IcRadioOption,
   IcTextField,
+  IcTypography,
 } from "../components";
 
 const Form = () => {
@@ -370,6 +372,7 @@ export const ConditionalStatic = {
 
 export const HelperText = {
   render: () => (
+    <>
     <IcRadioGroup label="This is a label" name="1" helperText="Helper text">
       <IcRadioOption value="valueName1" label="Unselected / Default" />
       <IcRadioOption value="valueName2" label="Selected / Default" selected />
@@ -379,6 +382,22 @@ export const HelperText = {
         disabled
       />
     </IcRadioGroup>
+    <br />
+    <IcRadioGroup label="This is a label" name="2">
+      <IcTypography variant="caption" slot="helper-text">
+        <span>
+          Slotted helper text with a <IcLink href="#">link</IcLink>
+        </span>
+      </IcTypography>
+      <IcRadioOption value="valueName1" label="Unselected / Default" />
+      <IcRadioOption value="valueName2" label="Selected / Default" selected />
+      <IcRadioOption
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
+      />
+    </IcRadioGroup>
+    </>
   ),
 
   name: "Helper text",

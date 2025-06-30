@@ -204,4 +204,8 @@
   .container {
     border: var(--ic-border-hc);
   }
+
+  .dismiss-icon > svg {
+    color: var(--ic-architectural-white);
+  }
 }

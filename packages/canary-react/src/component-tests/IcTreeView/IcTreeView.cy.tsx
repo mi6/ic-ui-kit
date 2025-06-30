@@ -305,43 +305,6 @@ describe("IcTreeView", () => {
     });
   });
 
-  it("should render with focus inset", () => {
-    mount(
-      <div
-        style={{
-          width: "250px",
-          padding: "16px",
-        }}
-      >
-        <IcTreeView heading="Menu" focusInset treeItemData={treeItems} />
-      </div>
-    );
-
-    cy.checkHydrated(TREE_VIEW);
-
-    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).focus();
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "/focus-inset",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
-    });
-  });
-
-  it("should render with focus inset for slotted tree items", () => {
-    mount(BasicTreeView({ focusInset: true }));
-
-    cy.checkHydrated(TREE_VIEW);
-
-    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).focus();
-
-    cy.checkA11yWithWait(undefined, 500);
-    cy.compareSnapshot({
-      name: "/focus-inset",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
-    });
-  });
-
   it("should render with disabled tree item", () => {
     mount(
       <div
@@ -961,6 +924,28 @@ describe("IcTreeView", () => {
       name: "/router-item",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
+  });
+
+  it("should retain the custom ID after re-render", () => {
+    mount(
+      <IcTreeView heading="foo">
+        <IcTreeItem treeItemId="bar-1" label="bar" />
+        <IcTreeItem treeItemId="baz-1" label="baz">
+          <IcTreeItem label="qux" />
+        </IcTreeItem>
+      </IcTreeView>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.get(TREE_ITEM).should("have.id", "bar-1");
+
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should("have.id", "baz-1");
+
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).click();
+
+    // Assert ID doesn't change after a re-render
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should("have.id", "baz-1");
   });
 });
 

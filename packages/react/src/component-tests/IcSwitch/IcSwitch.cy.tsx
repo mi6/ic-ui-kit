@@ -13,6 +13,7 @@ import {
   HiddenLabel,
   InAForm,
   ThemeDark,
+  HelperTextSlot,
 } from "./IcSwitchTestData";
 import {
   HAVE_ATTR,
@@ -222,6 +223,20 @@ describe("IcSwitch visual regression and a11y tests", () => {
     cy.checkHydrated(SWITCH_SELECTOR);
 
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/helper-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+  });
+
+  it("should render a switch with slotted helper text", () => {
+    mount(<HelperTextSlot />);
+
+    cy.checkHydrated(SWITCH_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    // Check positioning matches normal helper text
     cy.compareSnapshot({
       name: "/helper-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),

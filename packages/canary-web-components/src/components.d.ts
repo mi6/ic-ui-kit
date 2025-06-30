@@ -542,7 +542,6 @@ export namespace Components {
           * If `true`, the tree item appears in the expanded state.
          */
         "expanded": boolean;
-        "focusInset": boolean;
         "hasParentExpanded": boolean;
         /**
           * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
@@ -584,16 +583,16 @@ export namespace Components {
          */
         "theme"?: IcThemeMode1;
         /**
+          * Sets the tree item id. Must be unique.
+         */
+        "treeItemId"?: string;
+        /**
           * If `true`, the tree item label will be truncated instead of text wrapping.
          */
         "truncateTreeItem"?: boolean;
         "updateAriaLabel": () => Promise<void>;
     }
     interface IcTreeView {
-        /**
-          * If `true`, tree items will have inset focus.
-         */
-        "focusInset": boolean;
         /**
           * The heading of the tree view.
          */
@@ -658,6 +657,8 @@ declare global {
     row: IcDataTableDataType | null;
     selectedRows: IcDataTableDataType[];
   };
+        "icColumnsLoaded": void;
+        "icDataLoaded": void;
         "icSortChange": IcSortEventDetail;
     }
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
@@ -756,7 +757,10 @@ declare global {
     };
     interface HTMLIcTreeItemElementEventMap {
         "icTreeItemSelected": { id: string };
-        "icTreeItemExpanded": { isExpanded: boolean };
+        "icTreeItemExpanded": {
+    isExpanded: boolean;
+    id: string;
+  };
     }
     interface HTMLIcTreeItemElement extends Components.IcTreeItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTreeItemElementEventMap>(type: K, listener: (this: HTMLIcTreeItemElement, ev: IcTreeItemCustomEvent<HTMLIcTreeItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -906,6 +910,14 @@ declare namespace LocalJSX {
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
          */
         "minimumLoadingDisplayDuration"?: number;
+        /**
+          * Emitted when the columns have finished loading after being updated or initially rendered.
+         */
+        "onIcColumnsLoaded"?: (event: IcDataTableCustomEvent<void>) => void;
+        /**
+          * Emitted when the data has finished loading after being updated or initially rendered.
+         */
+        "onIcDataLoaded"?: (event: IcDataTableCustomEvent<void>) => void;
         /**
           * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
          */
@@ -1352,7 +1364,6 @@ declare namespace LocalJSX {
           * If `true`, the tree item appears in the expanded state.
          */
         "expanded"?: boolean;
-        "focusInset"?: boolean;
         "hasParentExpanded"?: boolean;
         /**
           * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
@@ -1370,7 +1381,10 @@ declare namespace LocalJSX {
         /**
           * Emitted when tree item is expanded.
          */
-        "onIcTreeItemExpanded"?: (event: IcTreeItemCustomEvent<{ isExpanded: boolean }>) => void;
+        "onIcTreeItemExpanded"?: (event: IcTreeItemCustomEvent<{
+    isExpanded: boolean;
+    id: string;
+  }>) => void;
         /**
           * Emitted when tree item is selected.
          */
@@ -1398,15 +1412,15 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode1;
         /**
+          * Sets the tree item id. Must be unique.
+         */
+        "treeItemId"?: string;
+        /**
           * If `true`, the tree item label will be truncated instead of text wrapping.
          */
         "truncateTreeItem"?: boolean;
     }
     interface IcTreeView {
-        /**
-          * If `true`, tree items will have inset focus.
-         */
-        "focusInset"?: boolean;
         /**
           * The heading of the tree view.
          */

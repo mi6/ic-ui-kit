@@ -98,4 +98,31 @@ describe("ic-input-label", () => {
       </ic-input-label>
     `);
   });
+
+  it("should correctly detect if a helper text slot is used", async () => {
+    const page = await newSpecPage({
+      components: [InputLabel],
+      html: `<ic-input-label for="test-input-id" label="Test label"></ic-input-label>`,
+    });
+
+    const mockSlot = {
+      assignedElements: jest
+        .fn()
+        .mockReturnValue([document.createElement("div")]),
+    } as unknown as HTMLSlotElement;
+
+    expect(page.rootInstance.isHelperTextSlotUsed(mockSlot)).toBe(true);
+
+    const parentMockSlot = {
+      assignedElements: jest.fn().mockReturnValue([mockSlot]),
+    } as unknown as HTMLSlotElement;
+
+    parentMockSlot.assignedElements = jest.fn().mockReturnValue([mockSlot]);
+
+    expect(page.rootInstance.isHelperTextSlotUsed(parentMockSlot)).toBe(true);
+
+    mockSlot.assignedElements = jest.fn().mockReturnValue([]);
+
+    expect(page.rootInstance.isHelperTextSlotUsed(mockSlot)).toBe(false);
+  });
 });

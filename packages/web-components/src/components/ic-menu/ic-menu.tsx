@@ -11,7 +11,11 @@ import {
   Watch,
   Fragment,
 } from "@stencil/core";
-import { createPopper, Instance as PopperInstance } from "@popperjs/core";
+import {
+  createPopper,
+  Instance as PopperInstance,
+  Options,
+} from "@popperjs/core";
 
 import {
   IcActivationTypes,
@@ -68,6 +72,7 @@ export class Menu {
   @State() optionHighlighted?: string;
   @State() preventIncorrectTabOrder = false;
   @State() menuOptions: IcMenuOption[];
+  @State() popperProps: Partial<Options> = {};
 
   /**
    * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -374,7 +379,17 @@ export class Menu {
           },
         },
       ],
+      ...this.popperProps,
     });
+  }
+
+  /**
+   * @internal This method allows props to be added to the PopperJS createPopper instance outside of the menu
+   * @param props object - createPopper props set externally
+   */
+  @Method()
+  async setExternalPopperProps<T extends Partial<Options>>(props: T) {
+    this.popperProps = props;
   }
 
   private handleClearListener = (): void => {

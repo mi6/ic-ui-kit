@@ -14,15 +14,17 @@
   --ag-disabled-foreground-color: var(--ic-color-text-tertiary);
   --ag-subheader-background-color: var(--ic-color-background-secondary);
   --ag-side-button-selected-background-color: var(--ic-action-default);
-  --ag-selected-row-background-color: var(--ic-table-row-selected);
-  --ag-odd-row-background-color: var(--ic-color-background-secondary);
+  --ag-selected-row-background-color: var(--ic-data-table-cell-background);
+  --ag-odd-row-background-color: var(--ic-data-table-cell-background-stripe);
   --ag-modal-overlay-background-color: var(--ic-color-background-primary);
   --ag-menu-background-color: var(--ic-color-background-primary);
-  --ag-row-hover-color: var(--ic-action-default-bg-hover);
+  --ag-row-hover-color: var(--ic-data-table-cell-background);
   --ag-column-hover-color: var(--ic-action-default-bg-hover);
   --ag-range-selection-border-color: var(--ic-action-default);
   --ag-range-selection-border-style: solid;
-  --ag-range-selection-background-color: var(--ic-table-row-selected);
+  --ag-range-selection-background-color: var(
+    --ic-data-table-cell-background-selected
+  );
   --ag-selected-tab-underline-color: var(--ic-action-default);
   --ag-selected-tab-underline-width: var(--ic-space-xxs);
   --ag-selected-tab-underline-transition-speed: var(
@@ -100,6 +102,24 @@
 
 .ag-theme-icds .ag-root-wrapper {
   border: none;
+}
+
+.ag-theme-icds .ag-row-hover::before {
+  background-image: linear-gradient(
+    var(--ic-data-table-cell-background-hover) 0 0
+  );
+}
+
+.ag-theme-icds .ag-row-selected::before {
+  background-image: linear-gradient(
+    var(--ic-data-table-cell-background-selected) 0 0
+  );
+}
+
+.ag-theme-icds .ag-row-selected.ag-row-hover::before {
+  background-image: linear-gradient(
+    var(--ic-data-table-cell-background-selected-hover) 0 0
+  );
 }
 
 .ag-theme-icds .ag-header-group-text,

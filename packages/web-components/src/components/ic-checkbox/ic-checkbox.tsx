@@ -155,12 +155,10 @@ export class Checkbox {
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.el.querySelector("ic-text-field");
-      if (!this.checked) {
-        textfield?.setAttribute("disabled", "");
-      } else {
-        textfield?.removeAttribute("disabled");
-      }
+      const textfieldElements = this.el.querySelectorAll("ic-text-field");
+      textfieldElements.forEach((textfield) =>
+        textfield.setAttribute("disabled", this.checked ? "false" : "true")
+      );
     } else if (this.additionalFieldContainer) {
       this.additionalFieldContainer.style.display = !this.checked
         ? "none"
@@ -274,7 +272,7 @@ export class Checkbox {
             ref={(el) => (this.additionalFieldContainer = el)}
           >
             {isDynamicAdditionalField && <div class="branch-corner"></div>}
-            <div>
+            <div class="dynamic-field-container">
               {isDynamicAdditionalField && (
                 <ic-typography variant="caption">
                   <p class="dynamic-text" aria-live="polite">

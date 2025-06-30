@@ -7,8 +7,8 @@
 :host .tree-item-content {
   display: flex;
   align-items: center;
-  min-height: calc(var(--ic-space-xl) + var(--ic-space-xs));
-  padding: 0 var(--ic-space-xs);
+  min-height: var(--ic-space-xl);
+  padding: var(--ic-space-xxs) var(--ic-space-xs);
   text-decoration: none;
   color: var(--ic-tree-view-text);
 
@@ -18,11 +18,11 @@
 ::slotted([slot="router-item"]) {
   display: flex;
   align-items: center;
-  min-height: calc(var(--ic-space-xl) + var(--ic-space-xs));
+  min-height: var(--ic-space-xl);
   text-decoration: none;
   font-family: var(--ic-font-body-family);
   color: var(--ic-tree-view-text);
-  padding: 0 var(--ic-space-xs) !important;
+  padding: var(--ic-space-xxs) var(--ic-space-xs) !important;
 }
 
 :host(.ic-tree-item-truncate) .tree-item-content,
@@ -36,21 +36,10 @@
 
 :host .tree-item-content:focus,
 ::slotted([slot="router-item"]:focus) {
-  box-shadow: var(--ic-border-focus);
-  border-radius: var(--ic-border-radius);
-  transition: var(--ic-transition-duration-fast);
-  outline: none;
-}
-
-:host(.ic-tree-item-focus-inset) .tree-item-content:focus,
-:host(.ic-tree-item-focus-inset) ::slotted([slot="router-item"]:focus) {
   box-shadow: var(--ic-border-focus-inset);
   border-radius: var(--ic-border-radius-inset);
-}
-
-:host(.ic-tree-item-focus-inset) .tree-item-content,
-:host(.ic-tree-item-focus-inset) ::slotted([slot="router-item"]) {
-  padding: 0 var(--ic-space-sm);
+  transition: var(--ic-transition-duration-fast);
+  outline: none;
 }
 
 :host .tree-item-content:hover,
@@ -71,24 +60,24 @@
 
 :host(.ic-tree-item-small) .tree-item-content,
 :host(.ic-tree-item-small) ::slotted([slot="router-item"]) {
-  min-height: var(--ic-space-xl);
+  min-height: var(--ic-space-lg);
 }
 
 :host(.ic-tree-item-large) .tree-item-content,
 :host(.ic-tree-item-large) ::slotted([slot="router-item"]) {
-  min-height: var(--ic-space-xxl);
+  min-height: calc(var(--ic-space-xl) + var(--ic-space-xs));
 }
 
 :host(.ic-tree-item-truncate.ic-tree-item-small) .tree-item-content,
 :host(.ic-tree-item-truncate.ic-tree-item-small)
   ::slotted([slot="router-item"]) {
-  height: var(--ic-space-xl);
+  height: var(--ic-space-lg);
 }
 
 :host(.ic-tree-item-truncate.ic-tree-item-large) .tree-item-content,
 :host(.ic-tree-item-truncate.ic-tree-item-large)
   ::slotted([slot="router-item"]) {
-  height: var(--ic-space-xxl);
+  height: calc(var(--ic-space-xl) + var(--ic-space-xs));
 }
 
 :host(.ic-tree-item-disabled) {
@@ -109,6 +98,7 @@
 :host .arrow-dropdown {
   color: var(--ic-tree-view-dropdown-arrow);
   margin-right: var(--ic-space-xs);
+  margin-bottom: calc(var(--ic-space-xxs) * -1);
 }
 
 :host(.ic-tree-item-disabled) .arrow-dropdown {
@@ -122,6 +112,7 @@
 :host .tree-item-expanded {
   transform: rotate(180deg);
   margin-top: calc(-1 * var(--ic-space-xxs));
+  margin-bottom: 0;
 }
 
 :host .ic-tree-item-single {

@@ -5,7 +5,7 @@ exports[`ic-back-to-top should render positioned in the centre 1`] = `
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
       <template shadowrootmode="open">
-        <button aria-label="Back to top" class="button" part="button" type="button">
+        <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>
@@ -23,7 +23,7 @@ exports[`ic-back-to-top should render positioned on the left 1`] = `
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
       <template shadowrootmode="open">
-        <button aria-label="Back to top" class="button" part="button" type="button">
+        <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>
@@ -41,7 +41,7 @@ exports[`ic-back-to-top should render when target starts with #: should render w
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
       <template shadowrootmode="open">
-        <button aria-label="Back to top" class="button" part="button" type="button">
+        <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>
@@ -60,7 +60,7 @@ exports[`ic-back-to-top should render with an icon only: should render with an i
     <ic-button class="ic-button-size-large ic-button-variant-icon-secondary icon-only" exportparts="button">
       <template shadowrootmode="open">
         <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-12" label="Back to top" placement="bottom" silent="" target="ic-button-with-tooltip-12">
-          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-12" aria-label="Back to top" class="button" part="button" type="button">
+          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-12" aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </ic-tooltip>
@@ -78,7 +78,7 @@ exports[`ic-back-to-top should render with dark theme: should render with dark t
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary ic-theme-dark" exportparts="button">
       <template shadowrootmode="open">
-        <button aria-label="Back to top" class="button" part="button" type="button">
+        <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>
@@ -99,7 +99,7 @@ exports[`ic-back-to-top should render with footer: should render with footer 1`]
       <template shadowrootmode="open">
         <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
           <template shadowrootmode="open">
-            <button aria-label="Back to top" class="button" part="button" type="button">
+            <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
           </template>
@@ -136,7 +136,7 @@ exports[`ic-back-to-top should render with light theme: should render with light
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary ic-theme-light" exportparts="button">
       <template shadowrootmode="open">
-        <button aria-label="Back to top" class="button" part="button" type="button">
+        <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>
@@ -154,7 +154,7 @@ exports[`ic-back-to-top should render with no targetId set: should render with n
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
       <template shadowrootmode="open">
-        <button aria-label="Back to top" class="button" part="button" type="button">
+        <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>
@@ -172,7 +172,7 @@ exports[`ic-back-to-top should render: should render 1`] = `
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
       <template shadowrootmode="open">
-        <button aria-label="Back to top" class="button" part="button" type="button">
+        <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>

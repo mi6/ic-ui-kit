@@ -1,0 +1,60 @@
+name: Run performance tests - manual trigger
+permissions: read-all
+
+on: 
+    workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-updates:
+    name: "Check package updates"
+    runs-on: ubuntu-latest
+    outputs:
+      core: ${{ steps.filter.outputs.core }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 #v3.0.2
+        id: filter
+        with:
+          filters: |
+            core:
+              - 'packages/web-components/**'
+              - 'packages/react/**'
+
+  ic-ui-kit-performance-tests:
+    needs: [check-updates]
+    name: "Performance tests"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
+
+      - name: Extract branch name
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+      - name: Install dependencies
+        run: |
+          google-chrome --version
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: Cypress performance tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_cypress_performance_tests
+        run: npm run test-cypress-perf:ci
+
+      - name: Upload lighthouse performance reports
+        if: always() && ${{ needs.check-updates.outputs.core == 'true' }}
+        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
+        with:
+          folder: ./packages/react/cypress-lighthouse-reports
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-lighthouse-reports

@@ -4,11 +4,11 @@ exports[`ic-loading-indicator component should apply the description prop as an 
 <ic-loading-indicator description="IC Loading Indicator Test" exportparts="ic-loading-container" size="medium" type="circular">
   <template shadowrootmode="open">
     <div class="ic-loading-container" part="ic-loading-container">
-      <div aria-label="IC Loading Indicator Test" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
+      <div aria-label="IC Loading Indicator Test" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 8px;">
         <div class="ic-loading-circular-inner">
-          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
-            <circle cx="0" cy="0" r="0"></circle>
-            <circle cx="0" cy="0" r="0"></circle>
+          <svg class="ic-loading-circular-svg" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36"></circle>
+            <circle cx="40" cy="40" r="36" style="--stroke-dasharray: 226.1946710584651px;"></circle>
           </svg>
         </div>
       </div>
@@ -33,11 +33,11 @@ exports[`ic-loading-indicator component should not display a label is the size i
 <ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="IC Loading Indicator Test" size="icon" type="circular">
   <template shadowrootmode="open">
     <div class="ic-loading-container" part="ic-loading-container">
-      <div aria-label="Loading" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
+      <div aria-label="Loading" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 2px;">
         <div class="ic-loading-circular-inner">
-          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
-            <circle cx="0" cy="0" r="0"></circle>
-            <circle cx="0" cy="0" r="0"></circle>
+          <svg class="ic-loading-circular-svg" viewBox="0 0 20 20">
+            <circle cx="10" cy="10" r="9"></circle>
+            <circle cx="10" cy="10" r="9" style="--stroke-dasharray: 56.548667764616276px;"></circle>
           </svg>
         </div>
       </div>
@@ -50,11 +50,11 @@ exports[`ic-loading-indicator component should render a determinate loading indi
 <ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="IC Loading Indicator Test" progress="30" size="medium" type="circular">
   <template shadowrootmode="open">
     <div class="ic-loading-container" part="ic-loading-container">
-      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="determinate ic-loading-circular-outer" role="progressbar">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="determinate ic-loading-circular-outer" role="progressbar" style="--circular-line-width: 8px;">
         <div class="ic-loading-circular-inner">
-          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
-            <circle cx="0" cy="0" r="0"></circle>
-            <circle cx="0" cy="0" r="0" style="--progress-value: 30;"></circle>
+          <svg class="ic-loading-circular-svg" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36"></circle>
+            <circle cx="40" cy="40" r="36" style="--circular-steps-max: 100; --progress-value: 30; --stroke-dasharray: 226.1946710584651px; --stroke-dashoffset: -294.05307237600465px;"></circle>
           </svg>
         </div>
       </div>
@@ -71,15 +71,40 @@ exports[`ic-loading-indicator component should render a determinate loading indi
 </ic-loading-indicator>
 `;
 
+exports[`ic-loading-indicator component should render an indeterminate loading indicator with a custom --circular-diameter 1`] = `
+<ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="IC Loading Indicator Test" size="medium" type="circular" style="--circular-diameter: 1.5rem;">
+  <template shadowrootmode="open">
+    <div class="ic-loading-container" part="ic-loading-container">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 2.4000000000000004px;">
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10.8"></circle>
+            <circle cx="12" cy="12" r="10.8" style="--stroke-dasharray: 67.85840131753953px;"></circle>
+          </svg>
+        </div>
+      </div>
+      <ic-typography class="ic-loading-label ic-typography-label" id="ic-loading-label" role="status">
+        <template shadowrootmode="open">
+          <slot></slot>
+        </template>
+        <p>
+          IC Loading Indicator Test
+        </p>
+      </ic-typography>
+    </div>
+  </template>
+</ic-loading-indicator>
+`;
+
 exports[`ic-loading-indicator component should render an indeterminate loading indicator with the correct label and set aria-labelledby 1`] = `
 <ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="IC Loading Indicator Test" size="medium" type="circular">
   <template shadowrootmode="open">
     <div class="ic-loading-container" part="ic-loading-container">
-      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 8px;">
         <div class="ic-loading-circular-inner">
-          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
-            <circle cx="0" cy="0" r="0"></circle>
-            <circle cx="0" cy="0" r="0"></circle>
+          <svg class="ic-loading-circular-svg" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36"></circle>
+            <circle cx="40" cy="40" r="36" style="--stroke-dasharray: 226.1946710584651px;"></circle>
           </svg>
         </div>
       </div>
@@ -124,11 +149,11 @@ exports[`ic-loading-indicator component should set the correct aria if min and m
 <ic-loading-indicator exportparts="ic-loading-container" max="50" min="10" progress="30" size="medium" type="circular">
   <template shadowrootmode="open">
     <div class="ic-loading-container" part="ic-loading-container">
-      <div aria-label="Loading" aria-valuemax="50" aria-valuemin="10" aria-valuenow="30" class="determinate ic-loading-circular-outer" role="progressbar">
+      <div aria-label="Loading" aria-valuemax="50" aria-valuemin="10" aria-valuenow="30" class="determinate ic-loading-circular-outer" role="progressbar" style="--circular-line-width: 8px;">
         <div class="ic-loading-circular-inner">
-          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
-            <circle cx="0" cy="0" r="0"></circle>
-            <circle cx="0" cy="0" r="0" style="--progress-value: 30;"></circle>
+          <svg class="ic-loading-circular-svg" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36"></circle>
+            <circle cx="40" cy="40" r="36" style="--circular-steps-max: 50; --progress-value: 30; --stroke-dasharray: 226.1946710584651px; --stroke-dashoffset: -339.29200658769764px;"></circle>
           </svg>
         </div>
       </div>
@@ -141,11 +166,11 @@ exports[`ic-loading-indicator component should set the typography variant for th
 <ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="IC Loading Indicator Test" size="large" type="circular">
   <template shadowrootmode="open">
     <div class="ic-loading-container" part="ic-loading-container">
-      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 12px;">
         <div class="ic-loading-circular-inner">
-          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
-            <circle cx="0" cy="0" r="0"></circle>
-            <circle cx="0" cy="0" r="0"></circle>
+          <svg class="ic-loading-circular-svg" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="54"></circle>
+            <circle cx="60" cy="60" r="54" style="--stroke-dasharray: 339.29200658769764px;"></circle>
           </svg>
         </div>
       </div>
@@ -166,11 +191,11 @@ exports[`ic-loading-indicator component should set the typography variant for th
 <ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="IC Loading Indicator Test" size="medium" type="circular">
   <template shadowrootmode="open">
     <div class="ic-loading-container" part="ic-loading-container">
-      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 8px;">
         <div class="ic-loading-circular-inner">
-          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
-            <circle cx="0" cy="0" r="0"></circle>
-            <circle cx="0" cy="0" r="0"></circle>
+          <svg class="ic-loading-circular-svg" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36"></circle>
+            <circle cx="40" cy="40" r="36" style="--stroke-dasharray: 226.1946710584651px;"></circle>
           </svg>
         </div>
       </div>
@@ -191,11 +216,11 @@ exports[`ic-loading-indicator component should set the typography variant for th
 <ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="IC Loading Indicator Test" size="small" type="circular">
   <template shadowrootmode="open">
     <div class="ic-loading-container" part="ic-loading-container">
-      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 4px;">
         <div class="ic-loading-circular-inner">
-          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
-            <circle cx="0" cy="0" r="0"></circle>
-            <circle cx="0" cy="0" r="0"></circle>
+          <svg class="ic-loading-circular-svg" viewBox="0 0 40 40">
+            <circle cx="20" cy="20" r="18"></circle>
+            <circle cx="20" cy="20" r="18" style="--stroke-dasharray: 113.09733552923255px;"></circle>
           </svg>
         </div>
       </div>
@@ -205,6 +230,51 @@ exports[`ic-loading-indicator component should set the typography variant for th
         </template>
         <p>
           IC Loading Indicator Test
+        </p>
+      </ic-typography>
+    </div>
+  </template>
+</ic-loading-indicator>
+`;
+
+exports[`ic-loading-indicator component should update the state when switching from linear to circular after initial render 1`] = `
+<ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="Waiting" size="medium" type="linear">
+  <template shadowrootmode="open">
+    <div class="ic-loading-container" part="ic-loading-container">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-linear-outer indeterminate" role="progressbar">
+        <div class="ic-loading-linear-inner"></div>
+      </div>
+      <ic-typography class="ic-loading-label ic-typography-h4" id="ic-loading-label" role="status">
+        <template shadowrootmode="open">
+          <slot></slot>
+        </template>
+        <p>
+          Waiting
+        </p>
+      </ic-typography>
+    </div>
+  </template>
+</ic-loading-indicator>
+`;
+
+exports[`ic-loading-indicator component should update the state when switching from linear to circular after initial render 2`] = `
+<ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="Waiting" size="medium" type="circular">
+  <template shadowrootmode="open">
+    <div class="ic-loading-container" part="ic-loading-container">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 8px;">
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36"></circle>
+            <circle cx="40" cy="40" r="36" style="--stroke-dasharray: 226.1946710584651px;"></circle>
+          </svg>
+        </div>
+      </div>
+      <ic-typography class="ic-loading-label ic-typography-h4" id="ic-loading-label" role="status">
+        <template shadowrootmode="open">
+          <slot></slot>
+        </template>
+        <p>
+          Waiting
         </p>
       </ic-typography>
     </div>

@@ -30,6 +30,24 @@ describe("ic-navigation-item", () => {
     expect(page.root).toMatchSnapshot("renders-with-new-aria-label");
   });
 
+  it("should render with open in new window icon", async () => {
+    const page = await newSpecPage({
+      components: [NavigationItem],
+      html: `<ic-navigation-item href="#link" label="Item label" target="_blank"></ic-navigation-item>`,
+    });
+    expect(page.root).toMatchSnapshot("renders-with-open-in-new-window-icon");
+  });
+
+  it("should test setFocus when using a slotted link", async () => {
+    const page = await newSpecPage({
+      components: [NavigationItem],
+      html: `<ic-navigation-item><a href="#">Item label</a></ic-navigation-item>`,
+    });
+
+    await page.rootInstance.setFocus();
+    expect(page.root).toMatchSnapshot("renders-with-slotted-link");
+  });
+
   it("should render with an unnamed slot if neither a label or the navigation-item slot is used", async () => {
     const page = await newSpecPage({
       components: [NavigationItem],
@@ -97,6 +115,41 @@ describe("ic-navigation-item", () => {
     });
 
     page.root?.click();
+  });
+
+  it("should emit navItemClicked on click", async () => {
+    const page = await newSpecPage({
+      components: [NavigationItem],
+      html: `<ic-navigation-item label="Item label"></ic-navigation-item>`,
+    });
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("navItemClicked", eventSpy);
+
+    page.root?.click();
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalled();
+  });
+
+  it("should emit navItemClicked on Enter key press", async () => {
+    const page = await newSpecPage({
+      components: [NavigationItem],
+      html: `<ic-navigation-item label="Item label"></ic-navigation-item>`,
+    });
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("navItemClicked", eventSpy);
+
+    const event = new KeyboardEvent("keydown", {
+      key: "Enter",
+      bubbles: true,
+      cancelable: true,
+    });
+    page.root?.dispatchEvent(event);
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalled();
   });
 
   it("should test inside side navigation", async () => {

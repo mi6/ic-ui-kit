@@ -1,5 +1,12 @@
+import React, { useRef } from "react";
 import { IcDataTableColumnObject } from "@ukic/canary-web-components";
-import { DATA } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
+import {
+  COLS_ELEMENTS_SINGLE_ACTION,
+  DATA,
+  DATA_REACT_ELEMENTS_PAGINATION,
+} from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
+import { IcDataTable } from "../../components";
+import { IcButton, IcMenuItem, IcPopoverMenu } from "@ukic/react";
 
 const FIRST_NAME_TITLE = "First name";
 
@@ -98,4 +105,50 @@ export const newData = (): { [key: string]: any }[] => {
     lastName: d.lastName,
     age: d.age,
   }));
+};
+
+export const DataTableWithPopover = () => {
+  return (
+    <IcDataTable
+      caption="Slotted elements with pagination"
+      columns={COLS_ELEMENTS_SINGLE_ACTION}
+      data={DATA_REACT_ELEMENTS_PAGINATION}
+      showPagination
+      paginationBarOptions={{
+        itemsPerPageOptions: [
+          { label: "5", value: "5" },
+          { label: "10", value: "10" },
+        ],
+        showItemsPerPageControl: true,
+        selectedItemsPerPage: 5,
+      }}
+    >
+      {DATA_REACT_ELEMENTS_PAGINATION.map((_, index) => {
+        const popoverRef = useRef<{ open: boolean }>(null);
+
+        return (
+          <div key={`actions-${index}`} slot={`actions-${index}`}>
+            <IcButton
+              id={`popover-anchor-${index}`}
+              onClick={() => {
+                if (popoverRef.current) {
+                  popoverRef.current.open = !popoverRef.current.open;
+                }
+              }}
+            >
+              {index + 1}
+            </IcButton>
+            <IcPopoverMenu
+              ref={popoverRef}
+              anchor={`popover-anchor-${index}`}
+              aria-label="popover"
+            >
+              <IcMenuItem label="Copy code"></IcMenuItem>
+              <IcMenuItem label="Logout" variant="destructive"></IcMenuItem>
+            </IcPopoverMenu>
+          </div>
+        );
+      })}
+    </IcDataTable>
+  );
 };

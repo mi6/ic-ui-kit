@@ -242,6 +242,21 @@ describe("IcAlert visual regression and a11y tests", () => {
     });
   });
 
+  it("should render a focussed dismissible alert", () => {
+    mount(<Dismissible />);
+
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.wait(500);
+
+    cy.findShadowEl(ALERT_SELECTOR, "ic-button").realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/dismissible-focussed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
   it("should render alert with title displayed above message responsively", () => {
     mount(<Responsive />);
 

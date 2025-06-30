@@ -12,7 +12,11 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import { getSlotElements, isPropDefined } from "../../utils/helpers";
-import { createPopper, Instance as PopperInstance } from "@popperjs/core";
+import {
+  createPopper,
+  Instance as PopperInstance,
+  Options,
+} from "@popperjs/core";
 import { IcThemeMode } from "../../utils/types";
 
 const MENU_SELECTOR = "div.menu-body";
@@ -36,6 +40,7 @@ export class PopoverMenu {
 
   @State() openingFromChild: boolean = false;
   @State() openingFromParent: boolean = false;
+  @State() popperProps: Partial<Options> = {};
 
   /**
    * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
@@ -296,6 +301,15 @@ export class PopoverMenu {
     }
   }
 
+  /**
+   * @internal This method allows props to be added to the PopperJS createPopper instance outside of the popover menu
+   * @param props object - createPopper props set externally
+   */
+  @Method()
+  async setExternalPopperProps<T extends Partial<Options>>(props: T) {
+    this.popperProps = props;
+  }
+
   private getNextItemToSelect = (
     currentItem: number,
     movingDown: boolean
@@ -369,6 +383,7 @@ export class PopoverMenu {
             },
           },
         ],
+        ...this.popperProps,
       });
     }
   };

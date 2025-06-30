@@ -208,13 +208,16 @@ export const getInputValidationTextID = (id: string): string =>
   id + "-validation-text";
 
 export const getInputDescribedByText = (
+  el: HTMLElement,
   inputId: string,
   helperText: boolean,
   validationText: boolean
 ): string =>
-  `${helperText ? getInputHelperTextID(inputId) : ""} ${
-    validationText ? getInputValidationTextID(inputId) : ""
-  }`.trim();
+  `${
+    isSlotUsed(el, "helper-text") || helperText
+      ? getInputHelperTextID(inputId)
+      : ""
+  } ${validationText ? getInputValidationTextID(inputId) : ""}`.trim();
 
 /**
  * This method helps to understand the context in which a component exists,

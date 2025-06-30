@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/jsx-no-bind */
 import React, { useState, useRef } from "react";
-import { IcTextField, IcButton } from "../components";
+import { IcButton, IcLink, IcTextField, IcTypography } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const SlottedIcon = () => (
@@ -141,18 +141,27 @@ export const HelperText = {
   render: () => (
     <>
       <IcTextField
-      label="What is your favourite coffee?"
-      required
-      placeholder="Placeholder"
-      helperText="Such as Arabica, Robusta or Liberica"
-    />
-    <IcTextField
-      rows="6"
-      label="What is your favourite coffee?"
-      required
-      placeholder="Placeholder"
-      helperText="Such as Arabica, Robusta or Liberica"
-    />
+        label="What is your favourite coffee?"
+        required
+        placeholder="Placeholder"
+        helperText="Such as Arabica, Robusta or Liberica"
+      />
+      <IcTextField
+        rows="6"
+        label="What is your favourite coffee?"
+        required
+        placeholder="Placeholder"
+        helperText="Such as Arabica, Robusta or Liberica"
+      />
+      <IcTextField
+        label="What is your favourite coffee?"
+        required
+        placeholder="Placeholder"
+      ><IcTypography variant="caption" slot="helper-text">
+          <span>
+            Slotted helper text with a <IcLink href="#">link</IcLink>
+          </span>
+        </IcTypography></IcTextField>
     </>
   ),
 

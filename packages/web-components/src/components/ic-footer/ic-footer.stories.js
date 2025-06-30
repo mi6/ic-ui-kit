@@ -151,7 +151,7 @@ export const Brand = {
           <ic-footer-link href="/">Get Started</ic-footer-link>
           <ic-footer-link href="/">Accessibility</ic-footer-link>
           <ic-footer-link href="/">Styles</ic-footer-link>
-          <ic-footer-link href="/">Components</ic-footer-link>
+          <ic-footer-link href="/" target="_blank">Components</ic-footer-link>
           <ic-footer-link href="/">Patterns</ic-footer-link>
           <ic-footer-link href="/">Design toolkit</ic-footer-link>
         </ic-footer-link-group>

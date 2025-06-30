@@ -69,6 +69,11 @@ export class SideNavigation {
   @Prop() appTitle?: string;
 
   /**
+   * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+   */
+  @Prop() closeOnNavItemClick?: boolean = false;
+
+  /**
    * If `true`, the icon and label will appear when side navigation is collapsed.
    */
   @Prop() collapsedIconLabels?: boolean = false;
@@ -152,6 +157,13 @@ export class SideNavigation {
 
     this.setExpandedButtonHeight();
 
+    if (this.closeOnNavItemClick) {
+      this.el.addEventListener(
+        "navItemClicked",
+        this.handleNavItemClicked as EventListener
+      );
+    }
+
     !isSlotUsed(this.el, "app-title") &&
       onComponentRequiredPropUndefined(
         [{ prop: this.appTitle, propName: "app-title" }],
@@ -165,6 +177,13 @@ export class SideNavigation {
     }
 
     this.el?.removeEventListener("transitionend", this.transitionEndHandler);
+
+    if (this.closeOnNavItemClick) {
+      this.el.removeEventListener(
+        "navItemClicked",
+        this.handleNavItemClicked as EventListener
+      );
+    }
   }
 
   @Listen("brandChange", { target: "document" })
@@ -243,9 +262,7 @@ export class SideNavigation {
   };
 
   private toggleMenuExpanded = (expanded: boolean): void => {
-    if (this.deviceSize > DEVICE_SIZES.S) {
-      this.menuExpanded = expanded;
-    }
+    this.menuExpanded = expanded;
 
     if (this.menuExpanded) {
       this.setAndRemoveNoWrapAfterMenuExpanded();
@@ -498,6 +515,18 @@ export class SideNavigation {
     this.menuExpanded = expanded;
   };
 
+  private handleNavItemClicked = () => {
+    if (
+      !this.menuOpen &&
+      this.deviceSize > DEVICE_SIZES.S &&
+      this.menuExpanded
+    ) {
+      setTimeout(() => {
+        this.toggleMenuExpanded(false);
+      }, 0);
+    }
+  };
+
   /**
    * As the mobile top bar is fixed, a padding top is required
    * to push main content down the height of the mobile top bar
@@ -535,25 +564,26 @@ export class SideNavigation {
   private resizeObserverCallback = (currSize: number) => {
     this.deviceSize = currSize;
 
-    const isSmallAndDisableTopBar =
+    const isSDeviceEnableTop =
       currSize === DEVICE_SIZES.S && !this.disableTopBarBehaviour;
 
     if (!this.disableAutoParentStyling) {
       const topBarHeight =
         this.el.shadowRoot?.querySelector(".top-bar")?.scrollHeight;
-      this.setParentPaddingTop(
-        isSmallAndDisableTopBar ? `${topBarHeight}px` : "0"
-      );
-      if (isSmallAndDisableTopBar) this.setParentPaddingLeft("0");
-      if (isSmallAndDisableTopBar && this.inline) {
+      this.setParentPaddingTop(isSDeviceEnableTop ? `${topBarHeight}px` : "0");
+      if (isSDeviceEnableTop) this.setParentPaddingLeft("0");
+      if (isSDeviceEnableTop && this.inline) {
         this.el.parentElement?.style.setProperty(
           "height",
           `calc(100% - ${topBarHeight}px)`
         );
-      } else if (!isSmallAndDisableTopBar) {
+      } else if (!isSDeviceEnableTop) {
         this.el.parentElement?.style.setProperty("height", "100%");
       }
     }
+
+    const notSmallDisableTop =
+      currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour;
 
     if (!this.disableAutoParentStyling) {
       const paddingLeft = `calc(var(--ic-space-xxl) ${
@@ -564,15 +594,12 @@ export class SideNavigation {
         this.setParentPaddingTop("0");
         this.setParentPaddingLeft("0");
       } else if (
-        (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
+        notSmallDisableTop &&
         currSize <= DEVICE_SIZES.M &&
         this.static
       ) {
         this.setParentPaddingLeft(paddingLeft);
-      } else if (
-        (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
-        currSize <= DEVICE_SIZES.L
-      ) {
+      } else if (notSmallDisableTop && currSize <= DEVICE_SIZES.L) {
         this.setParentPaddingLeft(
           this.static && this.menuExpanded
             ? "calc(var(--ic-space-xl) * 10)"
@@ -718,11 +745,13 @@ export class SideNavigation {
 
     const isSDevice =
       !this.disableTopBarBehaviour && this.deviceSize === DEVICE_SIZES.S;
+    const isSDeviceDisableTop =
+      this.disableTopBarBehaviour && this.deviceSize === DEVICE_SIZES.S;
     const isMdDevice = this.deviceSize === DEVICE_SIZES.M;
     const isLgDevice = this.deviceSize >= DEVICE_SIZES.L;
     const isAppNameSubtitleVariant = this.deviceSizeAppTitle === DEVICE_SIZES.S;
     const displayExpandBtn =
-      isMdDevice || this.disableTopBarBehaviour || (isLgDevice && !this.static);
+      isMdDevice || isSDeviceDisableTop || (isLgDevice && !this.static);
 
     const topBarProps: IcTopBar = {
       isSDevice,

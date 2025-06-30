@@ -19,15 +19,16 @@
 | `selected`         | `selected`           | If `true`, the tree item appears in the selected state.                                                                                 | `boolean`                                                                                                                                                                                             | `false`     |
 | `target`           | `target`             | The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).                                     | `string \| undefined`                                                                                                                                                                                 | `undefined` |
 | `theme`            | `theme`              | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined`                                                                                                                                                         | `"inherit"` |
+| `treeItemId`       | `tree-item-id`       | Sets the tree item id. Must be unique.                                                                                                  | `string \| undefined`                                                                                                                                                                                 | `undefined` |
 | `truncateTreeItem` | `truncate-tree-item` | If `true`, the tree item label will be truncated instead of text wrapping.                                                              | `boolean \| undefined`                                                                                                                                                                                | `undefined` |
 
 
 ## Events
 
-| Event                | Description                         | Type                                    |
-| -------------------- | ----------------------------------- | --------------------------------------- |
-| `icTreeItemExpanded` | Emitted when tree item is expanded. | `CustomEvent<{ isExpanded: boolean; }>` |
-| `icTreeItemSelected` | Emitted when tree item is selected. | `CustomEvent<{ id: string; }>`          |
+| Event                | Description                         | Type                                                |
+| -------------------- | ----------------------------------- | --------------------------------------------------- |
+| `icTreeItemExpanded` | Emitted when tree item is expanded. | `CustomEvent<{ isExpanded: boolean; id: string; }>` |
+| `icTreeItemSelected` | Emitted when tree item is selected. | `CustomEvent<{ id: string; }>`                      |
 
 
 ## Methods

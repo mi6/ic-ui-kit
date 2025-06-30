@@ -91,7 +91,18 @@ export const HelperText = {
         placeholder="Placeholder"
         helper-text="Such as Arabica, Robusta or Liberica"
       >
-      </ic-text-field> `,
+      </ic-text-field>
+      <ic-text-field
+        label="What is your favourite coffee?"
+        required
+        placeholder="Placeholder"
+      >
+        <ic-typography variant="caption" slot="helper-text">
+          <span>
+            Slotted helper text with a <ic-link href="#">link</ic-link>
+          </span>
+        </ic-typography>
+      </ic-text-field>`,
 
   name: "Helper text",
 };

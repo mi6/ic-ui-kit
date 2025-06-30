@@ -142,15 +142,26 @@ export const HelperText = {
         label="What is your favourite coffee?"
         helper-text="Some helper text"
       ></ic-search-bar>
+      <br />
+      <ic-search-bar label="What is your favourite coffee?"
+        ><ic-typography variant="caption" slot="helper-text">
+          <span>
+            Slotted helper text with a <ic-link href="#">link</ic-link>
+          </span>
+        </ic-typography></ic-search-bar
+      >
       <script>
-        document.querySelector("ic-search-bar").options = [
-          { label: "Espresso", value: "espresso" },
-          { label: "Double Espresso", value: "doubleespresso" },
-          { label: "Flat White", value: "flatwhite" },
-          { label: "Cappuccino", value: "cappuccino" },
-          { label: "Americano", value: "americano" },
-          { label: "Mocha", value: "mocha" },
-        ];
+        document.querySelectorAll("ic-search-bar").forEach(
+          (el) =>
+            (el.options = [
+              { label: "Espresso", value: "espresso" },
+              { label: "Double Espresso", value: "doubleespresso" },
+              { label: "Flat White", value: "flatwhite" },
+              { label: "Cappuccino", value: "cappuccino" },
+              { label: "Americano", value: "americano" },
+              { label: "Mocha", value: "mocha" },
+            ])
+        );
       </script>`,
 
   name: "Helper text",
@@ -541,8 +552,7 @@ export const Playground = {
         label=${args.label}
         loading=${args.loading}
         placeholder=${args.placeholder}
-      >
-      </ic-search-bar>
+      ></ic-search-bar>
       <script>
         document.querySelector("ic-search-bar").options = [
           { label: "Espresso", value: "espresso" },

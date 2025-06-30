@@ -30,6 +30,7 @@ import {
   IcBrandForegroundEnum,
   IcThemeMode,
   IcButtonTooltipPlacement,
+  IcIconPlacementOptions,
 } from "../../utils/types";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
 
@@ -368,7 +369,7 @@ export class Button {
     }
   }
 
-  private getSlottedIcon = (position: "left" | "right" | "top") =>
+  private getSlottedIcon = (position: IcIconPlacementOptions) =>
     this.el.querySelector(`[slot="${position}-icon"]`);
 
   private hasRouterSlot() {
@@ -610,6 +611,7 @@ export class Button {
       ) : (
         <TagType
           class="button"
+          tabindex={0}
           aria-disabled={loading || disabled ? "true" : null}
           aria-label={loading ? "Loading" : ariaLabel}
           aria-expanded={dropdown && `${dropdownExpanded}`}

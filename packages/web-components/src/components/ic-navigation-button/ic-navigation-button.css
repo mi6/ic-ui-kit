@@ -15,6 +15,14 @@
   min-height: 2.5rem;
 }
 
+:host(:not(.in-side-menu)) ::part(button):focus {
+  box-shadow: var(--ic-border-focus-light);
+}
+
+:host(:not(.in-side-menu).dark) ::part(button):focus {
+  box-shadow: var(--ic-border-focus-dark);
+}
+
 :host(.in-side-menu) ::part(button) {
   color: var(--ic-top-navigation-icon-active);
 }

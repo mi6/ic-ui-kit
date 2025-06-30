@@ -98,6 +98,40 @@ export const NestedSlotted = {
   name: "Nested - slotted",
 };
 
+
+export const CustomIDs = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView
+        heading="Menu"
+        treeItemData={[
+          { label: "Coffee", treeItemId: "coffee-1"},
+          { label: "Tea", treeItemId: "tea-1"},
+          { label: "Hot chocolate", treeItemId: "hot-chocolate-1" },
+        ]}
+      />
+    </div>
+  ),
+  name: "Custom IDs with Tree Item Data",
+};
+
+export const SlottedCustomIds = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        <IcTreeItem label="Coffee" treeItemId="coffee-1">
+          <IcTreeItem label="Americano" treeItemId="americano-1">
+            <IcTreeItem label="With milk" treeItemId="with-milk-1" />
+          </IcTreeItem>
+        </IcTreeItem>
+        <IcTreeItem label="Tea" treeItemId="tea-1" />
+      </IcTreeView>
+    </div>
+  ),
+  name: "Custom IDs with Slotted",
+};
+
+
 export const WithIcons = {
   render: () => (
     <div style={{ width: "250px" }}>
@@ -745,58 +779,6 @@ export const ExpandedSlotted = {
   name: "Expanded - slotted",
 };
 
-/**
- * An example with the tree item `focusInset` prop set to `true`. This sets the focus indicator to appear inside the tree item, around the label.
- */
-export const FocusInset = {
-  render: () => (
-    <div style={{ width: "250px" }}>
-      <IcTreeView 
-        heading="Menu" 
-        focusInset
-        treeItemData={[
-        {
-          label: "Coffee",
-          children: [
-            { label: "Americano", children: [{ label: "With milk" }] },
-            { label: "Latte" },
-            { label: "Espresso" },
-          ],
-        },
-        {
-          label: "Tea",
-          children: [{ label: "Earl grey" }, { label: "Chai" }],
-        },
-        { label: "Hot chocolate" },
-      ]}
-      />
-    </div>
-  ),
-  name: "Focus inset",
-};
-
-export const FocusInsetSlotted = {
-  render: () => (
-    <div style={{ width: "250px" }}>
-      <IcTreeView heading="Menu" focusInset>
-        <IcTreeItem label="Coffee">
-          <IcTreeItem label="Americano">
-            <IcTreeItem label="With milk" />
-          </IcTreeItem>
-          <IcTreeItem label="Latte" />
-          <IcTreeItem label="Espresso" />
-        </IcTreeItem>
-        <IcTreeItem label="Tea">
-          <IcTreeItem label="Earl Grey" />
-          <IcTreeItem label="Chai" />
-        </IcTreeItem>
-        <IcTreeItem label="Hot chocolate" />
-      </IcTreeView>
-    </div>
-  ),
-  name: "Focus inset - slotted",
-};
-
 export const UpdatingOptions = {
   render: () => {
     const [treeItems, setTreeItems] = useState([
@@ -878,10 +860,10 @@ const defaultArgs = {
   truncateTreeItems: false,
   treeItemDisabled: false,
   treeItemHref: "",
+  treeItemId: "",
   treeItemLabel: "Coffee",
   treeItemSelected: false,
   showTreeItemIcon: false,
-  focusInset: false,
   theme: "inherit",
 };
 
@@ -890,7 +872,6 @@ export const Playground = {
     <IcTreeView 
       heading={args.heading}
       size={args.size}
-      focusInset={args.focusInset}
       theme={args.theme}
       truncateTreeItems={args.truncateTreeItems}
       treeItemData={[
@@ -899,7 +880,8 @@ export const Playground = {
           href: args.treeItemHref,
           disabled: args.treeItemDisabled,
           selected: args.treeItemSelected,
-          icon: args.showTreeItemIcon && '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>'
+          icon: args.showTreeItemIcon && '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+          treeItemId: args.treeItemId
         },
         { label: "Tea" },
         { label: "Hot chocolate" }
@@ -928,10 +910,10 @@ const defaultSlottedArgs = {
   truncateTreeItems: false,
   treeItemDisabled: false,
   treeItemHref: "",
+  treeItemId: "",
   treeItemLabel: "Coffee",
   treeItemSelected: false,
   showTreeItemIcon: false,
-  focusInset: false,
   theme: "inherit",
 };
 
@@ -943,7 +925,6 @@ export const PlaygroundSlotted = {
     <IcTreeView
       heading={args.heading}
       size={args.size}
-      focusInset={args.focusInset}
       theme={args.theme}
       truncateHeading={args.truncateHeading}
       truncateTreeItems={args.truncateTreeItems}
@@ -962,6 +943,7 @@ export const PlaygroundSlotted = {
         disabled={args.treeItemDisabled}
         selected={args.treeItemSelected}
         href={args.treeItemHref}
+        treeItemId={args.treeItemId}
       >
         {args.showTreeItemIcon && (
           <SlottedSVG

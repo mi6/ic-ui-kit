@@ -214,9 +214,17 @@
   border-radius: 2%;
 }
 
+.dynamic-field-container {
+  flex: 100%;
+}
+
 @media (max-width: 576px) {
-  ::slotted(ic-text-field) {
+  ::slotted(*) {
     --input-width: 100%;
+  }
+
+  .dynamic-field-container {
+    flex: initial;
   }
 }
 

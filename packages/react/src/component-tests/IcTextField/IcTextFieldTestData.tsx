@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useRef, useState, ReactElement } from "react";
-import { IcTextField, IcButton } from "../../components";
+import { IcButton, IcTextField, IcTypography } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const style = { display: "flex", justifyContent: "center", margin: "2rem" };
@@ -483,5 +483,22 @@ export const DarkThemeReadOnly = (): ReactElement => (
 export const HiddenInput = (): ReactElement => (
   <div style={style}>
     <IcTextField label="my label" />
+  </div>
+);
+
+export const HelperTextSlot = (): ReactElement => (
+  <div style={style}>
+    <IcTextField
+      maxCharacters={25}
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      placeholder="Please enter…"
+    >
+      <ReusableSlottedIcon />
+      <IcTypography variant="caption" slot="helper-text">
+        <span>Such as Arabica, Robusta or Liberica</span>
+      </IcTypography>
+    </IcTextField>
   </div>
 );

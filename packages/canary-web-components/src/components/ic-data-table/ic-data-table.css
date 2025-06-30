@@ -119,17 +119,23 @@ table {
 }
 
 .table-row-selected {
-  background-color: var(--ic-data-table-cell-background-selected) !important;
+  background-image: linear-gradient(
+    var(--ic-data-table-cell-background-selected) 0 0
+  );
+  background-color: var(--ic-data-table-cell-background) !important;
 }
 
 .table-row:hover {
-  background-color: var(--ic-data-table-cell-background-hover) !important;
+  background-image: linear-gradient(
+    var(--ic-data-table-cell-background-hover) 0 0
+  );
+  background-color: var(--ic-data-table-cell-background) !important;
 }
 
 .table-row-selected:hover {
-  background-color: var(
-    --ic-data-table-cell-background-selected-hover
-  ) !important;
+  background-image: linear-gradient(
+    var(--ic-data-table-cell-background-selected-hover) 0 0
+  );
 }
 
 .sort-button {
@@ -264,27 +270,25 @@ td.table-density-spacious {
 .data-type-string,
 .data-type-address {
   text-align: left;
-  vertical-align: top;
 }
 
 .data-type-number,
 .data-type-date {
   text-align: right;
   justify-content: end;
-  vertical-align: top;
 }
 
-.cell-alignment-top {
+.cell-vertical-align-top {
   vertical-align: top;
   align-items: flex-start;
 }
 
-.cell-alignment-middle {
+.cell-vertical-align-middle {
   vertical-align: middle;
   align-items: center;
 }
 
-.cell-alignment-bottom {
+.cell-vertical-align-bottom {
   vertical-align: bottom;
   align-items: flex-end;
 }
@@ -495,7 +499,7 @@ td.table-density-spacious {
 }
 
 .cell-description-text {
-  color: var(--ic-data-table-cell-description-text);
+  color: var(--ic-data-table-cell-data-description);
 }
 
 .cell-description-icon {

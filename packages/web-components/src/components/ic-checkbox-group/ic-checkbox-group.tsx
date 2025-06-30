@@ -24,6 +24,9 @@ import { IcChangeEventDetail } from "./ic-checkbox-group.types";
 
 const CHECKBOX_SELECTOR = "ic-checkbox";
 
+/**
+ * @slot helper-text - Content is set as the helper text for the checkbox group.
+ */
 @Component({
   tag: "ic-checkbox-group",
   styleUrl: "ic-checkbox-group.css",
@@ -172,6 +175,7 @@ export class CheckboxGroup {
     } = this;
 
     const describedBy = getInputDescribedByText(
+      this.el,
       name,
       helperText !== "",
       validationStatus !== ""
@@ -213,7 +217,9 @@ export class CheckboxGroup {
                 required={required}
                 disabled={disabled}
                 useLabelTag={false}
-              ></ic-input-label>
+              >
+                <slot name="helper-text" slot="helper-text"></slot>
+              </ic-input-label>
             </legend>
           )}
           <div class="checkboxes-container">

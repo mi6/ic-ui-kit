@@ -44,7 +44,7 @@ beforeAll(() => {
 });
 
 describe("ic-theme", () => {
-  it("should set theme colour with hex", async () => {
+  it("should set brand colour with hex", async () => {
     const page = await newSpecPage({
       components: [Theme],
       html: `<ic-theme brand-color="#FFC0CB"></ic-theme>`,
@@ -53,7 +53,7 @@ describe("ic-theme", () => {
     expectRGBToBe(page, "255", "192", "203");
   });
 
-  it("should set theme colour with 3 character hex", async () => {
+  it("should set brand colour with 3 character hex", async () => {
     const page = await newSpecPage({
       components: [Theme],
       html: `<ic-theme brand-color="#FFF"></ic-theme>`,
@@ -62,7 +62,7 @@ describe("ic-theme", () => {
     expectRGBToBe(page, "255", "255", "255");
   });
 
-  it("should set theme colour with rgb", async () => {
+  it("should set brand colour with rgb", async () => {
     const page = await newSpecPage({
       components: [Theme],
       html: `<ic-theme brand-color="rgb(159, 43, 104)"></ic-theme>`,
@@ -71,7 +71,7 @@ describe("ic-theme", () => {
     expectRGBToBe(page, "159", "43", "104");
   });
 
-  it("should set theme colour with rgba", async () => {
+  it("should set brand colour with rgba", async () => {
     const page = await newSpecPage({
       components: [Theme],
       html: `<ic-theme brand-color="rgba(159, 43, 104, 1)"></ic-theme>`,
@@ -79,7 +79,7 @@ describe("ic-theme", () => {
     expectRGBToBe(page, "159", "43", "104");
   });
 
-  it("should test updating theme color", async () => {
+  it("should test updating brand color", async () => {
     mockThemeColorContrastFail();
 
     const page = await newSpecPage({
@@ -112,5 +112,46 @@ describe("ic-theme", () => {
     await page.waitForChanges();
 
     expect(page.root).toHaveClass("ic-theme-light");
+  });
+
+  it("should emit brandChange event when brandColor is changed", async () => {
+    const page = await newSpecPage({
+      components: [Theme],
+      html: `<ic-theme></ic-theme>`,
+    });
+
+    Object.defineProperty(page.rootInstance, "checkBrandColorContrast", {
+      value: jest.fn(),
+    });
+
+    const appearanceFunc = jest.fn(() => {
+      return "dark";
+    });
+
+    Object.defineProperty(helpers, "getBrandForegroundAppearance", {
+      value: appearanceFunc,
+    });
+
+    const component = document.querySelector("ic-theme");
+    const eventSpy = jest.fn();
+
+    component?.addEventListener("brandChange", eventSpy);
+
+    page.rootInstance.brandColor = "rgba(133, 133, 133, 1)";
+    await page.waitForChanges();
+
+    expect(eventSpy).toBeCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          mode: "dark",
+          color: {
+            a: 1,
+            b: 133,
+            g: 133,
+            r: 133,
+          },
+        }),
+      })
+    );
   });
 });

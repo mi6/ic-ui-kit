@@ -187,6 +187,17 @@ export const ToggleGroupFullWidth = (): ReactElement => {
   );
 };
 
+export const ToggleGroupNextToSingularToggle = (): ReactElement => (
+  <div style={{ display: "flex", flexDirection: "row", margin: "1rem" }}>
+    <IcToggleButtonGroup>
+      <IcToggleButton label="First toggle"></IcToggleButton>
+      <IcToggleButton label="Second toggle"></IcToggleButton>
+      <IcToggleButton label="Third toggle"></IcToggleButton>
+    </IcToggleButtonGroup>
+    <IcToggleButton label="First toggle"></IcToggleButton>
+  </div>
+);
+
 export const ToggleGroupCustomWidth = (): ReactElement => {
   return (
     <div style={{ margin: "1rem" }}>

@@ -499,7 +499,15 @@ export const WithGroupNavigation = {
         expandable="true"
         slot="navigation"
       >
-        <IcNavigationItem label="One" href="/" />
+        <IcNavigationItem label="One" href="/">
+          <IcBadge
+            label="1"
+            slot="badge"
+            custom-color="#d4351c"
+            variant="custom"
+            theme="dark"
+          ></IcBadge>
+        </IcNavigationItem>
         <IcNavigationItem label="Two" href="/" />
         <IcNavigationItem label="Three" href="/" />
         <IcNavigationItem label="Four" href="/" />

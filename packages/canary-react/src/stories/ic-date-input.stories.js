@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useArgs } from "@storybook/preview-api";
-import { IcButton } from "@ukic/react";
+import { IcButton, IcLink, IcTypography } from "@ukic/react";
 import React, { useState } from "react";
 import readme from "../../../canary-web-components/src/components/ic-date-input/readme.md";
 import { IcDateInput } from "../components";
@@ -194,14 +194,26 @@ export const Sizes = {
 };
 
 /**
- * Use the helper text to add additional detail for the date input.
+ * Use the helper text to add additional detail for the date input. Display custom content using the `helper-text` slot.
  */
 export const HelperText = {
   render: () => (
+    <>
     <IcDateInput
       label="When would you like to collect your coffee?"
       helperText="We will have your order ready for you on this date"
     />
+    <br />
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+    >
+      <IcTypography variant="caption" slot="helper-text">
+        <span>
+          For special requests, <IcLink href="#" >contact us</IcLink> before choosing a date
+        </span>
+      </IcTypography>
+    </IcDateInput>
+    </>
   ),
   name: "Custom helper text",
 };

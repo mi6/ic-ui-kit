@@ -6,4 +6,6 @@ export interface IcLoadingCircleXYR {
   x: number;
   y: number;
   r: number;
+  dashArray?: string;
+  dashOffset?: string;
 }

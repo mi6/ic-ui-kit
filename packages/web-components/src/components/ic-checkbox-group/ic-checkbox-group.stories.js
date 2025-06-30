@@ -336,6 +336,28 @@ export const HelperText = {
         Disabled
       ></ic-checkbox>
     </ic-checkbox-group>
+    <br />
+    <ic-checkbox-group label="This is a label" name="group2">
+      <ic-typography variant="caption" slot="helper-text">
+        <span>
+          Slotted helper text with a <ic-link href="#">link</ic-link>
+        </span>
+      </ic-typography>
+      <ic-checkbox
+        value="valueName1"
+        label="Unselected / Default"
+      ></ic-checkbox>
+      <ic-checkbox
+        value="valueName2"
+        label="Selected / Default"
+        checked
+      ></ic-checkbox>
+      <ic-checkbox
+        value="valueName3"
+        label="Unselected / Disabled"
+        Disabled
+      ></ic-checkbox>
+    </ic-checkbox-group>
   `,
 
   name: "Helper text",
