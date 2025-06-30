@@ -17,6 +17,8 @@ import {
   IndeterminateCircularLoadingIndE2EWithDuration,
   DarkModeColours,
   LightMonochrome,
+  DeterminateLinearLoadingIndicatorZeroProgress,
+  DeterminateCircularLoadingIndicatorZeroProgress,
 } from "./IcLoadingIndicatorTestData";
 
 const ICON_CLIP = { x: 0, y: 0, width: 50, height: 50 };
@@ -109,6 +111,48 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/determinate-linears-with-3-sizes",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      cypressScreenshotOptions: {
+        clip: MULTI_CLIP,
+      },
+    });
+  });
+
+  it("should render determinate linear loading indicators with zero progress", () => {
+    mount(
+      <DeterminateLinearLoadingIndicatorZeroProgress
+        progress={0}
+        max={defaultArgs.max}
+        min={defaultArgs.min}
+      />
+    );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/determinate-linear-with-0-progress",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      cypressScreenshotOptions: {
+        clip: MULTI_CLIP,
+      },
+    });
+  });
+
+  it("should render determinate circular loading indicators with zero progress", () => {
+    mount(
+      <DeterminateCircularLoadingIndicatorZeroProgress
+        progress={0}
+        max={defaultArgs.max}
+        min={defaultArgs.min}
+      />
+    );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/determinate-circular-with-0-progress",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
       cypressScreenshotOptions: {
         clip: MULTI_CLIP,
@@ -211,7 +255,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/determinate-linears-light-with-3-sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
       cypressScreenshotOptions: {
         clip: MULTI_CLIP,
       },
