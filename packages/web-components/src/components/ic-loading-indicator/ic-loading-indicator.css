@@ -87,6 +87,11 @@
   overflow: hidden;
 }
 
+.ic-loading-circular-outer[aria-valuenow="0"] .ic-loading-circular-inner,
+.ic-loading-linear-outer[aria-valuenow="0"] .ic-loading-linear-inner {
+  --inner-color: var(--outer-color);
+}
+
 .ic-loading-linear-inner {
   position: relative;
   height: 100%;
