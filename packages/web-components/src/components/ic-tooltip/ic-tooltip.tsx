@@ -92,6 +92,12 @@ export class Tooltip {
    * The text to display on the tooltip.
    */
   @Prop() label!: string;
+  @Watch("label")
+  watchLabelHandler(): void {
+    if (this.toolTip?.hasAttribute("data-show") && this.popperInstance) {
+      this.popperInstance.update();
+    }
+  }
 
   @State() popperProps: Partial<Options> = {};
 
