@@ -16,6 +16,7 @@ import {
   ExternalNoPersist,
   External,
   LargeLabel,
+  ChangingLabel,
 } from "./IcTooltipTestData";
 import {
   BE_VISIBLE,
@@ -531,6 +532,19 @@ describe("IcTooltip visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/on-chip",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: 200,
+    });
+  });
+
+  it("should update tooltip position when changing label", () => {
+    mount(<ChangingLabel />);
+
+    cy.get("#ic-tooltip-changing-label").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/changing-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
       delay: 200,
     });
   });
