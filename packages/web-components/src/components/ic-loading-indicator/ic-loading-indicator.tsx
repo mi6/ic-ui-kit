@@ -77,11 +77,6 @@ export class LoadingIndicator {
    * Used to calculate the proportional width of the progress bar.
    */
   @Prop() min = 0;
-  @Watch("max")
-  @Watch("min")
-  minMaxChangeHandler(): void {
-    if (this.type === "circular") this.setCircleDimensions();
-  }
 
   /**
    * If `true`, the element will display as black and white.
@@ -93,8 +88,10 @@ export class LoadingIndicator {
    * If not provided, component acts as an indeterminate loading indicator.
    */
   @Prop() progress?: number;
+  @Watch("max")
+  @Watch("min")
   @Watch("progress")
-  watchProgressHandler(): void {
+  handleProgressChange(): void {
     if (this.type === "linear") {
       this.setLinearDeterminateWidth();
     } else {
@@ -128,8 +125,8 @@ export class LoadingIndicator {
           "--circular-line-width",
           `${this.circularLineWidth}px`
         );
-        this.setCircleDimensions();
       }
+      this.setCircleDimensions();
     } else {
       this.setLinearDeterminateWidth();
     }
@@ -189,12 +186,16 @@ export class LoadingIndicator {
     return LOADING_INDICATOR_WIDTHS[this.size];
   };
 
+  private calculateProportion = (progress: number) => {
+    const minProgress = Math.min(this.max, Math.max(this.min, progress));
+    return (minProgress - this.min) / (this.max - this.min);
+  };
+
   private setLinearDeterminateWidth = () => {
     // Ensure progress cannot be out of bounds
     if (!this.innerElement || !this.progress) return;
 
-    const progress = Math.min(this.max, Math.max(this.min, this.progress));
-    const proportion = (progress - this.min) / (this.max - this.min);
+    const proportion = this.calculateProportion(this.progress);
     this.clipInnerElement = proportion > 0.5;
     if (this.clipInnerElement) {
       this.innerElement.classList.remove("clip");
@@ -222,49 +223,40 @@ export class LoadingIndicator {
   };
 
   private setCircleDimensions = () => {
-    let dashOffset = undefined;
-
     if (this.circularDiameter <= 0) return;
 
     const r = this.circularDiameter / 2;
     const nextRadius = r - this.circularLineWidth / 2;
-
     const dashArray = 2 * Math.PI * nextRadius;
-
-    if (this.progress) {
-      const progress = Math.min(Math.max(this.progress, this.min), this.max);
-      dashOffset = `${
-        (-1 - (progress - this.min) / (this.max - this.min)) * dashArray
-      }px`;
-    }
 
     this.circularDimensions = {
       x: r,
       y: r,
       r: nextRadius,
       dashArray: `${dashArray}px`,
-      dashOffset,
+      dashOffset: this.progress
+        ? `${(-1 - this.calculateProportion(this.progress)) * dashArray}px`
+        : undefined,
     };
   };
 
   render() {
     const {
-      theme,
-      label,
-      description,
-      size,
-      fullWidth,
-      innerLabel,
-      monochrome,
-      type,
-      progress,
-      min,
-      max,
       circularDiameter,
+      circularDimensions: { x, y, r, dashArray, dashOffset },
+      description,
+      fullWidth,
       indicatorLabel,
-      circularDimensions,
+      innerLabel,
+      label,
+      max,
+      min,
+      monochrome,
+      progress,
+      size,
+      theme,
+      type,
     } = this;
-    const { x, y, r, dashArray, dashOffset } = circularDimensions;
 
     return (
       <Host
@@ -327,7 +319,7 @@ export class LoadingIndicator {
             <ic-typography
               id="ic-loading-label"
               class="ic-loading-label"
-              role="status"
+              role="alert"
               variant={this.getLabelVariant()}
             >
               <p>{indicatorLabel}</p>
