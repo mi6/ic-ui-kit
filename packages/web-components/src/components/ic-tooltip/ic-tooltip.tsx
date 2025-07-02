@@ -21,13 +21,12 @@ import { IcThemeMode } from "../../utils/types";
 export class Tooltip {
   private arrow: HTMLDivElement;
   private delayedHideEvents = ["mouseleave"];
-  private dialogOverflow = false;
+  private onDialog: boolean = false;
   private icDialogEl: HTMLIcDialogElement | null;
   private instantHideEvents = ["focusout"];
   private mouseOverTool: boolean = false;
   private persistTooltip = false;
   private popperInstance: Instance;
-  private onDialog: boolean = false;
   private showEvents = [
     !this.disableHover && "mouseenter",
     !this.disableHover && "focusin",
@@ -71,7 +70,7 @@ export class Tooltip {
   /**
    * The position of the tooltip in relation to the parent element.
    */
-  @Prop({ mutable: true }) placement?: IcTooltipPlacements = "bottom";
+  @Prop() placement?: IcTooltipPlacements = "bottom";
 
   /**
    * @internal Sets the tooltip to aria-hidden, when used as part of components that are already announced.
@@ -120,9 +119,7 @@ export class Tooltip {
   componentDidLoad(): void {
     this.manageEventListeners("add");
 
-    this.icDialogEl = this.el.closest("ic-dialog");
-    this.dialogOverflow =
-      this.icDialogEl?.getAttribute("data-overflow") === "true";
+    this.icDialogEl = this.findClosestDialog(this.el);
 
     this.onDialog = this.icDialogEl !== null;
 
@@ -162,89 +159,24 @@ export class Tooltip {
     return Promise.resolve(this.toolTip.hasAttribute("data-show"));
   }
 
-  private getTooltipTranslate = (dialogEl: DOMRect) => {
-    const child = this.el.children[0].getBoundingClientRect();
-    let tooltipX;
-    let tooltipY;
-    switch (this.placement) {
-      case "bottom":
-        tooltipX = child.left - dialogEl.left - 0.5 * child.width;
-        tooltipY = child.bottom - dialogEl.top;
-        break;
-      case "bottom-start":
-        tooltipX = child.left - dialogEl.left;
-        tooltipY = child.bottom - dialogEl.top;
-        break;
-      case "bottom-end":
-        tooltipX = child.right - dialogEl.right;
-        tooltipY = child.bottom - dialogEl.top;
-        break;
-      case "top":
-        tooltipX = child.left - dialogEl.left - 0.5 * child.width;
-        tooltipY = child.top - dialogEl.bottom;
-        break;
-      case "top-start":
-        tooltipX = child.left - dialogEl.left;
-        tooltipY = child.top - dialogEl.bottom;
-        break;
-      case "top-end":
-        tooltipX = child.right - dialogEl.right;
-        tooltipY = child.top - dialogEl.bottom;
-        break;
-      case "left":
-      case "left-start":
-        tooltipX = child.right - dialogEl.right - child.width;
-        tooltipY = child.bottom - dialogEl.top - child.height;
-        break;
-      case "left-end":
-        tooltipX = child.right - dialogEl.right - child.width;
-        tooltipY = child.top - dialogEl.bottom + child.height;
-        break;
-      case "right":
-      case "right-start":
-        tooltipX = child.left - dialogEl.left + child.width;
-        tooltipY = child.bottom - dialogEl.top - child.height;
-        break;
-      case "right-end":
-        tooltipX = child.left - dialogEl.left + child.width;
-        tooltipY = child.top - dialogEl.bottom + child.height;
-        break;
+  private findClosestDialog = (el: Element): HTMLIcDialogElement | null => {
+    let dialog: HTMLIcDialogElement | null = null;
+    if (el.closest("ic-dialog") !== null) {
+      dialog = el.closest("ic-dialog") as HTMLIcDialogElement;
+    } else if ((el.getRootNode() as ShadowRoot).host) {
+      dialog = (el.getRootNode() as ShadowRoot).host.closest(
+        "ic-dialog"
+      ) as HTMLIcDialogElement;
     }
-    if (this.dialogOverflow && tooltipX && tooltipX < 0) {
-      if (
-        this.placement!.includes("top") ||
-        this.placement!.includes("bottom")
-      ) {
-        this.toolTip.style.setProperty(
-          "--tooltip-arrow-translate",
-          `${tooltipX}px`
-        );
-        tooltipX = child.left - dialogEl.left;
-      }
-      if (this.placement!.includes("left")) {
-        this.placement = "right";
-        tooltipX = child.left - dialogEl.left + child.width;
-      }
-    }
-
-    this.toolTip.style.setProperty("--tooltip-translate-x", `${tooltipX}px`);
-    this.toolTip.style.setProperty("--tooltip-translate-y", `${tooltipY}px`);
+    return dialog;
   };
 
   private show = () => {
     if (this.label) {
       this.toolTip.setAttribute("data-show", "");
 
-      if (this.onDialog) {
-        this.el.classList.add("on-dialog");
-        const dialogEl = this.icDialogEl?.shadowRoot
-          ?.querySelector("dialog")
-          ?.getBoundingClientRect();
-
-        dialogEl && this.getTooltipTranslate(dialogEl);
-      }
-
       this.popperInstance = createPopper(this.el, this.toolTip, {
+        strategy: this.onDialog ? "fixed" : "absolute",
         placement: this.placement,
         modifiers: [
           {
