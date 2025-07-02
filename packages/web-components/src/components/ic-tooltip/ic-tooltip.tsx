@@ -120,7 +120,7 @@ export class Tooltip {
   componentDidLoad(): void {
     this.manageEventListeners("add");
 
-    this.icDialogEl = this.el.closest("ic-dialog");
+    this.icDialogEl = this.findClosestDialog(this.el);
     this.dialogOverflow =
       this.icDialogEl?.getAttribute("data-overflow") === "true";
 
@@ -161,6 +161,18 @@ export class Tooltip {
   async isTooltipVisible(): Promise<boolean> {
     return Promise.resolve(this.toolTip.hasAttribute("data-show"));
   }
+
+  private findClosestDialog = (el: Element): HTMLIcDialogElement | null => {
+    let dialog: HTMLIcDialogElement | null = null;
+    if (el.closest("ic-dialog") !== null) {
+      dialog = el.closest("ic-dialog") as HTMLIcDialogElement;
+    } else if ((el.getRootNode() as ShadowRoot).host) {
+      dialog = (el.getRootNode() as ShadowRoot).host.closest(
+        "ic-dialog"
+      ) as HTMLIcDialogElement;
+    }
+    return dialog;
+  };
 
   private getTooltipTranslate = (dialogEl: DOMRect) => {
     const child = this.el.children[0].getBoundingClientRect();
@@ -210,7 +222,9 @@ export class Tooltip {
         tooltipY = child.top - dialogEl.bottom + child.height;
         break;
     }
-    if (this.dialogOverflow && tooltipX && tooltipX < 0) {
+    let translateX: string = `${tooltipX}px`;
+    const overflowX = child.left > dialogEl.left;
+    if ((this.dialogOverflow || overflowX) && tooltipX && tooltipX < 0) {
       if (
         this.placement!.includes("top") ||
         this.placement!.includes("bottom")
@@ -219,15 +233,16 @@ export class Tooltip {
           "--tooltip-arrow-translate",
           `${tooltipX}px`
         );
-        tooltipX = child.left - dialogEl.left;
+        translateX = "var(--ic-space-md)";
       }
       if (this.placement!.includes("left")) {
         this.placement = "right";
         tooltipX = child.left - dialogEl.left + child.width;
+        translateX = `${tooltipX}px`;
       }
     }
 
-    this.toolTip.style.setProperty("--tooltip-translate-x", `${tooltipX}px`);
+    this.toolTip.style.setProperty("--tooltip-translate-x", translateX);
     this.toolTip.style.setProperty("--tooltip-translate-y", `${tooltipY}px`);
   };
 
