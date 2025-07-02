@@ -152,7 +152,7 @@ export class Alert {
     this.icDismiss.emit();
   };
 
-  private calculateMinHeight = (): void => {
+  private calculateMinHeight(): void {
     const contentHeight = Number(this.messageEl?.clientHeight);
 
     const minHeight = pxToRem(
@@ -161,7 +161,7 @@ export class Alert {
 
     if (this.el.style.getPropertyValue("--ic-alert-min-height") !== minHeight)
       this.el.style.setProperty("--ic-alert-min-height", minHeight);
-  };
+  }
 
   render() {
     const {
