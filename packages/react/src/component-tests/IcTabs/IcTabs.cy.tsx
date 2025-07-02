@@ -474,7 +474,7 @@ describe("IcTab visual regression tests", () => {
 
   it("should render responsive tabs with light text", () => {
     mount(
-      <div style={{ backgroundColor: "#17191C" }}>
+      <div style={{ backgroundColor: "var(--ic-color-page-background-dark)" }}>
         <ResponsiveLightTextTabs />
       </div>
     );
@@ -488,7 +488,7 @@ describe("IcTab visual regression tests", () => {
 
   it("should render IcTab with light appearance", () => {
     mount(
-      <div style={{ backgroundColor: "#17191C" }}>
+      <div style={{ backgroundColor: "var(--ic-color-page-background-dark)" }}>
         <LightTabs />
       </div>
     );
@@ -577,7 +577,7 @@ describe("IcTab visual regression tests", () => {
 
   it("should render focused light tab", () => {
     mount(
-      <div style={{ backgroundColor: "#17191C" }}>
+      <div style={{ backgroundColor: "var(--ic-color-page-background-dark)" }}>
         <LightTabs />
       </div>
     );

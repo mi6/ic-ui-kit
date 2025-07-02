@@ -169,7 +169,12 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
   it("should render BackToTop with dark theme", () => {
     mount(
-      <div style={{ padding: "10px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          padding: "10px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <BackToTop theme="dark" />
       </div>
     );
@@ -188,7 +193,12 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
   it("should render icon only BackToTop with dark theme", () => {
     mount(
-      <div style={{ padding: "10px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          padding: "10px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <BackToTop variant="icon" theme="dark" />
       </div>
     );

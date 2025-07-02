@@ -136,7 +136,7 @@ export const ThemeWithComponentThemeProps = (args: {
                 padding: "10px",
                 display: "flex",
                 gap: "10px",
-                backgroundColor: "#17191C",
+                backgroundColor: "var(--ic-color-page-background-dark)",
               }}
             >
               <IcSwitch label="Label" theme="dark" />
@@ -308,7 +308,7 @@ export const ThemeWithComponentWithinSeparateIcTheme = (args: {
                 backgroundColor: "black",
               }}
             >
-              <span style={{ color: "#ffffff" }}>
+              <span style={{ color: "var(--ic-color-page-background-light)" }}>
                 This content is in an IcTheme component with dark mode set
               </span>
               <IcTheme theme="dark">

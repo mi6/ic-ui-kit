@@ -134,7 +134,7 @@ describe("IcDivider visual and a11y testing", () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              backgroundColor: "#17191C",
+              backgroundColor: "var(--ic-color-page-background-dark)",
               width: "100%",
               padding: "var(--ic-space-xs) 0",
               gap: "var(--ic-space-sm)",
@@ -160,7 +160,7 @@ describe("IcDivider visual and a11y testing", () => {
             style={{
               display: "flex",
               justifyContent: "center",
-              backgroundColor: "#17191C",
+              backgroundColor: "var(--ic-color-page-background-dark)",
               height: "100%",
               gap: "var(--ic-space-sm)",
               padding: "0 var(--ic-space-xs)",

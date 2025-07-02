@@ -492,7 +492,12 @@ describe("IcTooltip visual regression and a11y tests", () => {
 
   it("should render a tooltip with dark background", () => {
     mount(
-      <div style={{ backgroundColor: "#17191C", height: "100px" }}>
+      <div
+        style={{
+          backgroundColor: "var(--ic-color-page-background-dark)",
+          height: "100px",
+        }}
+      >
         <Default />
       </div>
     );

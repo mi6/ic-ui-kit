@@ -236,7 +236,12 @@ export const WithHiddenStepInformation = () => {
 
 export const Light = () => {
   return (
-    <div style={{ padding: "100px", backgroundColor: "#17191C" }}>
+    <div
+      style={{
+        padding: "100px",
+        backgroundColor: "var(--ic-color-page-background-dark)",
+      }}
+    >
       <IcStepper theme="dark">
         <IcStep
           heading="Create"
@@ -252,7 +257,12 @@ export const Light = () => {
 
 export const LightCompact = () => {
   return (
-    <div style={{ padding: "10px", backgroundColor: "#17191C" }}>
+    <div
+      style={{
+        padding: "10px",
+        backgroundColor: "var(--ic-color-page-background-dark)",
+      }}
+    >
       <IcStepper theme="dark" variant="compact" id="standard-compact-stepper">
         <IcStep heading="First" />
         <IcStep

@@ -52,7 +52,7 @@ const preview = {
       const selectedTheme = context.globals.theme || "light";
       const backgroundColor =
         selectedTheme === "dark"
-          ? "#17191c"
+          ? "var(--ic-color-page-background-dark)"
           : "var(--ic-color-background-primary-light)";
       return (
         <>
