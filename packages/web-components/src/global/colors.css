@@ -381,6 +381,8 @@
   --ic-color-background-elevation-level-2: var(--ic-architectural-900);
   --ic-color-background-elevation-level-3: var(--ic-architectural-850);
   --ic-color-background-elevation-level-4: var(--ic-architectural-800);
+  --ic-color-page-background-light: var(--ic-architectural-white);
+  --ic-color-page-background-dark: var(--ic-architectural-900);
 
   /* status */
   --ic-color-background-success-light: var(--ic-green-1400);

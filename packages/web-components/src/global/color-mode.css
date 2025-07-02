@@ -31,6 +31,7 @@ ic-theme,
     --ic-color-background-destructive-pressed-light
   );
   --ic-color-background-neutral: var(--ic-color-background-neutral-light);
+  --ic-color-page-background: var(--ic-color-page-background-light);
 
   /* Borders */
   --ic-color-border-neutral-grey: var(--ic-color-border-neutral-grey-light);
@@ -1479,6 +1480,7 @@ ic-theme,
       --ic-color-background-destructive-pressed-dark
     );
     --ic-color-background-neutral: var(--ic-color-background-neutral-dark);
+    --ic-color-page-background: var(--ic-color-page-background-dark);
 
     /* Borders */
     --ic-color-border-neutral-grey: var(--ic-color-border-neutral-grey-dark);
@@ -3003,6 +3005,7 @@ ic-theme,
     --ic-color-background-destructive-pressed-dark
   );
   --ic-color-background-neutral: var(--ic-color-background-neutral-dark);
+  --ic-color-page-background: var(--ic-color-page-background-dark);
 
   /* Borders */
   --ic-color-border-neutral-grey: var(--ic-color-border-neutral-grey-dark);

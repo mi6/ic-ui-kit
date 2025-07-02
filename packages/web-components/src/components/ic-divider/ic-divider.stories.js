@@ -41,7 +41,7 @@ export const Theme = {
         label-placement="left"
       ></ic-divider>
       <div
-        style="display:flex; flex-direction: column; align-items: center; background-color: #fff; width: 100%; padding: var(--ic-space-xs) 0; gap: var(--ic-space-md)"
+        style="display:flex; flex-direction: column; align-items: center; background-color: var(--ic-color-page-background-light); width: 100%; padding: var(--ic-space-xs) 0; gap: var(--ic-space-md)"
       >
         <ic-divider
           theme="light"
@@ -58,7 +58,7 @@ export const Theme = {
         ></ic-divider>
       </div>
       <div
-        style="display:flex; flex-direction: column; align-items: center; background-color: #17191c; width: 100%; padding: var(--ic-space-xs) 0; gap: var(--ic-space-md)"
+        style="display:flex; flex-direction: column; align-items: center; background-color: var(--ic-color-page-background-dark); width: 100%; padding: var(--ic-space-xs) 0; gap: var(--ic-space-md)"
       >
         <ic-divider
           theme="dark"
@@ -270,7 +270,7 @@ export const Playground = {
   render: (args) => {
     const backgroundColor =
       args.theme === "dark"
-        ? "#17191c"
+        ? "var(--ic-color-page-background-dark)"
         : args.theme === "light"
         ? "var(--ic-color-background-primary-light)"
         : "transparent";
