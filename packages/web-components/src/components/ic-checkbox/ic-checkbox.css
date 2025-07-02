@@ -123,10 +123,13 @@
 }
 
 .checkbox-label {
-  padding-left: var(--ic-space-sm);
   color: var(--ic-checkbox-text);
 
   --ic-typography-color: var(--ic-checkbox-text);
+}
+
+.checkbox-label > label {
+  padding-left: var(--ic-space-sm);
 }
 
 :host(.ic-checkbox-disabled) .checkbox-label {
