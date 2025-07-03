@@ -932,9 +932,7 @@ export class DateInput {
       // (used https://www.hectane.com/blog/javascript-date-validation-with-leap-year)
       this.selectedDate = this.convertToDate(this.year, this.month, this.day);
       this.isValidDate =
-        !!this.selectedDate &&
-        +this.selectedDate !== 0 &&
-        this.selectedDate.getDate() == +this.day;
+        !!this.selectedDate && this.selectedDate.getDate() == +this.day;
       this.isDisabledDate = this.isSelectedDateDisabled();
 
       if (!this.isValidDate || this.isDisabledDate) {
