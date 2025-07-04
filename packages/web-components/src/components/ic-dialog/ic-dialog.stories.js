@@ -138,38 +138,47 @@ export const SlottedContent = {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
         </ic-typography>
-        <ic-radio-group label="This is a label" name="1">
-        <ic-radio-option
-          value="valueName1"
-          label="Unselected / Default" 
-          additional-field-display="dynamic"       
-        >
-          <ic-text-field
-            slot="additional-field"
-            placeholder="Placeholder"
-            label="What's your favourite type of coffee?"
+        <ic-accordion heading="This is an accordion">
+          <ic-checkbox label="Agree" value="confirm" additional-field-display="static">
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            />
+          </ic-checkbox>
+          <ic-radio-group label="This is a label" name="1">
+          <ic-radio-option
+            value="valueName1"
+            label="Unselected / Default" 
+            additional-field-display="dynamic"       
           >
-          </ic-text-field>
-        </ic-radio-option>
-        <ic-radio-option
-          value="valueName2"
-          label="Selected / Default"
-          additional-field-display="static"
-          selected
-        >
-          <ic-text-field
-            slot="additional-field"
-            placeholder="Placeholder"
-            label="What's your favourite type of coffee?"
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            >
+            </ic-text-field>
+          </ic-radio-option>
+          <ic-radio-option
+            value="valueName2"
+            label="Selected / Default"
+            additional-field-display="static"
+            selected
           >
-          </ic-text-field>
-        </ic-radio-option>
-        <ic-radio-option
-          value="valueName3"
-          label="Unselected / Disabled"
-          disabled
-        ></ic-radio-option>
-      </ic-radio-group>
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            >
+            </ic-text-field>
+          </ic-radio-option>
+          <ic-radio-option
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-radio-option>
+        </ic-radio-group>
+      </ic-accordion>
       <ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
       <ic-text-field label="What is your favourite coffee?"></ic-text-field>
       <ic-select

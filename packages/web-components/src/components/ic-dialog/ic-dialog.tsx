@@ -420,7 +420,7 @@ export class Dialog {
       isHidden ||
       (element.getAttribute("type") === "radio" &&
         !!radioEl &&
-        !radioEl.hasAttribute("selected"))
+        !(radioEl.hasAttribute("selected") || element.tabIndex === 0))
     );
   };
 
