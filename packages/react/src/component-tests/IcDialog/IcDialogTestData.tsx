@@ -249,6 +249,62 @@ export const LotsOfSlottedContentDialog = () => {
   );
 };
 
+export const SlottedUnselectedRadiosDialog = () => {
+  return (
+    <>
+      <IcDialog disableWidthConstraint size="large" open>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.75rem",
+          }}
+        >
+          <IcTypography slot="heading" variant="h4">
+            This is a slotted heading
+          </IcTypography>
+          <IcTypography slot="label" variant="label">
+            Slotted label
+          </IcTypography>
+          <IcRadioGroup label="This is a label" name="1">
+            <IcRadioOption
+              value="value1"
+              label="Unselected / Default"
+              additionalFieldDisplay="dynamic"
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              ></IcTextField>
+            </IcRadioOption>
+            <IcRadioOption
+              value="value2"
+              label="Selected / Default"
+              additionalFieldDisplay="static"
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              ></IcTextField>
+            </IcRadioOption>
+            <IcRadioOption
+              value="value3"
+              label="Unselected / Disabled"
+              disabled
+            ></IcRadioOption>
+          </IcRadioGroup>
+          <IcTextField
+            id="dialog-text-field"
+            label="What is your favourite coffee?"
+          />
+        </div>
+      </IcDialog>
+    </>
+  );
+};
+
 export const DialogAccordion = () => {
   const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
