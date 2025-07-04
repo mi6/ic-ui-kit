@@ -5,6 +5,7 @@
 
   --ic-input-label-text-color: var(--ic-switch-label);
   --ic-input-label-helper-text-color: var(--ic-switch-help-text);
+  --ic-input-label-helpertext-padding: var(--ic-space-xs);
 }
 
 input {
@@ -16,17 +17,16 @@ input {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--ic-space-xxs);
   cursor: pointer;
 }
 
 .ic-switch-label {
   margin-left: var(--ic-space-xxs);
-  margin-bottom: var(--ic-space-sm);
+  margin-bottom: var(--ic-space-xs);
 }
 
 .ic-switch-label-small {
-  margin-bottom: 0.625rem;
+  margin-bottom: var(--ic-space-xs);
 }
 
 .ic-switch-toggle {
@@ -41,6 +41,7 @@ input {
   border: var(--ic-border-width) solid var(--ic-switch-unchecked);
   box-sizing: border-box;
   transition: var(--ic-transition-duration-fast);
+  margin-left: var(--ic-space-xxs);
 }
 
 .ic-switch-line-break {
@@ -147,10 +148,6 @@ input {
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle::before {
   background-color: var(--ic-switch-checked);
-}
-
-.ic-switch-small {
-  gap: var(--ic-space-xxxs);
 }
 
 .ic-switch-small .ic-switch-toggle {

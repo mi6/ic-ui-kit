@@ -10,7 +10,7 @@
   display: block;
   position: relative;
 
-  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
+  --ic-input-label-helpertext-padding: var(--ic-space-xs);
   --menu-max-height: 100px;
   --border-color: var(--ic-select-field-border);
   --border-color-hover: var(--ic-select-field-border-hover);
@@ -65,7 +65,7 @@ ic-input-validation.menu-open .statustext {
 }
 
 ic-input-label {
-  margin-bottom: var(--ic-space-xs) !important;
+  margin-bottom: var(--ic-space-xs);
 }
 
 select {

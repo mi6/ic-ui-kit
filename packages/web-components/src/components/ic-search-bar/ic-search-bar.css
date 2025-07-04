@@ -8,7 +8,7 @@
   display: block;
 
   --divider-height: 1.5rem;
-  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
+  --ic-input-label-helpertext-padding: var(--ic-space-xs);
   --border-color: var(--ic-search-bar-outline);
   --input-bg-color: var(--ic-search-bar-background);
   --border-color-disabled: var(--ic-search-bar-outline-disabled);

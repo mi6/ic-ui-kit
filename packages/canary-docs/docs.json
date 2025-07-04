@@ -459,13 +459,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-card-horizontal": [
-          "ic-typography"
-        ]
+        "ic-card-horizontal": ["ic-typography"]
       }
     },
     {
@@ -1561,23 +1557,11 @@
           "ic-empty-state",
           "ic-pagination-bar"
         ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-checkbox": [
-          "ic-typography"
-        ],
-        "ic-empty-state": [
-          "ic-typography"
-        ],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-checkbox": ["ic-typography"],
+        "ic-empty-state": ["ic-typography"],
         "ic-pagination-bar": [
           "ic-typography",
           "ic-select",
@@ -1595,24 +1579,11 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-pagination-item": ["ic-typography"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -1800,15 +1771,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-select"
-      ],
+      "dependencies": ["ic-typography", "ic-select"],
       "dependencyGraph": {
-        "ic-data-table-title-bar": [
-          "ic-typography",
-          "ic-select"
-        ],
+        "ic-data-table-title-bar": ["ic-typography", "ic-select"],
         "ic-select": [
           "ic-input-container",
           "ic-input-label",
@@ -1818,28 +1783,12 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -2678,9 +2627,7 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-date-picker"
-      ],
+      "dependents": ["ic-date-picker"],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -2696,26 +2643,12 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-date-picker": [
-          "ic-date-input"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-date-picker": ["ic-date-input"]
       }
     },
     {
@@ -3670,28 +3603,12 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-button",
-        "ic-date-input",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-button", "ic-date-input", "ic-typography"],
       "dependencyGraph": {
-        "ic-date-picker": [
-          "ic-button",
-          "ic-date-input",
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
+        "ic-date-picker": ["ic-button", "ic-date-input", "ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
         "ic-date-input": [
           "ic-input-container",
           "ic-input-label",
@@ -3699,12 +3616,8 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -4265,9 +4178,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-data-table"
-      ],
+      "dependents": ["ic-data-table"],
       "dependencies": [
         "ic-typography",
         "ic-select",
@@ -4294,35 +4205,14 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-pagination-item": ["ic-typography"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -4330,9 +4220,273 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-data-table": [
-          "ic-pagination-bar"
-        ]
+        "ic-data-table": ["ic-pagination-bar"]
+      }
+    },
+    {
+      "filePath": "src/components/ic-table-of-contents/ic-table-of-contents.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-table-of-contents",
+      "readme": "# ic-table-of-contents\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "\"Table of Contents\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "monochrome",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "position",
+          "type": "\"right\" | \"top\"",
+          "complexType": {
+            "original": "IcPosition",
+            "resolved": "\"right\" | \"top\"",
+            "references": {
+              "IcPosition": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcPosition"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "position",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "\"right\"",
+          "values": [
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "setClickHeight",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "set-click-height",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "75",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "setScrollHeight",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "set-scroll-height",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "50",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "truncate",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "truncate",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": ["ic-tooltip", "ic-section-container", "ic-typography"],
+      "dependencyGraph": {
+        "ic-table-of-contents": [
+          "ic-tooltip",
+          "ic-section-container",
+          "ic-typography"
+        ],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -4794,18 +4948,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-tooltip"
-      ],
+      "dependencies": ["ic-typography", "ic-tooltip"],
       "dependencyGraph": {
-        "ic-tree-item": [
-          "ic-typography",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-tree-item": ["ic-typography", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -5040,18 +5186,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-tooltip",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-tooltip", "ic-typography"],
       "dependencyGraph": {
-        "ic-tree-view": [
-          "ic-tooltip",
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-tree-view": ["ic-tooltip", "ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     }
   ],
@@ -5067,7 +5205,7 @@
       "path": "../web-components/dist/types/interface.d.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\r\n  key: string;\r\n  title: string;\r\n  dataType: IcDataTableColumnDataTypes;\r\n  columnAlignment?: {\r\n    horizontal?: string;\r\n    vertical?: string;\r\n  };\r\n  rowOptions?: {\r\n    textWrap: boolean;\r\n  };\r\n  columnWidth?: string | IcDataTableColumnWidthTypes;\r\n  textWrap?: boolean;\r\n  cellAlignment?: string;\r\n  emphasis?: string;\r\n  colspan?: number;\r\n  icon?: {\r\n    icon: string;\r\n    onAllCells?: boolean;\r\n    hideOnHeader?: boolean;\r\n  };\r\n  excludeColumnFromSort?: boolean;\r\n  disableAutoSort?: boolean;\r\n}",
+      "declaration": "{\r\n  key: string;\r\n  title: string;\r\n  dataType: IcDataTableColumnDataTypes;\r\n  columnAlignment?: {\r\n    horizontal?: string;\r\n    vertical?: string;\r\n  };\r\n  rowOptions?: {\r\n    textWrap: boolean;\r\n  };\r\n  columnWidth?: string | IcDataTableColumnWidthTypes;\r\n  textWrap?: boolean;\r\n  cellAlignment?: string;\r\n  emphasis?: string;\r\n  colspan?: number;\r\n  icon?: {\r\n    icon: string;\r\n    onAllCells?: boolean;\r\n    hideOnHeader?: boolean;\r\n  };\r\n  excludeColumnFromSort?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5127,7 +5265,7 @@
       "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
     },
     "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
-      "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
+      "declaration": "export interface IcPageChangeEventDetail {\r\n  value: number;\r\n  fromItemsPerPage?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
@@ -5156,8 +5294,13 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/utils/types.ts::IcPosition": {
+      "declaration": "export type IcPosition = \"top\" | \"right\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-tree-view/ic-tree-view.types.tsx::IcTreeItemOptions": {
-      "declaration": "{\r\n  label: string;\r\n  icon?: string;\r\n  children?: IcTreeItemOptions[];\r\n  disabled?: boolean;\r\n  expanded?: boolean;\r\n  href?: string;\r\n  selected?: boolean;\r\n  treeItemId?: string;\r\n  theme?: IcThemeMode;\r\n  truncateTreeItem?: boolean;\r\n}",
+      "declaration": "{\r\n  label: string;\r\n  icon?: string;\r\n  children?: IcTreeItemOptions[];\r\n  disabled?: boolean;\r\n  expanded?: boolean;\r\n  href?: string;\r\n  selected?: boolean;\r\n  theme?: IcThemeMode;\r\n  truncateTreeItem?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-tree-view/ic-tree-view.types.tsx"
     }

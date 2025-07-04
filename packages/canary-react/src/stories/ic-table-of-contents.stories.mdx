@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { IcTableOfContents } from '../components';
+import readme from "../../../canary-web-components/src/components/ic-table-of-contents/readme.md";
+import { useArgs } from '@storybook/client-api';
+
+<Meta
+  title="React Components/Table of contents"
+  component="ic-table-of-contents"
+  parameters={{
+    componentAPI: {
+      data: readme,
+    },
+  }}
+/>
+
+# [Canary]: Table of contents
+The table of contents component is used to create a navigable list of sections within a page or document. It can be positioned on the left, right or on top of the child content.
+
+### Basic
+
+<Canvas withSource="none">
+  <Story name="Basic">
+    <div >
+        <IcTableOfContents position="right" truncate={true}>
+         <div style={{ width:'100%', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center' }}>
+       <div style={{height:'150vh', width:'100%'}}>
+       <h2>test</h2>
+       </div>
+          <div style={{height:'150vh', width:'100%'}}>
+       <h2>another heading</h2>
+       </div>
+        </div>
+        </IcTableOfContents>
+    </div>
+  </Story>
+</Canvas>
+
+
+
+#### Basic code example
+
+```jsx
+import * as React from "react";
+import { IcTableOfContents } from '@ukic/canary-react';
+
+const IcTableOfContents = () => (
+   <IcTableOfContents position="right" truncate={true}>
+    <h1>Table of Contents</h1>
+   </IcTableOfContents>
+);
+
+export default IcTableOfContents;
+```

@@ -26,8 +26,9 @@
   "scripts": {
     "build": "stencil build",
     "build:watch": "npm run build -- --watch",
-    "test": "stencil test --spec --passWithNoTests",
-    "test:watch": "stencil test --spec --watchAll",
+    "test": "stencil test --spec --passWithNoTests --coverage",
+    "test-e2e": "stencil test --e2e --passWithNoTests",
+    "test:watch": "stencil test --spec --e2e --watchAll",
     "test-a11y": "jest",
     "create-component": "stencil generate",
     "storybook": "npm-run-all --parallel build:watch start-storybook",

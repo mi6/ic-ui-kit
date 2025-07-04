@@ -473,7 +473,11 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
   });
 
   it("should display custom invalidDateMessage", () => {
-    mount(<IcDateInput label="Test Label" invalidDateMessage="Invalid date" />);
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" invalidDateMessage="Invalid date" />
+      </div>
+    );
 
     cy.checkHydrated(DATE_INPUT);
 
@@ -780,7 +784,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/date-input-without-error-validation-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.057),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -927,7 +931,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.compareSnapshot({
       name: "/helper-text-slot",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.007),
     });
   });
 

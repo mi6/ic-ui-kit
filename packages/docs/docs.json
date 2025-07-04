@@ -491,7 +491,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\nOtherwise, the first accordion will be focused.",
+          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\r\nOtherwise, the first accordion will be focused.",
           "docsTags": []
         }
       ],
@@ -16440,7 +16440,7 @@
           "mutable": false,
           "attr": "announced",
           "reflectToAttr": false,
-          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\nScreen readers will announce changes to the `label`, but not the initial value.",
+          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\r\nScreen readers will announce changes to the `label`, but not the initial value.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -19198,7 +19198,7 @@
           "mutable": true,
           "attr": "auto-dismiss-timeout",
           "reflectToAttr": false,
-          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\n(NOTE: Has a minimum value of `5000ms`)",
+          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\r\n(NOTE: Has a minimum value of `5000ms`)",
           "docsTags": [],
           "default": "5000",
           "values": [
@@ -21681,7 +21681,7 @@
       "path": "src/components/ic-back-to-top/ic-back-to-top.types.ts"
     },
     "src/components/ic-classification-banner/ic-classification-banner.types.tsx::IcProtectiveMarkings": {
-      "declaration": "export type IcProtectiveMarkings =\n  | \"default\"\n  | \"official\"\n  | \"official-sensitive\"\n  | \"secret\"\n  | \"top-secret\";",
+      "declaration": "export type IcProtectiveMarkings =\r\n  | \"default\"\r\n  | \"official\"\r\n  | \"official-sensitive\"\r\n  | \"secret\"\r\n  | \"top-secret\";",
       "docstring": "",
       "path": "src/components/ic-classification-banner/ic-classification-banner.types.tsx"
     },
@@ -21691,7 +21691,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-footer/ic-footer.types.tsx::IcFooterBreakpoints": {
-      "declaration": "export type IcFooterBreakpoints =\n  | \"extra small\"\n  | \"small\"\n  | \"medium\"\n  | \"large\"\n  | \"extra large\";",
+      "declaration": "export type IcFooterBreakpoints =\r\n  | \"extra small\"\r\n  | \"small\"\r\n  | \"medium\"\r\n  | \"large\"\r\n  | \"extra large\";",
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
     },
@@ -21706,7 +21706,7 @@
       "path": "src/components/ic-button/ic-button.types.ts"
     },
     "src/components/ic-button/ic-button.types.ts::IcButtonVariants": {
-      "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"destructive\"\n  | \"icon\"\n  | \"icon-primary\"\n  | \"icon-secondary\"\n  | \"icon-tertiary\"\n  | \"icon-destructive\";",
+      "declaration": "export type IcButtonVariants =\r\n  | \"primary\"\r\n  | \"secondary\"\r\n  | \"tertiary\"\r\n  | \"destructive\"\r\n  | \"icon\"\r\n  | \"icon-primary\"\r\n  | \"icon-secondary\"\r\n  | \"icon-tertiary\"\r\n  | \"icon-destructive\";",
       "docstring": "",
       "path": "src/components/ic-button/ic-button.types.ts"
     },
@@ -21736,7 +21736,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabClickEventDetail": {
-      "declaration": "export interface IcTabClickEventDetail {\n  tabId: string;\n  contextId: string;\n  position: number;\n}",
+      "declaration": "export interface IcTabClickEventDetail {\r\n  tabId: string;\r\n  contextId: string;\r\n  position: number;\r\n}",
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
@@ -21746,7 +21746,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-tooltip/ic-tooltip.types.ts::IcTooltipPlacements": {
-      "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
+      "declaration": "export type IcTooltipPlacements =\r\n  | \"top-start\"\r\n  | \"top\"\r\n  | \"top-end\"\r\n  | \"right-start\"\r\n  | \"right\"\r\n  | \"right-end\"\r\n  | \"bottom-end\"\r\n  | \"bottom\"\r\n  | \"bottom-start\"\r\n  | \"left-end\"\r\n  | \"left\"\r\n  | \"left-start\";",
       "docstring": "",
       "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
     },
@@ -21761,7 +21761,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-checkbox-group/ic-checkbox-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: string[];\n  checkedOptions: {\n    checkbox: HTMLIcCheckboxElement;\n    textFieldValue?: string;\n  }[];\n  selectedOption: HTMLIcCheckboxElement;\n}",
+      "declaration": "export interface IcChangeEventDetail {\r\n  value: string[];\r\n  checkedOptions: {\r\n    checkbox: HTMLIcCheckboxElement;\r\n    textFieldValue?: string;\r\n  }[];\r\n  selectedOption: HTMLIcCheckboxElement;\r\n}",
       "docstring": "",
       "path": "src/components/ic-checkbox-group/ic-checkbox-group.types.ts"
     },
@@ -21781,7 +21781,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldInputModes": {
-      "declaration": "export type IcTextFieldInputModes =\n  | \"none\"\n  | \"text\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\";",
+      "declaration": "export type IcTextFieldInputModes =\r\n  | \"none\"\r\n  | \"text\"\r\n  | \"tel\"\r\n  | \"url\"\r\n  | \"email\"\r\n  | \"numeric\"\r\n  | \"decimal\"\r\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
@@ -21791,7 +21791,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldTypes": {
-      "declaration": "export type IcTextFieldTypes =\n  | \"email\"\n  | \"password\"\n  | \"tel\"\n  | \"text\"\n  | \"url\"\n  | \"number\"\n  | \"search\";",
+      "declaration": "export type IcTextFieldTypes =\r\n  | \"email\"\r\n  | \"password\"\r\n  | \"tel\"\r\n  | \"text\"\r\n  | \"url\"\r\n  | \"number\"\r\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
@@ -21811,12 +21811,12 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail": {
-      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string | undefined;\n  label?: string;\n  optionId?: string;\n}",
+      "declaration": "export interface IcOptionSelectEventDetail {\r\n  value: string | undefined;\r\n  label?: string;\r\n  optionId?: string;\r\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcMenuChangeEventDetail": {
-      "declaration": "export interface IcMenuChangeEventDetail {\n  open: boolean;\n  focusInput?: boolean;\n}",
+      "declaration": "export interface IcMenuChangeEventDetail {\r\n  open: boolean;\r\n  focusInput?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
@@ -21831,7 +21831,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
-      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget | null;\n}",
+      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\r\n  relatedTarget: IcRelatedTarget | null;\r\n}",
       "docstring": "",
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
@@ -21841,7 +21841,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
+      "declaration": "export interface IcChangeEventDetail {\r\n  value: string;\r\n  selectedOption: {\r\n    radio: HTMLIcRadioOptionElement;\r\n    textFieldValue?: string;\r\n  };\r\n}",
       "docstring": "",
       "path": "src/components/ic-radio-group/ic-radio-group.types.ts"
     },
@@ -21851,7 +21851,7 @@
       "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
     "src/components/ic-divider/ic-divider.types.tsx::IcDividerLabelPlacement": {
-      "declaration": "export type IcDividerLabelPlacement =\n  | \"left\"\n  | \"center\"\n  | \"right\"\n  | \"top\"\n  | \"bottom\";",
+      "declaration": "export type IcDividerLabelPlacement =\r\n  | \"left\"\r\n  | \"center\"\r\n  | \"right\"\r\n  | \"top\"\r\n  | \"bottom\";",
       "docstring": "",
       "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
@@ -21901,7 +21901,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcMenuOptionIdEventDetail": {
-      "declaration": "export interface IcMenuOptionIdEventDetail {\n  optionId: string | undefined;\n}",
+      "declaration": "export interface IcMenuOptionIdEventDetail {\r\n  optionId: string | undefined;\r\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
@@ -21911,17 +21911,17 @@
       "path": "src/components/ic-menu-item/ic-menu-item.types.ts"
     },
     "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationOpenEventDetail": {
-      "declaration": "export interface IcNavigationOpenEventDetail {\n  source: HTMLElement;\n}",
+      "declaration": "export interface IcNavigationOpenEventDetail {\r\n  source: HTMLElement;\r\n}",
       "docstring": "",
       "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
     },
     "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationExpandEventDetail": {
-      "declaration": "export interface IcNavigationExpandEventDetail {\n  expanded: boolean;\n}",
+      "declaration": "export interface IcNavigationExpandEventDetail {\r\n  expanded: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
     },
     "src/components/ic-side-navigation/ic-side-navigation.types.ts::IcExpandedDetail": {
-      "declaration": "export interface IcExpandedDetail {\n  sideNavExpanded: boolean;\n  sideNavMobile: boolean;\n}",
+      "declaration": "export interface IcExpandedDetail {\r\n  sideNavExpanded: boolean;\r\n  sideNavMobile: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-side-navigation/ic-side-navigation.types.ts"
     },
@@ -21931,7 +21931,7 @@
       "path": "src/components/ic-pagination/ic-pagination.types.ts"
     },
     "src/components/ic-pagination/ic-pagination.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: number;\n}",
+      "declaration": "export interface IcChangeEventDetail {\r\n  value: number;\r\n}",
       "docstring": "",
       "path": "src/components/ic-pagination/ic-pagination.types.ts"
     },
@@ -21976,12 +21976,12 @@
       "path": "src/components/ic-stepper/ic-stepper.types.ts"
     },
     "src/components/ic-switch/ic-switch.types.ts::IcSwitchChangeEventDetail": {
-      "declaration": "export interface IcSwitchChangeEventDetail {\n  value: string | null;\n  checked: boolean;\n}",
+      "declaration": "export interface IcSwitchChangeEventDetail {\r\n  value: string | null;\r\n  checked: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-switch/ic-switch.types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail": {
-      "declaration": "export interface IcTabSelectEventDetail {\n  tabIndex: number;\n  tabLabel: string;\n}",
+      "declaration": "export interface IcTabSelectEventDetail {\r\n  tabIndex: number;\r\n  tabLabel: string;\r\n}",
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
@@ -22011,7 +22011,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  checked: boolean[] | boolean;\n  toggledOptions?: {\n    toggleButton: HTMLIcToggleButtonElement;\n  }[];\n  selectedOption: HTMLIcToggleButtonElement;\n}",
+      "declaration": "export interface IcChangeEventDetail {\r\n  checked: boolean[] | boolean;\r\n  toggledOptions?: {\r\n    toggleButton: HTMLIcToggleButtonElement;\r\n  }[];\r\n  selectedOption: HTMLIcToggleButtonElement;\r\n}",
       "docstring": "",
       "path": "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts"
     }

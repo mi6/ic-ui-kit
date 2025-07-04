@@ -53,7 +53,7 @@ import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 
 const IC_TEXTFIELD = "ic-text-field";
 const TEXTFIELD_INPUT = 'input[type="text"]';
-const DEFAULT_TEST_THRESHOLD = 0.028;
+const DEFAULT_TEST_THRESHOLD = 0.02;
 
 const DISABLED_TEXT_FIELD_AXE_OPTIONS = {
   rules: {
@@ -393,7 +393,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small-text-field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -403,7 +403,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/full-width-text-field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -413,7 +413,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/multiline-text-area-with-resize",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
 
@@ -423,7 +423,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/inline-validation-text-field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -433,7 +433,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/validation-text-field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.084),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.069),
     });
   });
 
@@ -443,7 +443,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/readonly-text-field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -453,7 +453,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/custom-text-field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -477,7 +477,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/min-max-characters-text-field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
     });
   });
 
@@ -489,7 +489,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.wait(250).compareSnapshot({
       name: "/dark-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.083),
       delay: 500,
     });
   });
@@ -500,7 +500,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait(undefined, undefined, DISABLED_TEXT_FIELD_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "/dark-theme-disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 
@@ -510,7 +510,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme-validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.103),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.109),
     });
   });
 
@@ -519,7 +519,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.wait(100).compareSnapshot({
       name: "/dark-theme-readonly-text-field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
 
@@ -531,7 +531,7 @@ describe("IcTextField visual regression tests", () => {
     // Check positioning matches normal helper text
     cy.compareSnapshot({
       name: "/icon-value-max-characters",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 });
@@ -557,7 +557,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/focused-input-text-field-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
 
@@ -566,7 +566,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
 
     cy.wait(100).compareSnapshot({
       name: "/disabled-text-field-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
 
@@ -575,7 +575,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
 
     cy.wait(100).compareSnapshot({
       name: "/readonly-text-field-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
     });
   });
 
@@ -584,7 +584,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
 
     cy.wait(500).compareSnapshot({
       name: "/validation-text-field-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.094),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.101),
     });
   });
 });

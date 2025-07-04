@@ -35,6 +35,13 @@ ic-input-label .helpertext {
   margin-bottom: calc(var(--ic-space-sm) / 2);
 }
 
+:host(.ic-checkbox-group-large)
+  ic-input-label:not(.with-helper)
+  .ic-typography-label,
+:host(.ic-checkbox-group-large) ic-input-label .helpertext {
+  margin-bottom: calc(var(--ic-space-sm) * 1.5);
+}
+
 ic-input-label .helpertext {
   display: block;
 }
@@ -45,6 +52,10 @@ ic-input-validation {
 
 :host(.ic-checkbox-group-small) ic-input-validation {
   margin-top: calc(var(--ic-space-sm) / 2);
+}
+
+:host(.ic-checkbox-group-large) ic-input-validation {
+  margin-top: calc(var(--ic-space-sm) * 1.5);
 }
 
 .checkboxes-container {
