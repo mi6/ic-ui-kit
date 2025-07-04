@@ -361,7 +361,7 @@ export const PlaygroundIndeterminate = {
   render: (args) => (
     <div
       style={{
-        backgroundColor: args.theme === "dark" ? "#393939" : "#FFFFFF",
+        backgroundColor: args.theme === "dark" ? "var(--ic-color-page-background-dark)" : "var(--ic-color-page-background-light)",
         padding: "16px",
       }}
     >
@@ -387,7 +387,7 @@ export const PlaygroundDeterminate = {
   render: (args) => (
     <div
       style={{
-        backgroundColor: args.theme === "dark" ? "#393939" : "#FFFFFF",
+        backgroundColor: args.theme === "dark" ? "var(--ic-color-page-background-dark)" : "var(--ic-color-page-background-light)",
         padding: "16px",
       }}
     >

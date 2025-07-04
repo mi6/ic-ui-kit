@@ -84,7 +84,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
       <ThemeWithComponentThemeProps
         color={"rgba(27, 60, 121, 1)"}
         theme={"system"}
-        backgroundColor="#17191C"
+        backgroundColor="var(--ic-color-page-background-dark)"
       />
     );
 
@@ -134,7 +134,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
       <ComponentsWithInheritThemeProp
         color={"rgba(27, 60, 121, 1)"}
         theme={"dark"}
-        backgroundColor="#17191C"
+        backgroundColor="var(--ic-color-page-background-dark)"
       />
     );
 

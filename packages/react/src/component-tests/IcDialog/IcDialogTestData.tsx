@@ -714,7 +714,7 @@ export const DynamicDialog = () => {
 
 export const ThemeDark = () => {
   return (
-    <div style={{ backgroundColor: "#17191C" }}>
+    <div style={{ backgroundColor: "var(--ic-color-page-background-dark)" }}>
       <IcDialog
         heading="This is a default dialog"
         label="Dialog"

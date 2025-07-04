@@ -378,7 +378,12 @@ export const ExternalFilteringSearchBar = () => {
 
 export const ThemeDark = () => {
   return (
-    <div style={{ padding: "10px", backgroundColor: "#17191C" }}>
+    <div
+      style={{
+        padding: "10px",
+        backgroundColor: "var(--ic-color-page-background-dark)",
+      }}
+    >
       <IcSearchBar
         label="What is your favourite coffee?"
         options={defaultOptions}

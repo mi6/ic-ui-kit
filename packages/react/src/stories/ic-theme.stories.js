@@ -339,7 +339,7 @@ export const Playground = {
             >
               <span
                 style={{
-                  color: "#ffffff",
+                  color: "var(--ic-color-page-background-light)",
                 }}
               >
                 This content is in an ic-theme component with dark mode set

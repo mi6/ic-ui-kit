@@ -408,8 +408,8 @@ export const PlaygroundIndeterminate = {
   render: (args) =>
     html`<div
       style="background-color: ${args.theme === "dark"
-        ? "#393939"
-        : "#FFFFFF"}; padding: 16px;"
+        ? "var(--ic-color-page-background-dark)"
+        : "var(--ic-color-page-background-light)"}; padding: 16px;"
     >
       <ic-loading-indicator
         monochrome=${args.monochrome}
@@ -433,8 +433,8 @@ export const PlaygroundDeterminate = {
   render: (args) =>
     html`<div
       style="background-color: ${args.theme === "dark"
-        ? "#393939"
-        : "#FFFFFF"}; padding: 16px;"
+        ? "var(--ic-color-page-background-dark)"
+        : "var(--ic-color-page-background-light)"}; padding: 16px;"
     >
       <ic-loading-indicator
         monochrome=${args.monochrome}
