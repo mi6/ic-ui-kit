@@ -1,7 +1,7 @@
 @import "../../global/normalize.css";
 
 :host {
-  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
+  --ic-input-label-helpertext-padding: var(--ic-space-xs);
   --input-bg-color: var(--ic-date-input-bg);
   --ic-input-label-text-color: var(--ic-date-input-label);
   --ic-input-label-helper-text-color: var(--ic-date-input-subtitle);

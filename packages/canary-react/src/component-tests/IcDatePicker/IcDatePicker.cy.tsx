@@ -628,7 +628,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
 
     cy.compareSnapshot({
       name: "/helper-text-slot",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 

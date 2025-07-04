@@ -80,7 +80,7 @@ export const DateInputHideHelperText = () => {
 
 export const DateInputValidation = () => {
   return (
-    <div style={{ padding: " 10px" }}>
+    <div style={{ padding: "5px" }}>
       <IcDateInput
         label="When would you like to collect your coffee?"
         validationStatus="error"
