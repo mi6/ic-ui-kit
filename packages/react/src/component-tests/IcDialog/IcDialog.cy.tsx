@@ -9,6 +9,7 @@ import {
   SlottedContentDialog,
   SlottedUpdatedContentDialog,
   LotsOfSlottedContentDialog,
+  SlottedUnselectedRadiosDialog,
   NoHeightConstraintDialog,
   AlertDialog,
   SizeDialog,
@@ -187,6 +188,29 @@ describe("IcDialog end-to-end tests", () => {
     cy.get("ic-button[slot=action]").should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
     cy.get("ic-link").should(HAVE_FOCUS);
+  });
+
+  it("should test focus of radio options when none selected", () => {
+    mount(<SlottedUnselectedRadiosDialog />);
+
+    cy.get(DIALOG).should("exist");
+    cy.wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+
+    // the first unselected radio option should have focus
+    cy.wait(300);
+    cy.get("ic-radio-option[value=value1] input").should(HAVE_FOCUS);
+
+    // after tab, the text field should have focus
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.get("ic-text-field#dialog-text-field").should(HAVE_FOCUS);
+
+    // after shift + tab press, the first unselected radio option should have focus
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+
+    cy.get("ic-radio-option[value=value1] input").should(HAVE_FOCUS);
   });
 
   it("should hide dialog on pressing escape on dialog", () => {
