@@ -15,5 +15,6 @@ export const IcDateInput = /*@__PURE__*/createReactComponent<JSX.IcDateInput, HT
 export const IcDatePicker = /*@__PURE__*/createReactComponent<JSX.IcDatePicker, HTMLIcDatePickerElement>('ic-date-picker');
 export const IcPaginationBar = /*@__PURE__*/createReactComponent<JSX.IcPaginationBar, HTMLIcPaginationBarElement>('ic-pagination-bar');
 export const IcTimeInput = /*@__PURE__*/createReactComponent<JSX.IcTimeInput, HTMLIcTimeInputElement>('ic-time-input');
+export const IcTableOfContents = /*@__PURE__*/createReactComponent<JSX.IcTableOfContents, HTMLIcTableOfContentsElement>('ic-table-of-contents');
 export const IcTreeItem = /*@__PURE__*/createReactComponent<JSX.IcTreeItem, HTMLIcTreeItemElement>('ic-tree-item');
 export const IcTreeView = /*@__PURE__*/createReactComponent<JSX.IcTreeView, HTMLIcTreeViewElement>('ic-tree-view');
