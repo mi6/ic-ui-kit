@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-table-of-contents should render default 1`] = `
+<ic-table-of-contents>
+  <template shadowrootmode="open">
+    <ic-section-container aligned="full-width" id="table-of-contents-section-container" style="display: flex; flex-direction: row-reverse;">
+      <div aria-label="Table of contents" class="false table-of-contents-content table-of-contents-position-side" role="navigation" style="top: 0px;">
+        <ic-typography variant="subtitle-large">
+          Table of Contents
+        </ic-typography>
+        <div class="table-of-contents-list">
+          <div class="false table-of-contents-sidebar" style="height: 1.75rem;"></div>
+          <ol class="table-of-contents-list-items"></ol>
+        </div>
+      </div>
+      <slot></slot>
+    </ic-section-container>
+  </template>
+  <div>
+    <h1>
+      Heading
+    </h1>
+  </div>
+</ic-table-of-contents>
+`;
+
+exports[`ic-table-of-contents should render default top 1`] = `
+<ic-table-of-contents position="top">
+  <template shadowrootmode="open">
+    <ic-section-container aligned="full-width" id="table-of-contents-section-container" style="display: flex; flex-direction: column;">
+      <div aria-label="Table of contents" class="false table-of-contents-content table-of-contents-position-top" role="navigation" style="top: 0px;">
+        <ic-typography variant="subtitle-large">
+          Table of Contents
+        </ic-typography>
+        <div class="table-of-contents-list">
+          <div class="false table-of-contents-sidebar" style="height: 1.75rem;"></div>
+          <ol class="table-of-contents-list-items"></ol>
+        </div>
+      </div>
+      <slot></slot>
+    </ic-section-container>
+  </template>
+  <div>
+    <h1>
+      Heading
+    </h1>
+  </div>
+</ic-table-of-contents>
+`;
+
+exports[`ic-table-of-contents should render default with custom title 1`] = `
+<ic-table-of-contents heading="Custom Title">
+  <template shadowrootmode="open">
+    <ic-section-container aligned="full-width" id="table-of-contents-section-container" style="display: flex; flex-direction: row-reverse;">
+      <div aria-label="Table of contents" class="false table-of-contents-content table-of-contents-position-side" role="navigation" style="top: 0px;">
+        <ic-typography variant="subtitle-large">
+          Custom Title
+        </ic-typography>
+        <div class="table-of-contents-list">
+          <div class="false table-of-contents-sidebar" style="height: 1.75rem;"></div>
+          <ol class="table-of-contents-list-items">
+            <li class="false table-of-contents-item">
+              <ic-tooltip disable-click="true" disable-hover="true" label="Subheading" target="toc_subheading">
+                <a class="0 table-of-contents-item-content table-of-contents-item-content-default" href="#subheading" id="toc_subheading">
+                  <ic-typography bold="" class="table-of-contents-item-content-medium table-of-contents-item-label truncated-item-text" id="toc_subheading-label" style="padding-left: 4px;">
+                    Subheading
+                  </ic-typography>
+                </a>
+              </ic-tooltip>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <slot></slot>
+    </ic-section-container>
+  </template>
+  <div>
+    <h1>
+      Heading
+    </h1>
+    <h2 id="subheading">
+      Subheading
+    </h2>
+  </div>
+</ic-table-of-contents>
+`;
+
+exports[`ic-table-of-contents should render default with multiple headings 1`] = `
+<ic-table-of-contents>
+  <template shadowrootmode="open">
+    <ic-section-container aligned="full-width" id="table-of-contents-section-container" style="display: flex; flex-direction: row-reverse;">
+      <div aria-label="Table of contents" class="false table-of-contents-content table-of-contents-position-side" role="navigation" style="top: 0px;">
+        <ic-typography variant="subtitle-large">
+          Table of Contents
+        </ic-typography>
+        <div class="table-of-contents-list">
+          <div class="false table-of-contents-sidebar" style="height: 1.75rem;"></div>
+          <ol class="table-of-contents-list-items">
+            <li class="false table-of-contents-item">
+              <ic-tooltip disable-click="true" disable-hover="true" label="Subheading" target="toc_subheading">
+                <a class="0 table-of-contents-item-content table-of-contents-item-content-default" href="#subheading" id="toc_subheading">
+                  <ic-typography bold="" class="table-of-contents-item-content-medium table-of-contents-item-label truncated-item-text" id="toc_subheading-label" style="padding-left: 4px;">
+                    Subheading
+                  </ic-typography>
+                </a>
+              </ic-tooltip>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <slot></slot>
+    </ic-section-container>
+  </template>
+  <div>
+    <h1>
+      Heading
+    </h1>
+    <h2 id="subheading">
+      Subheading
+    </h2>
+  </div>
+</ic-table-of-contents>
+`;
+
+exports[`ic-table-of-contents should render maximum heading depth 1`] = `
+<ic-table-of-contents heading="Custom Title">
+  <template shadowrootmode="open">
+    <ic-section-container aligned="full-width" id="table-of-contents-section-container" style="display: flex; flex-direction: row-reverse;">
+      <div aria-label="Table of contents" class="false table-of-contents-content table-of-contents-position-side" role="navigation" style="top: 0px;">
+        <ic-typography variant="subtitle-large">
+          Custom Title
+        </ic-typography>
+        <div class="table-of-contents-list">
+          <div class="false table-of-contents-sidebar" style="height: 1.75rem;"></div>
+          <ol class="table-of-contents-list-items">
+            <li class="false table-of-contents-item">
+              <ic-tooltip disable-click="true" disable-hover="true" label="Subheading" target="toc_subheading">
+                <a class="0 table-of-contents-item-content table-of-contents-item-content-default" href="#subheading" id="toc_subheading">
+                  <ic-typography bold="" class="table-of-contents-item-content-medium table-of-contents-item-label truncated-item-text" id="toc_subheading-label" style="padding-left: 4px;">
+                    Subheading
+                  </ic-typography>
+                </a>
+              </ic-tooltip>
+              <ol>
+                <li class="false table-of-contents-item">
+                  <ic-tooltip disable-click="true" disable-hover="true" label="Sub-subheading" target="toc_sub-subheading">
+                    <a class="0 table-of-contents-item-content table-of-contents-item-content-default" href="#sub-subheading" id="toc_sub-subheading">
+                      <ic-typography class="table-of-contents-item-content-medium table-of-contents-item-label truncated-item-text" id="toc_sub-subheading-label" style="padding-left: 12px;">
+                        Sub-subheading
+                      </ic-typography>
+                    </a>
+                  </ic-tooltip>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <slot></slot>
+    </ic-section-container>
+  </template>
+  <div>
+    <h1>
+      Heading
+    </h1>
+    <h2 id="subheading">
+      Subheading
+    </h2>
+    <h3 id="sub-subheading">
+      Sub-subheading
+    </h3>
+    <h4>
+      Sub-sub-subheading
+    </h4>
+    <h5>
+      Sub-sub-sub-subheading
+    </h5>
+  </div>
+</ic-table-of-contents>
+`;
