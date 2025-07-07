@@ -1,0 +1,76 @@
+/*   --ic-table-of-contents-text: var(--ic-color-text-primary);
+  --ic-table-of-contents-label: var(--ic-color-text-primary);
+  --ic-table-of-contents-banner: var(--ic-action-default);
+  --ic-table-of-contents-banner-monochrome: var(--ic-action-monochrome-dark);
+  --ic-table-of-contents-hover: var(--ic-state-layers-action-bg-hover);
+  --ic-table-of-contents-hover-monochrome: var(--ic-state-layers-action-bg-dark-hover);
+  --ic-table-of-contents-pressed: var(--ic-state-layers-action-bg-pressed);
+  --ic-table-of-contents-pressed-monochrome: var(--ic-state-layers-action-bg-dark-pressed); */
+
+:root {
+}
+
+.table-of-contents-item-content {
+  display: block;
+  border: none;
+  position: relative;
+  height: 1.5rem;
+  padding-top: var(--ic-space-xxs);
+  padding-bottom: var(--ic-space-xxs);
+  max-width: inherit;
+  display: flex;
+  text-decoration: none;
+  position: relative;
+  color: var(--ic-table-of-contents-text);
+  --ic-typography-color: var(--ic-table-of-contents-text);
+  background-color: var(--ic-table-of-contents-hover);
+  padding-top: var(--ic-space-xxs);
+  padding-bottom: var(--ic-space-xxs);
+  height: 100%;
+}
+
+.table-of-contents-item-content:hover {
+  background-color: var(--ic-table-of-contents-hover);
+}
+
+.table-of-contents-item-content-monochrome:hover {
+  background-color: var(--ic-table-of-contents-hover-monochrome);
+}
+
+:host .table-of-contents-item-content-selected {
+  font-style: bold;
+}
+
+.table-of-contents-list {
+  display: flex;
+  flex-direction: column;
+  max-width: inherit;
+  margin-top: var(--ic-space-xxs);
+  margin-bottom: var(--ic-space-xxs);
+}
+
+.table-of-contents-list-items {
+  display: flex;
+  flex-direction: column;
+  max-width: inherit;
+}
+
+.table-of-contents-item-content:focus {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+  transition: var(--ic-transition-duration-fast);
+  outline: none;
+  padding-top: var(--ic-space-xxs);
+  padding-bottom: var(--ic-space-xxs);
+  background-color: rgba(23, 89, 188, 0.1);
+}
+
+.table-of-contents-item-content:active {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+  transition: var(--ic-transition-duration-fast);
+  outline: none;
+  padding-top: var(--ic-space-xxs);
+  padding-bottom: var(--ic-space-xxs);
+  background-color: rgba(23, 89, 188, 0.1);
+}
