@@ -28,6 +28,7 @@ import {
   RowOverrides,
   Scrollable,
   SelectedRowChangeEvent,
+  SlottedActionElement,
   SlottedElementsWithPagination,
   SlottedPagination,
   Sort,
@@ -430,6 +431,14 @@ export const TableSizingAndColumnWidthExample = {
 export const ActionElementExample = {
   render: () => ActionElement(),
   name: "Action Element",
+};
+
+/**
+ * The cells can contain a slotted `actionElement`. The `actionElement` will be displayed to the right of the cell data.
+ */
+export const SlottedActionElements = {
+  render: () => SlottedActionElement(),
+  name: "Slotted action element",
 };
 
 /**
