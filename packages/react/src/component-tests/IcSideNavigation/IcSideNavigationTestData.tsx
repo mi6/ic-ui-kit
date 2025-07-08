@@ -388,20 +388,26 @@ export const CloseOnNavItemClickSideNav = (): ReactElement => (
     closeOnNavItemClick
     expanded
   >
-    <IcNavigationItem slot="primary-navigation" label="Home" selected>
+    <IcNavigationItem slot="primary-navigation" label="Home" selected href="#">
       <IcBadge label="1" slot="badge" variant="light" />
       <ReusableSlottedIcon />
+    </IcNavigationItem>
+    <IcNavigationItem slot="primary-navigation">
+      <a slot="navigation-item" href="#">
+        <ReusableSlottedIcon />
+        Daily Tippers
+      </a>
     </IcNavigationItem>
     <IcNavigationGroup
       slot="primary-navigation"
       label="Navigation Group"
       expandable
     >
-      <IcNavigationItem label="Item 1">
+      <IcNavigationItem label="Item 1" href="#">
         <ReusableSlottedIcon />
       </IcNavigationItem>
     </IcNavigationGroup>
-    <IcNavigationItem slot="secondary-navigation" label="Settings">
+    <IcNavigationItem slot="secondary-navigation" label="Settings" href="#">
       <ReusableSlottedIcon />
     </IcNavigationItem>
   </IcSideNavigation>
