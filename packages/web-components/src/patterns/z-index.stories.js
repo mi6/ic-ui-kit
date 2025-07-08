@@ -12,6 +12,7 @@ export const ComponentZIndex = {
       }
     </style>
     <div style="display:flex;">
+      <ic-skip-link target="main"></ic-skip-link>
       <ic-side-navigation
         app-title="Application Name"
         version="v0.0.7"
@@ -160,7 +161,7 @@ export const ComponentZIndex = {
         class="content-wrapper"
         style="display:flex; flex-direction: column; flex-grow: 1;"
       >
-        <main>
+        <main id="main">
           <ic-top-navigation
             app-title="Application Name"
             status="beta"
