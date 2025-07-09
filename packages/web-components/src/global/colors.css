@@ -349,6 +349,36 @@
   --ic-color-text-action-monochrome-pressed-light: var(--ic-architectural-950);
   --ic-color-text-action-monochrome-pressed-dark: var(--ic-architectural-60);
 
+  /* state layers */
+  --ic-state-layers-action-bg-hover: var(--ic-blue-800-state-layer-10);
+  --ic-state-layers-action-bg-dark-hover: var(
+    --ic-architectural-700-state-layer-10
+  );
+  --ic-state-layers-action-bg-light-hover: var(
+    --ic-architectural-white-state-layer-10
+  );
+  --ic-state-layers-action-bg-pressed: var(--ic-blue-800-state-layer-20);
+  --ic-state-layers-action-bg-dark-pressed: var(
+    --ic-architectural-700-state-layer-20
+  );
+  --ic-state-layers-action-bg-light-pressed: var(
+    --ic-architectural-white-state-layer-20
+  );
+  --ic-state-layers-action-bg-hover-24: var(--ic-blue-800-state-layer-24);
+  --ic-state-layers-action-bg-pressed-30: var(--ic-blue-800-state-layer-30);
+  --ic-state-layers-action-bg-pressed-hover-34: var(
+    --ic-blue-800-state-layer-34
+  );
+  --ic-state-layers-action-bg-light-hover-24: var(
+    --ic-architectural-white-state-layer-24
+  );
+  --ic-state-layers-action-bg-light-pressed-30: var(
+    --ic-architectural-white-state-layer-30
+  );
+  --ic-state-layers-action-bg-light-pressed-light-34: var(
+    --ic-architectural-white-state-layer-34
+  );
+
   /* BACKGROUNDS */
   --ic-color-background-primary-light: var(--ic-architectural-white);
   --ic-color-background-primary-dark: var(--ic-architectural-850);
