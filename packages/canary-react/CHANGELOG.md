@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.42](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.41...@ukic/canary-react@2.0.0-canary.42) (2025-07-09)
+
+### Bug Fixes
+
+- **canary-react:** fixed onclick handling in slotted actionelement table cells ([08f350a](https://github.com/mi6/ic-ui-kit/commit/08f350ab5a3d79caf4bb2a4c246d373ec760af79))
+
 # [2.0.0-canary.41](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.38...@ukic/canary-react@2.0.0-canary.41) (2025-04-30)
 
 ### Features
