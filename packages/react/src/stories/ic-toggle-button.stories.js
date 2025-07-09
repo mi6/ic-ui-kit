@@ -10,6 +10,7 @@ const defaultArgs = {
   disabled: false,
   loading: false,
   monochrome: false,
+  outline: true,
   size: "medium",
   theme: "inherit",
   variant: "default",
@@ -278,6 +279,14 @@ export const TooltipPlacement = {
   name: "Tooltip placement",
 };
 
+export const HideOutline = {
+  render: () => (
+    <IcToggleButton label="Toggle" outline={false}></IcToggleButton>
+  ),
+  
+  name: "Hide outline",
+};
+
 export const Playground = {
   render: (args) => (
     <IcToggleButton
@@ -287,6 +296,7 @@ export const Playground = {
       size={args.size}
       loading={args.loading}
       monochrome={args.monochrome}
+      outline={args.outline}
       fullWidth={args.fullWidth}
       checked={args.checked}
       theme={args.theme}

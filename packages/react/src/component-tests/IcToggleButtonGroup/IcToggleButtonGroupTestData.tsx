@@ -290,3 +290,15 @@ export const ToggleGroupIconOnly = (): ReactElement => {
     </div>
   );
 };
+
+export const ToggleGroupHiddenOutline = (): ReactElement => {
+  return (
+    <div style={{ margin: "10px  0 0 10px" }}>
+      <IcToggleButtonGroup selectType="single" outline={false}>
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle" checked></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+    </div>
+  );
+};
