@@ -2325,6 +2325,10 @@ export namespace Components {
          */
         "monochrome": boolean;
         /**
+          * If `true`, the toggle button will display with an outline.
+         */
+        "outline": boolean;
+        /**
           * The size of the toggle button to be displayed.
          */
         "size": IcSizes;
@@ -2366,6 +2370,10 @@ export namespace Components {
           * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
          */
         "monochrome": boolean;
+        /**
+          * If `true`, the toggle button group will display with an outline.
+         */
+        "outline": boolean;
         /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */
@@ -5901,6 +5909,10 @@ declare namespace LocalJSX {
     checked: boolean;
   }>) => void;
         /**
+          * If `true`, the toggle button will display with an outline.
+         */
+        "outline"?: boolean;
+        /**
           * The size of the toggle button to be displayed.
          */
         "size"?: IcSizes;
@@ -5946,6 +5958,10 @@ declare namespace LocalJSX {
           * Emitted when a toggle button is selected.
          */
         "onIcChange"?: (event: IcToggleButtonGroupCustomEvent<IcChangeEventDetail3>) => void;
+        /**
+          * If `true`, the toggle button group will display with an outline.
+         */
+        "outline"?: boolean;
         /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */

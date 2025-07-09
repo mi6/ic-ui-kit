@@ -31,6 +31,7 @@ const TRACKED_ATTRIBUTES = [
   "size",
   "theme",
   "monochrome",
+  "outline",
 ];
 
 /**
@@ -91,6 +92,11 @@ export class ToggleButton {
    * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
    */
   @Prop({ mutable: true }) monochrome = false;
+
+  /**
+   * If `true`, the toggle button will display with an outline.
+   */
+  @Prop({ mutable: true }) outline = true;
 
   /**
    * The size of the toggle button to be displayed.
@@ -157,6 +163,9 @@ export class ToggleButton {
         case TRACKED_ATTRIBUTES[7]:
           this.monochrome = attribute.value !== "false";
           break;
+        case TRACKED_ATTRIBUTES[8]:
+          this.outline = attribute.value !== "false";
+          break;
       }
     }
   }
@@ -204,6 +213,7 @@ export class ToggleButton {
       monochrome,
       label,
       loading,
+      outline,
       size,
       theme,
       tooltipPlacement,
@@ -221,6 +231,7 @@ export class ToggleButton {
           "ic-toggle-button-loading": loading,
           "ic-toggle-button-monochrome": monochrome,
           "ic-toggle-button-full-width": fullWidth,
+          "ic-toggle-button-hide-outline": !outline,
           [`ic-toggle-button-${size}`]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}

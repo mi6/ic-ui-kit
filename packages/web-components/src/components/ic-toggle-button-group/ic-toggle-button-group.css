@@ -81,3 +81,10 @@
   border-right: var(--ic-border-width) solid
     var(--ic-toggle-button-unselected-border-disabled-monochrome);
 }
+
+:host(.ic-toggle-button-group-hide-outline) {
+  --ic-toggle-button-unselected-border: transparent;
+  --ic-toggle-button-unselected-border-disabled: transparent;
+  --ic-toggle-button-unselected-border-monochrome: transparent;
+  --ic-toggle-button-unselected-border-disabled-monochrome: transparent;
+}
