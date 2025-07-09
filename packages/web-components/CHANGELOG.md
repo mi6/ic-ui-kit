@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.38.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.38.0...@ukic/web-components@2.38.1) (2025-07-09)
+
+### Bug Fixes
+
+- **web-components:** ensure ic-text-field remaining characters only announced when field has focus ([3fb9802](https://github.com/mi6/ic-ui-kit/commit/3fb9802c4392d957ef2c9b992e8d1aa87dff5306))
+
 # [2.38.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.37.0...@ukic/web-components@2.38.0) (2025-04-30)
 
 ### Bug Fixes

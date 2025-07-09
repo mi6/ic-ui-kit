@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.42](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.41...@ukic/canary-web-components@2.0.0-canary.42) (2025-07-09)
+
+### Bug Fixes
+
+- **canary-web-components:** fixed onclick handling in slotted actionelement table cells ([f9e670c](https://github.com/mi6/ic-ui-kit/commit/f9e670cc7177e0ab515c011a765dcaca72ce5f2f))
+
 # [2.0.0-canary.41](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.38...@ukic/canary-web-components@2.0.0-canary.41) (2025-04-30)
 
 ### Features
