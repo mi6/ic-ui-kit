@@ -1292,8 +1292,7 @@ describe("IcDataTables", () => {
       );
     };
 
-    // Can be re-enabled once snapshots have been generated
-    it.skip("should render an element in the table cell if the correct slot is used", () => {
+    it("should render an element in the table cell if the correct slot is used", () => {
       mountTableWithSlottedActionElement();
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
@@ -1308,7 +1307,7 @@ describe("IcDataTables", () => {
       cy.checkA11yWithWait(undefined, 300);
 
       cy.compareSnapshot({
-        name: "/slotted-action-elements",
+        name: "slotted-action-elements",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -1331,8 +1330,7 @@ describe("IcDataTables", () => {
         });
     });
 
-    // Can be re-enabled once snapshots have been generated
-    it.skip("should show tooltips on action elements", () => {
+    it("should show tooltips on action elements", () => {
       mountTableWithSlottedActionElement();
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
@@ -1341,14 +1339,12 @@ describe("IcDataTables", () => {
       cy.checkA11yWithWait(undefined, 1000);
 
       cy.compareSnapshot({
-        name: "/slotted-action-elements-tooltip",
+        name: "slotted-action-elements-tooltip",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
         cypressScreenshotOptions: {
           capture: "viewport",
         },
       });
-
-      cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
     });
 
     it("should not render an element in the table cell if the slot is not used", () => {
@@ -4572,8 +4568,7 @@ describe("IcDataTable row deletion", () => {
     cy.task("generateReport");
   });
 
-  // This test is failing for some reason - thought to possibly be a timing issue
-  it.skip('should delete a row when the "Delete" button is clicked', () => {
+  it('should delete a row when the "Delete" button is clicked', () => {
     const clonedData = JSON.parse(JSON.stringify(DATA_REACT_ELEMENTS));
     const nextData = [...clonedData];
     mount(
@@ -4606,12 +4601,7 @@ describe("IcDataTable row deletion", () => {
     );
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.get(DATA_TABLE_SELECTOR)
-      .find("ic-button.button-variant-icon")
-      .eq(0)
-      .shadow()
-      .find(BUTTON_SELECTOR)
-      .focus();
+    cy.checkA11yWithWait();
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell",
@@ -4619,7 +4609,6 @@ describe("IcDataTable row deletion", () => {
       cypressScreenshotOptions: {
         capture: "viewport",
       },
-      delay: 550,
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 6);
