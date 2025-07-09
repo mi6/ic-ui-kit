@@ -6,7 +6,7 @@
    */
   display: block;
 
-  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
+  --ic-input-label-helpertext-padding: var(--ic-space-xs);
   --border-color: var(--ic-text-field-border-neutral);
   --border-color-hover: var(--ic-text-field-border-neutral-hover);
   --border-color-pressed: var(--ic-text-field-border-neutral-pressed);

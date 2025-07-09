@@ -89,7 +89,6 @@ export class Checkbox {
    */
   @Prop() indeterminate = false;
   @State() displayIndeterminate = this.indeterminate;
-
   @Watch("indeterminate")
   watchIndeterminateHandler(): void {
     this.displayIndeterminate =
@@ -155,10 +154,11 @@ export class Checkbox {
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfieldElements = this.el.querySelectorAll("ic-text-field");
-      textfieldElements.forEach((textfield) =>
-        textfield.setAttribute("disabled", this.checked ? "false" : "true")
-      );
+      this.el
+        .querySelectorAll("ic-text-field")
+        .forEach((textfield) =>
+          textfield.setAttribute("disabled", `${!this.checked}`)
+        );
     } else if (this.additionalFieldContainer) {
       this.additionalFieldContainer.style.display = !this.checked
         ? "none"

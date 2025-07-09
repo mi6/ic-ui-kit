@@ -6,6 +6,11 @@ ic-theme,
   --ic-color-text-primary: var(--ic-color-text-primary-light);
   --ic-color-text-secondary: var(--ic-color-text-secondary-light);
   --ic-color-text-tertiary: var(--ic-color-text-tertiary-light);
+  --ic-color-text-disabled: var(--ic-color-text-disabled-light);
+  --ic-color-text-action: var(--ic-color-text-action-light);
+  --ic-color-text-action-hover: var(--ic-color-text-action-hover-light);
+  --ic-color-text-action-pressed: var(--ic-color-text-action-pressed-light);
+  --ic-color-text-error: var(--ic-color-text-error-dark);
 
   /* Backgrounds */
   --ic-color-background-primary: var(--ic-color-background-primary-light);
@@ -26,9 +31,11 @@ ic-theme,
     --ic-color-background-destructive-pressed-light
   );
   --ic-color-background-neutral: var(--ic-color-background-neutral-light);
+  --ic-color-page-background: var(--ic-color-page-background-light);
 
   /* Borders */
   --ic-color-border-neutral-grey: var(--ic-color-border-neutral-grey-light);
+  --ic-color-border-neutral: var(--ic-color-border-neutral-default);
   --ic-color-border-neutral-hover: var(--ic-color-border-neutral-hover-default);
   --ic-color-border-neutral-pressed: var(
     --ic-color-border-neutral-pressed-default
@@ -61,6 +68,9 @@ ic-theme,
   --ic-action-destructive: var(--ic-action-destructive-light);
   --ic-action-destructive-hover: var(--ic-action-destructive-hover-light);
   --ic-action-destructive-pressed: var(--ic-action-destructive-pressed-light);
+  --ic-action-monochrome-default: var(--ic-action-monochrome);
+  --ic-action-monochrome-default-hover: var(--ic-action-monochrome-hover);
+  --ic-action-monochrome-default-pressed: var(--ic-action-monochrome-pressed);
   --ic-action-neutral: var(--ic-action-neutral-light);
 
   /* Hyperlinks */
@@ -72,11 +82,23 @@ ic-theme,
 
   /* Status */
   --ic-status-success: var(--ic-status-success-light);
+  --ic-status-success-default-color: var(--ic-status-success-default);
+  --ic-status-success-contrast-color: var(--ic-status-success-contrast);
   --ic-status-warning: var(--ic-status-warning-light);
+  --ic-status-warning-default-color: var(--ic-status-warning-default);
+  --ic-status-warning-dark-color: var(--ic-status-warning-dark);
   --ic-status-error: var(--ic-status-error-light);
+  --ic-status-error-default-color: var(--ic-status-error-default);
+  --ic-status-error-dark-color: var(--ic-status-error-dark);
   --ic-status-anomalous: var(--ic-status-anomalous-light);
+  --ic-status-anomalous-default-color: var(--ic-status-anomalous-default);
   --ic-status-info: var(--ic-status-info-light);
+  --ic-status-info-light-color: var(--ic-status-info-light);
+  --ic-status-info-dark-color: var(--ic-status-info-dark);
   --ic-status-unknown: var(--ic-status-unknown-light);
+  --ic-status-neutral: var(--ic-status-unknown-default);
+  --ic-status-neutral-light: var(--ic-status-unknown-light);
+  --ic-status-neutral-dark: var(--ic-status-unknown-dark);
 
   /* Icons */
   --ic-color-icon-grey: var(--ic-color-icon-grey-light);
@@ -84,6 +106,8 @@ ic-theme,
   --ic-color-icon-pressed: var(--ic-color-icon-pressed-light);
   --ic-color-icon-disabled: var(--ic-color-icon-disabled-light);
   --ic-color-icon-action-default: var(--ic-color-icon-action-default-light);
+  --ic-color-icon-action-default-hover: var(--ic-color-icon-action-hover);
+  --ic-color-icon-action-default-pressed: var(--ic-color-icon-action-pressed);
   --ic-color-icon-error: var(--ic-color-icon-error-light);
 
   /* Atoms */
@@ -1431,6 +1455,11 @@ ic-theme,
     --ic-color-text-primary: var(--ic-color-text-primary-dark);
     --ic-color-text-secondary: var(--ic-color-text-secondary-dark);
     --ic-color-text-tertiary: var(--ic-color-text-tertiary-dark);
+    --ic-color-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-color-text-action: var(--ic-color-text-action-dark);
+    --ic-color-text-action-hover: var(--ic-color-text-action-hover-dark);
+    --ic-color-text-action-pressed: var(--ic-color-text-action-pressed-dark);
+    --ic-color-text-error: var(--ic-color-text-error-light);
 
     /* Backgrounds */
     --ic-color-background-primary: var(--ic-color-background-primary-dark);
@@ -1451,9 +1480,11 @@ ic-theme,
       --ic-color-background-destructive-pressed-dark
     );
     --ic-color-background-neutral: var(--ic-color-background-neutral-dark);
+    --ic-color-page-background: var(--ic-color-page-background-dark);
 
     /* Borders */
     --ic-color-border-neutral-grey: var(--ic-color-border-neutral-grey-dark);
+    --ic-color-border-neutral: var(--ic-color-border-neutral-default-dark);
     --ic-color-border-neutral-hover: var(--ic-color-border-neutral-hover-dark);
     --ic-color-border-neutral-pressed: var(
       --ic-color-border-neutral-pressed-dark
@@ -1488,6 +1519,13 @@ ic-theme,
     --ic-action-destructive: var(--ic-action-destructive-dark);
     --ic-action-destructive-hover: var(--ic-action-destructive-hover-dark);
     --ic-action-destructive-pressed: var(--ic-action-destructive-pressed-dark);
+    --ic-action-monochrome-default: var(--ic-action-monochrome-dark);
+    --ic-action-monochrome-default-hover: var(
+      --ic-action-monochrome-hover-dark
+    );
+    --ic-action-monochrome-default-pressed: var(
+      --ic-action-monochrome-pressed-dark
+    );
     --ic-action-neutral: var(--ic-action-neutral-dark);
 
     /* Hyperlinks */
@@ -1499,11 +1537,23 @@ ic-theme,
 
     /* Status */
     --ic-status-success: var(--ic-status-success-dark);
+    --ic-status-success-default-color: var(--ic-status-success-default-dm);
+    --ic-status-success-contrast-color: var(--ic-status-success-contrast-dm);
     --ic-status-warning: var(--ic-status-warning-dark);
+    --ic-status-warning-default-color: var(--ic-status-warning-default-dm);
+    --ic-status-warning-dark-color: var(--ic-status-warning-dark-dm);
     --ic-status-error: var(--ic-status-error-dark);
+    --ic-status-error-default-color: var(--ic-status-error-default-dm);
+    --ic-status-error-dark-color: var(--ic-status-error-dark-dm);
     --ic-status-anomalous: var(--ic-status-anomalous-dark);
+    --ic-status-anomalous-default-color: var(--ic-status-anomalous-default-dm);
     --ic-status-info: var(--ic-status-info-dark);
+    --ic-status-info-light-color: var(--ic-status-info-light-dm);
+    --ic-status-info-dark-color: var(--ic-status-info-dark-dm);
     --ic-status-unknown: var(--ic-status-unknown-dark);
+    --ic-status-neutral: var(--ic-status-unknown-default-dm);
+    --ic-status-neutral-light: var(--ic-status-unknown-light-dm);
+    --ic-status-neutral-dark: var(--ic-status-unknown-dark-dm);
 
     /* Icons */
     --ic-color-icon-grey: var(--ic-color-icon-grey-dark);
@@ -1511,6 +1561,12 @@ ic-theme,
     --ic-color-icon-pressed: var(--ic-color-icon-pressed-dark);
     --ic-color-icon-disabled: var(--ic-color-icon-disabled-dark);
     --ic-color-icon-action-default: var(--ic-color-icon-action-default-dark);
+    --ic-color-icon-action-default-hover: var(
+      --ic-color-icon-action-hover-dark
+    );
+    --ic-color-icon-action-default-pressed: var(
+      --ic-color-icon-action-pressed-dark
+    );
     --ic-color-icon-error: var(--ic-color-icon-error-dark);
 
     /* Atoms */
@@ -1849,10 +1905,10 @@ ic-theme,
       --ic-action-default-bg-pressed
     );
     --ic-button-secondary-background-hover-monochrome: var(
-      --ic-action-dark-bg-hover
+      --ic-action-light-bg-hover
     );
     --ic-button-secondary-background-pressed-monochrome: var(
-      --ic-action-dark-bg-pressed
+      --ic-action-light-bg-pressed
     );
     --ic-button-secondary-background-non-transparent-hover: linear-gradient(
       var(--ic-button-secondary-background-hover-active) 0 0
@@ -1977,10 +2033,10 @@ ic-theme,
       --ic-color-background-neutral
     );
     --ic-button-tertiary-background-hover-monochrome: var(
-      --ic-action-dark-bg-hover
+      --ic-action-light-bg-hover
     );
     --ic-button-tertiary-background-pressed-monochrome: var(
-      --ic-action-dark-bg-pressed
+      --ic-action-light-bg-pressed
     );
     --ic-button-tertiary-background-non-transparent-monochrome-hover: linear-gradient(
       var(--ic-button-tertiary-background-hover-monochrome) 0 0
@@ -2924,6 +2980,11 @@ ic-theme,
   --ic-color-text-primary: var(--ic-color-text-primary-dark);
   --ic-color-text-secondary: var(--ic-color-text-secondary-dark);
   --ic-color-text-tertiary: var(--ic-color-text-tertiary-dark);
+  --ic-color-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-color-text-action: var(--ic-color-text-action-dark);
+  --ic-color-text-action-hover: var(--ic-color-text-action-hover-dark);
+  --ic-color-text-action-pressed: var(--ic-color-text-action-pressed-dark);
+  --ic-color-text-error: var(--ic-color-text-error-light);
 
   /* Backgrounds */
   --ic-color-background-primary: var(--ic-color-background-primary-dark);
@@ -2944,9 +3005,11 @@ ic-theme,
     --ic-color-background-destructive-pressed-dark
   );
   --ic-color-background-neutral: var(--ic-color-background-neutral-dark);
+  --ic-color-page-background: var(--ic-color-page-background-dark);
 
   /* Borders */
   --ic-color-border-neutral-grey: var(--ic-color-border-neutral-grey-dark);
+  --ic-color-border-neutral: var(--ic-color-border-neutral-default-dark);
   --ic-color-border-neutral-hover: var(--ic-color-border-neutral-hover-dark);
   --ic-color-border-neutral-pressed: var(
     --ic-color-border-neutral-pressed-dark
@@ -2979,6 +3042,11 @@ ic-theme,
   --ic-action-destructive: var(--ic-action-destructive-dark);
   --ic-action-destructive-hover: var(--ic-action-destructive-hover-dark);
   --ic-action-destructive-pressed: var(--ic-action-destructive-pressed-dark);
+  --ic-action-monochrome-default: var(--ic-action-monochrome-dark);
+  --ic-action-monochrome-default-hover: var(--ic-action-monochrome-hover-dark);
+  --ic-action-monochrome-default-pressed: var(
+    --ic-action-monochrome-pressed-dark
+  );
   --ic-action-neutral: var(--ic-action-neutral-dark);
 
   /* Hyperlinks */
@@ -2990,11 +3058,23 @@ ic-theme,
 
   /* Status */
   --ic-status-success: var(--ic-status-success-dark);
+  --ic-status-success-default-color: var(--ic-status-success-default-dm);
+  --ic-status-success-contrast-color: var(--ic-status-success-contrast-dm);
   --ic-status-warning: var(--ic-status-warning-dark);
+  --ic-status-warning-default-color: var(--ic-status-warning-default-dm);
+  --ic-status-warning-dark-color: var(--ic-status-warning-dark-dm);
   --ic-status-error: var(--ic-status-error-dark);
+  --ic-status-error-default-color: var(--ic-status-error-default-dm);
+  --ic-status-error-dark-color: var(--ic-status-error-dark-dm);
   --ic-status-anomalous: var(--ic-status-anomalous-dark);
+  --ic-status-anomalous-default-color: var(--ic-status-anomalous-default-dm);
   --ic-status-info: var(--ic-status-info-dark);
+  --ic-status-info-light-color: var(--ic-status-info-light-dm);
+  --ic-status-info-dark-color: var(--ic-status-info-dark-dm);
   --ic-status-unknown: var(--ic-status-unknown-dark);
+  --ic-status-neutral: var(--ic-status-unknown-default-dm);
+  --ic-status-neutral-light: var(--ic-status-unknown-light-dm);
+  --ic-status-neutral-dark: var(--ic-status-unknown-dark-dm);
 
   /* Icons */
   --ic-color-icon-grey: var(--ic-color-icon-grey-dark);
@@ -3002,6 +3082,10 @@ ic-theme,
   --ic-color-icon-pressed: var(--ic-color-icon-pressed-dark);
   --ic-color-icon-disabled: var(--ic-color-icon-disabled-dark);
   --ic-color-icon-action-default: var(--ic-color-icon-action-default-dark);
+  --ic-color-icon-action-default-hover: var(--ic-color-icon-action-hover-dark);
+  --ic-color-icon-action-default-pressed: var(
+    --ic-color-icon-action-pressed-dark
+  );
   --ic-color-icon-error: var(--ic-color-icon-error-dark);
 
   /* Atoms */
@@ -3336,10 +3420,10 @@ ic-theme,
     --ic-action-default-bg-pressed
   );
   --ic-button-secondary-background-hover-monochrome: var(
-    --ic-action-dark-bg-hover
+    --ic-action-light-bg-hover
   );
   --ic-button-secondary-background-pressed-monochrome: var(
-    --ic-action-dark-bg-pressed
+    --ic-action-light-bg-pressed
   );
   --ic-button-secondary-background-non-transparent-hover: linear-gradient(
     var(--ic-button-secondary-background-hover-active) 0 0
@@ -3458,10 +3542,10 @@ ic-theme,
     --ic-color-background-neutral
   );
   --ic-button-tertiary-background-hover-monochrome: var(
-    --ic-action-dark-bg-hover
+    --ic-action-light-bg-hover
   );
   --ic-button-tertiary-background-pressed-monochrome: var(
-    --ic-action-dark-bg-pressed
+    --ic-action-light-bg-pressed
   );
   --ic-button-tertiary-background-non-transparent-monochrome-hover: linear-gradient(
     var(--ic-button-tertiary-background-hover-monochrome) 0 0

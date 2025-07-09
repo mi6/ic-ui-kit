@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { SlottedSVG } from "../";
 import {
   IcAlert,
+  IcAccordion,
   IcButton,
   IcCheckbox,
   IcCheckboxGroup,
@@ -245,20 +246,28 @@ export const SlottedContent = {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </IcTypography>
-          <IcRadioGroup label="This is a label" name="1">
-            <IcRadioOption
-              value="valueName1"
-              label="Unselected / Default" 
-              additionalFieldDisplay="dynamic"       
-            >
+           <IcAccordion heading="This is an accordion">
+            <IcCheckbox label="Confirm" value="confirm" additionalFieldDisplay="static">
               <IcTextField
                 slot="additional-field"
                 placeholder="Placeholder"
                 label="What's your favourite type of coffee?"
+              />
+            </IcCheckbox>
+            <IcRadioGroup label="This is a label" name="1">
+              <IcRadioOption
+                value="valueName1"
+                label="Unselected / Default" 
+                additionalFieldDisplay="dynamic"       
               >
-              </IcTextField>
-            </IcRadioOption>
-            <IcRadioOption
+                <IcTextField
+                  slot="additional-field"
+                  placeholder="Placeholder"
+                  label="What's your favourite type of coffee?"
+                >
+                </IcTextField>
+              </IcRadioOption>
+              <IcRadioOption
               value="valueName2"
               label="Selected / Default"
               additionalFieldDisplay="static"
@@ -277,6 +286,7 @@ export const SlottedContent = {
               disabled
             ></IcRadioOption>
           </IcRadioGroup>
+          </IcAccordion>
           <IcSearchBar label="What is your favourite coffee?"></IcSearchBar>
           <IcTextField label="What is your favourite coffee?" />
           <IcSelect label="What is your favourite coffee?" options={options} />

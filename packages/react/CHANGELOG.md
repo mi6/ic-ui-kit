@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.5.0...@ukic/react@3.6.0) (2025-07-09)
+
+### Bug Fixes
+
+- **react:** fixes issue with focus of radio button on dialog ([6d550f5](https://github.com/mi6/ic-ui-kit/commit/6d550f510f8617b07f263c233c32b440c9e40c6a))
+- **react:** update badges so that they appear inline with navigation items in top nav ([96dad3e](https://github.com/mi6/ic-ui-kit/commit/96dad3ee0eac5d2a69bccad79452ba5875df61ad))
+- **react:** update tooltip to update position when label is changed ([7c543ab](https://github.com/mi6/ic-ui-kit/commit/7c543abd0ba2a11b714302b53296ca74e2a8ac33)), closes [#3529](https://github.com/mi6/ic-ui-kit/issues/3529)
+- **react:** updated hover/pressed background colour for tertiary/nav-button ([5c15a55](https://github.com/mi6/ic-ui-kit/commit/5c15a5567cff8b5413cb4de5fb332ae537741d77))
+
+### Features
+
+- **react:** add examples of footer links with "\_blank" target to Storybook ([22108d5](https://github.com/mi6/ic-ui-kit/commit/22108d5b7309bdaacfae8e53167dfed8ffc93b5c)), closes [.#3592](https://github.com/./issues/3592)
+
 # [3.5.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.4.0...@ukic/react@3.5.0) (2025-06-25)
 
 ### Bug Fixes

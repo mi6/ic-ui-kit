@@ -323,7 +323,12 @@ export const PositionInline = (): ReactElement => {
 
 export const ThemeDark = (): ReactElement => {
   return (
-    <div style={{ backgroundColor: "#17191C", padding: "16px" }}>
+    <div
+      style={{
+        backgroundColor: "var(--ic-color-page-background-dark)",
+        padding: "16px",
+      }}
+    >
       <IcButton
         variant="secondary"
         theme="dark"
@@ -384,7 +389,12 @@ export const ThemeDark = (): ReactElement => {
 
 export const ThemeDarkIcon = (): ReactElement => {
   return (
-    <div style={{ backgroundColor: "#17191C", padding: "16px" }}>
+    <div
+      style={{
+        backgroundColor: "var(--ic-color-page-background-dark)",
+        padding: "16px",
+      }}
+    >
       <IcButton
         variant="secondary"
         theme="dark"

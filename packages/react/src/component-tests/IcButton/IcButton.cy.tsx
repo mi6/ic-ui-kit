@@ -1026,7 +1026,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.get(IC_BUTTON_SELECTOR)
       .shadow()
       .find("button")
-      .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
+      .should(HAVE_CSS, "background-color", "rgba(255, 255, 255, 0.1)");
 
     cy.get(IC_BUTTON_SELECTOR).realMouseDown();
 
@@ -1080,7 +1080,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.get(IC_BUTTON_SELECTOR)
       .shadow()
       .find("button")
-      .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
+      .should(HAVE_CSS, "background-color", "rgba(255, 255, 255, 0.1)");
 
     cy.get(IC_BUTTON_SELECTOR).realMouseDown();
 

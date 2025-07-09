@@ -16,6 +16,7 @@ import {
   ExternalNoPersist,
   External,
   LargeLabel,
+  ChangingLabel,
 } from "./IcTooltipTestData";
 import {
   BE_VISIBLE,
@@ -491,7 +492,12 @@ describe("IcTooltip visual regression and a11y tests", () => {
 
   it("should render a tooltip with dark background", () => {
     mount(
-      <div style={{ backgroundColor: "#17191C", height: "100px" }}>
+      <div
+        style={{
+          backgroundColor: "var(--ic-color-page-background-dark)",
+          height: "100px",
+        }}
+      >
         <Default />
       </div>
     );
@@ -531,6 +537,19 @@ describe("IcTooltip visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/on-chip",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: 200,
+    });
+  });
+
+  it("should update tooltip position when changing label", () => {
+    mount(<ChangingLabel />);
+
+    cy.get("#ic-tooltip-changing-label").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/changing-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
       delay: 200,
     });
   });

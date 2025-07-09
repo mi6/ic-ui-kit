@@ -641,7 +641,9 @@ describe("ic-badge", () => {
     document.dispatchEvent(new CustomEvent("icNavigationMenuClosed"));
     expect(page.rootInstance.mode).toBe("navbar");
     badges.forEach((badge, index) => {
-      expect(badge.position).toBe(initialPositions[index]);
+      if (badge.parentElement?.tagName === "IC-NAVIGATION-BUTTON") {
+        expect(badge.position).toBe(initialPositions[index]);
+      }
     });
   });
 

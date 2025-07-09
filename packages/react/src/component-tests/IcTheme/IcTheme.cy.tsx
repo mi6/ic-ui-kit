@@ -17,7 +17,7 @@ import {
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const THEME_SELECTOR = "ic-theme";
-const DEFAULT_TEST_THRESHOLD = 0.042;
+const DEFAULT_TEST_THRESHOLD = 0.032;
 
 describe("IcTheme end-to-end and visual regression tests", () => {
   beforeEach(() => {
@@ -43,7 +43,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-light-with-dark-mode-component-overrides",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
     });
   });
 
@@ -61,7 +61,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-light-with-components-within-ic-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
 
@@ -84,7 +84,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
       <ThemeWithComponentThemeProps
         color={"rgba(27, 60, 121, 1)"}
         theme={"system"}
-        backgroundColor="#17191C"
+        backgroundColor="var(--ic-color-page-background-dark)"
       />
     );
 
@@ -93,7 +93,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-system-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
     });
   });
 
@@ -125,7 +125,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-system-light",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
     });
   });
 
@@ -134,7 +134,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
       <ComponentsWithInheritThemeProp
         color={"rgba(27, 60, 121, 1)"}
         theme={"dark"}
-        backgroundColor="#17191C"
+        backgroundColor="var(--ic-color-page-background-dark)"
       />
     );
 
@@ -143,7 +143,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-inherit-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
 
@@ -161,7 +161,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-inherit-light",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
@@ -184,7 +184,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "/sunrise-brand",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
 
     cy.get("ic-button").contains("Default theme").click();

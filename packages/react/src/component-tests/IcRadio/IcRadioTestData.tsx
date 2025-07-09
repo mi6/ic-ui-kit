@@ -442,7 +442,12 @@ export const InAForm = () => {
 
 export const ThemeDark = (): JSX.Element => {
   return (
-    <div style={{ padding: "10px", backgroundColor: "#17191C" }}>
+    <div
+      style={{
+        padding: "10px",
+        backgroundColor: "var(--ic-color-page-background-dark)",
+      }}
+    >
       <IcRadioGroup label="This is a label" name="radio-group-1" theme="dark">
         {threeOptions.map((option, index) => (
           <IcRadioOption

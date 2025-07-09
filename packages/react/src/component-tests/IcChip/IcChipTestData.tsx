@@ -163,7 +163,12 @@ export const AllSizes = () => {
           <Sizes variant="outlined" />
         </IcTheme>
       </div>
-      <div style={{ padding: "8px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          padding: "8px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <IcTheme theme="dark">
           <Sizes />
           <Sizes variant="outlined" />
@@ -196,7 +201,12 @@ export const Disabled = () => {
           <DisabledChips />
         </IcTheme>
       </div>
-      <div style={{ padding: "8px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          padding: "8px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <IcTheme theme="dark">
           <DisabledChips />
         </IcTheme>
@@ -230,7 +240,12 @@ export const Dismissible = () => {
           <DismissibleChips />
         </IcTheme>
       </div>
-      <div style={{ padding: "8px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          padding: "8px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <IcTheme theme="dark">
           <DismissibleChips />
         </IcTheme>
@@ -261,7 +276,12 @@ export const WithIcon = () => {
           <SizesWithIcons variant="outlined" />
         </IcTheme>
       </div>
-      <div style={{ padding: "8px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          padding: "8px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <IcTheme theme="dark">
           <SizesWithIcons />
           <SizesWithIcons variant="outlined" />
@@ -280,7 +300,12 @@ export const DismissibleWithIcon = () => {
           <SizesWithIcons dismissible variant="outlined" />
         </IcTheme>
       </div>
-      <div style={{ padding: "8px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          padding: "8px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <IcTheme theme="dark">
           <SizesWithIcons dismissible />
           <SizesWithIcons dismissible variant="outlined" />
@@ -303,7 +328,12 @@ export const WithBadgeSlot = () => {
           </DefaultChip>
         </IcTheme>
       </div>
-      <div style={{ padding: "8px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          padding: "8px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <IcTheme theme="dark">
           <DefaultChip>
             <IcBadge label="1" slot="badge" variant="success" position="near" />

@@ -9,6 +9,7 @@ import {
   SlottedContentDialog,
   SlottedUpdatedContentDialog,
   LotsOfSlottedContentDialog,
+  SlottedUnselectedRadiosDialog,
   NoHeightConstraintDialog,
   AlertDialog,
   SizeDialog,
@@ -108,43 +109,40 @@ describe("IcDialog end-to-end tests", () => {
     cy.focused().next().next().should(NOT_EXIST);
   });
 
-  it("should test tabbing through slotted content", () => {
+  it("should tab through slotted content", () => {
     mount(<LotsOfSlottedContentDialog />);
 
     cy.get(DIALOG).should("exist");
     cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
+    cy.get("ic-link").should(HAVE_FOCUS);
 
     // after 2 tabs, the 2nd radio option should have focus
-    cy.wait(300);
     cy.realPress("Tab");
-    cy.wait(300);
+    cy.get("ic-button[slot=action]").should(HAVE_FOCUS);
     cy.realPress("Tab");
-    cy.wait(300);
     cy.get("ic-radio-option[value=value2] input").should(HAVE_FOCUS);
 
     // after 3 more tabs, the text field should have focus
     cy.realPress("Tab");
-    cy.wait(300);
+    cy.get("ic-text-field[slot=additional-field]").should(HAVE_FOCUS);
     cy.realPress("Tab");
-    cy.wait(300);
+    cy.get("ic-search-bar").should(HAVE_FOCUS);
     cy.realPress("Tab");
-    cy.wait(300);
     cy.get("ic-text-field#dialog-text-field").should(HAVE_FOCUS);
 
     // after 4 more tabs, the chip should have focus
     cy.realPress("Tab");
-    cy.wait(300);
+    cy.get("ic-select").should(HAVE_FOCUS);
     cy.realPress("Tab");
-    cy.wait(300);
+    cy.get("ic-checkbox[label=Confirm]").should(HAVE_FOCUS);
     cy.realPress("Tab");
-    cy.wait(300);
+    cy.get("ic-checkbox[label=Disagree]").should(HAVE_FOCUS);
     cy.realPress("Tab");
-    cy.wait(300);
     cy.get("ic-chip").should(HAVE_FOCUS);
   });
 
-  it("should test tabbing backwards through slotted content", () => {
+  it("should tab backwards through slotted content", () => {
     mount(<LotsOfSlottedContentDialog />);
 
     cy.get(DIALOG).should("exist");
@@ -152,45 +150,67 @@ describe("IcDialog end-to-end tests", () => {
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     // after 4 shift + tabs, the switch should have focus
-    cy.wait(300);
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.findShadowEl(DIALOG, CLOSE_ICON_BUTTON).should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.findShadowEl(DIALOG, "ic-button.dialog-control-button").should(
+      HAVE_FOCUS
+    );
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.findShadowEl(DIALOG, "ic-button.dialog-control-button").should(
+      HAVE_FOCUS
+    );
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
     cy.get("ic-switch").should(HAVE_FOCUS);
 
     // after 4 more shift + tabs, the select should have focus
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.get("ic-chip").should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.get("ic-checkbox[label=Disagree]").should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.get("ic-checkbox[label=Confirm]").should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
     cy.get("ic-select").should(HAVE_FOCUS);
 
     // after 4 more shift + tabs, the second radio option should have focus
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.get("ic-text-field#dialog-text-field").should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.get("ic-search-bar").should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
+    cy.get("ic-text-field[slot=additional-field]").should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
-    cy.wait(300);
     cy.get("ic-radio-option[value=value2] input").should(HAVE_FOCUS);
 
     // after 2 more shift + tabs, the link inside the alert should have focus
     cy.realPress(["Shift", "Tab"]);
+    cy.get("ic-button[slot=action]").should(HAVE_FOCUS);
+    cy.realPress(["Shift", "Tab"]);
+    cy.get("ic-link").should(HAVE_FOCUS);
+  });
+
+  it("should test focus of radio options when none selected", () => {
+    mount(<SlottedUnselectedRadiosDialog />);
+
+    cy.get(DIALOG).should("exist");
     cy.wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+
+    // the first unselected radio option should have focus
+    cy.wait(300);
+    cy.get("ic-radio-option[value=value1] input").should(HAVE_FOCUS);
+
+    // after tab, the text field should have focus
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.get("ic-text-field#dialog-text-field").should(HAVE_FOCUS);
+
+    // after shift + tab press, the first unselected radio option should have focus
     cy.realPress(["Shift", "Tab"]);
     cy.wait(300);
-    cy.get("ic-link").should(HAVE_FOCUS);
+
+    cy.get("ic-radio-option[value=value1] input").should(HAVE_FOCUS);
   });
 
   it("should hide dialog on pressing escape on dialog", () => {

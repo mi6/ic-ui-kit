@@ -1384,7 +1384,7 @@ export const Dropdown = {
         >
       </div>
       <div
-        style="background-color:#17191C; padding:6px 10px; width:fit-content;"
+        style="background-color:var(--ic-color-page-background-dark); padding:6px 10px; width:fit-content;"
       >
         <ic-button dropdown="true" variant="primary" theme="light"
           >Button</ic-button
@@ -1954,7 +1954,9 @@ export const FullWidth = {
         />
       </svg>
     </ic-button>
-    <div style="background-color:#17191C; padding:6px 10px,">
+    <div
+      style="background-color:var(--ic-color-page-background-dark); padding:6px 10px,"
+    >
       <ic-button variant="primary" theme="light" full-width="true">
         Button
         <svg
@@ -2248,7 +2250,9 @@ export const Loading = {
     <div style="padding: 6px">
       <ic-button variant="primary" loading theme="dark">Button</ic-button>
     </div>
-    <div style="background-color:#17191C; padding:6px 10px; width:fit-content">
+    <div
+      style="background-color:var(--ic-color-page-background-dark); padding:6px 10px; width:fit-content"
+    >
       <ic-button variant="primary" loading theme="light">Button</ic-button>
     </div>
     <div style="padding: 6px">
@@ -2257,7 +2261,9 @@ export const Loading = {
     <div style="padding: 6px">
       <ic-button variant="secondary" loading theme="dark">Button</ic-button>
     </div>
-    <div style="background-color:#17191C; padding:6px 10px; width:fit-content">
+    <div
+      style="background-color:var(--ic-color-page-background-dark); padding:6px 10px; width:fit-content"
+    >
       <ic-button variant="secondary" loading theme="light">Button</ic-button>
     </div>
     <div style="padding: 6px">
@@ -2266,7 +2272,9 @@ export const Loading = {
     <div style="padding: 6px">
       <ic-button variant="tertiary" loading theme="dark">Button</ic-button>
     </div>
-    <div style="background-color:#17191C; padding:6px 10px; width:fit-content">
+    <div
+      style="background-color:var(--ic-color-page-background-dark); padding:6px 10px; width:fit-content"
+    >
       <ic-button variant="tertiary" loading theme="light">Button</ic-button>
     </div>
     <ic-button variant="destructive" loading>Button</ic-button>

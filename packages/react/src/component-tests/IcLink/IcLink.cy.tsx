@@ -95,7 +95,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
     mount(
       <div
         style={{
-          backgroundColor: "#17191C",
+          backgroundColor: "var(--ic-color-page-background-dark)",
           margin: "16px",
           minHeight: "50px",
         }}
@@ -119,7 +119,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
     mount(
       <div
         style={{
-          backgroundColor: "#17191C",
+          backgroundColor: "var(--ic-color-page-background-dark)",
           margin: "16px",
           minHeight: "50px",
         }}

@@ -39,7 +39,6 @@
   --ic-z-index-base-value: 0;
   --ic-z-index-page-header: calc(var(--ic-z-index-base-value) + 10);
   --ic-z-index-back-to-top: calc(var(--ic-z-index-base-value) + 20);
-  --ic-z-index-skip-link: calc(var(--ic-z-index-base-value) + 20);
   --ic-z-index-popover: calc(var(--ic-z-index-base-value) + 50);
   --ic-z-index-sticky-page-header: calc(var(--ic-z-index-base-value) + 60);
   --ic-z-index-date-picker: calc(var(--ic-z-index-base-value) + 70);
@@ -51,4 +50,5 @@
   --ic-z-index-toast: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-tooltip: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-classification-banner: calc(var(--ic-z-index-base-value) + 200);
+  --ic-z-index-skip-link: calc(var(--ic-z-index-base-value) + 210);
 }

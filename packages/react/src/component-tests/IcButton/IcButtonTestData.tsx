@@ -3,7 +3,7 @@ import { SlottedSVG, IcButton, IcPopoverMenu, IcMenuItem } from "../../";
 import React, { ReactElement, useRef } from "react";
 
 export const DARK_BG_STYLE = {
-  backgroundColor: "#17191C",
+  backgroundColor: "var(--ic-color-page-background-dark)",
   display: "inline-block",
   padding: "6px 10px",
 };
@@ -209,7 +209,9 @@ export const IconBtnGroup = ({ props }) => {
       <div
         style={{
           backgroundColor:
-            props.theme === "dark" && props.monochrome ? "#17191C" : "#fff",
+            props.theme === "dark" && props.monochrome
+              ? "var(--ic-color-page-background-dark)"
+              : "var(--ic-color-page-background-light)",
           display: "flex",
           gap: "0.5rem",
           margin: "1rem",
@@ -760,7 +762,7 @@ export const DropdownButtons = (): ReactElement => {
       </div>
       <div
         style={{
-          backgroundColor: "#17191C",
+          backgroundColor: "var(--ic-color-page-background-dark)",
           padding: "6px 10px",
           width: "fit-content",
         }}

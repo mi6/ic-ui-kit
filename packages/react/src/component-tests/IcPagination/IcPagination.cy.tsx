@@ -85,7 +85,12 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
   it("should render dark complex type pagination", () => {
     mount(
-      <div style={{ margin: "16px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          margin: "16px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <IcPagination
           pages={15}
           type="complex"
@@ -105,7 +110,12 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
   it("should render dark monochrome complex type pagination", () => {
     mount(
-      <div style={{ margin: "16px", backgroundColor: "#17191C" }}>
+      <div
+        style={{
+          margin: "16px",
+          backgroundColor: "var(--ic-color-page-background-dark)",
+        }}
+      >
         <IcPagination
           pages={15}
           type="complex"
