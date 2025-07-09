@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.5.0...@ukic/web-components@3.6.0) (2025-07-09)
+
+### Bug Fixes
+
+- **web-components:** fix for flaky ic-alert test ([dd3499a](https://github.com/mi6/ic-ui-kit/commit/dd3499a15a1a6983b8c9c2b42bfc472ea169b6cb))
+- **web-components:** fixes issue with focus of radio button on dialog ([fefb4b5](https://github.com/mi6/ic-ui-kit/commit/fefb4b50cf1bd3baadd669a38e7e6458b5319622))
+- **web-components:** fixes popover display issue in firefox ([d96d2f0](https://github.com/mi6/ic-ui-kit/commit/d96d2f08d5c5f27fda55281b27ec6383d30392ec))
+- **web-components:** increase z-index for skip link so it appears above side navigation ([901abb9](https://github.com/mi6/ic-ui-kit/commit/901abb92b454b00f4f66259b31a55de6a6cd3fc7)), closes [#3716](https://github.com/mi6/ic-ui-kit/issues/3716)
+- **web-components:** moved padding to child label element ([75235d4](https://github.com/mi6/ic-ui-kit/commit/75235d42ad201060ffbff0fb097c42ec825937a0))
+- **web-components:** update badges so that they appear inline with navigation items in top nav ([b2469c2](https://github.com/mi6/ic-ui-kit/commit/b2469c2bc06a9794fab63a43304149fd034a321c)), closes [#3527](https://github.com/mi6/ic-ui-kit/issues/3527)
+- **web-components:** update footer link open in new icon to match text color ([58beb64](https://github.com/mi6/ic-ui-kit/commit/58beb64cc9339cabddaebdbbc66e844aa882f57b)), closes [.#3592](https://github.com/./issues/3592)
+- **web-components:** update padding between label and helper text and input to match designs ([0855381](https://github.com/mi6/ic-ui-kit/commit/085538144486517796e4c8366fecc3ac5ffaed39))
+- **web-components:** update popover menu to have setExternalPopperProps internal method ([652f14a](https://github.com/mi6/ic-ui-kit/commit/652f14aab869e52886aebec47b082b5f6c75d1c0)), closes [#2837](https://github.com/mi6/ic-ui-kit/issues/2837)
+- **web-components:** update tooltip so that the position updates when label changes ([03499ac](https://github.com/mi6/ic-ui-kit/commit/03499ac09037724488f944081a5c03ce59f32a98)), closes [#3529](https://github.com/mi6/ic-ui-kit/issues/3529)
+- **web-components:** updated aria live region for loading indicator to alert ([1645e4e](https://github.com/mi6/ic-ui-kit/commit/1645e4e6b565ea4b9dec56067ff46c15331ddb69))
+- **web-components:** updated hover/pressed colours for tertiary/nav buttons ([200acb1](https://github.com/mi6/ic-ui-kit/commit/200acb14a9abf9f6478b49cc1676569cbca3be05))
+
+### Features
+
+- **web-components:** added new global colour tokens ([c23f998](https://github.com/mi6/ic-ui-kit/commit/c23f998759958989b1c75ac228c4c01880b7245c))
+
 # [3.5.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.4.0...@ukic/web-components@3.5.0) (2025-06-25)
 
 ### Bug Fixes

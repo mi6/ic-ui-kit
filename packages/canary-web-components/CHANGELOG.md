@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.21](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.20...@ukic/canary-web-components@3.0.0-canary.21) (2025-07-09)
+
+### Bug Fixes
+
+- **canary-web-components:** remove check for selectedDate !== 0 in date input ([c4a81bb](https://github.com/mi6/ic-ui-kit/commit/c4a81bb78abea2e6c028d85df8edebcc90a271a6)), closes [#3360](https://github.com/mi6/ic-ui-kit/issues/3360)
+- **canary-web-components:** update fixCellSelect to be fixCellOverflow and also handle popover menu ([7471bce](https://github.com/mi6/ic-ui-kit/commit/7471bce3e83cf08fada2a2f65cbbd00b75b5a5df)), closes [#2837](https://github.com/mi6/ic-ui-kit/issues/2837)
+- **canary-web-components:** update padding between date input helper text and input to match designs ([07eb61a](https://github.com/mi6/ic-ui-kit/commit/07eb61ac26f454e40b4862eff94c820b4c398189))
+
 # [3.0.0-canary.20](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.19...@ukic/canary-web-components@3.0.0-canary.20) (2025-06-25)
 
 ### Bug Fixes
