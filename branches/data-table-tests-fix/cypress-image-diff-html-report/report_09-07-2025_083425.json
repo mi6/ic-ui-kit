@@ -1,7 +1,7 @@
 {
   "total": 213,
-  "totalPassed": 210,
-  "totalFailed": 3,
+  "totalPassed": 211,
+  "totalFailed": 2,
   "totalSuites": 8,
   "suites": [
     {
@@ -599,25 +599,25 @@
         },
         {
           "status": "pass",
-          "name": "IcDataTable.cy.tsx/slotted-action-elements",
+          "name": "IcDataTable.cy.tsx-slotted-action-elements",
           "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/slotted-action-elements.png",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-slotted-action-elements.png",
           "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/slotted-action-elements.png"
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-slotted-action-elements.png"
         },
         {
           "status": "fail",
-          "name": "IcDataTable.cy.tsx/slotted-action-elements-tooltip",
+          "name": "IcDataTable.cy.tsx-slotted-action-elements-tooltip",
           "percentage": 0.01856325186117611,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/slotted-action-elements-tooltip.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx/slotted-action-elements-tooltip.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/slotted-action-elements-tooltip.png"
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-slotted-action-elements-tooltip.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-slotted-action-elements-tooltip.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-slotted-action-elements-tooltip.png"
         },
         {
           "status": "pass",
@@ -917,14 +917,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-text-wrap-show-hide-truncation-table-cell.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-slotted-custom-element-in-cell",
-          "percentage": 0.03416573375885918,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png"
         },
         {
@@ -2396,9 +2396,9 @@
       ]
     }
   ],
-  "startedAt": "2025-07-08T16:53:31.055Z",
-  "endedAt": "2025-07-08T17:00:22.585Z",
-  "duration": 394216,
+  "startedAt": "2025-07-09T08:34:25.108Z",
+  "endedAt": "2025-07-09T08:41:02.396Z",
+  "duration": 379417,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
