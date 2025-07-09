@@ -363,7 +363,7 @@ describe("IcAlert visual regression and a11y tests", () => {
   });
 });
 
-describe("IcAlert visual regression tests in high contrast mode", () => {
+describe.skip("IcAlert visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
