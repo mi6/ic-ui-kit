@@ -11,6 +11,36 @@ export const IndeterminateCircularLoadingIndWithLabel = (): ReactElement => (
   <IcLoadingIndicator label="Loading..."></IcLoadingIndicator>
 );
 
+export const DeterminateLinearLoadingIndicatorZeroProgress = (args: {
+  progress: number;
+  min: number;
+  max: number;
+}): ReactElement => (
+  <IcLoadingIndicator
+    progress={args.progress}
+    min={args.min}
+    max={args.max}
+    label="Small"
+    size="small"
+    type="linear"
+  />
+);
+
+export const DeterminateCircularLoadingIndicatorZeroProgress = (args: {
+  progress: number;
+  min: number;
+  max: number;
+}): ReactElement => (
+  <IcLoadingIndicator
+    progress={args.progress}
+    min={args.min}
+    max={args.max}
+    label="Small"
+    size="small"
+    type="circular"
+  />
+);
+
 export const DeterminateCircularLoadingIndWithLabelSizeSmallDefaultLarge =
   (args: { progress: number; min: number; max: number }): ReactElement => (
     <div style={{ display: "grid", gap: "50px" }}>
