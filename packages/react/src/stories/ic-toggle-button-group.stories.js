@@ -11,6 +11,7 @@ const defaultArgs = {
   iconPlacement: "left",
   loading: false,
   monochrome: false,
+  outline: true,
   selectMethod: "manual",
   selectType: "single",
   size: "medium",
@@ -364,6 +365,22 @@ export const WithIcons = {
   name: "With icons",
 };
 
+export const HideOutline = {
+  render: () => (
+    <IcToggleButtonGroup
+      select-type="single"
+      accessible-label="Hide outline toggle group"
+      outline={false}
+    >
+      <IcToggleButton label="First toggle"></IcToggleButton>
+      <IcToggleButton label="Second toggle"></IcToggleButton>
+      <IcToggleButton label="Third toggle"></IcToggleButton>
+    </IcToggleButtonGroup>
+  ),
+
+  name: "Hide outline",
+};
+
 export const Playground = {
   render: (args) => (
     <IcToggleButtonGroup
@@ -373,6 +390,7 @@ export const Playground = {
       iconPlacement={args.iconPlacement}
       loading={args.loading}
       monochrome={args.monochrome}
+      outline={args.outline}
       selectMethod={args.selectMethod}
       selectType={args.selectType}
       size={args.size}

@@ -425,3 +425,10 @@ export const TooltipPlacement = {
 
   name: "Tooltip placement",
 };
+
+export const HideOutline = {
+  render: (args) =>
+    html`<ic-toggle-button label="Toggle" outline="false"></ic-toggle-button>`,
+
+  name: "Hide outline",
+};

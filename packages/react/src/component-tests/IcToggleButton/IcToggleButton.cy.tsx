@@ -355,6 +355,22 @@ describe("IcToggleButton visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
+
+  it("should render with outline set to false", () => {
+    mount(
+      <div style={{ padding: "8px" }}>
+        <IcToggleButton label="Test" outline={false} />
+        <IcToggleButton label="Test checked" outline={false} checked />
+      </div>
+    );
+    cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "/outline-false",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+    });
+  });
 });
 
 describe("IcToggleButton visual regression tests in high contrast mode", () => {

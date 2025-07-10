@@ -97,6 +97,17 @@ export class ToggleButtonGroup {
   }
 
   /**
+   * If `true`, the toggle button group will display with an outline.
+   */
+  @Prop() outline = true;
+  @Watch("outline")
+  watchOutlineHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.outline = this.outline;
+    });
+  }
+
+  /**
    * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
    */
   @Prop({ mutable: true }) selectMethod: IcSelectMethodTypes = "manual";
@@ -312,8 +323,15 @@ export class ToggleButtonGroup {
     Array.from(this.el.querySelectorAll("ic-toggle-button"));
 
   render() {
-    const { accessibleLabel, disabled, fullWidth, loading, monochrome, theme } =
-      this;
+    const {
+      accessibleLabel,
+      disabled,
+      fullWidth,
+      loading,
+      monochrome,
+      outline,
+      theme,
+    } = this;
 
     return (
       <Host
@@ -325,6 +343,7 @@ export class ToggleButtonGroup {
           "ic-toggle-button-group-full-width": fullWidth,
           "ic-toggle-button-group-loading": loading,
           "ic-toggle-button-group-monochrome": monochrome,
+          "ic-toggle-button-group-hide-outline": !outline,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         onFocus={this.handleHostFocus}
