@@ -1,6 +1,6 @@
 {
-  "total": 812,
-  "totalPassed": 811,
+  "total": 809,
+  "totalPassed": 808,
   "totalFailed": 1,
   "totalSuites": 43,
   "suites": [
@@ -393,61 +393,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/theme-dark.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/theme-dark.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcAlert.cy.tsx/variants-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
-          "specFilename": "IcAlert.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/variants-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/variants-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcAlert.cy.tsx/with-action-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
-          "specFilename": "IcAlert.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/with-action-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/with-action-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcAlert.cy.tsx/custom-message-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
-          "specFilename": "IcAlert.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/custom-message-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/custom-message-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcAlert.cy.tsx/dismissible-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
-          "specFilename": "IcAlert.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/dismissible-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/dismissible-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcAlert.cy.tsx/slotted-icon-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
-          "specFilename": "IcAlert.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/slotted-icon-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/slotted-icon-high-contrast.png"
         }
       ]
     },
@@ -8136,6 +8081,17 @@
         },
         {
           "status": "pass",
+          "name": "IcToggleButton.cy.tsx/outline-false",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
+          "specFilename": "IcToggleButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx/outline-false.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/outline-false.png"
+        },
+        {
+          "status": "pass",
           "name": "IcToggleButton.cy.tsx/default-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8195,6 +8151,17 @@
       "name": "IcToggleButtonGroup.cy.tsx",
       "path": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
       "tests": [
+        {
+          "status": "pass",
+          "name": "IcToggleButtonGroup.cy.tsx/outline-false",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
+          "specFilename": "IcToggleButtonGroup.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/outline-false.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/outline-false.png"
+        },
         {
           "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/default",
@@ -9195,9 +9162,9 @@
       ]
     }
   ],
-  "startedAt": "2025-07-07T08:35:02.473Z",
-  "endedAt": "2025-07-07T08:52:21.468Z",
-  "duration": 938308,
+  "startedAt": "2025-07-11T13:27:20.341Z",
+  "endedAt": "2025-07-11T13:44:14.779Z",
+  "duration": 917435,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
