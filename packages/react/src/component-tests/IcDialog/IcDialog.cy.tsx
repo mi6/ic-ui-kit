@@ -25,6 +25,7 @@ import {
   DialogSearch,
   NoWidthConstraintDialog,
   ThemeDark,
+  DialogButtonsWithTooltip,
 } from "./IcDialogTestData";
 import {
   BE_VISIBLE,
@@ -439,6 +440,32 @@ describe("IcDialog visual regression and a11y tests", () => {
       .realPress("Tab");
     cy.wait(300);
     cy.get("ic-text-field").should(HAVE_FOCUS);
+  });
+
+  it.only("should render tooltips correctly in dialog", () => {
+    mount(<DialogButtonsWithTooltip />);
+
+    cy.get(DIALOG).should("exist");
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+
+    cy.get(DIALOG).click("center");
+
+    cy.get("ic-button#test-button").realHover().wait(500);
+
+    cy.compareSnapshot({
+      name: "/tooltip-hover",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+
+    cy.get(DIALOG).realHover().wait(300);
+
+    cy.get("ic-button#test-button-2").realHover().wait(500);
+
+    cy.compareSnapshot({
+      name: "/shadow-tooltip-hover",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
   });
 
   it("should render neutral alert dialog", () => {

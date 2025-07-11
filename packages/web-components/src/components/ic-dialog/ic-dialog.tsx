@@ -271,6 +271,7 @@ export class Dialog {
     setTimeout(() => {
       this.setInitialFocus();
       checkResizeObserver(this.runResizeObserver);
+      // this.fixSlottedTooltips();
     }, 75);
 
     setTimeout(() => {
@@ -463,6 +464,36 @@ export class Dialog {
       this.focusedElementIndex += 1;
     }
   }
+
+  // private fixSlottedTooltip = (element: Element) => {
+  //   let tooltip: HTMLIcTooltipElement | null = null;
+  //   if (element.tagName === "IC-TOOLTIP") {
+  //     tooltip = element as HTMLIcTooltipElement;
+  //   } else {
+  //     const tooltipChildElement =
+  //       element.shadowRoot?.querySelector<HTMLIcTooltipElement>("ic-tooltip");
+
+  //     if (tooltipChildElement) {
+  //       tooltip = tooltipChildElement;
+  //     } else if (element.children?.length > 0) {
+  //       Array.from(element.children).forEach((child) =>
+  //         this.fixSlottedTooltip(child)
+  //       );
+  //     } else {
+  //       return;
+  //     }
+  //   }
+  //   tooltip?.setExternalPopperProps({ strategy: "fixed" });
+  // };
+
+  // private fixSlottedTooltips = () => {
+  //   const dialogChildren = Array.from(this.el.children);
+  //   if (dialogChildren) {
+  //     dialogChildren.forEach((child) => {
+  //       this.fixSlottedTooltip(child as Element);
+  //     });
+  //   }
+  // };
 
   private renderDialog = () => {
     const {
