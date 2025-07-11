@@ -159,14 +159,7 @@ export class TreeItem {
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
-
-    this.childTreeItems = Array.from((this.el as HTMLElement).children).filter(
-      (child) => child.tagName === this.treeItemTag
-    ) as HTMLIcTreeItemElement[];
-
-    if (this.childTreeItems.length > 0) {
-      this.isParent = true;
-    }
+    this.setChildTreeItems();
   }
 
   componentDidLoad(): void {
@@ -180,9 +173,9 @@ export class TreeItem {
         "Tree item"
       );
 
-    this.hostMutationObserver = new MutationObserver((mutationList) =>
-      renderDynamicChildSlots(mutationList, "icon", this)
-    );
+    this.hostMutationObserver = new MutationObserver((mutationList) => {
+      this.hostMutationCallback(mutationList);
+    });
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
@@ -239,7 +232,6 @@ export class TreeItem {
 
     this.updateAriaLabel();
     this.selected = true;
-    this.watchSelectedHandler();
   };
 
   /**
@@ -430,6 +422,19 @@ export class TreeItem {
     const tooltip = typographyEl?.closest<HTMLIcTooltipElement>(this.TOOLTIP);
 
     tooltip?.displayTooltip(display);
+  };
+
+  private setChildTreeItems = () => {
+    this.childTreeItems = Array.from((this.el as HTMLElement).children).filter(
+      (child) => child.tagName === this.treeItemTag
+    ) as HTMLIcTreeItemElement[];
+
+    this.isParent = this.childTreeItems.length > 0;
+  };
+
+  private hostMutationCallback = (mutationList: MutationRecord[]) => {
+    this.setChildTreeItems();
+    renderDynamicChildSlots(mutationList, "icon", this);
   };
 
   render() {
