@@ -457,7 +457,7 @@ export const changes = {
   IcLink: [appearanceDark, appearanceLight, appearanceDefault],
   IcPageHeader: [sizeDefault, sizeSmall, sizeSmallAbsolute],
   IcRadioGroup: [sizeDefault, sizeSmall, sizeSmallAbsolute],
-  icDialog: [
+  IcDialog: [
     {
       v2: `buttons=[{]?["']true['"][}]?`,
       v3: `hideDefaultControls="false"`,
