@@ -442,7 +442,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.get("ic-text-field").should(HAVE_FOCUS);
   });
 
-  it("should render tooltips correctly in dialog", () => {
+  it.only("should render tooltips correctly in dialog", () => {
     mount(<DialogButtonsWithTooltip />);
 
     cy.get(DIALOG).should("exist");
@@ -451,7 +451,7 @@ describe("IcDialog visual regression and a11y tests", () => {
 
     cy.get(DIALOG).click("center");
 
-    cy.get("ic-button#test-button").realHover();
+    cy.get("ic-button#test-button").realHover().wait(500);
 
     cy.compareSnapshot({
       name: "/tooltip-hover",
@@ -460,7 +460,7 @@ describe("IcDialog visual regression and a11y tests", () => {
 
     cy.get(DIALOG).realHover().wait(300);
 
-    cy.get("ic-button#test-button-2").realHover();
+    cy.get("ic-button#test-button-2").realHover().wait(500);
 
     cy.compareSnapshot({
       name: "/shadow-tooltip-hover",

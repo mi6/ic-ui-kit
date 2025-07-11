@@ -129,13 +129,6 @@
   top: calc(-1 * var(--ic-space-1px));
 }
 
-:host(.on-dialog) .ic-tooltip-container {
-  transform: translate(
-    var(--tooltip-translate-x),
-    var(--tooltip-translate-y)
-  ) !important;
-}
-
 @media screen and (max-width: 576px) {
   :host(.ic-tooltip) .ic-tooltip-container {
     max-width: 18.875rem;
