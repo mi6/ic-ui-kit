@@ -21,6 +21,9 @@ import { IcThemeMode } from "../../utils/types";
 export class Tooltip {
   private arrow: HTMLDivElement;
   private delayedHideEvents = ["mouseleave"];
+  // private dialogOverflow = false;
+  private onDialog: boolean = false;
+  private icDialogEl: HTMLIcDialogElement | null;
   private instantHideEvents = ["focusout"];
   private mouseOverTool: boolean = false;
   private persistTooltip = false;
@@ -117,6 +120,12 @@ export class Tooltip {
   componentDidLoad(): void {
     this.manageEventListeners("add");
 
+    this.icDialogEl = this.findClosestDialog(this.el);
+    // this.dialogOverflow =
+    //   this.icDialogEl?.getAttribute("data-overflow") === "true";
+
+    this.onDialog = this.icDialogEl !== null;
+
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
       "Tooltip"
@@ -153,11 +162,24 @@ export class Tooltip {
     return Promise.resolve(this.toolTip.hasAttribute("data-show"));
   }
 
+  private findClosestDialog = (el: Element): HTMLIcDialogElement | null => {
+    let dialog: HTMLIcDialogElement | null = null;
+    if (el.closest("ic-dialog") !== null) {
+      dialog = el.closest("ic-dialog") as HTMLIcDialogElement;
+    } else if ((el.getRootNode() as ShadowRoot).host) {
+      dialog = (el.getRootNode() as ShadowRoot).host.closest(
+        "ic-dialog"
+      ) as HTMLIcDialogElement;
+    }
+    return dialog;
+  };
+
   private show = () => {
     if (this.label) {
       this.toolTip.setAttribute("data-show", "");
 
       this.popperInstance = createPopper(this.el, this.toolTip, {
+        strategy: this.onDialog ? "fixed" : "absolute",
         placement: this.placement,
         modifiers: [
           {
