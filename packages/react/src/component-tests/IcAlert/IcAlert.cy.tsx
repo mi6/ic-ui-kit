@@ -363,7 +363,7 @@ describe("IcAlert visual regression and a11y tests", () => {
   });
 });
 
-describe.skip("IcAlert visual regression tests in high contrast mode", () => {
+describe("IcAlert visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
@@ -378,6 +378,12 @@ describe.skip("IcAlert visual regression tests in high contrast mode", () => {
 
   after(() => {
     cy.disableForcedColors();
+  });
+
+  Cypress.on("uncaught:exception", (err, runnable) => {
+    if (err.message.includes("not from Cypress")) {
+      return false;
+    }
   });
 
   it("should render all variants of alert with message and icon in high contrast mode", () => {
