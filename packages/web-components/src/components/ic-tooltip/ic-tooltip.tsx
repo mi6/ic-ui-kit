@@ -226,9 +226,10 @@ export class Tooltip {
         tooltipX = child.left - dialogEl.left + child.width;
       }
     }
+    console.log("tooltipX", tooltipX, "tooltipY", tooltipY);
 
-    this.toolTip.style.setProperty("--tooltip-translate-x", `${tooltipX}px`);
-    this.toolTip.style.setProperty("--tooltip-translate-y", `${tooltipY}px`);
+    // this.toolTip.style.setProperty("--tooltip-translate-x", `${tooltipX}px`);
+    // this.toolTip.style.setProperty("--tooltip-translate-y", `${tooltipY}px`);
   };
 
   private show = () => {
@@ -245,6 +246,7 @@ export class Tooltip {
       }
 
       this.popperInstance = createPopper(this.el, this.toolTip, {
+        strategy: this.onDialog ? "fixed" : "absolute",
         placement: this.placement,
         modifiers: [
           {
