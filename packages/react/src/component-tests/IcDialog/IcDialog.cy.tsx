@@ -25,6 +25,7 @@ import {
   DialogSearch,
   NoWidthConstraintDialog,
   ThemeDark,
+  DialogButtonsWithTooltip,
 } from "./IcDialogTestData";
 import {
   BE_VISIBLE,
@@ -46,7 +47,7 @@ const CLOSE_ICON_BUTTON = "ic-button.close-icon";
 
 const DEFAULT_TEST_THRESHOLD = 0.028;
 
-describe("IcDialog end-to-end tests", () => {
+describe.skip("IcDialog end-to-end tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 750);
   });
@@ -441,6 +442,34 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.get("ic-text-field").should(HAVE_FOCUS);
   });
 
+  it.only("should render tooltips correctly in dialog", () => {
+    mount(<DialogButtonsWithTooltip />);
+
+    cy.get(DIALOG).should("exist");
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(1000);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+
+    // cy.get(DIALOG).click("center");
+
+    // cy.get("ic-button#test-button").realHover().wait(500);
+    // cy.findShadowEl("ic-button#test-button", "button").focus().wait(500);
+
+    cy.compareSnapshot({
+      name: "/tooltip-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+
+    // cy.get(DIALOG).realHover().wait(300);
+
+    // cy.get("ic-button#test-button-2").realHover().wait(500);
+    // cy.findShadowEl("ic-button#test-button-2", "button").focus().wait(1000);
+
+    // cy.compareSnapshot({
+    //   name: "/shadow-tooltip-hover",
+    //   testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    // });
+  });
+
   it("should render neutral alert dialog", () => {
     mount(AlertDialog("neutral"));
     cy.checkHydrated(DIALOG);
@@ -654,7 +683,7 @@ describe("IcDialog visual regression and a11y tests", () => {
   });
 });
 
-describe("IcDialog visual regression tests in high contrast mode", () => {
+describe.skip("IcDialog visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

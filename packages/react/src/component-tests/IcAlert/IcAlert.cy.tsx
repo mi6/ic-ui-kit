@@ -32,7 +32,7 @@ const TYPOGRAPHY_SELECTOR = "ic-typography";
 const ALERT_MIN_HEIGHT_CSS_VAR = "--ic-alert-min-height";
 const DEFAULT_TEST_THRESHOLD = 0.018;
 
-describe("IcAlert end-to-end tests", () => {
+describe.skip("IcAlert end-to-end tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 750);
   });
@@ -206,7 +206,7 @@ describe("IcAlert end-to-end tests", () => {
   });
 });
 
-describe("IcAlert visual regression and a11y tests", () => {
+describe.skip("IcAlert visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 750);

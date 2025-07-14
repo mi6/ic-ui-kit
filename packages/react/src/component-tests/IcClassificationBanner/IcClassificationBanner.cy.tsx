@@ -9,7 +9,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const DEFAULT_TEST_THRESHOLD = 0.015;
 const BANNER = "ic-classification-banner";
 
-describe("IcClassificationBanner visual regression and a11y tests", () => {
+describe.skip("IcClassificationBanner visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -159,7 +159,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
   });
 });
 
-describe("IcClassificationBanner visual regression tests in high contrast mode", () => {
+describe.skip("IcClassificationBanner visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

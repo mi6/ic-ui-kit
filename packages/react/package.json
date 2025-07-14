@@ -18,7 +18,7 @@
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
     "cypress": "cypress run --component --headed",
     "cypress:open": "cypress open",
-    "cypress:component": "cypress run --component --headless",
+    "cypress:component": "cypress run --component --headless --browser chrome",
     "cypress:ci": "cross-env CYPRESS_CI=true npm run cypress:component",
     "perf:local": "webpack serve --config ./.webpack/webpack.perf.config.js --mode development",
     "perf:build": "webpack build --config ./.webpack/webpack.perf.config.js --mode production",

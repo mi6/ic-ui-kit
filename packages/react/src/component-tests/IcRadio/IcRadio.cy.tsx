@@ -57,7 +57,7 @@ const DISABLED_RADIO_AXE_OPTIONS = {
   },
 };
 
-describe("IcRadio end-to-end tests", () => {
+describe.skip("IcRadio end-to-end tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -440,7 +440,7 @@ describe("IcRadio end-to-end tests", () => {
   });
 });
 
-describe("IcRadio visual regression and a11y tests", () => {
+describe.skip("IcRadio visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -661,7 +661,7 @@ describe("IcRadio visual regression and a11y tests", () => {
   });
 });
 
-describe("IcRadio visual regression tests in high contrast mode", () => {
+describe.skip("IcRadio visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

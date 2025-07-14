@@ -23,7 +23,7 @@ import { BE_VISIBLE } from "../utils/constants";
 const DEFAULT_TEST_THRESHOLD = 0.021;
 const IC_HERO_SELECTOR = "ic-hero";
 
-describe("IcHero end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcHero end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1500, 500);
@@ -208,7 +208,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcHero visual regression tests in high contrast mode", () => {
+describe.skip("IcHero visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

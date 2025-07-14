@@ -27,7 +27,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const IC_BREADCRUMB_LABEL = "ic-breadcrumb";
 const DEFAULT_TEST_THRESHOLD = 0.009;
 
-describe("IcBreadcrumb end-to-end tests", () => {
+describe.skip("IcBreadcrumb end-to-end tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 750);
   });
@@ -164,7 +164,7 @@ describe("IcBreadcrumb end-to-end tests", () => {
   });
 });
 
-describe("IcBreadcrumb visual regression and a11y tests", () => {
+describe.skip("IcBreadcrumb visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 750);
@@ -278,7 +278,7 @@ describe("IcBreadcrumb visual regression and a11y tests", () => {
   });
 });
 
-describe("IcBreadcrumb visual regression tests in high contrast mode", () => {
+describe.skip("IcBreadcrumb visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

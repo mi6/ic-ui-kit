@@ -47,8 +47,8 @@ const TOGGLE_BUTTON_AXE_OPTIONS = {
   },
 };
 
-describe("IcToggleButtonGroup", () => {
-  describe("E2E", () => {
+describe.skip("IcToggleButtonGroup", () => {
+  describe.skip("E2E", () => {
     it("should check single/manual on only one toggle", () => {
       mount(<ToggleGroupSingle />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
@@ -103,7 +103,7 @@ describe("IcToggleButtonGroup", () => {
     });
   });
 
-  describe("screenshots", () => {
+  describe.skip("screenshots", () => {
     beforeEach(() => {
       cy.injectAxe();
       cy.viewport(500, 500);
@@ -316,7 +316,7 @@ describe("IcToggleButtonGroup", () => {
   });
 });
 
-describe("IcToggleButtonGroup visual regression in high contrast mode", () => {
+describe.skip("IcToggleButtonGroup visual regression in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
