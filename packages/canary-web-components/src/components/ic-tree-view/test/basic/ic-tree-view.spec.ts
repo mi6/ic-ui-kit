@@ -81,21 +81,28 @@ describe("ic-tree-view component", () => {
     expect(treeItem.selected).toBeFalsy();
   });
 
-  it("should test rendering icon slot after initial render", async () => {
+  it("should test child items are added after initial load", async () => {
     const page = await newSpecPage({
-      components: [TreeView],
-      html: `<ic-tree-view heading="Heading"></ic-tree-view>`,
+      components: [TreeView, TreeItem],
+      html: `<ic-tree-view heading="Heading">
+      </ic-tree-view>`,
     });
 
-    const icon = document.createElement("svg");
-    icon.setAttribute("slot", "icon");
+    expect(page.rootInstance.treeItems.length).toBe(0);
 
+    const treeView = document.querySelector("ic-tree-view");
+
+    treeView!.innerHTML =
+      '<ic-tree-item label="Item 1"><ic-tree-item label="Item 2"></ic-tree-item></ic-tree-item><ic-tree-item label="Item 3"></ic-tree-item>';
+
+    await page.waitForChanges();
     page.rootInstance.hostMutationCallback([
       {
         type: "childList",
-        addedNodes: [icon],
+        addedNodes: [],
         removedNodes: [],
       },
     ]);
+    expect(page.rootInstance.treeItems.length).toBe(3);
   });
 });

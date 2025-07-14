@@ -12,8 +12,30 @@ exports[`ic-tree-item component should render 1`] = `
 </ic-tree-item>
 `;
 
+exports[`ic-tree-item component should render custom ids 1`] = `
+<ic-tree-item id="item-1" label="Item 1" tree-item-id="item-1">
+  <template shadowrootmode="open">
+    <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
+      <span aria-hidden="true" class="arrow-dropdown">
+        svg
+      </span>
+      <ic-typography class="tree-item-label">
+        Item 1
+      </ic-typography>
+    </div>
+  </template>
+  <ic-tree-item id="ic-tree-item-6">
+    <template shadowrootmode="open">
+      <div aria-disabled="false" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="0" style="padding-left: calc(var(--ic-space-xs) + 48px);">
+        <ic-typography class="tree-item-label"></ic-typography>
+      </div>
+    </template>
+  </ic-tree-item>
+</ic-tree-item>
+`;
+
 exports[`ic-tree-item component should render disabled 1`] = `
-<ic-tree-item class="ic-tree-item-disabled" disabled="true" id="ic-tree-item-6" label="Item 1">
+<ic-tree-item class="ic-tree-item-disabled" disabled="true" id="ic-tree-item-7" label="Item 1">
   <template shadowrootmode="open">
     <div aria-disabled="true" aria-live="polite" class="tree-item-content" tabindex="-1">
       <ic-typography class="tree-item-label">
@@ -25,7 +47,7 @@ exports[`ic-tree-item component should render disabled 1`] = `
 `;
 
 exports[`ic-tree-item component should render disabled: disabled-removed 1`] = `
-<ic-tree-item id="ic-tree-item-6" label="Item 1">
+<ic-tree-item id="ic-tree-item-8" label="Item 1">
   <template shadowrootmode="open">
     <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
       <ic-typography class="tree-item-label">
@@ -37,7 +59,7 @@ exports[`ic-tree-item component should render disabled: disabled-removed 1`] = `
 `;
 
 exports[`ic-tree-item component should render selected 1`] = `
-<ic-tree-item class="ic-tree-item-selected" id="ic-tree-item-7" label="Item 1" selected="true">
+<ic-tree-item class="ic-tree-item-selected" id="ic-tree-item-9" label="Item 1" selected="true">
   <template shadowrootmode="open">
     <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
       <ic-typography class="tree-item-label">
@@ -62,7 +84,7 @@ exports[`ic-tree-item component should render with child tree items 1`] = `
   </template>
   <ic-tree-item id="ic-tree-item-3" label="Item 1.1">
     <template shadowrootmode="open">
-      <div aria-disabled="false" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="0" style="padding-left: calc(var(--ic-space-xs) + 48px;">
+      <div aria-disabled="false" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="0" style="padding-left: calc(var(--ic-space-xs) + 48px);">
         <ic-typography class="tree-item-label">
           Item 1.1
         </ic-typography>
@@ -71,7 +93,7 @@ exports[`ic-tree-item component should render with child tree items 1`] = `
   </ic-tree-item>
   <ic-tree-item id="ic-tree-item-4" label="Item 1.2">
     <template shadowrootmode="open">
-      <div aria-disabled="false" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="0" style="padding-left: calc(var(--ic-space-xs) + 48px;">
+      <div aria-disabled="false" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="0" style="padding-left: calc(var(--ic-space-xs) + 48px);">
         <ic-typography class="tree-item-label">
           Item 1.2
         </ic-typography>
@@ -112,7 +134,7 @@ exports[`ic-tree-item component should render with router item slot 1`] = `
 `;
 
 exports[`ic-tree-item component should render with slotted label 1`] = `
-<ic-tree-item id="ic-tree-item-8">
+<ic-tree-item id="ic-tree-item-10">
   <template shadowrootmode="open">
     <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
       <ic-typography class="ic-typography-body tree-item-label">

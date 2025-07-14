@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { IcButton, IcTypography, IcSkipLink, SlottedSVG } from "@ukic/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import treeItemReadme from "../../../canary-web-components/src/components/ic-tree-item/readme.md";
 import readme from "../../../canary-web-components/src/components/ic-tree-view/readme.md";
 import { IcTreeItem, IcTreeView } from "../components";
@@ -832,7 +832,7 @@ export const UpdatingOptionsSlotted = {
 };
 
 export const WithNestedSkipLink = {
-  render: () => {
+  render: () => (
     <div style={{ width: "250px" }}>
       <IcSkipLink target="next-content" inline />
       <IcTreeView heading="Menu">
@@ -850,8 +850,40 @@ export const WithNestedSkipLink = {
         <IcTreeItem label="Hot chocolate" />
       </IcTreeView>
     </div>
-  },
+  ),
   name: "Nested skip link",
+};
+
+export const AddChildNodes = {
+  render: () => {
+    const [childNodes, setChildNodes] = useState([]);
+
+  useEffect(() => {
+    const childData = [
+      { label: "PG Tips" },
+      { label: "Yorkshire Tea" },
+      { label: "Earl Grey" },
+    ];
+
+    setTimeout(() => {
+      setChildNodes(childData);
+    }, 3000);
+  }, []);
+  return (
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        <IcTreeItem label="Coffee" />
+        <IcTreeItem label="Tea" expanded={childNodes.length}>
+          {childNodes.map((childNode) => (
+            <IcTreeItem label={childNode.label} key={childNode.label} />
+          ))}
+        </IcTreeItem>
+        <IcTreeItem label="Hot chocolate" />
+      </IcTreeView>
+    </div>
+  );
+},
+  name: "Adding child nodes",
 };
 
 const defaultArgs = {

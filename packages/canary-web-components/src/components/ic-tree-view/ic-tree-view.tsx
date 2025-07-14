@@ -119,8 +119,6 @@ export class TreeView {
   }
 
   disconnectedCallback(): void {
-    this.el?.removeEventListener("slotchange", this.setTreeItems);
-
     this.hostMutationObserver?.disconnect();
     this.resizeObserver?.disconnect();
   }
@@ -148,14 +146,7 @@ export class TreeView {
   }
 
   componentDidLoad(): void {
-    this.addSlotChangeListener();
-
-    this.hostMutationObserver = new MutationObserver((mutationList) =>
-      renderDynamicChildSlots(mutationList, "icon", this)
-    );
-    this.hostMutationObserver.observe(this.el, {
-      childList: true,
-    });
+    this.createMutationObserver();
 
     this.isLoaded = true;
   }
@@ -168,6 +159,23 @@ export class TreeView {
       }
     });
   }
+
+  private hostMutationCallback = (mutationList: MutationRecord[]) => {
+    this.hostMutationObserver?.disconnect();
+    renderDynamicChildSlots(mutationList, "icon", this);
+    this.setTreeItems();
+    this.createMutationObserver();
+  };
+
+  private createMutationObserver = () => {
+    this.hostMutationObserver = new MutationObserver((mutationList) => {
+      this.hostMutationCallback(mutationList);
+    });
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+      subtree: true,
+    });
+  };
 
   private runResizeObserver = () => {
     this.resizeObserver = new ResizeObserver(() => {
@@ -346,10 +354,6 @@ export class TreeView {
 
     return treeItems;
   }
-
-  private addSlotChangeListener = () => {
-    this.el.addEventListener("slotchange", this.setTreeItems);
-  };
 
   private truncateTreeViewHeading = () => {
     const typographyEl =
