@@ -1421,6 +1421,8 @@ export class Select {
                 searchable || multiple || selectOnEnter ? "manual" : "automatic"
               }
               closeOnSelect={!multiple}
+              multiSelect={multiple ? true : false}
+              searchableSelect={searchable ? true : false}
             ></ic-menu>
           )}
           {multiple && (
