@@ -1002,6 +1002,7 @@ export class SearchBar {
                 value={value}
                 labelField={labelField}
                 valueField={valueField}
+                searchBar={true}
               ></ic-menu>
             )}
           </div>

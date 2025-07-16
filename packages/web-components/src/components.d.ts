@@ -1093,6 +1093,7 @@ export namespace Components {
           * The ID of the menu.
          */
         "menuId": string;
+        "multiSelect": boolean;
         /**
           * If `true`, the menu will be displayed open.
          */
@@ -1102,10 +1103,12 @@ export namespace Components {
          */
         "options": IcMenuOption[];
         "parentEl"?: HTMLElement;
+        "searchBar": boolean;
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
         "searchMode": IcSearchBarSearchModes;
+        "searchableSelect": boolean;
         "selectOnEnter": boolean;
         /**
           * @param props object - createPopper props set externally
@@ -4546,6 +4549,7 @@ declare namespace LocalJSX {
           * The ID of the menu.
          */
         "menuId": string;
+        "multiSelect"?: boolean;
         /**
           * Emitted when the clear all button is clicked.
          */
@@ -4567,10 +4571,12 @@ declare namespace LocalJSX {
          */
         "options": IcMenuOption[];
         "parentEl"?: HTMLElement;
+        "searchBar"?: boolean;
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
         "searchMode"?: IcSearchBarSearchModes;
+        "searchableSelect"?: boolean;
         "selectOnEnter"?: boolean;
         /**
           * The size of the menu.

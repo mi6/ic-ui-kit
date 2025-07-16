@@ -395,6 +395,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchBar}
           value={searchMenuOptions[0].value}
           parentEl={searchBar}
+          searchBar={true}
         ></ic-menu>
       ),
     });
@@ -542,8 +543,6 @@ describe("ic-menu in isolation", () => {
 
     page.rootInstance.preventIncorrectTabOrder = false;
 
-    page.rootInstance.isSearchBar = true;
-
     page.rootInstance.setHighlightedOption(4);
 
     page.rootInstance.manualSetInputValueKeyboardOpen(
@@ -617,11 +616,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchableSelect}
           value={menuOptions[0].value}
           parentEl={searchableSelect}
+          searchableSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isSearchableSelect = true;
 
     await page.rootInstance.handleSetFirstOption();
 
@@ -656,11 +654,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchableSelect}
           value={menuOptions[0].value}
           parentEl={searchableSelect}
+          searchableSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isSearchableSelect = true;
 
     page.rootInstance.manualSetInputValueKeyboardOpen(
       keyboardEvent("Backspace")
@@ -693,11 +690,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchableSelect}
           value={menuOptions[0].value}
           parentEl={searchableSelect}
+          searchableSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isSearchableSelect = true;
 
     await page.rootInstance.handleSetFirstOption();
 
@@ -730,11 +726,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchableSelect}
           value={menuOptions[0].value}
           parentEl={searchableSelect}
+          searchableSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isSearchableSelect = true;
 
     page.rootInstance.manualSetInputValueKeyboardOpen(keyboardEvent("f"));
 
@@ -764,11 +759,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={select}
           value={menuOptions[0].value}
           parentEl={select}
+          searchableSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isSearchBar = true;
 
     page.rootInstance.manualSetInputValueKeyboardOpen(
       keyboardEvent("Backspace")
@@ -800,11 +794,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={select}
           value={menuOptions[0].value}
           parentEl={select}
+          searchBar={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isSearchBar = true;
 
     page.rootInstance.manualSetInputValueKeyboardOpen(
       keyboardEvent("ArrowDown")
@@ -840,12 +833,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={select}
           value={menuOptions[0].value}
           parentEl={select}
+          searchableSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isSearchBar = false;
-    page.rootInstance.isSearchableSelect = true;
 
     page.rootInstance.manualSetInputValueKeyboardOpen(keyboardEvent("KeyR"));
 
@@ -872,6 +863,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
+          multiSelect={true}
         ></ic-menu>
       ),
     });
@@ -882,8 +874,6 @@ describe("ic-menu in isolation", () => {
     jest
       .spyOn(page.rootInstance, "getMenuOptions")
       .mockImplementation(() => menuOptions);
-
-    page.rootInstance.isMultiSelect = true;
 
     await page.rootInstance.manualSetInputValueKeyboardOpen(keyboardEvent(" "));
 
@@ -1159,7 +1149,7 @@ describe("ic-menu in isolation", () => {
       })
     );
 
-    page.rootInstance.isMultiSelect = true;
+    page.rootInstance.multiSelect = true;
 
     await page.waitForChanges();
 
@@ -1273,7 +1263,7 @@ describe("ic-menu in isolation", () => {
     const page = await createMenu();
 
     page.rootInstance.activationType = "manual";
-    page.rootInstance.isSearchableSelect = true;
+    page.rootInstance.searchableSelect = true;
 
     const eventSpy = jest.fn();
 
@@ -1476,6 +1466,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchBar}
           value={menuOptions[0].value}
           parentEl={searchBar as HTMLElement}
+          searchBar={true}
         ></ic-menu>
       ),
     });
@@ -1515,6 +1506,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchBar}
           value={menuOptions[0].value}
           parentEl={searchBar}
+          searchBar={true}
         ></ic-menu>
       ),
     });
@@ -1527,21 +1519,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.focusFromSearchKeypress).toBe(true);
   });
-  it("should test getParentEl function", async () => {
-    const select = window.document.createElement(
-      "ic-select"
-    ) as HTMLIcSelectElement;
-    select.searchable = true;
-    select.setAttribute("searchable", "true");
 
-    const page = await createMenu();
-
-    page.rootInstance.getParentEl(select);
-
-    await page.waitForChanges();
-
-    expect(page.rootInstance.isSearchableSelect).toBe(true);
-  });
   it("should test handleTimeoutBlur function", async () => {
     const page = await createMenu();
 
@@ -1569,7 +1547,7 @@ describe("ic-menu in isolation", () => {
     const page = await createMenu();
 
     page.rootInstance.optionHighlighted = "espresso";
-    page.rootInstance.isMultiSelect = true;
+    page.rootInstance.multiSelect = true;
 
     await page.waitForChanges();
 
@@ -1585,7 +1563,7 @@ describe("ic-menu in isolation", () => {
     const page = await createMenu();
 
     page.rootInstance.open = false;
-    page.rootInstance.isMultiSelect = true;
+    page.rootInstance.multiSelect = true;
 
     jest.spyOn(page.rootInstance, "handleMenuChange").mockImplementation();
 
@@ -1605,7 +1583,7 @@ describe("ic-menu in isolation", () => {
     const page = await createMenu();
 
     page.rootInstance.open = false;
-    page.rootInstance.isMultiSelect = true;
+    page.rootInstance.multiSelect = true;
 
     jest.spyOn(page.rootInstance, "handleMenuChange").mockImplementation();
 
@@ -1775,11 +1753,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
+          multiSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isMultiSelect = true;
 
     jest
       .spyOn(page.rootInstance, "deselectSelectedOptions")
@@ -1834,11 +1811,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
+          multiSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isMultiSelect = true;
 
     jest
       .spyOn(page.rootInstance, "deselectSelectedOptions")
@@ -1893,11 +1869,10 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
+          multiSelect={true}
         ></ic-menu>
       ),
     });
-
-    page.rootInstance.isMultiSelect = true;
 
     jest
       .spyOn(page.rootInstance, "handleMultipleShiftSelect")
