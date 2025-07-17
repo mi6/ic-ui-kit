@@ -43,6 +43,27 @@ import IcHeroPage from "./pages/IcHero";
 import IcPageHeaderPage from "./pages/IcPageHeader";
 import IcFooterPage from "./pages/IcFooter";
 import IcStepperPage from "./pages/IcStepper";
+import IcPaginationPage from "./pages/IcPagination";
+import IcTabPage from "./pages/IcTab";
+import IcCardVerticalSinglePage from "./pages/IcCardVertical/IcCardVerticalSingle";
+import IcCardVerticalMultiplePage from "./pages/IcCardVertical/IcCardVerticalMultiple";
+import IcAlertSinglePage from "./pages/IcAlert/IcAlertSingle";
+import IcAlertMultiplePage from "./pages/IcAlert/IcAlertMultiple";
+import IcToggleButtonSinglePage from "./pages/IcToggleButton/IcToggleButtonSingle";
+import IcToggleButtonMultiplePage from "./pages/IcToggleButton/IcToggleButtonMultiple";
+import IcToggleButtonVariantsPage from "./pages/IcToggleButton/IcToggleButtonVariants";
+import IcToggleButtonGroupVariantsPage from "./pages/IcToggleButton/IcToggleButtonGroupVariants";
+import IcTextFieldSinglePage from "./pages/IcTextField/IcTextFieldSingle";
+import IcTextFieldMultiplePage from "./pages/IcTextField/IcTextFieldMultiple";
+import IcTextFieldVariantsPage from "./pages/IcTextField/IcTextFieldVariants";
+import IcSwitchSinglePage from "./pages/IcSwitch/IcSwitchSingle";
+import IcSwitchMultiplePage from "./pages/IcSwitch/IcSwitchMultiple";
+import IcChipSinglePage from "./pages/IcChip/IcChipSingle";
+import IcChipMultiplePage from "./pages/IcChip/IcChipMultiple";
+import IcDataListSinglePage from "./pages/IcDataList/IcDataListSingle";
+import IcDataListMultiplePage from "./pages/IcDataList/IcDataListMultiple";
+import IcClassificationBannerPage from "./pages/IcClassificationBanner";
+import IcEmptyStatePage from "./pages/IcEmptyState";
 
 const getThemeFromUrl = () => {
   const hash = window.location.hash;
@@ -234,6 +255,81 @@ const App = () => {
             />
             <Route path="footer" element={<IcFooterPage theme={theme} />} />
             <Route path="stepper" element={<IcStepperPage theme={theme} />} />
+            <Route
+              path="pagination"
+              element={<IcPaginationPage theme={theme} />}
+            />
+            <Route path="tabs" element={<IcTabPage theme={theme} />} />
+            <Route
+              path="card-vertical"
+              element={<IcCardVerticalSinglePage theme={theme} />}
+            />
+            <Route
+              path="card-vertical-multiple"
+              element={<IcCardVerticalMultiplePage theme={theme} />}
+            />
+            <Route path="alert" element={<IcAlertSinglePage theme={theme} />} />
+            <Route
+              path="alert-multiple"
+              element={<IcAlertMultiplePage theme={theme} />}
+            />
+            <Route
+              path="toggle-button"
+              element={<IcToggleButtonSinglePage theme={theme} />}
+            />
+            <Route
+              path="toggle-button-multiple"
+              element={<IcToggleButtonMultiplePage theme={theme} />}
+            />
+            <Route
+              path="toggle-button-variants"
+              element={<IcToggleButtonVariantsPage theme={theme} />}
+            />
+            <Route
+              path="toggle-button-group-variants"
+              element={<IcToggleButtonGroupVariantsPage theme={theme} />}
+            />
+            <Route
+              path="text-field"
+              element={<IcTextFieldSinglePage theme={theme} />}
+            />
+            <Route
+              path="text-field-multiple"
+              element={<IcTextFieldMultiplePage theme={theme} />}
+            />
+            <Route
+              path="text-field-variants"
+              element={<IcTextFieldVariantsPage theme={theme} />}
+            />
+            <Route
+              path="switch"
+              element={<IcSwitchSinglePage theme={theme} />}
+            />
+            <Route
+              path="switch-multiple"
+              element={<IcSwitchMultiplePage theme={theme} />}
+            />
+            <Route path="chip" element={<IcChipSinglePage theme={theme} />} />
+            <Route
+              path="chip-multiple"
+              element={<IcChipMultiplePage theme={theme} />}
+            />
+            <Route
+              path="data-list"
+              element={<IcDataListSinglePage theme={theme} />}
+            />
+            <Route
+              path="data-list-multiple"
+              element={<IcDataListMultiplePage theme={theme} />}
+            />
+            <Route
+              path="classification-banner"
+              element={<IcClassificationBannerPage theme={theme} />}
+            />
+            <Route
+              path="empty-state"
+              element={<IcEmptyStatePage theme={theme} />}
+            />
           </Route>
         </Routes>
       </main>
