@@ -8,14 +8,14 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 import { IcThemeMode } from "@ukic/web-components";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcWeekDays } from "./utils/types";
+import { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcThemeMode } from "@ukic/web-components";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcWeekDays } from "./utils/types";
+export { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -537,6 +537,99 @@ export namespace Components {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcTimeInput {
+        /**
+          * An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+         */
+        "disableTimes": IcDisableTimeSelection[];
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled": boolean;
+        /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitTimePartChange"?: boolean;
+        /**
+          * Returns the value as a Date object
+          * @returns Date
+         */
+        "getTime": () => Promise<Date | null>;
+        /**
+          * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `timeFormat` value.
+         */
+        "helperText": string | null;
+        /**
+          * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+         */
+        "hideHelperText": boolean;
+        /**
+          * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * The ID for the input.
+         */
+        "inputId": string;
+        /**
+          * The text to display as the validation message when an invalid time is entered.
+         */
+        "invalidTimeMessage": string;
+        /**
+          * The label for the time input.
+         */
+        "label": string;
+        /**
+          * The latest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+         */
+        "max": string | Date;
+        /**
+          * The earliest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+         */
+        "min": string | Date;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * If `true`, the input will require a value.
+         */
+        "required": boolean;
+        /**
+          * If `true`, a button which clears the time input when clicked will be displayed.
+         */
+        "showClearButton"?: boolean;
+        "showClockButton"?: boolean;
+        /**
+          * The size of the time input to be displayed.
+         */
+        "size": IcSizes;
+        /**
+          * Sets the time picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode1;
+        /**
+          * The format in which the time will be displayed.
+         */
+        "timeFormat": IcTimeFormat;
+        /**
+          * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
+         */
+        "timePeriod": "12" | "24";
+        "triggerIcChange": (t: Date | null) => Promise<void>;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in time validation.
+         */
+        "validationStatus": IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message. This will override the built-in time validation.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+         */
+        "value"?: string | Date | null | undefined;
+    }
     interface IcTreeItem {
         /**
           * If `true`, the tree item appears in the disabled state.
@@ -642,6 +735,10 @@ export interface IcDatePickerCustomEvent<T> extends CustomEvent<T> {
 export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
+}
+export interface IcTimeInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTimeInputElement;
 }
 export interface IcTreeItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -759,6 +856,33 @@ declare global {
         prototype: HTMLIcPaginationBarElement;
         new (): HTMLIcPaginationBarElement;
     };
+    interface HTMLIcTimeInputElementEventMap {
+        "clockButtonClicked": { value: Date | null };
+        "icBlur": { value: Date | null };
+        "icChange": {
+    value: Date | null;
+    timeObject: {
+      hour: string | null;
+      minute: string | null;
+      second: string | null;
+    };
+  };
+        "icFocus": { value: Date | null };
+    }
+    interface HTMLIcTimeInputElement extends Components.IcTimeInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTimeInputElementEventMap>(type: K, listener: (this: HTMLIcTimeInputElement, ev: IcTimeInputCustomEvent<HTMLIcTimeInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTimeInputElementEventMap>(type: K, listener: (this: HTMLIcTimeInputElement, ev: IcTimeInputCustomEvent<HTMLIcTimeInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcTimeInputElement: {
+        prototype: HTMLIcTimeInputElement;
+        new (): HTMLIcTimeInputElement;
+    };
     interface HTMLIcTreeItemElementEventMap {
         "icTreeItemSelected": { id: string };
         "icTreeItemExpanded": {
@@ -793,6 +917,7 @@ declare global {
         "ic-date-input": HTMLIcDateInputElement;
         "ic-date-picker": HTMLIcDatePickerElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
+        "ic-time-input": HTMLIcTimeInputElement;
         "ic-tree-item": HTMLIcTreeItemElement;
         "ic-tree-view": HTMLIcTreeViewElement;
     }
@@ -1363,6 +1488,113 @@ declare namespace LocalJSX {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcTimeInput {
+        /**
+          * An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+         */
+        "disableTimes"?: IcDisableTimeSelection[];
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitTimePartChange"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `timeFormat` value.
+         */
+        "helperText"?: string | null;
+        /**
+          * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+         */
+        "hideHelperText"?: boolean;
+        /**
+          * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * The ID for the input.
+         */
+        "inputId"?: string;
+        /**
+          * The text to display as the validation message when an invalid time is entered.
+         */
+        "invalidTimeMessage"?: string;
+        /**
+          * The label for the time input.
+         */
+        "label": string;
+        /**
+          * The latest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+         */
+        "min"?: string | Date;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        "onClockButtonClicked"?: (event: IcTimeInputCustomEvent<{ value: Date | null }>) => void;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onIcBlur"?: (event: IcTimeInputCustomEvent<{ value: Date | null }>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onIcChange"?: (event: IcTimeInputCustomEvent<{
+    value: Date | null;
+    timeObject: {
+      hour: string | null;
+      minute: string | null;
+      second: string | null;
+    };
+  }>) => void;
+        /**
+          * Emitted when the input gains focus.
+         */
+        "onIcFocus"?: (event: IcTimeInputCustomEvent<{ value: Date | null }>) => void;
+        /**
+          * If `true`, the input will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * If `true`, a button which clears the time input when clicked will be displayed.
+         */
+        "showClearButton"?: boolean;
+        "showClockButton"?: boolean;
+        /**
+          * The size of the time input to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * Sets the time picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode1;
+        /**
+          * The format in which the time will be displayed.
+         */
+        "timeFormat"?: IcTimeFormat;
+        /**
+          * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
+         */
+        "timePeriod"?: "12" | "24";
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in time validation.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message. This will override the built-in time validation.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+         */
+        "value"?: string | Date | null | undefined;
+    }
     interface IcTreeItem {
         /**
           * If `true`, the tree item appears in the disabled state.
@@ -1461,6 +1693,7 @@ declare namespace LocalJSX {
         "ic-date-input": IcDateInput;
         "ic-date-picker": IcDatePicker;
         "ic-pagination-bar": IcPaginationBar;
+        "ic-time-input": IcTimeInput;
         "ic-tree-item": IcTreeItem;
         "ic-tree-view": IcTreeView;
     }
@@ -1475,6 +1708,7 @@ declare module "@stencil/core" {
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
             "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
+            "ic-time-input": LocalJSX.IcTimeInput & JSXBase.HTMLAttributes<HTMLIcTimeInputElement>;
             "ic-tree-item": LocalJSX.IcTreeItem & JSXBase.HTMLAttributes<HTMLIcTreeItemElement>;
             "ic-tree-view": LocalJSX.IcTreeView & JSXBase.HTMLAttributes<HTMLIcTreeViewElement>;
         }

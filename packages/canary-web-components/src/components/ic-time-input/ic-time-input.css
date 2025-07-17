@@ -1,0 +1,202 @@
+@import "../../global/normalize.css";
+
+:host {
+  --ic-input-label-helpertext-padding: var(--ic-space-xs);
+  --input-bg-color: var(--ic-time-picker-field-background);
+  --ic-input-label-text-color: var(--ic-time-picker-label);
+  --ic-input-label-helper-text-color: var(--ic-time-picker-subtitle);
+  --border-color: var(--ic-time-picker-time-field-border-default);
+  --border-color-disabled: var(--ic-time-picker-border-disabled);
+  --border-color-hover: var(--ic-time-picker-time-field-border-hover);
+  --border-color-pressed: var(--ic-time-picker-time-field-border-pressed);
+  --border-error-color: var(--ic-time-picker-border-error);
+  --border-error-color-hover: var(--ic-time-picker-border-error-hover);
+  --border-error-color-pressed: var(--ic-time-picker-border-error-pressed);
+  --border-success-color: var(--ic-time-picker-border-success);
+  --border-success-color-hover: var(--ic-time-picker-border-success-hover);
+  --border-success-color-pressed: var(--ic-time-picker-border-success-pressed);
+  --border-warning-color: var(--ic-time-picker-border-warning);
+  --border-warning-color-hover: var(--ic-time-picker-border-warning-hover);
+  --border-warning-color-pressed: var(--ic-time-picker-border-warning-pressed);
+  --input-width: calc((4 * var(--ic-space-xxl)) + var(--ic-space-xxs));
+}
+
+:host(.ic-time-input-disabled) {
+  --ic-input-label-text-color: var(--ic-time-picker-label-disabled);
+  --ic-input-label-helper-text-color: var(--ic-time-picker-subtitle-disabled);
+}
+
+:host(.ic-time-input-disabled) input {
+  color: var(--ic-time-picker-time-text-disabled);
+}
+
+:host(.ic-time-input-large) {
+  --input-width: calc(
+    (4 * var(--ic-space-xxl)) + var(--ic-space-xxs) + var(--ic-space-lg)
+  );
+}
+
+:host(.ic-time-input-small) {
+  --input-width: calc(
+    (3 * var(--ic-space-xxl)) + var(--ic-space-xxs) + var(--ic-space-xl)
+  );
+}
+
+input {
+  border: 0;
+  height: 100%;
+  padding: 0;
+  outline: none;
+  background: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  color: var(--ic-time-picker-time-text-default);
+  caret-color: var(--ic-time-picker-typing-cursor);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 var(--ic-space-sm) var(--ic-color-background-primary) inset;
+  -webkit-text-fill-color: var(--ic-time-picker-time-text-default) !important;
+}
+
+input::placeholder {
+  color: var(--ic-time-picker-field-placeholder-text);
+}
+
+ic-input-component-container {
+  cursor: text;
+}
+
+ic-input-component-container .focus-indicator {
+  padding: var(--ic-space-xxxs) var(--ic-space-xs);
+  align-items: center;
+}
+
+.time-inputs {
+  color: var(--ic-time-picker-field-placeholder-text);
+}
+
+.hour-input {
+  width: 1.438rem;
+}
+
+.minute-input {
+  width: 1.813rem;
+}
+
+.second-input,
+.second-input.fit-to-value {
+  width: 2.313rem;
+}
+
+.fit-to-value {
+  width: 1.25rem;
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.show-clock-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear-button,
+.clock-button {
+  border-radius: var(--ic-border-radius);
+  transition: box-shadow var(--ic-easing-transition),
+    border-radius var(--ic-easing-transition);
+  margin: 0;
+}
+
+.clear-button.hidden {
+  display: none;
+}
+
+.clear-button:focus,
+.clock-button:focus,
+.clear-button:active,
+.clock-button:active {
+  background-color: var(--ic-color-focus-inner) !important;
+  box-shadow: inset 0 0 0 0.125rem var(--ic-color-focus-outer) !important;
+  border-radius: 0.25rem;
+}
+
+.clock-button:focus,
+.clock-button:active {
+  --ic-button-tertiary-text-active: var(--ic-atoms-input-clear-button-focus);
+  --ic-button-tertiary-text-hover-active: var(
+    --ic-atoms-input-clear-button-focus
+  );
+  --ic-button-tertiary-text-pressed-active: var(
+    --ic-atoms-input-clear-button-focus
+  );
+}
+
+.clear-button:focus,
+.clock-button:focus,
+.clear-button:active *,
+.clock-button:active * {
+  fill: var(--ic-atoms-input-clear-button-focus);
+}
+
+.clear-button svg {
+  color: var(--ic-time-picker-clear-icon);
+}
+
+.clear-button:focus svg {
+  color: var(--ic-atoms-input-clear-button-focus);
+}
+
+.divider {
+  margin: 0 var(--ic-space-xxs);
+  width: var(--ic-space-1px);
+  background-color: var(--ic-atoms-input-divider);
+  border-radius: var(--ic-space-1px);
+}
+
+.divider.small {
+  height: var(--ic-space-md);
+}
+
+.divider.medium {
+  height: calc(var(--ic-space-sm) + var(--ic-space-xs));
+}
+
+.divider.large {
+  height: var(--ic-space-lg);
+}
+
+ic-input-validation {
+  --ic-input-validation-status-text-color: var(--ic-time-picker-status-text);
+  --ic-input-validation-error: var(--ic-time-picker-icon-error);
+  --ic-input-validation-warning-icon-color: var(--ic-time-picker-icon-warning);
+  --ic-input-validation-success-icon-color: var(--ic-time-picker-icon-success);
+}
+
+@media (forced-colors: active) {
+  .clear-button svg {
+    color: currentColor;
+  }
+}
