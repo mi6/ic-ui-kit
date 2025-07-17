@@ -74,7 +74,7 @@ export class DateInput {
 
   private isAfterMax: boolean = false;
   private isBeforeMin: boolean = false;
-  private isDateSetFromKeyboardEvent: boolean = false;
+  private preventInputsUpdating: boolean = false;
   private isDisabledDate: boolean = false;
   private isPasteValidationDisplayed: boolean;
   private isValidDay: boolean = true;
@@ -104,6 +104,8 @@ export class DateInput {
 
   private externalSetDate: boolean = false;
   private clearInput: boolean = false;
+
+  private calendarIsOpen: boolean = false;
 
   @Element() el: HTMLIcDateInputElement;
 
@@ -411,7 +413,7 @@ export class DateInput {
     if (isEmptyString(this.helperText))
       this.helperText = this.defaultHelperText;
 
-    if (!this.isDateSetFromKeyboardEvent) this.setDate(this.value);
+    if (!this.preventInputsUpdating) this.setDate(this.value);
 
     this.setAriaInvalid(
       this.isValidDay,
@@ -420,7 +422,7 @@ export class DateInput {
       this.isDisabledDate
     );
     this.handleDateChange(false);
-    this.isDateSetFromKeyboardEvent = false;
+    this.preventInputsUpdating = false;
   }
 
   componentDidRender(): void {
@@ -653,7 +655,7 @@ export class DateInput {
     }
 
     this.preventInput(event, isInputPrevented);
-    this.isDateSetFromKeyboardEvent = true;
+    this.preventInputsUpdating = true;
   };
 
   private handleFocus = (event: FocusEvent) => {
@@ -786,7 +788,7 @@ export class DateInput {
       }
       this.previousSelectedDate = this.selectedDate;
 
-      if (!this.isDateSetFromKeyboardEvent) {
+      if (!this.preventInputsUpdating) {
         this.updateInputValues(this.day, this.month, this.year);
       }
     }
@@ -1422,7 +1424,7 @@ export class DateInput {
       this.isPasteValidationDisplayed = false;
 
       // This is to prevent setDate from triggering within componentWillUpdate
-      this.isDateSetFromKeyboardEvent = true;
+      this.preventInputsUpdating = true;
     }
   }
 
@@ -1512,7 +1514,7 @@ export class DateInput {
       this.setPreventInput(input, false);
     });
     this.clearInput = false;
-    this.isDateSetFromKeyboardEvent = false;
+    this.preventInputsUpdating = false;
     this.setValidationMessage();
     this.handleDateChange(true);
 
@@ -1528,7 +1530,8 @@ export class DateInput {
     this.calendarButtonEl?.shadowRoot
       ?.querySelector("ic-tooltip")
       ?.displayTooltip(false);
-    this.isDateSetFromKeyboardEvent = false;
+    this.preventInputsUpdating = false;
+    this.calendarIsOpen = true;
   };
 
   private setValueAndEmitChange = (value: Date | null) => {
@@ -1540,19 +1543,29 @@ export class DateInput {
 
   private handleCalendarFocus = () => {
     this.calendarFocused = true;
+    if (this.calendarIsOpen) {
+      // focus event triggered by closing calendar dialog so inputs should update
+      this.preventInputsUpdating = false;
+      this.calendarIsOpen = false;
+    } else {
+      this.preventInputsUpdating = true;
+    }
   };
 
   private handleCalendarBlur = () => {
     this.calendarFocused = false;
+    this.preventInputsUpdating = true;
   };
 
   private handleClearFocus = () => {
     this.removeLabelledBy = true;
+    this.preventInputsUpdating = true;
     this.clearButtonFocused = true;
   };
 
   private handleClearBlur = (ev: FocusEvent) => {
     this.clearButtonFocused = false;
+    this.preventInputsUpdating = true;
     if ((ev.relatedTarget as HTMLElement)?.id.match(/(day|year)-input$/)) {
       this.removeLabelledBy = false;
       return;
