@@ -6,9 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
-import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 import { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./components/ic-divider/ic-divider.types";
@@ -36,9 +36,9 @@ import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
-export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 export { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./components/ic-divider/ic-divider.types";
@@ -125,6 +125,92 @@ export namespace Components {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
+    }
+    interface IcActionChip {
+        /**
+          * If `true`, the chip will appear disabled.
+         */
+        "disabled": boolean;
+        /**
+          * If `true`, the user can save the linked URL instead of navigating to it.
+         */
+        "download": string | boolean;
+        /**
+          * The <form> element to associate the chip with.
+         */
+        "form"?: string;
+        /**
+          * The URL that processes the information submitted by the chip. It overrides the action attribute of the chip's form owner. Does nothing if there is no form owner.
+         */
+        "formaction"?: string;
+        /**
+          * The way the submitted form data is encoded.
+         */
+        "formenctype"?: string;
+        /**
+          * The HTTP method used to submit the form.
+         */
+        "formmethod"?: string;
+        /**
+          * If `true`, the form will not be validated when submitted.
+         */
+        "formnovalidate"?: boolean;
+        /**
+          * The place to display the response from submitting the form. It overrides the target attribute of the chip's form owner.
+         */
+        "formtarget"?: string;
+        /**
+          * The URL that the link points to. This will render the chip as an "a" tag.
+         */
+        "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The text rendered within the chip.
+         */
+        "label": string;
+        /**
+          * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+         */
+        "monochrome": boolean;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * Sets focus on the chip.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The size of the chip.
+         */
+        "size": IcSizes;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
+         */
+        "transparentBackground": boolean;
+        /**
+          * The type of the chip.
+         */
+        "type": IcButtonTypes;
+        /**
+          * The emphasis of the chip.
+         */
+        "variant": IcEmphasisType;
     }
     interface IcAlert {
         /**
@@ -2672,6 +2758,12 @@ declare global {
         prototype: HTMLIcAccordionGroupElement;
         new (): HTMLIcAccordionGroupElement;
     };
+    interface HTMLIcActionChipElement extends Components.IcActionChip, HTMLStencilElement {
+    }
+    var HTMLIcActionChipElement: {
+        prototype: HTMLIcActionChipElement;
+        new (): HTMLIcActionChipElement;
+    };
     interface HTMLIcAlertElementEventMap {
         "icDismiss": void;
     }
@@ -3456,6 +3548,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ic-accordion": HTMLIcAccordionElement;
         "ic-accordion-group": HTMLIcAccordionGroupElement;
+        "ic-action-chip": HTMLIcActionChipElement;
         "ic-alert": HTMLIcAlertElement;
         "ic-back-to-top": HTMLIcBackToTopElement;
         "ic-badge": HTMLIcBadgeElement;
@@ -3574,6 +3667,88 @@ declare namespace LocalJSX {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
+    }
+    interface IcActionChip {
+        /**
+          * If `true`, the chip will appear disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the user can save the linked URL instead of navigating to it.
+         */
+        "download"?: string | boolean;
+        /**
+          * The <form> element to associate the chip with.
+         */
+        "form"?: string;
+        /**
+          * The URL that processes the information submitted by the chip. It overrides the action attribute of the chip's form owner. Does nothing if there is no form owner.
+         */
+        "formaction"?: string;
+        /**
+          * The way the submitted form data is encoded.
+         */
+        "formenctype"?: string;
+        /**
+          * The HTTP method used to submit the form.
+         */
+        "formmethod"?: string;
+        /**
+          * If `true`, the form will not be validated when submitted.
+         */
+        "formnovalidate"?: boolean;
+        /**
+          * The place to display the response from submitting the form. It overrides the target attribute of the chip's form owner.
+         */
+        "formtarget"?: string;
+        /**
+          * The URL that the link points to. This will render the chip as an "a" tag.
+         */
+        "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The text rendered within the chip.
+         */
+        "label": string;
+        /**
+          * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * The size of the chip.
+         */
+        "size"?: IcSizes;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
+         */
+        "transparentBackground"?: boolean;
+        /**
+          * The type of the chip.
+         */
+        "type"?: IcButtonTypes;
+        /**
+          * The emphasis of the chip.
+         */
+        "variant"?: IcEmphasisType;
     }
     interface IcAlert {
         /**
@@ -6103,6 +6278,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ic-accordion": IcAccordion;
         "ic-accordion-group": IcAccordionGroup;
+        "ic-action-chip": IcActionChip;
         "ic-alert": IcAlert;
         "ic-back-to-top": IcBackToTop;
         "ic-badge": IcBadge;
@@ -6174,6 +6350,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ic-accordion": LocalJSX.IcAccordion & JSXBase.HTMLAttributes<HTMLIcAccordionElement>;
             "ic-accordion-group": LocalJSX.IcAccordionGroup & JSXBase.HTMLAttributes<HTMLIcAccordionGroupElement>;
+            "ic-action-chip": LocalJSX.IcActionChip & JSXBase.HTMLAttributes<HTMLIcActionChipElement>;
             "ic-alert": LocalJSX.IcAlert & JSXBase.HTMLAttributes<HTMLIcAlertElement>;
             "ic-back-to-top": LocalJSX.IcBackToTop & JSXBase.HTMLAttributes<HTMLIcBackToTopElement>;
             "ic-badge": LocalJSX.IcBadge & JSXBase.HTMLAttributes<HTMLIcBadgeElement>;

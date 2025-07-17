@@ -344,6 +344,90 @@ ic-theme,
   --ic-accordion-chevron: var(--ic-color-icon-neutral);
   --ic-accordion-chevron-disabled: var(--ic-color-icon-grey);
 
+  /* Action chip */
+  --ic-action-chip-filled-background-default: var(--ic-color-background-active);
+  --ic-action-chip-filled-background-hover: var(
+    --ic-color-background-active-hover-light
+  );
+  --ic-action-chip-filled-background-pressed: var(
+    --ic-color-background-active-pressed-light
+  );
+  --ic-action-chip-filled-label: var(--ic-color-text-inverted);
+  --ic-action-chip-filled-icon: var(--ic-color-icon-inverted);
+  --ic-action-chip-monochrome-filled-background-default: var(
+    --ic-color-background-primary-dark
+  );
+  --ic-action-chip-monochrome-filled-background-hover: var(
+    --ic-color-background-hover-dark
+  );
+  --ic-action-chip-monochrome-filled-background-pressed: var(
+    --ic-color-background-pressed-dark
+  );
+  --ic-action-chip-outlined-background-default: var(
+    --ic-color-background-secondary
+  );
+  --ic-action-chip-outlined-background-hover: var(--ic-action-default-bg-hover);
+  --ic-action-chip-outlined-background-pressed: var(
+    --ic-action-default-bg-pressed
+  );
+  --ic-action-chip-monochrome-outlined-background-default: var(
+    --ic-color-background-secondary
+  );
+  --ic-action-chip-monochrome-outlined-background-hover: var(
+    --ic-action-dark-bg-hover
+  );
+  --ic-action-chip-monochrome-outlined-background-pressed: var(
+    --ic-action-dark-bg-pressed
+  );
+  --ic-action-chip-outlined-border-default: var(--ic-color-border-action);
+  --ic-action-chip-outlined-border-hover: var(--ic-color-border-action-hover);
+  --ic-action-chip-outlined-border-pressed: var(
+    --ic-color-border-action-pressed
+  );
+  --ic-action-chip-monochrome-outlined-border-default: var(
+    --ic-color-border-monochrome-light
+  );
+  --ic-action-chip-monochrome-outlined-border-hover: var(
+    --ic-color-border-monochrome-hover-dark
+  );
+  --ic-action-chip-monochrome-outlined-border-pressed: var(
+    --ic-color-border-monochrome-pressed-dark
+  );
+  --ic-action-chip-outlined-border-disabled: var(
+    --ic-color-border-neutral-disabled-mid
+  );
+  --ic-action-chip-outlined-label: var(--ic-color-text-action);
+  --ic-action-chip-outlined-label-hover: var(--ic-color-text-action-hover);
+  --ic-action-chip-outlined-label-pressed: var(--ic-color-text-action-pressed);
+  --ic-action-chip-outlined-icon: var(--ic-color-icon-action-default);
+  --ic-action-chip-outlined-icon-hover: var(
+    --ic-color-icon-action-default-hover
+  );
+  --ic-action-chip-outlined-icon-pressed: var(
+    --ic-color-icon-action-default-pressed
+  );
+  --ic-action-chip-monochrome-outlined-label: var(
+    --ic-color-text-action-monochrome-light
+  );
+  --ic-action-chip-monochrome-outlined-label-hover: var(
+    --ic-color-text-action-monochrome-hover-light
+  );
+  --ic-action-chip-monochrome-outlined-label-pressed: var(
+    --ic-color-text-action-monochrome-pressed-light
+  );
+  --ic-action-chip-monochrome-outlined-icon: var(--ic-color-icon-grey-darker);
+  --ic-action-chip-monochrome-outlined-icon-hover: var(
+    --ic-color-icon-hover-dark
+  );
+  --ic-action-chip-monochrome-outlined-icon-pressed: var(
+    --ic-color-icon-neutral
+  );
+  --ic-action-chip-background-disabled: var(
+    --ic-color-background-disabled-default
+  );
+  --ic-action-chip-label-disabled: var(--ic-color-text-disabled-mid);
+  --ic-action-chip-icon-disabled: var(--ic-color-icon-disabled-mid);
+
   /* Alert */
   --ic-alert-background-success: var(--ic-status-success);
   --ic-alert-background-error: var(--ic-status-error);
@@ -1806,6 +1890,96 @@ ic-theme,
     --ic-accordion-divider: var(--ic-atoms-option-bar-divider);
     --ic-accordion-chevron: var(--ic-color-icon-inverted);
     --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
+
+    /* Action chip */
+    --ic-action-chip-filled-background-default: var(
+      --ic-color-background-active
+    );
+    --ic-action-chip-filled-background-hover: var(
+      --ic-color-background-active-hover-dark
+    );
+    --ic-action-chip-filled-background-pressed: var(
+      --ic-color-background-active-pressed-dark
+    );
+    --ic-action-chip-filled-label: var(--ic-color-text-primary-light);
+    --ic-action-chip-filled-icon: var(--ic-color-icon-neutral);
+    --ic-action-chip-monochrome-filled-background-default: var(
+      --ic-color-background-primary-light
+    );
+    --ic-action-chip-monochrome-filled-background-hover: var(
+      --ic-color-background-hover-light
+    );
+    --ic-action-chip-monochrome-filled-background-pressed: var(
+      --ic-color-background-pressed-light
+    );
+    --ic-action-chip-outlined-background-default: var(
+      --ic-color-background-neutral-dark
+    );
+    --ic-action-chip-outlined-background-hover: var(
+      --ic-action-default-bg-hover
+    );
+    --ic-action-chip-outlined-background-pressed: var(
+      --ic-action-default-bg-pressed
+    );
+    --ic-action-chip-monochrome-outlined-background-default: var(
+      --ic-color-background-neutral-light
+    );
+    --ic-action-chip-monochrome-outlined-background-hover: var(
+      --ic-action-light-bg-hover
+    );
+    --ic-action-chip-monochrome-outlined-background-pressed: var(
+      --ic-action-light-bg-pressed
+    );
+    --ic-action-chip-outlined-border-default: var(--ic-color-border-action);
+    --ic-action-chip-outlined-border-hover: var(--ic-color-border-action-hover);
+    --ic-action-chip-outlined-border-pressed: var(
+      --ic-color-border-action-pressed
+    );
+    --ic-action-chip-monochrome-outlined-border-default: var(
+      --ic-color-border-monochrome-dark
+    );
+    --ic-action-chip-monochrome-outlined-border-hover: var(
+      --ic-color-border-monochrome-hover-light
+    );
+    --ic-action-chip-monochrome-outlined-border-pressed: var(
+      --ic-color-border-monochrome-pressed-light
+    );
+    --ic-action-chip-outlined-border-disabled: var(
+      --ic-color-border-neutral-disabled-mid
+    );
+    --ic-action-chip-outlined-label: var(--ic-color-text-action);
+    --ic-action-chip-outlined-label-hover: var(--ic-color-text-action-hover);
+    --ic-action-chip-outlined-label-pressed: var(
+      --ic-color-text-action-pressed
+    );
+    --ic-action-chip-outlined-icon: var(--ic-color-icon-action-default);
+    --ic-action-chip-outlined-icon-hover: var(
+      --ic-color-icon-action-default-hover
+    );
+    --ic-action-chip-outlined-icon-pressed: var(
+      --ic-color-icon-action-default-pressed
+    );
+    --ic-action-chip-monochrome-outlined-label: var(
+      --ic-color-text-action-monochrome-dark
+    );
+    --ic-action-chip-monochrome-outlined-label-hover: var(
+      --ic-color-text-action-monochrome-hover-dark
+    );
+    --ic-action-chip-monochrome-outlined-label-pressed: var(
+      --ic-color-text-action-monochrome-pressed-dark
+    );
+    --ic-action-chip-monochrome-outlined-icon: var(--ic-color-icon-action-dark);
+    --ic-action-chip-monochrome-outlined-icon-hover: var(
+      --ic-color-icon-hover-lighter
+    );
+    --ic-action-chip-monochrome-outlined-icon-pressed: var(
+      --ic-color-icon-pressed-lighter
+    );
+    --ic-action-chip-label-disabled: var(--ic-color-text-disabled-mid);
+    --ic-action-chip-icon-disabled: var(--ic-color-icon-disabled-mid);
+    --ic-action-chip-background-disabled: var(
+      --ic-color-background-disabled-default
+    );
 
     /* Alert */
     --ic-alert-background-success: var(--ic-status-success-dark-dm);
@@ -3321,6 +3495,90 @@ ic-theme,
   --ic-accordion-divider: var(--ic-atoms-option-bar-divider);
   --ic-accordion-chevron: var(--ic-color-icon-inverted);
   --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
+
+  /* Action chip */
+  --ic-action-chip-filled-background-default: var(--ic-color-background-active);
+  --ic-action-chip-filled-background-hover: var(
+    --ic-color-background-active-hover-dark
+  );
+  --ic-action-chip-filled-background-pressed: var(
+    --ic-color-background-active-pressed-dark
+  );
+  --ic-action-chip-filled-label: var(--ic-color-text-primary-light);
+  --ic-action-chip-filled-icon: var(--ic-color-icon-neutral);
+  --ic-action-chip-monochrome-filled-background-default: var(
+    --ic-color-background-primary-light
+  );
+  --ic-action-chip-monochrome-filled-background-hover: var(
+    --ic-color-background-hover-light
+  );
+  --ic-action-chip-monochrome-filled-background-pressed: var(
+    --ic-color-background-pressed-light
+  );
+  --ic-action-chip-outlined-background-default: var(
+    --ic-color-background-neutral-dark
+  );
+  --ic-action-chip-outlined-background-hover: var(--ic-action-default-bg-hover);
+  --ic-action-chip-outlined-background-pressed: var(
+    --ic-action-default-bg-pressed
+  );
+  --ic-action-chip-monochrome-outlined-background-default: var(
+    --ic-color-background-neutral-light
+  );
+  --ic-action-chip-monochrome-outlined-background-hover: var(
+    --ic-action-light-bg-hover
+  );
+  --ic-action-chip-monochrome-outlined-background-pressed: var(
+    --ic-action-light-bg-pressed
+  );
+  --ic-action-chip-outlined-border-default: var(--ic-color-border-action);
+  --ic-action-chip-outlined-border-hover: var(--ic-color-border-action-hover);
+  --ic-action-chip-outlined-border-pressed: var(
+    --ic-color-border-action-pressed
+  );
+  --ic-action-chip-monochrome-outlined-border-default: var(
+    --ic-color-border-monochrome-dark
+  );
+  --ic-action-chip-monochrome-outlined-border-hover: var(
+    --ic-color-border-monochrome-hover-light
+  );
+  --ic-action-chip-monochrome-outlined-border-pressed: var(
+    --ic-color-border-monochrome-pressed-light
+  );
+  --ic-action-chip-outlined-border-disabled: var(
+    --ic-color-border-neutral-disabled-mid
+  );
+  --ic-action-chip-outlined-label: var(--ic-color-text-action);
+  --ic-action-chip-outlined-label-hover: var(--ic-color-text-action-hover);
+  --ic-action-chip-outlined-label-pressed: var(--ic-color-text-action-pressed);
+  --ic-action-chip-outlined-icon: var(--ic-color-icon-action-default);
+  --ic-action-chip-outlined-icon-hover: var(
+    --ic-color-icon-action-default-hover
+  );
+  --ic-action-chip-outlined-icon-pressed: var(
+    --ic-color-icon-action-default-pressed
+  );
+  --ic-action-chip-monochrome-outlined-label: var(
+    --ic-color-text-action-monochrome-dark
+  );
+  --ic-action-chip-monochrome-outlined-label-hover: var(
+    --ic-color-text-action-monochrome-hover-dark
+  );
+  --ic-action-chip-monochrome-outlined-label-pressed: var(
+    --ic-color-text-action-monochrome-pressed-dark
+  );
+  --ic-action-chip-monochrome-outlined-icon: var(--ic-color-icon-action-dark);
+  --ic-action-chip-monochrome-outlined-icon-hover: var(
+    --ic-color-icon-hover-lighter
+  );
+  --ic-action-chip-monochrome-outlined-icon-pressed: var(
+    --ic-color-icon-pressed-lighter
+  );
+  --ic-action-chip-label-disabled: var(--ic-color-text-disabled-mid);
+  --ic-action-chip-icon-disabled: var(--ic-color-icon-disabled-mid);
+  --ic-action-chip-background-disabled: var(
+    --ic-color-background-disabled-default
+  );
 
   /* Alert */
   --ic-alert-background-success: var(--ic-status-success-dark-dm);

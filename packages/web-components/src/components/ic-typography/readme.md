@@ -25,6 +25,7 @@
 
  - [ic-accordion](../ic-accordion)
  - [ic-accordion-group](../ic-accordion-group)
+ - [ic-action-chip](../ic-action-chip)
  - [ic-alert](../ic-alert)
  - [ic-badge](../ic-badge)
  - [ic-button](../ic-button)
@@ -68,6 +69,7 @@
 graph TD;
   ic-accordion --> ic-typography
   ic-accordion-group --> ic-typography
+  ic-action-chip --> ic-typography
   ic-alert --> ic-typography
   ic-badge --> ic-typography
   ic-button --> ic-typography
