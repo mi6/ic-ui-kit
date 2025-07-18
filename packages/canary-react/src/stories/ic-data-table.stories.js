@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { mdiAccountGroup, mdiDelete, mdiImage } from "@mdi/js";
+import { mdiAccountGroup, mdiCellphone, mdiContentCopy, mdiDelete, mdiDownload, mdiImage } from "@mdi/js";
 import {
   IcButton,
   IcEmptyState,
@@ -14,7 +14,6 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import readme from "../../../canary-web-components/src/components/ic-data-table/readme.md";
 import {
-  ACTION_DATA_ELEMENTS,
   COLS,
   COLS_ALIGNMENT,
   COLS_DISABLE_AUTO_SORT,
@@ -929,15 +928,27 @@ export const TableSizingColumnWidth = {
 };
 
 /**
- * The cell data can contain an `actionElement` which can be a string containing any html to be rendered. The `actionElement` will be displayed to the right of the cell data. An `actionOnClick` can be specified for the `actionElement`. This should be used with a keyboard accessible component such as 'icButton' to allow for a function to be run when the `actionElement` is clicked.
+ * The cells can contain a slotted `actionElement`. The `actionElement` will be displayed to the right of the cell data.
  */
 export const ActionElement = {
   render: () => (
     <IcDataTable
-      caption="Action Element"
-      columns={COLS}
-      data={ACTION_DATA_ELEMENTS}
-    />
+     caption="Action Element"
+     columns={COLS}
+     data={DATA}
+   >
+     <div slot="firstName-0-action-element" style={{display: "flex"}}>
+       <IcButton variant="icon" size="small" aria-label="Download data" onClick={() => alert("Download button clicked")}>
+         <SlottedSVG path={mdiDownload} viewBox="0 0 24 24" />
+       </IcButton>
+       <IcButton variant="icon" size="small" aria-label="Call phone" onClick={() => alert("Cellphone button clicked")}>
+         <SlottedSVG path={mdiCellphone} viewBox="0 0 24 24" />
+       </IcButton>
+       <IcButton variant="icon" size="small" aria-label="Copy data" onClick={() => alert("Copy button clicked")}>
+         <SlottedSVG path={mdiContentCopy} viewBox="0 0 24 24" />
+       </IcButton>
+     </div>
+   </IcDataTable>
   ),
   name: "Action element",
 };
