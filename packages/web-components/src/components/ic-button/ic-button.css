@@ -1037,6 +1037,7 @@ div.right-icon {
 }
 
 :host(.clear-button) {
+  color: var(--ic-atoms-input-clear-button);
   margin: 0 var(--ic-space-xxs);
 }
 
@@ -1054,16 +1055,6 @@ div.right-icon {
 :host(.clear-button) .button:hover,
 :host(.clear-button) ::slotted(a:hover) {
   color: var(--ic-atoms-input-clear-button);
-}
-
-:host(.clear-button) {
-  color: var(--ic-atoms-input-clear-button);
-  margin: 0 var(--ic-space-xxs);
-}
-
-:host(.clear-button) .button:focus,
-:host(.calendar-button) .button:focus {
-  box-shadow: none;
 }
 
 :host(.clear-button) .button:not(:active):focus ::slotted(svg) {

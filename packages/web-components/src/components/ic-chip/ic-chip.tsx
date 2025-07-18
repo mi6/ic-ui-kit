@@ -18,6 +18,7 @@ import {
   convertToRGBA,
   isElInAGGrid,
   getBrandForegroundAppearance,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import {
   IcBrandForegroundNoDefault,
@@ -41,6 +42,7 @@ import dismissIcon from "../../assets/dismiss-icon.svg";
 })
 export class Chip {
   private buttonEl?: HTMLButtonElement;
+  private hostMutationObserver?: MutationObserver;
 
   @Element() el: HTMLIcChipElement;
 
@@ -120,6 +122,10 @@ export class Chip {
    */
   @Event() icDismiss: EventEmitter<void>;
 
+  disconnectedCallback(): void {
+    this.hostMutationObserver?.disconnect();
+  }
+
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
     this.customColorHandler();
@@ -130,6 +136,13 @@ export class Chip {
       [{ prop: this.label, propName: "label" }],
       "Chip"
     );
+
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, ["icon", "badge"], this)
+    );
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
   }
 
   @Listen("icDismiss", { capture: true })
