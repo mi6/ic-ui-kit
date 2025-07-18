@@ -15,9 +15,11 @@ export const config: Config = {
   globalStyle: "src/global/icds.css",
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: "@ukic/web-components",
-      proxiesFile: "../react/src/components.ts",
-      includeDefineCustomElements: true,
+      // componentCorePackage: "@ukic/web-components",
+      // proxiesFile: "../react/src/components.ts",
+      // includeDefineCustomElements: true,
+      stencilPackageName: "@ukic/web-components",
+      outDir: "../react/src",
     }),
     {
       type: "dist-hydrate-script",
@@ -38,6 +40,7 @@ export const config: Config = {
     },
     {
       type: "dist-custom-elements",
+      externalRuntime: false,
     },
     {
       type: "docs-readme",
