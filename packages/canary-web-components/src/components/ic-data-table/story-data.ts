@@ -26,12 +26,12 @@ const userIconSVG =
   '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-481q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42ZM160-160v-94q0-38 19-65t49-41q67-30 128.5-45T480-420q62 0 123 15.5t127.921 44.694q31.301 14.126 50.19 40.966Q800-292 800-254v94H160Zm60-60h520v-34q0-16-9.5-30.5T707-306q-64-31-117-42.5T480-360q-57 0-111 11.5T252-306q-14 7-23 21.5t-9 30.5v34Zm260-321q39 0 64.5-25.5T570-631q0-39-25.5-64.5T480-721q-39 0-64.5 25.5T390-631q0 39 25.5 64.5T480-541Zm0-90Zm0 411Z"/></svg>';
 const alertIconSVG =
   '<svg aria-label="alert-icon" xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 24 24" fill="#000000"><path d="M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z"/></svg>';
-const copyButton =
-  '<ic-button data-testid="copy-button" variant="icon-tertiary" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="copy-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg> </ic-button>';
-const cellphoneButton =
-  '<ic-button data-testid="cellphone-button" variant="icon-tertiary" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="cellphone-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg> </ic-button>';
-const downloadButton =
-  '<ic-button data-testid="download-button" variant="icon-tertiary" size="small"  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="download-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg> </ic-button>';
+const copyIconSVG =
+  '<svg aria-label="copy-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg>';
+const cellphoneIconSVG =
+  '<svg aria-label="cellphone-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>';
+const downloadIconSVG =
+  '<svg aria-label="download-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>';
 
 // TODO: Add columnOptions
 export const COLS: IcDataTableColumnObject[] = [
@@ -1264,72 +1264,6 @@ export const DATA_REACT_ELEMENTS_WITH_ICONS = [
   },
 ];
 
-export const ACTION_DATA_ELEMENTS = [
-  {
-    firstName: {
-      data: "Joe",
-      actionElement: `${downloadButton}${cellphoneButton}${copyButton}`,
-      actionOnClick: (event: Event) => {
-        event?.stopPropagation();
-        console.log("hello");
-      },
-    },
-    lastName: "Bloggs",
-    age: 31,
-    jobTitle: "Developer",
-    address: "1 Main Street, Town, County, Postcode",
-  },
-  {
-    firstName: {
-      data: "Sarah",
-      actionElement: copyButton,
-    },
-    lastName: "Jane",
-    age: 28,
-    jobTitle: {
-      data: "Senior Software Developer, Site Reliability Engineering",
-      actionElement: `<ic-status-tag role="status" label="Success" status="success"></ic-status-tag>`,
-    },
-    address: "2 Main Street, Town, Country, Postcode",
-  },
-  {
-    firstName: {
-      data: "Mark",
-      actionElement: copyButton,
-    },
-    lastName: "Smith",
-    age: {
-      data: 45,
-      actionElement: `<ic-button variant="icon-tertiary" id="small-button" size="small" aria-label="you can disable tooltips on icon buttons"> <svg aria-label="refresh button" xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
-    },
-    jobTitle: "Team Lead",
-    address: "12 Key Street, Town, Country, Postcode",
-  },
-  {
-    firstName: {
-      data: "Naomi",
-      actionElement: copyButton,
-    },
-    lastName: "Kens",
-    age: 32,
-    jobTitle: "Analyst",
-    address: "8 Side Street, Town, Country, Postcode",
-  },
-  {
-    firstName: {
-      data: "Luke",
-      actionElement: copyButton,
-    },
-    lastName: "Sky",
-    age: 18,
-    jobTitle: "Junior Developer",
-    address: {
-      data: "5 New Street, Town, Country, Postcode",
-      actionElement: `<ic-status-tag role="status" label="Error" status="danger"></ic-status-tag>`,
-    },
-  },
-];
-
 export const DATA_WITH_EMPTY_VALUES = [
   {
     firstName: "Nigel",
@@ -1362,7 +1296,6 @@ export const LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS = [
         data: "Alias: JB",
         icon: imageIconSVG,
       },
-      actionElement: copyButton,
       icon: userIconSVG,
     },
     lastName: "Bloggs",
@@ -1374,7 +1307,6 @@ export const LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS = [
   {
     firstName: {
       data: "Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe",
-      actionElement: copyButton,
     },
     lastName: "Bloggs",
     age: 30,
@@ -1389,7 +1321,6 @@ export const LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS = [
         data: "Unverified",
         icon: alertIconSVG,
       },
-      actionElement: copyButton,
     },
     lastName: "Bloggy",
     age: 31,
@@ -1398,7 +1329,6 @@ export const LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS = [
   },
   {
     firstName: {
-      actionElement: copyButton,
       description: "Alias: The Ghost",
     },
     lastName: "Blogger",
@@ -2056,8 +1986,45 @@ export const SlottedPagination = (): HTMLIcDataTableElement => {
   return dataTable;
 };
 
-export const ActionElement = (): HTMLElement =>
-  createDataTableElement("Action Element", COLS, ACTION_DATA_ELEMENTS);
+export const ActionElement = (): HTMLElement => {
+  const dataTable = createDataTableElement("Action Element", COLS, DATA);
+
+  const actionElement = document.createElement("div");
+  actionElement.setAttribute("slot", "firstName-0-action-element");
+  actionElement.setAttribute("style", "display: flex");
+
+  const downloadButtonEl = document.createElement("ic-button");
+  downloadButtonEl.setAttribute("variant", "icon");
+  downloadButtonEl.setAttribute("size", "small");
+  downloadButtonEl.addEventListener("click", () =>
+    alert("Download button clicked")
+  );
+  downloadButtonEl.innerHTML = downloadIconSVG;
+  downloadButtonEl.setAttribute("aria-label", "Download data");
+  actionElement.appendChild(downloadButtonEl);
+
+  const cellphoneButtonEl = document.createElement("ic-button");
+  cellphoneButtonEl.setAttribute("variant", "icon");
+  cellphoneButtonEl.setAttribute("size", "small");
+  cellphoneButtonEl.addEventListener("click", () =>
+    alert("Cellphone button clicked")
+  );
+  cellphoneButtonEl.innerHTML = cellphoneIconSVG;
+  cellphoneButtonEl.setAttribute("aria-label", "Call phone");
+  actionElement.appendChild(cellphoneButtonEl);
+
+  const copyButtonEl = document.createElement("ic-button");
+  copyButtonEl.setAttribute("variant", "icon");
+  copyButtonEl.setAttribute("size", "small");
+  copyButtonEl.addEventListener("click", () => alert("Copy button clicked"));
+  copyButtonEl.innerHTML = copyIconSVG;
+  copyButtonEl.setAttribute("aria-label", "Copy data");
+  actionElement.appendChild(copyButtonEl);
+
+  dataTable.appendChild(actionElement);
+
+  return dataTable;
+};
 
 export const MissingCellData = (): HTMLElement =>
   createDataTableElement("Missing Cell Data", COLS, DATA_WITH_EMPTY_VALUES);

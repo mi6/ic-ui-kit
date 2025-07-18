@@ -32,6 +32,12 @@ const name4 = "Jane Lock";
 const name5 = "Margaret Hale";
 const customIcon =
   '<svg aria-labelledby="error-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><title id="error-title">Error</title><g id="close-octagon"><path id="Vector" d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" /></g></svg>';
+const copyIconSVG =
+  '<svg aria-label="copy-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg>';
+const cellphoneIconSVG =
+  '<svg aria-label="cellphone-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>';
+const downloadIconSVG =
+  '<svg aria-label="download-button" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>';
 const SORT_BUTTON_CLASS = ".sort-button";
 const MOCK_TOOLTIP = {
   setAttribute: (attribute: string, value: string): string | null =>
@@ -487,38 +493,6 @@ const dataWithIcons = [
   },
   { name: name4, age: 34, department: "Engineering", employeeNumber: 5 },
   { name: name5, age: 45, department: "HR", employeeNumber: 6 },
-];
-
-const dataWithActionElement = [
-  {
-    name: {
-      data: name1,
-      actionElement: `<ic-button size="small" variant="icon-tertiary"  aria-label="you can disable tooltips on icon buttons"  disable-tooltip="true">  <svg    xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
-      actionOnClick: (event: Event) => {
-        event?.stopPropagation();
-        console.log("hello");
-      },
-    },
-    age: 36,
-    department: "Accounts",
-  },
-  {
-    name: name2,
-    age: 32,
-    department: "Engineering",
-  },
-  { name: "Tim Rayes", age: 41, department: "Sales" },
-  {
-    name: name3,
-    age: "23",
-    department: "Engineering",
-  },
-  {
-    name: name4,
-    age: 34,
-    department: "Engineering",
-  },
-  { name: name5, age: 45, department: "HR" },
 ];
 
 describe(icDataTable, () => {
@@ -1651,19 +1625,62 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render an action element if present in the data set", async () => {
+  it("should render action elements with clickable buttons", async () => {
+    const mockCallback = jest.fn((x) => x + 1);
+
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
-        <ic-data-table
-          caption="test table"
-          columns={columns}
-          data={dataWithActionElement}
-        ></ic-data-table>
+        <ic-data-table caption="test table" columns={columns} data={data}>
+          <div slot="name-0-action-element" style={{ display: "flex" }}>
+            <ic-button
+              variant="icon"
+              size="small"
+              onClick={mockCallback(1)}
+              aria-label="Download data"
+              id="download-button"
+              innerHTML={downloadIconSVG}
+            ></ic-button>
+            <ic-button
+              variant="icon"
+              size="small"
+              onClick={mockCallback(2)}
+              aria-label="Call phone"
+              id="cellphone-button"
+              innerHTML={cellphoneIconSVG}
+            ></ic-button>
+            <ic-button
+              variant="icon"
+              size="small"
+              onClick={mockCallback(3)}
+              aria-label="Copy data"
+              id="copy-button"
+              innerHTML={copyIconSVG}
+            ></ic-button>
+          </div>
+        </ic-data-table>
       ),
     });
 
     expect(page.root).toMatchSnapshot();
+    const dataTable = document.querySelector(icDataTable);
+    const actionEl = dataTable?.shadowRoot?.querySelector(".action-element");
+
+    const downloadButton =
+      actionEl?.querySelector<HTMLIcButtonElement>("#download-button");
+    downloadButton?.click();
+
+    const cellphoneButton =
+      actionEl?.querySelector<HTMLIcButtonElement>("#cellphone-button");
+    cellphoneButton?.click();
+
+    const copyButton =
+      actionEl?.querySelector<HTMLIcButtonElement>("#copy-button");
+    copyButton?.click();
+
+    expect(mockCallback.mock.results[0].value).toEqual(2);
+    expect(mockCallback.mock.results[1].value).toEqual(3);
+    expect(mockCallback.mock.results[2].value).toEqual(4);
   });
 
   it("should add description text or sub-icon to cells of table", async () => {
@@ -3112,28 +3129,5 @@ describe(icDataTable, () => {
 
     const cellContent = page.rootInstance.getCellContent({}, "element");
     expect(cellContent).toBeUndefined();
-  });
-
-  it("should test actionElement onClick", async () => {
-    const page = await newSpecPage({
-      components: [DataTable],
-      template: () => (
-        <ic-data-table
-          caption="test table"
-          columns={columns}
-          data={dataWithActionElement}
-        ></ic-data-table>
-      ),
-    });
-
-    jest.spyOn(page.rootInstance, "handleClick").mockImplementation();
-    const dataTable = document.querySelector(icDataTable);
-    const actionEl = dataTable?.shadowRoot?.querySelector(
-      ".action-element"
-    ) as any;
-    await page.waitForChanges();
-    actionEl.click();
-    await page.waitForChanges();
-    expect(page.rootInstance.handleClick).toHaveBeenCalledTimes(1);
   });
 });
