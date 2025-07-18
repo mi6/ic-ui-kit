@@ -250,6 +250,13 @@ export interface IcPaginationBarOptions {
 
 export type IcDateFormat = "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD";
 
+export type IcTimeFormat = "HH:MM" | "HH:MM:SS";
+
+export type IcDisableTimeSelection =
+  | string
+  | Date
+  | { start: string | Date; end: string | Date };
+
 export enum IcDateInputMonths {
   "January",
   "February",
