@@ -1,0 +1,31 @@
+{
+  "total": 1,
+  "totalPassed": 1,
+  "totalFailed": 0,
+  "totalSuites": 1,
+  "suites": [
+    {
+      "name": "IcTypography.cy.tsx",
+      "path": "src/component-tests/IcTypography/IcTypography.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcTypography.cy.tsx/in-ag-grid",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTypography/IcTypography.cy.tsx",
+          "specFilename": "IcTypography.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTypography.cy.tsx/in-ag-grid.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTypography.cy.tsx/in-ag-grid.png"
+        }
+      ]
+    }
+  ],
+  "startedAt": "2025-07-21T17:31:22.606Z",
+  "endedAt": "2025-07-21T17:33:08.916Z",
+  "duration": 4733,
+  "browserName": "electron",
+  "browserVersion": "114.0.5735.289",
+  "cypressVersion": "13.6.2"
+}
