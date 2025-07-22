@@ -13,7 +13,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "medium",
-  ["validation-status"]: "none",
+  validationStatus: "no status",
   ["validation-text"]: "",
   ["show-clear-button"]: false,
   theme: "inherit",
@@ -694,7 +694,9 @@ export const Playground = {
         required=${args.required}
         show-clear-button=${args["show-clear-button"]}
         size=${args.size}
-        validation-status=${args["validation-status"]}
+        validation-status=${args.validationStatus === "no status"
+          ? ""
+          : args.validationStatus}
         validation-text=${args["validation-text"]}
         theme=${args.theme}
       >
@@ -773,9 +775,9 @@ export const Playground = {
   args: defaultArgs,
 
   argTypes: {
-    ["validation-status"]: {
-      defaultValue: "",
-      options: ["", "error", "success", "warning"],
+    validationStatus: {
+      defaultValue: "no status",
+      options: ["no status", "error", "success", "warning"],
 
       control: {
         type: "select",

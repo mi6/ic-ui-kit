@@ -16,7 +16,7 @@ const defaultArgs = {
   nativeIndeterminateBehaviour: false,
   required: false,
   size: "medium",
-  validationStatus: "",
+  validationStatus: "no status",
   validationText: "",
   value: "checkbox-value",
   theme: "inherit",
@@ -675,7 +675,9 @@ export const Playground = {
       helper-text=${args.helperText}
       hide-label=${args.hideGroupLabel}
       required=${args.required}
-      validation-status=${args.validationStatus}
+      validation-status=${args.validationStatus === "no status"
+        ? ""
+        : args.validationStatus}
       validation-text=${args.validationText}
       theme=${args.theme}
     >
@@ -728,7 +730,7 @@ export const Playground = {
     },
 
     validationStatus: {
-      options: ["warning", "error", "success", ""],
+      options: ["no status", "warning", "error", "success"],
 
       control: {
         type: "select",
