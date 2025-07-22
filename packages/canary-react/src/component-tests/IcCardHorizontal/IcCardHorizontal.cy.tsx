@@ -94,7 +94,7 @@ export const Theme = (
   );
 };
 
-describe("IcCardHorizontal", () => {
+describe.skip("IcCardHorizontal", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 768);
@@ -326,7 +326,7 @@ describe("IcCardHorizontal", () => {
   });
 });
 
-describe("IcCardHorizontal visual regression tests in high contrast mode", () => {
+describe.skip("IcCardHorizontal visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

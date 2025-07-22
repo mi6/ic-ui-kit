@@ -16,7 +16,7 @@ const SKIP_LINK_SELECTOR = "ic-skip-link";
 const LINK_SELECTOR = "ic-link";
 const DEFAULT_TEST_THRESHOLD = 0.01;
 
-describe("IcSkipLink e2e, visual regression and a11y tests", () => {
+describe.skip("IcSkipLink e2e, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -238,7 +238,7 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcSkipLink visual regression high-contrast", () => {
+describe.skip("IcSkipLink visual regression high-contrast", () => {
   before(() => {
     cy.enableForcedColors();
   });

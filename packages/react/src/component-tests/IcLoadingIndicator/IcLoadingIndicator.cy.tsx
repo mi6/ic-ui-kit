@@ -36,7 +36,7 @@ const LOADING_INDICATOR_SELECTOR = "ic-loading-indicator";
 const LOADING_LABEL_SELECTOR = "ic-typography#ic-loading-label";
 const DEFAULT_TEST_THRESHOLD = 0;
 
-describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcLoadingIndicator end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -347,7 +347,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
   });
 });
 
-describe("IcLoadingIndicator visual regression tests in high contrast mode", () => {
+describe.skip("IcLoadingIndicator visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

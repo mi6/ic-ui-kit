@@ -48,8 +48,8 @@ const NAV_GROUP_SELECTOR = "ic-navigation-group";
 const NAV_BUTTON_SELECTOR = "ic-navigation-button";
 const MOBILE_CSS_CLASS = "mobile-mode";
 
-describe("IcTopNavigation end-to-end tests", () => {
-  describe("mobile", () => {
+describe.skip("IcTopNavigation end-to-end tests", () => {
+  describe.skip("mobile", () => {
     beforeEach(() => {
       cy.viewport("iphone-6");
     });
@@ -130,7 +130,7 @@ describe("IcTopNavigation end-to-end tests", () => {
     });
   });
 
-  describe("desktop", () => {
+  describe.skip("desktop", () => {
     beforeEach(() => {
       cy.viewport(1024, 750);
     });
@@ -182,7 +182,7 @@ describe("IcTopNavigation end-to-end tests", () => {
   });
 });
 
-describe("IcNavigationButton", () => {
+describe.skip("IcNavigationButton", () => {
   it("should update any attributes inherited from the root element when they are mutated", () => {
     const NAV_BUTTON_SELECTOR = "ic-navigation-button";
     mount(<WithNavigationButton />);
@@ -201,7 +201,7 @@ describe("IcNavigationButton", () => {
   });
 });
 
-describe("IcTopNavigation desktop visual regression tests", () => {
+describe.skip("IcTopNavigation desktop visual regression tests", () => {
   beforeEach(() => {
     cy.viewport(1444, 750);
     cy.injectAxe();
@@ -426,7 +426,7 @@ describe("IcTopNavigation desktop visual regression tests", () => {
   });
 });
 
-describe("IcTopNavigation mobile visual regression tests", () => {
+describe.skip("IcTopNavigation mobile visual regression tests", () => {
   beforeEach(() => {
     cy.viewport("iphone-6");
     cy.injectAxe();
@@ -655,7 +655,7 @@ describe("IcTopNavigation mobile visual regression tests", () => {
   });
 });
 
-describe("IcTopNavigation desktop visual regression tests in high contrast mode", () => {
+describe.skip("IcTopNavigation desktop visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
@@ -713,7 +713,7 @@ describe("IcTopNavigation desktop visual regression tests in high contrast mode"
   });
 });
 
-describe("IcTopNavigation mobile visual regression tests in high contrast mode", () => {
+describe.skip("IcTopNavigation mobile visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

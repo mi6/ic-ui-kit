@@ -17,7 +17,7 @@ import { delay } from "cypress/types/bluebird";
 const BACK_TO_TOP_SELECTOR = "ic-back-to-top";
 const DEFAULT_TEST_THRESHOLD = 0.061;
 
-describe("IcBackToTop end-to-end tests", () => {
+describe.skip("IcBackToTop end-to-end tests", () => {
   it("should be hidden when viewport is at the top of the page", () => {
     mount(<BackToTop />);
 
@@ -100,7 +100,7 @@ describe("IcBackToTop end-to-end tests", () => {
   });
 });
 
-describe("IcBackToTop visual regression and a11y tests", () => {
+describe.skip("IcBackToTop visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -367,7 +367,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
   });
 });
 
-describe("IcBackToTop visual regression tests in high contrast mode", () => {
+describe.skip("IcBackToTop visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

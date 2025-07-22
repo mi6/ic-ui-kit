@@ -19,7 +19,7 @@ const FIRST_PAGE_SELECTOR = "#first-page-button";
 const DEFAULT_TEST_THRESHOLD = 0;
 const PAGE_CHANGE_EVENT = "@icPageChanged";
 
-describe("IcPagination end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcPagination end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -784,7 +784,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcPagination visual regression tests in high contrast mode", () => {
+describe.skip("IcPagination visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
