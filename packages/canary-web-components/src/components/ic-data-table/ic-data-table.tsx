@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Component,
@@ -29,6 +28,7 @@ import {
   IcDensityUpdateEventDetail,
   IcSortEventDetail,
   IcLoadingOptions,
+  IcDataTableRowOptions,
 } from "./ic-data-table.types";
 import { IcPaginationBarOptions, IcThemeMode } from "../../utils/types";
 // Unable to import helper functions via @ukic/web-components
@@ -1335,8 +1335,8 @@ export class DataTable {
 
   private getCalculatedRowHeight = (
     columnProps: IcDataTableColumnObject,
-    rowTextWrap: boolean,
     cell: any,
+    rowTextWrap?: boolean,
     currentRowHeight?: number
   ) => {
     if (
@@ -1379,10 +1379,9 @@ export class DataTable {
     columnProps: IcDataTableColumnObject,
     cell: any,
     cellSlotName: string,
-    rowOptions: any,
     hasIcon: boolean,
     cellValue: (key: string) => any,
-    rowEmphasis: string,
+    rowOptions?: IcDataTableRowOptions,
     currentRowHeight?: number
   ): HTMLElement => (
     <div
@@ -1394,6 +1393,7 @@ export class DataTable {
       }
       class={{
         "cell-container": columnProps?.dataType !== "element",
+        "cell-icon": hasIcon || !!columnProps?.icon?.icon,
         [`cell-alignment-${
           columnProps?.columnAlignment?.horizontal ||
           rowOptions?.rowAlignment?.horizontal ||
@@ -1407,15 +1407,14 @@ export class DataTable {
           columnProps?.textWrap ||
           rowOptions?.textWrap ||
           !!this.getCellOptions(cell, "textWrap"),
-        ["cell-icon"]: hasIcon || !!columnProps?.icon?.icon,
         [`cell-emphasis-${
           (this.isObject(cell) && cellValue("emphasis")) ||
           columnProps?.emphasis ||
-          rowEmphasis
+          rowOptions?.emphasis
         }`]:
           (this.isObject(cell) && !!cellValue("emphasis")) ||
           !!columnProps?.emphasis ||
-          !!rowEmphasis,
+          !!rowOptions?.emphasis,
         ...this.setTruncationClass(),
         [this.CELL_CONTAINER_WITH_DESCRIPTION_STRING]:
           this.isObject(cell) && Object.keys(cell).includes("description"),
@@ -1423,8 +1422,8 @@ export class DataTable {
       style={{
         ...this.getCalculatedRowHeight(
           columnProps,
-          rowOptions?.textWrap,
           cell,
+          rowOptions?.textWrap,
           currentRowHeight
         ),
         ...this.getColumnWidth(columnProps?.columnWidth),
@@ -1464,11 +1463,11 @@ export class DataTable {
                     [`cell-emphasis-${
                       (this.isObject(cell) && cellValue("emphasis")) ||
                       columnProps?.emphasis ||
-                      rowEmphasis
+                      rowOptions?.emphasis
                     }`]:
                       (this.isObject(cell) && !!cellValue("emphasis")) ||
                       !!columnProps?.emphasis ||
-                      !!rowEmphasis,
+                      !!rowOptions?.emphasis,
                     [`text-${this.density}`]: this.notDefaultDensity(),
                   }}
                 >
@@ -1520,17 +1519,6 @@ export class DataTable {
   );
 
   private createCells = (row: IcDataTableDataType, rowIndex: number) => {
-    const rowKeys = Object.keys(row);
-    const rowOptions = this.getObjectValue(row, "rowOptions");
-    let rowAlignment: string;
-    let rowEmphasis: string;
-
-    const rowHeader = this.getObjectValue(row, "header");
-    if (rowHeader) {
-      rowAlignment = this.getObjectValue(rowHeader, "rowAlignment");
-      rowEmphasis = this.getObjectValue(rowHeader, "emphasis");
-    }
-
     const variableRowHeightVal = this.variableRowHeight?.({
       ...row,
       index: rowIndex,
@@ -1540,75 +1528,73 @@ export class DataTable {
       ? variableRowHeightVal !== "auto" && variableRowHeightVal
       : this.globalRowHeight !== "auto" && this.globalRowHeight;
 
-    return this.columns.map((column, index) => {
-      if (column.hidden !== true) {
-        const cell = this.getObjectValue(row, column["key"]);
-        const cellValue = (key: string) => this.getObjectValue(cell, key);
+    const { rowOptions } = row;
 
-        if (rowKeys[index] === "header") {
-          return (
-            <th
-              scope="row"
-              colSpan={cellValue("colspan")}
-              class={{
-                ["row-header"]: true,
-                [`row-header-alignment-${cellValue("cellAlignment")}`]:
-                  !!cellValue("cellAlignment"),
-                ["row-header-sticky"]: this.stickyRowHeaders,
-              }}
-            >
-              {cellValue("title")}
-            </th>
-          );
-        }
+    return this.columns.map((column) => {
+      const { columnAlignment, columnWidth, dataType, hidden, key } = column;
 
-        const cellSlotName = `${column?.key}-${rowIndex}`;
+      if (hidden) return;
 
-        const CellContent = this.createCellContent(
-          column,
-          cell,
-          cellSlotName,
-          rowOptions,
-          this.isObject(cell) && Object.keys(cell).includes("icon"),
-          cellValue,
-          rowEmphasis,
-          currentRowHeight || undefined
+      const cell = this.getObjectValue(row, key);
+      const cellSlotName = `${key}-${rowIndex}`;
+
+      const cellValue = (key: string) => this.getObjectValue(cell, key);
+
+      if (key === "header" && rowOptions?.header) {
+        return (
+          <th
+            scope="row"
+            class={{
+              "row-header": true,
+              "row-header-sticky": this.stickyRowHeaders,
+              [`row-header-alignment-${rowOptions.rowAlignment?.horizontal}`]:
+                !!rowOptions.rowAlignment?.horizontal,
+            }}
+          >
+            {rowOptions.header}
+          </th>
         );
-
-        if (rowKeys[index] !== "rowOptions") {
-          return (
-            <td
-              class={{
-                ["table-cell"]: true,
-                [`table-density-${this.density}`]: this.notDefaultDensity(),
-                ["with-overflow"]: column?.dataType === "element",
-                [`cell-vertical-align-${
-                  column?.columnAlignment?.vertical ||
-                  rowOptions?.rowAlignment?.vertical ||
-                  rowAlignment ||
-                  this.getCellAlignment(cell, "vertical")
-                }`]:
-                  !!column?.columnAlignment?.vertical ||
-                  !!rowOptions?.rowAlignment?.vertical ||
-                  !!rowAlignment ||
-                  !!this.getCellAlignment(cell, "vertical"),
-              }}
-              style={{ ...this.getColumnWidth(column.columnWidth) }}
-            >
-              {isSlotUsed(this.el, `${cellSlotName}-action-element`) ? (
-                <div class="cell-grid-wrapper">
-                  {CellContent}
-                  <span class="action-element">
-                    <slot name={`${cellSlotName}-action-element`} />
-                  </span>
-                </div>
-              ) : (
-                CellContent
-              )}
-            </td>
-          );
-        }
       }
+
+      const CellContent = this.createCellContent(
+        column,
+        cell,
+        cellSlotName,
+        this.isObject(cell) && Object.keys(cell).includes("icon"),
+        cellValue,
+        rowOptions,
+        currentRowHeight || undefined
+      );
+
+      return (
+        <td
+          class={{
+            "table-cell": true,
+            "with-overflow": dataType === "element",
+            [`table-density-${this.density}`]: this.notDefaultDensity(),
+            [`cell-vertical-align-${
+              columnAlignment?.vertical ||
+              rowOptions?.rowAlignment?.vertical ||
+              this.getCellAlignment(cell, "vertical")
+            }`]:
+              !!columnAlignment?.vertical ||
+              !!rowOptions?.rowAlignment?.vertical ||
+              !!this.getCellAlignment(cell, "vertical"),
+          }}
+          style={{ ...this.getColumnWidth(columnWidth) }}
+        >
+          {isSlotUsed(this.el, `${cellSlotName}-action-element`) ? (
+            <div class="cell-grid-wrapper">
+              {CellContent}
+              <span class="action-element">
+                <slot name={`${cellSlotName}-action-element`} />
+              </span>
+            </div>
+          ) : (
+            CellContent
+          )}
+        </td>
+      );
     });
   };
 
@@ -1682,7 +1668,6 @@ export class DataTable {
                   variant="icon-tertiary"
                   id={`sort-button-${key}`}
                   aria-label={this.getSortButtonLabel(key)}
-                  // eslint-disable-next-line react/jsx-no-bind
                   onClick={() => this.sortRows(key)}
                   innerHTML={
                     this.SORT_ICONS[
@@ -1824,7 +1809,7 @@ export class DataTable {
       });
   };
 
-  private getObjectValue = (cell: object, key: string) =>
+  private getObjectValue = (cell: IcDataTableDataType, key: string) =>
     Object.values(cell)[Object.keys(cell).indexOf(key)];
 
   private getSortButtonLabel = (key: string) => {
