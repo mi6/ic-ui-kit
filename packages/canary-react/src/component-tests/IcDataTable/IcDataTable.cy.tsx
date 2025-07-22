@@ -125,6 +125,7 @@ const TRUNCATION_SHOW_HIDE = "show-hide";
 const SEE_MORE = "See more";
 const SEE_LESS = "See less";
 const SORT_ASCENDING = "Sort ascending";
+const SORT_DESCENDING = "Sort descending";
 const CONSOLE_LOG_SPY = "@spyWinConsoleLog";
 const LOADING_OVERLAY_SELECTOR = ".loading-overlay";
 const LOADING_INDICATOR_OUTER_SELECTOR = ".ic-loading-circular-outer";
@@ -400,7 +401,7 @@ describe("IcDataTables", () => {
       .eq(0)
       .shadow()
       .find(TOOLTIP_BUTTON_SELECTOR)
-      .should(HAVE_ATTR, ARIA_LABEL, "Sort descending");
+      .should(HAVE_ATTR, ARIA_LABEL, SORT_DESCENDING);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
 
@@ -495,7 +496,7 @@ describe("IcDataTables", () => {
       .eq(0)
       .shadow()
       .find(TOOLTIP_BUTTON_SELECTOR)
-      .should(HAVE_ATTR, ARIA_LABEL, "Sort descending");
+      .should(HAVE_ATTR, ARIA_LABEL, SORT_DESCENDING);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
 
@@ -531,7 +532,7 @@ describe("IcDataTables", () => {
       .eq(0)
       .shadow()
       .find(TOOLTIP_BUTTON_SELECTOR)
-      .should(HAVE_ATTR, ARIA_LABEL, "Sort descending");
+      .should(HAVE_ATTR, ARIA_LABEL, SORT_DESCENDING);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
 
