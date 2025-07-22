@@ -18,17 +18,16 @@ export type IcDataTableColumnWidthTypes = {
   maxWidth?: string;
 };
 
+export type IcDataTableAlignmentOptions = {
+  horizontal?: string;
+  vertical?: string;
+};
+
 export type IcDataTableColumnObject = {
   key: string;
   title: string;
   dataType: IcDataTableColumnDataTypes;
-  columnAlignment?: {
-    horizontal?: string;
-    vertical?: string;
-  };
-  rowOptions?: {
-    textWrap: boolean;
-  };
+  columnAlignment?: IcDataTableAlignmentOptions;
   columnWidth?: string | IcDataTableColumnWidthTypes;
   textWrap?: boolean;
   cellAlignment?: string;
@@ -71,5 +70,14 @@ export type truncWrapperDetailsTypes = {
   scrollHeight: number | null;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type IcDataTableDataType = { [key: string]: any };
+export type IcDataTableRowOptions = {
+  header?: string;
+  emphasis?: string;
+  rowAlignment?: IcDataTableAlignmentOptions;
+  textWrap?: boolean;
+};
+
+export type IcDataTableDataType = {
+  [key: string]: any;
+  rowOptions?: IcDataTableRowOptions;
+};
