@@ -18,6 +18,8 @@ export const config: Config = {
     reactOutputTarget({
       stencilPackageName: "@ukic/canary-web-components",
       outDir: "../canary-react/src",
+      hydrateModule: "@ukic/canary-web-components/hydrate",
+      clientModule: "canary-react",
       excludeComponents: excludeComps,
     }),
     {

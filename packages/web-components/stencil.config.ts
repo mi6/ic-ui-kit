@@ -17,6 +17,8 @@ export const config: Config = {
     reactOutputTarget({
       stencilPackageName: "@ukic/web-components",
       outDir: "../react/src",
+      hydrateModule: "@ukic/web-components/hydrate",
+      clientModule: "react",
     }),
     {
       type: "dist-hydrate-script",
