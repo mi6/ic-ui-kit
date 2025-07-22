@@ -158,7 +158,7 @@ export const ColumnHeaderTruncation = {
 
 /**
  * Row headers allow headings to be added to individual rows and styles them as column headings. The column collection includes an additional `header` key which aligns with the row headers. The structure of the `header` column is the same as the columns (i.e. key, title, dataType).
- * The data array includes an additional `header` key which takes an object. The title of the row header is set by passing `title` as the key and a value.
+ * The data array includes an additional `header` key within the `rowOptions` which takes a string intended to be the title of the row header.
  */
 export const RowHeaders = {
   render: () => (
@@ -372,9 +372,10 @@ export const ColumnOverrides = {
 };
 
 /**
- * Row overrides allow styling to be applied at a row level and is set within the `header` object. The row overrides are used in conjunction with row headers. The following row overrides options apply:
+ * Row overrides allow styling to be applied at a row level and is set within the `rowOptions` object. The following row overrides options apply:
  * - `rowAlignment` accepts `left`, `right` and `center`.
  * - `emphasis` accepts `high` or `low`.
+ * - `textWrap` accepts `true` or `false`.
  */
 export const RowOverrides = {
   render: () => (
