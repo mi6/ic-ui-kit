@@ -341,7 +341,7 @@ td.table-density-spacious {
   left: calc(50% - 5.9741rem);
   opacity: 0;
   transition: opacity var(--ic-transition-duration-slow);
-  z-index: calc(var(--ic-z-index-dialog) - 1);
+  z-index: calc(var(--ic-z-index-popover) - 1);
   background-color: var(--ic-data-table-overlay-background);
   border: var(--ic-space-1px) solid var(--ic-data-table-overlay-border);
 }
@@ -420,6 +420,7 @@ td.table-density-spacious {
 
 .truncation-tooltip ic-typography {
   display: -webkit-box;
+  line-clamp: var(--ic-line-clamp, 0);
   -webkit-line-clamp: var(--ic-line-clamp, 0);
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -453,7 +454,7 @@ td.table-density-spacious {
   width: 100%;
   height: 100%;
   background: var(--ic-data-table-loading-indicator-overlay-background);
-  z-index: calc(var(--ic-z-index-dialog) - 2);
+  z-index: calc(var(--ic-z-index-popover) - 2);
   opacity: 0;
   transition: opacity var(--ic-transition-duration-slow);
 }
