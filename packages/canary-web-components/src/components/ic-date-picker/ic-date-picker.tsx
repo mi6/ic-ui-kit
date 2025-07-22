@@ -276,6 +276,11 @@ export class DatePicker {
   @Prop() showDaysOutsideMonth?: boolean = true;
 
   /**
+   * If 'true', the 'X' button on the date input will be visible, which clears the field.
+   */
+  @Prop() showClearButton?: boolean = true;
+
+  /**
    * If `true`, the `Clear` button on the date picker will be visible.
    */
   @Prop() showPickerClearButton?: boolean = true;
@@ -1318,6 +1323,9 @@ export class DatePicker {
     }
     if (this.required) {
       inputProps.required = this.required;
+    }
+    if (this.showClearButton !== null) {
+      inputProps.showClearButton = this.showClearButton;
     }
     if (this.size !== "medium") {
       inputProps.size = this.size;
