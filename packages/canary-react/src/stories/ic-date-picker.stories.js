@@ -368,7 +368,7 @@ const defaultArgs = {
   size: "medium",
   startOfWeek: 1,
   theme: "inherit",
-  validationStatus: "",
+  validationStatus: "no status",
   validationText: "",
   value: "",
 };
@@ -416,7 +416,7 @@ export const Playground = {
         size={args.size}
         startOfWeek={args.startOfWeek}
         theme={args.theme}
-        validationStatus={args.validationStatus}
+        validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
         value={value}
         onIcChange={updateDate}
@@ -432,7 +432,7 @@ export const Playground = {
       },
     },
     validationStatus: {
-      options: ["", "error", "success", "warning"],
+      options: ["no status", "error", "success", "warning"],
       control: {
         type: "inline-radio",
       },
