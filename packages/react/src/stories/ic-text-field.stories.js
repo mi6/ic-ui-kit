@@ -91,7 +91,7 @@ const defaultArgs = {
   theme: "inherit",
   type: "text",
   validationInline: false,
-  validationStatus: "none",
+  validationStatus: "no status",
   validationText: "",
   value: "",
 };
@@ -643,7 +643,7 @@ export const Playground = {
         theme={args.theme}
         type={args.type}
         validationInline={args.validationInline}
-        validationStatus={args.validationStatus}
+        validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
         value={args.value}
         onIcChange={(ev) => console.log(ev.detail.value)}
@@ -702,14 +702,7 @@ export const Playground = {
     },
 
     validationStatus: {
-      options: ["warning", "error", "success", "none"],
-
-      mapping: {
-        warning: "warning",
-        error: "error",
-        success: "success",
-        none: "",
-      },
+      options: ["no status", "warning", "error", "success"],
 
       control: {
         type: "select",

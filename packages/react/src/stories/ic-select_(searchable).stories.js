@@ -18,7 +18,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "default",
-  validationStatus: "",
+  validationStatus: "no status",
   validationText: "",
   includeDescriptionsInSearch: false,
   includeGroupTitlesInSearch: false,
@@ -680,7 +680,7 @@ export const Playground = {
       searchMatchPosition={args.searchMatchPosition}
       searchable
       size={args.size}
-      validationStatus={args.validationStatus}
+      validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
       validationText={args.validationText}
       theme={args.theme}
     >
@@ -722,8 +722,8 @@ export const Playground = {
     },
 
     validationStatus: {
-      defaultValue: "",
-      options: ["", "error", "success", "warning"],
+      defaultValue: "no status",
+      options: ["no status", "error", "success", "warning"],
 
       control: {
         type: "select",
