@@ -446,9 +446,9 @@ export const TableSizingAndColumnWidth = {
 };
 
 /**
- * The cell data can contain an `actionElement` which can be a string containing any html to be rendered. The `actionElement` will be displayed to the right of the cell data. An `actionOnClick` can be specified for the `actionElement`. This should be used with a keyboard accessible component such as `icButton` for a function to be run when the `actionElement` is clicked.
+ * The cells can contain a slotted `actionElement`. The `actionElement` will be displayed to the right of the cell data.
  */
-export const ActionElementAndOnClickAction = {
+export const ActionElements = {
   render: () => ActionElement(),
   name: "Action element",
 };
