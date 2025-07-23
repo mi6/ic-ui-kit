@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                        | Type                              | Default     |
-| ----------- | ------------ | ---------------------------------- | --------------------------------- | ----------- |
-| `openToast` | `open-toast` | The toast element to be displayed. | `HTMLIcToastElement \| undefined` | `undefined` |
+| Property    | Attribute | Description                        | Type                              | Default     |
+| ----------- | --------- | ---------------------------------- | --------------------------------- | ----------- |
+| `openToast` | --        | The toast element to be displayed. | `HTMLIcToastElement \| undefined` | `undefined` |
 
 
 ----------------------------------------------
