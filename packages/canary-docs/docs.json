@@ -1,7 +1,7 @@
 {
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.36.1",
+    "version": "4.26.0",
     "typescriptVersion": "5.5.4"
   },
   "components": [
@@ -47,12 +47,7 @@
           "attr": "clickable",
           "reflectToAttr": false,
           "docs": "If `true`, the horizontal card will be a clickable variant, instead of static.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -76,12 +71,7 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the horizontal card will be disabled if it is clickable.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -157,12 +147,7 @@
           "attr": "hreflang",
           "reflectToAttr": false,
           "docs": "The human language of the linked URL.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -189,12 +174,7 @@
           "attr": "message",
           "reflectToAttr": false,
           "docs": "The main body message of the horizontal card.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -316,12 +296,7 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the horizontal card.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"medium\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"medium\"",
           "values": [
             {
@@ -390,12 +365,7 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"inherit\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"inherit\"",
           "values": [
             {
@@ -563,12 +533,7 @@
           "attr": "column-header-truncation",
           "reflectToAttr": false,
           "docs": "Determines whether the column header should be truncated and display a tooltip. Default is `false`.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -595,7 +560,6 @@
             }
           },
           "mutable": false,
-          "attr": "columns",
           "reflectToAttr": false,
           "docs": "The column headers for the table.",
           "docsTags": [],
@@ -624,7 +588,6 @@
             }
           },
           "mutable": false,
-          "attr": "data",
           "reflectToAttr": false,
           "docs": "The row content for the table.",
           "docsTags": [],
@@ -659,12 +622,7 @@
           "attr": "density",
           "reflectToAttr": false,
           "docs": "Set the density of the table including font and padding.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"default\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"default\"",
           "values": [
             {
@@ -697,12 +655,7 @@
           "attr": "disable-auto-sort",
           "reflectToAttr": false,
           "docs": "If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -729,12 +682,7 @@
           "attr": "embedded",
           "reflectToAttr": false,
           "docs": "Applies a border to the table container.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -764,12 +712,7 @@
           "attr": "global-row-height",
           "reflectToAttr": false,
           "docs": "Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"auto\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"auto\"",
           "values": [
             {
@@ -823,12 +766,7 @@
           "attr": "hide-column-headers",
           "reflectToAttr": false,
           "docs": "If `true`, column headers will not be visible.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -855,12 +793,7 @@
           "attr": "loading",
           "reflectToAttr": false,
           "docs": "When set to `true`, the full table will show a loading state, featuring a radial indicator.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -881,7 +814,6 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "loading-options",
           "reflectToAttr": false,
           "docs": "Sets the props for the circular loading indicator used in the loading state.",
           "docsTags": [],
@@ -986,12 +918,7 @@
           "attr": "minimum-loading-display-duration",
           "reflectToAttr": false,
           "docs": "The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "1000"
-            }
-          ],
+          "docsTags": [],
           "default": "1000",
           "values": [
             {
@@ -1018,15 +945,9 @@
             }
           },
           "mutable": false,
-          "attr": "pagination-bar-options",
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "{\n    alignment: \"right\",\n    hideAllFromItemsPerPage: false,\n    hideRangeLabel: false,\n    itemLabel: \"Item\",\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    monochrome: false,\n    pageLabel: \"Page\",\n    rangeLabelType: \"page\",\n    selectedItemsPerPage: 10,\n    selectItemsPerPageOnEnter: true,\n    setToFirstPageOnPaginationChange: false,\n    showGoToPageControl: true,\n    showItemsPerPageControl: true,\n    type: \"simple\",\n  }"
-            }
-          ],
+          "docsTags": [],
           "default": "{\n    alignment: \"right\",\n    hideAllFromItemsPerPage: false,\n    hideRangeLabel: false,\n    itemLabel: \"Item\",\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    monochrome: false,\n    pageLabel: \"Page\",\n    rangeLabelType: \"page\",\n    selectedItemsPerPage: 10,\n    selectItemsPerPageOnEnter: true,\n    setToFirstPageOnPaginationChange: false,\n    showGoToPageControl: true,\n    showItemsPerPageControl: true,\n    type: \"simple\",\n  }",
           "values": [
             {
@@ -1050,12 +971,7 @@
           "attr": "row-selection",
           "reflectToAttr": false,
           "docs": "If `true`, a checkbox column will be displayed to the left of the table which allows multiple rows to be selected.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -1079,12 +995,7 @@
           "attr": "show-pagination",
           "reflectToAttr": false,
           "docs": "If `true`, adds a pagination bar to the bottom of the table.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -1114,15 +1025,9 @@
             }
           },
           "mutable": false,
-          "attr": "sort-options",
           "reflectToAttr": false,
           "docs": "Sets the order columns will be sorted in and allows for 'default' sorts to be added.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "{\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\n    defaultColumn: \"\",\n  }"
-            }
-          ],
+          "docsTags": [],
           "default": "{\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\n    defaultColumn: \"\",\n  }",
           "values": [
             {
@@ -1149,12 +1054,7 @@
           "attr": "sortable",
           "reflectToAttr": false,
           "docs": "If `true`, allows table columns to be sorted using applied sort buttons.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -1181,12 +1081,7 @@
           "attr": "sticky-column-headers",
           "reflectToAttr": false,
           "docs": "If `true`, column headers will remain at the top of the table when scrolling vertically.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -1210,12 +1105,7 @@
           "attr": "sticky-row-headers",
           "reflectToAttr": false,
           "docs": "If `true`, row headers will remain to the left when scrolling horizontally.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -1239,12 +1129,7 @@
           "attr": "table-layout",
           "reflectToAttr": false,
           "docs": "Sets the layout of the table",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"fixed\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"fixed\"",
           "values": [
             {
@@ -1282,12 +1167,7 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"inherit\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"inherit\"",
           "values": [
             {
@@ -1360,12 +1240,7 @@
           "attr": "updating",
           "reflectToAttr": false,
           "docs": "If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -1386,7 +1261,6 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "updating-options",
           "reflectToAttr": false,
           "docs": "Sets the props for the linear loading indicator used in the updating state.",
           "docsTags": [],
@@ -1433,7 +1307,6 @@
             }
           },
           "mutable": true,
-          "attr": "variable-row-height",
           "reflectToAttr": false,
           "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
           "docsTags": [],
@@ -1813,12 +1686,7 @@
           "attr": "heading",
           "reflectToAttr": false,
           "docs": "The heading of the title bar. Can be overridden with the `heading` slot. If used with an `ic-data-table` it will default to the table's `caption` unless overridden.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "DEFAULT_TITLE_BAR_HEADING"
-            }
-          ],
+          "docsTags": [],
           "default": "DEFAULT_TITLE_BAR_HEADING",
           "values": [
             {
@@ -1845,12 +1713,7 @@
           "attr": "hide-density-select",
           "reflectToAttr": false,
           "docs": "When `true`, the density select will not be rendered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -2011,12 +1874,7 @@
           "attr": "date-format",
           "reflectToAttr": false,
           "docs": "The format in which the date will be displayed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "this.DEFAULT_DATE_FORMAT"
-            }
-          ],
+          "docsTags": [],
           "default": "this.DEFAULT_DATE_FORMAT",
           "values": [
             {
@@ -2052,15 +1910,9 @@
             }
           },
           "mutable": true,
-          "attr": "disable-days",
           "reflectToAttr": false,
           "docs": "The days of the week to disable.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "[]"
-            }
-          ],
+          "docsTags": [],
           "default": "[]",
           "values": [
             {
@@ -2084,12 +1936,7 @@
           "attr": "disable-days-message",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message when `disableDays` is set and a disabled date is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"The date you have selected is on a day of the week that is not allowed. Please select another date.\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"The date you have selected is on a day of the week that is not allowed. Please select another date.\"",
           "values": [
             {
@@ -2113,12 +1960,7 @@
           "attr": "disable-future",
           "reflectToAttr": false,
           "docs": "If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -2145,12 +1987,7 @@
           "attr": "disable-future-message",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message when `disableFuture` is true and a date in the future is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"Dates in the future are not allowed. Please select a date in the past.\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"Dates in the future are not allowed. Please select a date in the past.\"",
           "values": [
             {
@@ -2174,12 +2011,7 @@
           "attr": "disable-past",
           "reflectToAttr": false,
           "docs": "If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -2206,12 +2038,7 @@
           "attr": "disable-past-message",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message when `disablePast` is true and a date in the past is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"Dates in the past are not allowed. Please select a date in the future.\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"Dates in the past are not allowed. Please select a date in the future.\"",
           "values": [
             {
@@ -2235,12 +2062,7 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -2264,12 +2086,7 @@
           "attr": "emit-date-part-change",
           "reflectToAttr": false,
           "docs": "If `true`, every individual input field completed will emit an icChange event.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -2322,12 +2139,7 @@
           "attr": "hide-helper-text",
           "reflectToAttr": false,
           "docs": "If `true`, the helper text will be visually hidden, but still read out by screenreaders.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -2351,12 +2163,7 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be visually hidden, but will still be read out by screen readers.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -2383,12 +2190,7 @@
           "attr": "input-id",
           "reflectToAttr": false,
           "docs": "The ID for the input.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "`ic-date-input-${inputIds++}`"
-            }
-          ],
+          "docsTags": [],
           "default": "`ic-date-input-${inputIds++}`",
           "values": [
             {
@@ -2412,12 +2214,7 @@
           "attr": "invalid-date-message",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message when an invalid date is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"Please enter a valid date.\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"Please enter a valid date.\"",
           "values": [
             {
@@ -2469,12 +2266,7 @@
           "attr": "max",
           "reflectToAttr": false,
           "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -2506,12 +2298,7 @@
           "attr": "min",
           "reflectToAttr": false,
           "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -2538,12 +2325,7 @@
           "attr": "name",
           "reflectToAttr": false,
           "docs": "The name of the control, which is submitted with the form data.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "this.inputId"
-            }
-          ],
+          "docsTags": [],
           "default": "this.inputId",
           "values": [
             {
@@ -2567,12 +2349,7 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the input will require a value.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -2596,12 +2373,7 @@
           "attr": "show-clear-button",
           "reflectToAttr": false,
           "docs": "If `true`, a button which clears the date input when clicked will be displayed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "true"
-            }
-          ],
+          "docsTags": [],
           "default": "true",
           "values": [
             {
@@ -2634,12 +2406,7 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the date input to be displayed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"medium\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"medium\"",
           "values": [
             {
@@ -2678,12 +2445,7 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the date picker to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"inherit\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"inherit\"",
           "values": [
             {
@@ -2725,12 +2487,7 @@
           "attr": "validation-status",
           "reflectToAttr": false,
           "docs": "The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -2766,12 +2523,7 @@
           "attr": "validation-text",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message. This will override the built-in date validation.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -2803,12 +2555,7 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -3003,12 +2750,7 @@
           "attr": "date-format",
           "reflectToAttr": false,
           "docs": "The format in which the date will be displayed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"DD/MM/YYYY\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"DD/MM/YYYY\"",
           "values": [
             {
@@ -3044,15 +2786,9 @@
             }
           },
           "mutable": false,
-          "attr": "disable-days",
           "reflectToAttr": false,
           "docs": "The days of the week to disable.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "[]"
-            }
-          ],
+          "docsTags": [],
           "default": "[]",
           "values": [
             {
@@ -3079,12 +2815,7 @@
           "attr": "disable-days-message",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message when `disableDays` is `true` and a disabled date is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"The date you have selected is on a day of the week that is not allowed. Please select another date.\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"The date you have selected is on a day of the week that is not allowed. Please select another date.\"",
           "values": [
             {
@@ -3111,12 +2842,7 @@
           "attr": "disable-future",
           "reflectToAttr": false,
           "docs": "If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -3143,12 +2869,7 @@
           "attr": "disable-future-message",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message when `disableFuture` is `true` and a date in the future is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"Dates in the future are not allowed. Please select a date in the past.\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"Dates in the future are not allowed. Please select a date in the past.\"",
           "values": [
             {
@@ -3175,12 +2896,7 @@
           "attr": "disable-past",
           "reflectToAttr": false,
           "docs": "If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -3207,12 +2923,7 @@
           "attr": "disable-past-message",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message when `disablePast` is `true` and a date in the past is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"Dates in the past are not allowed. Please select a date in the future.\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"Dates in the past are not allowed. Please select a date in the future.\"",
           "values": [
             {
@@ -3239,12 +2950,7 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -3268,12 +2974,7 @@
           "attr": "emit-date-part-change",
           "reflectToAttr": false,
           "docs": "If `true`, every individual input field completed will emit an icChange event.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -3326,12 +3027,7 @@
           "attr": "hide-helper-text",
           "reflectToAttr": false,
           "docs": "If `true`, the helper text will be visually hidden, but still read out by screenreaders.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -3355,12 +3051,7 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -3413,12 +3104,7 @@
           "attr": "invalid-date-message",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message when an invalid date is entered.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"Please enter a valid date.\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"Please enter a valid date.\"",
           "values": [
             {
@@ -3473,12 +3159,7 @@
           "attr": "max",
           "reflectToAttr": false,
           "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -3510,12 +3191,7 @@
           "attr": "min",
           "reflectToAttr": false,
           "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -3573,12 +3249,7 @@
           "attr": "open-at-date",
           "reflectToAttr": false,
           "docs": "The date visible when the calendar opens. Used if no date is currently selected.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -3605,12 +3276,7 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the input will require a value.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -3637,12 +3303,7 @@
           "attr": "show-clear-button",
           "reflectToAttr": false,
           "docs": "If 'true', the 'X' button on the date input will be visible, which clears the field.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "true"
-            }
-          ],
+          "docsTags": [],
           "default": "true",
           "values": [
             {
@@ -3669,12 +3330,7 @@
           "attr": "show-days-outside-month",
           "reflectToAttr": false,
           "docs": "If `true`, days outside the current month will be visible in the date picker.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "true"
-            }
-          ],
+          "docsTags": [],
           "default": "true",
           "values": [
             {
@@ -3701,12 +3357,7 @@
           "attr": "show-picker-clear-button",
           "reflectToAttr": false,
           "docs": "If `true`, the `Clear` button on the date picker will be visible.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "true"
-            }
-          ],
+          "docsTags": [],
           "default": "true",
           "values": [
             {
@@ -3733,12 +3384,7 @@
           "attr": "show-picker-today-button",
           "reflectToAttr": false,
           "docs": "If `true`, the `Go to today` button on the date picker will be visible.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "true"
-            }
-          ],
+          "docsTags": [],
           "default": "true",
           "values": [
             {
@@ -3771,12 +3417,7 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the date picker to be displayed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"medium\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"medium\"",
           "values": [
             {
@@ -3818,12 +3459,7 @@
           "attr": "start-of-week",
           "reflectToAttr": false,
           "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\nDefault is Monday.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "IcWeekDays.Monday"
-            }
-          ],
+          "docsTags": [],
           "default": "IcWeekDays.Monday",
           "values": [
             {
@@ -3871,12 +3507,7 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the date picker to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"inherit\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"inherit\"",
           "values": [
             {
@@ -3918,12 +3549,7 @@
           "attr": "validation-status",
           "reflectToAttr": false,
           "docs": "The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -3962,12 +3588,7 @@
           "attr": "validation-text",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message. This will override the built-in date validation.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -3999,12 +3620,7 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -4145,12 +3761,7 @@
           "attr": "alignment",
           "reflectToAttr": false,
           "docs": "Sets the alignment of the items in the pagination bar.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"right\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"right\"",
           "values": [
             {
@@ -4186,12 +3797,7 @@
           "attr": "current-page",
           "reflectToAttr": false,
           "docs": "The current page number to be displayed on the pagination bar.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "1"
-            }
-          ],
+          "docsTags": [],
           "default": "1",
           "values": [
             {
@@ -4218,12 +3824,7 @@
           "attr": "hide-all-from-items-per-page",
           "reflectToAttr": false,
           "docs": "If `true`, the 'All' option will be hidden from the 'items per page' select input.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -4250,12 +3851,7 @@
           "attr": "hide-range-label",
           "reflectToAttr": false,
           "docs": "If `true`, the number of total items and current item range or number of total pages and current page will be hidden.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -4282,12 +3878,7 @@
           "attr": "item-label",
           "reflectToAttr": false,
           "docs": "The text which will be used in place of 'Item' on the pagination bar.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"Item\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"Item\"",
           "values": [
             {
@@ -4311,7 +3902,6 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "items-per-page-options",
           "reflectToAttr": false,
           "docs": "The options which will be displayed for 'items per page' select input.",
           "docsTags": [],
@@ -4340,12 +3930,7 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination bar will display as black in the light theme, and white in dark theme.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -4372,12 +3957,7 @@
           "attr": "page-label",
           "reflectToAttr": false,
           "docs": "The text which will be used in place of 'Page' on the pagination bar.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"Page\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"Page\"",
           "values": [
             {
@@ -4410,12 +3990,7 @@
           "attr": "range-label-type",
           "reflectToAttr": false,
           "docs": "Whether total number of items and current item range or total number of pages and current page is displayed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"page\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"page\"",
           "values": [
             {
@@ -4447,12 +4022,7 @@
           "attr": "select-items-per-page-on-enter",
           "reflectToAttr": false,
           "docs": "If `false`, the value in the items per page control will be set immediately on ArrowUp and ArrowDown instead of when Enter is pressed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "true"
-            }
-          ],
+          "docsTags": [],
           "default": "true",
           "values": [
             {
@@ -4502,12 +4072,7 @@
           "attr": "set-to-first-page-on-pagination-change",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination bar is set to the first page when the 'items per page' changes",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -4534,12 +4099,7 @@
           "attr": "show-go-to-page-control",
           "reflectToAttr": false,
           "docs": "If `true`, the 'go to page' control should be displayed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -4566,12 +4126,7 @@
           "attr": "show-items-per-page-control",
           "reflectToAttr": false,
           "docs": "If `true`, the select input to control 'items per page' should be displayed.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -4604,12 +4159,7 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"inherit\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"inherit\"",
           "values": [
             {
@@ -4674,12 +4224,7 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "Whether the displayed pagination is simple or complex.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"simple\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"simple\"",
           "values": [
             {
@@ -4851,12 +4396,7 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the tree item appears in the disabled state.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -4880,12 +4420,7 @@
           "attr": "expanded",
           "reflectToAttr": false,
           "docs": "If `true`, the tree item appears in the expanded state.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -4935,12 +4470,7 @@
           "attr": "hreflang",
           "reflectToAttr": false,
           "docs": "The human language of the linked URL.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -4967,12 +4497,7 @@
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The label of the tree item.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -5085,12 +4610,7 @@
           "attr": "selected",
           "reflectToAttr": false,
           "docs": "If `true`, the tree item appears in the selected state.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -5146,12 +4666,7 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"inherit\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"inherit\"",
           "values": [
             {
@@ -5350,12 +4865,7 @@
           "attr": "heading",
           "reflectToAttr": false,
           "docs": "The heading of the tree view.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"\"",
           "values": [
             {
@@ -5385,12 +4895,7 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the tree view.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"medium\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"medium\"",
           "values": [
             {
@@ -5432,12 +4937,7 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"inherit\""
-            }
-          ],
+          "docsTags": [],
           "default": "\"inherit\"",
           "values": [
             {
@@ -5476,15 +4976,9 @@
             }
           },
           "mutable": false,
-          "attr": "tree-item-data",
           "reflectToAttr": false,
           "docs": "The content within the tree view tree items. This will take precedence over slotted content.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "[]"
-            }
-          ],
+          "docsTags": [],
           "default": "[]",
           "values": [
             {
@@ -5508,12 +5002,7 @@
           "attr": "truncate-heading",
           "reflectToAttr": false,
           "docs": "If `true`, the tree view heading will be truncated instead of text wrapping.\nWhen used on small devices, this prop will be overridden and headings will be set to text-wrap.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
@@ -5537,12 +5026,7 @@
           "attr": "truncate-tree-items",
           "reflectToAttr": false,
           "docs": "If `true`, tree items will be truncated, unless they are individually overridden.\nWhen used on small devices, this prop will be overridden and tree-items will be set to text-wrap.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "false"
-            }
-          ],
+          "docsTags": [],
           "default": "false",
           "values": [
             {
