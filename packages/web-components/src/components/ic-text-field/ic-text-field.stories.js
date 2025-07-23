@@ -34,7 +34,7 @@ const defaultArgs = {
   theme: "inherit",
   type: "text",
   validationInline: false,
-  validationStatus: "none",
+  validationStatus: "no status",
   validationText: "",
   value: "",
 };
@@ -963,7 +963,9 @@ export const Playground = {
           theme=${args.theme}
           type=${args.type}
           validation-inline=${args.validationInline}
-          validation-status=${args.validationStatus}
+          validation-status=${args.validationStatus === "no status"
+            ? ""
+            : args.validationStatus}
           validation-text=${args.validationText}
           value=${args.value}
         >
@@ -1026,14 +1028,7 @@ export const Playground = {
     },
 
     validationStatus: {
-      options: ["warning", "error", "success", "none"],
-
-      mapping: {
-        warning: "warning",
-        error: "error",
-        success: "success",
-        none: "",
-      },
+      options: ["no status", "warning", "error", "success"],
 
       control: {
         type: "select",
