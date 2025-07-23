@@ -364,6 +364,7 @@ const defaultArgs = {
   required: false,
   showDaysOutsideMonth: true,
   showPickerClearButton: true,
+  showClearButton: true,
   showPickerTodayButton: true,
   size: "medium",
   startOfWeek: 1,
@@ -412,6 +413,7 @@ export const Playground = {
         required={args.required}
         showDaysOutsideMonth={args.showDaysOutsideMonth}
         showPickerClearButton={args.showPickerClearButton}
+        showClearButton={args.showClearButton}
         showPickerTodayButton={args.showPickerTodayButton}
         size={args.size}
         startOfWeek={args.startOfWeek}
