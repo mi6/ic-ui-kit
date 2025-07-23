@@ -809,7 +809,7 @@
           "name": "loadingOptions",
           "type": "undefined | { description?: string | undefined; label?: string | undefined; labelDuration?: number | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; overlay?: boolean | undefined; }",
           "complexType": {
-            "original": "{\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n    overlay?: boolean;\n  }",
+            "original": "{\r\n    description?: string;\r\n    label?: string;\r\n    labelDuration?: number;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n    overlay?: boolean;\r\n  }",
             "resolved": "undefined | { description?: string | undefined; label?: string | undefined; labelDuration?: number | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; overlay?: boolean | undefined; }",
             "references": {}
           },
@@ -948,7 +948,7 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\n    alignment: \"right\",\n    hideAllFromItemsPerPage: false,\n    hideRangeLabel: false,\n    itemLabel: \"Item\",\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    monochrome: false,\n    pageLabel: \"Page\",\n    rangeLabelType: \"page\",\n    selectedItemsPerPage: 10,\n    selectItemsPerPageOnEnter: true,\n    setToFirstPageOnPaginationChange: false,\n    showGoToPageControl: true,\n    showItemsPerPageControl: true,\n    type: \"simple\",\n  }",
+          "default": "{\r\n    alignment: \"right\",\r\n    hideAllFromItemsPerPage: false,\r\n    hideRangeLabel: false,\r\n    itemLabel: \"Item\",\r\n    itemsPerPageOptions: [\r\n      { label: \"10\", value: \"10\" },\r\n      { label: \"25\", value: \"25\" },\r\n      { label: \"50\", value: \"50\" },\r\n    ],\r\n    monochrome: false,\r\n    pageLabel: \"Page\",\r\n    rangeLabelType: \"page\",\r\n    selectedItemsPerPage: 10,\r\n    selectItemsPerPageOnEnter: true,\r\n    setToFirstPageOnPaginationChange: false,\r\n    showGoToPageControl: true,\r\n    showItemsPerPageControl: true,\r\n    type: \"simple\",\r\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
@@ -1014,7 +1014,7 @@
           "name": "sortOptions",
           "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string | undefined; }",
           "complexType": {
-            "original": "{\n    sortOrders: IcDataTableSortOrderOptions[];\n    defaultColumn?: string;\n  }",
+            "original": "{\r\n    sortOrders: IcDataTableSortOrderOptions[];\r\n    defaultColumn?: string;\r\n  }",
             "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string | undefined; }",
             "references": {
               "IcDataTableSortOrderOptions": {
@@ -1028,7 +1028,7 @@
           "reflectToAttr": false,
           "docs": "Sets the order columns will be sorted in and allows for 'default' sorts to be added.",
           "docsTags": [],
-          "default": "{\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\n    defaultColumn: \"\",\n  }",
+          "default": "{\r\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\r\n    defaultColumn: \"\",\r\n  }",
           "values": [
             {
               "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string"
@@ -1256,7 +1256,7 @@
           "name": "updatingOptions",
           "type": "undefined | { description?: string | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; }",
           "complexType": {
-            "original": "{\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n  }",
+            "original": "{\r\n    description?: string;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n  }",
             "resolved": "undefined | { description?: string | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; }",
             "references": {}
           },
@@ -1296,7 +1296,7 @@
           "name": "variableRowHeight",
           "type": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights | null) | undefined",
           "complexType": {
-            "original": "(params: {\n    [key: string]: any;\n    index: number;\n  }) => IcDataTableRowHeights | null",
+            "original": "(params: {\r\n    [key: string]: any;\r\n    index: number;\r\n  }) => IcDataTableRowHeights | null",
             "resolved": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights | null) | undefined",
             "references": {
               "IcDataTableRowHeights": {
@@ -1308,7 +1308,7 @@
           },
           "mutable": true,
           "reflectToAttr": false,
-          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
+          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\r\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
           "docsTags": [],
           "values": [
             {
@@ -1457,7 +1457,7 @@
           "detail": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\n    row: IcDataTableDataType | null;\n    selectedRows: IcDataTableDataType[];\n  }",
+            "original": "{\r\n    row: IcDataTableDataType | null;\r\n    selectedRows: IcDataTableDataType[];\r\n  }",
             "resolved": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; }",
             "references": {
               "IcDataTableDataType": {
@@ -2265,7 +2265,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2297,7 +2297,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2635,7 +2635,7 @@
           "detail": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; utcValue: Date | null; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\n    value: Date | null;\n    dateObject: {\n      day: string | null;\n      month: string | null;\n      year: string | null;\n    };\n    utcValue: Date | null;\n  }",
+            "original": "{\r\n    value: Date | null;\r\n    dateObject: {\r\n      day: string | null;\r\n      month: string | null;\r\n      year: string | null;\r\n    };\r\n    utcValue: Date | null;\r\n  }",
             "resolved": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; utcValue: Date | null; }",
             "references": {
               "Date": {
@@ -3158,7 +3158,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -3190,7 +3190,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -3248,7 +3248,7 @@
           "mutable": false,
           "attr": "open-at-date",
           "reflectToAttr": false,
-          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\r\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -3458,7 +3458,7 @@
           "mutable": false,
           "attr": "start-of-week",
           "reflectToAttr": false,
-          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\nDefault is Monday.",
+          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\r\nDefault is Monday.",
           "docsTags": [],
           "default": "IcWeekDays.Monday",
           "values": [
@@ -4773,7 +4773,7 @@
           "detail": "{ isExpanded: boolean; id: string; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\n    isExpanded: boolean;\n    id: string;\n  }",
+            "original": "{\r\n    isExpanded: boolean;\r\n    id: string;\r\n  }",
             "resolved": "{ isExpanded: boolean; id: string; }",
             "references": {}
           },
@@ -5001,7 +5001,7 @@
           "mutable": true,
           "attr": "truncate-heading",
           "reflectToAttr": false,
-          "docs": "If `true`, the tree view heading will be truncated instead of text wrapping.\nWhen used on small devices, this prop will be overridden and headings will be set to text-wrap.",
+          "docs": "If `true`, the tree view heading will be truncated instead of text wrapping.\r\nWhen used on small devices, this prop will be overridden and headings will be set to text-wrap.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5025,7 +5025,7 @@
           "mutable": true,
           "attr": "truncate-tree-items",
           "reflectToAttr": false,
-          "docs": "If `true`, tree items will be truncated, unless they are individually overridden.\nWhen used on small devices, this prop will be overridden and tree-items will be set to text-wrap.",
+          "docs": "If `true`, tree items will be truncated, unless they are individually overridden.\r\nWhen used on small devices, this prop will be overridden and tree-items will be set to text-wrap.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5094,7 +5094,7 @@
       "path": "../web-components/dist/types/interface.d.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n  excludeColumnFromSort?: boolean;\n  hidden?: boolean;\n  disableAutoSort?: boolean;\n}",
+      "declaration": "{\r\n  key: string;\r\n  title: string;\r\n  dataType: IcDataTableColumnDataTypes;\r\n  columnAlignment?: {\r\n    horizontal?: string;\r\n    vertical?: string;\r\n  };\r\n  rowOptions?: {\r\n    textWrap: boolean;\r\n  };\r\n  columnWidth?: string | IcDataTableColumnWidthTypes;\r\n  textWrap?: boolean;\r\n  cellAlignment?: string;\r\n  emphasis?: string;\r\n  colspan?: number;\r\n  icon?: {\r\n    icon: string;\r\n    onAllCells?: boolean;\r\n    hideOnHeader?: boolean;\r\n  };\r\n  excludeColumnFromSort?: boolean;\r\n  hidden?: boolean;\r\n  disableAutoSort?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5119,7 +5119,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
-      "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
+      "declaration": "export type IcDataTableSortOrderOptions =\r\n  | \"unsorted\"\r\n  | \"ascending\"\r\n  | \"descending\";",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5134,7 +5134,7 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcSortEventDetail": {
-      "declaration": "export interface IcSortEventDetail {\n  columnName: string;\n  sorted: IcDataTableSortOrderOptions;\n}",
+      "declaration": "export interface IcSortEventDetail {\r\n  columnName: string;\r\n  sorted: IcDataTableSortOrderOptions;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5159,7 +5159,7 @@
       "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail": {
-      "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",
+      "declaration": "export interface IcDensityUpdateEventDetail {\r\n  value: IcDataTableDensityOptions;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
