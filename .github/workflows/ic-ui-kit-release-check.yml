@@ -29,6 +29,7 @@ jobs:
         run: npm run build:all
       - name: Check for uncommitted changes
         run: |
+          git add .
           if [[ -n "$(git status --porcelain)" ]]; then
             echo "Error: Some auto-generated files have uncommitted changes."
             git status
@@ -77,7 +78,6 @@ jobs:
           git add DEVELOPMENT_RELEASE_CHECK.md
           git commit -m "chore(release): update development release version check file" --no-verify
           git push origin $RELEASE_BRANCH
-      - name: Create release branch -> develop PR 
+      - name: Create release branch -> develop PR
         run: |
           curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/mi6/ic-ui-kit/pulls" -d '{"title":"Release -> Develop","body":"Updates in the file changes.","head":"release","base":"develop"}'
-          
