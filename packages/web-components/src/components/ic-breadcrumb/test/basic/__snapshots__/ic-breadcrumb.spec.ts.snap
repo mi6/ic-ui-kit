@@ -2,7 +2,7 @@
 
 exports[`ic-breadcrumb should render 1`] = `
 <ic-breadcrumb role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <div class="breadcrumb">
       <span aria-hidden="true" class="chevron">
         svg
@@ -19,7 +19,7 @@ exports[`ic-breadcrumb should render 1`] = `
 
 exports[`ic-breadcrumb should render with icon 1`] = `
 <ic-breadcrumb aria-current="page" current="true" href="/" page-title="foo" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <div class="breadcrumb">
       <span aria-hidden="true" class="chevron">
         svg
@@ -38,7 +38,7 @@ exports[`ic-breadcrumb should render with icon 1`] = `
 
 exports[`ic-breadcrumb should render with page-title and href 1`] = `
 <ic-breadcrumb href="/" page-title="foo" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <div class="breadcrumb">
       <span aria-hidden="true" class="chevron">
         svg
@@ -53,7 +53,7 @@ exports[`ic-breadcrumb should render with page-title and href 1`] = `
 
 exports[`ic-breadcrumb should render with page-title, href, current 1`] = `
 <ic-breadcrumb aria-current="page" current="true" href="/" page-title="foo" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <div class="breadcrumb">
       <span aria-hidden="true" class="chevron">
         svg

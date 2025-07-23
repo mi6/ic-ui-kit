@@ -2,7 +2,7 @@
 
 exports[`ic-badge should render custom variant with custom colour in hex: should render custom variant with custom colour in hex 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -10,7 +10,7 @@ exports[`ic-badge should render custom variant with custom colour in hex: should
   </template>
   Button
   <ic-badge class="ic-badge-custom ic-badge-far ic-badge-foreground-dark ic-badge-medium ic-badge-show ic-badge-text" custom-color="#F8C8DC" label="1" role="status" slot="badge" variant="custom" style="background-color: rgba(248, 200, 220, 1);">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -21,7 +21,7 @@ exports[`ic-badge should render custom variant with custom colour in hex: should
 
 exports[`ic-badge should render custom variant with custom colour in rgb: should render custom variant with custom colour in rgb 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -29,7 +29,7 @@ exports[`ic-badge should render custom variant with custom colour in rgb: should
   </template>
   Button
   <ic-badge class="ic-badge-custom ic-badge-far ic-badge-foreground-dark ic-badge-medium ic-badge-show ic-badge-text" custom-color="rgb(248,200,220)" label="1" role="status" slot="badge" variant="custom" style="background-color: rgba(248, 200, 220, 1);">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -40,7 +40,7 @@ exports[`ic-badge should render custom variant with custom colour in rgb: should
 
 exports[`ic-badge should render error variant: should render error variant 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -48,7 +48,7 @@ exports[`ic-badge should render error variant: should render error variant 1`] =
   </template>
   Button
   <ic-badge class="ic-badge-error ic-badge-far ic-badge-medium ic-badge-show ic-badge-text" label="1" role="status" slot="badge" variant="error">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -59,7 +59,7 @@ exports[`ic-badge should render error variant: should render error variant 1`] =
 
 exports[`ic-badge should render info variant: should render info variant 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -67,7 +67,7 @@ exports[`ic-badge should render info variant: should render info variant 1`] = `
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-info ic-badge-medium ic-badge-show ic-badge-text" label="1" role="status" slot="badge" variant="info">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -78,7 +78,7 @@ exports[`ic-badge should render info variant: should render info variant 1`] = `
 
 exports[`ic-badge should render light variant: should render light variant 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -86,7 +86,7 @@ exports[`ic-badge should render light variant: should render light variant 1`] =
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-light ic-badge-medium ic-badge-show ic-badge-text" label="1" role="status" slot="badge" variant="light">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -97,7 +97,7 @@ exports[`ic-badge should render light variant: should render light variant 1`] =
 
 exports[`ic-badge should render size large: should render size large 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -105,7 +105,7 @@ exports[`ic-badge should render size large: should render size large 1`] = `
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-large ic-badge-neutral ic-badge-show ic-badge-text" label="100" role="status" size="large" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         100
       </ic-typography>
@@ -116,7 +116,7 @@ exports[`ic-badge should render size large: should render size large 1`] = `
 
 exports[`ic-badge should render size small: should render size small 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -124,7 +124,7 @@ exports[`ic-badge should render size small: should render size small 1`] = `
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-neutral ic-badge-show ic-badge-small ic-badge-text" label="100" role="status" size="small" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge-small">
         100
       </ic-typography>
@@ -135,7 +135,7 @@ exports[`ic-badge should render size small: should render size small 1`] = `
 
 exports[`ic-badge should render slotted in a chip: should render slotted in a chip 1`] = `
 <ic-chip label="Badge">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <div class="chip filled medium">
       <ic-typography class="label" variant="label">
         <span>
@@ -146,7 +146,7 @@ exports[`ic-badge should render slotted in a chip: should render slotted in a ch
     </div>
   </template>
   <ic-badge class="ic-badge-medium ic-badge-near ic-badge-neutral ic-badge-show ic-badge-text" label="1" position="near" role="status" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -157,7 +157,7 @@ exports[`ic-badge should render slotted in a chip: should render slotted in a ch
 
 exports[`ic-badge should render slotted in a navigation button: should render slotted in a navigation button 1`] = `
 <ic-navigation-button class="ic-theme-dark" href="https://www.google.com" label="Button One" slot="buttons" target="_blank">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-button aria-label="Button One" href="https://www.google.com" monochrome="" size="large" target="_blank" theme="dark" title="Google 1" variant="icon-tertiary">
       <slot name="icon" slot="left-icon"></slot>
       <slot name="badge"></slot>
@@ -168,7 +168,7 @@ exports[`ic-badge should render slotted in a navigation button: should render sl
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
   </svg>
   <ic-badge class="ic-badge-light ic-badge-medium ic-badge-near ic-badge-show ic-badge-text" label="1" position="near" role="status" slot="badge" variant="light">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -179,7 +179,7 @@ exports[`ic-badge should render slotted in a navigation button: should render sl
 
 exports[`ic-badge should render slotted in a navigation item: should render slotted in a navigation item 1`] = `
 <ic-navigation-item class="light navigation-item" href="/" label="Navigation" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-tooltip class="tooltip-navigation-item" label="Navigation" placement="right" target="navigation-item">
       <a class="link" href="/" part="link">
         <div class="icon">
@@ -196,7 +196,7 @@ exports[`ic-badge should render slotted in a navigation item: should render slot
     </ic-tooltip>
   </template>
   <ic-badge class="ic-badge-far ic-badge-light ic-badge-medium ic-badge-show ic-badge-text" label="1" position="far" role="status" slot="badge" variant="light">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -220,7 +220,7 @@ exports[`ic-badge should render slotted in a tab with aria-label set on badge: s
   </template>
   Tab
   <ic-badge aria-label=", 1" class="ic-badge-inline ic-badge-medium ic-badge-neutral ic-badge-show ic-badge-text" label="1" position="inline" role="status" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -282,7 +282,7 @@ exports[`ic-badge should render slotted in a top navigation: should render slott
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
     </svg>
     <ic-badge class="ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show ic-badge-text" label="1" role="status" slot="badge">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-typography variant="badge">
           1
         </ic-typography>
@@ -295,7 +295,7 @@ exports[`ic-badge should render slotted in a top navigation: should render slott
       <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"></path>
     </svg>
     <ic-badge class="ic-badge-dot ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show" role="status" slot="badge" type="dot">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <span class="sr-only">
           badge
         </span>
@@ -330,7 +330,7 @@ exports[`ic-badge should render slotted in a vertical card with aria-label set o
     </div>
   </template>
   <ic-badge class="ic-badge-medium ic-badge-near ic-badge-neutral ic-badge-show ic-badge-text" label="1" position="near" role="status" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -341,7 +341,7 @@ exports[`ic-badge should render slotted in a vertical card with aria-label set o
 
 exports[`ic-badge should render success variant: should render success variant 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -349,7 +349,7 @@ exports[`ic-badge should render success variant: should render success variant 1
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-medium ic-badge-show ic-badge-success ic-badge-text" label="1" role="status" slot="badge" variant="success">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -360,7 +360,7 @@ exports[`ic-badge should render success variant: should render success variant 1
 
 exports[`ic-badge should render type dot: should render type dot 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -368,7 +368,7 @@ exports[`ic-badge should render type dot: should render type dot 1`] = `
   </template>
   Button
   <ic-badge class="ic-badge-dot ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show" role="status" slot="badge" type="dot">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <span class="sr-only">
         badge
       </span>
@@ -379,7 +379,7 @@ exports[`ic-badge should render type dot: should render type dot 1`] = `
 
 exports[`ic-badge should render type icon: should render type icon 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -387,7 +387,7 @@ exports[`ic-badge should render type icon: should render type icon 1`] = `
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-icon ic-badge-medium ic-badge-neutral ic-badge-show" role="status" slot="badge" type="icon">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <slot name="badge-icon"></slot>
     </template>
     <svg fill="#000000" height="24px" slot="badge-icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
@@ -400,7 +400,7 @@ exports[`ic-badge should render type icon: should render type icon 1`] = `
 
 exports[`ic-badge should render warning variant: should render warning variant 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -408,7 +408,7 @@ exports[`ic-badge should render warning variant: should render warning variant 1
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-medium ic-badge-show ic-badge-text ic-badge-warning" label="1" role="status" slot="badge" variant="warning">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -419,7 +419,7 @@ exports[`ic-badge should render warning variant: should render warning variant 1
 
 exports[`ic-badge should render with accessible label: should render with accessible label 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -427,7 +427,7 @@ exports[`ic-badge should render with accessible label: should render with access
   </template>
   Button
   <ic-badge accessible-label="1 notification found" class="ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show ic-badge-text" label="1" role="status" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -438,7 +438,7 @@ exports[`ic-badge should render with accessible label: should render with access
 
 exports[`ic-badge should render with id set: should render with id 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -446,7 +446,7 @@ exports[`ic-badge should render with id set: should render with id 1`] = `
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show ic-badge-text" id="badge-1" label="1" role="status" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -457,7 +457,7 @@ exports[`ic-badge should render with id set: should render with id 1`] = `
 
 exports[`ic-badge should render with max number prop set: should render with max number prop set 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -465,7 +465,7 @@ exports[`ic-badge should render with max number prop set: should render with max
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show ic-badge-text" label="100" max-number="9" role="status" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         9+
       </ic-typography>
@@ -476,7 +476,7 @@ exports[`ic-badge should render with max number prop set: should render with max
 
 exports[`ic-badge should render with text slotted in a button: should render with text slotted in a button 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -484,7 +484,7 @@ exports[`ic-badge should render with text slotted in a button: should render wit
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show ic-badge-text" label="1" role="status" slot="badge">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>
@@ -495,7 +495,7 @@ exports[`ic-badge should render with text slotted in a button: should render wit
 
 exports[`ic-badge should render with visible false: should render with visible false 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-primary with-badge" exportparts="button">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="badge"></slot>
     <button class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -503,7 +503,7 @@ exports[`ic-badge should render with visible false: should render with visible f
   </template>
   Button
   <ic-badge class="ic-badge-far ic-badge-hide ic-badge-medium ic-badge-neutral ic-badge-text" label="1" role="status" slot="badge" visible="false">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-typography variant="badge">
         1
       </ic-typography>

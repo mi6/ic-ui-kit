@@ -2,7 +2,7 @@
 
 exports[`ic-toggle-button component should render 1`] = `
 <ic-toggle-button class="ic-toggle-button-medium" label="Toggle" variant="default">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-button aria-label="Toggle, unticked" aria-pressed="false" size="medium" tooltipplacement="bottom" variant="secondary">
       Toggle
       <slot></slot>
@@ -13,7 +13,7 @@ exports[`ic-toggle-button component should render 1`] = `
 
 exports[`ic-toggle-button component should render disabled 1`] = `
 <ic-toggle-button class="ic-toggle-button-disabled ic-toggle-button-medium" disabled="" label="Toggle" variant="default">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-button aria-label="Toggle, unticked" aria-pressed="false" disabled="" size="medium" tooltipplacement="bottom" variant="secondary">
       Toggle
       <slot></slot>
@@ -24,7 +24,7 @@ exports[`ic-toggle-button component should render disabled 1`] = `
 
 exports[`ic-toggle-button component should render disabled: disabled-removed 1`] = `
 <ic-toggle-button class="ic-toggle-button-medium" label="Toggle" variant="default">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-button aria-label="Toggle, unticked" aria-pressed="false" size="medium" tooltipplacement="bottom" variant="secondary">
       Toggle
       <slot></slot>
@@ -35,7 +35,7 @@ exports[`ic-toggle-button component should render disabled: disabled-removed 1`]
 
 exports[`ic-toggle-button component should render icon variant 1`] = `
 <ic-toggle-button accessible-label="Refresh the page" class="ic-toggle-button-icon ic-toggle-button-medium" variant="icon">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-button aria-label="Refresh the page, unticked" aria-pressed="false" size="medium" title="Refresh the page" tooltipplacement="bottom" variant="icon">
       <slot></slot>
     </ic-button>
@@ -49,7 +49,7 @@ exports[`ic-toggle-button component should render icon variant 1`] = `
 
 exports[`ic-toggle-button component should render slotted badge 1`] = `
 <ic-toggle-button class="ic-toggle-button-medium" label="Toggle" variant="default">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-button aria-label="Toggle, unticked" aria-pressed="false" size="medium" tooltipplacement="bottom" variant="secondary">
       Toggle
       <slot></slot>
@@ -62,7 +62,7 @@ exports[`ic-toggle-button component should render slotted badge 1`] = `
 
 exports[`ic-toggle-button component should render slotted icon 1`] = `
 <ic-toggle-button class="ic-toggle-button-medium" label="Toggle" variant="default">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-button aria-label="Toggle, unticked" aria-pressed="false" size="medium" tooltipplacement="bottom" variant="secondary">
       Toggle
       <slot></slot>
@@ -78,7 +78,7 @@ exports[`ic-toggle-button component should render slotted icon 1`] = `
 
 exports[`ic-toggle-button component should render slotted icon with icon placement 1`] = `
 <ic-toggle-button class="ic-toggle-button-medium" icon-placement="right" label="Toggle" variant="default">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-button aria-label="Toggle, unticked" aria-pressed="false" size="medium" tooltipplacement="bottom" variant="secondary">
       Toggle
       <slot></slot>

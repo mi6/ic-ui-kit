@@ -2,7 +2,7 @@
 
 exports[`ic-link component should apply the 'dark' theme styling and ic-link styling: link-dark-theme 1`] = `
 <ic-link class="ic-link ic-theme-dark" exportparts="link" href="test-href" theme="dark">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a class="link" href="test-href" part="link" tabindex="0">
       <slot></slot>
     </a>
@@ -13,7 +13,7 @@ exports[`ic-link component should apply the 'dark' theme styling and ic-link sty
 
 exports[`ic-link component should apply the 'download' attribute to the anchor element: download-link 1`] = `
 <ic-link class="ic-link" download="test-download" exportparts="link">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a download="test-download" part="link" tabindex="-1">
       <slot></slot>
     </a>
@@ -24,7 +24,7 @@ exports[`ic-link component should apply the 'download' attribute to the anchor e
 
 exports[`ic-link component should apply the 'download' attribute to the anchor element: download-link-false 1`] = `
 <ic-link class="ic-link" download="test-download" exportparts="link">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a part="link" tabindex="-1">
       <slot></slot>
     </a>
@@ -35,7 +35,7 @@ exports[`ic-link component should apply the 'download' attribute to the anchor e
 
 exports[`ic-link component should apply the 'download' attribute to the anchor element: download-link-true 1`] = `
 <ic-link class="ic-link" download="test-download" exportparts="link">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a download="" part="link" tabindex="-1">
       <slot></slot>
     </a>
@@ -46,7 +46,7 @@ exports[`ic-link component should apply the 'download' attribute to the anchor e
 
 exports[`ic-link component should apply the 'href' attribute and ic-link styling to the anchor element: default-link-href 1`] = `
 <ic-link class="ic-link" exportparts="link" href="test-href">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a class="link" href="test-href" part="link" tabindex="0">
       <slot></slot>
     </a>
@@ -57,7 +57,7 @@ exports[`ic-link component should apply the 'href' attribute and ic-link styling
 
 exports[`ic-link component should apply the 'hreflang' attribute to the anchor element: default-link-hreflang 1`] = `
 <ic-link class="ic-link" exportparts="link" hreflang="test-hreflang">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a hreflang="test-hreflang" part="link" tabindex="-1">
       <slot></slot>
     </a>
@@ -68,7 +68,7 @@ exports[`ic-link component should apply the 'hreflang' attribute to the anchor e
 
 exports[`ic-link component should apply the 'referrerpolicy' attribute to the anchor element: default-link-referrerpolicy 1`] = `
 <ic-link class="ic-link" exportparts="link" referrerpolicy="no-referrer">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a part="link" referrerpolicy="no-referrer" tabindex="-1">
       <slot></slot>
     </a>
@@ -79,7 +79,7 @@ exports[`ic-link component should apply the 'referrerpolicy' attribute to the an
 
 exports[`ic-link component should apply the 'rel' attribute to the anchor element: default-link-rel 1`] = `
 <ic-link class="ic-link" exportparts="link" rel="test-rel">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a part="link" rel="test-rel" tabindex="-1">
       <slot></slot>
     </a>
@@ -90,7 +90,7 @@ exports[`ic-link component should apply the 'rel' attribute to the anchor elemen
 
 exports[`ic-link component should apply the 'target' attribute to the anchor element: default-link-target 1`] = `
 <ic-link class="ic-link" exportparts="link" target="test-target">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a part="link" tabindex="-1" target="test-target">
       <slot></slot>
     </a>
@@ -125,7 +125,7 @@ exports[`ic-link component should get theme from context: alert-theme-context 1`
     </div>
   </template>
   <ic-link class="ic-link" exportparts="link" slot="action">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <a part="link" tabindex="-1">
         <slot></slot>
       </a>
@@ -137,7 +137,7 @@ exports[`ic-link component should get theme from context: alert-theme-context 1`
 
 exports[`ic-link component should handle string value of 'false' true for 'download' attribute: download-link-string-false 1`] = `
 <ic-link class="ic-link" download="false" exportparts="link">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a part="link" tabindex="-1">
       <slot></slot>
     </a>
@@ -148,7 +148,7 @@ exports[`ic-link component should handle string value of 'false' true for 'downl
 
 exports[`ic-link component should handle string value of 'true' for 'download' attribute: download-link-string-true 1`] = `
 <ic-link class="ic-link" download="true" exportparts="link">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a download="" part="link" tabindex="-1">
       <slot></slot>
     </a>
@@ -159,7 +159,7 @@ exports[`ic-link component should handle string value of 'true' for 'download' a
 
 exports[`ic-link component should render a link by default with the correct text: default-link 1`] = `
 <ic-link class="ic-link" exportparts="link">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a part="link" tabindex="-1">
       <slot></slot>
     </a>
@@ -170,11 +170,11 @@ exports[`ic-link component should render a link by default with the correct text
 
 exports[`ic-link component should render a slotted link: slotted-link 1`] = `
 <ic-link class="ic-link" exportparts="link">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <slot name="router-item"></slot>
   </template>
   <ic-link class="ic-link" exportparts="link" slot="router-item">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <a part="link" tabindex="-1">
         <slot></slot>
       </a>
@@ -186,7 +186,7 @@ exports[`ic-link component should render a slotted link: slotted-link 1`] = `
 
 exports[`ic-link component should render an 'open in new' icon when target is blank: default-link-target-blank 1`] = `
 <ic-link class="ic-link" exportparts="link" target="_blank">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a part="link" tabindex="-1" target="_blank">
       <slot></slot>
       <span class="ic-link-open-in-new-icon">

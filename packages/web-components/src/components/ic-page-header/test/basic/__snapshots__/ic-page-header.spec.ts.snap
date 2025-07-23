@@ -404,7 +404,7 @@ exports[`ic-page-header component renders additional functionality should render
       </nav>
     </template>
     <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <div class="breadcrumb">
           <span aria-hidden="true" class="chevron">
             svg
@@ -416,7 +416,7 @@ exports[`ic-page-header component renders additional functionality should render
       </template>
     </ic-breadcrumb>
     <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <div class="breadcrumb">
           <span aria-hidden="true" class="chevron">
             svg
