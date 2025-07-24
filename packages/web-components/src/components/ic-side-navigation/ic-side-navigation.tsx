@@ -836,7 +836,7 @@ export class SideNavigation {
                 ></button>
               )}
               <div class="app-status-wrapper">
-                {status !== "" && (
+                {status && (
                   <div
                     class={{
                       ["app-status"]: true,
@@ -851,7 +851,7 @@ export class SideNavigation {
                     </ic-typography>
                   </div>
                 )}
-                {version !== "" && (
+                {version && (
                   <ic-typography
                     variant="label"
                     class="app-version"

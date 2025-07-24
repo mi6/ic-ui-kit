@@ -12,7 +12,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "medium",
-  ["validation-status"]: "none",
+  validationStatus: "no status",
   ["validation-text"]: "",
   ["include-descriptions-in-search"]: false,
   ["include-group-titles-in-search"]: false,
@@ -851,7 +851,9 @@ export const Playground = {
         search-match-position=${args["search-match-position"]}
         searchable
         size=${args.size}
-        validation-status=${args["validation-status"]}
+        validation-status=${args.validationStatus === "no status"
+          ? ""
+          : args.validationStatus}
         validation-text=${args["validation-text"]}
         theme=${args.theme}
       >
@@ -939,9 +941,9 @@ export const Playground = {
       },
     },
 
-    ["validation-status"]: {
-      defaultValue: "",
-      options: ["", "error", "success", "warning"],
+    validationStatus: {
+      defaultValue: "no status",
+      options: ["no status", "error", "success", "warning"],
 
       control: {
         type: "select",

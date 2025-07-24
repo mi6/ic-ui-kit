@@ -399,7 +399,7 @@ const defaultArgs = {
   showClearButton: true,
   size: "medium",
   theme: "inherit",
-  validationStatus: "",
+  validationStatus: "no status",
   validationText: "",
   value: "",
 };
@@ -439,15 +439,12 @@ export const Playground = {
         label={args.label}
         max={args.max}
         min={args.min}
-        openAtDate={args.openAtDate}
         required={args.required}
-        showDaysOutsideMonth={args.showDaysOutsideMonth}
-        showPickerClearButton={args.showPickerClearButton}
-        showPickerTodayButton={args.showPickerTodayButton}
+        showClearButton={args.showClearButton}
         size={args.size}
         startOfWeek={args.startOfWeek}
         theme={args.theme}
-        validationStatus={args.validationStatus}
+        validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
         value={value}
         onIcChange={updateDate}
@@ -463,7 +460,7 @@ export const Playground = {
       },
     },
     validationStatus: {
-      options: ["", "error", "success", "warning"],
+      options: ["no status", "error", "success", "warning"],
       control: {
         type: "inline-radio",
       },

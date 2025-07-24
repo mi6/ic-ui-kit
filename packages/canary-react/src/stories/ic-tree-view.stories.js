@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { IcButton, IcTypography, IcSkipLink, SlottedSVG } from "@ukic/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { MemoryRouter, Routes, Route, Link as NavLink, useLocation } from "react-router-dom";
 import treeItemReadme from "../../../canary-web-components/src/components/ic-tree-item/readme.md";
 import readme from "../../../canary-web-components/src/components/ic-tree-view/readme.md";
 import { IcTreeItem, IcTreeView } from "../components";
@@ -832,7 +833,7 @@ export const UpdatingOptionsSlotted = {
 };
 
 export const WithNestedSkipLink = {
-  render: () => {
+  render: () => (
     <div style={{ width: "250px" }}>
       <IcSkipLink target="next-content" inline />
       <IcTreeView heading="Menu">
@@ -850,8 +851,85 @@ export const WithNestedSkipLink = {
         <IcTreeItem label="Hot chocolate" />
       </IcTreeView>
     </div>
-  },
+  ),
   name: "Nested skip link",
+};
+
+export const AddChildNodes = {
+  render: () => {
+    const [childNodes, setChildNodes] = useState([]);
+
+  useEffect(() => {
+    const childData = [
+      { label: "PG Tips" },
+      { label: "Yorkshire Tea" },
+      { label: "Earl Grey" },
+    ];
+
+    setTimeout(() => {
+      setChildNodes(childData);
+    }, 3000);
+  }, []);
+  return (
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        <IcTreeItem label="Coffee" />
+        <IcTreeItem label="Tea" expanded={childNodes.length}>
+          {childNodes.map((childNode) => (
+            <IcTreeItem label={childNode.label} key={childNode.label} />
+          ))}
+        </IcTreeItem>
+        <IcTreeItem label="Hot chocolate" />
+      </IcTreeView>
+    </div>
+  );
+},
+  name: "Adding child nodes",
+};
+
+export const ReactRouter = {
+  render: () => {
+    const location = useLocation();
+    const isSelected = (path) => location.pathname === path;
+    return (
+    <div style={{ display: "flex", flexDirection: "row", gap: "16px" }}>
+      <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu">
+          <IcTreeItem selected={isSelected("/")}>
+            <NavLink slot="router-item" to="/">
+              Home
+            </NavLink>
+          </IcTreeItem>
+          <IcTreeItem selected={isSelected("/coffee")}>
+            <NavLink slot="router-item" to="/coffee">
+              Coffee
+            </NavLink>
+          </IcTreeItem>
+          <IcTreeItem selected={isSelected("/tea")}>
+            <NavLink slot="router-item" to="/tea">
+              Tea
+            </NavLink>
+          </IcTreeItem>
+        </IcTreeView>
+      </div>
+      <div style={{ marginTop: "16px" }}>
+        <Routes>
+          <Route path="/" element={<IcTypography>Home Page</IcTypography>} />
+          <Route path="/coffee" element={<IcTypography>Coffee Page</IcTypography>} />
+          <Route path="/tea" element={<IcTypography>Tea Page</IcTypography>} />
+        </Routes>
+      </div>
+    </div>
+    )
+  },
+  name: "React Router",
+  decorators: [
+    (Story) => (
+      <MemoryRouter initialEntries={["/"]}>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 };
 
 const defaultArgs = {

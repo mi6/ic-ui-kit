@@ -364,11 +364,12 @@ const defaultArgs = {
   required: false,
   showDaysOutsideMonth: true,
   showPickerClearButton: true,
+  showClearButton: true,
   showPickerTodayButton: true,
   size: "medium",
   startOfWeek: 1,
   theme: "inherit",
-  validationStatus: "",
+  validationStatus: "no status",
   validationText: "",
   value: "",
 };
@@ -412,11 +413,12 @@ export const Playground = {
         required={args.required}
         showDaysOutsideMonth={args.showDaysOutsideMonth}
         showPickerClearButton={args.showPickerClearButton}
+        showClearButton={args.showClearButton}
         showPickerTodayButton={args.showPickerTodayButton}
         size={args.size}
         startOfWeek={args.startOfWeek}
         theme={args.theme}
-        validationStatus={args.validationStatus}
+        validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
         value={value}
         onIcChange={updateDate}
@@ -432,7 +434,7 @@ export const Playground = {
       },
     },
     validationStatus: {
-      options: ["", "error", "success", "warning"],
+      options: ["no status", "error", "success", "warning"],
       control: {
         type: "inline-radio",
       },

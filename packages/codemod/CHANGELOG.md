@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.2.2...@ukic/codemod@1.2.3) (2025-07-24)
+
+### Bug Fixes
+
+- **codemod:** capitilise icDialog to catch the buttons -> hideDefaultControls change ([007ee87](https://github.com/mi6/ic-ui-kit/commit/007ee87e0c025115bb0470122df054bcb9e34518)), closes [#3562](https://github.com/mi6/ic-ui-kit/issues/3562)
+
 ## [1.2.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.2.1...@ukic/codemod@1.2.2) (2025-07-09)
 
 **Note:** Version bump only for package @ukic/codemod

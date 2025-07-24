@@ -31,6 +31,7 @@ import {
   MultiSelectDefaultValue,
   MultiSelectWithClearButton,
   DarkThemeMulti,
+  NotMultiSelect,
 } from "./IcSelectTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -417,6 +418,25 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/multi-select-clear-button-focused",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render a single select when 'multiple' is false", () => {
+    mount(<NotMultiSelect />);
+
+    cy.checkHydrated(IC_SELECT);
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.wait(SCREENSHOT_DELAY);
+
+    cy.compareSnapshot({
+      name: "/multi-select-false",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",

@@ -242,7 +242,7 @@ exports[`ic-search-bar search should render with characters-until-suggestion set
           </div>
         </ic-input-component-container>
         <div class="menu-container">
-          <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-30-menu" open="" searchmode="navigation" value="" valuefield="value"></ic-menu>
+          <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-30-menu" open="" searchbar="" searchmode="navigation" value="" valuefield="value"></ic-menu>
         </div>
       </div>
     </ic-input-container>

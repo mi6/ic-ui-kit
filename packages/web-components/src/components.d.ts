@@ -1093,6 +1093,7 @@ export namespace Components {
           * The ID of the menu.
          */
         "menuId": string;
+        "multiSelect": boolean;
         /**
           * If `true`, the menu will be displayed open.
          */
@@ -1102,10 +1103,12 @@ export namespace Components {
          */
         "options": IcMenuOption[];
         "parentEl"?: HTMLElement;
+        "searchBar": boolean;
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
         "searchMode": IcSearchBarSearchModes;
+        "searchableSelect": boolean;
         "selectOnEnter": boolean;
         /**
           * @param props object - createPopper props set externally
@@ -2325,6 +2328,10 @@ export namespace Components {
          */
         "monochrome": boolean;
         /**
+          * If `true`, the toggle button will display with an outline.
+         */
+        "outline": boolean;
+        /**
           * The size of the toggle button to be displayed.
          */
         "size": IcSizes;
@@ -2366,6 +2373,10 @@ export namespace Components {
           * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
          */
         "monochrome": boolean;
+        /**
+          * If `true`, the toggle button group will display with an outline.
+         */
+        "outline": boolean;
         /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */
@@ -4538,6 +4549,7 @@ declare namespace LocalJSX {
           * The ID of the menu.
          */
         "menuId": string;
+        "multiSelect"?: boolean;
         /**
           * Emitted when the clear all button is clicked.
          */
@@ -4559,10 +4571,12 @@ declare namespace LocalJSX {
          */
         "options": IcMenuOption[];
         "parentEl"?: HTMLElement;
+        "searchBar"?: boolean;
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
         "searchMode"?: IcSearchBarSearchModes;
+        "searchableSelect"?: boolean;
         "selectOnEnter"?: boolean;
         /**
           * The size of the menu.
@@ -5901,6 +5915,10 @@ declare namespace LocalJSX {
     checked: boolean;
   }>) => void;
         /**
+          * If `true`, the toggle button will display with an outline.
+         */
+        "outline"?: boolean;
+        /**
           * The size of the toggle button to be displayed.
          */
         "size"?: IcSizes;
@@ -5946,6 +5964,10 @@ declare namespace LocalJSX {
           * Emitted when a toggle button is selected.
          */
         "onIcChange"?: (event: IcToggleButtonGroupCustomEvent<IcChangeEventDetail3>) => void;
+        /**
+          * If `true`, the toggle button group will display with an outline.
+         */
+        "outline"?: boolean;
         /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */

@@ -464,6 +464,18 @@ export const MultiSelectWithClearButton = () => {
   );
 };
 
+export const NotMultiSelect = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptions}
+        multiple={false}
+      />
+    </div>
+  );
+};
+
 export const DarkTheme = (): ReactElement => (
   <div
     style={{

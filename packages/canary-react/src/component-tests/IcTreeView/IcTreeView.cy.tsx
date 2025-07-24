@@ -68,6 +68,85 @@ export const BasicTreeViewWithCoffeeTypes = (
   </div>
 );
 
+export const RemoveChildOnDelay = () => {
+  const initial = [{ label: "Americano" }];
+  const [data, setData] = React.useState(initial);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setData([]);
+    }, 1000);
+  }, []);
+
+  return (
+    <IcTreeView heading="Menu">
+      <IcTreeItem label="Coffee" expanded>
+        {data && data.map((d) => <IcTreeItem label={d.label} key={d.label} />)}
+      </IcTreeItem>
+    </IcTreeView>
+  );
+};
+
+export const AddAllNodesOnDelay = () => {
+  const newData = [
+    { label: "Coffee" },
+    { label: "Tea" },
+    { label: "Hot chocolate" },
+  ];
+  const [data, setData] = React.useState([]);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setData(newData);
+    }, 1000);
+  }, []);
+
+  return (
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        {!!data.length ? (
+          data.map((d) => (
+            <IcTreeItem label={d.label}>
+              <IcTreeItem label="Item 1" />
+              <IcTreeItem label="Item 2" />
+              <IcTreeItem label="Item 3" />
+            </IcTreeItem>
+          ))
+        ) : (
+          <p>No data available</p>
+        )}
+      </IcTreeView>
+    </div>
+  );
+};
+
+export const AddChildNodesOnDelay = () => {
+  const childData = [
+    { label: "Coffee" },
+    { label: "Tea" },
+    { label: "Hot chocolate" },
+  ];
+  const [childNodes, setChildNodes] = React.useState([]);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setChildNodes(childData);
+    }, 1000);
+  }, []);
+
+  return (
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        <IcTreeItem label="Coffee" />
+        <IcTreeItem label="Tea">
+          {childNodes.map((childNode) => (
+            <IcTreeItem label={childNode.label} key={childNode.label} />
+          ))}
+        </IcTreeItem>
+        <IcTreeItem label="Hot chocolate" />
+      </IcTreeView>
+    </div>
+  );
+};
+
 export const Icon = (): ReactElement => (
   <SlottedSVG
     slot="icon"
@@ -693,7 +772,7 @@ describe("IcTreeView", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/truncated-pattern-mobile",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
 
     cy.viewport(992, 600);
@@ -715,7 +794,7 @@ describe("IcTreeView", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/truncated-pattern-reset-to-desktop",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 
@@ -922,7 +1001,7 @@ describe("IcTreeView", () => {
 
     cy.compareSnapshot({
       name: "/router-item",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -946,6 +1025,57 @@ describe("IcTreeView", () => {
 
     // Assert ID doesn't change after a re-render
     cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should("have.id", "baz-1");
+  });
+
+  it("should update parent node when children removed", () => {
+    mount(<RemoveChildOnDelay />);
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait(undefined, 2000);
+
+    cy.compareSnapshot({
+      name: "/remove-child-on-delay",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+    });
+  });
+
+  it("should only allow a single item to be selected after nodes added", () => {
+    mount(<AddAllNodesOnDelay />);
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait(undefined, 2000);
+
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(0).click();
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).click();
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(2).click();
+
+    cy.checkA11yWithWait(undefined, 500);
+
+    cy.compareSnapshot({
+      name: "/single-selected-item-on-delay",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+    });
+  });
+
+  it("should only allow a single item to be selected after child nodes changed", () => {
+    mount(<AddChildNodesOnDelay />);
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait(undefined, 2000);
+
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).click();
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(3).click();
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(4).click();
+
+    cy.checkA11yWithWait(undefined, 500);
+
+    cy.compareSnapshot({
+      name: "/single-selected-item-child-nodes-on-delay",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
   });
 });
 

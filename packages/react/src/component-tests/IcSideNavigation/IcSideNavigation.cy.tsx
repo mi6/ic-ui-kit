@@ -536,6 +536,32 @@ describe("IcSideNavigation", () => {
 
       cy.get(NAV_ITEM_SELECTOR).first().click();
       cy.checkSideNavSize(false);
+
+      cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
+      cy.checkSideNavSize(true);
+
+      // Check slotted link
+      cy.get(NAV_ITEM_SELECTOR).eq(1).click();
+      cy.checkSideNavSize(false);
+    });
+
+    it("should collapse the side navigation when nav item is selected by pressing Enter", () => {
+      mount(<CloseOnNavItemClickSideNav />);
+
+      cy.checkHydrated(SIDE_NAV_SELECTOR);
+      cy.checkSideNavSize(true);
+
+      cy.findShadowEl("ic-side-navigation", ".title-link").focus();
+      cy.realPress("Tab").realPress("Enter");
+      cy.checkSideNavSize(false);
+
+      cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
+      cy.checkSideNavSize(true);
+
+      // Check slotted link
+      Cypress._.times(4, () => cy.realPress(["Shift", "Tab"]));
+      cy.realPress("Enter");
+      cy.checkSideNavSize(false);
     });
 
     it.skip("should render ic-side-navigation with theme colours", () => {

@@ -50,9 +50,6 @@ export class Menu {
   private hasPreviouslyBlurred = false;
   private hasTimedOut = false;
   private isLoading = false;
-  private isMultiSelect = false;
-  private isSearchBar = false;
-  private isSearchableSelect = false;
   private lastOptionSelected: number | null = null; // Index of last option selected
   private lastOptionFocused: number | null = null; // Index of last option focused
   private menu?: HTMLUListElement;
@@ -120,6 +117,11 @@ export class Menu {
   @Prop() menuId!: string;
 
   /**
+   * @internal - flag to specify if menu is in a ic-select multiple.
+   */
+  @Prop() multiSelect = false;
+
+  /**
    * If `true`, the menu will be displayed open.
    */
   @Prop({ reflect: true }) open!: boolean;
@@ -135,6 +137,16 @@ export class Menu {
    * @internal - The parent element if ic-menu is nested inside another component.
    */
   @Prop() parentEl?: HTMLElement;
+
+  /**
+   * @internal - flag to specify if menu is in a searchable ic-select.
+   */
+  @Prop() searchableSelect = false;
+
+  /**
+   * @internal - flag to specify if menu is in a ic-search-bar.
+   */
+  @Prop() searchBar = false;
 
   /**
    * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
@@ -219,9 +231,7 @@ export class Menu {
   @Event() ungroupedOptionsSet: EventEmitter<{ options: IcMenuOption[] }>;
 
   connectedCallback(): void {
-    if (this.parentEl) this.getParentEl(this.parentEl);
-
-    if (this.isSearchBar) {
+    if (this.searchBar) {
       if (this.searchMode === "navigation") this.setHighlightedOption(0);
       this.initialOptionsListRender = true;
     }
@@ -246,7 +256,7 @@ export class Menu {
 
   componentDidLoad(): void {
     if (
-      this.isSearchBar &&
+      this.searchBar &&
       (this.parentEl as HTMLIcSearchBarElement).disableAutoFiltering
     ) {
       this.focusFromSearchKeypress = true;
@@ -280,7 +290,7 @@ export class Menu {
         this.keyboardNav &&
         inputValueInOptions &&
         this.autofocusOnSelected &&
-        !this.isSearchableSelect
+        !this.searchableSelect
       ) {
         this.scrollToSelected(this.menu);
       } else if (this.selectOnEnter) {
@@ -414,7 +424,7 @@ export class Menu {
       }
 
       // Reset optionHighlighted so previously highlighted option doesn't get reselected when Enter pressed
-      if (this.isMultiSelect) {
+      if (this.multiSelect) {
         this.optionHighlighted = undefined;
         this.multiOptionClicked = null;
       }
@@ -460,24 +470,6 @@ export class Menu {
     }
   };
 
-  private getParentEl = (parent: HTMLElement) => {
-    if (parent.tagName === this.SEARCH_BAR_TAG) {
-      this.isSearchBar = true;
-    } else if (parent.tagName === "IC-SELECT") {
-      if (
-        parent.getAttribute("searchable") !== null &&
-        parent.getAttribute("searchable") !== undefined
-      ) {
-        this.isSearchableSelect = true;
-      } else if (
-        parent.getAttribute("multiple") !== null &&
-        parent.getAttribute("multiple") !== undefined
-      ) {
-        this.isMultiSelect = true;
-      }
-    }
-  };
-
   // Open menu when up or down arrow keys are pressed
   private arrowBehaviour = (event: KeyboardEvent): void => {
     event.preventDefault();
@@ -485,7 +477,7 @@ export class Menu {
   };
 
   private getMenuOptions = () =>
-    this.isSearchBar ? this.options : this.ungroupedOptions;
+    this.searchBar ? this.options : this.ungroupedOptions;
 
   // Set option that is focused and so should show focus state
   private setHighlightedOption = (highlightedIndex: number): void => {
@@ -536,13 +528,13 @@ export class Menu {
     }
 
     const isOpen: boolean =
-      this.isSearchBar || this.isSearchableSelect || this.open;
+      this.searchBar || this.searchableSelect || this.open;
 
     if (isOpen) {
       if (highlightedOptionIndex >= 0) {
         if (options[highlightedOptionIndex] !== undefined) {
           if (
-            this.isSearchBar &&
+            this.searchBar &&
             options[highlightedOptionIndex].disabled === true
           ) {
             this.disabledOptionSelected = true;
@@ -605,7 +597,7 @@ export class Menu {
       Array.from(this.host.querySelectorAll("li"))[index]?.id;
 
     // Space press should be equivalent to Enter when multi-select
-    if (event.key === " " && this.isMultiSelect) {
+    if (event.key === " " && this.multiSelect) {
       this.handleOptionSelect(event, highlightedOptionIndex);
     } else {
       switch (event.key) {
@@ -645,7 +637,7 @@ export class Menu {
             }
 
             // Deselect currently selected options if arrow was pressed for first time after shift is held
-            if (this.isMultiSelect && this.shiftPressed) {
+            if (this.multiSelect && this.shiftPressed) {
               this.deselectSelectedOptions([
                 highlightedOptionIndex,
                 this.getOptionHighlightedIndex(),
@@ -700,7 +692,7 @@ export class Menu {
             }
 
             // Deselect currently selected options if arrow was pressed for first time after shift is held
-            if (this.isMultiSelect && this.shiftPressed) {
+            if (this.multiSelect && this.shiftPressed) {
               this.deselectSelectedOptions([
                 highlightedOptionIndex,
                 this.getOptionHighlightedIndex(),
@@ -755,7 +747,7 @@ export class Menu {
           if (!isKeyboardCombination) {
             this.keyboardNav = false;
           }
-          if (this.isSearchBar || this.isSearchableSelect) {
+          if (this.searchBar || this.searchableSelect) {
             break;
           } else {
             if ((event.target as HTMLElement).id !== this.CLEAR_BUTTON_ID) {
@@ -794,10 +786,10 @@ export class Menu {
           if (event.key === "Shift") {
             this.shiftPressed = true;
           }
-          if (this.isSearchBar) {
+          if (this.searchBar) {
             this.keyboardNav = true;
           }
-          if (this.isMultiSelect) {
+          if (this.multiSelect) {
             if (this.open && !event.shiftKey && this.selectAllButton) {
               event.preventDefault();
               this.selectAllButton.focus(); // Move focus to select all button instead of focused option
@@ -844,7 +836,7 @@ export class Menu {
   private handleOptionClick = (event: MouseEvent): void => {
     const { value, label } = (event.target as HTMLLIElement).dataset;
 
-    if (this.isMultiSelect) {
+    if (this.multiSelect) {
       const menuOptions = this.getMenuOptions();
       const selectedOptionIndex = menuOptions.findIndex(
         (option) => option.value === value
@@ -895,7 +887,7 @@ export class Menu {
       this.lastOptionFocused = null;
       this.lastOptionSelected = null;
     }
-    if (!this.isSearchBar) this.hasPreviouslyBlurred = !!event.relatedTarget;
+    if (!this.searchBar) this.hasPreviouslyBlurred = !!event.relatedTarget;
   };
 
   private handleMouseDown = (event: Event): void => {
@@ -905,7 +897,7 @@ export class Menu {
   private handleMenuKeyDown = (event: KeyboardEvent) => {
     if (this.activationType === "automatic") {
       this.autoSetValueOnMenuKeyDown(event);
-    } else if (this.activationType === "manual" && !this.isSearchBar) {
+    } else if (this.activationType === "manual" && !this.searchBar) {
       this.manualSetInputValueKeyboardOpen(event);
     }
   };
@@ -958,7 +950,7 @@ export class Menu {
     options: IcMenuOption[]
   ) => {
     if (
-      this.isMultiSelect &&
+      this.multiSelect &&
       event.shiftKey &&
       !this.isOptionSelected(optionToSelectIndex)
     ) {
@@ -1236,12 +1228,12 @@ export class Menu {
   ) {
     if (!menuOptions[highlightedOptionIndex]) return;
 
-    if (this.isSearchBar) {
+    if (this.searchBar) {
       (this.parentEl as HTMLIcSearchBarElement).setFocus();
       if (this.searchMode === "navigation") this.setHighlightedOption(0);
     }
 
-    if (this.isSearchableSelect) {
+    if (this.searchableSelect) {
       (this.parentEl as HTMLIcSelectElement).setFocus();
     }
 
@@ -1408,6 +1400,7 @@ export class Menu {
       keyboardNav,
       parentEl,
       SEARCH_BAR_TAG,
+      multiSelect,
     } = this;
 
     const selectAllButtonText = `${
@@ -1427,7 +1420,7 @@ export class Menu {
             isLoading,
           [`ic-menu-${size}`]: true,
           "ic-menu-open": open && options.length !== 0,
-          "ic-menu-multiple": this.isMultiSelect,
+          "ic-menu-multiple": multiSelect,
         }}
       >
         {options.length !== 0 && (
@@ -1436,7 +1429,7 @@ export class Menu {
             class="menu"
             role="listbox"
             aria-label={`${inputLabel} pop-up`}
-            aria-multiselectable={this.isMultiSelect ? "true" : "false"}
+            aria-multiselectable={multiSelect ? "true" : "false"}
             tabindex={
               open &&
               !keyboardNav &&
@@ -1467,7 +1460,7 @@ export class Menu {
                           childOption.label &&
                           this.displayOption(
                             childOption,
-                            this.isMultiSelect
+                            multiSelect
                               ? value?.includes(childOption[this.valueField])
                               : childOption[this.valueField] === value,
                             index,
@@ -1485,7 +1478,7 @@ export class Menu {
                   option.label &&
                   this.displayOption(
                     option,
-                    this.isMultiSelect
+                    multiSelect
                       ? value?.includes(option[this.valueField])
                       : option[this.valueField] === value,
                     index
@@ -1496,7 +1489,7 @@ export class Menu {
           </ul>
         )}
         {options.length !== 0 &&
-          this.isMultiSelect &&
+          multiSelect &&
           !isLoading &&
           !hasTimedOut &&
           !hasNoResults && (

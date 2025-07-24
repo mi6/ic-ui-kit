@@ -24,6 +24,7 @@ import {
   ToggleGroupNextToSingularToggle,
   ToggleGroupSingle,
   ToggleGroupSmall,
+  ToggleGroupHiddenOutline,
 } from "./IcToggleButtonGroupTestData";
 import { HAVE_ATTR, HAVE_FOCUS, NOT_HAVE_ATTR } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
@@ -312,6 +313,22 @@ describe("IcToggleButtonGroup", () => {
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    });
+  });
+
+  it("should render with outline set to false", () => {
+    mount(<ToggleGroupHiddenOutline />);
+    cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
+
+    cy.get(IC_TOGGLE_BUTTON_GROUP)
+      .find(IC_TOGGLE_BUTTON)
+      .each((el) => {
+        cy.wrap(el).should("have.class", "ic-toggle-button-hide-outline");
+      });
+
+    cy.compareSnapshot({
+      name: "/outline-false",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
 });

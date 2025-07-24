@@ -424,6 +424,10 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
+          * If 'true', the 'X' button on the date input will be visible, which clears the field.
+         */
+        "showClearButton"?: boolean;
+        /**
           * If `true`, days outside the current month will be visible in the date picker.
          */
         "showDaysOutsideMonth"?: boolean;
@@ -1237,6 +1241,10 @@ declare namespace LocalJSX {
           * If `true`, the input will require a value.
          */
         "required"?: boolean;
+        /**
+          * If 'true', the 'X' button on the date input will be visible, which clears the field.
+         */
+        "showClearButton"?: boolean;
         /**
           * If `true`, days outside the current month will be visible in the date picker.
          */

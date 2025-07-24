@@ -174,7 +174,7 @@ const defaultArgs = {
   orientation: "vertical",
   required: false,
   size: "medium",
-  validationStatus: "",
+  validationStatus: "no status",
   validationText: "",
   additionalFieldDisplay: "static",
   radioDisabled: false,
@@ -478,7 +478,7 @@ export const Playground = {
       orientation={args.orientation}
       required={args.required}
       size={args.size}
-      validationStatus={args.validationStatus}
+      validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
       validationText={args.validationText}
       helperText={args.helperText}
       disabled={args.disabled}
@@ -524,7 +524,7 @@ export const Playground = {
     },
 
     validationStatus: {
-      options: ["error", "warning", "success", ""],
+      options: ["no status", "error", "warning", "success"],
 
       control: {
         type: "radio",

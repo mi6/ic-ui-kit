@@ -92,6 +92,23 @@ export const WithNavItemsTopNav = (): ReactElement => {
   );
 };
 
+export const WithSlottedNavItemTopNav = (): ReactElement => {
+  return (
+    <IcTopNavigation status="Beta" version="v1.0.0">
+      <IcNavigationItem slot="navigation" label="Navigation 1" href="#">
+        <ReusableIcon />
+        <IcBadge slot="badge" label="1" position="near" />
+      </IcNavigationItem>
+      <IcNavigationItem slot="navigation">
+        <a href="#" slot="navigation-item">
+          <ReusableIcon />
+          Navigation 2
+        </a>
+      </IcNavigationItem>
+    </IcTopNavigation>
+  );
+};
+
 export const WithNavButtonsTopNav = (): ReactElement => {
   return (
     <IcTopNavigation status="Beta" version="v1.0.0">

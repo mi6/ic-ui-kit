@@ -7,6 +7,7 @@ const defaultArgs = {
   iconPlacement: "left",
   loading: false,
   monochrome: false,
+  outline: true,
   selectMethod: "manual",
   selectType: "single",
   size: "medium",
@@ -377,6 +378,21 @@ export const WithIcons = {
   name: "With icons",
 };
 
+export const HideOutline = {
+  render: (args) =>
+    html`<ic-toggle-button-group
+      select-type="single"
+      accessible-label="Hide outline toggle group"
+      outline="false"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>`,
+
+  name: "Hide outline",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {
@@ -388,6 +404,7 @@ export const Playground = {
       icon-placement=${args.iconPlacement}
       loading=${args.loading}
       monochrome=${args.monochrome}
+      outline=${args.outline}
       select-method=${args.selectMethod}
       select-type=${args.selectType}
       size=${args.size}

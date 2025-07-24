@@ -3,6 +3,7 @@ import { DEVICE_SIZES } from "../../../../utils/helpers";
 import { Button } from "../../../ic-button/ic-button";
 import { NavigationGroup } from "../../../ic-navigation-group/ic-navigation-group";
 import { NavigationItem } from "../../../ic-navigation-item/ic-navigation-item";
+import { Tooltip } from "../../../ic-tooltip/ic-tooltip";
 import { SideNavigation } from "../../ic-side-navigation";
 
 describe("ic-side-navigation", () => {
@@ -26,7 +27,7 @@ describe("ic-side-navigation", () => {
 
   it("should render with primary navigation items", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `
         <ic-side-navigation version="v0.0.0" app-title="ACME" status="BETA">
           <ic-navigation-item slot="primary-navigation" href="/" label="Home">
@@ -53,7 +54,7 @@ describe("ic-side-navigation", () => {
 
   it("should render with secondary navigation items", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `
         <ic-side-navigation version="v0.0.0" status="BETA" app-title="ACME">
         <ic-navigation-item slot="secondary-navigation" href="/" label="a11y">
@@ -82,7 +83,7 @@ describe("ic-side-navigation", () => {
 
   it("should render with slotted navigation item", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `<ic-side-navigation app-title="ACME">
         <ic-navigation-item slot="primary-navigation">
             <a
@@ -115,7 +116,7 @@ describe("ic-side-navigation", () => {
 
   it("should render with slotted navigation item - collapsed icon labels true", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `<ic-side-navigation app-title="ACME" collapsed-icon-labels="true">
         <ic-navigation-item slot="primary-navigation">
             <a
@@ -174,7 +175,7 @@ describe("ic-side-navigation", () => {
 
   it("should test menu toggle slotted nav items - collapsed icon labels false", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `<ic-side-navigation app-title="ACME" collapsed-icon-labels="false">
         <ic-navigation-item slot="primary-navigation">
             <a
@@ -211,7 +212,7 @@ describe("ic-side-navigation", () => {
 
   it("should set navigation item width to 320px when expanded", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `<ic-side-navigation app-title="ACME" collapsed-icon-labels="false">
         <ic-navigation-item slot="primary-navigation">
             <a
@@ -262,7 +263,7 @@ describe("ic-side-navigation", () => {
 
   it("should render with primary navigation items and collapsed icon labels", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `
         <ic-side-navigation version="v0.0.0" app-title="ACME" status="BETA" collapsed-icon-labels="true">
           <ic-navigation-item slot="primary-navigation" href="/" label="Home">
@@ -324,7 +325,7 @@ describe("ic-side-navigation", () => {
 
   it("should test menu toggle", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem, Button],
+      components: [SideNavigation, NavigationItem, Button, Tooltip],
       html: `<ic-side-navigation app-title="ACME" version="v0.0.0" status="BETA">
       <ic-navigation-item slot="primary-navigation">
       <a
@@ -366,7 +367,7 @@ describe("ic-side-navigation", () => {
 
   it("should test resizing - collapsed icon labels false", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `<ic-side-navigation version="v0.0.0" status="BETA" app-title="ACME" collapsed-icon-labels="false">
       <ic-navigation-item slot="primary-navigation">
       <a
@@ -400,7 +401,7 @@ describe("ic-side-navigation", () => {
 
   it("should test transitionend event", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `
         <ic-side-navigation version="v0.0.0" status="BETA" app-title="ACME" collapsed-icon-labels="true">
         <ic-navigation-item slot="primary-navigation" href="/" label="Home">
@@ -454,7 +455,7 @@ describe("ic-side-navigation", () => {
 
   it("should collapse side navigation when closeOnNavItemClick is true and nav item is clicked", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem],
+      components: [SideNavigation, NavigationItem, Tooltip],
       html: `<ic-side-navigation close-on-nav-item-click="true" expanded="true" app-title="ACME">
         <ic-navigation-item slot="primary-navigation" label="Home"></ic-navigation-item>
       </ic-side-navigation>
@@ -495,7 +496,7 @@ describe("ic-side-navigation", () => {
 
   it("should render with slotted primary secondary navigation and expanded", async () => {
     const page = await newSpecPage({
-      components: [SideNavigation, NavigationItem, NavigationGroup],
+      components: [SideNavigation, NavigationItem, NavigationGroup, Tooltip],
       html: `<ic-side-navigation app-title="Application Name" version="v0.0.0" status="BETA" expanded="true">
       <svg
         slot="app-icon"

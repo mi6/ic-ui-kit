@@ -1,6 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { TreeItem } from "../../ic-tree-item";
 import { IcTypography as Typography } from "@ukic/web-components/dist/components/ic-typography";
+import * as helpers from "../../../../utils/helpers";
 
 describe("ic-tree-item component", () => {
   it("should render", async () => {
@@ -140,6 +141,11 @@ describe("ic-tree-item component", () => {
       html: `<ic-tree-item label="Item 1"></ic-tree-item>`,
     });
 
+    const mockFn = jest.fn();
+    Object.defineProperty(helpers, "renderDynamicChildSlots", {
+      value: mockFn,
+    });
+
     const icon = document.createElement("svg");
     icon.setAttribute("slot", "icon");
 
@@ -150,5 +156,106 @@ describe("ic-tree-item component", () => {
         removedNodes: [],
       },
     ]);
+
+    expect(mockFn).toHaveBeenCalled();
+    expect(page.rootInstance.isParent).toBe(false);
+  });
+
+  it("should emit icTreeItemSelected only once, when clicked", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1"></ic-tree-item>`,
+    });
+
+    const eventSpy = jest.fn();
+
+    page.root!.addEventListener("icTreeItemSelected", eventSpy);
+
+    page.rootInstance.handleTreeItemClicked();
+
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it("should test item becomes a parent when child added", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1"></ic-tree-item>`,
+    });
+
+    expect(page.rootInstance.isParent).toBe(false);
+
+    const eventSpy = jest.fn();
+
+    page.root!.addEventListener("icTreeItemExpanded", eventSpy);
+
+    page.rootInstance.handleTreeItemClicked();
+
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(0);
+
+    const treeItem = document.querySelector("ic-tree-item");
+
+    treeItem!.innerHTML = '<ic-tree-item label="Item 2"></ic-tree-item>';
+
+    await page.waitForChanges();
+    page.rootInstance.hostMutationCallback([
+      {
+        type: "childList",
+        addedNodes: [],
+        removedNodes: [],
+      },
+    ]);
+    expect(page.rootInstance.isParent).toBe(true);
+
+    page.rootInstance.handleTreeItemClicked();
+
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
+    expect(page.rootInstance.expanded).toBe(true);
+  });
+
+  it("should test item is no longer a parent when children removed", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1">
+        <ic-tree-item label="Item 2"></ic-tree-item>
+      </ic-tree-item>`,
+    });
+
+    expect(page.rootInstance.isParent).toBe(true);
+
+    const eventSpy = jest.fn();
+
+    page.root!.addEventListener("icTreeItemExpanded", eventSpy);
+
+    const treeItem = document.querySelector("ic-tree-item");
+
+    page.rootInstance.handleTreeItemClicked();
+
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
+
+    treeItem!.innerHTML = "";
+
+    await page.waitForChanges();
+    page.rootInstance.hostMutationCallback([
+      {
+        type: "childList",
+        addedNodes: [],
+        removedNodes: [],
+      },
+    ]);
+    expect(page.rootInstance.isParent).toBe(false);
+
+    page.rootInstance.handleTreeItemClicked();
+
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
   });
 });

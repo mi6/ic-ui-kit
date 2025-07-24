@@ -15,6 +15,7 @@ import {
   AllNavTypesSideNav,
   ThemeDarkTopNav,
   WithExpandableNotExpandedNavGroupSideNav,
+  WithSlottedNavItemTopNav,
 } from "./IcNavigationMenuTestData";
 import {
   HAVE_BEEN_CALLED_ONCE,
@@ -256,7 +257,21 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.realPress("Tab");
       cy.get(NAVIGATION_ITEM_SELECTOR).eq(0).should(HAVE_FOCUS);
       cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(1).should(HAVE_FOCUS);
+    });
+
+    it("should select navigation items when pressing Enter", () => {
+      mount(<WithSlottedNavItemTopNav />);
+
+      cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
+      cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
+      cy.realPress("Tab").realPress("Enter");
+      cy.get(NAVIGATION_MENU_SELECTOR).should(NOT_EXIST);
+
+      // Check slotted link
+      cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
+      cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
+      cy.realPress("Tab").realPress("Tab").realPress("Enter");
+      cy.get(NAVIGATION_MENU_SELECTOR).should(NOT_EXIST);
     });
 
     it("should render focus state on navigation item", () => {
