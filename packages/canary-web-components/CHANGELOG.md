@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.21...@ukic/canary-web-components@3.0.0-canary.22) (2025-07-24)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes treeview issues ([f428335](https://github.com/mi6/ic-ui-kit/commit/f4283351757e552751bb86ef5be88e7dd93f7cbe))
+- **canary-web-components:** implement a slotted solution for actionElements in the IcDataTable ([733c82a](https://github.com/mi6/ic-ui-kit/commit/733c82abb857f1b5ce087f568737dfea0a915207))
+- **canary-web-components:** pass showClearButton prop through datePicker ([b835515](https://github.com/mi6/ic-ui-kit/commit/b835515a08c18992238d53e11b4c79c743b81bdc))
+- **canary-web-components:** updated z-index of data table loading overlay ([267d410](https://github.com/mi6/ic-ui-kit/commit/267d410492adc0729e1bbff2114cdfe5d3b619e2))
+
 # [3.0.0-canary.21](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.20...@ukic/canary-web-components@3.0.0-canary.21) (2025-07-09)
 
 ### Bug Fixes

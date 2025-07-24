@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.6.0...@ukic/web-components@3.7.0) (2025-07-24)
+
+### Bug Fixes
+
+- **web-components:** determinate Loading indicator for both linear and circular show progress of 0% ([5702482](https://github.com/mi6/ic-ui-kit/commit/5702482b3891149a6f7c02788c6be80b2f224322))
+- **web-components:** fixes issue with ic-select ignoring multiple=false ([5346483](https://github.com/mi6/ic-ui-kit/commit/5346483e73675f5a4281575eeada1ce5443f76bd))
+- **web-components:** fixes issue with status not set on side navigation ([0878b78](https://github.com/mi6/ic-ui-kit/commit/0878b78b713f9b72e3d52597283ffcf8aec307de))
+- **web-components:** update nav item to not use onKeyDown so native link behaviour not overridden ([ddd47c8](https://github.com/mi6/ic-ui-kit/commit/ddd47c80c04316d6b1d2f9e2e0e119a1ae5704c2)), closes [.#3719](https://github.com/./issues/3719)
+
+### Features
+
+- **web-components:** add outline prop to toggle button and toggle button group ([82ea3e1](https://github.com/mi6/ic-ui-kit/commit/82ea3e19e25ef9b5df7c2aa7f0a4c0439c2377a5)), closes [#3519](https://github.com/mi6/ic-ui-kit/issues/3519)
+
 # [3.6.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.5.0...@ukic/web-components@3.6.0) (2025-07-09)
 
 ### Bug Fixes

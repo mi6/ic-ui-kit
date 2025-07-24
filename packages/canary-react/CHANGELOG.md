@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.21...@ukic/canary-react@3.0.0-canary.22) (2025-07-24)
+
+### Bug Fixes
+
+- **canary-react:** add showClearButton to datePicker and dateInput stories ([d794ea8](https://github.com/mi6/ic-ui-kit/commit/d794ea838688b444c49fc18fd5c8124829fb3851))
+- **canary-react:** fixes treeview issues ([7664972](https://github.com/mi6/ic-ui-kit/commit/7664972eb3f8e61761fbc1240c7f4df55fd4bf43))
+- **canary-react:** implement a slotted solution for actionElements in the IcDataTable ([b93431d](https://github.com/mi6/ic-ui-kit/commit/b93431d617b918bc328d5d1677f4267801c827d6))
+
 # [3.0.0-canary.21](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.20...@ukic/canary-react@3.0.0-canary.21) (2025-07-09)
 
 **Note:** Version bump only for package @ukic/canary-react

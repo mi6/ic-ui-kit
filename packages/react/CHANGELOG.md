@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.6.0...@ukic/react@3.7.0) (2025-07-24)
+
+### Bug Fixes
+
+- **react:** determinate Loading indicator for both circular and linear show progress of 0% ([d0edf99](https://github.com/mi6/ic-ui-kit/commit/d0edf99a2da0f0ca5a5ed2d240fd341b2dc141ba))
+- **react:** fixes issue with ic-select ignoring multiple=false ([31a84e4](https://github.com/mi6/ic-ui-kit/commit/31a84e44dc49cabc59a13dd02f818d92c3f3664c))
+
+### Features
+
+- **react:** add outline prop to toggle button and toggle button group ([41449f2](https://github.com/mi6/ic-ui-kit/commit/41449f2665058af04fa21127cd0aefad57c4269e))
+- **react:** add tests for selecting top and side nav items using Enter key ([47b4224](https://github.com/mi6/ic-ui-kit/commit/47b4224fa31c030057164ef028e4a2da7ed960b5)), closes [.#3719](https://github.com/./issues/3719)
+
 # [3.6.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.5.0...@ukic/react@3.6.0) (2025-07-09)
 
 ### Bug Fixes
