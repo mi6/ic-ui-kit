@@ -42,6 +42,11 @@
   border: var(--ic-space-xxxs) solid var(--ic-alert-border-success);
 }
 
+.container-ai {
+  background-color: var(--ic-alert-background-ai);
+  border: var(--ic-space-xxxs) solid var(--ic-alert-border-ai);
+}
+
 .alert-icon-container {
   height: 100%;
   display: flex;
@@ -73,6 +78,10 @@
 
 .divider-success {
   background-color: var(--ic-alert-status-type-success);
+}
+
+.divider-ai {
+  background-color: var(--ic-alert-status-type-ai);
 }
 
 .alert-icon {
@@ -120,6 +129,10 @@
 
 :host([variant="success"]) .alert-icon svg {
   fill: var(--ic-alert-icon-success);
+}
+
+:host([variant="ai"]) .alert-icon svg {
+  fill: var(--ic-alert-icon-ai);
 }
 
 .alert-content {
