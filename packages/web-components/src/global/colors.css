@@ -728,11 +728,13 @@
 
   /* TOAST */
   --ic-toast-background: var(--ic-color-background-elevation-level-3);
+  --ic-toast-status-ai: var(--ic-status-anomalous-contrast);
   --ic-toast-status-success: var(--ic-status-success-contrast);
   --ic-toast-status-error: var(--ic-status-error-contrast);
   --ic-toast-status-warning: var(--ic-status-warning-contrast);
   --ic-toast-status-info: var(--ic-status-info-contrast);
   --ic-toast-status-neutral: var(--ic-status-unknown-contrast);
+  --ic-toast-icon-ai: var(--ic-status-anomalous-contrast);
   --ic-toast-icon-success: var(--ic-status-success-contrast);
   --ic-toast-icon-error: var(--ic-status-error-contrast);
   --ic-toast-icon-warning: var(--ic-status-warning-contrast);

@@ -368,7 +368,7 @@ export const Playground = {
     },
 
     variant: {
-      options: ["neutral", "info", "warning", "error", "success", ""],
+      options: ["neutral", "info", "warning", "error", "success", "ai", ""],
 
       control: {
         type: "select",
