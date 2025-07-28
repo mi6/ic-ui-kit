@@ -591,7 +591,6 @@ export class DateInput {
         }
         this.setPreventInput(input, true);
       } else {
-        this.setInputValue(input, true);
         this.setPreventInput(input, false);
       }
     }
