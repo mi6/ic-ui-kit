@@ -18,15 +18,15 @@ import {
   HeadingOnlyToast,
   MultilineMessageToast,
   SimpleAutoDismissToast,
-  SimpleToast,
   SlottedActionAutoDismissToast,
   SlottedActionToast,
   SlottedIconToast,
   SlottedLinkToast,
+  ToastTypes,
 } from "./IcToastTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.041;
+const DEFAULT_TEST_THRESHOLD = 0.001;
 
 const IC_TOAST_SELECTOR = "ic-toast";
 const IC_BUTTON_SELECTOR = "ic-button";
@@ -35,12 +35,12 @@ const OPEN_BUTTON_SELECTOR = "ic-button#open-toast-btn";
 
 describe("IcToast end-to-end tests", () => {
   it("should render", () => {
-    mount(<SimpleToast />);
+    mount(<ToastTypes variant="neutral" />);
     cy.get(IC_TOAST_SELECTOR).should("exist");
   });
 
   it("should close on dismiss icon click", () => {
-    mount(<SimpleToast />);
+    mount(<ToastTypes variant="neutral" />);
     cy.get(IC_BUTTON_SELECTOR).click();
     cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "ic-toast-hidden");
     cy.clickOnShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR);
@@ -48,7 +48,7 @@ describe("IcToast end-to-end tests", () => {
   });
 
   it("should focus on dismiss button when no action is provided", () => {
-    mount(<SimpleToast />);
+    mount(<ToastTypes variant="neutral" />);
     cy.get(IC_BUTTON_SELECTOR).click();
     cy.findShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR).should(
       HAVE_FOCUS
@@ -86,7 +86,7 @@ describe("IcToast end-to-end tests", () => {
   });
 
   it("should not render an icon if the variant is neutral and the neutral-icon slot is not used", () => {
-    mount(<SimpleToast />);
+    mount(<ToastTypes variant="neutral" />);
     cy.get(IC_BUTTON_SELECTOR).click();
     cy.findShadowEl(IC_TOAST_SELECTOR, "span.toast-icon").should(NOT_EXIST);
   });
@@ -107,7 +107,7 @@ describe("IcToast end-to-end tests", () => {
   });
 
   it("should emit icDismiss event when toast is dismissed", () => {
-    mount(<SimpleToast />);
+    mount(<ToastTypes variant="neutral" />);
 
     cy.get(IC_TOAST_SELECTOR).invoke(
       "on",
@@ -168,15 +168,80 @@ describe("IcToast visual regression and a11y tests", () => {
     });
   });
 
-  it("should render message and variant", () => {
-    mount(<SimpleToast />);
+  it("should render neutral variant with message", () => {
+    mount(<ToastTypes variant="neutral" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
     cy.get(IC_BUTTON_SELECTOR).click().wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "/message-variant",
+      name: "/neutral",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render success variant", () => {
+    mount(<ToastTypes variant="success" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/success",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render warning variant", () => {
+    mount(<ToastTypes variant="warning" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/warning",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render info variant", () => {
+    mount(<ToastTypes variant="info" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/info",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render error variant", () => {
+    mount(<ToastTypes variant="error" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/error",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render AI variant", () => {
+    mount(<ToastTypes variant="ai" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/ai",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
     });
   });
@@ -271,6 +336,78 @@ describe("IcToast visual regression tests in high contrast mode", () => {
 
   after(() => {
     cy.disableForcedColors();
+  });
+
+  it("should render neutral variant in high contrast mode", () => {
+    mount(<ToastTypes variant="neutral" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "/neutral-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render success variant in high contrast mode", () => {
+    mount(<ToastTypes variant="success" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "/success-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render warning variant in high contrast mode", () => {
+    mount(<ToastTypes variant="warning" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "/warning-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render error variant in high contrast mode", () => {
+    mount(<ToastTypes variant="error" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "/error-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render info variant in high contrast mode", () => {
+    mount(<ToastTypes variant="info" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "/info-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
+  });
+
+  it("should render AI variant in high contrast mode", () => {
+    mount(<ToastTypes variant="ai" />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "/ai-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+    });
   });
 
   it("should render auto dismiss in high contrast mode", () => {
