@@ -51,6 +51,16 @@ export const Success = (): ReactElement => {
   );
 };
 
+export const AI = (): ReactElement => {
+  return (
+    <IcAlert
+      variant="ai"
+      heading="AI"
+      message="This alert is for displaying AI-related messages."
+    />
+  );
+};
+
 export const Variants = (): ReactElement => {
   return (
     <>
@@ -79,6 +89,11 @@ export const Variants = (): ReactElement => {
         message="This alert is for displaying success messages. 
         It has a very long message with lots of text which goes over multiple 
         lines so the alert should expand as well to make sure it doesn't overflow."
+      />
+      <IcAlert
+        variant="ai"
+        heading="AI"
+        message="This alert is for displaying AI-related messages."
       />
     </>
   );
@@ -206,6 +221,13 @@ export const ThemeDark = (): ReactElement => {
         variant="success"
         heading="Success"
         message="This alert is for displaying success messages."
+        dismissible
+        theme="dark"
+      />
+      <IcAlert
+        variant="ai"
+        heading="AI"
+        message="This alert is for displaying AI-related messages."
         dismissible
         theme="dark"
       />

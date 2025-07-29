@@ -47,6 +47,11 @@ export const Variants = {
       heading="Success"
       message="This alert is for displaying success messages. It has a very long message with lots of text which goes over multiple lines so the alert should expand as well to make sure it doesn't overflow"
     />
+    <IcAlert
+      variant="ai"
+      heading="Artificial Intelligence (AI)"
+      message="This alert is for displaying AI-related messages"
+    />
     </>
   ),
 
@@ -237,10 +242,10 @@ export const Playground = {
 
   argTypes: {
     variant: {
-      options: ["neutral", "info", "warning", "error", "success"],
+      options: ["neutral", "info", "warning", "error", "success", "ai"],
 
       control: {
-        type: "select",
+        type: "inline-radio",
       },
     },
 
