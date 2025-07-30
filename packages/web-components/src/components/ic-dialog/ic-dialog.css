@@ -31,10 +31,6 @@
   position: relative;
 }
 
-.dialog.disable-height-constraint .content-area {
-  overflow-y: visible;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   :host {
     transition: opacity var(--ic-easing-transition-slow);
@@ -63,7 +59,7 @@
 
   border: var(--ic-space-1px) solid var(--ic-dialog-border);
   border-radius: var(--ic-border-radius);
-  padding: var(--ic-space-xs) 0 var(--ic-space-md);
+  padding: 0 var(--ic-space-md);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -93,8 +89,19 @@
 
 .heading-area {
   display: flex;
-  margin-bottom: var(--ic-space-xs);
-  padding: 0 var(--ic-space-md);
+  padding: var(--ic-space-xs) 16px var(--ic-space-xs);
+  margin: 0 -16px;
+  /* Only if disable height constraint not enabled */
+  /* position: sticky;
+  top: 0; */
+  /* Change to be dynamic e.g. CSS token + 1 */
+  z-index: calc(var(--ic-z-index-dialog) + 1);
+  background-color: var(--ic-dialog-background);
+}
+
+.dialog:not(.disable-height-constraint) .heading-area {
+  position: sticky;
+  top: 0;
 }
 
 .heading {
@@ -107,12 +114,6 @@
 
 .close-icon > svg {
   color: var(--ic-dialog-clear-button);
-}
-
-.content-area {
-  padding: 0 var(--ic-space-md);
-  margin: 0;
-  overflow-y: auto;
 }
 
 #dialog-content {
@@ -128,11 +129,17 @@
 }
 
 .dialog-controls {
-  margin-top: auto;
-  padding: var(--ic-space-xs) var(--ic-space-md) 0;
+  margin: auto calc(var(--ic-space-md) * -1) 0;
+  padding: var(--ic-space-xs) var(--ic-space-md) var(--ic-space-md);
   display: flex;
   justify-content: flex-end;
   gap: var(--ic-space-md);
+  background-color: var(--ic-dialog-background);
+}
+
+.dialog:not(.disable-height-constraint) .dialog-controls {
+  position: sticky;
+  bottom: 0;
 }
 
 .dialog-control-button {
@@ -161,7 +168,9 @@
 }
 
 @media (min-width: 800px) {
-  :host([size="large"]) .dialog:not(.disable-width-constraint) > .content-area {
+  :host([size="large"])
+    .dialog:not(.disable-width-constraint)
+    > #dialog-content {
     width: 75%;
   }
 }

@@ -54,7 +54,6 @@ input {
   height: 1.333rem;
   border-radius: 50%;
   position: absolute;
-  z-index: 2;
   top: 50%;
   left: 0.333rem;
   transform: translate(0, -50%);

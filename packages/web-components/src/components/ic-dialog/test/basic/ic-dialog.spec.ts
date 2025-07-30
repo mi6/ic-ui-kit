@@ -702,7 +702,7 @@ describe("ic-dialog component", () => {
 
     const contentAreaSlot = document
       .querySelector("ic-dialog")
-      ?.shadowRoot?.querySelector(".content-area slot");
+      ?.shadowRoot?.querySelector(".dialog-content slot");
 
     jest
       .spyOn(page.rootInstance, "getInteractiveElements")

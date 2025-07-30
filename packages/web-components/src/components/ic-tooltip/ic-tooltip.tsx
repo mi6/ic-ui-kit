@@ -21,13 +21,13 @@ import { IcThemeMode } from "../../utils/types";
 export class Tooltip {
   private arrow: HTMLDivElement;
   private delayedHideEvents = ["mouseleave"];
-  private dialogOverflow = false;
   private icDialogEl: HTMLIcDialogElement | null;
+  // private dialogOverflow = false;
+  // private icDialogEl: HTMLIcDialogElement | null;
   private instantHideEvents = ["focusout"];
   private mouseOverTool: boolean = false;
   private persistTooltip = false;
   private popperInstance: Instance;
-  private onDialog: boolean = false;
   private showEvents = [
     !this.disableHover && "mouseenter",
     !this.disableHover && "focusin",
@@ -120,11 +120,25 @@ export class Tooltip {
   componentDidLoad(): void {
     this.manageEventListeners("add");
 
-    this.icDialogEl = this.el.closest("ic-dialog");
-    this.dialogOverflow =
-      this.icDialogEl?.getAttribute("data-overflow") === "true";
+    // this.icDialogEl = this.el.closest("ic-dialog");
+    // this.dialogOverflow =
+    //   this.icDialogEl?.getAttribute("data-overflow") === "true";
 
-    this.onDialog = this.icDialogEl !== null;
+    // let dialog: HTMLIcDialogElement | null = null;
+
+    if ((this.el.getRootNode() as ShadowRoot).host) {
+      console.log("HERE 1");
+      this.icDialogEl = (this.el.getRootNode() as ShadowRoot).host.closest(
+        "ic-dialog"
+      );
+    } else {
+      console.log("HERE 2");
+      this.icDialogEl = this.el.closest("ic-dialog");
+    }
+
+    if (!!this.icDialogEl) {
+      this.el.style.setProperty("display", "inline-block");
+    }
 
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -162,91 +176,117 @@ export class Tooltip {
     return Promise.resolve(this.toolTip.hasAttribute("data-show"));
   }
 
-  private getTooltipTranslate = (dialogEl: DOMRect) => {
-    const child = this.el.children[0].getBoundingClientRect();
-    let tooltipX;
-    let tooltipY;
-    switch (this.placement) {
-      case "bottom":
-        tooltipX = child.left - dialogEl.left - 0.5 * child.width;
-        tooltipY = child.bottom - dialogEl.top;
-        break;
-      case "bottom-start":
-        tooltipX = child.left - dialogEl.left;
-        tooltipY = child.bottom - dialogEl.top;
-        break;
-      case "bottom-end":
-        tooltipX = child.right - dialogEl.right;
-        tooltipY = child.bottom - dialogEl.top;
-        break;
-      case "top":
-        tooltipX = child.left - dialogEl.left - 0.5 * child.width;
-        tooltipY = child.top - dialogEl.bottom;
-        break;
-      case "top-start":
-        tooltipX = child.left - dialogEl.left;
-        tooltipY = child.top - dialogEl.bottom;
-        break;
-      case "top-end":
-        tooltipX = child.right - dialogEl.right;
-        tooltipY = child.top - dialogEl.bottom;
-        break;
-      case "left":
-      case "left-start":
-        tooltipX = child.right - dialogEl.right - child.width;
-        tooltipY = child.bottom - dialogEl.top - child.height;
-        break;
-      case "left-end":
-        tooltipX = child.right - dialogEl.right - child.width;
-        tooltipY = child.top - dialogEl.bottom + child.height;
-        break;
-      case "right":
-      case "right-start":
-        tooltipX = child.left - dialogEl.left + child.width;
-        tooltipY = child.bottom - dialogEl.top - child.height;
-        break;
-      case "right-end":
-        tooltipX = child.left - dialogEl.left + child.width;
-        tooltipY = child.top - dialogEl.bottom + child.height;
-        break;
-    }
-    if (this.dialogOverflow && tooltipX && tooltipX < 0) {
-      if (
-        this.placement!.includes("top") ||
-        this.placement!.includes("bottom")
-      ) {
-        this.toolTip.style.setProperty(
-          "--tooltip-arrow-translate",
-          `${tooltipX}px`
-        );
-        tooltipX = child.left - dialogEl.left;
-      }
-      if (this.placement!.includes("left")) {
-        this.placement = "right";
-        tooltipX = child.left - dialogEl.left + child.width;
-      }
-    }
+  // private getTooltipTranslate = (dialogEl: DOMRect) => {
+  //   const child = this.el.children[0].getBoundingClientRect();
+  //   let tooltipX;
+  //   let tooltipY;
+  //   switch (this.placement) {
+  //     case "bottom":
+  //       tooltipX = child.left - dialogEl.left - 0.5 * child.width;
+  //       tooltipY = child.bottom - dialogEl.top;
+  //       break;
+  //     case "bottom-start":
+  //       tooltipX = child.left - dialogEl.left;
+  //       tooltipY = child.bottom - dialogEl.top;
+  //       break;
+  //     case "bottom-end":
+  //       tooltipX = child.right - dialogEl.right;
+  //       tooltipY = child.bottom - dialogEl.top;
+  //       break;
+  //     case "top":
+  //       tooltipX = child.left - dialogEl.left - 0.5 * child.width;
+  //       tooltipY = child.top - dialogEl.bottom;
+  //       break;
+  //     case "top-start":
+  //       tooltipX = child.left - dialogEl.left;
+  //       tooltipY = child.top - dialogEl.bottom;
+  //       break;
+  //     case "top-end":
+  //       tooltipX = child.right - dialogEl.right;
+  //       tooltipY = child.top - dialogEl.bottom;
+  //       break;
+  //     case "left":
+  //     case "left-start":
+  //       tooltipX = child.right - dialogEl.right - child.width;
+  //       tooltipY = child.bottom - dialogEl.top - child.height;
+  //       break;
+  //     case "left-end":
+  //       tooltipX = child.right - dialogEl.right - child.width;
+  //       tooltipY = child.top - dialogEl.bottom + child.height;
+  //       break;
+  //     case "right":
+  //     case "right-start":
+  //       tooltipX = child.left - dialogEl.left + child.width;
+  //       tooltipY = child.bottom - dialogEl.top - child.height;
+  //       break;
+  //     case "right-end":
+  //       tooltipX = child.left - dialogEl.left + child.width;
+  //       tooltipY = child.top - dialogEl.bottom + child.height;
+  //       break;
+  //   }
+  //   if (this.dialogOverflow && tooltipX && tooltipX < 0) {
+  //     if (
+  //       this.placement!.includes("top") ||
+  //       this.placement!.includes("bottom")
+  //     ) {
+  //       this.toolTip.style.setProperty(
+  //         "--tooltip-arrow-translate",
+  //         `${tooltipX}px`
+  //       );
+  //       tooltipX = child.left - dialogEl.left;
+  //     }
+  //     if (this.placement!.includes("left")) {
+  //       this.placement = "right";
+  //       tooltipX = child.left - dialogEl.left + child.width;
+  //     }
+  //   }
 
-    this.toolTip.style.setProperty("--tooltip-translate-x", `${tooltipX}px`);
-    this.toolTip.style.setProperty("--tooltip-translate-y", `${tooltipY}px`);
-  };
+  //   this.toolTip.style.setProperty("--tooltip-translate-x", `${tooltipX}px`);
+  //   this.toolTip.style.setProperty("--tooltip-translate-y", `${tooltipY}px`);
+  // };
 
   private show = () => {
     if (this.label) {
       this.toolTip.setAttribute("data-show", "");
 
-      if (this.onDialog) {
-        this.el.classList.add("on-dialog");
-        const dialogEl = this.icDialogEl?.shadowRoot
-          ?.querySelector("dialog")
-          ?.getBoundingClientRect();
+      // if (this.el.closest("ic-dialog") !== null) {
+      //   console.log("HERE 1");
+      //   dialog = this.el.closest("ic-dialog") as HTMLIcDialogElement;
+      // } else if ((this.el.getRootNode() as ShadowRoot).host) {
+      //   console.log("HERE 2");
+      //   dialog = (this.el.getRootNode() as ShadowRoot).host.closest(
+      //     "ic-dialog"
+      //   ) as HTMLIcDialogElement;
+      // }
 
-        dialogEl && this.getTooltipTranslate(dialogEl);
-      }
+      console.log(this.icDialogEl?.shadowRoot?.querySelector("dialog"));
 
+      // if (this.onDialog) {
+      //   this.el.classList.add("on-dialog");
+      //   // const dialogEl = this.icDialogEl?.shadowRoot
+      //   //   ?.querySelector("dialog")
+      //   //   ?.getBoundingClientRect();
+
+      //   // dialogEl && this.getTooltipTranslate(dialogEl);
+      // }
+
+      // UPDATE TO ONLY HAPPEN ON DIALOG
       this.popperInstance = createPopper(this.el, this.toolTip, {
         placement: this.placement,
         modifiers: [
+          {
+            name: "preventOverflow",
+            options: {
+              boundary: this.icDialogEl?.shadowRoot?.querySelector(".dialog"),
+              // padding: 40,
+            },
+          },
+          // {
+          //   name: "flip",
+          //   options: {
+          //     boundary: "clippingParents",
+          //   },
+          // },
           {
             name: "offset",
             options: {

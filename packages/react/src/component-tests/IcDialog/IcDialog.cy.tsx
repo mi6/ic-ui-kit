@@ -597,7 +597,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.get(DIALOG).should("exist");
     cy.get(BUTTON).click().wait(1000);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
-    cy.findShadowEl(DIALOG, ".content-area").scrollTo("bottom").wait(1000);
+    cy.findShadowEl(DIALOG, ".content-area").scrollTo("bottom").wait(1000); // Needs updating
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({

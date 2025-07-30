@@ -363,7 +363,7 @@ export class Dialog {
     const slottedInteractiveElements = Array.from(
       this.el.querySelectorAll(
         `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
-          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, 
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group,
           ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
           ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker`
       )
@@ -493,6 +493,7 @@ export class Dialog {
         aria-describedby="dialog-alert dialog-content"
         ref={(el) => (this.dialogEl = el)}
       >
+        {/* <div class="content-area"> */}
         <div class="heading-area">
           <div class="heading-content">
             <div class="label">
@@ -525,11 +526,9 @@ export class Dialog {
             ></ic-button>
           )}
         </div>
-        <div class="content-area">
-          {isSlotUsed(this.el, "alert") && <slot name="alert" />}
-          <div id="dialog-content">
-            <slot />
-          </div>
+        {isSlotUsed(this.el, "alert") && <slot name="alert" />}
+        <div id="dialog-content">
+          <slot />
         </div>
         {(controlsSlotUsed || !hideDefaultControls) && (
           <div
@@ -561,6 +560,7 @@ export class Dialog {
             )}
           </div>
         )}
+        {/* </div> */}
       </dialog>
     );
   };
