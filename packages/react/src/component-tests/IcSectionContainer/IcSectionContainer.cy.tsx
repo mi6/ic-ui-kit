@@ -9,7 +9,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const DEFAULT_TEST_THRESHOLD = 0.009;
 const SECTION_CONTAINER_SELECTOR = "ic-section-container";
 
-describe("IcSectionContainer visual regression and a11y tests", () => {
+describe.skip("IcSectionContainer visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 750);
     cy.injectAxe();

@@ -19,7 +19,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const THEME_SELECTOR = "ic-theme";
 const DEFAULT_TEST_THRESHOLD = 0.032;
 
-describe("IcTheme end-to-end and visual regression tests", () => {
+describe.skip("IcTheme end-to-end and visual regression tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1440, 900);

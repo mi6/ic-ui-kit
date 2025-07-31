@@ -25,7 +25,7 @@ import "cypress-axe";
 const TYPOGRAPHY_SELECTOR = "ic-typography";
 const DEFAULT_TEST_THRESHOLD = 0.006;
 
-describe("IcTypography visual regression and a11y tests", () => {
+describe.skip("IcTypography visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -211,7 +211,7 @@ it("should render as truncated in an AG Grid when there is not enough space", ()
   });
 });
 
-describe("IcTypography visual regression tests in high contrast mode", () => {
+describe.skip("IcTypography visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

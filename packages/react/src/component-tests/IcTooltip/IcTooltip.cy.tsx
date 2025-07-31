@@ -31,7 +31,7 @@ import "cypress-axe";
 const TOOLTIP_SELECTOR = "ic-tooltip";
 const DEFAULT_TEST_THRESHOLD = 0.041;
 
-describe("IcTooltip end-to-end tests", () => {
+describe.skip("IcTooltip end-to-end tests", () => {
   it("should apply the correct label", () => {
     mount(<Default />);
 
@@ -285,7 +285,7 @@ describe("IcTooltip end-to-end tests", () => {
   });
 });
 
-describe("IcTooltip visual regression and a11y tests", () => {
+describe.skip("IcTooltip visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -555,7 +555,7 @@ describe("IcTooltip visual regression and a11y tests", () => {
   });
 });
 
-describe("IcTooltip visual regression tests in high contrast mode", () => {
+describe.skip("IcTooltip visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

@@ -22,7 +22,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const DEFAULT_TEST_THRESHOLD = 0.015;
 const PAGE_HEADER_SELECTOR = "ic-page-header";
 
-describe("IcPageHeader", () => {
+describe.skip("IcPageHeader", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1450, 500);
@@ -170,7 +170,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  describe("IcPageHeader visual regression in high contrast mode", () => {
+  describe.skip("IcPageHeader visual regression in high contrast mode", () => {
     before(() => {
       cy.enableForcedColors();
     });

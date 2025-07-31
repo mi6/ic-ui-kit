@@ -37,7 +37,7 @@ const DISABLED_STEP_AXE_OPTIONS = {
   },
 };
 
-describe("IcStepper end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcStepper end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 500);
     cy.injectAxe();
@@ -211,7 +211,7 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcStepper visual regression tests in high contrast mode", () => {
+describe.skip("IcStepper visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

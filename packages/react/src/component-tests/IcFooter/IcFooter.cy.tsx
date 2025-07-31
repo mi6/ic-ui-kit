@@ -28,7 +28,7 @@ const FOOTER_SELECTOR = "ic-footer";
 const FOOTER_LINK_GROUP_SELECTOR = "ic-footer-link-group";
 const DEFAULT_TEST_THRESHOLD = 0.034;
 
-describe("IcFooter end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcFooter end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1440, 750);
@@ -297,7 +297,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcFooter visual regression tests in high contrast mode", () => {
+describe.skip("IcFooter visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

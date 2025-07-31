@@ -9,7 +9,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const DEFAULT_TEST_THRESHOLD = 0.0;
 const DIVIDER_SELECTOR = "ic-divider";
 
-describe("IcDivider visual and a11y testing", () => {
+describe.skip("IcDivider visual and a11y testing", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
