@@ -31,3 +31,4 @@ export const NOT_HAVE_CSS = "not.have.css";
 //Be
 export const BE_DISABLED = "be.disabled";
 export const BE_VISIBLE = "be.visible";
+export const BE_FOCUSED = "be.focused";
