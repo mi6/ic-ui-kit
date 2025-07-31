@@ -18,6 +18,7 @@ import {
   HAVE_TEXT,
   HAVE_VALUE,
   NOT_EXIST,
+  NOT_HAVE_BEEN_CALLED,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 const DATE_INPUT = "ic-date-input";
@@ -342,6 +343,74 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
+  });
+
+  it("while editing the day, should only emit icChange when fully deleted", () => {
+    mount(<IcDateInput label="Test Label" />);
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("30");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("04");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
+
+    cy.get(DATE_INPUT).invoke("on", "icChange", cy.stub().as("icDateChanged"));
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("1");
+
+    cy.get("@icDateChanged").should(NOT_HAVE_BEEN_CALLED);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("{Backspace}");
+
+    cy.get("@icDateChanged").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+    });
+  });
+
+  it("while editing the month, should only emit icChange when fully deleted", () => {
+    mount(<IcDateInput label="Test Label" />);
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("30");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("04");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
+
+    cy.get(DATE_INPUT).invoke("on", "icChange", cy.stub().as("icDateChanged"));
+
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("1");
+
+    cy.get("@icDateChanged").should(NOT_HAVE_BEEN_CALLED);
+
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("{Backspace}");
+
+    cy.get("@icDateChanged").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+    });
+  });
+
+  it("while editing the year, should only emit icChange when fully deleted", () => {
+    mount(<IcDateInput label="Test Label" />);
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("30");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("04");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
+
+    cy.get(DATE_INPUT).invoke("on", "icChange", cy.stub().as("icDateChanged"));
+
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("{Backspace}");
+
+    cy.get("@icDateChanged").should(NOT_HAVE_BEEN_CALLED);
+
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type(
+      "{Backspace}{Backspace}{Backspace}"
+    );
+
+    cy.get("@icDateChanged").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+    });
   });
 
   it("should enter complete date and check for accessibility", () => {
