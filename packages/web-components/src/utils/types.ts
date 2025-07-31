@@ -21,7 +21,8 @@ export type IcStatusVariants =
   | "info"
   | "warning"
   | "error"
-  | "success";
+  | "success"
+  | "ai";
 
 export enum IcInformationStatus {
   Warning = "warning",
