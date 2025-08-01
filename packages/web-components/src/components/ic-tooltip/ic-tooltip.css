@@ -129,11 +129,8 @@
   top: calc(-1 * var(--ic-space-1px));
 }
 
-:host(.on-dialog) .ic-tooltip-container {
-  transform: translate(
-    var(--tooltip-translate-x),
-    var(--tooltip-translate-y)
-  ) !important;
+:host(.ic-tooltip-on-dialog) {
+  display: inline-block;
 }
 
 @media screen and (max-width: 576px) {

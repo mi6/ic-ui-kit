@@ -138,6 +138,33 @@ export const SlottedContent = {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
         </ic-typography>
+        <ic-tooltip
+          label="This is a description of the button"
+          target="test-button"
+        >
+          <ic-button
+            id="test-button"
+          >
+            Button with tooltip
+          </ic-button>
+        </ic-tooltip>
+        <ic-button
+          variant="icon-primary"
+          aria-label="This is a description of the button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-button>
         <ic-accordion heading="This is an accordion">
           <ic-checkbox label="Agree" value="confirm" additional-field-display="static">
             <ic-text-field
@@ -149,8 +176,8 @@ export const SlottedContent = {
           <ic-radio-group label="This is a label" name="1">
           <ic-radio-option
             value="valueName1"
-            label="Unselected / Default" 
-            additional-field-display="dynamic"       
+            label="Unselected / Default"
+            additional-field-display="dynamic"
           >
             <ic-text-field
               slot="additional-field"
@@ -186,7 +213,7 @@ export const SlottedContent = {
         label="What is your favourite coffee?"
         placeholder="Placeholder goes here"
       ></ic-select>
-      <ic-button id="button-1" onclick="buttonClick()">Show popover</ic-button>      
+      <ic-button id="button-1" onclick="buttonClick()">Show popover</ic-button>
       <div>
         <ic-popover-menu anchor="button-1" aria-label="popover">
           <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
@@ -228,7 +255,7 @@ export const SlottedContent = {
             </svg>
           </ic-menu-item>
         </ic-popover-menu>
-      </div>      
+      </div>
       <ic-checkbox-group
         label="confirm"
         hide-label

@@ -221,207 +221,24 @@ describe("ic-tooltip component", () => {
   it("should render correctly when on a dialog", async () => {
     const page = await newSpecPage({
       components: [Tooltip],
-      html: `<ic-dialog heading="Dialog heading">
-        <ic-tooltip label="tooltip"></ic-tooltip>
-      </ic-dialog>`,
+      html: `<ic-tooltip label="tooltip"></ic-tooltip>`,
     });
 
-    page.rootInstance.onDialog = true;
+    const dialog = document.createElement("ic-dialog");
+    const shadowRoot = dialog.attachShadow({ mode: "open" });
+    const contentArea = document.createElement("div");
+    contentArea.className = "content-area";
+    shadowRoot.appendChild(contentArea);
+
+    jest
+      .spyOn(page.root as any, "getRootNode")
+      .mockReturnValue({ host: { closest: () => dialog } });
+
+    await page.rootInstance.componentDidLoad();
+    expect(page.rootInstance.dialogContentArea).toBe(contentArea);
+
     await page.rootInstance.show(page.rootInstance.popperInstance);
     expect(page.root).toMatchSnapshot();
-  });
-
-  describe("getTooltipTranslate", () => {
-    it("should update for bottom", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for bottom-start", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="bottom-start"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for bottom-end", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="bottom-end"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for top", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="top"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for top-start", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="top-start"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for top-end", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="top-end"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for left", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="left"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for left-end", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="left-end"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for right", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="right"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update for right-end", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="right-end"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    it("should update when tooltip is outside of dialog", async () => {
-      const page = await newSpecPage({
-        components: [Tooltip],
-        html: `<ic-tooltip target="test-button" label="tooltip" placement="left"><button id="test-button">Click</button></ic-tooltip>`,
-      });
-
-      page.rootInstance.dialogOverflow = true;
-      await page.waitForChanges();
-
-      await page.rootInstance.getTooltipTranslate({
-        left: 0,
-        right: 40,
-        top: 100,
-        bottom: 132,
-      });
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-      expect(page.rootInstance.placement).toBe("right");
-    });
   });
 
   it("should truncate text and pass the maxLines value to ic-typography if maxLines prop has been set", async () => {
@@ -436,48 +253,6 @@ describe("ic-tooltip component", () => {
       "div > ic-typography"
     ) as HTMLIcTypographyElement;
     expect(typographyEl.maxLines).toEqual(2);
-  });
-
-  it("should update the arrow position when tooltip is outside of dialog", async () => {
-    const page = await newSpecPage({
-      components: [Tooltip],
-      html: `<ic-tooltip target="test-button" label="tooltip" placement="top"><button id="test-button">Click</button></ic-tooltip>`,
-    });
-
-    page.rootInstance.dialogOverflow = true;
-    await page.waitForChanges();
-
-    await page.rootInstance.getTooltipTranslate({
-      left: 100,
-      right: 0,
-      top: 0,
-      bottom: 0,
-    });
-    await page.waitForChanges();
-
-    await page.rootInstance.show(page.rootInstance.popperInstance);
-    await page.waitForChanges();
-
-    expect(
-      page.rootInstance.toolTip.style.getPropertyValue(
-        "--tooltip-arrow-translate"
-      )
-    ).toBe("-100px");
-
-    page.rootInstance.placement = "bottom";
-
-    await page.rootInstance.getTooltipTranslate({
-      left: 200,
-      right: 0,
-      top: 0,
-      bottom: 0,
-    });
-
-    expect(
-      page.rootInstance.toolTip.style.getPropertyValue(
-        "--tooltip-arrow-translate"
-      )
-    ).toBe("-200px");
   });
 
   it("should no longer display when disableClick changed from false to true", async () => {
