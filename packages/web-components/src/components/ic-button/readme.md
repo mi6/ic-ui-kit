@@ -1,5 +1,7 @@
 # ic-button
 
+
+
 <!-- Auto Generated Below -->
 
 
@@ -70,14 +72,6 @@ Type: `Promise<void>`
 | `"right-icon"`  | Content will be placed to the right of the button label.                                                      |
 | `"router-item"` | Handle routing by nesting your routes in this slot. Setting loading to true will have no impact on this slot. |
 | `"top-icon"`    | Content will be placed above the button label.                                                                |
-
-
-## CSS Custom Properties
-
-| Name          | Description                  |
-| ------------- | ---------------------------- |
-| `--height`    | The height of the button.    |
-| `--min-width` | Minimum width of the button. |
 
 
 ## Dependencies
