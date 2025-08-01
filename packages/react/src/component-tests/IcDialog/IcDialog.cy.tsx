@@ -25,6 +25,7 @@ import {
   DialogSearch,
   NoWidthConstraintDialog,
   ThemeDark,
+  DialogWithTooltips,
 } from "./IcDialogTestData";
 import {
   BE_VISIBLE,
@@ -650,6 +651,28 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
+  });
+
+  it("should render tooltips correctly, e.g. flipped when there is not enough space", () => {
+    mount(<DialogWithTooltips />);
+
+    cy.get(DIALOG).should("exist");
+    cy.get(BUTTON).eq(0).click().wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/tooltip",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+
+    cy.get(BUTTON).eq(2).shadow().find("button").focus();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/tooltip-shadow-dom",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 });
