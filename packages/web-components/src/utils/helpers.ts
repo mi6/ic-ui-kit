@@ -258,25 +258,36 @@ export const isMobileOrTablet = (): boolean =>
     : false;
 
 /**
- * Will create a button within the lightDOM which interacts with the parent form.
+ * Will create a button within the lightDOM which interacts with the form.
  * This is required as buttons within the shadowDOM will not invoke a submit or reset
  *
- * @param form - parent form element which contains shadowDom button
+ * @param form - form element to associate button with
  * @param button - shadowDOM button
  */
 export const handleHiddenFormButtonClick = (
-  form: HTMLFormElement,
-  button: HTMLIcButtonElement | HTMLButtonElement
+  form: HTMLFormElement | null,
+  button: HTMLIcButtonElement
 ): void => {
+  const hiddenFormButtonId =
+    button.type === "submit" || button.type === "reset"
+      ? `hidden-form-${button.type}-button`
+      : "hidden-form-button";
+
   const hiddenFormButton =
-    document.querySelector<HTMLButtonElement>("#hidden-form-button") ??
+    document.querySelector<HTMLButtonElement>(`#${hiddenFormButtonId}`) ??
     document.createElement("button");
 
   hiddenFormButton.setAttribute("type", button.type ?? "button");
-  hiddenFormButton.id = "hidden-form-button";
+  hiddenFormButton.id = hiddenFormButtonId;
   hiddenFormButton.style.display = "none";
 
-  form.appendChild(hiddenFormButton);
+  hiddenFormButton.formAction = button.formaction ?? "";
+  hiddenFormButton.formEnctype = button.formenctype ?? "";
+  hiddenFormButton.formMethod = button.formmethod ?? "";
+  hiddenFormButton.formNoValidate = button.formnovalidate ?? false;
+  hiddenFormButton.formTarget = button.formtarget ?? "";
+
+  form?.appendChild(hiddenFormButton);
   hiddenFormButton.click();
 };
 

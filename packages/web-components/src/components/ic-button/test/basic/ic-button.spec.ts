@@ -362,16 +362,130 @@ describe("button component", () => {
     expect(page.rootInstance.theme).toEqual("dark");
   });
 
-  it("should test button as submit button on form", async () => {
+  it("should test submit and reset buttons in a form", async () => {
     const page = await newSpecPage({
       components: [Button],
-      html: `<form id="new-form"><form><ic-button id='ic-button' type="submit" form="new-form">Button</ic-button>`,
+      html: `
+        <form>
+          <ic-text-field id="text" label="test input" value="test"></ic-text-field>
+          <ic-button id="reset" type="reset">Reset</ic-button>
+          <ic-button id="submit" type="submit">Submit</ic-button>
+        </form>
+      `,
     });
 
-    const btn = document.getElementById("ic-button");
-    btn?.click();
+    const resetBtn = document.getElementById("reset");
+    const submitBtn = document.getElementById("submit");
 
-    expect(page.root).toMatchSnapshot();
+    page.win.addEventListener("click", (ev) =>
+      console.log((ev.target as HTMLButtonElement)?.id)
+    );
+    const consoleSpy = jest.spyOn(console, "log");
+
+    // Testing form reset: LightDOM button of type "reset" created and clicked, textfield empty
+    resetBtn?.click();
+    expect(
+      page.body.querySelector<HTMLButtonElement>("#hidden-form-reset-button")
+        ?.type
+    ).toBe("reset");
+    expect(consoleSpy).toHaveBeenCalledWith("hidden-form-reset-button");
+
+    // Testing form submit: LightDOM button of type "submit" created and clicked
+    submitBtn?.click();
+    expect(
+      page.body.querySelector<HTMLButtonElement>("#hidden-form-submit-button")
+        ?.type
+    ).toBe("submit");
+    expect(consoleSpy).toHaveBeenCalledWith("hidden-form-submit-button");
+  });
+
+  it("should test submit and reset buttons associated with a form", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: `
+        <form id="testForm">
+          <ic-text-field id="text" label="test input" value="test"></ic-text-field>
+        </form>
+        <ic-button id="reset" form="testForm" type="reset">Reset</ic-button>
+        <ic-button id="submit" form="testForm" type="submit">Submit</ic-button>
+      `,
+    });
+
+    const resetBtn = document.getElementById("reset");
+    const submitBtn = document.getElementById("submit");
+
+    page.win.addEventListener("click", (ev) =>
+      console.log((ev.target as HTMLButtonElement)?.id)
+    );
+    const consoleSpy = jest.spyOn(console, "log");
+
+    // Testing form reset: LightDOM button of type "reset" created and clickedy
+    resetBtn?.click();
+    expect(
+      page.body.querySelector<HTMLButtonElement>("#hidden-form-reset-button")
+        ?.type
+    ).toBe("reset");
+    expect(consoleSpy).toHaveBeenCalledWith("hidden-form-reset-button");
+
+    // Testing form submit: LightDOM button of type "submit" created and clicked
+    submitBtn?.click();
+    expect(
+      page.body.querySelector<HTMLButtonElement>("#hidden-form-submit-button")
+        ?.type
+    ).toBe("submit");
+    expect(consoleSpy).toHaveBeenCalledWith("hidden-form-submit-button");
+  });
+
+  it("should test form submission props on buttons in a form", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: `
+        <form>
+          <ic-text-field id="text" label="test input" value="test"></ic-text-field>
+          <ic-button id="submit" type="submit" formaction="#" formenctype="text/plain" formmethod="post" formnovalidate formtarget="_blank">Submit</ic-button>
+        </form>
+      `,
+    });
+
+    const submitBtn = document.getElementById("submit");
+
+    // Form submission props are passed to the hidden form submit button
+    submitBtn?.click();
+    const hiddenSubmitBtn = page.body.querySelector<HTMLButtonElement>(
+      "#hidden-form-submit-button"
+    );
+    expect(hiddenSubmitBtn?.type).toBe("submit");
+    expect(hiddenSubmitBtn?.formAction).toBe("#");
+    expect(hiddenSubmitBtn?.formEnctype).toBe("text/plain");
+    expect(hiddenSubmitBtn?.formMethod).toBe("post");
+    expect(hiddenSubmitBtn?.formNoValidate).toBe(true);
+    expect(hiddenSubmitBtn?.formTarget).toBe("_blank");
+  });
+
+  it("should test form submission props on buttons associated with a form", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: `
+        <form id="testForm">
+          <ic-text-field id="text" label="test input" value="test"></ic-text-field>
+        </form>
+        <ic-button id="submit" type="submit" form="testForm" formaction="#" formenctype="text/plain" formmethod="post" formnovalidate formtarget="_blank">Submit</ic-button>
+      `,
+    });
+
+    const submitBtn = document.getElementById("submit");
+
+    // Form submission props are passed to the hidden form submit button
+    submitBtn?.click();
+    const hiddenSubmitBtn = page.body.querySelector<HTMLButtonElement>(
+      "#hidden-form-submit-button"
+    );
+    expect(hiddenSubmitBtn?.type).toBe("submit");
+    expect(hiddenSubmitBtn?.formAction).toBe("#");
+    expect(hiddenSubmitBtn?.formEnctype).toBe("text/plain");
+    expect(hiddenSubmitBtn?.formMethod).toBe("post");
+    expect(hiddenSubmitBtn?.formNoValidate).toBe(true);
+    expect(hiddenSubmitBtn?.formTarget).toBe("_blank");
   });
 
   it("should test aria-describedby is set", async () => {
