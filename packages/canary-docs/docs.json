@@ -4363,6 +4363,776 @@
       }
     },
     {
+      "filePath": "src/components/ic-time-input/ic-time-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-time-input",
+      "readme": "# ic-date-input\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the time input."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "disableTimes",
+          "type": "IcDisableTimeSelection[]",
+          "complexType": {
+            "original": "IcDisableTimeSelection[]",
+            "resolved": "IcDisableTimeSelection[]",
+            "references": {
+              "IcDisableTimeSelection": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcDisableTimeSelection"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "IcDisableTimeSelection[]"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the disabled state will be set.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "emitTimePartChange",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "emit-time-part-change",
+          "reflectToAttr": false,
+          "docs": "If `true`, every individual input field completed will emit an icChange event.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "helperText",
+          "type": "null | string",
+          "complexType": {
+            "original": "string | null",
+            "resolved": "null | string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "The helper text that will be displayed for additional field guidance. This will default to the text \"Use format\" along with the `timeFormat` value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "hideHelperText",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-helper-text",
+          "reflectToAttr": false,
+          "docs": "If `true`, the helper text will be visually hidden, but still read out by screenreaders.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "hideLabel",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-label",
+          "reflectToAttr": false,
+          "docs": "If `true`, the label will be visually hidden, but will still be read out by screen readers.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "inputId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "input-id",
+          "reflectToAttr": false,
+          "docs": "The ID for the input.",
+          "docsTags": [],
+          "default": "`ic-time-input-${inputIds++}`",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "invalidTimeMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid-time-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when an invalid time is entered.",
+          "docsTags": [],
+          "default": "\"Please enter a valid time.\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label for the time input.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "max",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "The latest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "min",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "The earliest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The name of the control, which is submitted with the form data.",
+          "docsTags": [],
+          "default": "this.inputId",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If `true`, the input will require a value.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showClearButton",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-clear-button",
+          "reflectToAttr": false,
+          "docs": "If `true`, a button which clears the time input when clicked will be displayed.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the time input to be displayed.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the time picker to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "timeFormat",
+          "type": "\"HH:MM\" | \"HH:MM:SS\"",
+          "complexType": {
+            "original": "IcTimeFormat",
+            "resolved": "\"HH:MM\" | \"HH:MM:SS\"",
+            "references": {
+              "IcTimeFormat": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcTimeFormat"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "time-format",
+          "reflectToAttr": false,
+          "docs": "The format in which the time will be displayed.",
+          "docsTags": [],
+          "default": "this.DEFAULT_TIME_FORMAT",
+          "values": [
+            {
+              "value": "HH:MM",
+              "type": "string"
+            },
+            {
+              "value": "HH:MM:SS",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "timePeriod",
+          "type": "\"12\" | \"24\"",
+          "complexType": {
+            "original": "\"12\" | \"24\"",
+            "resolved": "\"12\" | \"24\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "time-period",
+          "reflectToAttr": false,
+          "docs": "The time period format: \"12\" for 12-hour, \"24\" for 24-hour. Defaults to \"24\".",
+          "docsTags": [],
+          "default": "\"24\"",
+          "values": [
+            {
+              "value": "12",
+              "type": "string"
+            },
+            {
+              "value": "24",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "validationStatus",
+          "type": "\"\" | \"error\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "IcInformationStatusOrEmpty",
+            "resolved": "\"\" | \"error\" | \"success\" | \"warning\"",
+            "references": {
+              "IcInformationStatusOrEmpty": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcInformationStatusOrEmpty"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "validation-status",
+          "reflectToAttr": false,
+          "docs": "The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in time validation.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "validationText",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "validation-text",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message. This will override the built-in time validation.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "Date | null | string | undefined",
+          "complexType": {
+            "original": "string | Date | null | undefined",
+            "resolved": "Date | null | string | undefined",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getTime",
+          "returns": {
+            "type": "Promise<Date | null>",
+            "docs": "Date"
+          },
+          "complexType": {
+            "signature": "() => Promise<Date | null>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            },
+            "return": "Promise<Date | null>"
+          },
+          "signature": "getTime() => Promise<Date | null>",
+          "parameters": [],
+          "docs": "Returns the value as a Date object",
+          "docsTags": [
+            {
+              "name": "returns",
+              "text": "Date"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": "icBlur",
+          "detail": "{ value: Date | null; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: Date | null }",
+            "resolved": "{ value: Date | null; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "icChange",
+          "detail": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; }; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{\n    value: Date | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n    };\n  }",
+            "resolved": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; }; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "icFocus",
+          "detail": "{ value: Date | null; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: Date | null }",
+            "resolved": "{ value: Date | null; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input gains focus.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the time input."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-input-container",
+        "ic-input-label",
+        "ic-input-component-container",
+        "ic-button",
+        "ic-input-validation"
+      ],
+      "dependencyGraph": {
+        "ic-time-input": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-button",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
@@ -5180,6 +5950,16 @@
     },
     "src/utils/types.ts::IcInformationStatusOrEmpty": {
       "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcDisableTimeSelection": {
+      "declaration": "export type IcDisableTimeSelection =\n  | string\n  | Date\n  | { start: string | Date; end: string | Date };",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcTimeFormat": {
+      "declaration": "export type IcTimeFormat = \"HH:MM\" | \"HH:MM:SS\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
