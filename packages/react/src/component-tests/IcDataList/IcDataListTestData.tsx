@@ -432,3 +432,31 @@ export const Theme = () => {
     </div>
   );
 };
+
+export const LabelWidth = () => {
+  return (
+    <IcDataList heading="Data" style={{ "--data-row-label-width": "30rem" }}>
+      <IcDataRow label="Name" value="Michael Johnson" />
+      <IcDataRow
+        label="Date of birth with extra words to make long heading"
+        value="16 October 1995"
+      />
+      <IcDataRow
+        label="Telephone with additional words"
+        value="07449 7654873"
+      />
+      <IcDataRow label="Email" value="mjohnson@coffee.gov" />
+      <IcDataRow label="Address">
+        <IcTypography variant="body" slot="value">
+          383 Coffee Drive
+          <br />
+          London
+          <br />
+          SW7 988
+          <br />
+          United Kingdom
+        </IcTypography>
+      </IcDataRow>
+    </IcDataList>
+  );
+};
