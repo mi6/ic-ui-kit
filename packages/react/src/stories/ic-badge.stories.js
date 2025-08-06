@@ -558,6 +558,96 @@ export const Info = {
   name: "Info",
 };
 
+export const AI = {
+  render: () => (
+    <>
+      <div style={{ padding: "16px" }}>
+      <IcButton variant="secondary" style={{ marginRight: "16px" }}>
+        <IcBadge label="1" slot="badge" variant="ai" size="small" />
+        Small
+      </IcButton>
+      <IcButton variant="secondary" style={{ marginRight: "16px" }}>
+        <IcBadge label="1" slot="badge" variant="ai" />
+        Default
+      </IcButton>
+      <IcButton variant="secondary">
+        <IcBadge label="1" slot="badge" variant="ai" size="large" />
+        Large
+      </IcButton>
+    </div>
+    <div style={{ padding: "16px" }}>
+      <IcButton variant="secondary" style={{ marginRight: "16px" }}>
+        <IcBadge type="dot" slot="badge" variant="ai" size="small" />
+        Small Dot
+      </IcButton>
+      <IcButton variant="secondary" style={{ marginRight: "16px" }}>
+        <IcBadge type="dot" slot="badge" variant="ai" />
+        Default Dot
+      </IcButton>
+      <IcButton variant="secondary">
+        <IcBadge type="dot" slot="badge" variant="ai" size="large" />
+        Large Dot
+      </IcButton>
+    </div>
+    <div style={{ padding: "16px" }}>
+      <IcButton variant="secondary" style={{ marginRight: "16px" }}>
+        <IcBadge type="icon" slot="badge" variant="ai" size="small">
+          <svg
+            slot="badge-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            aria-label="Artificial Intelligence (AI)"
+          >
+            <path 
+              d="M19,1L17.74,3.75L15,5L17.74,6.26L19,9L20.25,6.26L23,5L20.25,3.75M9,4L6.5,9.5L1,12L6.5,14.5L9,20L11.5,14.5L17,12L11.5,9.5M19,15L17.74,17.74L15,19L17.74,20.25L19,23L20.25,20.25L23,19L20.25,17.74" 
+            />
+          </svg>
+        </IcBadge>
+        Small Icon
+      </IcButton>
+      <IcButton variant="secondary" style={{ marginRight: "16px" }}>
+        <IcBadge type="icon" slot="badge" variant="ai">
+          <svg
+            slot="badge-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            aria-label="Artificial Intelligence (AI)"
+          >
+            <path 
+              d="M19,1L17.74,3.75L15,5L17.74,6.26L19,9L20.25,6.26L23,5L20.25,3.75M9,4L6.5,9.5L1,12L6.5,14.5L9,20L11.5,14.5L17,12L11.5,9.5M19,15L17.74,17.74L15,19L17.74,20.25L19,23L20.25,20.25L23,19L20.25,17.74" 
+            />
+          </svg>
+        </IcBadge>
+        Default Icon
+      </IcButton>
+      <IcButton variant="secondary">
+        <IcBadge type="icon" slot="badge" variant="ai" size="large">
+          <svg
+            slot="badge-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            aria-label="Artificial Intelligence (AI)"
+          >
+            <path 
+              d="M19,1L17.74,3.75L15,5L17.74,6.26L19,9L20.25,6.26L23,5L20.25,3.75M9,4L6.5,9.5L1,12L6.5,14.5L9,20L11.5,14.5L17,12L11.5,9.5M19,15L17.74,17.74L15,19L17.74,20.25L19,23L20.25,20.25L23,19L20.25,17.74" 
+            />
+          </svg>
+        </IcBadge>
+        Large Icon
+      </IcButton>
+    </div>
+    </>
+  ),
+
+  name: "AI",
+};
+
 export const Custom = {
   render: () => (
     <>
@@ -944,6 +1034,7 @@ export const Playground = {
         "warning",
         "error",
         "info",
+        "ai",
         "light",
         "custom",
       ],

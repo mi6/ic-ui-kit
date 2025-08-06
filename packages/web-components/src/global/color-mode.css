@@ -429,11 +429,13 @@ ic-theme,
   --ic-action-chip-icon-disabled: var(--ic-color-icon-disabled-mid);
 
   /* Alert */
+  --ic-alert-background-ai: var(--ic-status-anomalous);
   --ic-alert-background-success: var(--ic-status-success);
   --ic-alert-background-error: var(--ic-status-error);
   --ic-alert-background-warning: var(--ic-status-warning);
   --ic-alert-background-info: var(--ic-status-info);
   --ic-alert-background-neutral: var(--ic-status-unknown);
+  --ic-alert-status-type-ai: var(--ic-status-anomalous-default);
   --ic-alert-status-type-success: var(--ic-status-success-default);
   --ic-alert-status-type-error: var(--ic-status-error-default);
   --ic-alert-status-type-warning: var(--ic-status-warning-default);
@@ -441,12 +443,14 @@ ic-theme,
   --ic-alert-status-type-neutral: var(--ic-status-unknown-default);
   --ic-alert-title: var(--ic-color-text-primary);
   --ic-alert-description: var(--ic-color-text-primary);
+  --ic-alert-icon-ai: var(--ic-status-anomalous-default);
   --ic-alert-icon-success: var(--ic-status-success-default);
   --ic-alert-icon-error: var(--ic-status-error-default);
   --ic-alert-icon-warning: var(--ic-status-warning-default);
   --ic-alert-icon-info: var(--ic-status-info-default);
   --ic-alert-icon-neutral: var(--ic-status-unknown-default);
   --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
+  --ic-alert-border-ai: rgba(255 255 255 0%);
   --ic-alert-border-success: rgba(255 255 255 0%);
   --ic-alert-border-error: rgba(255 255 255 0%);
   --ic-alert-border-warning: rgba(255 255 255 0%);
@@ -460,6 +464,7 @@ ic-theme,
   --ic-badge-warning-icon: var(--ic-color-icon-neutral);
   --ic-badge-text-monochrome: var(--ic-color-text-primary);
   --ic-badge-icon-monochrome: var(--ic-color-icon-neutral);
+  --ic-badge-ai: var(--ic-status-anomalous-default);
   --ic-badge-success: var(--ic-status-success-default);
   --ic-badge-warning: var(--ic-status-warning-default);
   --ic-badge-error: var(--ic-status-error-default);
@@ -2033,11 +2038,13 @@ ic-theme,
     );
 
     /* Alert */
+    --ic-alert-background-ai: var(--ic-status-anomalous-dark-dm);
     --ic-alert-background-success: var(--ic-status-success-dark-dm);
     --ic-alert-background-error: var(--ic-status-error-dark-dm);
     --ic-alert-background-warning: var(--ic-status-warning-dark-dm);
     --ic-alert-background-info: var(--ic-status-info-dark-dm);
     --ic-alert-background-neutral: var(--ic-status-unknown-dark-dm);
+    --ic-alert-status-type-ai: var(--ic-status-anomalous-default-dm);
     --ic-alert-status-type-success: var(--ic-status-success-default-dm);
     --ic-alert-status-type-error: var(--ic-status-error-contrast-dm);
     --ic-alert-status-type-warning: var(--ic-status-warning-contrast-dm);
@@ -2045,12 +2052,14 @@ ic-theme,
     --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast-dm);
     --ic-alert-title: var(--ic-color-text-primary);
     --ic-alert-description: var(--ic-color-text-primary);
+    --ic-alert-icon-ai: var(--ic-status-anomalous-contrast);
     --ic-alert-icon-success: var(--ic-status-success-contrast);
     --ic-alert-icon-error: var(--ic-status-error-contrast);
     --ic-alert-icon-warning: var(--ic-status-warning-contrast);
     --ic-alert-icon-info: var(--ic-status-info-contrast);
     --ic-alert-icon-neutral: var(--ic-status-unknown-contrast);
     --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
+    --ic-alert-border-ai: var(--ic-status-anomalous-contrast);
     --ic-alert-border-success: var(--ic-status-success-contrast);
     --ic-alert-border-error: var(--ic-status-error-contrast);
     --ic-alert-border-warning: var(--ic-status-warning-contrast);
@@ -2064,6 +2073,7 @@ ic-theme,
     --ic-badge-warning-icon: var(--ic-color-icon-neutral);
     --ic-badge-text-monochrome: var(--ic-color-text-primary);
     --ic-badge-icon-monochrome: var(--ic-color-icon-inverted);
+    --ic-badge-ai: var(--ic-status-anomalous-contrast);
     --ic-badge-success: var(--ic-status-success-contrast);
     --ic-badge-warning: var(--ic-status-warning-contrast);
     --ic-badge-error: var(--ic-status-error-contrast);
@@ -3691,11 +3701,13 @@ ic-theme,
   );
 
   /* Alert */
+  --ic-alert-background-ai: var(--ic-status-anomalous-dark-dm);
   --ic-alert-background-success: var(--ic-status-success-dark-dm);
   --ic-alert-background-error: var(--ic-status-error-dark-dm);
   --ic-alert-background-warning: var(--ic-status-warning-dark-dm);
   --ic-alert-background-info: var(--ic-status-info-dark-dm);
   --ic-alert-background-neutral: var(--ic-status-unknown-dark-dm);
+  --ic-alert-status-type-ai: var(--ic-status-anomalous-default-dm);
   --ic-alert-status-type-success: var(--ic-status-success-default-dm);
   --ic-alert-status-type-error: var(--ic-status-error-contrast-dm);
   --ic-alert-status-type-warning: var(--ic-status-warning-contrast-dm);
@@ -3703,12 +3715,14 @@ ic-theme,
   --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast-dm);
   --ic-alert-title: var(--ic-color-text-primary);
   --ic-alert-description: var(--ic-color-text-primary);
+  --ic-alert-icon-ai: var(--ic-status-anomalous-contrast);
   --ic-alert-icon-success: var(--ic-status-success-contrast);
   --ic-alert-icon-error: var(--ic-status-error-contrast);
   --ic-alert-icon-warning: var(--ic-status-warning-contrast);
   --ic-alert-icon-info: var(--ic-status-info-contrast);
   --ic-alert-icon-neutral: var(--ic-status-unknown-contrast);
   --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
+  --ic-alert-border-ai: var(--ic-status-anomalous-contrast);
   --ic-alert-border-success: var(--ic-status-success-contrast);
   --ic-alert-border-error: var(--ic-status-error-contrast);
   --ic-alert-border-warning: var(--ic-status-warning-contrast);
@@ -3722,6 +3736,7 @@ ic-theme,
   --ic-badge-warning-icon: var(--ic-color-icon-neutral);
   --ic-badge-text-monochrome: var(--ic-color-text-primary);
   --ic-badge-icon-monochrome: var(--ic-color-icon-inverted);
+  --ic-badge-ai: var(--ic-status-anomalous-contrast);
   --ic-badge-success: var(--ic-status-success-contrast);
   --ic-badge-warning: var(--ic-status-warning-contrast);
   --ic-badge-error: var(--ic-status-error-contrast);

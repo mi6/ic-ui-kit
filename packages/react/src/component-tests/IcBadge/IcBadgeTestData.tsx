@@ -383,6 +383,15 @@ export const ThemeDark = (): ReactElement => {
         <IcBadge label="1" variant="info" slot="badge" theme="dark" />
         Info
       </IcButton>
+      <IcButton
+        variant="secondary"
+        theme="dark"
+        monochrome
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge label="1" variant="ai" slot="badge" theme="dark" />
+        AI
+      </IcButton>
     </div>
   );
 };
@@ -460,6 +469,17 @@ export const ThemeDarkIcon = (): ReactElement => {
           <ReusableSlottedIcon />
         </IcBadge>
         Info
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        theme="dark"
+        monochrome
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge type="icon" slot="badge" theme="dark" variant="ai">
+          <ReusableSlottedIcon />
+        </IcBadge>
+        AI
       </IcButton>
     </div>
   );

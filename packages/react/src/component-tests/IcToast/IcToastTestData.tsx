@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, FC } from "react";
 import { IcToast, IcButton, IcToastRegion, SlottedSVG, IcLink } from "../..";
+import { IcStatusVariants } from "@ukic/web-components";
 
-export const SimpleToast = () => {
+export const ToastTypes: FC<{ variant: IcStatusVariants }> = ({ variant }) => {
   const toastRegionEl = useRef<any>(null);
   const toastEl = useRef<any>(null);
   const handleClick = () => {
@@ -15,7 +16,7 @@ export const SimpleToast = () => {
           heading="Your coffee is ready"
           ref={toastEl}
           message="Please dismiss and collect"
-          variant="neutral"
+          variant={variant}
         />
       </IcToastRegion>
     </>

@@ -3,6 +3,7 @@ import infoIcon from "../assets/info-icon.svg";
 import neutralIcon from "../assets/neutral-icon.svg";
 import successIcon from "../assets/success-icon.svg";
 import warningIcon from "../assets/warning-icon.svg";
+import aiIcon from "../assets/ai-icon.svg";
 
 // Global status icons
 export const VARIANT_ICONS = {
@@ -25,6 +26,10 @@ export const VARIANT_ICONS = {
   success: {
     icon: successIcon,
     ariaLabel: "Success",
+  },
+  ai: {
+    icon: aiIcon,
+    ariaLabel: "AI",
   },
 };
 
