@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IcCalendar } from "../components";
-import readme from "../../../canary-web-components/src/components/ic-calendar/readme.md";
+import readme from "../../../web-components/src/components/ic-calendar/readme.md";
 
 export default {
     title: "React Components/Calendar",
@@ -13,7 +13,7 @@ export default {
 }
 
 const defaultArgs = {
-    dateFormat: "dd/mm/yyyy",
+    dateFormat: "DD/MM/YYYY",
     disabled: false,
     disableDays: [],
     disableFuture: false,
@@ -29,7 +29,15 @@ const defaultArgs = {
     value: "",
 }
 
-
+const weekDays = {
+  Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+};
 
 export const Default = {
   render: () => {
@@ -67,4 +75,40 @@ export const Playground = {
   render: (args) => <IcCalendar {...args} />,
   name: "Playground",
   args: defaultArgs,
+  argTypes: {
+    dateFormat: {
+      options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    size: {
+      options: ["small", "medium", "large"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    startOfWeek: {
+      options: Object.keys(weekDays),
+      mapping: weekDays,
+      control: {
+        type: "inline-radio", 
+        labels: {
+          Sunday: "Sunday",
+          Monday: "Monday",
+          Tuesday: "Tuesday",
+          Wednesday: "Wednesday",
+          Thursday: "Thursday",
+          Friday: "Friday",
+          Saturday: "Saturday",
+        },
+      },
+    },
+    theme: {
+      options: ["inherit", "light", "dark"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+  }
 };

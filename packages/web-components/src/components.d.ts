@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDateFormat, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail, IcWeekDays } from "./utils/types";
 import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -35,7 +35,7 @@ import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDateFormat, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail, IcWeekDays } from "./utils/types";
 export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -472,6 +472,68 @@ export namespace Components {
           * The variant of the button to be displayed.
          */
         "variant": IcButtonVariants;
+    }
+    interface IcCalendar {
+        /**
+          * The format in which the date will be displayed.
+         */
+        "dateFormat": IcDateFormat;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * If `true`, dates in the future are not allowed.
+         */
+        "disableFuture"?: boolean;
+        /**
+          * If `true`, dates in the past are not allowed.
+         */
+        "disablePast"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled": boolean;
+        /**
+          * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+         */
+        "max": string | Date;
+        /**
+          * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+         */
+        "min": string | Date;
+        /**
+          * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "openAtDate": string | Date;
+        /**
+          * If `true`, the `Clear` button on the calendar will be visible.
+         */
+        "showClearButton"?: boolean;
+        /**
+          * If `true`, days outside the current month will be visible in the calendar.
+         */
+        "showDaysOutsideMonth"?: boolean;
+        /**
+          * If `true`, the `Go to today` button on the calendar will be visible.
+         */
+        "showTodayButton"?: boolean;
+        /**
+          * The size of the calendar to be displayed.
+         */
+        "size": IcSizes;
+        /**
+          * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "startOfWeek": IcWeekDays;
+        /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value of the calendar and the date visible when the calendar opens. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: Date | string | null | undefined;
     }
     interface IcCardVertical {
         /**
@@ -2621,6 +2683,10 @@ export interface IcButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcButtonElement;
 }
+export interface IcCalendarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcCalendarElement;
+}
 export interface IcCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcCheckboxElement;
@@ -2826,6 +2892,27 @@ declare global {
     var HTMLIcButtonElement: {
         prototype: HTMLIcButtonElement;
         new (): HTMLIcButtonElement;
+    };
+    interface HTMLIcCalendarElementEventMap {
+        "icChange": { selectedDate: Date | null };
+        "icCalendarClearButtonClick": void;
+        "icCalendarDaySelect": void;
+        "icCalendarMonthSelect": void;
+        "icCalendarYearSelect": void;
+    }
+    interface HTMLIcCalendarElement extends Components.IcCalendar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcCalendarElementEventMap>(type: K, listener: (this: HTMLIcCalendarElement, ev: IcCalendarCustomEvent<HTMLIcCalendarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcCalendarElementEventMap>(type: K, listener: (this: HTMLIcCalendarElement, ev: IcCalendarCustomEvent<HTMLIcCalendarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcCalendarElement: {
+        prototype: HTMLIcCalendarElement;
+        new (): HTMLIcCalendarElement;
     };
     interface HTMLIcCardVerticalElement extends Components.IcCardVertical, HTMLStencilElement {
     }
@@ -3558,6 +3645,7 @@ declare global {
         "ic-breadcrumb": HTMLIcBreadcrumbElement;
         "ic-breadcrumb-group": HTMLIcBreadcrumbGroupElement;
         "ic-button": HTMLIcButtonElement;
+        "ic-calendar": HTMLIcCalendarElement;
         "ic-card-vertical": HTMLIcCardVerticalElement;
         "ic-checkbox": HTMLIcCheckboxElement;
         "ic-checkbox-group": HTMLIcCheckboxGroupElement;
@@ -4021,6 +4109,88 @@ declare namespace LocalJSX {
           * The variant of the button to be displayed.
          */
         "variant"?: IcButtonVariants;
+    }
+    interface IcCalendar {
+        /**
+          * The format in which the date will be displayed.
+         */
+        "dateFormat"?: IcDateFormat;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * If `true`, dates in the future are not allowed.
+         */
+        "disableFuture"?: boolean;
+        /**
+          * If `true`, dates in the past are not allowed.
+         */
+        "disablePast"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+         */
+        "min"?: string | Date;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onIcCalendarClearButtonClick"?: (event: IcCalendarCustomEvent<void>) => void;
+        /**
+          * Emitted when a day is selected.
+         */
+        "onIcCalendarDaySelect"?: (event: IcCalendarCustomEvent<void>) => void;
+        /**
+          * Emitted when a month is selected.
+         */
+        "onIcCalendarMonthSelect"?: (event: IcCalendarCustomEvent<void>) => void;
+        /**
+          * Emitted when a year is selected.
+         */
+        "onIcCalendarYearSelect"?: (event: IcCalendarCustomEvent<void>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onIcChange"?: (event: IcCalendarCustomEvent<{ selectedDate: Date | null }>) => void;
+        /**
+          * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "openAtDate"?: string | Date;
+        /**
+          * If `true`, the `Clear` button on the calendar will be visible.
+         */
+        "showClearButton"?: boolean;
+        /**
+          * If `true`, days outside the current month will be visible in the calendar.
+         */
+        "showDaysOutsideMonth"?: boolean;
+        /**
+          * If `true`, the `Go to today` button on the calendar will be visible.
+         */
+        "showTodayButton"?: boolean;
+        /**
+          * The size of the calendar to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "startOfWeek"?: IcWeekDays;
+        /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value of the calendar and the date visible when the calendar opens. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: Date | string | null | undefined;
     }
     interface IcCardVertical {
         /**
@@ -6291,6 +6461,7 @@ declare namespace LocalJSX {
         "ic-breadcrumb": IcBreadcrumb;
         "ic-breadcrumb-group": IcBreadcrumbGroup;
         "ic-button": IcButton;
+        "ic-calendar": IcCalendar;
         "ic-card-vertical": IcCardVertical;
         "ic-checkbox": IcCheckbox;
         "ic-checkbox-group": IcCheckboxGroup;
@@ -6363,6 +6534,7 @@ declare module "@stencil/core" {
             "ic-breadcrumb": LocalJSX.IcBreadcrumb & JSXBase.HTMLAttributes<HTMLIcBreadcrumbElement>;
             "ic-breadcrumb-group": LocalJSX.IcBreadcrumbGroup & JSXBase.HTMLAttributes<HTMLIcBreadcrumbGroupElement>;
             "ic-button": LocalJSX.IcButton & JSXBase.HTMLAttributes<HTMLIcButtonElement>;
+            "ic-calendar": LocalJSX.IcCalendar & JSXBase.HTMLAttributes<HTMLIcCalendarElement>;
             "ic-card-vertical": LocalJSX.IcCardVertical & JSXBase.HTMLAttributes<HTMLIcCardVerticalElement>;
             "ic-checkbox": LocalJSX.IcCheckbox & JSXBase.HTMLAttributes<HTMLIcCheckboxElement>;
             "ic-checkbox-group": LocalJSX.IcCheckboxGroup & JSXBase.HTMLAttributes<HTMLIcCheckboxGroupElement>;

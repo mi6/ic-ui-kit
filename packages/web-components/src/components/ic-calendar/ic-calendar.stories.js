@@ -11,14 +11,17 @@ export default {
   },
 };
 
+const INLINE_RADIO = "inline-radio";
+
 const defaultArgs = {
-  ["date-format"]: "dd/mm/yyyy",
+  ["date-format"]: "DD/MM/YYYY",
   disabled: false,
   ["disable-days"]: [],
   ["disable-future"]: false,
   ["disable-past"]: false,
   max: "",
   min: "",
+  ["open-at-date"]: "",
   ["show-clear-button"]: true,
   ["show-days-outside-month"]: true,
   ["show-today-button"]: true,
@@ -26,6 +29,16 @@ const defaultArgs = {
   ["start-of-week"]: 1,
   theme: "inherit",
   value: "",
+};
+
+const weekDays = {
+  Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
 };
 
 export const Default = {
@@ -41,7 +54,10 @@ export const Default = {
         }
       });
     }, 0);
-    return html`<ic-calendar id="default"></ic-calendar>
+    return html`<ic-calendar
+        id="default"
+        open-at-date="04/11/2001"
+      ></ic-calendar>
       <span>
         <ic-typography id="selected-date-display" style="top: 400px"
           >No date selected</ic-typography
@@ -64,6 +80,7 @@ export const Playground = {
       disable-past=${args["disable-past"]}
       max=${args.max}
       min=${args.min}
+      open-at-date=${args.openAtDate}
       show-clear-button=${args["show-clear-button"]}
       show-days-outside-month=${args["show-days-outside-month"]}
       show-today-button=${args["show-today-button"]}
@@ -74,16 +91,34 @@ export const Playground = {
   name: "Playground",
   args: defaultArgs,
   argTypes: {
+    ["date-format"]: {
+      options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
     size: {
-      control: "inline-radio",
+      control: INLINE_RADIO,
       options: ["small", "medium", "large"],
     },
     ["start-of-week"]: {
-      control: "select",
-      options: ["0", "1", "2", "3", "4", "5", "6"],
+      options: Object.keys(weekDays),
+      mapping: weekDays,
+      control: {
+        type: INLINE_RADIO,
+        labels: {
+          Sunday: "Sunday",
+          Monday: "Monday",
+          Tuesday: "Tuesday",
+          Wednesday: "Wednesday",
+          Thursday: "Thursday",
+          Friday: "Friday",
+          Saturday: "Saturday",
+        },
+      },
     },
     theme: {
-      control: "inline-radio",
+      control: INLINE_RADIO,
       options: ["inherit", "light", "dark"],
     },
   },

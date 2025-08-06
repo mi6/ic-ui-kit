@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-accordion/ic-accordion.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion",
-      "readme": "# ic-accordion\r\n\r\n\r\n\r",
+      "readme": "# ic-accordion\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -268,7 +268,7 @@
       "filePath": "src/components/ic-accordion-group/ic-accordion-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion-group",
-      "readme": "# ic-accordion-title\r\n\r\n\r\n\r",
+      "readme": "# ic-accordion-title\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -538,7 +538,7 @@
       "filePath": "src/components/ic-action-chip/ic-action-chip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-action-chip",
-      "readme": "# ic-action-chip\r\n\r\n\r\n\r",
+      "readme": "# ic-action-chip\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1202,7 +1202,7 @@
       "filePath": "src/components/ic-alert/ic-alert.tsx",
       "encapsulation": "shadow",
       "tag": "ic-alert",
-      "readme": "# ic-alert\r\n\r\n\r\n\r",
+      "readme": "# ic-alert\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1526,7 +1526,7 @@
       "filePath": "src/components/ic-back-to-top/ic-back-to-top.tsx",
       "encapsulation": "shadow",
       "tag": "ic-back-to-top",
-      "readme": "# ic-back-to-top\r\n\r\n\r\n\r",
+      "readme": "# ic-back-to-top\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1729,7 +1729,7 @@
       "filePath": "src/components/ic-badge/ic-badge.tsx",
       "encapsulation": "shadow",
       "tag": "ic-badge",
-      "readme": "# ic-badge\r\n\r\n\r\n\r",
+      "readme": "# ic-badge\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -2147,7 +2147,7 @@
       "filePath": "src/components/ic-breadcrumb/ic-breadcrumb.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb",
-      "readme": "# ic-breadcrumb\r\n\r\n\r\n\r",
+      "readme": "# ic-breadcrumb\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -2284,7 +2284,7 @@
       "filePath": "src/components/ic-breadcrumb-group/ic-breadcrumb-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb-group",
-      "readme": "# ic-breadcrumb-group\r\n\r\n\r\n\r",
+      "readme": "# ic-breadcrumb-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2424,7 +2424,7 @@
       "filePath": "src/components/ic-button/ic-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-button",
-      "readme": "# ic-button\r\n\r",
+      "readme": "# ic-button\n",
       "docs": "",
       "docsTags": [
         {
@@ -3467,6 +3467,7 @@
         "ic-accordion-group",
         "ic-alert",
         "ic-back-to-top",
+        "ic-calendar",
         "ic-dialog",
         "ic-horizontal-scroll",
         "ic-menu",
@@ -3505,6 +3506,9 @@
           "ic-button"
         ],
         "ic-back-to-top": [
+          "ic-button"
+        ],
+        "ic-calendar": [
           "ic-button"
         ],
         "ic-dialog": [
@@ -3549,10 +3553,624 @@
       }
     },
     {
+      "filePath": "src/components/ic-calendar/ic-calendar.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-calendar",
+      "readme": "# ic-calendar\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "dateFormat",
+          "type": "\"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\"",
+          "complexType": {
+            "original": "IcDateFormat",
+            "resolved": "\"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\"",
+            "references": {
+              "IcDateFormat": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcDateFormat"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "date-format",
+          "reflectToAttr": false,
+          "docs": "The format in which the date will be displayed.",
+          "docsTags": [],
+          "default": "\"DD/MM/YYYY\"",
+          "values": [
+            {
+              "value": "DD/MM/YYYY",
+              "type": "string"
+            },
+            {
+              "value": "MM/DD/YYYY",
+              "type": "string"
+            },
+            {
+              "value": "YYYY/MM/DD",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disableDays",
+          "type": "IcWeekDays[] | undefined",
+          "complexType": {
+            "original": "IcWeekDays[]",
+            "resolved": "IcWeekDays[] | undefined",
+            "references": {
+              "IcWeekDays": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcWeekDays"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The days of the week to disable.",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "IcWeekDays[]"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disableFuture",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-future",
+          "reflectToAttr": false,
+          "docs": "If `true`, dates in the future are not allowed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disablePast",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-past",
+          "reflectToAttr": false,
+          "docs": "If `true`, dates in the past are not allowed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the disabled state will be set.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "max",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "min",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "openAtDate",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "open-at-date",
+          "reflectToAttr": false,
+          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showClearButton",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-clear-button",
+          "reflectToAttr": false,
+          "docs": "If `true`, the `Clear` button on the calendar will be visible.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showDaysOutsideMonth",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-days-outside-month",
+          "reflectToAttr": false,
+          "docs": "If `true`, days outside the current month will be visible in the calendar.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showTodayButton",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-today-button",
+          "reflectToAttr": false,
+          "docs": "If `true`, the `Go to today` button on the calendar will be visible.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the calendar to be displayed.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "startOfWeek",
+          "type": "IcWeekDays.Friday | IcWeekDays.Monday | IcWeekDays.Saturday | IcWeekDays.Sunday | IcWeekDays.Thursday | IcWeekDays.Tuesday | IcWeekDays.Wednesday",
+          "complexType": {
+            "original": "IcWeekDays",
+            "resolved": "IcWeekDays.Friday | IcWeekDays.Monday | IcWeekDays.Saturday | IcWeekDays.Sunday | IcWeekDays.Thursday | IcWeekDays.Tuesday | IcWeekDays.Wednesday",
+            "references": {
+              "IcWeekDays": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcWeekDays"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "start-of-week",
+          "reflectToAttr": false,
+          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\nDefault is Monday.",
+          "docsTags": [],
+          "default": "IcWeekDays.Monday",
+          "values": [
+            {
+              "type": "IcWeekDays.Friday"
+            },
+            {
+              "type": "IcWeekDays.Monday"
+            },
+            {
+              "type": "IcWeekDays.Saturday"
+            },
+            {
+              "type": "IcWeekDays.Sunday"
+            },
+            {
+              "type": "IcWeekDays.Thursday"
+            },
+            {
+              "type": "IcWeekDays.Tuesday"
+            },
+            {
+              "type": "IcWeekDays.Wednesday"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the date picker to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "Date | null | string | undefined",
+          "complexType": {
+            "original": "Date | string | null | undefined",
+            "resolved": "Date | null | string | undefined",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of the calendar and the date visible when the calendar opens.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "icCalendarClearButtonClick",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "icCalendarDaySelect",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a day is selected.",
+          "docsTags": []
+        },
+        {
+          "event": "icCalendarMonthSelect",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a month is selected.",
+          "docsTags": []
+        },
+        {
+          "event": "icCalendarYearSelect",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a year is selected.",
+          "docsTags": []
+        },
+        {
+          "event": "icChange",
+          "detail": "{ selectedDate: Date | null; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ selectedDate: Date | null }",
+            "resolved": "{ selectedDate: Date | null; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-calendar",
+          "annotation": "prop",
+          "docs": "z-index of calendar."
+        }
+      ],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-button",
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-calendar": [
+          "ic-button",
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-card-vertical/ic-card-vertical.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-vertical",
-      "readme": "# ic-card-vertical\r\n\r\n\r\n\r",
+      "readme": "# ic-card-vertical\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4105,7 +4723,7 @@
       "filePath": "src/components/ic-checkbox/ic-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox",
-      "readme": "# ic-checkbox\r\n\r\n\r\n\r",
+      "readme": "# ic-checkbox\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4563,7 +5181,7 @@
       "filePath": "src/components/ic-checkbox-group/ic-checkbox-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox-group",
-      "readme": "# ic-checkbox-group\r\n\r\n\r\n\r",
+      "readme": "# ic-checkbox-group\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4925,7 +5543,7 @@
       "filePath": "src/components/ic-chip/ic-chip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-chip",
-      "readme": "# ic-chip\r\n\r\n\r\n\r",
+      "readme": "# ic-chip\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5288,7 +5906,7 @@
       "filePath": "src/components/ic-classification-banner/ic-classification-banner.tsx",
       "encapsulation": "shadow",
       "tag": "ic-classification-banner",
-      "readme": "# ic-classification-banner\r\n\r\n\r\n\r",
+      "readme": "# ic-classification-banner\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -5478,7 +6096,7 @@
       "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-list",
-      "readme": "# ic-data-list\r\n\r\n\r\n\r",
+      "readme": "# ic-data-list\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5620,7 +6238,7 @@
       "filePath": "src/components/ic-data-row/ic-data-row.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-row",
-      "readme": "# ic-data-row\r\n\r\n\r\n\r",
+      "readme": "# ic-data-row\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5804,7 +6422,7 @@
       "filePath": "src/components/ic-dialog/ic-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ic-dialog",
-      "readme": "# ic-dialog\r\n\r\n\r\n\r",
+      "readme": "# ic-dialog\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -6340,7 +6958,7 @@
       "filePath": "src/components/ic-divider/ic-divider.tsx",
       "encapsulation": "scoped",
       "tag": "ic-divider",
-      "readme": "# ic-divider\r\n\r\n\r\n\r",
+      "readme": "# ic-divider\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6690,7 +7308,7 @@
       "filePath": "src/components/ic-empty-state/ic-empty-state.tsx",
       "encapsulation": "shadow",
       "tag": "ic-empty-state",
-      "readme": "# ic-empty-state\r\n\r\n\r\n\r",
+      "readme": "# ic-empty-state\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -6988,7 +7606,7 @@
       "filePath": "src/components/ic-footer/ic-footer.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer",
-      "readme": "# ic-footer\r\n\r\n\r\n\r",
+      "readme": "# ic-footer\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -7255,7 +7873,7 @@
       "filePath": "src/components/ic-footer-link/ic-footer-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link",
-      "readme": "# ic-footer-link\r\n\r\n\r\n\r",
+      "readme": "# ic-footer-link\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7491,7 +8109,7 @@
       "filePath": "src/components/ic-footer-link-group/ic-footer-link-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link-group",
-      "readme": "# ic-footer-link-group\r\n\r\n\r\n\r",
+      "readme": "# ic-footer-link-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7555,7 +8173,7 @@
       "filePath": "src/components/ic-hero/ic-hero.tsx",
       "encapsulation": "shadow",
       "tag": "ic-hero",
-      "readme": "# ic-hero\r\n\r\n\r\n\r",
+      "readme": "# ic-hero\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -7905,7 +8523,7 @@
       "filePath": "src/components/ic-horizontal-scroll/ic-horizontal-scroll.tsx",
       "encapsulation": "shadow",
       "tag": "ic-horizontal-scroll",
-      "readme": "# ic-horizontal-scroll\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-scroll\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7997,7 +8615,7 @@
       "filePath": "src/components/ic-input-component-container/ic-input-component-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-component-container",
-      "readme": "# ic-input-container\r\n\r\n\r\n\r",
+      "readme": "# ic-input-container\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8329,7 +8947,7 @@
       "filePath": "src/components/ic-input-container/ic-input-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-container",
-      "readme": "# ic-input-container\r\n\r\n\r\n\r",
+      "readme": "# ic-input-container\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8417,7 +9035,7 @@
       "filePath": "src/components/ic-input-label/ic-input-label.tsx",
       "encapsulation": "none",
       "tag": "ic-input-label",
-      "readme": "# ic-input-label\r\n\r\n\r\n\r",
+      "readme": "# ic-input-label\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8668,7 +9286,7 @@
       "filePath": "src/components/ic-input-validation/ic-input-validation.tsx",
       "encapsulation": "none",
       "tag": "ic-input-validation",
-      "readme": "# ic-input-validation\r\n\r\n\r\n\r",
+      "readme": "# ic-input-validation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8880,7 +9498,7 @@
       "filePath": "src/components/ic-link/ic-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-link",
-      "readme": "# ic-link\r\n\r\n\r\n\r",
+      "readme": "# ic-link\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -9220,7 +9838,7 @@
       "filePath": "src/components/ic-loading-indicator/ic-loading-indicator.tsx",
       "encapsulation": "shadow",
       "tag": "ic-loading-indicator",
-      "readme": "# ic-loading\r\n\r\n\r\n\r",
+      "readme": "# ic-loading\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -9590,7 +10208,7 @@
       "filePath": "src/components/ic-menu/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu",
-      "readme": "# ic-menu\r\n\r\n\r\n\r",
+      "readme": "# ic-menu\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10093,7 +10711,7 @@
       "filePath": "src/components/ic-menu-group/ic-menu-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-group",
-      "readme": "# ic-menu-group\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10145,7 +10763,7 @@
       "filePath": "src/components/ic-menu-item/ic-menu-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-item",
-      "readme": "# ic-menu-item\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -10584,7 +11202,7 @@
       "filePath": "src/components/ic-navigation-button/ic-navigation-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-button",
-      "readme": "# ic-navigation-button\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-button\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -10943,7 +11561,7 @@
       "filePath": "src/components/ic-navigation-group/ic-navigation-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-group",
-      "readme": "# ic-navigation-group\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -11131,7 +11749,7 @@
       "filePath": "src/components/ic-navigation-item/ic-navigation-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-item",
-      "readme": "# ic-navigation-item\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -11506,7 +12124,7 @@
       "filePath": "src/components/ic-navigation-menu/ic-navigation-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-menu",
-      "readme": "# ic-navigation-menu\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-menu\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -11682,7 +12300,7 @@
       "filePath": "src/components/ic-page-header/ic-page-header.tsx",
       "encapsulation": "shadow",
       "tag": "ic-page-header",
-      "readme": "# ic-page-header\r\n\r\n\r\n\r",
+      "readme": "# ic-page-header\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -12080,7 +12698,7 @@
       "filePath": "src/components/ic-pagination/ic-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination",
-      "readme": "# ic-pagination\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12535,7 +13153,7 @@
       "filePath": "src/components/ic-pagination-item/ic-pagination-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-item",
-      "readme": "# ic-pagination-item\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-item\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12777,7 +13395,7 @@
       "filePath": "src/components/ic-popover-menu/ic-popover-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-popover-menu",
-      "readme": "# ic-popover-menu\r\n\r\nThis is a wrapper component to be placed around one or more ic-menu-item components.\r\n\r",
+      "readme": "# ic-popover-menu\n\nThis is a wrapper component to be placed around one or more ic-menu-item components.\n",
       "docs": "This is a wrapper component to be placed around one or more ic-menu-item components.",
       "docsTags": [],
       "usage": {},
@@ -12999,7 +13617,7 @@
       "filePath": "src/components/ic-radio-group/ic-radio-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-radio-group",
-      "readme": "# ic-radio-group\r\n\r\n\r\n\r",
+      "readme": "# ic-radio-group\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -13418,7 +14036,7 @@
       "filePath": "src/components/ic-radio-option/ic-radio-option.tsx",
       "encapsulation": "none",
       "tag": "ic-radio-option",
-      "readme": "# ic-radio-option\r\n\r\n\r\n\r",
+      "readme": "# ic-radio-option\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -13811,7 +14429,7 @@
       "filePath": "src/components/ic-search-bar/ic-search-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-search-bar",
-      "readme": "# ic-search-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-search-bar\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -13871,10 +14489,10 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
@@ -13891,15 +14509,15 @@
           "default": "\"off\"",
           "values": [
             {
-              "value": "name",
-              "type": "string"
-            },
-            {
               "value": "on",
               "type": "string"
             },
             {
               "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "name",
               "type": "string"
             },
             {
@@ -15149,7 +15767,7 @@
       "filePath": "src/components/ic-section-container/ic-section-container.tsx",
       "encapsulation": "shadow",
       "tag": "ic-section-container",
-      "readme": "# ic-section-container\r\n\r\n\r\n\r",
+      "readme": "# ic-section-container\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -15260,7 +15878,7 @@
       "filePath": "src/components/ic-select/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select",
-      "readme": "# ic-select\r\n\r\n\r\n\r",
+      "readme": "# ic-select\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -16341,7 +16959,7 @@
       "filePath": "src/components/ic-side-navigation/ic-side-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-side-navigation",
-      "readme": "# ic-side-navigation\r\n\r\n\r\n\r",
+      "readme": "# ic-side-navigation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -16747,8 +17365,8 @@
       "filePath": "src/components/ic-skeleton/ic-skeleton.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skeleton",
-      "readme": "# ic-skeleton\r\n\r\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \r\n\r",
-      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
+      "readme": "# ic-skeleton\n\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \n",
+      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -16851,7 +17469,7 @@
       "filePath": "src/components/ic-skip-link/ic-skip-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skip-link",
-      "readme": "# ic-skip-link\r\n\r\n\r\n\r",
+      "readme": "# ic-skip-link\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17088,7 +17706,7 @@
       "filePath": "src/components/ic-status-tag/ic-status-tag.tsx",
       "encapsulation": "shadow",
       "tag": "ic-status-tag",
-      "readme": "# ic-status-tag\r\n\r\n\r\n\r",
+      "readme": "# ic-status-tag\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17353,7 +17971,7 @@
       "filePath": "src/components/ic-step/ic-step.tsx",
       "encapsulation": "shadow",
       "tag": "ic-step",
-      "readme": "# ic-step\r\n\r\n\r\n\r",
+      "readme": "# ic-step\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17519,7 +18137,7 @@
       "filePath": "src/components/ic-stepper/ic-stepper.tsx",
       "encapsulation": "shadow",
       "tag": "ic-stepper",
-      "readme": "# ic-stepper\r\n\r\nThis is a wrapper component to be placed around one or more ic-step components\r\n\r",
+      "readme": "# ic-stepper\n\nThis is a wrapper component to be placed around one or more ic-step components\n",
       "docs": "This is a wrapper component to be placed around one or more ic-step components",
       "docsTags": [],
       "usage": {},
@@ -17711,7 +18329,7 @@
       "filePath": "src/components/ic-switch/ic-switch.tsx",
       "encapsulation": "shadow",
       "tag": "ic-switch",
-      "readme": "# ic-switch\r\n\r\n\r\n\r",
+      "readme": "# ic-switch\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -18098,7 +18716,7 @@
       "filePath": "src/components/ic-tab/ic-tab.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab",
-      "readme": "# ic-tab\r\n\r\n\r\n\r",
+      "readme": "# ic-tab\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -18192,7 +18810,7 @@
       "filePath": "src/components/ic-tab-context/ic-tab-context.tsx",
       "encapsulation": "none",
       "tag": "ic-tab-context",
-      "readme": "# ic-tab-context\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-context\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -18414,7 +19032,7 @@
       "filePath": "src/components/ic-tab-group/ic-tab-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-group",
-      "readme": "# ic-tab-group\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -18504,7 +19122,7 @@
       "filePath": "src/components/ic-tab-panel/ic-tab-panel.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-panel",
-      "readme": "# ic-tab-panel\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-panel\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -18523,7 +19141,7 @@
       "filePath": "src/components/ic-text-field/ic-text-field.tsx",
       "encapsulation": "shadow",
       "tag": "ic-text-field",
-      "readme": "# ic-textfield\r\n\r\n\r\n\r",
+      "readme": "# ic-textfield\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -19712,7 +20330,7 @@
       "filePath": "src/components/ic-theme/ic-theme.tsx",
       "encapsulation": "none",
       "tag": "ic-theme",
-      "readme": "# ic-theme\r\n\r\n\r\n\r",
+      "readme": "# ic-theme\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -19837,7 +20455,7 @@
       "filePath": "src/components/ic-toast/ic-toast.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toast",
-      "readme": "# ic-toast\r\n\r\n\r\n\r",
+      "readme": "# ic-toast\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -20155,7 +20773,7 @@
       "filePath": "src/components/ic-toast-region/ic-toast-region.tsx",
       "encapsulation": "none",
       "tag": "ic-toast-region",
-      "readme": "# ic-toast-region\r\n\r\n\r\n\r",
+      "readme": "# ic-toast-region\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -20211,7 +20829,7 @@
       "filePath": "src/components/ic-toggle-button/ic-toggle-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button",
-      "readme": "# ic-toggle-button\r\n\r\n\r\n\r",
+      "readme": "# ic-toggle-button\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -20672,7 +21290,7 @@
       "filePath": "src/components/ic-toggle-button-group/ic-toggle-button-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button-group",
-      "readme": "# ic-toggle-button-group\r\n\r\n\r\n\r",
+      "readme": "# ic-toggle-button-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -21124,7 +21742,7 @@
       "filePath": "src/components/ic-tooltip/ic-tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tooltip",
-      "readme": "# ic-tooltip\r\n\r\n\r\n\r",
+      "readme": "# ic-tooltip\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -21476,7 +22094,7 @@
       "filePath": "src/components/ic-top-navigation/ic-top-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-top-navigation",
-      "readme": "# ic-top-navigation\r\n\r\n\r\n\r",
+      "readme": "# ic-top-navigation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -21894,7 +22512,7 @@
       "filePath": "src/components/ic-typography/ic-typography.tsx",
       "encapsulation": "shadow",
       "tag": "ic-typography",
-      "readme": "# ic-typography\r\n\r\n\r\n\r",
+      "readme": "# ic-typography\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -22210,6 +22828,7 @@
         "ic-alert",
         "ic-badge",
         "ic-button",
+        "ic-calendar",
         "ic-card-vertical",
         "ic-checkbox",
         "ic-chip",
@@ -22263,6 +22882,9 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography"
+        ],
+        "ic-calendar": [
           "ic-typography"
         ],
         "ic-card-vertical": [
@@ -22465,6 +23087,16 @@
       "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
       "docstring": "",
       "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
+    },
+    "src/utils/types.ts::IcDateFormat": {
+      "declaration": "export type IcDateFormat = \"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcWeekDays": {
+      "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcAdditionalFieldTypes": {
       "declaration": "export type IcAdditionalFieldTypes = \"static\" | \"dynamic\";",

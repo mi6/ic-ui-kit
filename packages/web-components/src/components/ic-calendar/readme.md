@@ -16,6 +16,7 @@
 | `disabled`             | `disabled`                | If `true`, the disabled state will be set.                                                                                                                                                                                                             | `boolean`                                                                                                                                                 | `false`             |
 | `max`                  | `max`                     | The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`. | `Date \| string`                                                                                                                                          | `""`                |
 | `min`                  | `min`                     | The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`. | `Date \| string`                                                                                                                                          | `""`                |
+| `openAtDate`           | `open-at-date`            | The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.                             | `Date \| string`                                                                                                                                          | `""`                |
 | `showClearButton`      | `show-clear-button`       | If `true`, the `Clear` button on the calendar will be visible.                                                                                                                                                                                         | `boolean \| undefined`                                                                                                                                    | `true`              |
 | `showDaysOutsideMonth` | `show-days-outside-month` | If `true`, days outside the current month will be visible in the calendar.                                                                                                                                                                             | `boolean \| undefined`                                                                                                                                    | `true`              |
 | `showTodayButton`      | `show-today-button`       | If `true`, the `Go to today` button on the calendar will be visible.                                                                                                                                                                                   | `boolean \| undefined`                                                                                                                                    | `true`              |
@@ -45,14 +46,10 @@
 
 ## Dependencies
 
-### Used by
-
- - [ic-date-picker](../ic-date-picker)
-
 ### Depends on
 
-- ic-button
-- ic-typography
+- [ic-button](../ic-button)
+- [ic-typography](../ic-typography)
 
 ### Graph
 ```mermaid
@@ -64,7 +61,6 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
-  ic-date-picker --> ic-calendar
   style ic-calendar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

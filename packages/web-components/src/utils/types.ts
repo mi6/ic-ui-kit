@@ -224,3 +224,50 @@ export type IcIconPlacementOptions = "left" | "right" | "top";
 export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";
 
 export type IcThemeSettings = "dark" | "light" | "system";
+
+export type IcDateFormat = "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD";
+
+export enum IcDateInputMonths {
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+}
+
+export enum IcShortDayNames {
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+}
+
+export enum IcDayNames {
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+}
+
+export enum IcWeekDays {
+  Sunday = 0,
+  Monday = 1,
+  Tuesday = 2,
+  Wednesday = 3,
+  Thursday = 4,
+  Friday = 5,
+  Saturday = 6,
+}

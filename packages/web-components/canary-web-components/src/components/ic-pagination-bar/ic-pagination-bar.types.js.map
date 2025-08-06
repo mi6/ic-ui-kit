@@ -1,0 +1,1 @@
+{"version":3,"file":"ic-pagination-bar.types.js","sourceRoot":"","sources":["../../../../../../canary-web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts"],"names":[],"mappings":"","sourcesContent":["export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}\n"]}

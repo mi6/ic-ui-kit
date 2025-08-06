@@ -43,7 +43,7 @@ interface IcCalendarProps {
   disablePast?: boolean;
   max?: Date | string;
   min?: Date | string;
-  open?: boolean;
+  openAtDate?: Date | string | undefined;
   showClearButton?: boolean;
   showDaysOutsideMonth?: boolean;
   showTodayButton?: boolean;
@@ -452,7 +452,7 @@ export class DatePicker {
       disableDays: this.disableDays,
       disableFuture: this.disableFuture,
       disablePast: this.disablePast,
-      open: this.calendarOpen,
+      openAtDate: this.openAtDate,
       showClearButton: this.showPickerClearButton,
       showDaysOutsideMonth: this.showDaysOutsideMonth,
       showTodayButton: this.showPickerTodayButton,

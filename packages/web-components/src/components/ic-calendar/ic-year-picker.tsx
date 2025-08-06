@@ -106,7 +106,7 @@ export const YearPicker: FunctionalComponent<YearPickerProps> = ({
             onFocus={handleYearFocus}
             onBlur={handleYearBlur}
             size={size}
-            ref={(el: HTMLIcButtonElement) => {
+            ref={(el: HTMLIcButtonElement | undefined) => {
               if (focussed && el) {
                 focussedYearRef(el);
               }

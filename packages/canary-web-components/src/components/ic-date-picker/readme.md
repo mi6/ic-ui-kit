@@ -68,7 +68,7 @@
 ### Depends on
 
 - [ic-date-input](../ic-date-input)
-- [ic-calendar](../ic-calendar)
+- ic-calendar
 
 ### Graph
 ```mermaid

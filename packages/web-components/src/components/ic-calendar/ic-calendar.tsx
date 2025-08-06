@@ -55,7 +55,7 @@ const FOCUS_TIMER = 100;
   },
 })
 export class Calendar {
-  private clearButtonEl: HTMLIcButtonElement | null = null;
+  private clearButtonEl: HTMLIcButtonElement | undefined;
   private daysOfWeek: string[] = [];
   private dayButtonFocussed: boolean = false;
   private dayPickerKeyboardNav: boolean = false;
@@ -65,13 +65,13 @@ export class Calendar {
   private focusDay: boolean = true;
   private focussedYearEl: HTMLIcButtonElement;
   private liveRegionEl?: HTMLElement = undefined;
-  private monthButtonEl: HTMLIcButtonElement;
+  private monthButtonEl: HTMLIcButtonElement | undefined;
   private monthNames: string[] = [];
   private monthInViewUpdateHandled: boolean = false;
   // private parentIsDatePicker: boolean = false;
   private today = new Date();
-  private todayButtonEl: HTMLIcButtonElement | null = null;
-  private yearButtonEl: HTMLIcButtonElement;
+  private todayButtonEl: HTMLIcButtonElement | undefined;
+  private yearButtonEl: HTMLIcButtonElement | undefined;
   private yearButtonFocussed: boolean = false;
 
   @Element() el: HTMLIcCalendarElement;
@@ -160,6 +160,12 @@ export class Calendar {
       this.minDate = createDate(this.min, this.dateFormat);
     }
   }
+
+  /**
+   * The date visible when the calendar opens. Used if no date is currently selected.
+   * The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+   */
+  @Prop() openAtDate: string | Date = "";
 
   /**
    * If `true`, the `Clear` button on the calendar will be visible.
@@ -284,7 +290,6 @@ export class Calendar {
     //   root instanceof ShadowRoot && root.host?.tagName === "IC-DATE-PICKER";
 
     // console.log(this.parentIsDatePicker);
-
     this.watchStartOfWeekHandler();
     this.watchMaxHandler();
     this.watchMinHandler();
@@ -293,6 +298,7 @@ export class Calendar {
   }
 
   componentWillUpdate(): void {
+    this.setInitialState();
     if (this.value) {
       this.selectedDate =
         typeof this.value === "string"
@@ -307,6 +313,13 @@ export class Calendar {
       !dateInRange(this.selectedDate, this.minDate, this.maxDate)
     ) {
       let openAt = new Date();
+      if (
+        this.openAtDate !== "" &&
+        this.openAtDate !== undefined &&
+        this.openAtDate !== null
+      ) {
+        openAt = createDate(this.openAtDate, this.dateFormat);
+      }
       if (
         this.value !== "" &&
         this.value !== undefined &&
@@ -492,7 +505,7 @@ export class Calendar {
 
   /* Focus helpers */
   private focusFirstElement = () => {
-    this.monthButtonEl.setFocus();
+    this.monthButtonEl?.setFocus();
   };
 
   private focusLastElement = () => {
@@ -885,7 +898,7 @@ export class Calendar {
       this.focusFirstElement();
       handled = true;
     } else if (ev.shiftKey) {
-      this.yearButtonEl.setFocus();
+      this.yearButtonEl?.setFocus();
       handled = true;
     }
     return handled;
@@ -1001,7 +1014,7 @@ export class Calendar {
   private handleSelectMonth = (month: number): void => {
     this.moveMonths(month - this.monthInView);
     setTimeout(() => {
-      this.monthButtonEl.setFocus();
+      this.monthButtonEl?.setFocus();
       this.monthPickerVisible = false;
       this.setMonthSelectedLiveRegionText();
     }, FOCUS_TIMER);
@@ -1017,7 +1030,7 @@ export class Calendar {
         `${year} selected. ${monthName} ${year} currently in view.`
       );
       setTimeout(() => {
-        this.yearButtonEl.setFocus();
+        this.yearButtonEl?.setFocus();
         this.yearPickerVisible = false;
       }, FOCUS_TIMER);
     } else {
@@ -1201,7 +1214,9 @@ export class Calendar {
                   {monthButtonText}
                 </span>
                 <ic-button
-                  ref={(el: HTMLIcButtonElement) => (this.monthButtonEl = el)}
+                  ref={(el: HTMLIcButtonElement | undefined) =>
+                    (this.monthButtonEl = el)
+                  }
                   size={size}
                   class="month-picker-button"
                   aria-haspopup="menu"
@@ -1223,7 +1238,9 @@ export class Calendar {
                   {yearButtonText}
                 </span>
                 <ic-button
-                  ref={(el: HTMLIcButtonElement) => (this.yearButtonEl = el)}
+                  ref={(el: HTMLIcButtonElement | undefined) =>
+                    (this.yearButtonEl = el)
+                  }
                   size={size}
                   class="year-picker-button"
                   aria-haspopup="menu"
@@ -1335,7 +1352,9 @@ export class Calendar {
                 <ic-button
                   id="today-button"
                   variant="tertiary"
-                  ref={(el: HTMLIcButtonElement) => (this.todayButtonEl = el)}
+                  ref={(el: HTMLIcButtonElement | undefined) =>
+                    (this.todayButtonEl = el)
+                  }
                   size={size}
                   aria-label="Navigate to current date"
                   onClick={this.todayButtonClickHandler}
@@ -1349,7 +1368,9 @@ export class Calendar {
                 <ic-button
                   id="clear-button"
                   aria-label="clear selected date"
-                  ref={(el: HTMLIcButtonElement) => (this.clearButtonEl = el)}
+                  ref={(el: HTMLIcButtonElement | undefined) =>
+                    (this.clearButtonEl = el)
+                  }
                   variant="tertiary"
                   size={size}
                   onClick={this.clearButtonClickHandler}
