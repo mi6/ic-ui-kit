@@ -5598,7 +5598,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--data-row-label-width",
+          "annotation": "prop",
+          "docs": "Width of the label column in the data list."
+        }
+      ],
       "slots": [
         {
           "name": "heading",
