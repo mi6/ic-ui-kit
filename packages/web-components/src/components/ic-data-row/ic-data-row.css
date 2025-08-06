@@ -19,7 +19,7 @@
 }
 
 .label {
-  width: 12.5rem;
+  width: var(--data-row-label-width, 12.5rem);
   min-width: 12.5rem;
   margin-right: var(--ic-space-md);
 

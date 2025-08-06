@@ -413,6 +413,39 @@ export const EditableExample = {
   name: "Editable example",
 };
 
+export const LabelWidth = {
+  render: () =>
+    html`<ic-data-list heading="Personal details">
+        <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
+        <ic-data-row
+          label="Date of birth with extra words to make long heading"
+          value="16 October 1995"
+        ></ic-data-row>
+        <ic-data-row
+          label="Telephone with additional words"
+          value="07449 7654873"
+        ></ic-data-row>
+        <ic-data-row label="Email" value="mjohnson@coffee.gov"></ic-data-row>
+        <ic-data-row label="Address">
+          <ic-typography variant="body" slot="value">
+            383 Coffee Drive
+            <br />
+            London
+            <br />
+            SW7 988
+            <br />
+            United Kingdom
+          </ic-typography>
+        </ic-data-row>
+      </ic-data-list>
+      <script>
+        const dataList = document.querySelector("ic-data-list");
+        dataList.style.setProperty("--data-row-label-width", "30rem");
+      </script>`,
+
+  name: "With label width",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {
