@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useRef } from "react";
 import { IcDataTableColumnObject } from "@ukic/canary-web-components";
 import {
@@ -107,7 +108,7 @@ export const newData = (): { [key: string]: any }[] => {
   }));
 };
 
-export const DataTableWithPopover = () => {
+export const DataTableWithPopover = (): JSX.Element => {
   return (
     <IcDataTable
       caption="Slotted elements with pagination"

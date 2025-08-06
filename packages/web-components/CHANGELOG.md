@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.7.0...@ukic/web-components@3.8.0) (2025-08-06)
+
+### Bug Fixes
+
+- **web-components:** add clock button to button css to remove focus. Add time picker tokens. ([b889522](https://github.com/mi6/ic-ui-kit/commit/b8895223491d277da4e74ee463c67d7b13d139fb))
+- **web-components:** update component list to exclude action chip from canary ([0ce4785](https://github.com/mi6/ic-ui-kit/commit/0ce4785f4ffac85dbc58a304047a1594fd2cbe50))
+- **web-components:** update tooltip to display correctly on dialog ([27eb15c](https://github.com/mi6/ic-ui-kit/commit/27eb15c41c70633212fea43475a28206ec380381)), closes [#3351](https://github.com/mi6/ic-ui-kit/issues/3351)
+
+### Features
+
+- **web-components:** added ic-action-chip component ([44b3c05](https://github.com/mi6/ic-ui-kit/commit/44b3c0524176c92111508c586e06a5c042e643cc))
+
 # [3.7.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.6.0...@ukic/web-components@3.7.0) (2025-07-24)
 
 ### Bug Fixes

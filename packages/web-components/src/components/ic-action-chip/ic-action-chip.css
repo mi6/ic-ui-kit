@@ -1,0 +1,199 @@
+@import "../../global/normalize.css";
+
+:host {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.chip {
+  --icon-color: var(--ic-action-chip-filled-icon);
+  --text-color: var(--ic-action-chip-filled-label);
+  --ic-typography-color: var(--text-color);
+
+  align-items: center;
+  background-color: var(--ic-action-chip-filled-background-default);
+  border: var(--ic-border-width) solid transparent;
+  border-radius: var(--ic-space-md);
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  padding: var(--ic-space-xxs);
+  position: relative;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--ic-action-chip-filled-background-hover);
+  }
+
+  &:active {
+    background-color: var(--ic-action-chip-filled-background-pressed);
+  }
+
+  &:focus {
+    box-shadow: var(--ic-border-focus);
+    outline: var(--ic-hc-focus-outline);
+    z-index: 1;
+  }
+}
+
+.small {
+  border-radius: calc(var(--ic-space-md) - var(--ic-space-xxxs));
+  padding: var(--ic-space-xxxs);
+}
+
+.large {
+  border-radius: calc(var(--ic-space-md) + var(--ic-space-xxs));
+  padding: var(--ic-space-xs);
+}
+
+.outlined {
+  --icon-color: var(--ic-action-chip-outlined-icon);
+  --text-color: var(--ic-action-chip-outlined-label);
+
+  background-color: transparent;
+  border-color: var(--ic-action-chip-outlined-border-default);
+
+  &.non-transparent {
+    background-color: var(--ic-action-chip-outlined-background-default);
+  }
+
+  &:hover {
+    --icon-color: var(--ic-action-chip-outlined-icon-hover);
+    --text-color: var(--ic-action-chip-outlined-label-hover);
+
+    background-color: var(--ic-action-chip-outlined-background-hover);
+    border-color: var(--ic-action-chip-outlined-border-hover);
+  }
+
+  &:active {
+    --icon-color: var(--ic-action-chip-outlined-icon-pressed);
+    --text-color: var(--ic-action-chip-outlined-label-pressed);
+
+    background-color: var(--ic-action-chip-outlined-background-pressed);
+    border-color: var(--ic-action-chip-outlined-border-pressed);
+  }
+}
+
+.monochrome {
+  &.filled {
+    background-color: var(
+      --ic-action-chip-monochrome-filled-background-default
+    );
+
+    &:hover {
+      background-color: var(
+        --ic-action-chip-monochrome-filled-background-hover
+      );
+    }
+
+    &:active {
+      background-color: var(
+        --ic-action-chip-monochrome-filled-background-pressed
+      );
+    }
+  }
+
+  &.outlined {
+    --icon-color: var(--ic-action-chip-monochrome-outlined-icon);
+    --text-color: var(--ic-action-chip-monochrome-outlined-label);
+
+    border-color: var(--ic-action-chip-monochrome-outlined-border-default);
+
+    &.non-transparent {
+      background-color: var(
+        --ic-action-chip-monochrome-outlined-background-default
+      );
+    }
+
+    &:hover {
+      --icon-color: var(--ic-action-chip-monochrome-outlined-icon-hover);
+      --text-color: var(--ic-action-chip-monochrome-outlined-label-hover);
+
+      background-color: var(
+        --ic-action-chip-monochrome-outlined-background-hover
+      );
+      border-color: var(--ic-action-chip-monochrome-outlined-border-hover);
+    }
+
+    &:active {
+      --icon-color: var(--ic-action-chip-monochrome-outlined-icon-pressed);
+      --text-color: var(--ic-action-chip-monochrome-outlined-label-pressed);
+
+      background-color: var(
+        --ic-action-chip-monochrome-outlined-background-pressed
+      );
+      border-color: var(--ic-action-chip-monochrome-outlined-border-pressed);
+    }
+  }
+}
+
+.disabled {
+  --icon-color: var(--ic-action-chip-icon-disabled) !important;
+  --text-color: var(--ic-action-chip-label-disabled) !important;
+
+  background-color: var(--ic-action-chip-background-disabled) !important;
+  cursor: default;
+
+  &.outlined {
+    border-color: var(--ic-action-chip-outlined-border-disabled) !important;
+    border-style: dashed;
+
+    &:not(.non-transparent) {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.label {
+  padding: 0 var(--ic-space-xs);
+}
+
+.icon {
+  box-sizing: border-box;
+  color: var(--icon-color);
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  padding: var(--ic-space-xxxs);
+}
+
+.open-in-new-icon {
+  box-sizing: border-box;
+  height: var(--ic-space-md);
+  width: var(--ic-space-md);
+}
+
+.open-in-new-icon > svg {
+  fill: var(--icon-color);
+  height: inherit;
+  width: inherit;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chip {
+    transition: var(--ic-easing-transition-fast);
+  }
+}
+
+@media (forced-colors: active) {
+  .chip {
+    border: var(--ic-border-hc);
+
+    &.disabled {
+      --text-color: GrayText;
+
+      appearance: none;
+      border-color: GrayText;
+
+      svg,
+      ::slotted(svg) {
+        fill: GrayText;
+      }
+    }
+
+    &:focus {
+      border-color: Highlight;
+      outline: none;
+    }
+  }
+}

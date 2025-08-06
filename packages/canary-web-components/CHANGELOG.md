@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.23](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.22...@ukic/canary-web-components@3.0.0-canary.23) (2025-08-06)
+
+### Bug Fixes
+
+- **canary-web-components:** prevent date-input d/m/y values updating on clear/calendar button blur or focus ([b20bdfd](https://github.com/mi6/ic-ui-kit/commit/b20bdfde9ed4d421485dc231dc52add6cb15dc3c))
+- **canary-web-components:** update date input to not emit icChange event when year is edited ([ac27a75](https://github.com/mi6/ic-ui-kit/commit/ac27a7513555117e906d40f7de763510aa8c2055)), closes [#3063](https://github.com/mi6/ic-ui-kit/issues/3063)
+
+### Features
+
+- **canary-web-components:** implement time input component ([dade70d](https://github.com/mi6/ic-ui-kit/commit/dade70de1f1384b6d482d2c4df4e307dc346983a)), closes [#1613](https://github.com/mi6/ic-ui-kit/issues/1613)
+- **canary-web-components:** streamlined rowOptions setting of styles and row headers ([704db6b](https://github.com/mi6/ic-ui-kit/commit/704db6b6a71f6aaa3b14c9426100680adfe5ba0f))
+
 # [3.0.0-canary.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.21...@ukic/canary-web-components@3.0.0-canary.22) (2025-07-24)
 
 ### Bug Fixes

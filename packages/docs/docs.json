@@ -535,6 +535,670 @@
       }
     },
     {
+      "filePath": "src/components/ic-action-chip/ic-action-chip.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-action-chip",
+      "readme": "# ic-action-chip\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the chip."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content will be rendered at the start of the chip."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the chip will appear disabled.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "download",
+          "type": "boolean | string",
+          "complexType": {
+            "original": "string | boolean",
+            "resolved": "boolean | string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "download",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user can save the linked URL instead of navigating to it.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "form",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form",
+          "reflectToAttr": false,
+          "docs": "The <form> element to associate the chip with.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formaction",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "formaction",
+          "reflectToAttr": false,
+          "docs": "The URL that processes the information submitted by the chip. It overrides the action attribute of the chip's form owner. Does nothing if there is no form owner.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formenctype",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "formenctype",
+          "reflectToAttr": false,
+          "docs": "The way the submitted form data is encoded.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formmethod",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "formmethod",
+          "reflectToAttr": false,
+          "docs": "The HTTP method used to submit the form.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formnovalidate",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "formnovalidate",
+          "reflectToAttr": false,
+          "docs": "If `true`, the form will not be validated when submitted.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formtarget",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "formtarget",
+          "reflectToAttr": false,
+          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the chip's form owner.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "href",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "The URL that the link points to. This will render the chip as an \"a\" tag.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "hreflang",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hreflang",
+          "reflectToAttr": false,
+          "docs": "The human language of the linked URL.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The text rendered within the chip.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the button will display as monochromatic in either `light` or `dark` theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "referrerpolicy",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
+          "complexType": {
+            "original": "ReferrerPolicy",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
+            "references": {
+              "ReferrerPolicy": {
+                "location": "global",
+                "id": "global::ReferrerPolicy"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "referrerpolicy",
+          "reflectToAttr": false,
+          "docs": "How much of the referrer to send when following the link.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "no-referrer",
+              "type": "string"
+            },
+            {
+              "value": "no-referrer-when-downgrade",
+              "type": "string"
+            },
+            {
+              "value": "origin",
+              "type": "string"
+            },
+            {
+              "value": "origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "same-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "unsafe-url",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "rel",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rel",
+          "reflectToAttr": false,
+          "docs": "The relationship of the linked URL as space-separated link types.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the chip.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "target",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the chip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "transparentBackground",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "transparent-background",
+          "reflectToAttr": false,
+          "docs": "If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "\"button\" | \"reset\" | \"submit\"",
+          "complexType": {
+            "original": "IcButtonTypes",
+            "resolved": "\"button\" | \"reset\" | \"submit\"",
+            "references": {
+              "IcButtonTypes": {
+                "location": "import",
+                "path": "../ic-button/ic-button.types",
+                "id": "src/components/ic-button/ic-button.types.ts::IcButtonTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of the chip.",
+          "docsTags": [],
+          "default": "\"button\"",
+          "values": [
+            {
+              "value": "button",
+              "type": "string"
+            },
+            {
+              "value": "reset",
+              "type": "string"
+            },
+            {
+              "value": "submit",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"outlined\"",
+          "complexType": {
+            "original": "IcEmphasisType",
+            "resolved": "\"filled\" | \"outlined\"",
+            "references": {
+              "IcEmphasisType": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcEmphasisType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The emphasis of the chip.",
+          "docsTags": [],
+          "default": "\"filled\"",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the chip.",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the chip."
+        },
+        {
+          "name": "icon",
+          "docs": "Content will be rendered at the start of the chip."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-action-chip": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-alert/ic-alert.tsx",
       "encapsulation": "shadow",
       "tag": "ic-alert",
@@ -20582,7 +21246,7 @@
               }
             }
           },
-          "mutable": true,
+          "mutable": false,
           "attr": "placement",
           "reflectToAttr": false,
           "docs": "The position of the tooltip in relation to the parent element.",
@@ -21542,6 +22206,7 @@
       "dependents": [
         "ic-accordion",
         "ic-accordion-group",
+        "ic-action-chip",
         "ic-alert",
         "ic-badge",
         "ic-button",
@@ -21586,6 +22251,9 @@
           "ic-typography"
         ],
         "ic-accordion-group": [
+          "ic-typography"
+        ],
+        "ic-action-chip": [
           "ic-typography"
         ],
         "ic-alert": [
@@ -21713,6 +22381,16 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/components/ic-button/ic-button.types.ts::IcButtonTypes": {
+      "declaration": "export type IcButtonTypes = \"reset\" | \"submit\" | \"button\";",
+      "docstring": "",
+      "path": "src/components/ic-button/ic-button.types.ts"
+    },
+    "src/utils/types.ts::IcEmphasisType": {
+      "declaration": "export type IcEmphasisType = \"filled\" | \"outlined\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcStatusVariants": {
       "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\";",
       "docstring": "",
@@ -21748,11 +22426,6 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/components/ic-button/ic-button.types.ts::IcButtonTypes": {
-      "declaration": "export type IcButtonTypes = \"reset\" | \"submit\" | \"button\";",
-      "docstring": "",
-      "path": "src/components/ic-button/ic-button.types.ts"
-    },
     "src/components/ic-button/ic-button.types.ts::IcButtonVariants": {
       "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"destructive\"\n  | \"icon\"\n  | \"icon-primary\"\n  | \"icon-secondary\"\n  | \"icon-tertiary\"\n  | \"icon-destructive\";",
       "docstring": "",
@@ -21777,11 +22450,6 @@
       "declaration": "export type IcBadgeVariants = IcStatusVariants | \"light\" | \"custom\";",
       "docstring": "",
       "path": "src/components/ic-badge/ic-badge.types.ts"
-    },
-    "src/utils/types.ts::IcEmphasisType": {
-      "declaration": "export type IcEmphasisType = \"filled\" | \"outlined\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabClickEventDetail": {
       "declaration": "export interface IcTabClickEventDetail {\n  tabId: string;\n  contextId: string;\n  position: number;\n}",

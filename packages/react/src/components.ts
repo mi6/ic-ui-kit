@@ -10,6 +10,7 @@ import { defineCustomElements } from '@ukic/web-components/loader';
 defineCustomElements();
 export const IcAccordion = /*@__PURE__*/createReactComponent<JSX.IcAccordion, HTMLIcAccordionElement>('ic-accordion');
 export const IcAccordionGroup = /*@__PURE__*/createReactComponent<JSX.IcAccordionGroup, HTMLIcAccordionGroupElement>('ic-accordion-group');
+export const IcActionChip = /*@__PURE__*/createReactComponent<JSX.IcActionChip, HTMLIcActionChipElement>('ic-action-chip');
 export const IcAlert = /*@__PURE__*/createReactComponent<JSX.IcAlert, HTMLIcAlertElement>('ic-alert');
 export const IcBackToTop = /*@__PURE__*/createReactComponent<JSX.IcBackToTop, HTMLIcBackToTopElement>('ic-back-to-top');
 export const IcBadge = /*@__PURE__*/createReactComponent<JSX.IcBadge, HTMLIcBadgeElement>('ic-badge');

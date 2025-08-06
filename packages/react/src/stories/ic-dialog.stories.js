@@ -246,6 +246,33 @@ export const SlottedContent = {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </IcTypography>
+          <IcTooltip
+              label="This is a description of the button"
+              target="test-button"
+            >
+              <IcButton
+                id="test-button"
+              >
+                Button with tooltip
+              </IcButton>
+            </IcTooltip>
+            <IcButton
+              variant="icon-primary"
+              aria-label="This is a description of the button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#000000"
+              >
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                  d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                />
+              </svg>
+            </IcButton>
            <IcAccordion heading="This is an accordion">
             <IcCheckbox label="Confirm" value="confirm" additionalFieldDisplay="static">
               <IcTextField
@@ -257,8 +284,8 @@ export const SlottedContent = {
             <IcRadioGroup label="This is a label" name="1">
               <IcRadioOption
                 value="valueName1"
-                label="Unselected / Default" 
-                additionalFieldDisplay="dynamic"       
+                label="Unselected / Default"
+                additionalFieldDisplay="dynamic"
               >
                 <IcTextField
                   slot="additional-field"
@@ -290,7 +317,7 @@ export const SlottedContent = {
           <IcSearchBar label="What is your favourite coffee?"></IcSearchBar>
           <IcTextField label="What is your favourite coffee?" />
           <IcSelect label="What is your favourite coffee?" options={options} />
-          <IcButton id="button-1" onclick={showPopover}>Show popover</IcButton>      
+          <IcButton id="button-1" onclick={showPopover}>Show popover</IcButton>
           <div>
             <IcPopoverMenu anchor="button-1" aria-label="popover" open={popoverOpen} onIcPopoverClosed={handlePopoverClosed}>
               <IcMenuItem label="Copy code" disabled="true"></IcMenuItem>
@@ -332,7 +359,7 @@ export const SlottedContent = {
                 </svg>
               </IcMenuItem>
             </IcPopoverMenu>
-          </div>      
+          </div>
           <IcCheckboxGroup
             hideLabel
             label="confirm"

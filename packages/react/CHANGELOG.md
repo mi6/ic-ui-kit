@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.7.0...@ukic/react@3.8.0) (2025-08-06)
+
+### Bug Fixes
+
+- **react:** add BE_FOCUSED to Cypress constants ([b2a260e](https://github.com/mi6/ic-ui-kit/commit/b2a260e995cc68f6f8840981f0e52f6a0008b2b6))
+
+### Features
+
+- **react:** added IcActionChip component ([4d199e6](https://github.com/mi6/ic-ui-kit/commit/4d199e67c7a56a1bf0aec12af27f71b0c49201b5))
+- **react:** update tests and story to check tooltips display correctly on dialogs ([8f8349d](https://github.com/mi6/ic-ui-kit/commit/8f8349d2d45da48aa32b6e398db072ebe0266ab7)), closes [#3351](https://github.com/mi6/ic-ui-kit/issues/3351)
+
 # [3.7.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.6.0...@ukic/react@3.7.0) (2025-07-24)
 
 ### Bug Fixes

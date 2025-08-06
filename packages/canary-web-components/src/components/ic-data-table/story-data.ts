@@ -569,60 +569,16 @@ export const DATA_EMPHASIS = [
   },
 ];
 
-export const ROW_ALIGNMENT = [
-  {
-    header: {
-      title: ROW_HEADER_TITLES[0],
-      rowAlignment: "middle",
+export const ROW_ALIGNMENT = DATA.map((row, index) => ({
+  ...row,
+  rowOptions: {
+    header: ROW_HEADER_TITLES[index],
+    ...(index === 0 && {
+      rowAlignment: { vertical: "middle" },
       emphasis: "high",
-    },
-    firstName: "Joe",
-    lastName: "Bloggs",
-    age: 30,
-    jobTitle: "Developer",
-    address: "1 Main Street, Town, County, Postcode",
+    }),
   },
-  {
-    header: {
-      title: ROW_HEADER_TITLES[1],
-    },
-    firstName: "Sarah",
-    lastName: "Smith",
-    age: 28,
-    jobTitle: "Senior Software Developer, Site Reliability Engineering",
-    address: "2 Main Street, Town, Country, Postcode",
-  },
-  {
-    header: {
-      title: ROW_HEADER_TITLES[2],
-    },
-    firstName: "Mark",
-    lastName: "Owens",
-    age: 45,
-    jobTitle: "Team Lead",
-    address: "12 Key Street, Town, Country, Postcode",
-  },
-  {
-    header: {
-      title: ROW_HEADER_TITLES[3],
-    },
-    firstName: "Naomi",
-    lastName: "Thomas",
-    age: 32,
-    jobTitle: "Analyst",
-    address: "8 Side Street, Town, Country, Postcode",
-  },
-  {
-    header: {
-      title: ROW_HEADER_TITLES[4],
-    },
-    firstName: "Luke",
-    lastName: "Ashford",
-    age: 18,
-    jobTitle: "Junior Developer",
-    address: "5 New Street, Town, Country, Postcode",
-  },
-];
+}));
 
 export const LONG_COLS: IcDataTableColumnObject[] = [
   {
@@ -948,9 +904,12 @@ export const ROW_HEADER_COLS: IcDataTableColumnObject[] = [
     dataType: "address",
   },
 ];
-export const ROW_HEADER_DATA = DATA.map((data, index) => {
-  return { header: { title: ROW_HEADER_TITLES[index] }, ...data };
-});
+export const ROW_HEADER_DATA = DATA.map((data, index) => ({
+  ...data,
+  rowOptions: {
+    header: ROW_HEADER_TITLES[index],
+  },
+}));
 
 export const COLS_ELEMENTS: IcDataTableColumnObject[] = [
   {

@@ -2,6 +2,7 @@
 export const excludeComps = [
   "ic-accordion",
   "ic-accordion-group",
+  "ic-action-chip",
   "ic-alert",
   "ic-back-to-top",
   "ic-badge",
