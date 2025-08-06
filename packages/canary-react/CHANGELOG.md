@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.23](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.22...@ukic/canary-react@3.0.0-canary.23) (2025-08-06)
+
+### Bug Fixes
+
+- **canary-react:** add date input tests for checking icChange behaviour when editing inputs ([06d67b4](https://github.com/mi6/ic-ui-kit/commit/06d67b4b1e7fa9c2f6a8f6e2cbff56bc3a6dd669)), closes [#3063](https://github.com/mi6/ic-ui-kit/issues/3063)
+
+### Features
+
+- **canary-react:** implement time input component ([ac20cbd](https://github.com/mi6/ic-ui-kit/commit/ac20cbdfea686ebafa22b80e69bf5d7a2813b0d6))
+- **canary-react:** streamlined rowOptions ([88f5cfd](https://github.com/mi6/ic-ui-kit/commit/88f5cfd28686a274e0ea25a7f6dce56777ca169c))
+
 # [3.0.0-canary.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.21...@ukic/canary-react@3.0.0-canary.22) (2025-07-24)
 
 ### Bug Fixes

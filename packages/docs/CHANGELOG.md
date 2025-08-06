@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.2.5...@ukic/docs@3.3.0) (2025-08-06)
+
+### Features
+
+- **docs:** added ic-action-chip ([4804eb5](https://github.com/mi6/ic-ui-kit/commit/4804eb5fd6090256d212136d20fc70ec0677f710))
+
 ## [3.2.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.2.4...@ukic/docs@3.2.5) (2025-07-24)
 
 **Note:** Version bump only for package @ukic/docs
