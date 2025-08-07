@@ -45,7 +45,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
       <nav aria-hidden="true" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
           <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
-            <template shadowrootmode="open">
+            <template shadowrootmode="open" shadowrootdelegatesfocus>
               <ic-tooltip label="Close app menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
                 <button aria-label="Close app menu" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
@@ -76,9 +76,9 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
     </div>
   </template>
   <ic-navigation-button class="ic-theme-dark" label="button1" onclick="alert('test')" slot="buttons">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-button class="ic-button-size-large ic-button-variant-icon-tertiary ic-theme-dark monochrome" exportparts="button">
-        <template shadowrootmode="open">
+        <template shadowrootmode="open" shadowrootdelegatesfocus>
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-2" label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
             <button aria-describedby="ic-tooltip-ic-button-with-tooltip-2" aria-label="button1" class="button" part="button" tabindex="0" type="button">
               <div class="icon-container">
@@ -146,7 +146,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
       <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
           <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
-            <template shadowrootmode="open">
+            <template shadowrootmode="open" shadowrootdelegatesfocus>
               <ic-tooltip label="Close navigation menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
                 <button aria-label="Close navigation menu" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
@@ -178,9 +178,9 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
     </div>
   </template>
   <ic-navigation-button class="ic-theme-dark" label="button1" onclick="alert('test')" slot="buttons">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-button class="ic-button-size-large ic-button-variant-icon-tertiary ic-theme-dark monochrome" exportparts="button">
-        <template shadowrootmode="open">
+        <template shadowrootmode="open" shadowrootdelegatesfocus>
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-6" label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
             <button aria-describedby="ic-tooltip-ic-button-with-tooltip-6" aria-label="button1" class="button" part="button" tabindex="0" type="button">
               <div class="icon-container">
@@ -199,7 +199,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
     </svg>
   </ic-navigation-button>
   <ic-navigation-item class="light navigation-item" href="/" label="Navigation 1" role="listitem" slot="navigation">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <ic-typography variant="label">
@@ -246,7 +246,7 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
     </div>
   </template>
   <ic-navigation-group class="ic-navigation-group-expandable ic-navigation-group-expanded" expandable="true" label="Navigation group" role="listitem" slot="navigation">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <button aria-expanded="false" aria-haspopup="false" class="light navigation-group">
         <ic-typography id="nav-group-title" variant="label">
           Navigation group
@@ -293,7 +293,7 @@ exports[`ic-navigation-menu should test slotted navigation item: renders-with-sl
     </div>
   </template>
   <ic-navigation-item class="light navigation-item" href="/" label="Navigation 1" role="listitem" slot="navigation">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <ic-typography variant="label">

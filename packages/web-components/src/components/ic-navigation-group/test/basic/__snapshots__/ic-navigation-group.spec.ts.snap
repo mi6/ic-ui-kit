@@ -2,7 +2,7 @@
 
 exports[`ic-navigation-group should render as expandable and collapsed: renders-expanded-false 1`] = `
 <ic-navigation-group class="ic-navigation-group-collapsed ic-navigation-group-expandable" expandable="true" expanded="false" label="Group label" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button aria-expanded="false" aria-haspopup="false" class="light navigation-group">
       <ic-typography id="nav-group-title" variant="label">
         Group label
@@ -17,7 +17,7 @@ exports[`ic-navigation-group should render as expandable and collapsed: renders-
 
 exports[`ic-navigation-group should render as expandable: renders-expandable 1`] = `
 <ic-navigation-group class="ic-navigation-group-expandable ic-navigation-group-expanded" expandable="true" label="Group label" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button aria-expanded="false" aria-haspopup="false" class="light navigation-group">
       <ic-typography id="nav-group-title" variant="label">
         Group label
@@ -32,7 +32,7 @@ exports[`ic-navigation-group should render as expandable: renders-expandable 1`]
 
 exports[`ic-navigation-group should render correctly when in a top navigation when not expandable: renders-in-desktop-top-nav 1`] = `
 <ic-navigation-group class="ic-navigation-group-expanded" label="Group label" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button aria-expanded="false" aria-haspopup="true" class="light navigation-group">
       <ic-typography id="nav-group-title" variant="label">
         Group label
@@ -44,7 +44,7 @@ exports[`ic-navigation-group should render correctly when in a top navigation wh
 
 exports[`ic-navigation-group should render correctly when in a top navigation when not expandable: renders-in-mobile-top-nav 1`] = `
 <ic-navigation-group class="ic-navigation-group-expanded in-side-menu" label="Group label" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <div class="navigation-group">
       <ic-typography id="nav-group-title" variant="label">
         Group label
@@ -63,7 +63,7 @@ exports[`ic-navigation-group should render correctly when in a top navigation wh
 
 exports[`ic-navigation-group should render with label: renders-with-label 1`] = `
 <ic-navigation-group class="ic-navigation-group-expanded" label="Group label" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <div class="light navigation-group">
       <ic-typography id="nav-group-title" variant="label">
         Group label

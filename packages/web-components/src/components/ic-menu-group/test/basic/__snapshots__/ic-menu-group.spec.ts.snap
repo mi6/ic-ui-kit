@@ -12,7 +12,7 @@ exports[`menu group should render a menu group with a label 1`] = `
     <hr>
   </template>
   <ic-menu-item label="Button" variant="default">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-button aria-disabled="false" aria-label="Button, Menu item label menu group" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">
           <span class="icon">
@@ -34,7 +34,7 @@ exports[`menu group should render a menu group with a label 1`] = `
     </svg>
   </ic-menu-item>
   <ic-menu-item label="Button" variant="default">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-button aria-disabled="false" aria-label="Button, Menu item label menu group" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">
           <span class="icon">
@@ -56,7 +56,7 @@ exports[`menu group should render a menu group with a label 1`] = `
     </svg>
   </ic-menu-item>
   <ic-menu-item description="This button has a href and so it behaves like a link" href="#" label="Button" variant="default">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-button aria-disabled="false" aria-label="Button, This button has a href and so it behaves like a link, Menu item label menu group" fullwidth="" href="#" role="menuitem" variant="tertiary">
         <div class="focus-border">
           <div class="menu-item-info">
@@ -85,7 +85,7 @@ exports[`menu group should render a menu group without a label 1`] = `
     <hr>
   </template>
   <ic-menu-item label="Button" variant="default">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-button aria-disabled="false" aria-label="Button" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">
           <span class="icon">
@@ -107,7 +107,7 @@ exports[`menu group should render a menu group without a label 1`] = `
     </svg>
   </ic-menu-item>
   <ic-menu-item label="Button" variant="default">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-button aria-disabled="false" aria-label="Button" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">
           <span class="icon">
@@ -129,7 +129,7 @@ exports[`menu group should render a menu group without a label 1`] = `
     </svg>
   </ic-menu-item>
   <ic-menu-item description="This button has a href and so it behaves like a link" href="#" label="Button" variant="default">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-button aria-disabled="false" aria-label="Button, This button has a href and so it behaves like a link" fullwidth="" href="#" role="menuitem" variant="tertiary">
         <div class="focus-border">
           <div class="menu-item-info">

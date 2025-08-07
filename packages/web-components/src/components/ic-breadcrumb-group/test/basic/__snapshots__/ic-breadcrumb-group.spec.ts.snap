@@ -10,7 +10,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
     </nav>
   </template>
   <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -22,7 +22,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -34,7 +34,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -58,7 +58,7 @@ exports[`ic-breadcrumb-group should only render one collapse button when window 
     </nav>
   </template>
   <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -70,7 +70,7 @@ exports[`ic-breadcrumb-group should only render one collapse button when window 
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb class="collapsed-breadcrumb-wrapper" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -93,7 +93,7 @@ exports[`ic-breadcrumb-group should only render one collapse button when window 
     </button>
   </ic-breadcrumb>
   <ic-breadcrumb class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem" show-back-icon="false">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -105,7 +105,7 @@ exports[`ic-breadcrumb-group should only render one collapse button when window 
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -129,7 +129,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
     </nav>
   </template>
   <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -141,7 +141,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -153,7 +153,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb class="ic-breadcrumb-back show" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem" show-back-icon="true">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -171,7 +171,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -195,7 +195,7 @@ exports[`ic-breadcrumb-group should render current theme styling: should render 
     </nav>
   </template>
   <ic-breadcrumb class="ic-theme-light" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -211,7 +211,7 @@ exports[`ic-breadcrumb-group should render current theme styling: should render 
     </svg>
   </ic-breadcrumb>
   <ic-breadcrumb aria-current="page" class="ic-theme-light" current="true" href="/" page-title="Breadcrumb 2" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -251,7 +251,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
     </nav>
   </template>
   <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -263,7 +263,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb class="collapsed-breadcrumb-wrapper" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -286,7 +286,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
     </button>
   </ic-breadcrumb>
   <ic-breadcrumb class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -298,7 +298,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -322,7 +322,7 @@ exports[`ic-breadcrumb-group should render with ic-breadcrumb: should render wit
     </nav>
   </template>
   <ic-breadcrumb role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -360,7 +360,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
     </nav>
   </template>
   <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -372,7 +372,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb class="collapsed-breadcrumb-wrapper" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -395,7 +395,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
     </button>
   </ic-breadcrumb>
   <ic-breadcrumb class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -407,7 +407,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb class="show" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem" show-back-icon="true">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
@@ -419,7 +419,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
     </template>
   </ic-breadcrumb>
   <ic-breadcrumb href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg

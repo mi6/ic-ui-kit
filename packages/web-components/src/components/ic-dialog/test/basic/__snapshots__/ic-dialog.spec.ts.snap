@@ -20,7 +20,7 @@ exports[`ic-dialog component should render 1`] = `
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-0">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -60,7 +60,7 @@ exports[`ic-dialog component should render as large size 1`] = `
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-14">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -100,7 +100,7 @@ exports[`ic-dialog component should render as large size and disableWidthConstra
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-154">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -140,7 +140,7 @@ exports[`ic-dialog component should render as medium size 1`] = `
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-12">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -182,7 +182,7 @@ exports[`ic-dialog component should render with a label 1`] = `
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-2">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -256,7 +256,7 @@ exports[`ic-dialog component should render with slotted content 1`] = `
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-6">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -273,7 +273,7 @@ exports[`ic-dialog component should render with slotted content 1`] = `
       </div>
       <div class="dialog-controls">
         <ic-button class="dialog-control-button ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <button class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
@@ -281,7 +281,7 @@ exports[`ic-dialog component should render with slotted content 1`] = `
           Cancel
         </ic-button>
         <ic-button class="dialog-control-button ic-button-size-medium ic-button-variant-primary" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <button class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
@@ -305,7 +305,7 @@ exports[`ic-dialog component should render with slotted content 1`] = `
     <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
   </ic-text-field>
   <ic-button class="ic-button-size-medium ic-button-variant-primary" exportparts="button">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <button class="button" part="button" tabindex="0" type="button">
         <slot></slot>
       </button>
@@ -335,7 +335,7 @@ exports[`ic-dialog component should render with slotted controls 1`] = `
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-60">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -356,7 +356,7 @@ exports[`ic-dialog component should render with slotted controls 1`] = `
     </dialog>
   </template>
   <ic-button class="ic-button-size-medium ic-button-variant-primary" data-gets-focus exportparts="button" onclick="alert('Confirmed!')" slot="dialog-controls" variant="primary">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <button class="button" part="button" tabindex="0" type="button">
         <slot></slot>
       </button>
@@ -386,7 +386,7 @@ exports[`ic-dialog component should render with the close button 1`] = `
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-132">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -403,7 +403,7 @@ exports[`ic-dialog component should render with the close button 1`] = `
       </div>
       <div class="dialog-controls">
         <ic-button class="dialog-control-button ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <button class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
@@ -411,7 +411,7 @@ exports[`ic-dialog component should render with the close button 1`] = `
           Cancel
         </ic-button>
         <ic-button class="dialog-control-button ic-button-size-medium ic-button-variant-primary" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <button class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
@@ -444,7 +444,7 @@ exports[`ic-dialog component should render with two default buttons 1`] = `
           </div>
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-16">
               <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
@@ -461,7 +461,7 @@ exports[`ic-dialog component should render with two default buttons 1`] = `
       </div>
       <div class="dialog-controls">
         <ic-button class="dialog-control-button ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <button class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
@@ -469,7 +469,7 @@ exports[`ic-dialog component should render with two default buttons 1`] = `
           Cancel
         </ic-button>
         <ic-button class="dialog-control-button ic-button-size-medium ic-button-variant-primary" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <button class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
@@ -509,7 +509,7 @@ exports[`ic-dialog component should render without the close button 1`] = `
       </div>
       <div class="dialog-controls">
         <ic-button class="dialog-control-button ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <button class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
@@ -517,7 +517,7 @@ exports[`ic-dialog component should render without the close button 1`] = `
           Cancel
         </ic-button>
         <ic-button class="dialog-control-button ic-button-size-medium ic-button-variant-primary" data-gets-focus exportparts="button">
-          <template shadowrootmode="open">
+          <template shadowrootmode="open" shadowrootdelegatesfocus>
             <button class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>

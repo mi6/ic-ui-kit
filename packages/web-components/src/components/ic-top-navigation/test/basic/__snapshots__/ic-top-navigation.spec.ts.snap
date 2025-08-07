@@ -215,7 +215,7 @@ exports[`ic-top-navigation should render with navigation: renders-with-navigatio
     </div>
   </template>
   <ic-navigation-item class="light navigation-item navigation-item-top-nav" href="/" label="Navigation 1" role="listitem" slot="navigation">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <ic-typography variant="label">

@@ -2,7 +2,7 @@
 
 exports[`ic-navigation-item should render with an unnamed slot if neither a label or the navigation-item slot is used: renders-with-unnamed-slot 1`] = `
 <ic-navigation-item class="light navigation-item" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-tooltip class="tooltip-navigation-item" label="" placement="right" target="navigation-item">
       <slot></slot>
     </ic-tooltip>
@@ -13,7 +13,7 @@ exports[`ic-navigation-item should render with an unnamed slot if neither a labe
 
 exports[`ic-navigation-item should render with an unnamed slot if neither a label or the navigation-item slot is used: renders-with-unnamed-slot-and-tooltip-label 1`] = `
 <ic-navigation-item class="light navigation-item" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-tooltip class="tooltip-navigation-item" label="" placement="right" target="navigation-item">
       <slot></slot>
     </ic-tooltip>
@@ -24,7 +24,7 @@ exports[`ic-navigation-item should render with an unnamed slot if neither a labe
 
 exports[`ic-navigation-item should render with aria-label: renders-with-aria-label 1`] = `
 <ic-navigation-item aria-label="navigation item description" class="light navigation-item" href="#link" label="Item label" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <a aria-label="navigation item description" class="link" href="#link" part="link">
         <ic-typography variant="label">
@@ -39,7 +39,7 @@ exports[`ic-navigation-item should render with aria-label: renders-with-aria-lab
 
 exports[`ic-navigation-item should render with aria-label: renders-with-new-aria-label 1`] = `
 <ic-navigation-item aria-label="New item description" class="light navigation-item" href="#link" label="Item label" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <a aria-label="New item description" class="link" href="#link" part="link">
         <ic-typography variant="label">
@@ -54,7 +54,7 @@ exports[`ic-navigation-item should render with aria-label: renders-with-new-aria
 
 exports[`ic-navigation-item should render with label: renders-with-label 1`] = `
 <ic-navigation-item class="light navigation-item" label="Item label" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <div class="link" tabindex="0">
         <ic-typography variant="label">
@@ -68,7 +68,7 @@ exports[`ic-navigation-item should render with label: renders-with-label 1`] = `
 
 exports[`ic-navigation-item should render with open in new window icon: renders-with-open-in-new-window-icon 1`] = `
 <ic-navigation-item class="light navigation-item" href="#link" label="Item label" role="listitem" target="_blank">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <a class="link" href="#link" part="link" target="_blank">
         <ic-typography variant="label">
@@ -86,7 +86,7 @@ exports[`ic-navigation-item should render with open in new window icon: renders-
 
 exports[`ic-navigation-item should test setFocus when using a slotted link: renders-with-slotted-link 1`] = `
 <ic-navigation-item class="light navigation-item" role="listitem">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <slot></slot>
     </ic-tooltip>
