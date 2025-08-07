@@ -45,7 +45,7 @@ describe("ic-text-field", () => {
   it("should render with autoprops", async () => {
     const page = await newSpecPage({
       components: [TextField],
-      html: `<ic-text-field label="Test label" value="test value" autocapitalize="on" autocomplete="on" autocorrect="on"></ic-text-field>`,
+      html: `<ic-text-field label="Test label" value="test value" autocapitalize="on" autocomplete="on"></ic-text-field>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-with-autoprops");

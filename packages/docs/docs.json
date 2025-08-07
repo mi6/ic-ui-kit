@@ -1,7 +1,7 @@
 {
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.36.1",
+    "version": "4.36.2",
     "typescriptVersion": "5.5.4"
   },
   "components": [
@@ -15230,46 +15230,6 @@
           "setter": false
         },
         {
-          "name": "autocorrect",
-          "type": "\"off\" | \"on\"",
-          "complexType": {
-            "original": "IcAutocorrectStates",
-            "resolved": "\"off\" | \"on\"",
-            "references": {
-              "IcAutocorrectStates": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcAutocorrectStates"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "autocorrect",
-          "reflectToAttr": false,
-          "docs": "The state of autocorrection the browser can apply when the user is entering/editing the text value.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"off\""
-            }
-          ],
-          "default": "\"off\"",
-          "values": [
-            {
-              "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "on",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "autofocus",
           "type": "boolean",
           "complexType": {
@@ -20214,49 +20174,6 @@
           "setter": false
         },
         {
-          "name": "autocorrect",
-          "type": "\"off\" | \"on\" | undefined",
-          "complexType": {
-            "original": "IcAutocorrectStates",
-            "resolved": "\"off\" | \"on\" | undefined",
-            "references": {
-              "IcAutocorrectStates": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcAutocorrectStates"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "autocorrect",
-          "reflectToAttr": false,
-          "docs": "The state of autocorrection the browser can apply when the user is entering/editing the text value.",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "\"off\""
-            }
-          ],
-          "default": "\"off\"",
-          "values": [
-            {
-              "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "on",
-              "type": "string"
-            },
-            {
-              "type": "undefined"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "autofocus",
           "type": "boolean",
           "complexType": {
@@ -24497,11 +24414,6 @@
     },
     "src/utils/types.ts::IcAutocompleteTypes": {
       "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcAutocorrectStates": {
-      "declaration": "export type IcAutocorrectStates = \"on\" | \"off\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

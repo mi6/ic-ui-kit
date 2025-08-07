@@ -15,7 +15,6 @@ import {
 import {
   IcInformationStatus,
   IcAutocompleteTypes,
-  IcAutocorrectStates,
   IcInformationStatusOrEmpty,
   IcValueEventDetail,
   IcSizesNoLarge,
@@ -109,11 +108,6 @@ export class TextField {
    * The state of autocompletion the browser can apply on the text value.
    */
   @Prop() autocomplete?: IcAutocompleteTypes = "off";
-
-  /**
-   * The state of autocorrection the browser can apply when the user is entering/editing the text value.
-   */
-  @Prop() autocorrect?: IcAutocorrectStates = "off";
 
   /**
    * If `true`, the form control will have input focus when the page loads.

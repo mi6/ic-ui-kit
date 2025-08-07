@@ -118,7 +118,6 @@ const Uncontrolled = () => {
 
 const defaultArgs = {
   autocapitalize: "off",
-  autocorrect: "off",
   autofocus: false,
   charactersUntilSuggestion: 2,
   disableAutoFiltering: false,
@@ -490,7 +489,6 @@ export const Playground = {
   render: (args) => (
     <IcSearchBar
       autocapitalize={args.autocapitalize}
-      autocorrect={args.autocorrect}
       autofocus={args.autofocus}
       charactersUntilSuggestion={args.charactersUntilSuggestion}
       disableAutoFiltering={args.disableAutoFiltering}
@@ -544,14 +542,6 @@ export const Playground = {
 
       control: {
         type: "select",
-      },
-    },
-
-    autocorrect: {
-      options: ["on", "off"],
-
-      control: {
-        type: "inline-radio",
       },
     },
 

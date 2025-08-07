@@ -83,7 +83,7 @@ exports[`ic-text-field should render with a custom min characters message: rende
 `;
 
 exports[`ic-text-field should render with autoprops: renders-with-autoprops 1`] = `
-<ic-text-field autocapitalize="on" autocomplete="on" autocorrect="on" label="Test label" value="test value">
+<ic-text-field autocapitalize="on" autocomplete="on" label="Test label" value="test value">
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-4" helpertext="" label="Test label">

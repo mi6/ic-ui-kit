@@ -129,8 +129,6 @@ export type IcColorRGBA = IcColorRGB & {
 
 export type IcActivationTypes = "automatic" | "manual";
 
-export type IcAutocorrectStates = "on" | "off";
-
 export type IcNavParentDetails = {
   navType: IcNavType | "";
   parent: HTMLElement | null;

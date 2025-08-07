@@ -23,10 +23,12 @@ export namespace Components {
     interface IcCardHorizontal {
         /**
           * If `true`, the horizontal card will be a clickable variant, instead of static.
+          * @default false
          */
         "clickable": boolean;
         /**
           * If `true`, the horizontal card will be disabled if it is clickable.
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -39,10 +41,12 @@ export namespace Components {
         "href"?: string | undefined;
         /**
           * The human language of the linked URL.
+          * @default ""
          */
         "hreflang"?: string;
         /**
           * The main body message of the horizontal card.
+          * @default ""
          */
         "message"?: string;
         /**
@@ -59,6 +63,7 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         /**
           * The size of the horizontal card.
+          * @default "medium"
          */
         "size": IcCardSizes;
         /**
@@ -67,6 +72,7 @@ export namespace Components {
         "target"?: string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
@@ -77,6 +83,7 @@ export namespace Components {
         "caption": string;
         /**
           * Determines whether the column header should be truncated and display a tooltip. Default is `false`.
+          * @default false
          */
         "columnHeaderTruncation": boolean;
         /**
@@ -89,18 +96,22 @@ export namespace Components {
         "data"?: IcDataTableDataType[];
         /**
           * Set the density of the table including font and padding.
+          * @default "default"
          */
         "density": IcDataTableDensityOptions;
         /**
           * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
+          * @default false
          */
         "disableAutoSort"?: boolean;
         /**
           * Applies a border to the table container.
+          * @default false
          */
         "embedded": boolean;
         /**
           * Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.
+          * @default "auto"
          */
         "globalRowHeight": IcDataTableRowHeights;
         /**
@@ -109,10 +120,12 @@ export namespace Components {
         "height"?: string;
         /**
           * If `true`, column headers will not be visible.
+          * @default false
          */
         "hideColumnHeaders"?: boolean;
         /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
+          * @default false
          */
         "loading": boolean;
         /**
@@ -138,10 +151,12 @@ export namespace Components {
         "minWidth"?: string;
         /**
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
+          * @default 1000
          */
         "minimumLoadingDisplayDuration": number;
         /**
           * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
+          * @default {     alignment: "right",     hideAllFromItemsPerPage: false,     hideRangeLabel: false,     itemLabel: "Item",     itemsPerPageOptions: [       { label: "10", value: "10" },       { label: "25", value: "25" },       { label: "50", value: "50" },     ],     monochrome: false,     pageLabel: "Page",     rangeLabelType: "page",     selectedItemsPerPage: 10,     selectItemsPerPageOnEnter: true,     setToFirstPageOnPaginationChange: false,     showGoToPageControl: true,     showItemsPerPageControl: true,     type: "simple",   }
          */
         "paginationBarOptions": IcPaginationBarOptions;
         /**
@@ -150,14 +165,17 @@ export namespace Components {
         "resetRowHeights": (rowHeight?: number | "auto") => Promise<void>;
         /**
           * If `true`, a checkbox column will be displayed to the left of the table which allows multiple rows to be selected.
+          * @default false
          */
         "rowSelection": boolean;
         /**
           * If `true`, adds a pagination bar to the bottom of the table.
+          * @default false
          */
         "showPagination"?: boolean;
         /**
           * Sets the order columns will be sorted in and allows for 'default' sorts to be added.
+          * @default {     sortOrders: ["unsorted", "ascending", "descending"],     defaultColumn: "",   }
          */
         "sortOptions": {
     sortOrders: IcDataTableSortOrderOptions[];
@@ -165,22 +183,27 @@ export namespace Components {
   };
         /**
           * If `true`, allows table columns to be sorted using applied sort buttons.
+          * @default false
          */
         "sortable"?: boolean;
         /**
           * If `true`, column headers will remain at the top of the table when scrolling vertically.
+          * @default false
          */
         "stickyColumnHeaders": boolean;
         /**
           * If `true`, row headers will remain to the left when scrolling horizontally.
+          * @default false
          */
         "stickyRowHeaders": boolean;
         /**
           * Sets the layout of the table
+          * @default "fixed"
          */
         "tableLayout"?: "fixed" | "auto";
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
@@ -189,6 +212,7 @@ export namespace Components {
         "truncationPattern"?: IcDataTableTruncationTypes;
         /**
           * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
+          * @default false
          */
         "updating": boolean;
         /**
@@ -220,10 +244,12 @@ export namespace Components {
         "description"?: string;
         /**
           * The heading of the title bar. Can be overridden with the `heading` slot. If used with an `ic-data-table` it will default to the table's `caption` unless overridden.
+          * @default DEFAULT_TITLE_BAR_HEADING
          */
         "heading"?: string;
         /**
           * When `true`, the density select will not be rendered.
+          * @default false
          */
         "hideDensitySelect"?: boolean;
         /**
@@ -234,38 +260,47 @@ export namespace Components {
     interface IcDateInput {
         /**
           * The format in which the date will be displayed.
+          * @default this.DEFAULT_DATE_FORMAT
          */
         "dateFormat": IcDateFormat;
         /**
           * The days of the week to disable.
+          * @default []
          */
         "disableDays": IcWeekDays[];
         /**
           * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
+          * @default "The date you have selected is on a day of the week that is not allowed. Please select another date."
          */
         "disableDaysMessage": string;
         /**
           * If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.
+          * @default false
          */
         "disableFuture"?: boolean;
         /**
           * The text to display as the validation message when `disableFuture` is true and a date in the future is entered.
+          * @default "Dates in the future are not allowed. Please select a date in the past."
          */
         "disableFutureMessage": string;
         /**
           * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
+          * @default false
          */
         "disablePast"?: boolean;
         /**
           * The text to display as the validation message when `disablePast` is true and a date in the past is entered.
+          * @default "Dates in the past are not allowed. Please select a date in the future."
          */
         "disablePastMessage": string;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled": boolean;
         /**
           * If `true`, every individual input field completed will emit an icChange event.
+          * @default false
          */
         "emitDatePartChange"?: boolean;
         /**
@@ -279,18 +314,22 @@ export namespace Components {
         "helperText": string | null;
         /**
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+          * @default false
          */
         "hideHelperText": boolean;
         /**
           * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
           * The ID for the input.
+          * @default `ic-date-input-${inputIds++}`
          */
         "inputId": string;
         /**
           * The text to display as the validation message when an invalid date is entered.
+          * @default "Please enter a valid date."
          */
         "invalidDateMessage": string;
         /**
@@ -299,84 +338,106 @@ export namespace Components {
         "label": string;
         /**
           * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+          * @default ""
          */
         "max": string | Date;
         /**
           * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+          * @default ""
          */
         "min": string | Date;
         /**
           * The name of the control, which is submitted with the form data.
+          * @default this.inputId
          */
         "name": string;
         /**
           * If `true`, the input will require a value.
+          * @default false
          */
         "required": boolean;
         "setCalendarFocus": () => Promise<void>;
         "setDisableDays": (days: IcWeekDays[]) => Promise<void>;
+        /**
+          * @default false
+         */
         "showCalendarButton"?: boolean;
         /**
           * If `true`, a button which clears the date input when clicked will be displayed.
+          * @default true
          */
         "showClearButton"?: boolean;
         /**
           * The size of the date input to be displayed.
+          * @default "medium"
          */
         "size": IcSizes;
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         "triggerIcChange": (d: Date | null) => Promise<void>;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
+          * @default ""
          */
         "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in date validation.
+          * @default ""
          */
         "validationText"?: string;
         /**
           * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "value"?: string | Date | null | undefined;
     }
     interface IcDatePicker {
         /**
           * The format in which the date will be displayed.
+          * @default "DD/MM/YYYY"
          */
         "dateFormat": IcDateFormat;
         /**
           * The days of the week to disable.
+          * @default []
          */
         "disableDays"?: IcWeekDays[];
         /**
           * The text to display as the validation message when `disableDays` is `true` and a disabled date is entered.
+          * @default "The date you have selected is on a day of the week that is not allowed. Please select another date."
          */
         "disableDaysMessage"?: string;
         /**
           * If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.
+          * @default false
          */
         "disableFuture"?: boolean;
         /**
           * The text to display as the validation message when `disableFuture` is `true` and a date in the future is entered.
+          * @default "Dates in the future are not allowed. Please select a date in the past."
          */
         "disableFutureMessage"?: string;
         /**
           * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
+          * @default false
          */
         "disablePast"?: boolean;
         /**
           * The text to display as the validation message when `disablePast` is `true` and a date in the past is entered.
+          * @default "Dates in the past are not allowed. Please select a date in the future."
          */
         "disablePastMessage"?: string;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled": boolean;
         /**
           * If `true`, every individual input field completed will emit an icChange event.
+          * @default false
          */
         "emitDatePartChange"?: boolean;
         /**
@@ -385,10 +446,12 @@ export namespace Components {
         "helperText"?: string;
         /**
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+          * @default false
          */
         "hideHelperText": boolean;
         /**
           * If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
@@ -397,6 +460,7 @@ export namespace Components {
         "inputId"?: string;
         /**
           * The text to display as the validation message when an invalid date is entered.
+          * @default "Please enter a valid date."
          */
         "invalidDateMessage"?: string;
         /**
@@ -405,10 +469,12 @@ export namespace Components {
         "label": string;
         /**
           * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+          * @default ""
          */
         "max": string | Date;
         /**
           * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+          * @default ""
          */
         "min": string | Date;
         /**
@@ -417,72 +483,89 @@ export namespace Components {
         "name"?: string;
         /**
           * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "openAtDate": string | Date;
         /**
           * If `true`, the input will require a value.
+          * @default false
          */
         "required"?: boolean;
         /**
           * If 'true', the 'X' button on the date input will be visible, which clears the field.
+          * @default true
          */
         "showClearButton"?: boolean;
         /**
           * If `true`, days outside the current month will be visible in the date picker.
+          * @default true
          */
         "showDaysOutsideMonth"?: boolean;
         /**
           * If `true`, the `Clear` button on the date picker will be visible.
+          * @default true
          */
         "showPickerClearButton"?: boolean;
         /**
           * If `true`, the `Go to today` button on the date picker will be visible.
+          * @default true
          */
         "showPickerTodayButton"?: boolean;
         /**
           * The size of the date picker to be displayed.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
+          * @default IcWeekDays.Monday
          */
         "startOfWeek": IcWeekDays;
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
+          * @default ""
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in date validation.
+          * @default ""
          */
         "validationText"?: string;
         /**
           * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "value"?: string | Date | null | undefined;
     }
     interface IcPaginationBar {
         /**
           * Sets the alignment of the items in the pagination bar.
+          * @default "right"
          */
         "alignment"?: IcPaginationAlignmentOptions;
         /**
           * The current page number to be displayed on the pagination bar.
+          * @default 1
          */
         "currentPage"?: number;
         /**
           * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+          * @default false
          */
         "hideAllFromItemsPerPage"?: boolean;
         /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
+          * @default false
          */
         "hideRangeLabel"?: boolean;
         /**
           * The text which will be used in place of 'Item' on the pagination bar.
+          * @default "Item"
          */
         "itemLabel"?: string;
         /**
@@ -494,18 +577,22 @@ export namespace Components {
   }[];
         /**
           * If `true`, the pagination bar will display as black in the light theme, and white in dark theme.
+          * @default false
          */
         "monochrome"?: boolean;
         /**
           * The text which will be used in place of 'Page' on the pagination bar.
+          * @default "Page"
          */
         "pageLabel"?: string;
         /**
           * Whether total number of items and current item range or total number of pages and current page is displayed.
+          * @default "page"
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
         /**
           * If `false`, the value in the items per page control will be set immediately on ArrowUp and ArrowDown instead of when Enter is pressed.
+          * @default true
          */
         "selectItemsPerPageOnEnter": boolean;
         /**
@@ -514,18 +601,22 @@ export namespace Components {
         "selectedItemsPerPage"?: number;
         /**
           * If `true`, the pagination bar is set to the first page when the 'items per page' changes
+          * @default false
          */
         "setToFirstPageOnPaginationChange"?: boolean;
         /**
           * If `true`, the 'go to page' control should be displayed.
+          * @default false
          */
         "showGoToPageControl"?: boolean;
         /**
           * If `true`, the select input to control 'items per page' should be displayed.
+          * @default false
          */
         "showItemsPerPageControl"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -534,20 +625,24 @@ export namespace Components {
         "totalItems": number;
         /**
           * Whether the displayed pagination is simple or complex.
+          * @default "simple"
          */
         "type"?: IcPaginationTypes;
     }
     interface IcTimeInput {
         /**
           * An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * @default []
          */
         "disableTimes": IcDisableTimeSelection[];
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled": boolean;
         /**
           * If `true`, every individual input field completed will emit an icChange event.
+          * @default false
          */
         "emitTimePartChange"?: boolean;
         /**
@@ -561,18 +656,22 @@ export namespace Components {
         "helperText": string | null;
         /**
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+          * @default false
          */
         "hideHelperText": boolean;
         /**
           * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
           * The ID for the input.
+          * @default `ic-time-input-${inputIds++}`
          */
         "inputId": string;
         /**
           * The text to display as the validation message when an invalid time is entered.
+          * @default "Please enter a valid time."
          */
         "invalidTimeMessage": string;
         /**
@@ -581,64 +680,84 @@ export namespace Components {
         "label": string;
         /**
           * The latest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "max": string | Date;
         /**
           * The earliest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "min": string | Date;
         /**
           * The name of the control, which is submitted with the form data.
+          * @default this.inputId
          */
         "name": string;
         /**
           * If `true`, the input will require a value.
+          * @default false
          */
         "required": boolean;
         /**
           * If `true`, a button which clears the time input when clicked will be displayed.
+          * @default true
          */
         "showClearButton"?: boolean;
+        /**
+          * @default false
+         */
         "showClockButton"?: boolean;
         /**
           * The size of the time input to be displayed.
+          * @default "medium"
          */
         "size": IcSizes;
         /**
           * Sets the time picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
           * The format in which the time will be displayed.
+          * @default this.DEFAULT_TIME_FORMAT
          */
         "timeFormat": IcTimeFormat;
         /**
           * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
+          * @default "24"
          */
         "timePeriod": "12" | "24";
         "triggerIcChange": (t: Date | null) => Promise<void>;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in time validation.
+          * @default ""
          */
         "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in time validation.
+          * @default ""
          */
         "validationText"?: string;
         /**
           * The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "value"?: string | Date | null | undefined;
     }
     interface IcTreeItem {
         /**
           * If `true`, the tree item appears in the disabled state.
+          * @default false
          */
         "disabled": boolean;
         /**
           * If `true`, the tree item appears in the expanded state.
+          * @default false
          */
         "expanded": boolean;
+        /**
+          * @default false
+         */
         "hasParentExpanded": boolean;
         /**
           * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
@@ -646,11 +765,16 @@ export namespace Components {
         "href"?: string | undefined;
         /**
           * The human language of the linked URL.
+          * @default ""
          */
         "hreflang"?: string;
+        /**
+          * @default false
+         */
         "isParent": boolean;
         /**
           * The label of the tree item.
+          * @default ""
          */
         "label": string;
         "previousTruncateTreeItem"?: boolean;
@@ -664,12 +788,16 @@ export namespace Components {
         "rel"?: string;
         /**
           * If `true`, the tree item appears in the selected state.
+          * @default false
          */
         "selected": boolean;
         /**
           * Sets focus on the native `input`.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * @default "medium"
+         */
         "size"?: IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
@@ -677,6 +805,7 @@ export namespace Components {
         "target"?: string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
@@ -692,26 +821,32 @@ export namespace Components {
     interface IcTreeView {
         /**
           * The heading of the tree view.
+          * @default ""
          */
         "heading": string;
         /**
           * The size of the tree view.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
           * The content within the tree view tree items. This will take precedence over slotted content.
+          * @default []
          */
         "treeItemData": IcTreeItemOptions[];
         /**
           * If `true`, the tree view heading will be truncated instead of text wrapping. When used on small devices, this prop will be overridden and headings will be set to text-wrap.
+          * @default false
          */
         "truncateHeading": boolean;
         /**
           * If `true`, tree items will be truncated, unless they are individually overridden. When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
+          * @default false
          */
         "truncateTreeItems": boolean;
     }
@@ -926,10 +1061,12 @@ declare namespace LocalJSX {
     interface IcCardHorizontal {
         /**
           * If `true`, the horizontal card will be a clickable variant, instead of static.
+          * @default false
          */
         "clickable"?: boolean;
         /**
           * If `true`, the horizontal card will be disabled if it is clickable.
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -942,10 +1079,12 @@ declare namespace LocalJSX {
         "href"?: string | undefined;
         /**
           * The human language of the linked URL.
+          * @default ""
          */
         "hreflang"?: string;
         /**
           * The main body message of the horizontal card.
+          * @default ""
          */
         "message"?: string;
         /**
@@ -958,6 +1097,7 @@ declare namespace LocalJSX {
         "rel"?: string;
         /**
           * The size of the horizontal card.
+          * @default "medium"
          */
         "size"?: IcCardSizes;
         /**
@@ -966,6 +1106,7 @@ declare namespace LocalJSX {
         "target"?: string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
@@ -976,6 +1117,7 @@ declare namespace LocalJSX {
         "caption": string;
         /**
           * Determines whether the column header should be truncated and display a tooltip. Default is `false`.
+          * @default false
          */
         "columnHeaderTruncation"?: boolean;
         /**
@@ -988,18 +1130,22 @@ declare namespace LocalJSX {
         "data"?: IcDataTableDataType[];
         /**
           * Set the density of the table including font and padding.
+          * @default "default"
          */
         "density"?: IcDataTableDensityOptions;
         /**
           * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
+          * @default false
          */
         "disableAutoSort"?: boolean;
         /**
           * Applies a border to the table container.
+          * @default false
          */
         "embedded"?: boolean;
         /**
           * Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.
+          * @default "auto"
          */
         "globalRowHeight"?: IcDataTableRowHeights;
         /**
@@ -1008,10 +1154,12 @@ declare namespace LocalJSX {
         "height"?: string;
         /**
           * If `true`, column headers will not be visible.
+          * @default false
          */
         "hideColumnHeaders"?: boolean;
         /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
+          * @default false
          */
         "loading"?: boolean;
         /**
@@ -1037,6 +1185,7 @@ declare namespace LocalJSX {
         "minWidth"?: string;
         /**
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
+          * @default 1000
          */
         "minimumLoadingDisplayDuration"?: number;
         /**
@@ -1068,18 +1217,22 @@ declare namespace LocalJSX {
         "onIcSortChange"?: (event: IcDataTableCustomEvent<IcSortEventDetail>) => void;
         /**
           * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
+          * @default {     alignment: "right",     hideAllFromItemsPerPage: false,     hideRangeLabel: false,     itemLabel: "Item",     itemsPerPageOptions: [       { label: "10", value: "10" },       { label: "25", value: "25" },       { label: "50", value: "50" },     ],     monochrome: false,     pageLabel: "Page",     rangeLabelType: "page",     selectedItemsPerPage: 10,     selectItemsPerPageOnEnter: true,     setToFirstPageOnPaginationChange: false,     showGoToPageControl: true,     showItemsPerPageControl: true,     type: "simple",   }
          */
         "paginationBarOptions"?: IcPaginationBarOptions;
         /**
           * If `true`, a checkbox column will be displayed to the left of the table which allows multiple rows to be selected.
+          * @default false
          */
         "rowSelection"?: boolean;
         /**
           * If `true`, adds a pagination bar to the bottom of the table.
+          * @default false
          */
         "showPagination"?: boolean;
         /**
           * Sets the order columns will be sorted in and allows for 'default' sorts to be added.
+          * @default {     sortOrders: ["unsorted", "ascending", "descending"],     defaultColumn: "",   }
          */
         "sortOptions"?: {
     sortOrders: IcDataTableSortOrderOptions[];
@@ -1087,22 +1240,27 @@ declare namespace LocalJSX {
   };
         /**
           * If `true`, allows table columns to be sorted using applied sort buttons.
+          * @default false
          */
         "sortable"?: boolean;
         /**
           * If `true`, column headers will remain at the top of the table when scrolling vertically.
+          * @default false
          */
         "stickyColumnHeaders"?: boolean;
         /**
           * If `true`, row headers will remain to the left when scrolling horizontally.
+          * @default false
          */
         "stickyRowHeaders"?: boolean;
         /**
           * Sets the layout of the table
+          * @default "fixed"
          */
         "tableLayout"?: "fixed" | "auto";
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
@@ -1111,6 +1269,7 @@ declare namespace LocalJSX {
         "truncationPattern"?: IcDataTableTruncationTypes;
         /**
           * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
+          * @default false
          */
         "updating"?: boolean;
         /**
@@ -1142,10 +1301,12 @@ declare namespace LocalJSX {
         "description"?: string;
         /**
           * The heading of the title bar. Can be overridden with the `heading` slot. If used with an `ic-data-table` it will default to the table's `caption` unless overridden.
+          * @default DEFAULT_TITLE_BAR_HEADING
          */
         "heading"?: string;
         /**
           * When `true`, the density select will not be rendered.
+          * @default false
          */
         "hideDensitySelect"?: boolean;
         /**
@@ -1160,38 +1321,47 @@ declare namespace LocalJSX {
     interface IcDateInput {
         /**
           * The format in which the date will be displayed.
+          * @default this.DEFAULT_DATE_FORMAT
          */
         "dateFormat"?: IcDateFormat;
         /**
           * The days of the week to disable.
+          * @default []
          */
         "disableDays"?: IcWeekDays[];
         /**
           * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
+          * @default "The date you have selected is on a day of the week that is not allowed. Please select another date."
          */
         "disableDaysMessage"?: string;
         /**
           * If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.
+          * @default false
          */
         "disableFuture"?: boolean;
         /**
           * The text to display as the validation message when `disableFuture` is true and a date in the future is entered.
+          * @default "Dates in the future are not allowed. Please select a date in the past."
          */
         "disableFutureMessage"?: string;
         /**
           * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
+          * @default false
          */
         "disablePast"?: boolean;
         /**
           * The text to display as the validation message when `disablePast` is true and a date in the past is entered.
+          * @default "Dates in the past are not allowed. Please select a date in the future."
          */
         "disablePastMessage"?: string;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * If `true`, every individual input field completed will emit an icChange event.
+          * @default false
          */
         "emitDatePartChange"?: boolean;
         /**
@@ -1200,18 +1370,22 @@ declare namespace LocalJSX {
         "helperText"?: string | null;
         /**
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+          * @default false
          */
         "hideHelperText"?: boolean;
         /**
           * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
           * The ID for the input.
+          * @default `ic-date-input-${inputIds++}`
          */
         "inputId"?: string;
         /**
           * The text to display as the validation message when an invalid date is entered.
+          * @default "Please enter a valid date."
          */
         "invalidDateMessage"?: string;
         /**
@@ -1220,14 +1394,17 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+          * @default ""
          */
         "max"?: string | Date;
         /**
           * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+          * @default ""
          */
         "min"?: string | Date;
         /**
           * The name of the control, which is submitted with the form data.
+          * @default this.inputId
          */
         "name"?: string;
         "onCalendarButtonClicked"?: (event: IcDateInputCustomEvent<{ value: Date | null }>) => void;
@@ -1253,69 +1430,88 @@ declare namespace LocalJSX {
         "onIcFocus"?: (event: IcDateInputCustomEvent<{ value: Date | null }>) => void;
         /**
           * If `true`, the input will require a value.
+          * @default false
          */
         "required"?: boolean;
+        /**
+          * @default false
+         */
         "showCalendarButton"?: boolean;
         /**
           * If `true`, a button which clears the date input when clicked will be displayed.
+          * @default true
          */
         "showClearButton"?: boolean;
         /**
           * The size of the date input to be displayed.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
+          * @default ""
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in date validation.
+          * @default ""
          */
         "validationText"?: string;
         /**
           * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "value"?: string | Date | null | undefined;
     }
     interface IcDatePicker {
         /**
           * The format in which the date will be displayed.
+          * @default "DD/MM/YYYY"
          */
         "dateFormat"?: IcDateFormat;
         /**
           * The days of the week to disable.
+          * @default []
          */
         "disableDays"?: IcWeekDays[];
         /**
           * The text to display as the validation message when `disableDays` is `true` and a disabled date is entered.
+          * @default "The date you have selected is on a day of the week that is not allowed. Please select another date."
          */
         "disableDaysMessage"?: string;
         /**
           * If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.
+          * @default false
          */
         "disableFuture"?: boolean;
         /**
           * The text to display as the validation message when `disableFuture` is `true` and a date in the future is entered.
+          * @default "Dates in the future are not allowed. Please select a date in the past."
          */
         "disableFutureMessage"?: string;
         /**
           * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
+          * @default false
          */
         "disablePast"?: boolean;
         /**
           * The text to display as the validation message when `disablePast` is `true` and a date in the past is entered.
+          * @default "Dates in the past are not allowed. Please select a date in the future."
          */
         "disablePastMessage"?: string;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * If `true`, every individual input field completed will emit an icChange event.
+          * @default false
          */
         "emitDatePartChange"?: boolean;
         /**
@@ -1324,10 +1520,12 @@ declare namespace LocalJSX {
         "helperText"?: string;
         /**
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+          * @default false
          */
         "hideHelperText"?: boolean;
         /**
           * If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
@@ -1336,6 +1534,7 @@ declare namespace LocalJSX {
         "inputId"?: string;
         /**
           * The text to display as the validation message when an invalid date is entered.
+          * @default "Please enter a valid date."
          */
         "invalidDateMessage"?: string;
         /**
@@ -1344,10 +1543,12 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+          * @default ""
          */
         "max"?: string | Date;
         /**
           * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+          * @default ""
          */
         "min"?: string | Date;
         /**
@@ -1360,72 +1561,89 @@ declare namespace LocalJSX {
         "onIcChange"?: (event: IcDatePickerCustomEvent<{ value: Date }>) => void;
         /**
           * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "openAtDate"?: string | Date;
         /**
           * If `true`, the input will require a value.
+          * @default false
          */
         "required"?: boolean;
         /**
           * If 'true', the 'X' button on the date input will be visible, which clears the field.
+          * @default true
          */
         "showClearButton"?: boolean;
         /**
           * If `true`, days outside the current month will be visible in the date picker.
+          * @default true
          */
         "showDaysOutsideMonth"?: boolean;
         /**
           * If `true`, the `Clear` button on the date picker will be visible.
+          * @default true
          */
         "showPickerClearButton"?: boolean;
         /**
           * If `true`, the `Go to today` button on the date picker will be visible.
+          * @default true
          */
         "showPickerTodayButton"?: boolean;
         /**
           * The size of the date picker to be displayed.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
+          * @default IcWeekDays.Monday
          */
         "startOfWeek"?: IcWeekDays;
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
+          * @default ""
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in date validation.
+          * @default ""
          */
         "validationText"?: string;
         /**
           * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "value"?: string | Date | null | undefined;
     }
     interface IcPaginationBar {
         /**
           * Sets the alignment of the items in the pagination bar.
+          * @default "right"
          */
         "alignment"?: IcPaginationAlignmentOptions;
         /**
           * The current page number to be displayed on the pagination bar.
+          * @default 1
          */
         "currentPage"?: number;
         /**
           * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+          * @default false
          */
         "hideAllFromItemsPerPage"?: boolean;
         /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
+          * @default false
          */
         "hideRangeLabel"?: boolean;
         /**
           * The text which will be used in place of 'Item' on the pagination bar.
+          * @default "Item"
          */
         "itemLabel"?: string;
         /**
@@ -1437,6 +1655,7 @@ declare namespace LocalJSX {
   }[];
         /**
           * If `true`, the pagination bar will display as black in the light theme, and white in dark theme.
+          * @default false
          */
         "monochrome"?: boolean;
         /**
@@ -1449,14 +1668,17 @@ declare namespace LocalJSX {
         "onIcPageChange"?: (event: IcPaginationBarCustomEvent<IcPageChangeEventDetail>) => void;
         /**
           * The text which will be used in place of 'Page' on the pagination bar.
+          * @default "Page"
          */
         "pageLabel"?: string;
         /**
           * Whether total number of items and current item range or total number of pages and current page is displayed.
+          * @default "page"
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
         /**
           * If `false`, the value in the items per page control will be set immediately on ArrowUp and ArrowDown instead of when Enter is pressed.
+          * @default true
          */
         "selectItemsPerPageOnEnter"?: boolean;
         /**
@@ -1465,18 +1687,22 @@ declare namespace LocalJSX {
         "selectedItemsPerPage"?: number;
         /**
           * If `true`, the pagination bar is set to the first page when the 'items per page' changes
+          * @default false
          */
         "setToFirstPageOnPaginationChange"?: boolean;
         /**
           * If `true`, the 'go to page' control should be displayed.
+          * @default false
          */
         "showGoToPageControl"?: boolean;
         /**
           * If `true`, the select input to control 'items per page' should be displayed.
+          * @default false
          */
         "showItemsPerPageControl"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -1485,20 +1711,24 @@ declare namespace LocalJSX {
         "totalItems": number;
         /**
           * Whether the displayed pagination is simple or complex.
+          * @default "simple"
          */
         "type"?: IcPaginationTypes;
     }
     interface IcTimeInput {
         /**
           * An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * @default []
          */
         "disableTimes"?: IcDisableTimeSelection[];
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * If `true`, every individual input field completed will emit an icChange event.
+          * @default false
          */
         "emitTimePartChange"?: boolean;
         /**
@@ -1507,18 +1737,22 @@ declare namespace LocalJSX {
         "helperText"?: string | null;
         /**
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+          * @default false
          */
         "hideHelperText"?: boolean;
         /**
           * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
           * The ID for the input.
+          * @default `ic-time-input-${inputIds++}`
          */
         "inputId"?: string;
         /**
           * The text to display as the validation message when an invalid time is entered.
+          * @default "Please enter a valid time."
          */
         "invalidTimeMessage"?: string;
         /**
@@ -1527,14 +1761,17 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * The latest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "max"?: string | Date;
         /**
           * The earliest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "min"?: string | Date;
         /**
           * The name of the control, which is submitted with the form data.
+          * @default this.inputId
          */
         "name"?: string;
         "onClockButtonClicked"?: (event: IcTimeInputCustomEvent<{ value: Date | null }>) => void;
@@ -1559,51 +1796,68 @@ declare namespace LocalJSX {
         "onIcFocus"?: (event: IcTimeInputCustomEvent<{ value: Date | null }>) => void;
         /**
           * If `true`, the input will require a value.
+          * @default false
          */
         "required"?: boolean;
         /**
           * If `true`, a button which clears the time input when clicked will be displayed.
+          * @default true
          */
         "showClearButton"?: boolean;
+        /**
+          * @default false
+         */
         "showClockButton"?: boolean;
         /**
           * The size of the time input to be displayed.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the time picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
           * The format in which the time will be displayed.
+          * @default this.DEFAULT_TIME_FORMAT
          */
         "timeFormat"?: IcTimeFormat;
         /**
           * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
+          * @default "24"
          */
         "timePeriod"?: "12" | "24";
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in time validation.
+          * @default ""
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in time validation.
+          * @default ""
          */
         "validationText"?: string;
         /**
           * The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * @default ""
          */
         "value"?: string | Date | null | undefined;
     }
     interface IcTreeItem {
         /**
           * If `true`, the tree item appears in the disabled state.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * If `true`, the tree item appears in the expanded state.
+          * @default false
          */
         "expanded"?: boolean;
+        /**
+          * @default false
+         */
         "hasParentExpanded"?: boolean;
         /**
           * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
@@ -1611,11 +1865,16 @@ declare namespace LocalJSX {
         "href"?: string | undefined;
         /**
           * The human language of the linked URL.
+          * @default ""
          */
         "hreflang"?: string;
+        /**
+          * @default false
+         */
         "isParent"?: boolean;
         /**
           * The label of the tree item.
+          * @default ""
          */
         "label"?: string;
         /**
@@ -1640,8 +1899,12 @@ declare namespace LocalJSX {
         "rel"?: string;
         /**
           * If `true`, the tree item appears in the selected state.
+          * @default false
          */
         "selected"?: boolean;
+        /**
+          * @default "medium"
+         */
         "size"?: IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
@@ -1649,6 +1912,7 @@ declare namespace LocalJSX {
         "target"?: string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
@@ -1663,26 +1927,32 @@ declare namespace LocalJSX {
     interface IcTreeView {
         /**
           * The heading of the tree view.
+          * @default ""
          */
         "heading"?: string;
         /**
           * The size of the tree view.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
           * The content within the tree view tree items. This will take precedence over slotted content.
+          * @default []
          */
         "treeItemData"?: IcTreeItemOptions[];
         /**
           * If `true`, the tree view heading will be truncated instead of text wrapping. When used on small devices, this prop will be overridden and headings will be set to text-wrap.
+          * @default false
          */
         "truncateHeading"?: boolean;
         /**
           * If `true`, tree items will be truncated, unless they are individually overridden. When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
+          * @default false
          */
         "truncateTreeItems"?: boolean;
     }

@@ -2,7 +2,6 @@ import { html } from "lit-html";
 
 const defaultArgs = {
   autocapitalize: "off",
-  autocorrect: "off",
   autofocus: false,
   charactersUntilSuggestion: 2,
   disableAutoFiltering: false,
@@ -540,7 +539,6 @@ export const Playground = {
   render: (args) =>
     html`<ic-search-bar
         autocapitalize=${args.autocapitalize}
-        autocorrect=${args.autocorrect}
         autofocus=${args.autofocus}
         characters-until-suggestion=${args.charactersUntilSuggestion}
         disable-auto-filtering=${args.disableAutoFiltering}
@@ -572,14 +570,6 @@ export const Playground = {
 
       control: {
         type: "select",
-      },
-    },
-
-    autocorrect: {
-      options: ["on", "off"],
-
-      control: {
-        type: inlineRadioSelector,
       },
     },
 

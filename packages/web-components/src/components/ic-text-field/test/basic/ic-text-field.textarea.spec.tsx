@@ -93,11 +93,11 @@ describe("ic-text-field", () => {
   it("should render textarea with autoprops", async () => {
     const page = await newSpecPage({
       components: [TextField],
-      html: `<ic-text-field rows="6" label="Test label" value="test value" autofocus=true autocapitalize="on" autocomplete="on" autocorrect="on"></ic-text-field>`,
+      html: `<ic-text-field rows="6" label="Test label" value="test value" autofocus=true autocapitalize="on" autocomplete="on"></ic-text-field>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-text-field autocapitalize="on" autocomplete="on" autocorrect="on" autofocus="true" label="Test label" rows="6" value="test value">
+      <ic-text-field autocapitalize="on" autocomplete="on" autofocus="true" label="Test label" rows="6" value="test value">
         <mock:shadow-root>
           <ic-input-container>
             <ic-input-label for="ic-text-field-input-4" helpertext="" label="Test label">
