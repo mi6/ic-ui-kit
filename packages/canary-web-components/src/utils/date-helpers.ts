@@ -80,21 +80,16 @@ export const getWeekStart = (date: Date, startDay: IcWeekDays): Date => {
   return tmpDate;
 };
 
-export const getWeekEnd = (date: Date, startDay: IcWeekDays): Date => {
-  const d = new Date(date);
-  const day = d.getDay();
-  const diff = (day < startDay ? -7 : 0) + 6 - (day - startDay);
-
-  d.setDate(d.getDate() + diff);
-  return d;
-};
-
 export const getMonthStart = (date: Date): Date => {
   return new Date(date.getFullYear(), date.getMonth(), 1);
 };
 
 export const getMonthEnd = (date: Date): Date => {
   return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+};
+
+export const addSixWeeks = (start: Date): Date => {
+  return new Date(new Date(start).setDate(start.getDate() + 41));
 };
 
 /**

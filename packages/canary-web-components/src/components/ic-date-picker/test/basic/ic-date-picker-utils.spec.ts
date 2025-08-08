@@ -4,7 +4,6 @@ import {
   dateInRange,
   getMonthStart,
   getMonthEnd,
-  getWeekEnd,
   getWeekStart,
   yearInRange,
   createDate,
@@ -12,6 +11,7 @@ import {
   isDateOrEpoch,
   isDayFirstFormat,
   isMonthFirstFormat,
+  addSixWeeks,
 } from "../../../../utils/date-helpers";
 
 describe("ic-date-picker-date-helpers", () => {
@@ -177,41 +177,17 @@ describe("ic-date-picker-utils", () => {
     });
   });
 
-  describe("getWeekEnd", () => {
-    it("should return the last day of the week - Sunday", () => {
-      expect(getWeekEnd(new Date(2023, 0, 1), IcWeekDays.Sunday)).toEqual(
-        new Date(2023, 0, 7)
-      );
+  describe("addSixWeeks", () => {
+    it("should add six weeks to the provided date - Monday start", () => {
+      expect(addSixWeeks(new Date(2022, 11, 26))).toEqual(new Date(2023, 1, 5));
     });
-    it("should return the last day of the week - Monday", () => {
-      expect(getWeekEnd(new Date(2023, 0, 1), IcWeekDays.Monday)).toEqual(
-        new Date(2023, 0, 1)
-      );
+
+    it("should add six weeks to the provided date - Thursday start", () => {
+      expect(addSixWeeks(new Date(2022, 11, 29))).toEqual(new Date(2023, 1, 8));
     });
-    it("should return the last day of the week - Tuesday", () => {
-      expect(getWeekEnd(new Date(2023, 0, 1), IcWeekDays.Tuesday)).toEqual(
-        new Date(2023, 0, 2)
-      );
-    });
-    it("should return the last day of the week - Wednesday", () => {
-      expect(getWeekEnd(new Date(2023, 0, 1), IcWeekDays.Wednesday)).toEqual(
-        new Date(2023, 0, 3)
-      );
-    });
-    it("should return the last day of the week - Thursday", () => {
-      expect(getWeekEnd(new Date(2023, 0, 1), IcWeekDays.Thursday)).toEqual(
-        new Date(2023, 0, 4)
-      );
-    });
-    it("should return the last day of the week - Friday", () => {
-      expect(getWeekEnd(new Date(2023, 0, 1), IcWeekDays.Friday)).toEqual(
-        new Date(2023, 0, 5)
-      );
-    });
-    it("should return the last day of the week - Saturday", () => {
-      expect(getWeekEnd(new Date(2023, 0, 1), IcWeekDays.Saturday)).toEqual(
-        new Date(2023, 0, 6)
-      );
+
+    it("should add six weeks to the provided date - Sunday start", () => {
+      expect(addSixWeeks(new Date(2023, 0, 1))).toEqual(new Date(2023, 1, 11));
     });
   });
 

@@ -231,3 +231,27 @@ export const IcChangeDateEmitDatePartChanges = (): HTMLElement => {
 
   return container;
 };
+
+export const OpenAbove = (): HTMLElement => {
+  const container = document.createElement("div");
+
+  const smallPicker = createDatePickerElement();
+  smallPicker.openAtDate = "2025-02-03";
+  smallPicker.size = "small";
+
+  const defaultPicker = createDatePickerElement();
+  defaultPicker.openAtDate = "2025-02-03";
+  defaultPicker.startOfWeek = 0;
+
+  const largePicker = createDatePickerElement();
+  largePicker.openAtDate = "2025-02-03";
+  largePicker.size = "large";
+  largePicker.startOfWeek = 4;
+
+  container.appendChild(smallPicker);
+  container.appendChild(defaultPicker);
+  container.appendChild(largePicker);
+  container.style.marginTop = "400px";
+
+  return container;
+};

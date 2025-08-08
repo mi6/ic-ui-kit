@@ -14,6 +14,7 @@ import {
   JSDates,
   MaxMin,
   MaxWidth,
+  OpenAbove,
   OpenAt,
   Sizes,
   Value,
@@ -201,5 +202,14 @@ export const IcChangeEvent = {
 export const IcChangeEventEmitDatePartChange = {
   render: () => IcChangeDateEmitDatePartChanges(),
   name: "IcChange event with emitDatePartChange",
+  height: "540px",
+};
+
+/**
+ * Margin added so the calendar opens above the input
+ */
+export const CalendarOpensAboveInput = {
+  render: () => OpenAbove(),
+  name: "Calendar opens above input",
   height: "540px",
 };
