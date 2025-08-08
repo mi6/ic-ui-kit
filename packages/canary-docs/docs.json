@@ -4363,10 +4363,282 @@
       }
     },
     {
+      "filePath": "src/components/ic-table-of-contents/ic-table-of-contents.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-table-of-contents",
+      "readme": "# ic-table-of-contents\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "Heading text of the table of contents.",
+          "docsTags": [],
+          "default": "\"Table of Contents\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "maximumHeadingLevel",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "maximum-heading-level",
+          "reflectToAttr": false,
+          "docs": "Maximum heading level of child content that will generate an item in the table of contents. E.g. when set to '3', headings of <h4> and <h5> will not appear.",
+          "docsTags": [],
+          "default": "3",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "monochrome",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the table of contents will display as black in the light theme, and white in dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "position",
+          "type": "\"right\" | \"top\"",
+          "complexType": {
+            "original": "IcPosition",
+            "resolved": "\"right\" | \"top\"",
+            "references": {
+              "IcPosition": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcPosition"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "position",
+          "reflectToAttr": false,
+          "docs": "Whether the table of contents will appear on the right of or above child content on large viewport widths.",
+          "docsTags": [],
+          "default": "\"right\"",
+          "values": [
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "setScrollHeight",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "set-scroll-height",
+          "reflectToAttr": false,
+          "docs": "Vertical offset to page scroll (in percent) when table of contents item is selected, to account for other page components like headers.",
+          "docsTags": [],
+          "default": "50",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the table of contents items.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "truncate",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "truncate",
+          "reflectToAttr": false,
+          "docs": "If `true`, the table of contents item label will be truncated.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-tooltip",
+        "ic-section-container",
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-table-of-contents": [
+          "ic-tooltip",
+          "ic-section-container",
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-time-input/ic-time-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-time-input",
-      "readme": "# ic-date-input\n\n\n",
+      "readme": "# ic-date-input\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5054,7 +5326,7 @@
           "detail": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; }; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\n    value: Date | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n    };\n  }",
+            "original": "{\r\n    value: Date | null;\r\n    timeObject: {\r\n      hour: string | null;\r\n      minute: string | null;\r\n      second: string | null;\r\n    };\r\n  }",
             "resolved": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; }; }",
             "references": {
               "Date": {
@@ -5884,7 +6156,7 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/utils/types.ts::IcPaginationBarOptions": {
-      "declaration": "export interface IcPaginationBarOptions {\n  alignment?: IcPaginationAlignmentOptions;\n  hideAllFromItemsPerPage?: boolean;\n  hideRangeLabel?: boolean;\n  itemLabel?: string;\n  itemsPerPageOptions?: { label: string; value: string }[];\n  monochrome?: boolean;\n  pageLabel?: string;\n  rangeLabelType?: IcPaginationLabelTypes;\n  selectedItemsPerPage?: number;\n  selectItemsPerPageOnEnter?: boolean;\n  setToFirstPageOnPaginationChange?: boolean;\n  showGoToPageControl?: boolean;\n  showItemsPerPageControl?: boolean;\n  theme?: IcThemeMode;\n  type?: IcPaginationTypes;\n}",
+      "declaration": "export interface IcPaginationBarOptions {\r\n  alignment?: IcPaginationAlignmentOptions;\r\n  hideAllFromItemsPerPage?: boolean;\r\n  hideRangeLabel?: boolean;\r\n  itemLabel?: string;\r\n  itemsPerPageOptions?: { label: string; value: string }[];\r\n  monochrome?: boolean;\r\n  pageLabel?: string;\r\n  rangeLabelType?: IcPaginationLabelTypes;\r\n  selectedItemsPerPage?: number;\r\n  selectItemsPerPageOnEnter?: boolean;\r\n  setToFirstPageOnPaginationChange?: boolean;\r\n  showGoToPageControl?: boolean;\r\n  showItemsPerPageControl?: boolean;\r\n  theme?: IcThemeMode;\r\n  type?: IcPaginationTypes;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -5939,7 +6211,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcWeekDays": {
-      "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
+      "declaration": "export enum IcWeekDays {\r\n  Sunday = 0,\r\n  Monday = 1,\r\n  Tuesday = 2,\r\n  Wednesday = 3,\r\n  Thursday = 4,\r\n  Friday = 5,\r\n  Saturday = 6,\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -5953,8 +6225,13 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/utils/types.ts::IcPosition": {
+      "declaration": "export type IcPosition = \"top\" | \"right\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcDisableTimeSelection": {
-      "declaration": "export type IcDisableTimeSelection =\n  | string\n  | Date\n  | { start: string | Date; end: string | Date };",
+      "declaration": "export type IcDisableTimeSelection =\r\n  | string\r\n  | Date\r\n  | { start: string | Date; end: string | Date };",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
