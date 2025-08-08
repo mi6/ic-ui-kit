@@ -1,0 +1,12 @@
+:host {
+  grid-column: var(--ic-grid-item-col-start, 1) / span
+    var(--ic-grid-item-col-span, var(--ic-layout-grid-col-span, 1)) !important;
+  grid-row: var(--ic-grid-item-row-start, 1) / span
+    var(--ic-grid-item-row-span, var(--ic-layout-grid-row-span, 1)) !important;
+}
+
+@media only screen and (max-width: 576px) {
+  :host(.ic-layout-grid-hide-in-mobile) {
+    display: none;
+  }
+}

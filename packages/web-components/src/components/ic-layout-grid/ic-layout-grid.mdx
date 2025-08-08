@@ -1,0 +1,10 @@
+import { Meta, Stories, Markdown } from "@storybook/blocks";
+import readme from "./readme.md";
+import layoutGridItemReadme from "../ic-layout-grid-item/readme.md";
+import * as IcLayoutGridStories from "./ic-layout-grid.stories";
+
+<Meta of={IcLayoutGridStories} />
+
+<Markdown>{readme + layoutGridItemReadme}</Markdown>
+
+<Stories />

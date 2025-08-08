@@ -1,0 +1,98 @@
+@import "../../global/normalize.css";
+
+:host {
+  display: grid;
+  width: fit-content;
+  grid-template-columns: repeat(
+    var(--ic-layout-grid-columns),
+    var(--ic-layout-grid-col-width, 1fr)
+  );
+  grid-template-rows: repeat(var(--ic-layout-grid-rows), 1fr);
+  gap: var(--ic-layout-grid-spacing);
+  padding-top: var(--ic-layout-grid-margin);
+  padding-bottom: var(--ic-layout-grid-margin);
+}
+
+:host ::slotted(*) {
+  grid-column: span var(--ic-layout-grid-col-span, 1);
+  grid-row: span var(--ic-layout-grid-row-span, 1);
+}
+
+:host(.ic-layout-grid-aligned-center) {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--ic-layout-grid-margin);
+  padding-right: var(--ic-layout-grid-margin);
+}
+
+:host(.ic-layout-grid-aligned-left) {
+  margin-left: var(--ic-layout-grid-margin);
+  margin-right: auto;
+  padding-right: var(--ic-layout-grid-margin);
+}
+
+:host(.ic-layout-grid-aligned-full-width) {
+  margin-left: var(--ic-layout-grid-margin);
+  margin-right: var(--ic-layout-grid-margin);
+  width: calc(100% - (var(--ic-layout-grid-margin) * 2));
+}
+
+:host(.ic-layout-grid-no-vertical-padding) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media only screen and (max-width: 576px) {
+  :host {
+    --ic-layout-grid-margin: var(--ic-space-xs);
+    --ic-layout-grid-columns: var(--ic-layout-grid-columns-xs);
+  }
+
+  :host ::slotted(*) {
+    --ic-layout-grid-col-span: var(--ic-layout-grid-col-span-xs);
+  }
+}
+
+@media only screen and (min-width: 577px) {
+  :host {
+    --ic-layout-grid-margin: var(--ic-space-md);
+    --ic-layout-grid-columns: var(--ic-layout-grid-columns-sm);
+  }
+
+  :host ::slotted(*) {
+    --ic-layout-grid-col-span: var(--ic-layout-grid-col-span-sm);
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  :host {
+    --ic-layout-grid-margin: var(--ic-space-md);
+    --ic-layout-grid-columns: var(--ic-layout-grid-columns-md);
+  }
+
+  :host ::slotted(*) {
+    --ic-layout-grid-col-span: var(--ic-layout-grid-col-span-md);
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  :host {
+    --ic-layout-grid-margin: var(--ic-space-md);
+    --ic-layout-grid-columns: var(--ic-layout-grid-columns-lg);
+  }
+
+  :host ::slotted(*) {
+    --ic-layout-grid-col-span: var(--ic-layout-grid-col-span-lg);
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  :host {
+    --ic-layout-grid-margin: var(--ic-space-lg);
+    --ic-layout-grid-columns: var(--ic-layout-grid-columns-xl);
+  }
+
+  :host ::slotted(*) {
+    --ic-layout-grid-col-span: var(--ic-layout-grid-col-span-xl);
+  }
+}

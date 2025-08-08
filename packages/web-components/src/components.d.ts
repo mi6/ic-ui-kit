@@ -16,6 +16,7 @@ import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-stat
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
+import { IcGridBreakpoints, IcGridType } from "./components/ic-layout-grid/ic-layout-grid.types";
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
@@ -46,6 +47,7 @@ export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-stat
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
+export { IcGridBreakpoints, IcGridType } from "./components/ic-layout-grid/ic-layout-grid.types";
 export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
@@ -1051,6 +1053,66 @@ export namespace Components {
           * The status of the validation - e.g. 'error' | 'warning' | 'success'.
          */
         "status"?: IcInformationStatusOrEmpty;
+    }
+    interface IcLayoutGrid {
+        /**
+          * The alignment of the grid.
+         */
+        "aligned"?: IcAlignment;
+        /**
+          * The number of columns in the grid. This can be a number or an object specifying different values for each breakpoint.
+         */
+        "columns"?: IcGridBreakpoints;
+        /**
+          * The default column span for grid items.
+         */
+        "defaultColSpan"?: IcGridBreakpoints;
+        /**
+          * The default column width for grid items. This is used when the grid type is set to "fixed".
+         */
+        "defaultColWidth"?: string;
+        /**
+          * The default row span for grid items.
+         */
+        "defaultRowSpan"?: number;
+        /**
+          * If `true`, the standard vertical padding from the grid will be removed.
+         */
+        "fullHeight"?: boolean;
+        /**
+          * The space between grid items, in multiples of the base spacing unit (`var(--ic-space-xs)`).
+         */
+        "gridSpacing"?: number;
+        /**
+          * The number of rows in the grid.
+         */
+        "rows"?: number;
+        /**
+          * The layout type of the grid.
+         */
+        "type": IcGridType;
+    }
+    interface IcLayoutGridItem {
+        /**
+          * The number of columns the grid item should span.
+         */
+        "colSpan"?: number;
+        /**
+          * The column the grid item should start at.
+         */
+        "colStart"?: number;
+        /**
+          * If `true`, the grid item will be hidden on smaller screens.
+         */
+        "hideInMobileMode"?: boolean;
+        /**
+          * The number of rows the grid item should span.
+         */
+        "rowSpan"?: number;
+        /**
+          * The row the grid item should start at.
+         */
+        "rowStart"?: number;
     }
     interface IcLink {
         /**
@@ -2999,6 +3061,18 @@ declare global {
         prototype: HTMLIcInputValidationElement;
         new (): HTMLIcInputValidationElement;
     };
+    interface HTMLIcLayoutGridElement extends Components.IcLayoutGrid, HTMLStencilElement {
+    }
+    var HTMLIcLayoutGridElement: {
+        prototype: HTMLIcLayoutGridElement;
+        new (): HTMLIcLayoutGridElement;
+    };
+    interface HTMLIcLayoutGridItemElement extends Components.IcLayoutGridItem, HTMLStencilElement {
+    }
+    var HTMLIcLayoutGridItemElement: {
+        prototype: HTMLIcLayoutGridItemElement;
+        new (): HTMLIcLayoutGridItemElement;
+    };
     interface HTMLIcLinkElement extends Components.IcLink, HTMLStencilElement {
     }
     var HTMLIcLinkElement: {
@@ -3577,6 +3651,8 @@ declare global {
         "ic-input-container": HTMLIcInputContainerElement;
         "ic-input-label": HTMLIcInputLabelElement;
         "ic-input-validation": HTMLIcInputValidationElement;
+        "ic-layout-grid": HTMLIcLayoutGridElement;
+        "ic-layout-grid-item": HTMLIcLayoutGridItemElement;
         "ic-link": HTMLIcLinkElement;
         "ic-loading-indicator": HTMLIcLoadingIndicatorElement;
         "ic-menu": HTMLIcMenuElement;
@@ -4608,6 +4684,66 @@ declare namespace LocalJSX {
           * The status of the validation - e.g. 'error' | 'warning' | 'success'.
          */
         "status"?: IcInformationStatusOrEmpty;
+    }
+    interface IcLayoutGrid {
+        /**
+          * The alignment of the grid.
+         */
+        "aligned"?: IcAlignment;
+        /**
+          * The number of columns in the grid. This can be a number or an object specifying different values for each breakpoint.
+         */
+        "columns"?: IcGridBreakpoints;
+        /**
+          * The default column span for grid items.
+         */
+        "defaultColSpan"?: IcGridBreakpoints;
+        /**
+          * The default column width for grid items. This is used when the grid type is set to "fixed".
+         */
+        "defaultColWidth"?: string;
+        /**
+          * The default row span for grid items.
+         */
+        "defaultRowSpan"?: number;
+        /**
+          * If `true`, the standard vertical padding from the grid will be removed.
+         */
+        "fullHeight"?: boolean;
+        /**
+          * The space between grid items, in multiples of the base spacing unit (`var(--ic-space-xs)`).
+         */
+        "gridSpacing"?: number;
+        /**
+          * The number of rows in the grid.
+         */
+        "rows"?: number;
+        /**
+          * The layout type of the grid.
+         */
+        "type"?: IcGridType;
+    }
+    interface IcLayoutGridItem {
+        /**
+          * The number of columns the grid item should span.
+         */
+        "colSpan"?: number;
+        /**
+          * The column the grid item should start at.
+         */
+        "colStart"?: number;
+        /**
+          * If `true`, the grid item will be hidden on smaller screens.
+         */
+        "hideInMobileMode"?: boolean;
+        /**
+          * The number of rows the grid item should span.
+         */
+        "rowSpan"?: number;
+        /**
+          * The row the grid item should start at.
+         */
+        "rowStart"?: number;
     }
     interface IcLink {
         /**
@@ -6310,6 +6446,8 @@ declare namespace LocalJSX {
         "ic-input-container": IcInputContainer;
         "ic-input-label": IcInputLabel;
         "ic-input-validation": IcInputValidation;
+        "ic-layout-grid": IcLayoutGrid;
+        "ic-layout-grid-item": IcLayoutGridItem;
         "ic-link": IcLink;
         "ic-loading-indicator": IcLoadingIndicator;
         "ic-menu": IcMenu;
@@ -6382,6 +6520,8 @@ declare module "@stencil/core" {
             "ic-input-container": LocalJSX.IcInputContainer & JSXBase.HTMLAttributes<HTMLIcInputContainerElement>;
             "ic-input-label": LocalJSX.IcInputLabel & JSXBase.HTMLAttributes<HTMLIcInputLabelElement>;
             "ic-input-validation": LocalJSX.IcInputValidation & JSXBase.HTMLAttributes<HTMLIcInputValidationElement>;
+            "ic-layout-grid": LocalJSX.IcLayoutGrid & JSXBase.HTMLAttributes<HTMLIcLayoutGridElement>;
+            "ic-layout-grid-item": LocalJSX.IcLayoutGridItem & JSXBase.HTMLAttributes<HTMLIcLayoutGridItemElement>;
             "ic-link": LocalJSX.IcLink & JSXBase.HTMLAttributes<HTMLIcLinkElement>;
             "ic-loading-indicator": LocalJSX.IcLoadingIndicator & JSXBase.HTMLAttributes<HTMLIcLoadingIndicatorElement>;
             "ic-menu": LocalJSX.IcMenu & JSXBase.HTMLAttributes<HTMLIcMenuElement>;

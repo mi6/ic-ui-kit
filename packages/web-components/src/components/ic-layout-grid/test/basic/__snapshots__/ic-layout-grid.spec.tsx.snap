@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-layout-grid should remove vertical padding when full-height 1`] = `
+<ic-layout-grid class="ic-layout-grid-aligned-left ic-layout-grid-no-vertical-padding" full-height="" style="--ic-layout-grid-columns: 12; --ic-layout-grid-spacing: calc(var(--ic-space-xs) * 2); --ic-layout-grid-col-width: 64px; --ic-layout-grid-rows: 1; --ic-layout-grid-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 1
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 2
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 3
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 4
+  </div>
+</ic-layout-grid>
+`;
+
+exports[`ic-layout-grid should render centered 1`] = `
+<ic-layout-grid aligned="center" class="ic-layout-grid-aligned-center" style="--ic-layout-grid-columns: 12; --ic-layout-grid-spacing: calc(var(--ic-space-xs) * 2); --ic-layout-grid-col-width: 64px; --ic-layout-grid-rows: 1; --ic-layout-grid-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 1
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 2
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 3
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 4
+  </div>
+</ic-layout-grid>
+`;
+
+exports[`ic-layout-grid should render full-width 1`] = `
+<ic-layout-grid aligned="full-width" class="ic-layout-grid-aligned-full-width" style="--ic-layout-grid-columns: 12; --ic-layout-grid-spacing: calc(var(--ic-space-xs) * 2); --ic-layout-grid-col-width: 64px; --ic-layout-grid-rows: 1; --ic-layout-grid-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 1
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 2
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 3
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 4
+  </div>
+</ic-layout-grid>
+`;
+
+exports[`ic-layout-grid should render with columns set 1`] = `
+<ic-layout-grid class="ic-layout-grid-aligned-left" columns="3" style="--ic-layout-grid-spacing: calc(var(--ic-space-xs) * 2); --ic-layout-grid-col-width: 64px; --ic-layout-grid-rows: 1; --ic-layout-grid-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 1
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 2
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 3
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 4
+  </div>
+</ic-layout-grid>
+`;
+
+exports[`ic-layout-grid should render with defaultColSpan as a number 1`] = `
+<ic-layout-grid class="ic-layout-grid-aligned-left" default-col-span="2" style="--ic-layout-grid-columns: 12; --ic-layout-grid-spacing: calc(var(--ic-space-xs) * 2); --ic-layout-grid-col-width: 64px; --ic-layout-grid-rows: 1; --ic-layout-grid-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div>
+    Test div 1
+  </div>
+  <div>
+    Test div 2
+  </div>
+  <div>
+    Test div 3
+  </div>
+  <div>
+    Test div 4
+  </div>
+</ic-layout-grid>
+`;
+
+exports[`ic-layout-grid should render with defaultColSpan as an object 1`] = `
+<ic-layout-grid class="ic-layout-grid-aligned-left" style="--ic-layout-grid-columns: 12; --ic-layout-grid-spacing: calc(var(--ic-space-xs) * 2); --ic-layout-grid-col-width: 64px; --ic-layout-grid-rows: 1; --ic-layout-grid-row-span: 1; --ic-layout-grid-col-span-xs: 2; --ic-layout-grid-col-span-sm: 3; --ic-layout-grid-col-span-md: 4; --ic-layout-grid-col-span-lg: 5; --ic-layout-grid-col-span-xl: 6;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 1
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 2
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 3
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 4
+  </div>
+</ic-layout-grid>
+`;
+
+exports[`ic-layout-grid should render with left-aligned by default 1`] = `
+<ic-layout-grid class="ic-layout-grid-aligned-left" style="--ic-layout-grid-columns: 12; --ic-layout-grid-spacing: calc(var(--ic-space-xs) * 2); --ic-layout-grid-col-width: 64px; --ic-layout-grid-rows: 1; --ic-layout-grid-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 1
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 2
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 3
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 4
+  </div>
+</ic-layout-grid>
+`;
+
+exports[`ic-layout-grid should render with rows set 1`] = `
+<ic-layout-grid class="ic-layout-grid-aligned-left" rows="2" style="--ic-layout-grid-columns: 12; --ic-layout-grid-spacing: calc(var(--ic-space-xs) * 2); --ic-layout-grid-col-width: 64px; --ic-layout-grid-rows: 2; --ic-layout-grid-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 1
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 2
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 3
+  </div>
+  <div style="--ic-layout-grid-col-span: 1;">
+    Test div 4
+  </div>
+</ic-layout-grid>
+`;

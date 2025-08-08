@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-layout-grid should render 1`] = `
+<ic-layout-grid-item style="--ic-grid-item-col-start: 1; --ic-grid-item-col-span: 1; --ic-grid-item-row-start: 1; --ic-grid-item-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div>
+    Test div 1
+  </div>
+</ic-layout-grid-item>
+`;
+
+exports[`ic-layout-grid should render with col span 1`] = `
+<ic-layout-grid-item col-span="2" style="--ic-grid-item-col-start: 1; --ic-grid-item-col-span: 2; --ic-grid-item-row-start: 1; --ic-grid-item-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div>
+    Test div 1
+  </div>
+</ic-layout-grid-item>
+`;
+
+exports[`ic-layout-grid should render with col start 1`] = `
+<ic-layout-grid-item col-start="2" style="--ic-grid-item-col-start: 2; --ic-grid-item-col-span: 1; --ic-grid-item-row-start: 1; --ic-grid-item-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div>
+    Test div 1
+  </div>
+</ic-layout-grid-item>
+`;
+
+exports[`ic-layout-grid should render with hide in mobile mode class 1`] = `
+<ic-layout-grid-item class="ic-layout-grid-hide-in-mobile" hide-in-mobile-mode="true" style="--ic-grid-item-col-start: 1; --ic-grid-item-col-span: 1; --ic-grid-item-row-start: 1; --ic-grid-item-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div>
+    Test div 1
+  </div>
+</ic-layout-grid-item>
+`;
+
+exports[`ic-layout-grid should render with row span 1`] = `
+<ic-layout-grid-item row-span="2" style="--ic-grid-item-col-start: 1; --ic-grid-item-col-span: 1; --ic-grid-item-row-start: 1; --ic-grid-item-row-span: 2;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div>
+    Test div 1
+  </div>
+</ic-layout-grid-item>
+`;
+
+exports[`ic-layout-grid should render with row start 1`] = `
+<ic-layout-grid-item row-start="2" style="--ic-grid-item-col-start: 1; --ic-grid-item-col-span: 1; --ic-grid-item-row-start: 2; --ic-grid-item-row-span: 1;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <div>
+    Test div 1
+  </div>
+</ic-layout-grid-item>
+`;
