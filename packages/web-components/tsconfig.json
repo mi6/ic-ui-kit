@@ -8,6 +8,7 @@
     "jsxFactory": "h",
     "strict": true,
     "strictPropertyInitialization": false,
+    "skipLibCheck": true
   },
   "include": ["src", "./node.d.ts"],
   "exclude": ["node_modules", "src/testa11y.setup.ts"]

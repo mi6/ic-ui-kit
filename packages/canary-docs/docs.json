@@ -3675,6 +3675,11 @@
           "target": "document",
           "capture": false,
           "passive": false
+        },
+        {
+          "event": "icChange",
+          "capture": false,
+          "passive": false
         }
       ],
       "styles": [
@@ -3698,14 +3703,22 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "ic-button",
         "ic-date-input",
-        "ic-typography"
+        "ic-calendar"
       ],
       "dependencyGraph": {
         "ic-date-picker": [
-          "ic-button",
           "ic-date-input",
+          "ic-calendar"
+        ],
+        "ic-date-input": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-button",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
           "ic-typography"
         ],
         "ic-button": [
@@ -3719,17 +3732,11 @@
         "ic-tooltip": [
           "ic-typography"
         ],
-        "ic-date-input": [
-          "ic-input-container",
-          "ic-input-label",
-          "ic-input-component-container",
-          "ic-button",
-          "ic-input-validation"
-        ],
-        "ic-input-label": [
+        "ic-input-validation": [
           "ic-typography"
         ],
-        "ic-input-validation": [
+        "ic-calendar": [
+          "ic-button",
           "ic-typography"
         ]
       }

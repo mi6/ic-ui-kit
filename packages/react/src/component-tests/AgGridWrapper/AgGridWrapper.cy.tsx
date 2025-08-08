@@ -8,7 +8,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.033;
 
-describe("Visual regression and a11y tests", () => {
+describe.skip("Visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 768);

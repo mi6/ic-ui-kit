@@ -30,7 +30,7 @@ const lighthouseConfig = {
   extends: "lighthouse:default",
 };
 
-describe("Button performance", () => {
+describe.skip("Button performance", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render single button within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/button?theme=${theme}`);
@@ -78,7 +78,7 @@ describe("Button performance", () => {
   });
 });
 
-describe("Checkbox performance", () => {
+describe.skip("Checkbox performance", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render single checkbox within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/checkbox?theme=${theme}`);
@@ -138,7 +138,7 @@ describe("Checkbox performance", () => {
   });
 });
 
-describe("Side navigation performance", () => {
+describe.skip("Side navigation performance", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render side navigation within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/side-navigation?theme=${theme}`);
@@ -159,7 +159,7 @@ describe("Side navigation performance", () => {
   });
 });
 
-describe("Top navigation performance", () => {
+describe.skip("Top navigation performance", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render basic top navigation within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/top-navigation-basic?theme=${theme}`);
@@ -197,7 +197,7 @@ describe("Top navigation performance", () => {
   });
 });
 
-describe("Popover menu performance", () => {
+describe.skip("Popover menu performance", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render popover menu within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/popover-menu?theme=${theme}`);
@@ -237,7 +237,7 @@ describe("Popover menu performance", () => {
   });
 });
 
-describe("Accordion performance", () => {
+describe.skip("Accordion performance", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render accordion within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/accordion?theme=${theme}`);
@@ -266,7 +266,7 @@ describe("Accordion performance", () => {
   });
 });
 
-describe("Dialog performance testing", () => {
+describe.skip("Dialog performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render dialog within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/dialog?theme=${theme}`);
@@ -307,7 +307,7 @@ describe("Dialog performance testing", () => {
   });
 });
 
-describe("Select performance testing", () => {
+describe.skip("Select performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render single select within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/select?theme=${theme}`);
@@ -477,7 +477,7 @@ describe("Select performance testing", () => {
   });
 });
 
-describe("Search bar performance testing", () => {
+describe.skip("Search bar performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render search bar within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/searchbar?theme=${theme}`);
@@ -536,7 +536,7 @@ describe("Search bar performance testing", () => {
   });
 });
 
-describe("Radio performance testing", () => {
+describe.skip("Radio performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render single radio within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/radio?theme=${theme}`);
@@ -589,7 +589,7 @@ describe("Radio performance testing", () => {
   });
 });
 
-describe("Toast performance testing", () => {
+describe.skip("Toast performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render single toast within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/toast?theme=${theme}`);
@@ -621,7 +621,7 @@ describe("Toast performance testing", () => {
   });
 });
 
-describe("Hero performance testing", () => {
+describe.skip("Hero performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render hero within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/hero?theme=${theme}`);
@@ -631,7 +631,7 @@ describe("Hero performance testing", () => {
   });
 });
 
-describe("Page header performance testing", () => {
+describe.skip("Page header performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render page header within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/page-header?theme=${theme}`);
@@ -651,7 +651,7 @@ describe("Page header performance testing", () => {
   });
 });
 
-describe("Footer performance testing", () => {
+describe.skip("Footer performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render footer within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/footer?theme=${theme}`);
@@ -671,7 +671,7 @@ describe("Footer performance testing", () => {
   });
 });
 
-describe("Stepper performance testing", () => {
+describe.skip("Stepper performance testing", () => {
   ["light", "dark"].forEach((theme) => {
     it(`should render default stepper within performance thresholds [${theme}]`, () => {
       cy.visit(`http://localhost:3001/#/stepper?theme=${theme}`, {

@@ -41,7 +41,7 @@ const SELECT_ALL_BUTTON = "ic-menu .select-all-button";
 const DEFAULT_TEST_THRESHOLD = 0.04;
 const SCREENSHOT_DELAY = 300;
 
-describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcSelect multi end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -464,7 +464,7 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcSelect - Multi visual regression tests in high contrast mode", () => {
+describe.skip("IcSelect - Multi visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

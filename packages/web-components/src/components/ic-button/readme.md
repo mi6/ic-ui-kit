@@ -87,6 +87,7 @@ Type: `Promise<void>`
  - [ic-accordion-group](../ic-accordion-group)
  - [ic-alert](../ic-alert)
  - [ic-back-to-top](../ic-back-to-top)
+ - [ic-calendar](../ic-calendar)
  - [ic-dialog](../ic-dialog)
  - [ic-horizontal-scroll](../ic-horizontal-scroll)
  - [ic-menu](../ic-menu)
@@ -118,6 +119,7 @@ graph TD;
   ic-accordion-group --> ic-button
   ic-alert --> ic-button
   ic-back-to-top --> ic-button
+  ic-calendar --> ic-button
   ic-dialog --> ic-button
   ic-horizontal-scroll --> ic-button
   ic-menu --> ic-button

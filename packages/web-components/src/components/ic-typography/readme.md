@@ -29,6 +29,7 @@
  - [ic-alert](../ic-alert)
  - [ic-badge](../ic-badge)
  - [ic-button](../ic-button)
+ - [ic-calendar](../ic-calendar)
  - [ic-card-vertical](../ic-card-vertical)
  - [ic-checkbox](../ic-checkbox)
  - [ic-chip](../ic-chip)
@@ -73,6 +74,7 @@ graph TD;
   ic-alert --> ic-typography
   ic-badge --> ic-typography
   ic-button --> ic-typography
+  ic-calendar --> ic-typography
   ic-card-vertical --> ic-typography
   ic-checkbox --> ic-typography
   ic-chip --> ic-typography

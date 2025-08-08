@@ -1,0 +1,1 @@
+{"version":3,"file":"ic-card-horizontal.types.js","sourceRoot":"","sources":["../../../../../../canary-web-components/src/components/ic-card-horizontal/ic-card-horizontal.types.ts"],"names":[],"mappings":"","sourcesContent":["export type IcCardSizes = \"small\" | \"medium\" | \"large\" | \"extra-large\";\n"]}
