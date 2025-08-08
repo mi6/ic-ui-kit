@@ -24,6 +24,7 @@ import {
   WithStatusTags,
   WithStatusTagsAsValue,
   LabelWidth,
+  SlottedHeadingLabelValueNonTypography,
 } from "./IcDataListTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.016;
@@ -274,6 +275,23 @@ describe("IcDataList end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/label-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+    });
+  });
+
+  it("should render slotted non IcTypography heading, label and value", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <SlottedHeadingLabelValueNonTypography />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_LIST_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "/slotted-heading-label-value-non-typography",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
