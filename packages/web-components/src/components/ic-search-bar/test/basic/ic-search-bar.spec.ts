@@ -728,7 +728,7 @@ describe("ic-search-bar search", () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, Menu, InputContainer, InputLabel],
       html: `
-        <form id="form" onsubmit=>
+        <form id="form">
           <ic-search-bar label="Test label" value="test"></ic-search-bar>
         </form>
       `,
@@ -753,12 +753,12 @@ describe("ic-search-bar search", () => {
     submitButton?.click();
 
     const hiddenFormButton = page.body.querySelector<HTMLButtonElement>(
-      "#hidden-form-button"
+      "#hidden-form-submit-button"
     );
 
     // LightDOM button should be created with type="submit" and clicked
     expect(hiddenFormButton?.getAttribute("type")).toBe("submit"); // will submit form on click
-    expect(consoleSpy).toHaveBeenCalledWith("hidden-form-button"); // hidden form button clicked
+    expect(consoleSpy).toHaveBeenCalledWith("hidden-form-submit-button"); // hidden form button clicked
   });
 
   it("should not submit parent form on icSubmitSearch if preventFormSubmitOnSearch is true", async () => {
@@ -778,7 +778,7 @@ describe("ic-search-bar search", () => {
       );
     expect(
       submitButton?.shadowRoot
-        ?.querySelector<HTMLButtonElement>('[aria-label="Search"]')
+        ?.querySelector<HTMLIcButtonElement>('[aria-label="Search"]')
         ?.getAttribute("type")
     ).toBe("button");
 
