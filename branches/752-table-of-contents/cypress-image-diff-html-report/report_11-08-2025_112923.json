@@ -1,8 +1,8 @@
 {
-  "total": 230,
-  "totalPassed": 228,
+  "total": 247,
+  "totalPassed": 245,
   "totalFailed": 2,
-  "totalSuites": 8,
+  "totalSuites": 9,
   "suites": [
     {
       "name": "IcCardHorizontal.cy.tsx",
@@ -2324,6 +2324,199 @@
       ]
     },
     {
+      "name": "IcTimeInput.cy.tsx",
+      "path": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-default",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-default.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-default.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-dark-theme.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-string-value",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-string-value.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-string-value.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-date-object-value",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-date-object-value.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-date-object-value.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-zulu-time-value",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-zulu-time-value.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-zulu-time-value.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-hide-label",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-hide-label.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-hide-label.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-required",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-required.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-required.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-disabled",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-disabled.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-disabled.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-small",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-small.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-small.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-large",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-large.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-large.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-custom-helper-text",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-custom-helper-text.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-custom-helper-text.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-hide-helper-text",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-hide-helper-text.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-hide-helper-text.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-validation",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-validation.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-validation.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-hhmm-format",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-hhmm-format.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-hhmm-format.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-min-time",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-min-time.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-min-time.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-max-time",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-max-time.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-max-time.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeInput.cy.tsx/time-input-disable-times",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
+          "specFilename": "IcTimeInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-disable-times.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-disable-times.png"
+        }
+      ]
+    },
+    {
       "name": "IcTreeView.cy.tsx",
       "path": "src/component-tests/IcTreeView/IcTreeView.cy.tsx",
       "tests": [
@@ -2583,9 +2776,9 @@
       ]
     }
   ],
-  "startedAt": "2025-08-04T14:43:04.239Z",
-  "endedAt": "2025-08-04T14:50:25.952Z",
-  "duration": 422480,
+  "startedAt": "2025-08-11T11:29:23.815Z",
+  "endedAt": "2025-08-11T11:37:00.112Z",
+  "duration": 435035,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
