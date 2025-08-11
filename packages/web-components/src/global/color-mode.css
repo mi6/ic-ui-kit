@@ -2129,9 +2129,9 @@ ic-theme,
     --ic-button-primary-icon-action: var(--ic-color-icon-action-default);
     --ic-button-primary-icon-hover: var(--ic-color-icon-action-hover);
     --ic-button-primary-icon-pressed: var(--ic-color-icon-action-pressed);
-    --ic-button-secondary-background: var(--ic-color-background-neutral-light);
+    --ic-button-secondary-background: var(--ic-color-background-neutral-dark);
     --ic-button-secondary-background-monochrome: var(
-      --ic-color-background-neutral-light
+      --ic-color-background-neutral-dark
     );
     --ic-button-secondary-background-hover-active: var(
       --ic-action-default-bg-hover
@@ -2251,7 +2251,7 @@ ic-theme,
     --ic-button-tertiary-icon-pressed-monochrome: var(
       --ic-color-icon-pressed-lighter
     );
-    --ic-button-tertiary-background: var(--ic-color-background-neutral);
+    --ic-button-tertiary-background: var(--ic-color-background-neutral-dark);
     --ic-button-tertiary-background-hover-active: var(
       --ic-action-default-bg-pressed-30
     );
@@ -2265,7 +2265,7 @@ ic-theme,
       var(--ic-button-tertiary-background-pressed-active) 0 0
     );
     --ic-button-tertiary-background-monochrome: var(
-      --ic-color-background-neutral
+      --ic-color-background-neutral-dark
     );
     --ic-button-tertiary-background-hover-monochrome: var(
       --ic-action-light-bg-hover
@@ -3792,9 +3792,9 @@ ic-theme,
   --ic-button-primary-icon-action: var(--ic-color-icon-action-default);
   --ic-button-primary-icon-hover: var(--ic-color-icon-action-hover);
   --ic-button-primary-icon-pressed: var(--ic-color-icon-action-pressed);
-  --ic-button-secondary-background: var(--ic-color-background-neutral-light);
+  --ic-button-secondary-background: var(--ic-color-background-neutral-dark);
   --ic-button-secondary-background-monochrome: var(
-    --ic-color-background-neutral-light
+    --ic-color-background-neutral-dark
   );
   --ic-button-secondary-background-hover-active: var(
     --ic-action-default-bg-hover
@@ -3908,7 +3908,7 @@ ic-theme,
   --ic-button-tertiary-icon-pressed-monochrome: var(
     --ic-color-icon-pressed-lighter
   );
-  --ic-button-tertiary-background: var(--ic-color-background-neutral);
+  --ic-button-tertiary-background: var(--ic-color-background-neutral-dark);
   --ic-button-tertiary-background-hover-active: var(
     --ic-action-default-bg-pressed-30
   );
@@ -3922,7 +3922,7 @@ ic-theme,
     var(--ic-button-tertiary-background-pressed-active) 0 0
   );
   --ic-button-tertiary-background-monochrome: var(
-    --ic-color-background-neutral
+    --ic-color-background-neutral-dark
   );
   --ic-button-tertiary-background-hover-monochrome: var(
     --ic-action-light-bg-hover
