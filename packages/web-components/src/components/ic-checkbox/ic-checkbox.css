@@ -130,6 +130,7 @@
 
 .checkbox-label > label {
   padding-left: var(--ic-space-sm);
+  display: inline-block;
 }
 
 :host(.ic-checkbox-disabled) .checkbox-label {
