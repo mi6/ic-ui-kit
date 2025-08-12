@@ -16,6 +16,7 @@ import {
 
 import {
   getBrandFromContext,
+  handleHiddenFormButtonClick,
   inheritAttributes,
   isSlotUsed,
   removeDisabledFalse,
@@ -384,17 +385,13 @@ export class Button {
     if (
       (this.el.type === "submit" || this.el.type === "reset") &&
       !this.hasRouterSlot() &&
-      !!this.el.closest("FORM")
+      (this.form || !!this.el.closest("FORM"))
     ) {
-      const hiddenFormButton = document.createElement("button");
+      const form = this.form
+        ? document.querySelector<HTMLFormElement>(`form[id=${this.form}]`)
+        : this.el.closest<HTMLFormElement>("FORM");
 
-      hiddenFormButton.setAttribute("type", this.el.type);
-      hiddenFormButton.style.display = "none";
-
-      this.el.closest("FORM")?.appendChild(hiddenFormButton);
-
-      hiddenFormButton.click();
-      hiddenFormButton.remove();
+      handleHiddenFormButtonClick(form, this.el);
     }
   };
 

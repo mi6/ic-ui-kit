@@ -324,17 +324,6 @@ exports[`button component should test aria-describedby is updated 1`] = `
 </ic-button>
 `;
 
-exports[`button component should test button as submit button on form 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-dark monochrome" exportparts="button" form="new-form" id="ic-button" type="submit">
-  <template shadowrootmode="open">
-    <button class="button" form="new-form" part="button" tabindex="0" type="submit">
-      <slot></slot>
-    </button>
-  </template>
-  Button
-</ic-button>
-`;
-
 exports[`button component should test tooltip visibility changes when disable tooltip prop changes 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-dark monochrome" exportparts="button" id="test-button" variant="icon">
   <template shadowrootmode="open">
