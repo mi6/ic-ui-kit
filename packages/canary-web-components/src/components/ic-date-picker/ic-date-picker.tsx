@@ -17,9 +17,9 @@ import {
   dateInRange,
   getMonthStart,
   getMonthEnd,
-  getWeekEnd,
   getWeekStart,
   yearInRange,
+  addSixWeeks,
 } from "../../utils/date-helpers";
 import {
   stringEnumToArray,
@@ -785,7 +785,7 @@ export class DatePicker {
 
   private getMonthView = (date: Date): Date[] => {
     const start = getWeekStart(getMonthStart(date), this.startOfWeek);
-    const end = getWeekEnd(getMonthEnd(date), this.startOfWeek);
+    const end = addSixWeeks(start);
 
     const days: Date[] = [];
     let current = start;
