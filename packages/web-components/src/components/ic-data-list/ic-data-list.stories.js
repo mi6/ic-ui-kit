@@ -446,6 +446,23 @@ export const LabelWidth = {
   name: "With label width",
 };
 
+export const SlottedHeadingLabelValueNonTypography = {
+  render: () =>
+    html`<ic-data-list>
+      <pre slot="heading">Personal details</pre>
+      <ic-data-row>
+        <pre slot="label">Name</pre>
+        <pre slot="value">Michael Johnson</pre>
+      </ic-data-row>
+      <ic-data-row>
+        <pre slot="label">Date of birth</pre>
+        <pre slot="value">16 October 1995</pre>
+      </ic-data-row>
+    </ic-data-list>`,
+
+  name: "Slotted heading, label and value - non ic-typography",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {

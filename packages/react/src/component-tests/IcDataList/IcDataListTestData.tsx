@@ -460,3 +460,19 @@ export const LabelWidth = () => {
     </IcDataList>
   );
 };
+
+export const SlottedHeadingLabelValueNonTypography = () => {
+  return (
+    <IcDataList>
+      <pre slot="heading">Personal details</pre>
+      <IcDataRow>
+        <pre slot="label">Name</pre>
+        <pre slot="value">Michael Johnson</pre>
+      </IcDataRow>
+      <IcDataRow>
+        <pre slot="label">Date of birth</pre>
+        <pre slot="value">16 October 1995</pre>
+      </IcDataRow>
+    </IcDataList>
+  );
+};

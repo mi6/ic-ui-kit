@@ -535,6 +535,24 @@ export const LabelWidth = {
   name: "With label width",
 };
 
+export const SlottedHeadingLabelValueNonTypography = {
+  render: () => (
+    <IcDataList>
+      <pre slot="heading">Personal details</pre>
+      <IcDataRow>
+        <pre slot="label">Name</pre>
+        <pre slot="value">Michael Johnson</pre>
+      </IcDataRow>
+      <IcDataRow>
+        <pre slot="label">Date of birth</pre>
+        <pre slot="value">16 October 1995</pre>
+      </IcDataRow>
+    </IcDataList>
+  ),
+
+  name: "Slotted heading, label and value - non ic-typography",
+};
+
 export const Playground = {
   render: (args) => (
     <IcDataList heading={args.heading} size={args.size} theme={args.theme}>
