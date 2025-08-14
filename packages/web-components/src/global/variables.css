@@ -6,6 +6,9 @@
   --ic-elevation-raised: 0 0 2px var(--ic-state-layer-lighten-50);
   --ic-elevation-overlay: 0 2px 8px var(--ic-state-layer-darken-20);
   --ic-elevation-overlay-inverted: 0 2px 8px var(--ic-state-layer-lighten-20);
+  --ic-elevation-overlay-right: 2px 0 8px var(--ic-state-layer-darken-20);
+  --ic-elevation-overlay-right-inverted: 2px 0 8px
+    var(--ic-state-layer-lighten-20);
   --ic-elevation-modal: 0 4px 16px var(--ic-state-layer-lighten-25);
   --ic-elevation-inset: inset 0 4px 16px rgb(0 0 0 / 25%),
     inset 0 -4px 16px rgb(0 0 0 / 25%);

@@ -920,7 +920,7 @@ ic-theme,
   --ic-drawer-text: var(--ic-color-text-primary);
   --ic-drawer-chevron: var(--ic-action-default);
   --ic-drawer-divider-color: var(--ic-atoms-option-bar-divider);
-  --ic-drawer-drop-shadow: var(--ic-elevation-overlay);
+  --ic-drawer-drop-shadow: var(--ic-elevation-overlay-right);
 
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
@@ -2540,7 +2540,7 @@ ic-theme,
     --ic-drawer-text: var(--ic-color-text-primary);
     --ic-drawer-chevron: var(--ic-action-default);
     --ic-drawer-divider-color: var(--ic-atoms-option-bar-divider);
-    --ic-drawer-drop-shadow: var(--ic-elevation-overlay-inverted);
+    --ic-drawer-drop-shadow: var(--ic-elevation-overlay-right-inverted);
 
     /* Empty state */
     --ic-empty-state-title: var(--ic-color-text-primary);
@@ -4197,7 +4197,7 @@ ic-theme,
   --ic-drawer-text: var(--ic-color-text-primary);
   --ic-drawer-chevron: var(--ic-action-default);
   --ic-drawer-divider-color: var(--ic-atoms-option-bar-divider);
-  --ic-drawer-drop-shadow: var(--ic-elevation-overlay-inverted);
+  --ic-drawer-drop-shadow: var(--ic-elevation-overlay-right-inverted);
 
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);

@@ -46,32 +46,32 @@ export class Drawer {
   @Element() el: HTMLIcDrawerElement;
 
   /**
-   * The aria label applied to the drawer. This is required when the heading slot is used.
+   * The aria-label applied to the drawer. This is required when the heading slot is used.
    */
   @Prop() ariaLabel: string = "";
 
   /**
-   * The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".
+   * The aria-label of the chevron button when trigger is set to "arrow". The default aria-label is "Open drawer" / "Close drawer".
    */
   @Prop() chevronButtonAriaLabel?: string = "";
 
   /**
-   * The aria label of the close button when the show-close-button attribute (web-components) / showCloseButton prop (React) is set to `true`. The default aria label is "Open drawer" / "Close drawer".
+   * The aria-label of the close button when the show-close-button attribute (web-components) / showCloseButton prop (React) is set to `true`. The default aria label is "Open drawer" / "Close drawer".
    */
   @Prop() closeButtonAriaLabel: string = "Close drawer";
 
   /**
-   * If set to `false`, the drawer will not close when the backdrop is clicked.
+   * If `false`, the drawer will not close when the backdrop is clicked.
    */
   @Prop() closeOnBackdropClick?: boolean = true;
 
   /**
-   * If set to `true`, the drawer will display in an expanded state.
+   * If `true`, the drawer will display in an expanded state.
    */
   @Prop({ reflect: true, mutable: true }) expanded: boolean = false;
 
   /**
-   * The heading to render in the drawer.
+   * The heading of the drawer.
    */
   @Prop() heading?: string;
 
@@ -86,7 +86,7 @@ export class Drawer {
   @Prop() position: IcPosition = "right";
 
   /**
-   * If set to `true`, an X (close) button will be displayed in the drawer.
+   * If `true`, an X (close) button will be displayed in the drawer.
    */
   @Prop() showCloseButton: boolean = false;
 
@@ -182,9 +182,9 @@ export class Drawer {
 
     const slottedInteractiveElements = Array.from(
       this.el.querySelectorAll(
-        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]), 
-          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group, 
-          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, 
+        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group,
+          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
           ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion`
       )
     );
@@ -306,7 +306,6 @@ export class Drawer {
     const chevronButton = (
       <ic-button
         class="chevron-btn"
-        size="small"
         theme={theme}
         variant="icon-tertiary"
         innerHTML={chevronIcon}
@@ -325,7 +324,7 @@ export class Drawer {
       <Host
         class={{
           ["ic-drawer"]: true,
-          [`ic-${position}-position`]: true,
+          [`ic-drawer-${position}-position`]: true,
           ["expanded"]: expanded,
           ["collapsed"]: !expanded,
           [`ic-theme-${theme}`]: theme !== "inherit",
