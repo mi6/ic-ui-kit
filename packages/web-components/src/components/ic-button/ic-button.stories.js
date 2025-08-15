@@ -176,7 +176,7 @@ export const Secondary = {
         </div>
       </div>
       <div
-        style="display: flex; flex-direction: row; margin-top: 1rem; background-color:#474A48; border-radius: 5px; width:fit-content;"
+        style="display: flex; flex-direction: row; margin-top: 1rem; background-color:#232629; border-radius: 5px; width:fit-content;"
       >
         <div
           style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem"
@@ -204,6 +204,57 @@ export const Secondary = {
               Monochrome
             </ic-button>
             <ic-button variant="secondary" disabled monochrome theme="dark">
+              Disabled
+            </ic-button>
+          </div>
+        </div>
+        <div
+          style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem"
+        >
+          <ic-typography variant="subtitle-large" style="color: white">
+            Dark theme - non-transparent
+          </ic-typography>
+          <div>
+            <ic-button
+              variant="secondary"
+              theme="dark"
+              id="mybuttonid"
+              transparent-background="false"
+            >
+              Solid
+            </ic-button>
+            <ic-button
+              variant="secondary"
+              theme="dark"
+              disabled
+              transparent-background="false"
+            >
+              Disabled
+            </ic-button>
+          </div>
+        </div>
+        <div
+          style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem"
+        >
+          <ic-typography variant="subtitle-large" style="color: white">
+            Dark theme - monochrome, non-transparent
+          </ic-typography>
+          <div>
+            <ic-button
+              variant="secondary"
+              monochrome
+              theme="dark"
+              transparent-background="false"
+            >
+              Mono-solid
+            </ic-button>
+            <ic-button
+              variant="secondary"
+              disabled
+              monochrome
+              theme="dark"
+              transparent-background="false"
+            >
               Disabled
             </ic-button>
           </div>
@@ -246,9 +297,59 @@ export const Tertiary = {
             </ic-button>
           </div>
         </div>
+        <div
+          style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem"
+        >
+          <ic-typography variant="subtitle-large">
+            Light theme - non-transparent
+          </ic-typography>
+          <div>
+            <ic-button
+              variant="tertiary"
+              transparent-background="false"
+              theme="light"
+            >
+              Solid
+            </ic-button>
+            <ic-button
+              variant="tertiary"
+              disabled
+              theme="light"
+              transparent-background="false"
+            >
+              Disabled
+            </ic-button>
+          </div>
+        </div>
+        <div
+          style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem"
+        >
+          <ic-typography variant="subtitle-large">
+            Light theme - monochrome, non-transparent
+          </ic-typography>
+          <div>
+            <ic-button
+              variant="tertiary"
+              theme="light"
+              monochrome
+              transparent-background="false"
+            >
+              Mono-Solid
+            </ic-button>
+            <ic-button
+              variant="tertiary"
+              disabled
+              monochrome
+              theme="light"
+              transparent-background="false"
+            >
+              Disabled
+            </ic-button>
+          </div>
+        </div>
       </div>
       <div
-        style="display: flex; flex-direction: row; margin-top: 1rem; background-color:#474A48; border-radius: 5px; width:fit-content;"
+        style="display: flex; flex-direction: row; margin-top: 1rem; background-color:#232629; border-radius: 5px; width:fit-content;"
       >
         <div
           style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem"
@@ -276,6 +377,57 @@ export const Tertiary = {
               Monochrome
             </ic-button>
             <ic-button variant="tertiary" disabled monochrome theme="dark">
+              Disabled
+            </ic-button>
+          </div>
+        </div>
+        <div
+          style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem"
+        >
+          <ic-typography variant="subtitle-large" style="color: white">
+            Dark theme - non-transparent
+          </ic-typography>
+          <div>
+            <ic-button
+              variant="tertiary"
+              theme="dark"
+              id="mybuttonid"
+              transparent-background="false"
+            >
+              Solid
+            </ic-button>
+            <ic-button
+              variant="tertiary"
+              theme="dark"
+              disabled
+              transparent-background="false"
+            >
+              Disabled
+            </ic-button>
+          </div>
+        </div>
+        <div
+          style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem"
+        >
+          <ic-typography variant="subtitle-large" style="color: white">
+            Dark theme - monochrome, non-transparent
+          </ic-typography>
+          <div>
+            <ic-button
+              variant="tertiary"
+              monochrome
+              theme="dark"
+              transparent-background="false"
+            >
+              Mono-solid
+            </ic-button>
+            <ic-button
+              variant="tertiary"
+              disabled
+              monochrome
+              theme="dark"
+              transparent-background="false"
+            >
               Disabled
             </ic-button>
           </div>

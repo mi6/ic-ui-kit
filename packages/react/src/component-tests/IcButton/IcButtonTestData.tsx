@@ -346,16 +346,38 @@ export const TextSecondaryButton = (): ReactElement => {
         <IcButton variant="secondary" loading monochrome>
           Button
         </IcButton>
+        <IcButton variant="secondary" transparentBackground={false}>
+          Button
+        </IcButton>
         <IcButton variant="secondary" transparentBackground={false} monochrome>
+          Button
+        </IcButton>
+        <IcButton variant="secondary" transparentBackground={false} loading>
+          Button
+        </IcButton>
+        <IcButton
+          variant="secondary"
+          transparentBackground={false}
+          loading
+          monochrome
+        >
           Button
         </IcButton>
         <div style={DARK_BG_STYLE}>
           <IcButton
             variant="secondary"
             theme="dark"
-            monochrome
             onClick={() => alert("test")}
           >
+            Button
+          </IcButton>
+          <IcButton variant="secondary" theme="dark" monochrome>
+            Button
+          </IcButton>
+          <IcButton variant="secondary" theme="dark" loading>
+            Button
+          </IcButton>
+          <IcButton variant="secondary" theme="dark" disabled>
             Button
           </IcButton>
           <IcButton variant="secondary" disabled theme="dark" monochrome>
@@ -367,6 +389,30 @@ export const TextSecondaryButton = (): ReactElement => {
           <IcButton
             variant="secondary"
             transparentBackground={false}
+            theme="dark"
+          >
+            Button
+          </IcButton>
+          <IcButton
+            variant="secondary"
+            transparentBackground={false}
+            monochrome
+            theme="dark"
+          >
+            Button
+          </IcButton>
+          <IcButton
+            variant="secondary"
+            transparentBackground={false}
+            loading
+            theme="dark"
+          >
+            Button
+          </IcButton>
+          <IcButton
+            variant="secondary"
+            transparentBackground={false}
+            loading
             monochrome
             theme="dark"
           >
@@ -404,19 +450,76 @@ export const TextTertiaryButton = (): ReactElement => {
         <IcButton variant="tertiary" loading monochrome>
           Button
         </IcButton>
+        <IcButton variant="tertiary" transparentBackground={false}>
+          Button
+        </IcButton>
+        <IcButton variant="tertiary" transparentBackground={false} loading>
+          Button
+        </IcButton>
+        <IcButton variant="tertiary" transparentBackground={false} monochrome>
+          Button
+        </IcButton>
+        <IcButton
+          variant="tertiary"
+          transparentBackground={false}
+          loading
+          monochrome
+        >
+          Button
+        </IcButton>
         <div style={DARK_BG_STYLE}>
           <IcButton
             variant="tertiary"
             theme="dark"
-            monochrome
             onClick={() => alert("test")}
           >
+            Button
+          </IcButton>
+          <IcButton variant="tertiary" theme="dark" monochrome>
+            Button
+          </IcButton>
+          <IcButton variant="tertiary" disabled theme="dark">
+            Button
+          </IcButton>
+          <IcButton variant="tertiary" theme="dark" loading>
             Button
           </IcButton>
           <IcButton variant="tertiary" disabled theme="dark" monochrome>
             Button
           </IcButton>
           <IcButton variant="tertiary" loading theme="dark" monochrome>
+            Button
+          </IcButton>
+          <IcButton
+            variant="tertiary"
+            theme="dark"
+            transparentBackground={false}
+          >
+            Button
+          </IcButton>
+          <IcButton
+            variant="tertiary"
+            theme="dark"
+            transparentBackground={false}
+            loading
+          >
+            Button
+          </IcButton>
+          <IcButton
+            variant="tertiary"
+            theme="dark"
+            transparentBackground={false}
+            monochrome
+          >
+            Button
+          </IcButton>
+          <IcButton
+            variant="tertiary"
+            theme="dark"
+            transparentBackground={false}
+            loading
+            monochrome
+          >
             Button
           </IcButton>
         </div>
