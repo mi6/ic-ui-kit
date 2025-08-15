@@ -7,12 +7,13 @@ This is a wrapper component to be placed around one or more ic-menu-item compone
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                                                                             | Type                                          | Default     |
-| ----------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
-| `anchor`    | `anchor`     | The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.                         | `string \| undefined`                         | `undefined` |
-| `open`      | `open`       | If `true`, the popover menu will be displayed.                                                                                          | `boolean \| undefined`                        | `undefined` |
-| `submenuId` | `submenu-id` | The unique identifier for a popover submenu.                                                                                            | `string \| undefined`                         | `undefined` |
-| `theme`     | `theme`      | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined` | `"inherit"` |
+| Property           | Attribute           | Description                                                                                                                             | Type                                          | Default     |
+| ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `anchor`           | `anchor`            | The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.                         | `string \| undefined`                         | `undefined` |
+| `fixedPositioning` | `fixed-positioning` | Setting to `true` can help in situations where tooltip content is clipped by a parent element.                                          | `boolean`                                     | `false`     |
+| `open`             | `open`              | If `true`, the popover menu will be displayed.                                                                                          | `boolean \| undefined`                        | `undefined` |
+| `submenuId`        | `submenu-id`        | The unique identifier for a popover submenu.                                                                                            | `string \| undefined`                         | `undefined` |
+| `theme`            | `theme`             | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined` | `"inherit"` |
 
 
 ## Events

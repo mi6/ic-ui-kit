@@ -28,8 +28,17 @@ describe("ic-tooltip component", () => {
 
   it("should test light theme", async () => {
     const page = await newSpecPage({
-      components: [Typography],
+      components: [Tooltip],
       html: `<ic-tooltip theme="light" label="tooltip"</ic-tooltip>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with fixed positioning", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip label="tooltip" fixed-positioning=true</ic-tooltip>`,
     });
 
     expect(page.root).toMatchSnapshot();

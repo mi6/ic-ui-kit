@@ -497,6 +497,100 @@ export const AutoOpening = {
   name: "Auto opening",
 };
 
+export const PositioningStrategy = {
+  render: (args) => html`
+    <script>
+      var icPopovers = document.querySelectorAll("ic-popover-menu");
+      var icParentPopover = icPopovers[0];
+      var switchEl = document.querySelector("ic-switch");
+      switchEl.addEventListener("icChange", (ev) => {
+        icPopovers.forEach((popover) => {
+          popover.fixedPositioning = ev.detail.checked;
+        });
+      });
+      function buttonClick() {
+        icParentPopover.open = !icParentPopover.open;
+      }
+      icParentPopover.addEventListener("icPopoverClosed", handleClosed);
+      function handleClosed(event) {
+        console.log("icPopoverClosed: ", event);
+      }
+    </script>
+    <div style="display:flex; flex-direction:column; gap:var(--ic-space-xs)">
+      <ic-typography>
+        Toggle the fixed positioning switch and open the popover to see it take
+        effect
+      </ic-typography>
+      <div
+        style="display:flex; flex-direction:column; gap:var(--ic-space-xs); padding:var(--ic-space-md); border:1px solid var(--ic-color-text-primary); overflow:hidden; width:160px; position:relative"
+      >
+        <ic-button id="button-1" onclick="buttonClick()"
+          >Show/Hide popover</ic-button
+        >
+        <ic-popover-menu anchor="button-1" aria-label="popover">
+          <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
+          <ic-menu-group label="View">
+            <ic-menu-item
+              label="Zoom in"
+              keyboard-shortcut-label="Cmd+"
+            ></ic-menu-item>
+            <ic-menu-item
+              label="Zoom out"
+              keyboard-shortcut-label="Cmd-"
+            ></ic-menu-item>
+          </ic-menu-group>
+          <ic-menu-item
+            label="Actions"
+            submenu-trigger-for="abc"
+          ></ic-menu-item>
+          <ic-menu-item
+            label="Logout"
+            variant="destructive"
+            disabled="true"
+          ></ic-menu-item>
+        </ic-popover-menu>
+        <ic-popover-menu submenu-id="abc">
+          <ic-menu-item label="Edit"></ic-menu-item>
+          <ic-menu-item
+            label="Find"
+            submenu-trigger-for="abc123"
+          ></ic-menu-item>
+          <ic-menu-item label="Delete" variant="destructive"></ic-menu-item>
+        </ic-popover-menu>
+        <ic-popover-menu submenu-id="abc123">
+          <ic-menu-item
+            disabled="true"
+            label="Search the web"
+            description="This will search the web to find the thing you are looking for."
+          ></ic-menu-item>
+          <ic-menu-item label="Find..."></ic-menu-item>
+          <ic-menu-item label="Find icons">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-menu-item>
+          <ic-menu-item
+            label="Show found results"
+            variant="toggle"
+          ></ic-menu-item>
+        </ic-popover-menu>
+      </div>
+      <ic-switch label="Fixed popover positioning"></ic-switch>
+    </div>
+  `,
+
+  name: "Positioning strategy",
+};
+
 export const Playground = {
   render: (args) =>
     html`<div>

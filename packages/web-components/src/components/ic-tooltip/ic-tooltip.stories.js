@@ -6,6 +6,7 @@ const defaultArgs = {
   placement: "bottom",
   label: "This is a description of the button",
   theme: "inherit",
+  fixedPositioning: false,
 };
 
 export default {
@@ -341,6 +342,42 @@ export const ChangingLabel = {
   name: "Changing label",
 };
 
+export const PositioningStrategy = {
+  render: (args) =>
+    html` <script>
+        var switchEl = document.querySelector("ic-switch");
+        var tooltipEl = document.querySelector("ic-tooltip");
+        switchEl.addEventListener("icChange", (ev) => {
+          tooltipEl.fixedPositioning = ev.detail.checked;
+        });
+      </script>
+      <div style="display:flex; flex-direction:column; gap:var(--ic-space-xs)">
+        <ic-typography>
+          Toggle the fixed positioning switch and hover over the button to see
+          it take effect
+        </ic-typography>
+        <div
+          style="display:flex; flex-direction:column; gap:var(--ic-space-xs); padding:var(--ic-space-md); border:1px solid var(--ic-color-text-primary); overflow:hidden; width:100px; position:relative"
+        >
+          <ic-tooltip
+            label="This is a tooltip with a long label"
+            id="ic-tooltip-test-button-1"
+            target="button-1"
+          >
+            <ic-button
+              aria-describedby="ic-tooltip-test-button-1"
+              id="button-1"
+            >
+              Button
+            </ic-button>
+          </ic-tooltip>
+        </div>
+        <ic-switch label="Fixed tooltip positioning"></ic-switch>
+      </div>`,
+
+  name: "Positioning strategy",
+};
+
 export const Playground = {
   render: (args) =>
     html`<div style="margin: 250px">
@@ -352,6 +389,7 @@ export const Playground = {
         id="ic-tooltip-test-button-default"
         target="button-id"
         theme=${args.theme}
+        fixed-positioning=${args.fixedPositioning}
       >
         <button
           id="button-id"

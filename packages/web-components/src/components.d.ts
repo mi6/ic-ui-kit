@@ -459,6 +459,10 @@ export namespace Components {
          */
         "theme": IcThemeMode;
         /**
+          * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+         */
+        "tooltipFixedPositioning": boolean;
+        /**
           * The position of the tooltip in relation to the button.
          */
         "tooltipPlacement": IcButtonTooltipPlacement;
@@ -1583,6 +1587,10 @@ export namespace Components {
          */
         "closeMenu": (setFocusToAnchor?: boolean, menuElement?: HTMLIcMenuItemElement) => Promise<void>;
         /**
+          * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+         */
+        "fixedPositioning": boolean;
+        /**
           * If `true`, the popover menu will be displayed.
          */
         "open"?: boolean | undefined;
@@ -2565,6 +2573,10 @@ export namespace Components {
           * @param persistTooltip Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover
          */
         "displayTooltip": (show: boolean, persistTooltip?: boolean) => Promise<void>;
+        /**
+          * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+         */
+        "fixedPositioning": boolean;
         "isTooltipVisible": () => Promise<boolean>;
         /**
           * The text to display on the tooltip.
@@ -4082,6 +4094,10 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode;
         /**
+          * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+         */
+        "tooltipFixedPositioning"?: boolean;
+        /**
           * The position of the tooltip in relation to the button.
          */
         "tooltipPlacement"?: IcButtonTooltipPlacement;
@@ -5208,6 +5224,10 @@ declare namespace LocalJSX {
          */
         "anchor"?: string;
         /**
+          * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+         */
+        "fixedPositioning"?: boolean;
+        /**
           * Emitted when the popover menu is closed.
          */
         "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<HTMLIcMenuItemElement>) => void;
@@ -6313,6 +6333,10 @@ declare namespace LocalJSX {
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
          */
         "disableHover"?: boolean;
+        /**
+          * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+         */
+        "fixedPositioning"?: boolean;
         /**
           * The text to display on the tooltip.
          */

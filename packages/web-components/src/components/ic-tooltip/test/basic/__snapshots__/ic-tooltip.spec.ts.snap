@@ -14,6 +14,20 @@ exports[`ic-tooltip component should render correctly when on a dialog 1`] = `
 </ic-tooltip>
 `;
 
+exports[`ic-tooltip component should render with fixed positioning 1`] = `
+<ic-tooltip class="ic-tooltip" fixed-positioning="true</ic-tooltip" label="tooltip">
+  <template shadowrootmode="open">
+    <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
+      <ic-typography variant="caption">
+        tooltip
+      </ic-typography>
+      <div class="ic-tooltip-arrow"></div>
+    </div>
+    <slot></slot>
+  </template>
+</ic-tooltip>
+`;
+
 exports[`ic-tooltip component should render: ic-tooltip-render 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip">
   <template shadowrootmode="open">
@@ -43,12 +57,17 @@ exports[`ic-tooltip component should test dark theme 1`] = `
 `;
 
 exports[`ic-tooltip component should test light theme 1`] = `
-<ic-tooltip
-  <=""
-  ic-tooltip=""
-  label="tooltip"
-  theme="light"
-/>
+<ic-tooltip <="" class="ic-theme-light ic-tooltip" ic-tooltip="" label="tooltip" theme="light">
+  <template shadowrootmode="open">
+    <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
+      <ic-typography variant="caption">
+        tooltip
+      </ic-typography>
+      <div class="ic-tooltip-arrow"></div>
+    </div>
+    <slot></slot>
+  </template>
+</ic-tooltip>
 `;
 
 exports[`ic-tooltip component should truncate text and pass the maxLines value to ic-typography if maxLines prop has been set 1`] = `
