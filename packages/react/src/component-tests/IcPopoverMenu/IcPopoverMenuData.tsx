@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, ReactElement } from "react";
 import {
   IcButton,
   IcPopoverMenu,
@@ -306,6 +306,63 @@ export const PopoverTheme = ({ theme }) => {
           <IcMenuItem label="Delete" variant="destructive" />
         </IcPopoverMenu>
       </>
+    </div>
+  );
+};
+
+export const PositioningStrategy = ({ fixed }) => {
+  const buttonEl = useRef<any>();
+  const popoverEl = useRef<any>();
+  const handleClick = () => {
+    popoverEl.current.open = buttonEl.current.dropdownExpanded;
+  };
+  const handleClose = () => {
+    buttonEl.current.dropdownExpanded = popoverEl.current.open;
+  };
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "var(--ic-space-xs)",
+        padding: "var(--ic-space-md)",
+        border: "1px solid var(--ic-color-text-primary)",
+        overflow: "hidden",
+        width: "160px",
+        position: "relative",
+      }}
+    >
+      <IcButton
+        id="popover-button"
+        dropdown
+        variant="primary"
+        onClick={() => handleClick()}
+        ref={buttonEl}
+      >
+        Button
+      </IcButton>
+      <IcPopoverMenu
+        anchor="popover-button"
+        aria-label="popover"
+        onIcPopoverClosed={() => handleClose()}
+        ref={popoverEl}
+        open
+        fixedPositioning={fixed}
+      >
+        <IcMenuItem label="Copy code"></IcMenuItem>
+        <IcMenuItem label="Paste code"></IcMenuItem>
+        <IcMenuItem
+          label="Actions"
+          submenuTriggerFor="actions"
+          id="submenu-trigger-actions"
+        />
+      </IcPopoverMenu>
+      <IcPopoverMenu submenuId="actions" aria-label="popover">
+        <IcMenuItem label="Edit" />
+        <IcMenuItem label="Find" />
+        <IcMenuItem label="Delete" variant="destructive" />
+      </IcPopoverMenu>
     </div>
   );
 };

@@ -32,6 +32,7 @@ import {
   CustomHeightMinWidth,
   FileUpload,
   SlottedIcon,
+  TooltipPositioning,
 } from "./IcButtonTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -802,6 +803,40 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/tooltip-icon-destructive",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+  });
+
+  it("should render button with absolute tooltip positioning", () => {
+    mount(TooltipPositioning(false));
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/button-tooltip-cropped",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
+  });
+
+  it("should render button with fixed tooltip positioning", () => {
+    mount(TooltipPositioning(true));
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/button-tooltip-fixed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
     });
   });
 

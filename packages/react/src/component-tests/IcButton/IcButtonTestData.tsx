@@ -997,3 +997,32 @@ export const FileUpload = () => {
     </div>
   );
 };
+
+export const TooltipPositioning = (
+  tooltipFixedPositioning: boolean
+): ReactElement => {
+  return (
+    <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--ic-space-xs)",
+          padding: "var(--ic-space-lg)",
+          border: "1px solid var(--ic-color-text-primary)",
+          overflow: "hidden",
+          width: "100px",
+          position: "absolute",
+        }}
+      >
+        <IcButton
+          title="This is a description of the button"
+          id="testButton"
+          tooltipFixedPositioning={tooltipFixedPositioning}
+        >
+          Button
+        </IcButton>
+      </div>
+    </div>
+  );
+};

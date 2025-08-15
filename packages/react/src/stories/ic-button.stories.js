@@ -2,14 +2,15 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { mdiAccountGroup } from "@mdi/js";
-import React, { useRef } from "react";
+import React, { useRef, useState} from "react";
 import { iconProps } from "../component-tests/IcButton/IcButtonTestData";
 import {
   IcButton,
   IcMenuItem,
   IcPopoverMenu,
   IcTypography,
-  IcBadge
+  IcBadge,
+  IcSwitch
 } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
@@ -1433,6 +1434,44 @@ export const IconVariants = {
   ],
 
   name: "Icon variants",
+};
+
+export const PositioningStrategy = {
+  render: () => {
+    const [fixed, setFixed] = useState(false);
+
+    return (
+      <div style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--ic-space-xs)"
+        }}
+      >
+        <IcTypography>Choose the tooltip position strategy and hover over the button to see it take effect</IcTypography>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--ic-space-xs)",
+            padding: "var(--ic-space-md)",
+            border: "1px solid var(--ic-color-text-primary)",
+            overflow: "hidden",
+            width: "100px",
+            position: "relative",
+          }}
+        >          
+          <IcButton title="This is a tooltip with a long label" id="button-1" tooltipFixedPositioning={fixed}>
+            Button
+          </IcButton>
+        </div>
+        <IcSwitch label="Fixed tooltip positioning"
+          onIcChange={(ev)=> setFixed(ev.detail.checked)}
+        >
+        </IcSwitch>
+      </div>
+    )   
+  },
+  name: "Tooltip positioning strategy",
 };
 
 export const Playground = {
