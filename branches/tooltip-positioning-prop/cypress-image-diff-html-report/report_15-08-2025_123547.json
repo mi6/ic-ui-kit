@@ -1,7 +1,7 @@
 {
   "total": 847,
-  "totalPassed": 844,
-  "totalFailed": 3,
+  "totalPassed": 846,
+  "totalFailed": 1,
   "totalSuites": 44,
   "suites": [
     {
@@ -616,14 +616,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/icon.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBackToTop.cy.tsx/dark-theme",
-          "percentage": 0.042426406871192854,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/dark-theme.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBackToTop.cy.tsx/dark-theme.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/dark-theme.png"
         },
         {
@@ -1382,14 +1382,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/tooltip-icon-destructive.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx/button-tooltip-cropped",
-          "percentage": 0.0832586331859946,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/button-tooltip-cropped.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx/button-tooltip-cropped.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/button-tooltip-cropped.png"
         },
         {
@@ -8936,7 +8936,7 @@
         {
           "status": "fail",
           "name": "IcTooltip.cy.tsx/position-absolute",
-          "percentage": 0.09406380813043877,
+          "percentage": 0.09395743717237076,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
@@ -9586,9 +9586,9 @@
       ]
     }
   ],
-  "startedAt": "2025-08-15T11:01:16.614Z",
-  "endedAt": "2025-08-15T11:19:52.001Z",
-  "duration": 1009524,
+  "startedAt": "2025-08-15T12:35:47.070Z",
+  "endedAt": "2025-08-15T12:53:26.332Z",
+  "duration": 956371,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
