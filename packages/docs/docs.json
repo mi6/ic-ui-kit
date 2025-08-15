@@ -3181,6 +3181,30 @@
           "setter": false
         },
         {
+          "name": "tooltipFixedPositioning",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "tooltip-fixed-positioning",
+          "reflectToAttr": false,
+          "docs": "Setting to `true` can help in situations where tooltip content is clipped by a parent element.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "tooltipPlacement",
           "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
           "complexType": {
@@ -13311,6 +13335,30 @@
           "setter": false
         },
         {
+          "name": "fixedPositioning",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fixed-positioning",
+          "reflectToAttr": false,
+          "docs": "Setting to `true` can help in situations where tooltip content is clipped by a parent element.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "open",
           "type": "boolean | undefined",
           "complexType": {
@@ -21685,6 +21733,30 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fixedPositioning",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fixed-positioning",
+          "reflectToAttr": false,
+          "docs": "Setting to `true` can help in situations where tooltip content is clipped by a parent element.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
