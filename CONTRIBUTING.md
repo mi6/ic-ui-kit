@@ -48,13 +48,13 @@ You can help us speed up the development of our Design System by contributing ne
 
 ### Contributing code
 
-As part of our vision for the Intelligence Community UI Kit, our aim is to provide a rich set of professionally designed, framework agnostic components, which will allow development teams to build highly accessible and consistent applications. In order to achieve this, we have built our component library using [Stencil](https://stenciljs.com/). 
+As part of our vision for the Intelligence Community UI Kit, our aim is to provide a rich set of professionally designed, framework agnostic components, which will allow development teams to build highly accessible and consistent applications. In order to achieve this, we have built our component library using [Stencil](https://stenciljs.com/).
 
 Each component has its own directory which can be found in `./packages/web-components/src/components`. Feel free to review the current components and familiarise yourself with the Stencil syntax.
 
 ### Setting up the UI Kit codebase
 
-[Node 16+](https://nodejs.org/en/) is required to build and run the codebase. 
+[Node 16+](https://nodejs.org/en/) is required to build and run the codebase.
 
 If you would like to contribute code, please complete the following steps:
 
@@ -70,6 +70,7 @@ git remote add upstream git@github.com:mi6/ic-ui-kit.git
 5. Run the following:
 
 **NPM**
+
 ```console
 npm install
 npm run bootstrap
@@ -77,6 +78,7 @@ npm run build:all
 ```
 
 **Yarn**
+
 ```console
 rm package-lock.json
 yarn install
@@ -87,11 +89,13 @@ yarn run build:all
 6. To run Storybook, with instances running web and React components, run:
 
 **NPM**
+
 ```console
 npm run storybook
 ```
 
 **Yarn**
+
 ```console
 yarn run storybook
 ```
@@ -103,9 +107,11 @@ yarn run storybook
    - Click on `Compare & pull request`.
    - Set the base to be the original repository's `develop` branch and the host to be your `forked branch`.
    - Click on `Create pull request`.
+
 10. Workflows aren't automatically added to your forked repo, so to run any of the workflows you'll need to:
-   - Navigate to the actions tab in your forked repo.
-   - Click on `I understand my workflows, go ahead and enable them`
+
+- Navigate to the actions tab in your forked repo.
+- Click on `I understand my workflows, go ahead and enable them`
 
 ### Documentation
 
@@ -138,10 +144,11 @@ Stencil provides [plugins](https://stenciljs.com/docs/overview), which outputs w
 ### Style guide
 
 Linting tools are ran against the codebase to keep in line with our coding standards. The linting tools used are:
+
 - [Prettier](https://prettier.io/)
 - [Eslint](https://eslint.org/) with the following plugins:
-    - [Typescript](https://github.com/typescript-eslint/typescript-eslint)
-    - [Stencil](https://github.com/ionic-team/stencil-eslint)
+  - [Typescript](https://github.com/typescript-eslint/typescript-eslint)
+  - [Stencil](https://github.com/ionic-team/stencil-eslint)
 
 These tools are ran as part of the pre-commit and can also be ran separately.
 
@@ -154,7 +161,7 @@ Refer to the [StencilJS Style Guide](https://stenciljs.com/docs/style-guide) for
 As a data protection measure, this repository enforces the use of GitHub user email address in your commit. Please follow these steps:
 
 1. Visit your [GitHub email settings](https://github.com/settings/emails)
-    - Optionally check the settings "Keep my email addresses private" and "Block command line pushes that expose my email"
+   - Optionally check the settings "Keep my email addresses private" and "Block command line pushes that expose my email"
 2. On this page, under **Primary Email Address** you'll see a user email that follows the pattern `<username>@users.noreply.github.com`.
 3. Inside your developer environment, open a command line in the directory of the ic-ui-kit repository
 4. Enter the command `git config user.email <EMAIL>` where you replace `<EMAIL>` with the address from step 3. This will be applied to commits made in this repository.
@@ -174,16 +181,16 @@ Follow these steps when making a commit:
 3. Select the commit type, read each of the options and select the appropriate one.
 4. When asked for scope, enter either:
 
-    - `root` if your commit contains changes to the root of the project.
-    - `web-components` for changes to the core web components package.
-    - `react` for changes specific to the React package.
-    - `canary-web-components` for changes to the canary web components package.
-    - `canary-react` for changes to the canary React package.
+   - `root` if your commit contains changes to the root of the project.
+   - `web-components` for changes to the core web components package.
+   - `react` for changes specific to the React package.
+   - `canary-web-components` for changes to the canary web components package.
+   - `canary-react` for changes to the canary React package.
 
 5. Provide a short description of the change.
 
-    - Use the present tense, such as "Add feature" not "Added feature"
-    - Reference the issue number at the start of the commit, such as "#123 Add feature"
+   - Use the present tense, such as "Add feature" not "Added feature"
+   - Reference the issue number at the start of the commit, such as "#123 Add feature"
 
 6. Provide a longer description of the change.
 7. If there are breaking changes enter `y` and provide a description.
@@ -195,13 +202,16 @@ Follow these steps when making a commit:
 If you need to make changes to a commit (for example, after receiving comments on a PR), follow these steps:
 
 1. **If you're amending the most recent commit:**
+
    - Stage your changes using `git add` and include the files you want to update.
    - Run `git commit --amend --no-edit` to amend the most recent commit without changing the commit message.
    - The Commitizen prompt will still appear as if you are making a new commit. Exit the prompt (usually by pressing Ctrl+C).
    - Push the changes to the remote repository using: `git push --force-with-lease`.
 
 2. **If you're amending an older commit:**
+
    - Use `git rebase` to modify an older commit. For example, to modify commit `a1312407`, run:
+
      ```console
      git rebase --interactive a1312407
      ```
@@ -211,6 +221,7 @@ If you need to make changes to a commit (for example, after receiving comments o
    - Save the file and exit. Git will interpret and automatically execute the commands in the file, placing you in the state just after creating commit `a1312407`.
 
    - Amend the commit by making your changes and then running:
+
      ```console
      git commit --all --amend --no-edit
      ```
@@ -218,6 +229,7 @@ If you need to make changes to a commit (for example, after receiving comments o
    - The Commitizen prompt will still appear as if you are making a new commit. Exit the prompt (usually by pressing Ctrl+C).
 
    - Continue the rebase process by running:
+
      ```console
      git rebase --continue
      ```
@@ -229,7 +241,7 @@ If you need to make changes to a commit (for example, after receiving comments o
 
 ### Rebasing your branch
 
-Often, when changes are merged into the original repository's `develop` branch, your forked repo may become out of date and you will need to rebase your feature branch. 
+Often, when changes are merged into the original repository's `develop` branch, your forked repo may become out of date and you will need to rebase your feature branch.
 
 1. If not configured already, make sure to add the `mi6/ic-ui-kit` repo as your upstream remote branch, by running:
 
@@ -238,31 +250,37 @@ git remote add upstream git@github.com:mi6/ic-ui-kit.git
 ```
 
 2. Fetch the latest upstream by running:
+
 ```console
 git fetch upstream
 ```
 
 3. Checkout the local `develop` branch by running:
+
 ```console
 git checkout develop
 ```
 
 4. Rebase your local `develop` branch off the upstream `develop` branch:
+
 ```console
 git rebase upstream/develop
 ```
 
 5. Checkout your feature branch:
+
 ```console
 git checkout feature/123-new-feature
 ```
 
 6. Rebase your feature branch off the local `develop` branch:
+
 ```console
 git rebase develop
 ```
 
 7. Push the updated branch:
+
 ```console
 git push --force-with-lease
 ```
@@ -285,17 +303,20 @@ export interface IcMenuOption {
 
 export type IcInformationStatusOrEmpty = "warning" | "error" | "success" | "";
 ```
+
 Global interfaces and types should be added to `./packages/web-components/utils/types.ts`
 
 ### When to use props, slots or methods
 
-Generally, props have the most usage throughout the components as this is the simplest way to provide the correct functionality for the components without too much flexibility. 
+Generally, props have the most usage throughout the components as this is the simplest way to provide the correct functionality for the components without too much flexibility.
 
 When utilising ICDS components within another ICDS component, some suggestions are:
+
 - If the component requires text (e.g. a heading), use a prop where the correct styling would be applied (e.g h4), but (in most cases) with the option to also slot in a heading.
 - If the component requires actions (e.g buttons) or another non-text based ICDS component (e.g status tag), use a slot.
 
 For functionality that a developer would want to control within a component, some suggestions are:
+
 - In most cases, use a prop (e.g. open/visible) that can then be controlled any way a developer would like.
 - For setting focus, use a method.
 
@@ -310,8 +331,9 @@ For prop/slot naming standards, please check the [glossary of most common terms]
 
 ### Accessibility
 
-Testing should always include accessibility testing. A combination of automated and manual accessibility testing is needed. 
+Testing should always include accessibility testing. A combination of automated and manual accessibility testing is needed.
 Automated accessibility testing tools are available to fix initial low level issues. The following tools are used:
+
 - [Storybook a11y addon](https://storybook.js.org/addons/@storybook/addon-a11y)
 - [cypress-axe](https://github.com/component-driven/cypress-axe)
 
@@ -325,7 +347,7 @@ All components should aim for 100% unit test coverage, but as a very minimum, th
 
 Below is an example of a component and how unit tests are used to test the component.
 
-**Component** 
+**Component**
 
 ```tsx
 // ic-component.tsx
@@ -337,7 +359,7 @@ export class Component {
     @Prop() status?: string;
 
     @Event() icComponentBrandChange!: EventEmitter<{ mode: string }>;
-        
+
     @Listen("brandChange", { target: "document" })
     brandChangeHandler(ev: CustomEvent): void {
         this.brand = ev.detail.mode;
@@ -448,26 +470,26 @@ Below is an example of an integration test.
 
 ```tsx
 it("should have the correct text after the button is clicked", () => {
-    mount(
-        <div>
-            <IcComponent label="foo"></IcComponent>
-            <IcTypography>bar</IcTypography>
-        </div>
-    );
+  mount(
+    <div>
+      <IcComponent label="foo"></IcComponent>
+      <IcTypography>bar</IcTypography>
+    </div>
+  );
 
-    // Check the component has hydrated to avoid basic errors
-    cy.checkHydrated("ic-button");
+  // Check the component has hydrated to avoid basic errors
+  cy.checkHydrated("ic-button");
 
-    // Clicking the button updates the typography text
-    cy.clickOnButton("ic-button");
+  // Clicking the button updates the typography text
+  cy.clickOnButton("ic-button");
 
-    /*
-    * It is possible to select components one level deep into a shadowDOM by using .shadow()
-    * Example - cy.get("ic-button").shadow().find("ic-typography")
-    * Alternatively - cy.findShadowEl("ic-button", "ic-typography")
-    */
-    cy.get("ic-typography").should("have.text", "baz")
-  });
+  /*
+   * It is possible to select components one level deep into a shadowDOM by using .shadow()
+   * Example - cy.get("ic-button").shadow().find("ic-typography")
+   * Alternatively - cy.findShadowEl("ic-button", "ic-typography")
+   */
+  cy.get("ic-typography").should("have.text", "baz");
+});
 ```
 
 ### Visual regression tests
@@ -475,20 +497,19 @@ it("should have the correct text after the button is clicked", () => {
 [Cypress](https://www.cypress.io/) itself does not have built-in support for visual regression testing. However the third-party plugin `cypress-image-diff-js` adds this functionality. The tool works by taking screenshots of the components at specific points during tests and then comparing them to the baseline images to detect any visual differences. All reference images are stored within the `react/cypress-visual-screenshots` directory once the test suite is ran. Cypress uses a headless Electron browser for running tests and rendering components.
 
 Below is an example of a visual regression test within an integration test.
+
 ```tsx
-  it("should create a snapshot for the default component", () => {
-    mount( 
-        <IcComponent label="foo"></IcComponent>
-    );
+it("should create a snapshot for the default component", () => {
+  mount(<IcComponent label="foo"></IcComponent>);
 
-    // Check the component has hydrated to avoid basic errors
-    cy.checkHydrated("ic-button");
+  // Check the component has hydrated to avoid basic errors
+  cy.checkHydrated("ic-button");
 
-    cy.compareSnapshot({
-        name: "default", 
-        testThreshold: DEFAULT_TEST_THRESHOLD
-    });
+  cy.compareSnapshot({
+    name: "default",
+    testThreshold: DEFAULT_TEST_THRESHOLD,
   });
+});
 ```
 
 #### Generating/updating Cypress screenshots
@@ -500,34 +521,35 @@ Follow these steps when generating new Cypress screenshots or making an update t
    - If updates are being made to existing screenshots, please delete the individual legacy screenshots from the baseline directory.
 2. Push up the tests, and Cypress screenshot deletions, to GitHub.
 3. Go to the Actions tab within the GitHub UI and select 'Update Cypress visual regression test images'. This action is set to be run manually. In order to trigger it, select 'Run workflow' in the top right. Select your branch and press 'Run workflow'.
-   - The action will run the Cypress tests in a headless browser, and generate snapshots based on how the components are rendered on Electron within the CI environment. 
+   - The action will run the Cypress tests in a headless browser, and generate snapshots based on how the components are rendered on Electron within the CI environment.
    - When complete, the action will commit the new screenshots to the branch with the subject 'feat(scope): update Cypress visual regression test baseline images'.
-4. Within your IDE, run `git fetch --all`  to retrieve the latest updates from the remote. 
-5. Run `git reset --hard <remote>/<branch>`  to pull the latest commits, which include the CI generated commit, locally.
-6. Run `git reset --soft HEAD^1`  which will go back a commit and move all the newly generated images into staged. 
+4. Within your IDE, run `git fetch --all` to retrieve the latest updates from the remote.
+5. Run `git reset --hard <remote>/<branch>` to pull the latest commits, which include the CI generated commit, locally.
+6. Run `git reset --soft HEAD^1` which will go back a commit and move all the newly generated images into staged.
 7. Run `npm run cypress:open` within the React/Canary React package to open up the Cypress dialog.
 8. Run the tests for the Cypress screenshots that were just generated.
    - There should be multiple screenshot failures appearing. This is due to the screenshot on the CI not matching how the component is rendered locally.
-   - Once all the tests have run, a 'cypress-image-diff-html-report' will be generated at the root level of the React/Canary React package which will contain a HTML file. 
+   - Once all the tests have run, a 'cypress-image-diff-html-report' will be generated at the root level of the React/Canary React package which will contain a HTML file.
    - Open the file to view the actual threshold required to make the visual regression tests pass locally.
 9. To start amending the threshold, import `setThresholdBasedOnEnv` from the core React package.
    - From the React package, import the function using:
-   `import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers"; `
+     `import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers"; `
    - From the Canary React package, import the function using:
-   `import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers"; `
-   - `setThresholdBasedOnEnv`  will revert the threshold back to 0 when the tests are run on the CI but will use the threshold set when running the tests locally.
+     `import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers"; `
+   - `setThresholdBasedOnEnv` will revert the threshold back to 0 when the tests are run on the CI but will use the threshold set when running the tests locally.
 10. Amend the `cy.compareSnapshot()` command so that the `testThreshold` number is 1 above the actual percentage from the HTML report.
     - If the actual percentage was 2.0%, update the command to:
     ```tsx
     cy.compareSnapshot({
-        name: "default", 
-        testThreshold: setThresholdBasedOnEnv(0.021)
+      name: "default",
+      testThreshold: setThresholdBasedOnEnv(0.021),
     });
     ```
 11. Once all the tests have been amended, run `npm run cypress:open` to open up the Cypress dialog again.
-   - Run the tests with the updated thresholds and they should all pass.
-12. Commit the updates and push up. 
 
+- Run the tests with the updated thresholds and they should all pass.
+
+12. Commit the updates and push up.
 
 ### Testing best practice
 
@@ -545,5 +567,3 @@ Follow these steps when generating new Cypress screenshots or making an update t
 - [License](./LICENSE)
 - [Changelog](./CHANGELOG.md)
 - [Security](./SECURITY.md)
-
-
