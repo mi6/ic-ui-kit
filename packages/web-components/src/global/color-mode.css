@@ -690,6 +690,41 @@ ic-theme,
   --ic-button-icon-color-background-active: var(--ic-action-default-bg-pressed);
   --ic-button-icon-monochrome: var(--ic-action-monochrome-dark);
 
+  /* Calendar */
+  --ic-calendar-bg: var(--ic-color-background-primary);
+  --ic-calendar-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-calendar-elevation: var(--ic-elevation-overlay);
+  --ic-calendar-label: var(--ic-color-text-tertiary);
+  --ic-calendar-date-active-bg-default: var(--ic-color-background-active);
+  --ic-calendar-date-active-bg-hover: var(--ic-color-background-hover-default);
+  --ic-calendar-date-active-bg-pressed: var(
+    --ic-color-background-pressed-default
+  );
+  --ic-calendar-date-default-bg-hover: var(--ic-action-dark-bg-hover);
+  --ic-calendar-date-default-bg-pressed: var(--ic-action-dark-bg-pressed);
+  --ic-calendar-date-label-default: var(--ic-atoms-input-field-label);
+  --ic-calendar-date-label-disabled: var(--ic-atoms-input-field-label-disabled);
+  --ic-calendar-date-label-selected: var(--ic-color-text-inverted);
+  --ic-calendar-default-underline: var(--ic-action-default);
+  --ic-calendar-selected-underline: var(--ic-action-monochrome);
+
+  /* Card */
+  --ic-card-text-primary: var(--ic-color-text-primary);
+  --ic-card-disabled-text: var(--ic-color-text-disabled-mid);
+  --ic-card-icon: var(--ic-color-icon-neutral);
+  --ic-card-icon-disabled: var(--ic-color-icon-disabled-mid);
+  --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+  --ic-card-border-primary: var(--ic-color-border-neutral-grey-dark);
+  --ic-card-border-monochrome: var(--ic-color-border-neutral-black);
+  --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-default);
+  --ic-card-pressed-border-color: var(
+    --ic-color-border-neutral-pressed-default
+  );
+  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
+  --ic-card-background-hover: var(--ic-action-default-bg-hover);
+  --ic-card-background-pressed: var(--ic-action-default-bg-pressed);
+  --ic-card-link-action-dark: var(--ic-link-text-visited);
+
   /* Checkbox */
   --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
   --ic-checkbox-border-unselected-hover: var(
@@ -758,23 +793,6 @@ ic-theme,
   --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-light);
   --ic-chip-action-hover: var(--ic-action-dark-bg-hover);
   --ic-chip-action-pressed: var(--ic-action-dark-bg-pressed);
-
-  /* Card */
-  --ic-card-text-primary: var(--ic-color-text-primary);
-  --ic-card-disabled-text: var(--ic-color-text-disabled-mid);
-  --ic-card-icon: var(--ic-color-icon-neutral);
-  --ic-card-icon-disabled: var(--ic-color-icon-disabled-mid);
-  --ic-card-clickable-text: var(--ic-color-hyperlink-default);
-  --ic-card-border-primary: var(--ic-color-border-neutral-grey-dark);
-  --ic-card-border-monochrome: var(--ic-color-border-neutral-black);
-  --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-default);
-  --ic-card-pressed-border-color: var(
-    --ic-color-border-neutral-pressed-default
-  );
-  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
-  --ic-card-background-hover: var(--ic-action-default-bg-hover);
-  --ic-card-background-pressed: var(--ic-action-default-bg-pressed);
-  --ic-card-link-action-dark: var(--ic-link-text-visited);
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -2315,6 +2333,43 @@ ic-theme,
     --ic-button-destructive-icon-disabled: var(--ic-state-layer-lighten-20);
     --ic-button-icon-monochrome: var(--ic-action-monochrome);
 
+    /* Calendar */
+    --ic-calendar-bg: var(--ic-color-background-primary);
+    --ic-calendar-border: var(--ic-color-border-neutral-grey-dark);
+    --ic-calendar-elevation: var(--ic-elevation-overlay);
+    --ic-calendar-label: var(--ic-color-text-tertiary);
+    --ic-calendar-date-active-bg-default: var(--ic-color-background-active);
+    --ic-calendar-date-active-bg-hover: var(
+      --ic-color-background-hover-default
+    );
+    --ic-calendar-date-active-bg-pressed: var(
+      --ic-color-background-pressed-default
+    );
+    --ic-calendar-date-default-bg-hover: var(--ic-action-dark-bg-hover);
+    --ic-calendar-date-default-bg-pressed: var(--ic-action-dark-bg-pressed);
+    --ic-calendar-date-label-default: var(--ic-atoms-input-field-label);
+    --ic-calendar-date-label-disabled: var(
+      --ic-atoms-input-field-label-disabled
+    );
+    --ic-calendar-date-label-selected: var(--ic-color-text-inverted);
+    --ic-calendar-default-underline: var(--ic-action-default);
+    --ic-calendar-selected-underline: var(--ic-action-monochrome);
+
+    /* Card */
+    --ic-card-text-primary: var(--ic-color-text-primary);
+    --ic-card-disabled-text: var(--ic-color-text-disabled-dark);
+    --ic-card-icon: var(--ic-color-icon-inverted);
+    --ic-card-icon-disabled: var(--ic-color-icon-disabled);
+    --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+    --ic-card-border-primary: var(--ic-color-border-neutral-default-dark);
+    --ic-card-border-monochrome: var(--ic-color-border-neutral-white);
+    --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-dark);
+    --ic-card-pressed-border-color: var(--ic-color-border-neutral-pressed-dark);
+    --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
+    --ic-card-background-hover: var(--ic-color-background-hover);
+    --ic-card-background-pressed: var(--ic-color-background-pressed);
+    --ic-card-link-action-dark: var(--ic-link-text-visited);
+
     /* Checkbox */
     --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey);
     --ic-checkbox-border-unselected-hover: var(--ic-color-border-action-hover);
@@ -2379,21 +2434,6 @@ ic-theme,
     );
     --ic-chip-action-hover: var(--ic-action-light-bg-hover);
     --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
-
-    /* Card */
-    --ic-card-text-primary: var(--ic-color-text-primary);
-    --ic-card-disabled-text: var(--ic-color-text-disabled-dark);
-    --ic-card-icon: var(--ic-color-icon-inverted);
-    --ic-card-icon-disabled: var(--ic-color-icon-disabled);
-    --ic-card-clickable-text: var(--ic-color-hyperlink-default);
-    --ic-card-border-primary: var(--ic-color-border-neutral-default-dark);
-    --ic-card-border-monochrome: var(--ic-color-border-neutral-white);
-    --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-dark);
-    --ic-card-pressed-border-color: var(--ic-color-border-neutral-pressed-dark);
-    --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
-    --ic-card-background-hover: var(--ic-color-background-hover);
-    --ic-card-background-pressed: var(--ic-color-background-pressed);
-    --ic-card-link-action-dark: var(--ic-link-text-visited);
 
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -3984,6 +4024,41 @@ ic-theme,
   --ic-button-destructive-icon-disabled: var(--ic-state-layer-lighten-20);
   --ic-button-icon-monochrome: var(--ic-action-monochrome);
 
+  /* Calendar */
+  --ic-calendar-bg: var(--ic-color-background-primary);
+  --ic-calendar-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-calendar-elevation: var(--ic-elevation-overlay-inverted);
+  --ic-calendar-label: var(--ic-color-text-tertiary);
+  --ic-calendar-date-active-bg-default: var(--ic-color-background-active);
+  --ic-calendar-date-active-bg-hover: var(
+    --ic-color-background-active-hover-dark
+  );
+  --ic-calendar-date-active-bg-pressed: var(
+    --ic-color-background-active-pressed-dark
+  );
+  --ic-calendar-date-default-bg-hover: var(--ic-action-light-bg-hover);
+  --ic-calendar-date-default-bg-pressed: var(--ic-action-light-bg-pressed);
+  --ic-calendar-date-label-default: var(--ic-atoms-input-field-label);
+  --ic-calendar-date-label-disabled: var(--ic-atoms-input-field-label-disabled);
+  --ic-calendar-date-label-selected: var(--ic-color-text-inverted-light);
+  --ic-calendar-default-underline: var(--ic-action-default);
+  --ic-calendar-selected-underline: var(--ic-action-monochrome);
+
+  /* Card */
+  --ic-card-text-primary: var(--ic-color-text-primary);
+  --ic-card-disabled-text: var(--ic-color-text-disabled-dark);
+  --ic-card-icon: var(--ic-color-icon-inverted);
+  --ic-card-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+  --ic-card-border-primary: var(--ic-color-border-neutral-default-dark);
+  --ic-card-border-monochrome: var(--ic-color-border-neutral-white);
+  --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-dark);
+  --ic-card-pressed-border-color: var(--ic-color-border-neutral-pressed-dark);
+  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
+  --ic-card-background-hover: var(--ic-color-background-hover);
+  --ic-card-background-pressed: var(--ic-color-background-pressed);
+  --ic-card-link-action-dark: var(--ic-link-text-visited);
+
   /* Checkbox */
   --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey);
   --ic-checkbox-border-unselected-hover: var(--ic-color-border-action-hover);
@@ -4046,21 +4121,6 @@ ic-theme,
   );
   --ic-chip-action-hover: var(--ic-action-light-bg-hover);
   --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
-
-  /* Card */
-  --ic-card-text-primary: var(--ic-color-text-primary);
-  --ic-card-disabled-text: var(--ic-color-text-disabled-dark);
-  --ic-card-icon: var(--ic-color-icon-inverted);
-  --ic-card-icon-disabled: var(--ic-color-icon-disabled);
-  --ic-card-clickable-text: var(--ic-color-hyperlink-default);
-  --ic-card-border-primary: var(--ic-color-border-neutral-default-dark);
-  --ic-card-border-monochrome: var(--ic-color-border-neutral-white);
-  --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-dark);
-  --ic-card-pressed-border-color: var(--ic-color-border-neutral-pressed-dark);
-  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
-  --ic-card-background-hover: var(--ic-color-background-hover);
-  --ic-card-background-pressed: var(--ic-color-background-pressed);
-  --ic-card-link-action-dark: var(--ic-link-text-visited);
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
