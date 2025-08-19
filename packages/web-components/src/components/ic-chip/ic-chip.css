@@ -12,7 +12,7 @@
   --chip-pressed-bg: var(--ic-chip-action-pressed);
 
   display: flex;
-  padding: var(--ic-space-xxs);
+  padding: calc(var(--ic-space-xxs) - var(--ic-space-1px)) var(--ic-space-xxs);
   font-size: 0.875rem;
   border-radius: var(--ic-space-md);
   text-align: left;
@@ -30,12 +30,12 @@
 }
 
 .chip.small {
-  padding: var(--ic-space-xxxs);
+  padding: var(--ic-space-1px) var(--ic-space-xxxs);
   border-radius: calc(var(--ic-space-md) - var(--ic-space-xxxs));
 }
 
 .chip.large {
-  padding: var(--ic-space-xs);
+  padding: calc(var(--ic-space-xs) - var(--ic-space-1px)) var(--ic-space-xs);
   border-radius: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 

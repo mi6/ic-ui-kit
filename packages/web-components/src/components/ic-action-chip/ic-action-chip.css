@@ -18,7 +18,7 @@
   color: var(--text-color);
   cursor: pointer;
   display: flex;
-  padding: var(--ic-space-xxs);
+  padding: calc(var(--ic-space-xxs) - var(--ic-space-1px)) var(--ic-space-xxs);
   position: relative;
   text-decoration: none;
 
@@ -39,12 +39,12 @@
 
 .small {
   border-radius: calc(var(--ic-space-md) - var(--ic-space-xxxs));
-  padding: var(--ic-space-xxxs);
+  padding: var(--ic-space-1px) var(--ic-space-xxxs);
 }
 
 .large {
   border-radius: calc(var(--ic-space-md) + var(--ic-space-xxs));
-  padding: var(--ic-space-xs);
+  padding: calc(var(--ic-space-xs) - var(--ic-space-1px)) var(--ic-space-xs);
 }
 
 .outlined {
