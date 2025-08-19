@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from 'react';
-import { IcButton, IcTooltip } from "../components";
+import React, { useState } from 'react';
+import { IcButton, IcSwitch, IcTooltip, IcTypography } from "../components";
 
 const defaultArgs = {
   disableClick: false,
@@ -10,6 +10,7 @@ const defaultArgs = {
   placement: "bottom",
   label: "This is a description of the button",
   theme: "inherit",
+  fixedPositioning: false,
 };
 
 export default {
@@ -370,6 +371,51 @@ export const ChangingLabel = {
   name: "Changing label",
 }
 
+export const PositioningStrategy = {
+  render: () => {
+    const [fixed, setFixed] = useState(false);
+
+    return (
+      <div style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--ic-space-xs)"
+        }}
+      >
+        <IcTypography>Choose the tooltip position strategy and hover over the button to see it take effect</IcTypography>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--ic-space-xs)",
+            padding: "var(--ic-space-md)",
+            border: "1px solid var(--ic-color-text-primary)",
+            overflow: "hidden",
+            width: "100px",
+            position: "relative",
+          }}
+        >
+          <IcTooltip
+            label="This is a tooltip with a long label"
+            id="ic-tooltip-test-button-1"
+            target="button-1"
+            fixedPositioning={fixed}
+          >
+            <IcButton aria-describedby="ic-tooltip-test-button-1" id="button-1">
+              Button
+            </IcButton>
+          </IcTooltip>          
+        </div>
+        <IcSwitch label="Fixed tooltip positioning"
+          onIcChange={(ev)=> setFixed(ev.detail.checked)}
+        >
+        </IcSwitch>
+      </div>
+    )   
+  },
+  name: "Positioning strategy",
+};
+
 export const Playground = {
   render: (args) => (
     <div
@@ -386,6 +432,7 @@ export const Playground = {
         id="ic-tooltip-test-button-default"
         target="button-id"
         theme={args.theme}
+        fixedPositioning={args.fixedPositioning}
       >
         <button
           id="button-id"

@@ -214,6 +214,11 @@ export class Button {
   @Prop({ mutable: true }) theme: IcThemeMode = "inherit";
 
   /**
+   * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+   */
+  @Prop() tooltipFixedPositioning: boolean = false;
+
+  /**
    * The position of the tooltip in relation to the button.
    */
   @Prop() tooltipPlacement: IcButtonTooltipPlacement = "bottom";
@@ -561,6 +566,7 @@ export class Button {
       target,
       theme,
       title,
+      tooltipFixedPositioning,
       tooltipPlacement,
       transparentBackground,
       type,
@@ -692,6 +698,7 @@ export class Button {
             label={title || ariaLabel}
             target={buttonId}
             placement={tooltipPlacement}
+            fixedPositioning={tooltipFixedPositioning}
             silent={isIconVariant() && !!ariaLabel}
           >
             <ButtonContent />

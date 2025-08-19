@@ -62,6 +62,11 @@ export class Tooltip {
   }
 
   /**
+   * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+   */
+  @Prop() fixedPositioning: boolean = false;
+
+  /**
    * The number of lines to display before truncating the text.
    */
   @Prop() maxLines?: number;
@@ -172,6 +177,7 @@ export class Tooltip {
       }
 
       this.popperInstance = createPopper(this.el, this.toolTip, {
+        strategy: this.fixedPositioning ? "fixed" : "absolute",
         placement: this.placement,
         modifiers: [
           {

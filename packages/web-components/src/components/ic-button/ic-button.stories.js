@@ -2244,6 +2244,33 @@ export const Tooltips = {
   name: "Tooltips",
 };
 
+export const PositioningStrategy = {
+  render: (args) =>
+    html` <script>
+        var switchEl = document.querySelector("ic-switch");
+        var buttonEl = document.querySelector("ic-button");
+        switchEl.addEventListener("icChange", (ev) => {
+          buttonEl.tooltipFixedPositioning = ev.detail.checked;
+        });
+      </script>
+      <div style="display:flex; flex-direction:column; gap:var(--ic-space-xs)">
+        <ic-typography>
+          Toggle the fixed positioning switch and hover over the button to see
+          it take effect
+        </ic-typography>
+        <div
+          style="display:flex; flex-direction:column; gap:var(--ic-space-xs); padding:var(--ic-space-md); border:1px solid var(--ic-color-text-primary); overflow:hidden; width:100px; position:relative"
+        >
+          <ic-button title="This is a tooltip with a long label" id="button-1">
+            Button
+          </ic-button>
+        </div>
+        <ic-switch label="Fixed tooltip positioning"></ic-switch>
+      </div>`,
+
+  name: "Tooltip positioning strategy",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {
