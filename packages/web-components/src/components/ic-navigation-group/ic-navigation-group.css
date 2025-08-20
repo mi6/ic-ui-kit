@@ -164,6 +164,7 @@
 
 :host(.ic-navigation-group-side-nav) .navigation-group {
   min-height: var(--navigation-group-height);
+  height: fit-content;
   min-width: 100%;
   width: var(--navigation-group-width, auto);
   justify-content: var(--navigation-group-justify-content);

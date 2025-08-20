@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.8.0...@ukic/react@3.9.0) (2025-08-20)
+
+### Bug Fixes
+
+- **react:** update data list/row to use colour as well as --ic-typography-color ([98adcc5](https://github.com/mi6/ic-ui-kit/commit/98adcc5f3ee71df84985c9e807e087b25e9fc915))
+
+### Features
+
+- **react:** add --data-row-label-width css prop to data list ([2e5e7fa](https://github.com/mi6/ic-ui-kit/commit/2e5e7faa84e3bc0403fc85e976b00eacd2445322))
+- **react:** adds props to control positioning strategy of tooltips and popovers ([38bcbb1](https://github.com/mi6/ic-ui-kit/commit/38bcbb156e3c9d46d2d3f24f48a173bfb15d8c6f))
+- **react:** implement IcLayoutGrid and IcLayoutGridItem components ([af8a516](https://github.com/mi6/ic-ui-kit/commit/af8a5160b128ac661d2a6ea150183c421e8a2013))
+- **react:** update IcAlert, IcBadge & IcToast tests and stories with new AI status variant ([b49ea84](https://github.com/mi6/ic-ui-kit/commit/b49ea84097115d92ab57aa6923c32e5cd9291172)), closes [#2581](https://github.com/mi6/ic-ui-kit/issues/2581)
+
 # [3.8.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.7.0...@ukic/react@3.8.0) (2025-08-06)
 
 ### Bug Fixes

@@ -1,11 +1,16 @@
 @import "../../global/normalize.css";
 
+/**
+ * @prop --data-row-label-width: Width of the label column in the data list.
+ */
+
 :host {
   display: block;
 }
 
 .heading {
   --ic-typography-color: var(--ic-data-list-text-heading);
+  color: var(--ic-data-list-text-heading);
 }
 
 .rows {

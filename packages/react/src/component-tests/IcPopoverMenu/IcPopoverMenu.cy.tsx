@@ -19,6 +19,7 @@ import {
   PopoverMenuWithVariants,
   PopoverTheme,
   PopoverWithMenuGroups,
+  PositioningStrategy,
 } from "./IcPopoverMenuData";
 import { IcTheme } from "../../components";
 import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
@@ -360,6 +361,30 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.get(MENU_ITEM_SELECTOR).eq(3).click();
 
     cy.get("@icToggleChecked").should(HAVE_BEEN_CALLED_ONCE);
+  });
+
+  it("should show popover is cropped", () => {
+    mount(<PositioningStrategy fixed={false} />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "/position-absolute",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should test popover is not cropped when `fixedPositioning` set to `true`", () => {
+    mount(<PositioningStrategy fixed={true} />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "/position-fixed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
   });
 });
 

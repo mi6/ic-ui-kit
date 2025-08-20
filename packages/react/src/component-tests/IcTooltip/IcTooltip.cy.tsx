@@ -17,6 +17,7 @@ import {
   External,
   LargeLabel,
   ChangingLabel,
+  PositioningStrategy,
 } from "./IcTooltipTestData";
 import {
   BE_VISIBLE,
@@ -551,6 +552,32 @@ describe("IcTooltip visual regression and a11y tests", () => {
       name: "/changing-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
       delay: 200,
+    });
+  });
+
+  it("should show tooltip is cropped", () => {
+    mount(PositioningStrategy(false));
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+    cy.get("#button-1").realHover("mouse");
+
+    cy.checkA11yWithWait(undefined, 300);
+    cy.compareSnapshot({
+      name: "/position-absolute",
+      testThreshold: setThresholdBasedOnEnv(0.095),
+    });
+  });
+
+  it("should test tooltip is not cropped when `fixedPositioning` set to `true`", () => {
+    mount(PositioningStrategy(true));
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.get("#button-1").realHover("mouse");
+    cy.checkA11yWithWait(undefined, 300);
+    cy.compareSnapshot({
+      name: "/position-fixed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 });

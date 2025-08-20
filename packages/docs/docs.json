@@ -1407,10 +1407,10 @@
         },
         {
           "name": "variant",
-          "type": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
+          "type": "\"ai\" | \"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
           "complexType": {
             "original": "IcStatusVariants",
-            "resolved": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
+            "resolved": "\"ai\" | \"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
             "references": {
               "IcStatusVariants": {
                 "location": "import",
@@ -1426,6 +1426,10 @@
           "docsTags": [],
           "default": "\"neutral\"",
           "values": [
+            {
+              "value": "ai",
+              "type": "string"
+            },
             {
               "value": "error",
               "type": "string"
@@ -2025,10 +2029,10 @@
         },
         {
           "name": "variant",
-          "type": "\"custom\" | \"error\" | \"info\" | \"light\" | \"neutral\" | \"success\" | \"warning\" | undefined",
+          "type": "\"ai\" | \"custom\" | \"error\" | \"info\" | \"light\" | \"neutral\" | \"success\" | \"warning\" | undefined",
           "complexType": {
             "original": "IcBadgeVariants",
-            "resolved": "\"custom\" | \"error\" | \"info\" | \"light\" | \"neutral\" | \"success\" | \"warning\" | undefined",
+            "resolved": "\"ai\" | \"custom\" | \"error\" | \"info\" | \"light\" | \"neutral\" | \"success\" | \"warning\" | undefined",
             "references": {
               "IcBadgeVariants": {
                 "location": "import",
@@ -2044,6 +2048,10 @@
           "docsTags": [],
           "default": "\"neutral\"",
           "values": [
+            {
+              "value": "ai",
+              "type": "string"
+            },
             {
               "value": "custom",
               "type": "string"
@@ -3165,6 +3173,30 @@
             {
               "value": "light",
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "tooltipFixedPositioning",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "tooltip-fixed-positioning",
+          "reflectToAttr": false,
+          "docs": "Setting to `true` can help in situations where tooltip content is clipped by a parent element.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -5598,7 +5630,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--data-row-label-width",
+          "annotation": "prop",
+          "docs": "Width of the label column in the data list."
+        }
+      ],
       "slots": [
         {
           "name": "heading",
@@ -8875,6 +8913,494 @@
           "ic-input-validation"
         ]
       }
+    },
+    {
+      "filePath": "src/components/ic-layout-grid/ic-layout-grid.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-layout-grid",
+      "readme": "# ic-layout-grid\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "aligned",
+          "type": "\"center\" | \"full-width\" | \"left\" | undefined",
+          "complexType": {
+            "original": "IcAlignment",
+            "resolved": "\"center\" | \"full-width\" | \"left\" | undefined",
+            "references": {
+              "IcAlignment": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAlignment"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "aligned",
+          "reflectToAttr": false,
+          "docs": "The alignment of the grid.",
+          "docsTags": [],
+          "default": "\"left\"",
+          "values": [
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "full-width",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "columns",
+          "type": "number | undefined | { xs?: number | undefined; sm?: number | undefined; md?: number | undefined; lg?: number | undefined; xl?: number | undefined; }",
+          "complexType": {
+            "original": "IcGridBreakpoints",
+            "resolved": "number | undefined | { xs?: number | undefined; sm?: number | undefined; md?: number | undefined; lg?: number | undefined; xl?: number | undefined; }",
+            "references": {
+              "IcGridBreakpoints": {
+                "location": "import",
+                "path": "./ic-layout-grid.types",
+                "id": "src/components/ic-layout-grid/ic-layout-grid.types.ts::IcGridBreakpoints"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "columns",
+          "reflectToAttr": false,
+          "docs": "The number of columns in the grid.\nThis can be a number or an object specifying different values for each breakpoint.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ xs?: number"
+            },
+            {
+              "type": "undefined; sm?: number"
+            },
+            {
+              "type": "undefined; md?: number"
+            },
+            {
+              "type": "undefined; lg?: number"
+            },
+            {
+              "type": "undefined; xl?: number"
+            },
+            {
+              "type": "undefined; }"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "defaultColSpan",
+          "type": "number | undefined | { xs?: number | undefined; sm?: number | undefined; md?: number | undefined; lg?: number | undefined; xl?: number | undefined; }",
+          "complexType": {
+            "original": "IcGridBreakpoints",
+            "resolved": "number | undefined | { xs?: number | undefined; sm?: number | undefined; md?: number | undefined; lg?: number | undefined; xl?: number | undefined; }",
+            "references": {
+              "IcGridBreakpoints": {
+                "location": "import",
+                "path": "./ic-layout-grid.types",
+                "id": "src/components/ic-layout-grid/ic-layout-grid.types.ts::IcGridBreakpoints"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "default-col-span",
+          "reflectToAttr": false,
+          "docs": "The default column span for grid items.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ xs?: number"
+            },
+            {
+              "type": "undefined; sm?: number"
+            },
+            {
+              "type": "undefined; md?: number"
+            },
+            {
+              "type": "undefined; lg?: number"
+            },
+            {
+              "type": "undefined; xl?: number"
+            },
+            {
+              "type": "undefined; }"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "defaultColWidth",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "default-col-width",
+          "reflectToAttr": false,
+          "docs": "The default column width for grid items.\nThis is used when the grid type is set to \"fixed\".",
+          "docsTags": [],
+          "default": "\"64px\"",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "defaultRowSpan",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "default-row-span",
+          "reflectToAttr": false,
+          "docs": "The default row span for grid items.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fullHeight",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "full-height",
+          "reflectToAttr": false,
+          "docs": "If `true`, the standard vertical padding from the grid will be removed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "gridSpacing",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "grid-spacing",
+          "reflectToAttr": false,
+          "docs": "The space between grid items, in multiples of the base spacing unit (`var(--ic-space-xs)`).",
+          "docsTags": [],
+          "default": "2",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "rows",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rows",
+          "reflectToAttr": false,
+          "docs": "The number of rows in the grid.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "\"fixed\" | \"fluid\"",
+          "complexType": {
+            "original": "IcGridType",
+            "resolved": "\"fixed\" | \"fluid\"",
+            "references": {
+              "IcGridType": {
+                "location": "import",
+                "path": "./ic-layout-grid.types",
+                "id": "src/components/ic-layout-grid/ic-layout-grid.types.ts::IcGridType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The layout type of the grid.",
+          "docsTags": [],
+          "default": "\"fixed\"",
+          "values": [
+            {
+              "value": "fixed",
+              "type": "string"
+            },
+            {
+              "value": "fluid",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/ic-layout-grid-item/ic-layout-grid-item.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-layout-grid-item",
+      "readme": "# ic-layout-grid-item\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "colSpan",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "col-span",
+          "reflectToAttr": false,
+          "docs": "The number of columns the grid item should span.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "colStart",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "col-start",
+          "reflectToAttr": false,
+          "docs": "The column the grid item should start at.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "hideInMobileMode",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-in-mobile-mode",
+          "reflectToAttr": false,
+          "docs": "If `true`, the grid item will be hidden on smaller screens.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "rowSpan",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "row-span",
+          "reflectToAttr": false,
+          "docs": "The number of rows the grid item should span.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "rowStart",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "row-start",
+          "reflectToAttr": false,
+          "docs": "The row the grid item should start at.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "src/components/ic-link/ic-link.tsx",
@@ -12804,6 +13330,30 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fixedPositioning",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fixed-positioning",
+          "reflectToAttr": false,
+          "docs": "Setting to `true` can help in situations where tooltip content is clipped by a parent element.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -20020,10 +20570,10 @@
         },
         {
           "name": "variant",
-          "type": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\" | undefined",
+          "type": "\"ai\" | \"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\" | undefined",
           "complexType": {
             "original": "IcStatusVariants",
-            "resolved": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\" | undefined",
+            "resolved": "\"ai\" | \"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\" | undefined",
             "references": {
               "IcStatusVariants": {
                 "location": "import",
@@ -20038,6 +20588,10 @@
           "docs": "The variant of the toast being rendered",
           "docsTags": [],
           "values": [
+            {
+              "value": "ai",
+              "type": "string"
+            },
             {
               "value": "error",
               "type": "string"
@@ -21179,6 +21733,30 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fixedPositioning",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fixed-positioning",
+          "reflectToAttr": false,
+          "docs": "Setting to `true` can help in situations where tooltip content is clipped by a parent element.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -22392,7 +22970,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcStatusVariants": {
-      "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\";",
+      "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\"\n  | \"ai\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -22600,6 +23178,16 @@
       "declaration": "export type IcAriaLiveModeVariants = \"polite\" | \"assertive\";",
       "docstring": "",
       "path": "src/components/ic-input-validation/ic-input-validation.types.tsx"
+    },
+    "src/components/ic-layout-grid/ic-layout-grid.types.ts::IcGridBreakpoints": {
+      "declaration": "export type IcGridBreakpoints =\n  | number\n  | {\n      xs?: number;\n      sm?: number;\n      md?: number;\n      lg?: number;\n      xl?: number;\n    };",
+      "docstring": "",
+      "path": "src/components/ic-layout-grid/ic-layout-grid.types.ts"
+    },
+    "src/components/ic-layout-grid/ic-layout-grid.types.ts::IcGridType": {
+      "declaration": "export type IcGridType = \"fluid\" | \"fixed\";",
+      "docstring": "",
+      "path": "src/components/ic-layout-grid/ic-layout-grid.types.ts"
     },
     "src/components/ic-loading-indicator/ic-loading-indicator.types.tsx::IcLoadingSizes": {
       "declaration": "export type IcLoadingSizes = \"medium\" | \"small\" | \"large\" | \"icon\";",

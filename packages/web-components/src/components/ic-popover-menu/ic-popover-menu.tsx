@@ -48,6 +48,11 @@ export class PopoverMenu {
   @Prop() anchor?: string;
 
   /**
+   * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+   */
+  @Prop() fixedPositioning: boolean = false;
+
+  /**
    * @internal The parent popover menu of a child popover menu.
    */
   @Prop() parentLabel?: string;
@@ -367,6 +372,7 @@ export class PopoverMenu {
   private initPopperJS = () => {
     if (this.anchorEl) {
       this.popperInstance = createPopper(this.anchorEl, this.el, {
+        strategy: this.fixedPositioning ? "fixed" : "absolute",
         placement: "bottom-start",
         modifiers: [
           {

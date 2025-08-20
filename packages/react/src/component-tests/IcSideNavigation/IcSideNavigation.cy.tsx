@@ -25,6 +25,7 @@ import {
   SlottedNavItemsDynamicExpandedSideNav,
   StaticSideNav,
   checkSideNavSize,
+  ReactRouterSideNav,
 } from "./IcSideNavigationTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -723,6 +724,18 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait(undefined, 300);
         cy.compareSnapshot({
           name: "/slotted-app-title-open-desktop",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+        });
+      });
+
+      it("should render with React Router", () => {
+        mount(<ReactRouterSideNav />);
+
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+        cy.checkA11yWithWait();
+        cy.compareSnapshot({
+          name: "/react-router-desktop",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
         });
       });

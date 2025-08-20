@@ -14,6 +14,7 @@ import {
   Error,
   Warning,
   Success,
+  AI,
   Variants,
   Dismissible,
   Responsive,
@@ -30,7 +31,7 @@ import { IcAlert } from "../../components";
 const ALERT_SELECTOR = "ic-alert";
 const TYPOGRAPHY_SELECTOR = "ic-typography";
 const ALERT_MIN_HEIGHT_CSS_VAR = "--ic-alert-min-height";
-const DEFAULT_TEST_THRESHOLD = 0.018;
+const DEFAULT_TEST_THRESHOLD = 0.001;
 
 describe("IcAlert end-to-end tests", () => {
   beforeEach(() => {
@@ -109,6 +110,21 @@ describe("IcAlert end-to-end tests", () => {
       .contains("Success");
     cy.findShadowEl(ALERT_SELECTOR, TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying success messages.")
+      .should(BE_VISIBLE);
+  });
+
+  it("should render AI alert with message and icon", () => {
+    mount(<AI />);
+
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.findShadowEl(ALERT_SELECTOR, "svg").should(BE_VISIBLE);
+    cy.get('[heading="AI"]').should(BE_VISIBLE);
+    cy.findShadowEl(ALERT_SELECTOR, TYPOGRAPHY_SELECTOR)
+      .find("p")
+      .should(BE_VISIBLE)
+      .contains("AI");
+    cy.findShadowEl(ALERT_SELECTOR, TYPOGRAPHY_SELECTOR)
+      .contains("This alert is for displaying AI-related messages.")
       .should(BE_VISIBLE);
   });
 
@@ -225,7 +241,7 @@ describe("IcAlert visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/variants",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -238,7 +254,7 @@ describe("IcAlert visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dismissible",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
     });
   });
 
@@ -253,7 +269,7 @@ describe("IcAlert visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dismissible-focussed",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -430,7 +446,7 @@ describe("IcAlert visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/dismissible-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
 

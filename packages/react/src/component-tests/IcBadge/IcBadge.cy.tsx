@@ -18,7 +18,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const IC_BADGE_SELECTOR = "ic-badge";
 const ARIA_LABEL = "aria-label";
-const DEFAULT_TEST_THRESHOLD = 0.037;
+const DEFAULT_TEST_THRESHOLD = 0.001;
 
 describe("IcBadge end-to-end tests", () => {
   it("should show and hide the badge", () => {
@@ -131,6 +131,18 @@ describe("IcBadge visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/info",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
+  it("should render AI variant", () => {
+    mount(BadgeTypes("ai"));
+
+    cy.checkHydrated(IC_BADGE_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/ai",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
@@ -286,6 +298,17 @@ describe("IcBadge visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/info-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+    });
+  });
+
+  it("should render AI variant in high contrast mode", () => {
+    mount(BadgeTypes("ai"));
+
+    cy.checkHydrated(IC_BADGE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "/ai-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });

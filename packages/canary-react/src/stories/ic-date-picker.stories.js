@@ -344,6 +344,20 @@ export const IcChangeEvent = {
   height: "540px",
 };
 
+/**
+ * Margin added so the calendar opens above the input
+ */
+export const CalendarOpensAboveInput = {
+  render: () => (
+    <div style={{marginTop: "400px"}}>
+      <IcDatePicker label="When would you like to collect your coffee?" openAtDate="2025-02-03" />
+      <IcDatePicker label="When would you like to collect your coffee?" openAtDate="2025-02-03" size="small" startOfWeek={0}/>
+      <IcDatePicker label="When would you like to collect your coffee?" openAtDate="2025-02-03" size="large" startOfWeek={4} />
+    </div>
+  ),
+  name: "Calendar opens above input",
+};
+
 const defaultArgs = {
   dateFormat: "DD/MM/YYYY",
   disabled: false,

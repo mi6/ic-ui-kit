@@ -16,6 +16,7 @@ import {
 
 import {
   getBrandFromContext,
+  handleHiddenFormButtonClick,
   inheritAttributes,
   isSlotUsed,
   removeDisabledFalse,
@@ -213,6 +214,11 @@ export class Button {
   @Prop({ mutable: true }) theme: IcThemeMode = "inherit";
 
   /**
+   * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+   */
+  @Prop() tooltipFixedPositioning: boolean = false;
+
+  /**
    * The position of the tooltip in relation to the button.
    */
   @Prop() tooltipPlacement: IcButtonTooltipPlacement = "bottom";
@@ -384,17 +390,13 @@ export class Button {
     if (
       (this.el.type === "submit" || this.el.type === "reset") &&
       !this.hasRouterSlot() &&
-      !!this.el.closest("FORM")
+      (this.form || !!this.el.closest("FORM"))
     ) {
-      const hiddenFormButton = document.createElement("button");
+      const form = this.form
+        ? document.querySelector<HTMLFormElement>(`form[id=${this.form}]`)
+        : this.el.closest<HTMLFormElement>("FORM");
 
-      hiddenFormButton.setAttribute("type", this.el.type);
-      hiddenFormButton.style.display = "none";
-
-      this.el.closest("FORM")?.appendChild(hiddenFormButton);
-
-      hiddenFormButton.click();
-      hiddenFormButton.remove();
+      handleHiddenFormButtonClick(form, this.el);
     }
   };
 
@@ -564,6 +566,7 @@ export class Button {
       target,
       theme,
       title,
+      tooltipFixedPositioning,
       tooltipPlacement,
       transparentBackground,
       type,
@@ -695,6 +698,7 @@ export class Button {
             label={title || ariaLabel}
             target={buttonId}
             placement={tooltipPlacement}
+            fixedPositioning={tooltipFixedPositioning}
             silent={isIconVariant() && !!ariaLabel}
           >
             <ButtonContent />

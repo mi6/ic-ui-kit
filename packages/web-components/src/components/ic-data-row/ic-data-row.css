@@ -16,14 +16,16 @@
   min-width: 0;
 
   --ic-typography-color: var(--ic-data-list-text-cell);
+  color: var(--ic-data-list-text-cell);
 }
 
 .label {
-  width: 12.5rem;
+  width: var(--data-row-label-width, 12.5rem);
   min-width: 12.5rem;
   margin-right: var(--ic-space-md);
 
   --ic-typography-color: var(--ic-data-list-text-label);
+  color: var(--ic-data-list-text-label);
 }
 
 .value {

@@ -2,14 +2,15 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { mdiAccountGroup } from "@mdi/js";
-import React, { useRef } from "react";
+import React, { useRef, useState} from "react";
 import { iconProps } from "../component-tests/IcButton/IcButtonTestData";
 import {
   IcButton,
   IcMenuItem,
   IcPopoverMenu,
   IcTypography,
-  IcBadge
+  IcBadge,
+  IcSwitch
 } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
@@ -280,9 +281,35 @@ export const Secondary = {
             </IcButton>
           </div>
         </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large"> Light theme - non-transparent </IcTypography>
+          <div>
+            <IcButton variant="secondary" theme="light" id="mybuttonid" transparentBackground={false}>
+              Solid
+            </IcButton>
+            <IcButton variant="secondary" theme="light" disabled transparentBackground={false}>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large">
+            Light theme - monochrome, non-transparent
+          </IcTypography>
+          <div>
+            <IcButton variant="secondary" monochrome theme="light" transparentBackground={false}> Mono-solid </IcButton>
+            <IcButton variant="secondary" disabled monochrome theme="light" transparentBackground={false}>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
       </div>
       <div
-        style={{display: "flex", flexDirection: "row", marginTop: "1rem", backgroundColor: "#474A48", borderRadius: "5px", width: "fit-content"}}
+        style={{display: "flex", flexDirection: "row", marginTop: "1rem", backgroundColor: "#232629", borderRadius: "5px", width: "fit-content"}}
       >
         <div
           style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
@@ -310,6 +337,36 @@ export const Secondary = {
               Monochrome
             </IcButton>
             <IcButton variant="secondary" disabled monochrome theme="dark">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme - non-transparent
+          </IcTypography>
+          <div>
+            <IcButton variant="secondary" theme="dark" id="mybuttonid" transparentBackground={false}>
+              Solid
+            </IcButton>
+            <IcButton variant="secondary" theme="dark" disabled transparentBackground={false}>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme - monochrome, non-transparent
+          </IcTypography>
+          <div>
+            <IcButton variant="secondary" monochrome theme="dark" transparentBackground={false}>
+              Mono-solid
+            </IcButton>
+            <IcButton variant="secondary" disabled monochrome theme="dark" transparentBackground={false}>
               Disabled
             </IcButton>
           </div>
@@ -353,9 +410,35 @@ export const Tertiary = {
             </IcButton>
           </div>
         </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large"> Light theme - non-transparent </IcTypography>
+          <div>
+            <IcButton variant="tertiary" theme="light" id="mybuttonid" transparentBackground={false}>
+              Solid
+            </IcButton>
+            <IcButton variant="tertiary" theme="light" disabled transparentBackground={false}>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large">
+            Light theme - monochrome, non-transparent
+          </IcTypography>
+          <div>
+            <IcButton variant="tertiary" monochrome theme="light" transparentBackground={false}> Mono-solid </IcButton>
+            <IcButton variant="tertiary" disabled monochrome theme="light" transparentBackground={false}>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
       </div>
       <div
-        style={{display: "flex", flexDirection: "row", marginTop: "1rem", backgroundColor: "#474A48", borderRadius: "5px", width: "fit-content"}}
+        style={{display: "flex", flexDirection: "row", marginTop: "1rem", backgroundColor: "#232629", borderRadius: "5px", width: "fit-content"}}
       >
         <div
           style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
@@ -383,6 +466,36 @@ export const Tertiary = {
               Monochrome
             </IcButton>
             <IcButton variant="tertiary" disabled monochrome theme="dark">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme - non-transparent
+          </IcTypography>
+          <div>
+            <IcButton variant="tertiary" theme="dark" id="mybuttonid" transparentBackground={false}>
+              Solid
+            </IcButton>
+            <IcButton variant="tertiary" theme="dark" disabled transparentBackground={false}>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme - monochrome, non-transparent
+          </IcTypography>
+          <div>
+            <IcButton variant="tertiary" monochrome theme="dark" transparentBackground={false}>
+              Mono-solid
+            </IcButton>
+            <IcButton variant="tertiary" disabled monochrome theme="dark" transparentBackground={false}>
               Disabled
             </IcButton>
           </div>
@@ -1321,6 +1434,44 @@ export const IconVariants = {
   ],
 
   name: "Icon variants",
+};
+
+export const PositioningStrategy = {
+  render: () => {
+    const [fixed, setFixed] = useState(false);
+
+    return (
+      <div style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--ic-space-xs)"
+        }}
+      >
+        <IcTypography>Choose the tooltip position strategy and hover over the button to see it take effect</IcTypography>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--ic-space-xs)",
+            padding: "var(--ic-space-md)",
+            border: "1px solid var(--ic-color-text-primary)",
+            overflow: "hidden",
+            width: "100px",
+            position: "relative",
+          }}
+        >          
+          <IcButton title="This is a tooltip with a long label" id="button-1" tooltipFixedPositioning={fixed}>
+            Button
+          </IcButton>
+        </div>
+        <IcSwitch label="Fixed tooltip positioning"
+          onIcChange={(ev)=> setFixed(ev.detail.checked)}
+        >
+        </IcSwitch>
+      </div>
+    )   
+  },
+  name: "Tooltip positioning strategy",
 };
 
 export const Playground = {

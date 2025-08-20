@@ -77,6 +77,10 @@
   background-color: var(--ic-toast-status-success);
 }
 
+.divider-ai {
+  background-color: var(--ic-toast-status-ai);
+}
+
 .toast-icon,
 ::slotted(svg) {
   height: var(--ic-space-lg);
@@ -103,6 +107,10 @@
 
 :host([variant="success"]) .toast-icon svg {
   fill: var(--ic-toast-icon-success);
+}
+
+:host([variant="ai"]) .toast-icon svg {
+  fill: var(--ic-toast-icon-ai);
 }
 
 .toast-content {

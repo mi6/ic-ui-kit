@@ -413,6 +413,56 @@ export const EditableExample = {
   name: "Editable example",
 };
 
+export const LabelWidth = {
+  render: () =>
+    html`<ic-data-list heading="Personal details">
+        <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
+        <ic-data-row
+          label="Date of birth with extra words to make long heading"
+          value="16 October 1995"
+        ></ic-data-row>
+        <ic-data-row
+          label="Telephone with additional words"
+          value="07449 7654873"
+        ></ic-data-row>
+        <ic-data-row label="Email" value="mjohnson@coffee.gov"></ic-data-row>
+        <ic-data-row label="Address">
+          <ic-typography variant="body" slot="value">
+            383 Coffee Drive
+            <br />
+            London
+            <br />
+            SW7 988
+            <br />
+            United Kingdom
+          </ic-typography>
+        </ic-data-row>
+      </ic-data-list>
+      <script>
+        const dataList = document.querySelector("ic-data-list");
+        dataList.style.setProperty("--data-row-label-width", "30rem");
+      </script>`,
+
+  name: "With label width",
+};
+
+export const SlottedHeadingLabelValueNonTypography = {
+  render: () =>
+    html`<ic-data-list>
+      <pre slot="heading">Personal details</pre>
+      <ic-data-row>
+        <pre slot="label">Name</pre>
+        <pre slot="value">Michael Johnson</pre>
+      </ic-data-row>
+      <ic-data-row>
+        <pre slot="label">Date of birth</pre>
+        <pre slot="value">16 October 1995</pre>
+      </ic-data-row>
+    </ic-data-list>`,
+
+  name: "Slotted heading, label and value - non ic-typography",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {

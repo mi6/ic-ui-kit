@@ -28,6 +28,8 @@ export const excludeComps = [
   "ic-input-container",
   "ic-input-label",
   "ic-input-validation",
+  "ic-layout-grid",
+  "ic-layout-grid-item",
   "ic-link",
   "ic-loading-indicator",
   "ic-menu",

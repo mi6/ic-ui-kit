@@ -6,8 +6,10 @@ import {
   IcNavigationItem,
   IcSideNavigation,
   IcBadge,
+  IcSectionContainer,
 } from "../../components";
 import { SlottedSVG } from "../..";
+import { MemoryRouter, NavLink, Route, Routes } from "react-router-dom";
 
 declare global {
   namespace Cypress {
@@ -412,3 +414,142 @@ export const CloseOnNavItemClickSideNav = (): ReactElement => (
     </IcNavigationItem>
   </IcSideNavigation>
 );
+
+export const ReactRouterSideNav = () => {
+  return (
+    <MemoryRouter initialEntries={["/"]}>
+      <div style={{ display: "flex" }}>
+        <IcSideNavigation
+          version="v0.0.7"
+          status="Alpha"
+          appTitle="ACME coffee shop"
+          collapsedIconLabels
+        >
+          <NavLink to="/" slot="app-title">
+            ACME coffee shop
+          </NavLink>
+          <SlottedSVG
+            slot="app-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+              fill="currentColor"
+            />
+          </SlottedSVG>
+          <IcNavigationGroup
+            slot="primary-navigation"
+            label="Test with lots of text so this label goes over multiple lines"
+            expandable
+          >
+            <IcNavigationItem>
+              <NavLink to="/" slot="navigation-item">
+                <SlottedSVG
+                  slot="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                    fill="currentColor"
+                  />
+                </SlottedSVG>
+                Home is where the heart is
+              </NavLink>
+            </IcNavigationItem>
+            <IcNavigationItem>
+              <NavLink to="/search" slot="navigation-item">
+                <SlottedSVG
+                  slot="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                    fill="currentColor"
+                  />
+                </SlottedSVG>
+                Search
+              </NavLink>
+            </IcNavigationItem>
+            <IcNavigationItem>
+              <NavLink to="/drinks" slot="navigation-item">
+                <SlottedSVG
+                  slot="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                    fill="currentColor"
+                  />
+                </SlottedSVG>
+                Drinks
+              </NavLink>
+            </IcNavigationItem>
+            <IcNavigationItem>
+              <NavLink to="/coffee-maker" slot="navigation-item">
+                <SlottedSVG
+                  slot="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                    fill="currentColor"
+                  />
+                </SlottedSVG>
+                Equipment
+              </NavLink>
+            </IcNavigationItem>
+          </IcNavigationGroup>
+          <IcNavigationItem>
+            <NavLink to="/drinks" slot="navigation-item">
+              <SlottedSVG
+                slot="icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                  fill="currentColor"
+                />
+              </SlottedSVG>
+              Drinks
+            </NavLink>
+          </IcNavigationItem>
+        </IcSideNavigation>
+        <main>
+          <IcSectionContainer>
+            <Routes>
+              <Route path="/" element={<p>This is the Home page</p>} />
+              <Route path="/search" element={<p>Search</p>} />
+              <Route path="/drinks" element={<p>Drinks</p>} />
+              <Route path="/coffee-maker" element={<p>Coffee Maker</p>} />
+              <Route path="/settings" element={<p>Settings</p>} />
+            </Routes>
+          </IcSectionContainer>
+        </main>
+      </div>
+    </MemoryRouter>
+  );
+};

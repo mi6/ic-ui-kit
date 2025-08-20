@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.8.0...@ukic/web-components@3.9.0) (2025-08-20)
+
+### Bug Fixes
+
+- **web-components:** add height css to navigation groups in side nav ([084317d](https://github.com/mi6/ic-ui-kit/commit/084317d89dcea78a5f2da3bf26c3787ec2c3de39)), closes [#3765](https://github.com/mi6/ic-ui-kit/issues/3765)
+- **web-components:** fix alignment of ic-checkbox labels that have wrapped onto next line ([bc3d053](https://github.com/mi6/ic-ui-kit/commit/bc3d053046bb9364ae15b2e2e4ce28daf2383eec))
+- **web-components:** fix ic-button form prop and pass form submission props to hidden form buttons ([7a7bbbc](https://github.com/mi6/ic-ui-kit/commit/7a7bbbc8aa1ba0031f5cc24f7f996fec0fac82fc))
+- **web-components:** update data list/row to use colour as well as --ic-typography-color ([ee519b5](https://github.com/mi6/ic-ui-kit/commit/ee519b5122d7012cc63b94107cb682cf27e6aacf)), closes [#3851](https://github.com/mi6/ic-ui-kit/issues/3851)
+- **web-components:** update the padding on chips and action chips ([06661c8](https://github.com/mi6/ic-ui-kit/commit/06661c82dd4465c56a60496bd6b12eba682152bf)), closes [#3844](https://github.com/mi6/ic-ui-kit/issues/3844)
+- **web-components:** use darker background for secondary and tertiary buttons ([635bab3](https://github.com/mi6/ic-ui-kit/commit/635bab3431fd6b514f4aa17d03331e22f08a41c2))
+
+### Features
+
+- **web-components:** add --data-row-label-width css prop to data list ([89fc1a7](https://github.com/mi6/ic-ui-kit/commit/89fc1a7d049670f48bda388897d958b8915d8321)), closes [#3732](https://github.com/mi6/ic-ui-kit/issues/3732)
+- **web-components:** add AI status variant to ic-alert, ic-badge and ic-toast ([6ec9425](https://github.com/mi6/ic-ui-kit/commit/6ec942504b3704a126b60c2aee82163d3733dddb)), closes [#2581](https://github.com/mi6/ic-ui-kit/issues/2581)
+- **web-components:** adds props to control positioning strategy of tooltips and popovers ([a03cb87](https://github.com/mi6/ic-ui-kit/commit/a03cb87aae1128a6c698d606db372119a9dd8722))
+- **web-components:** implement ic-layout-grid and ic-layout-grid-item components ([1cb16b5](https://github.com/mi6/ic-ui-kit/commit/1cb16b5a3dac1ef6e81c177ff54f49652f5e37fa)), closes [#3673](https://github.com/mi6/ic-ui-kit/issues/3673)
+
 # [3.8.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.7.0...@ukic/web-components@3.8.0) (2025-08-06)
 
 ### Bug Fixes
