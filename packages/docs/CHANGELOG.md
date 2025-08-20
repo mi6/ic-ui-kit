@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.3.0...@ukic/docs@3.4.0) (2025-08-20)
+
+### Features
+
+- **docs:** add layout grid and layout grid item docs to docs.json ([6308ea3](https://github.com/mi6/ic-ui-kit/commit/6308ea3bb9bc1ac5abe6b61421f3019ce030f476))
+
 # [3.3.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.2.5...@ukic/docs@3.3.0) (2025-08-06)
 
 ### Features

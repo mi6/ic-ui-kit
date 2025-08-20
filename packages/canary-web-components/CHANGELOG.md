@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.24](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.23...@ukic/canary-web-components@3.0.0-canary.24) (2025-08-20)
+
+### Bug Fixes
+
+- **canary-web-components:** show 6 weeks for all months in ic-date-picker calendar ([a07434a](https://github.com/mi6/ic-ui-kit/commit/a07434a7bd47df3c33249c6d65810c246eda33ab))
+
 # [3.0.0-canary.23](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.22...@ukic/canary-web-components@3.0.0-canary.23) (2025-08-06)
 
 ### Bug Fixes
