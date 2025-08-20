@@ -766,6 +766,7 @@ export class TextField {
                 aria-label={label}
                 aria-describedby={describedBy}
                 aria-invalid={invalid}
+                autocomplete={autocomplete}
                 autocapitalize={autocapitalize}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
