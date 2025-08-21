@@ -222,8 +222,10 @@ export class Tooltip {
   };
 
   private hide = () => {
-    this.toolTip.removeAttribute("data-show");
-    this.persistTooltip = false;
+    if (this.toolTip !== undefined) {
+      this.toolTip.removeAttribute("data-show");
+      this.persistTooltip = false;
+    }
     if (this.popperInstance !== undefined) {
       this.popperInstance.destroy();
     }
