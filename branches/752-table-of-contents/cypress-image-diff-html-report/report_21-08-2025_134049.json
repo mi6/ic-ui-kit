@@ -1,6 +1,6 @@
 {
-  "total": 244,
-  "totalPassed": 244,
+  "total": 247,
+  "totalPassed": 247,
   "totalFailed": 0,
   "totalSuites": 9,
   "suites": [
@@ -2257,6 +2257,28 @@
       "tests": [
         {
           "status": "pass",
+          "name": "IcTableOfContents.cy.tsx/default",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTableOfContents/IcTableOfContents.cy.tsx",
+          "specFilename": "IcTableOfContents.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTableOfContents.cy.tsx/default.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTableOfContents.cy.tsx/default.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTableOfContents.cy.tsx/nested",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTableOfContents/IcTableOfContents.cy.tsx",
+          "specFilename": "IcTableOfContents.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTableOfContents.cy.tsx/nested.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTableOfContents.cy.tsx/nested.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTableOfContents.cy.tsx/monochrome",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2265,6 +2287,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTableOfContents.cy.tsx/monochrome.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTableOfContents.cy.tsx/monochrome.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTableOfContents.cy.tsx/dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTableOfContents/IcTableOfContents.cy.tsx",
+          "specFilename": "IcTableOfContents.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTableOfContents.cy.tsx/dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTableOfContents.cy.tsx/dark-theme.png"
         },
         {
           "status": "pass",
@@ -2743,9 +2776,9 @@
       ]
     }
   ],
-  "startedAt": "2025-08-14T14:24:50.559Z",
-  "endedAt": "2025-08-14T14:32:13.949Z",
-  "duration": 421386,
+  "startedAt": "2025-08-21T13:40:49.507Z",
+  "endedAt": "2025-08-21T13:48:23.061Z",
+  "duration": 431083,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
