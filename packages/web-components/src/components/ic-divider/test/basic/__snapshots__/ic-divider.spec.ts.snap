@@ -3,14 +3,14 @@
 exports[`ic-divider correctly sets foregroundColor on brand change: brand-change-dark 1`] = `
 <ic-divider class="ic-divider-horizontal ic-divider-solid ic-divider-thin ic-side-navigation-keyline ic-theme-light" slot="primary-navigation">
   <!---->
-  <hr>
+  <li role="separator"></li>
 </ic-divider>
 `;
 
 exports[`ic-divider correctly sets foregroundColor on brand change: brand-change-light 1`] = `
 <ic-divider class="ic-divider-horizontal ic-divider-solid ic-divider-thin ic-side-navigation-keyline ic-theme-dark" slot="primary-navigation">
   <!---->
-  <hr>
+  <li role="separator"></li>
 </ic-divider>
 `;
 
