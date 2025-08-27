@@ -21,276 +21,42 @@ const defaultArgs = {
   heading: "Heading",
   message: `Lorem ipsum odor amet, consectetuer adipiscing elit. Netus condimentum posuere velit egestas senectus viverra. Nascetur diam curabitur semper sodales sapien sit mi. Ultrices potenti eget netus et cras quis; convallis phasellus. Posuere magnis sapien ipsum risus maecenas molestie dictum. Penatibus quis platea vel ipsum habitasse inceptos. Litora leo efficitur duis sociosqu litora ex. Tellus interdum neque sapien finibus felis iaculis euismod. Hendrerit dignissim diam adipiscing nam rutrum nascetur amet.
 
-Placerat blandit nullam netus mattis vulputate torquent. Adipiscing augue sociosqu nibh parturient conubia cras ridiculus. Quis mi posuere laoreet montes sapien turpis fermentum lobortis. Adipiscing cubilia varius dictum suscipit lobortis. Metus tincidunt quis orci suspendisse scelerisque magna turpis. Pellentesque finibus dis pretium; nisl tincidunt ante et. Nibh curae turpis; duis torquent ornare ante morbi magna gravida? Ut est primis purus tincidunt cubilia interdum; natoque adipiscing. Semper adipiscing cubilia donec velit donec phasellus phasellus vivamus.
-
-Vehicula ligula felis libero dui eu pharetra erat aptent sociosqu. Fermentum taciti sed ultrices nisl leo. Mus praesent luctus auctor tristique orci neque rutrum massa volutpat. Ullamcorper fames dignissim aliquet proin sapien feugiat? Vitae facilisis lacinia lacus ut phasellus class netus. Per blandit rhoncus fermentum turpis bibendum class nullam id. Ultricies imperdiet sem est pretium ante fermentum conubia maximus. Per inceptos pretium aliquet mus laoreet blandit ultrices nisl. Odio suspendisse hendrerit luctus lorem dictum lacus phasellus mattis. Lobortis eleifend blandit augue fusce ullamcorper ultricies himenaeos.
-
-Vivamus varius vivamus montes morbi enim montes natoque litora. Habitasse porta tincidunt senectus nibh sollicitudin pretium rhoncus quis. Ipsum taciti bibendum natoque tristique vulputate litora. Arcu lectus dignissim risus sed litora; nulla sem iaculis. Vel habitant blandit quis ultricies varius sem nibh ut maximus. Gravida libero donec rutrum neque erat aliquam lacus condimentum laoreet. Porta mi amet penatibus at tempus himenaeos. Tristique himenaeos pulvinar lacus accumsan iaculis facilisis. Hac orci fames quis maximus quis dignissim hendrerit id.
-
-Cubilia ipsum scelerisque lacus; mauris efficitur porta ridiculus suscipit? Pharetra nascetur ultrices maximus cursus imperdiet eleifend. Elit sodales tincidunt nisi ligula ac. Tellus lacus convallis viverra ornare nec eleifend maximus inceptos. Non nullam porttitor non sed nulla dolor. Ex ridiculus mattis lacus lobortis fusce? Curae facilisis interdum curae vehicula facilisi ligula. Efficitur sollicitudin tempus viverra porta habitant. Ac ad lorem lobortis erat est sed. Efficitur pellentesque mi ex magna vehicula at.`,
+  Placerat blandit nullam netus mattis vulputate torquent. Adipiscing augue sociosqu nibh parturient conubia cras ridiculus. Quis mi posuere laoreet montes sapien turpis fermentum lobortis. Adipiscing cubilia varius dictum suscipit lobortis. Metus tincidunt quis orci suspendisse scelerisque magna turpis. Pellentesque finibus dis pretium; nisl tincidunt ante et. Nibh curae turpis; duis torquent ornare ante morbi magna gravida? Ut est primis purus tincidunt cubilia interdum; natoque adipiscing. Semper adipiscing cubilia donec velit donec phasellus phasellus vivamus.`,
   position: "right",
   showCloseButton: true,
   size: "medium",
   trigger: "arrow",
 };
 
-/** Use the drawer component...
- *
- * Click the 'Component API' tab to view all the available attributes, events and slots for drawer.
- *
- * To use the drawer component, import `@ukic/canary-web-components` into your application.
- */
+// UPDATE REACT STORIES TO MATCH
 
 export const RightPosition = {
-  render: () => html` <ic-drawer
-    heading="Menu"
-    message="Lorem ipsum odor amet, consectetuer adipiscing elit. Netus condimentum posuere velit egestas senectus viverra. Nascetur diam curabitur semper sodales sapien sit mi. Ultrices potenti eget netus et cras quis; convallis phasellus. Posuere magnis sapien ipsum risus maecenas molestie dictum. Penatibus quis platea vel ipsum habitasse inceptos. Litora leo efficitur duis sociosqu litora ex. Tellus interdum neque sapien finibus felis iaculis euismod. Hendrerit dignissim diam adipiscing nam rutrum nascetur amet.
-
-Placerat blandit nullam netus mattis vulputate torquent. Adipiscing augue sociosqu nibh parturient conubia cras ridiculus. Quis mi posuere laoreet montes sapien turpis fermentum lobortis. Adipiscing cubilia varius dictum suscipit lobortis. Metus tincidunt quis orci suspendisse scelerisque magna turpis. Pellentesque finibus dis pretium; nisl tincidunt ante et. Nibh curae turpis; duis torquent ornare ante morbi magna gravida? Ut est primis purus tincidunt cubilia interdum; natoque adipiscing. Semper adipiscing cubilia donec velit donec phasellus phasellus vivamus.
-
-Vehicula ligula felis libero dui eu pharetra erat aptent sociosqu. Fermentum taciti sed ultrices nisl leo. Mus praesent luctus auctor tristique orci neque rutrum massa volutpat. Ullamcorper fames dignissim aliquet proin sapien feugiat? Vitae facilisis lacinia lacus ut phasellus class netus. Per blandit rhoncus fermentum turpis bibendum class nullam id. Ultricies imperdiet sem est pretium ante fermentum conubia maximus. Per inceptos pretium aliquet mus laoreet blandit ultrices nisl. Odio suspendisse hendrerit luctus lorem dictum lacus phasellus mattis. Lobortis eleifend blandit augue fusce ullamcorper ultricies himenaeos.
-
-Vivamus varius vivamus montes morbi enim montes natoque litora. Habitasse porta tincidunt senectus nibh sollicitudin pretium rhoncus quis. Ipsum taciti bibendum natoque tristique vulputate litora. Arcu lectus dignissim risus sed litora; nulla sem iaculis. Vel habitant blandit quis ultricies varius sem nibh ut maximus. Gravida libero donec rutrum neque erat aliquam lacus condimentum laoreet. Porta mi amet penatibus at tempus himenaeos. Tristique himenaeos pulvinar lacus accumsan iaculis facilisis. Hac orci fames quis maximus quis dignissim hendrerit id.
-
-Cubilia ipsum scelerisque lacus; mauris efficitur porta ridiculus suscipit? Pharetra nascetur ultrices maximus cursus imperdiet eleifend. Elit sodales tincidunt nisi ligula ac. Tellus lacus convallis viverra ornare nec eleifend maximus inceptos. Non nullam porttitor non sed nulla dolor. Ex ridiculus mattis lacus lobortis fusce? Curae facilisis interdum curae vehicula facilisi ligula. Efficitur sollicitudin tempus viverra porta habitant. Ac ad lorem lobortis erat est sed. Efficitur pellentesque mi ex magna vehicula at."
-  ></ic-drawer>`,
+  render: () => html`<ic-drawer
+    heading="Roasted coffee"
+    message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+    position="right"
+  >
+    <svg
+      style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
+      slot="heading-adornment"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+      />
+    </svg>
+    <ic-button slot="actions">Add to order</ic-button>
+  </ic-drawer>`,
   name: "Right position",
 };
 
-/**
- * A basic example of drawer anchored to the right of the viewport.
- */
-
 export const LeftPosition = {
   render: () =>
-    html`<ic-drawer heading="Menu" message="test" position="left"></ic-drawer>`,
-  name: "Left position",
-};
-
-/**
- * A basic example of drawer anchored to the left of the viewport.
- */
-
-export const TopPosition = {
-  render: () =>
-    html`<ic-drawer heading="Menu" message="test" position="top"></ic-drawer>`,
-  name: "Top position",
-};
-
-/**
- * A basic example of drawer anchored to the top of the viewport.
- */
-
-export const BottomPosition = {
-  render: () =>
     html`<ic-drawer
-      heading="Menu"
-      message="test"
-      position="bottom"
-    ></ic-drawer>`,
-  name: "Bottom position",
-};
-
-/**
- * A basic example of drawer anchored to the bottom of the viewport.
- */
-
-export const DarkTheme = {
-  render: () => html`<ic-theme theme="dark"
-    <div>
-      <div style="display: flex; flex-direction: column; min-height: 100vh;">
-        <ic-top-navigation
-          app-title="Déja-brew"
-          status="alpha"
-          version="v0.0.7"
-          content-aligned="center"
-        >
-          <svg
-            slot="app-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
-            />
-          </svg>
-          <ic-search-bar
-            slot="search"
-            placeholder="Search"
-            label="Search"
-          ></ic-search-bar>
-          <ic-navigation-button
-            label="button1"
-            slot="buttons"
-            onclick="alert('test')"
-          >
-            <svg
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
-              />
-            </svg>
-          </ic-navigation-button>
-          <ic-navigation-item
-            slot="navigation"
-            label="Navigation"
-            href="/"
-          ></ic-navigation-item>
-          <ic-navigation-group
-            slot="navigation"
-            label="Navigation group"
-            expandable="true"
-          >
-            <ic-navigation-item label="Navigation" href="/"></ic-navigation-item>
-            <ic-navigation-item label="Navigation" href="/"></ic-navigation-item>
-          </ic-navigation-group>
-        </ic-top-navigation>
-        <main style="height: 100vh; background-color: var(--ic-color-background-primary-dark)">
-          <ic-section-container aligned="center">
-            <ic-typography
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-              pharetra scelerisque arcu, vitae semper nisl rhoncus ut. Vestibulum
-              molestie enim at sollicitudin pellentesque. Proin sit amet augue sit
-              amet dui suscipit lobortis. Nullam at consectetur ante. Suspendisse
-              mollis ultricies porttitor. Nunc laoreet leo tortor, ut tristique
-              odio finibus a. In rutrum convallis purus, vitae tristique tortor
-              sagittis vel. Donec dictum nunc a elit tristique, et facilisis est
-              condimentum. Pellentesque maximus nulla libero, nec auctor urna
-              consequat nec. Class aptent taciti sociosqu ad litora torquent per
-              conubia nostra, per inceptos himenaeos. In maximus velit a erat
-              volutpat, sit amet consequat velit rhoncus. Mauris pretium neque
-              eget ante consectetur consectetur. Morbi a consequat lectus. Donec
-              venenatis ultricies sem nec pulvinar. Fusce lacus augue, laoreet id
-              pretium id, efficitur nec leo.</ic-typography
-            >
-          </ic-section-container>
-        </main>
-      </div>
-      <ic-drawer
-        theme="dark"
-        heading="Roasted coffee"
-        message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
-        position="right"
-      >
-        <svg
-          style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
-          slot="heading-adornment"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-          />
-        </svg>
-        <ic-button slot="actions">Add to order</ic-button>
-      </ic-drawer>
-      <ic-footer
-        aligned="full-width"
-        description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback,
-            please get in touch."
-        caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
-      ></ic-footer>
-    </div>
-  </ic-theme>`,
-  name: "Dark theme",
-};
-
-export const SlottedContent = {
-  render: () => html`<div>
-    <div style="display: flex; flex-direction: column; min-height: 100vh;">
-      <ic-top-navigation
-        app-title="Déja-brew"
-        status="alpha"
-        version="v0.0.7"
-        content-aligned="center"
-      >
-        <svg
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
-          />
-        </svg>
-        <ic-search-bar
-          slot="search"
-          placeholder="Search"
-          label="Search"
-        ></ic-search-bar>
-        <ic-navigation-button
-          label="button1"
-          slot="buttons"
-          onclick="alert('test')"
-        >
-          <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
-            />
-          </svg>
-        </ic-navigation-button>
-        <ic-navigation-item
-          slot="navigation"
-          label="Navigation"
-          href="/"
-        ></ic-navigation-item>
-        <ic-navigation-group
-          slot="navigation"
-          label="Navigation group"
-          expandable="true"
-        >
-          <ic-navigation-item label="Navigation" href="/"></ic-navigation-item>
-          <ic-navigation-item label="Navigation" href="/"></ic-navigation-item>
-        </ic-navigation-group>
-      </ic-top-navigation>
-      <main style="height: 100%">
-        <ic-section-container aligned="center">
-          <ic-typography
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            pharetra scelerisque arcu, vitae semper nisl rhoncus ut. Vestibulum
-            molestie enim at sollicitudin pellentesque. Proin sit amet augue sit
-            amet dui suscipit lobortis. Nullam at consectetur ante. Suspendisse
-            mollis ultricies porttitor. Nunc laoreet leo tortor, ut tristique
-            odio finibus a. In rutrum convallis purus, vitae tristique tortor
-            sagittis vel. Donec dictum nunc a elit tristique, et facilisis est
-            condimentum. Pellentesque maximus nulla libero, nec auctor urna
-            consequat nec. Class aptent taciti sociosqu ad litora torquent per
-            conubia nostra, per inceptos himenaeos. In maximus velit a erat
-            volutpat, sit amet consequat velit rhoncus. Mauris pretium neque
-            eget ante consectetur consectetur. Morbi a consequat lectus. Donec
-            venenatis ultricies sem nec pulvinar. Fusce lacus augue, laoreet id
-            pretium id, efficitur nec leo.</ic-typography
-          >
-        </ic-section-container>
-      </main>
-    </div>
-    <ic-drawer
       heading="Roasted coffee"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
-      position="right"
+      position="left"
     >
       <svg
         style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
@@ -303,29 +69,118 @@ export const SlottedContent = {
         />
       </svg>
       <ic-button slot="actions">Add to order</ic-button>
-    </ic-drawer>
-    <ic-footer
-      aligned="full-width"
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback,
-          please get in touch."
-      caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
-    ></ic-footer>
-  </div>`,
+    </ic-drawer>`,
+  name: "Left position",
+};
+
+export const TopPosition = {
+  render: () =>
+    html`<ic-drawer
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      position="top"
+    >
+      <svg
+        style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>`,
+  name: "Top position",
+};
+
+export const BottomPosition = {
+  render: () =>
+    html`<ic-drawer
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      position="bottom"
+    >
+      <svg
+        style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>`,
+  name: "Bottom position",
+};
+
+export const SlottedContent = {
+  render: () => html` <ic-drawer heading="Roasted coffee" position="right">
+    <svg
+      style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
+      slot="heading-adornment"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+      />
+    </svg>
+    <ic-typography slot="heading" variant="h4"
+      ><h4>Roasted coffee</h4></ic-typography
+    >
+    <ic-typography slot="message">
+      <p>
+        Contrary to popular belief, light roast coffee has more caffeine than
+        dark roast coffee. The longer coffee is roasted, the more caffeine is
+        lost through the cooking of the bean. Light roast coffee is a light
+        brown colour and has no oil on the surface of the beans, and these
+        coffees typically have a crisp acidity, a mellow body, and bright
+        flavours.
+      </p>
+    </ic-typography>
+    <ic-button slot="actions">Add to order</ic-button>
+  </ic-drawer>`,
   name: "Slotted content",
 };
 
-/**
- * A basic example of drawer with slotted content.
- */
-
 export const ManualTrigger = {
-  render: () => html`<div>
+  render: () => html` <ic-button
+      id="button-1"
+      onclick="expandDrawer()"
+      style="margin: 16px;"
+      >Open drawer</ic-button
+    >
+    <ic-drawer
+      id="drawer-1"
+      show-close-button="true"
+      trigger="controlled"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+    >
+      <ic-button variant="secondary" slot="actions">Secondary action</ic-button>
+      <ic-button slot="actions">Primary action</ic-button>
+    </ic-drawer>
+    <script>
+      let icDrawer = document.querySelector("ic-drawer#drawer-1");
+      function expandDrawer() {
+        icDrawer.expanded = !icDrawer.expanded;
+      }
+    </script>`,
+  name: "Manual trigger",
+};
+
+export const ContainedWithinParent = {
+  render: () =>
+    html` <div>
       <div style="display: flex; flex-direction: column; min-height: 100vh;">
         <ic-top-navigation
           app-title="Déja-brew"
           status="alpha"
           version="v0.0.7"
-          content-aligned="center"
         >
           <svg
             slot="app-icon"
@@ -384,23 +239,26 @@ export const ManualTrigger = {
             ></ic-navigation-item>
           </ic-navigation-group>
         </ic-top-navigation>
-        <main style="height: 100%">
+        <main style="height: 100vh; position: relative;">
+          <ic-drawer
+            heading="Roasted coffee"
+            message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+            position="left"
+            boundary="parent"
+          >
+            <svg
+              style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
+              slot="heading-adornment"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+              />
+            </svg>
+            <ic-button slot="actions">Add to order</ic-button>
+          </ic-drawer>
           <ic-section-container aligned="center">
-            <ic-button id="button-1" onclick="expandDrawer()"
-              >Open drawer</ic-button
-            >
-            <ic-drawer
-              id="drawer-1"
-              show-close-button="true"
-              trigger="controlled"
-              heading="Roasted coffee"
-              message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
-            >
-              <ic-button variant="secondary" slot="actions"
-                >Secondary action</ic-button
-              >
-              <ic-button slot="actions">Primary action</ic-button>
-            </ic-drawer>
             <ic-typography
               >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Vestibulum pharetra scelerisque arcu, vitae semper nisl rhoncus
@@ -421,20 +279,15 @@ export const ManualTrigger = {
           </ic-section-container>
         </main>
       </div>
+
       <ic-footer
         aligned="full-width"
         description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback,
-    please get in touch."
+            please get in touch."
         caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
       ></ic-footer>
-    </div>
-    <script>
-      let icDrawer = document.querySelector("ic-drawer#drawer-1");
-      function expandDrawer() {
-        icDrawer.expanded = !icDrawer.expanded;
-      }
-    </script>`,
-  name: "Manual trigger",
+    </div>`,
+  name: "Contained within parent",
 };
 
 export const Playground = {

@@ -17,7 +17,7 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 import closeIcon from "../../assets/close-icon.svg";
 
 import { isSlotUsed } from "../../utils/helpers";
-import { IcDrawerExpandedDetail } from "./ic-drawer.types";
+import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./ic-drawer.types";
 import { isPropDefined } from "../../utils/helpers";
 import { IcThemeMode } from "../../utils/types";
 
@@ -49,6 +49,11 @@ export class Drawer {
    * The aria label applied to the drawer. This is required when the heading slot is used.
    */
   @Prop() ariaLabel: string = "";
+
+  /**
+   * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
+   */
+  @Prop() boundary: IcDrawerBoundary = "viewport";
 
   /**
    * The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".
@@ -182,9 +187,9 @@ export class Drawer {
 
     const slottedInteractiveElements = Array.from(
       this.el.querySelectorAll(
-        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]), 
-          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group, 
-          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, 
+        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group,
+          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
           ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion`
       )
     );
@@ -324,10 +329,11 @@ export class Drawer {
     return (
       <Host
         class={{
-          ["ic-drawer"]: true,
+          collapsed: !expanded,
+          expanded: expanded,
+          "ic-boundary-parent": this.boundary === "parent",
+          "ic-drawer": true,
           [`ic-${position}-position`]: true,
-          ["expanded"]: expanded,
-          ["collapsed"]: !expanded,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         aria-expanded={expanded}
