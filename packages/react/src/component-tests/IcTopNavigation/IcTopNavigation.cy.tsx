@@ -35,6 +35,7 @@ import {
   WithNavItems,
   WithSlottedNavItems,
   WithSlottedNavGroup,
+  TopNavHorizontalScroll,
 } from "./IcTopNavigationTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.01;
@@ -421,6 +422,70 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/brand-slotted-navigation-items",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with horizontal scroll", () => {
+    cy.viewport(1000, 750);
+    mount(
+      <div>
+        <IcTheme theme="light" />
+        <TopNavHorizontalScroll />
+      </div>
+    );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "/horizontal-scroll",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with theme dark and horizontal scroll", () => {
+    cy.viewport(1000, 750);
+    mount(
+      <div>
+        <IcTheme theme="dark" />
+        <TopNavHorizontalScroll />
+      </div>
+    );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "/horizontal-scroll",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with dark brand and horizontal scroll", () => {
+    cy.viewport(1000, 750);
+    mount(
+      <div>
+        <IcTheme brandColor="rgb(27, 60, 121)" theme="light" />
+        <TopNavHorizontalScroll />
+      </div>
+    );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "/horizontal-scroll-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with dark brand and theme and horizontal scroll", () => {
+    cy.viewport(1000, 750);
+    mount(
+      <div>
+        <IcTheme brandColor="rgb(27, 60, 121)" theme="dark" />
+        <TopNavHorizontalScroll />
+      </div>
+    );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "/horizontal-scroll-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
