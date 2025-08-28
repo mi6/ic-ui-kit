@@ -221,7 +221,7 @@ export const Playground = {
           Button
         </IcButton>
       </div>
-      <div id="topPageEl">
+      <div id="topEl">
         <IcTypography variant="h2">Top of the page</IcTypography>
       </div>
       <IcTypography variant="h3">Some content</IcTypography>
