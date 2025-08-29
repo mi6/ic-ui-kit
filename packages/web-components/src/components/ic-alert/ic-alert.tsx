@@ -253,7 +253,7 @@ export class Alert {
                   class={{ "svg-container": true, "dismiss-icon": true }}
                   innerHTML={closeIcon}
                   onClick={dismissAction}
-                  variant="icon"
+                  variant="icon-tertiary"
                   theme="dark"
                   title="Dismiss"
                 ></ic-button>

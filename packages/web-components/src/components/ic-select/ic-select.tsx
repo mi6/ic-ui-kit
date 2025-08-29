@@ -1296,7 +1296,7 @@ export class Select {
                       onFocus={this.handleClearButtonFocus}
                       onBlur={this.handleClearButtonBlur}
                       size={size}
-                      variant="icon"
+                      variant="icon-tertiary"
                       theme={clearButtonFocused ? "light" : "dark"}
                     ></ic-button>
                     <div class="divider"></div>
@@ -1382,7 +1382,7 @@ export class Select {
                     onFocus={this.handleClearButtonFocus}
                     onBlur={this.handleClearButtonBlur}
                     size={size}
-                    variant="icon"
+                    variant="icon-tertiary"
                     theme={clearButtonFocused ? "light" : "dark"}
                   ></ic-button>
                 )}
