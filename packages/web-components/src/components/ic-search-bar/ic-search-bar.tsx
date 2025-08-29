@@ -933,7 +933,7 @@ export class SearchBar {
                 onBlur={this.handleClearBlur}
                 onKeyDown={this.handleClear}
                 type={"button"}
-                variant="icon"
+                variant="icon-tertiary"
                 theme={clearButtonFocused ? "light" : "dark"}
               ></ic-button>
               <div class="divider"></div>
@@ -963,7 +963,7 @@ export class SearchBar {
                 onFocus={this.handleSubmitSearchFocus}
                 onKeyDown={this.handleSubmitSearchKeyDown}
                 type={searchButtonType}
-                variant="icon"
+                variant="icon-tertiary"
                 theme={searchSubmitFocused ? "light" : "dark"}
               ></ic-button>
             </div>

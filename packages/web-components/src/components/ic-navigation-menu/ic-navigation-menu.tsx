@@ -199,7 +199,7 @@ export class NavigationMenu {
                 ref={(el) => (this.closeButton = el)}
                 id="menu-close-button"
                 class="menu-close-button"
-                variant="icon"
+                variant="icon-tertiary"
                 size="large"
                 aria-label={`Close ${
                   this.hasNavigation ? "navigation" : "app"

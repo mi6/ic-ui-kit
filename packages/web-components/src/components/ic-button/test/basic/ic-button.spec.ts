@@ -209,7 +209,7 @@ describe("button component", () => {
   it("should render icon variant with a tooltip", async () => {
     const page = await newSpecPage({
       components: [Button, Tooltip],
-      html: "<ic-button variant='icon' id='test-button'>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' id='test-button'>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
   });
@@ -217,7 +217,7 @@ describe("button component", () => {
   it("should render icon variant with a tooltip based on title", async () => {
     const page = await newSpecPage({
       components: [Button, Tooltip],
-      html: "<ic-button variant='icon' id='test-button' title='Tooltip text'>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' id='test-button' title='Tooltip text'>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
   });
@@ -225,7 +225,7 @@ describe("button component", () => {
   it("should render icon variant with a tooltip based on aria-label", async () => {
     const page = await newSpecPage({
       components: [Button, Tooltip],
-      html: "<ic-button variant='icon' id='test-button' aria-label='Tooltip text' tooltip-placement='top'>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' id='test-button' aria-label='Tooltip text' tooltip-placement='top'>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
   });
@@ -233,7 +233,7 @@ describe("button component", () => {
   it("should disable tooltip when prop set", async () => {
     const page = await newSpecPage({
       components: [Button, Tooltip],
-      html: "<ic-button variant='icon' aria-label='Tooltip text' id='test-button' disable-tooltip>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' aria-label='Tooltip text' id='test-button' disable-tooltip>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
   });
@@ -241,7 +241,7 @@ describe("button component", () => {
   it("should update aria-label when attribute changed", async () => {
     const page = await newSpecPage({
       components: [Button, Tooltip],
-      html: "<ic-button variant='icon' aria-label='Tooltip text' id='test-button'>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' aria-label='Tooltip text' id='test-button'>Button</ic-button>",
     });
 
     expect(page.root).toMatchSnapshot();
@@ -258,7 +258,7 @@ describe("button component", () => {
   it("should update aria-expanded when attribute changed", async () => {
     const page = await newSpecPage({
       components: [Button],
-      html: "<ic-button variant='icon' aria-expanded='false' id='test-button'>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' aria-expanded='false' id='test-button'>Button</ic-button>",
     });
 
     expect(page.root).toMatchSnapshot();
@@ -277,7 +277,7 @@ describe("button component", () => {
   it("should update tooltip label when title attribute changed", async () => {
     const page = await newSpecPage({
       components: [Button],
-      html: "<ic-button variant='icon' title='Tooltip text' id='test-button'>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' title='Tooltip text' id='test-button'>Button</ic-button>",
     });
 
     expect(page.root).toMatchSnapshot();
@@ -294,7 +294,7 @@ describe("button component", () => {
   it("should hide tooltip when escape key pressed", async () => {
     const page = await newSpecPage({
       components: [Button, Tooltip],
-      html: "<ic-button variant='icon' id='test-button' title='Tooltip text'>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' id='test-button' title='Tooltip text'>Button</ic-button>",
     });
 
     const tooltip = page.root?.shadowRoot?.querySelector("ic-tooltip");
@@ -523,7 +523,7 @@ describe("button component", () => {
   it("should test tooltip visibility changes when disable tooltip prop changes", async () => {
     const page = await newSpecPage({
       components: [Button],
-      html: "<ic-button variant='icon' aria-label='Tooltip text' id='test-button'>Button</ic-button>",
+      html: "<ic-button variant='icon-tertiary' aria-label='Tooltip text' id='test-button'>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
 

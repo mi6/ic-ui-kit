@@ -513,7 +513,7 @@ export class Dialog {
           {!hideCloseButton && (
             <ic-button
               class="close-icon"
-              variant="icon"
+              variant="icon-tertiary"
               innerHTML={closeIcon}
               aria-label={dismissLabel}
               onClick={closeIconClick}

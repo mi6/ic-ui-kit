@@ -236,7 +236,11 @@ export class Button {
   /**
    * The variant of the button to be displayed.
    */
-  @Prop() variant: IcButtonVariants = "primary";
+  @Prop({ mutable: true }) variant: IcButtonVariants = "primary";
+  @Watch("variant")
+  watchVariantHandler(newVariant: IcButtonVariants): void {
+    if (newVariant === "icon") this.variant = "icon-tertiary";
+  }
 
   /**
    * Emitted when button has blur
@@ -298,6 +302,10 @@ export class Button {
           this.describedbyEl = el;
         }
       }
+    }
+
+    if (this.variant === "icon") {
+      this.variant = "icon-tertiary";
     }
   }
 
@@ -601,7 +609,7 @@ export class Button {
 
     const describedby = !hasTooltip
       ? describedById
-      : variant !== "icon" || !ariaLabel
+      : !isIconVariant() || !ariaLabel
       ? `ic-tooltip-${buttonId}`
       : undefined;
 
