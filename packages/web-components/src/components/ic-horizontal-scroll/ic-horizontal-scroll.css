@@ -12,8 +12,16 @@
   --splitter-color: var(--ic-color-keyline-lighten);
 }
 
+:host(.ic-horizontal-scroll-light) ic-button > svg {
+  color: var(--ic-color-text-action-monochrome-dark);
+}
+
 :host(.ic-horizontal-scroll-dark) {
   --splitter-color: var(--ic-color-keyline-darken);
+}
+
+:host(.ic-horizontal-scroll-dark) ic-button > svg {
+  color: var(--ic-color-text-action-monochrome-light);
 }
 
 /* Slotted items container element */
