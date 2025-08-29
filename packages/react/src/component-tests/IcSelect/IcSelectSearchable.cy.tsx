@@ -1077,6 +1077,31 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
     });
   });
+
+  it("should render with long text input", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={searchableCoffeeOption}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT)
+      .shadow()
+      .find(IC_INPUT_CONTAINER)
+      .type("very very extremely absurdly long text input");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/searchable-long-text-input",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+    });
+  });
 });
 
 describe("IcSelect searchable visual regression tests in high contrast mode", () => {
