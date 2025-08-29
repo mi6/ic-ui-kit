@@ -156,7 +156,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button aria-label="Dismiss" class="close-icon" variant="icon">
+        <ic-button aria-label="Dismiss" class="close-icon" variant="icon-tertiary">
           svg
         </ic-button>
       </div>

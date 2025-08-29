@@ -283,10 +283,10 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
   </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-icon ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="icon">
     <template shadowrootmode="open">
-      <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-icon" exportparts="button">
+      <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
-          <ic-tooltip label="Toggle, unticked" placement="bottom" silent="" target="ic-button-with-tooltip-22">
-            <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-22" label="Toggle, unticked" placement="bottom" silent="" target="ic-button-with-tooltip-22">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-22" aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
           </ic-tooltip>
@@ -297,10 +297,10 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-icon ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="icon">
     <template shadowrootmode="open">
-      <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-icon" exportparts="button">
+      <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
-          <ic-tooltip label="Toggle, unticked" placement="bottom" silent="" target="ic-button-with-tooltip-24">
-            <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-24" label="Toggle, unticked" placement="bottom" silent="" target="ic-button-with-tooltip-24">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-24" aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
           </ic-tooltip>

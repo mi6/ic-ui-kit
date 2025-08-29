@@ -555,7 +555,7 @@ export const Popover = {
         </button></ic-tooltip
       >
       <ic-button
-        variant="icon"
+        variant="icon-tertiary"
         size="small"
         aria-label="refresh"
         id="testbutton"

@@ -36,7 +36,7 @@ exports[`ic-toggle-button component should render disabled: disabled-removed 1`]
 exports[`ic-toggle-button component should render icon variant 1`] = `
 <ic-toggle-button accessible-label="Refresh the page" class="ic-toggle-button-icon ic-toggle-button-medium" variant="icon">
   <template shadowrootmode="open">
-    <ic-button aria-label="Refresh the page, unticked" aria-pressed="false" size="medium" title="Refresh the page" tooltipplacement="bottom" variant="icon">
+    <ic-button aria-label="Refresh the page, unticked" aria-pressed="false" size="medium" title="Refresh the page" tooltipplacement="bottom" variant="icon-tertiary">
       <slot></slot>
     </ic-button>
   </template>
