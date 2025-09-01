@@ -5,6 +5,11 @@ export default {
   component: "ic-section-container",
 };
 
+const defaultArgs = {
+  aligned: null,
+  fullHeight: false,
+};
+
 export const LeftAligned = {
   render: () =>
     html`<ic-section-container>
@@ -59,4 +64,38 @@ export const FullHeight = {
     </ic-section-container>`,
 
   name: "Full-height",
+};
+
+export const Playground = {
+  render: (args) => html`
+    <ic-section-container
+      aligned=${args.aligned}
+      full-height=${args.fullHeight}
+      style="border: 1px solid black;"
+    >
+      <main>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+          "
+        >
+          <button>Start</button>
+          <button>End</button>
+        </div>
+      </main>
+    </IcSectionContainer>`,
+
+  name: "Playground",
+  args: defaultArgs,
+
+  argTypes: {
+    aligned: {
+      options: [null, "left", "center", "full-width"],
+
+      control: {
+        type: "inline-radio",
+      },
+    },
+  },
 };
