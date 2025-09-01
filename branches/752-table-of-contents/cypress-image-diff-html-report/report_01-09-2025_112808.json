@@ -1,7 +1,7 @@
 {
   "total": 247,
-  "totalPassed": 246,
-  "totalFailed": 1,
+  "totalPassed": 247,
+  "totalFailed": 0,
   "totalSuites": 9,
   "suites": [
     {
@@ -2278,14 +2278,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTableOfContents.cy.tsx/nested.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTableOfContents.cy.tsx/monochrome",
-          "percentage": 0.017258978545253826,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTableOfContents/IcTableOfContents.cy.tsx",
           "specFilename": "IcTableOfContents.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTableOfContents.cy.tsx/monochrome.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTableOfContents.cy.tsx/monochrome.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTableOfContents.cy.tsx/monochrome.png"
         },
         {
@@ -2776,9 +2776,9 @@
       ]
     }
   ],
-  "startedAt": "2025-09-01T10:47:13.739Z",
-  "endedAt": "2025-09-01T10:55:23.666Z",
-  "duration": 468774,
+  "startedAt": "2025-09-01T11:28:08.091Z",
+  "endedAt": "2025-09-01T11:36:21.277Z",
+  "duration": 470781,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
