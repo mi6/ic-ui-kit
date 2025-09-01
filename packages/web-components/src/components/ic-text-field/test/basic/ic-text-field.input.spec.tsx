@@ -224,6 +224,15 @@ describe("ic-text-field", () => {
     expect(page.root).toMatchSnapshot("renders-with-inline-success-validation");
   });
 
+  it("should render with validation-aria-live", async () => {
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field label="Test label" validation-aria-live="assertive"></ic-text-field>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-validation-aria-live");
+  });
+
   it("should blur", async () => {
     const page = await newSpecPage({
       components: [TextField],
