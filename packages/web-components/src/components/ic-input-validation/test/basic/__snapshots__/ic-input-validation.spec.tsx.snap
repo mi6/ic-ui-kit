@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-input-validation should render 1`] = `
+<ic-input-validation for="test-id" message="validation message">
+  <!---->
+  <ic-typography class="statustext" variant="caption">
+    <span id="test-id-validation-text">
+      validation message
+    </span>
+    <span aria-live="polite" class="sr-only">
+      ​
+    </span>
+  </ic-typography>
+</ic-input-validation>
+`;
+
+exports[`ic-input-validation should render with error status 1`] = `
+<ic-input-validation class="ic-input-validation-error" for="test-id" message="validation message" status="error">
+  <!---->
+  <span class="icon-error status-icon">
+    svg
+  </span>
+  <ic-typography class="statustext" variant="caption">
+    <span id="test-id-validation-text">
+      validation message
+    </span>
+    <span aria-live="polite" class="sr-only">
+      ​
+    </span>
+  </ic-typography>
+</ic-input-validation>
+`;
+
+exports[`ic-input-validation should render with full width 1`] = `
+<ic-input-validation class="ic-input-validation-full-width" for="test-id" full-width="true" message="validation message">
+  <!---->
+  <ic-typography class="statustext" variant="caption">
+    <span id="test-id-validation-text">
+      validation message
+    </span>
+    <span aria-live="polite" class="sr-only">
+      ​
+    </span>
+  </ic-typography>
+</ic-input-validation>
+`;
+
+exports[`ic-input-validation should render with success status 1`] = `
+<ic-input-validation class="ic-input-validation-success" for="test-id" message="validation message" status="success">
+  <!---->
+  <span class="icon-success status-icon">
+    svg
+  </span>
+  <ic-typography class="statustext" variant="caption">
+    <span id="test-id-validation-text">
+      validation message
+    </span>
+    <span aria-live="polite" class="sr-only">
+      ​
+    </span>
+  </ic-typography>
+</ic-input-validation>
+`;
+
+exports[`ic-input-validation should render with warning status 1`] = `
+<ic-input-validation class="ic-input-validation-warning" for="test-id" message="validation message" status="warning">
+  <!---->
+  <span class="icon-warning status-icon">
+    svg
+  </span>
+  <ic-typography class="statustext" variant="caption">
+    <span id="test-id-validation-text">
+      validation message
+    </span>
+    <span aria-live="polite" class="sr-only">
+      ​
+    </span>
+  </ic-typography>
+</ic-input-validation>
+`;
+
+exports[`ic-input-validation should update the text content of the aria-live region 1`] = `
+<ic-input-validation for="test-id" message="validation message">
+  <!---->
+  <ic-typography class="statustext" variant="caption">
+    <span id="test-id-validation-text">
+      validation message
+    </span>
+    <span aria-live="polite" class="sr-only">
+      new validation message
+    </span>
+  </ic-typography>
+</ic-input-validation>
+`;
