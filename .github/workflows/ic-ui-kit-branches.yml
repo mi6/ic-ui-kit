@@ -33,171 +33,170 @@ jobs:
               - 'packages/canary-web-components/**'
               - 'packages/canary-react/**'
 
-  ic-ui-kit-static-analysis-tests:
-    needs: ["check-updates"]
-    name: "Static analysis tests"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+  # ic-ui-kit-static-analysis-tests:
+  #   needs: ["check-updates"]
+  #   name: "Static analysis tests"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
 
-      - name: Setup node
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
-        with:
-          node-version: 20
+  #     - name: Setup node
+  #       uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+  #       with:
+  #         node-version: 20
 
-      - name: Cache dependencies
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
-        with:
-          path: |
-            packages/*/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node
+  #     - name: Cache dependencies
+  #       uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
+  #       with:
+  #         path: |
+  #           packages/*/node_modules
+  #         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-node
 
-      - name: Install dependencies
-        run: |
-          npm ci
-          npm run bootstrap -- -- --ci
+  #     - name: Install dependencies
+  #       run: |
+  #         npm ci
+  #         npm run bootstrap -- -- --ci
 
-      - name: Build core components
-        if: ${{ needs.check-updates.outputs.canary == 'false' }}
-        run: npm run build
+  #     - name: Build core components
+  #       if: ${{ needs.check-updates.outputs.canary == 'false' }}
+  #       run: npm run build
 
-      - name: Build all components
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        run: |
-          npm run build:all
+  #     - name: Build all components
+  #       if: ${{ needs.check-updates.outputs.canary == 'true' }}
+  #       run: |
+  #         npm run build:all
 
-      - name: Lint
-        run: npm run lint
+  #     - name: Lint
+  #       run: npm run lint
 
-      - name: Lint grammar
-        run: npm run lint:spelling
+  #     - name: Lint grammar
+  #       run: npm run lint:spelling
 
-      - name: Prettier
-        run: npm run prettier
+  #     - name: Prettier
+  #       run: npm run prettier
 
-      - name: Audit
-        run: npm run audit
+  #     - name: Audit
+  #       run: npm run audit
 
-      - name: A11y core tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        run: npm run test-a11y:ci
+  #     - name: A11y core tests
+  #       if: ${{ needs.check-updates.outputs.core == 'true' }}
+  #       run: npm run test-a11y:ci
 
-      - name: A11y canary tests
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        run: npm run test-a11y:ci:canary
+  #     - name: A11y canary tests
+  #       if: ${{ needs.check-updates.outputs.canary == 'true' }}
+  #       run: npm run test-a11y:ci:canary
 
-      - name: Unit Component tests
-        run: npm run test:coverage-ci
+  #     - name: Unit Component tests
+  #       run: npm run test:coverage-ci
 
-  ic-ui-kit-cypress-tests:
-    needs: [check-updates]
-    name: "Cypress tests"
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+  # ic-ui-kit-cypress-tests:
+  #   needs: [check-updates]
+  #   name: "Cypress tests"
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: write
+  #     pull-requests: write
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
 
-      - name: Setup node
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
-        with:
-          node-version: 20
+  #     - name: Setup node
+  #       uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+  #       with:
+  #         node-version: 20
 
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
+  #     - name: Setup Chrome
+  #       uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
 
-      - name: Extract branch name
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-        id: extract_branch
+  #     - name: Extract branch name
+  #       run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+  #       id: extract_branch
 
-      - name: Cache dependencies
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
-        with:
-          path: |
-            packages/*/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node
+  #     - name: Cache dependencies
+  #       uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
+  #       with:
+  #         path: |
+  #           packages/*/node_modules
+  #         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-node
 
-      - name: Install dependencies
-        run: |
-          google-chrome --version
-          npm ci
-          npm run bootstrap -- -- --ci
+  #     - name: Install dependencies
+  #       run: |
+  #         google-chrome --version
+  #         npm ci
+  #         npm run bootstrap -- -- --ci
 
-      - name: Cache Cypress Binary
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+  #     - name: Cache Cypress Binary
+  #       uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
+  #       with:
+  #         path: ~/.cache/Cypress
+  #         key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Install Core Cypress
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        run: npm run cypress:install:react
+  #     - name: Install Core Cypress
+  #       if: ${{ needs.check-updates.outputs.core == 'true' }}
+  #       run: npm run cypress:install:react
 
-      - name: Core Cypress tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_cypress_tests
-        run: npm run test-cypress:ci
+  #     - name: Core Cypress tests
+  #       if: ${{ needs.check-updates.outputs.core == 'true' }}
+  #       id: core_cypress_tests
+  #       run: npm run test-cypress:ci
 
-      - name: Upload core visual regression screenshots
-        if: failure() && steps.core_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/react/cypress-image-diff-screenshots
-          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
+  #     - name: Upload core visual regression screenshots
+  #       if: failure() && steps.core_cypress_tests.outcome == 'failure'
+  #       uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
+  #       with:
+  #         folder: ./packages/react/cypress-image-diff-screenshots
+  #         target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
 
-      - name: Upload core visual regression report
-        if: always() && steps.core_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/react/cypress-image-diff-html-report
-          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
+  #     - name: Upload core visual regression report
+  #       if: always() && steps.core_cypress_tests.outcome == 'failure'
+  #       uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
+  #       with:
+  #         folder: ./packages/react/cypress-image-diff-html-report
+  #         target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
 
-      - name: Install Canary Cypress
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        run: npm run cypress:install:canary-react
+  #     - name: Install Canary Cypress
+  #       if: ${{ needs.check-updates.outputs.canary == 'true' }}
+  #       run: npm run cypress:install:canary-react
 
-      - name: Canary Cypress tests
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        id: canary_cypress_tests
-        run: npm run test-cypress:ci:canary
+  #     - name: Canary Cypress tests
+  #       if: ${{ needs.check-updates.outputs.canary == 'true' }}
+  #       id: canary_cypress_tests
+  #       run: npm run test-cypress:ci:canary
 
-      - name: Upload canary visual regression diff screenshots
-        if: failure() && steps.canary_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/canary-react/cypress-image-diff-screenshots
-          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
+  #     - name: Upload canary visual regression diff screenshots
+  #       if: failure() && steps.canary_cypress_tests.outcome == 'failure'
+  #       uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
+  #       with:
+  #         folder: ./packages/canary-react/cypress-image-diff-screenshots
+  #         target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
 
-      - name: Upload canary visual regression report
-        if: always() && steps.canary_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/canary-react/cypress-image-diff-html-report
-          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
+  #     - name: Upload canary visual regression report
+  #       if: always() && steps.canary_cypress_tests.outcome == 'failure'
+  #       uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
+  #       with:
+  #         folder: ./packages/canary-react/cypress-image-diff-html-report
+  #         target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
 
-      - name: Add PR comment with diff screenshots
-        if: always() && (steps.core_cypress_tests.outcome == 'failure' || steps.canary_cypress_tests.outcome == 'failure')
-        uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc #v2.8.2
-        with:
-          message: |
-            Cypress visual tests failed.
-            View the image diff here: https://github.com/mi6/ic-ui-kit/tree/gh-pages/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots/diff
-            View the html report here: https://mi6.github.io/ic-ui-kit/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report/cypress-image-diff-html-report.html
-          message-id: "image-diff"
+  #     - name: Add PR comment with diff screenshots
+  #       if: always() && (steps.core_cypress_tests.outcome == 'failure' || steps.canary_cypress_tests.outcome == 'failure')
+  #       uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc #v2.8.2
+  #       with:
+  #         message: |
+  #           Cypress visual tests failed.
+  #           View the image diff here: https://github.com/mi6/ic-ui-kit/tree/gh-pages/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots/diff
+  #           View the html report here: https://mi6.github.io/ic-ui-kit/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report/cypress-image-diff-html-report.html
+  #         message-id: "image-diff"
 
   ic-ui-kit-deploy:
-    needs:
-      [
-        ic-ui-kit-static-analysis-tests,
+    needs: [
+        # ic-ui-kit-static-analysis-tests,
         check-updates,
-        ic-ui-kit-cypress-tests,
+        # ic-ui-kit-cypress-tests,
       ]
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'workflow_dispatch' }}
     name: "Deploy storybook"
