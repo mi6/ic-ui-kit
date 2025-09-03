@@ -62,56 +62,6 @@ const HiddenInput = () => {
   );
 };
 
-const AriaLiveBehaviourExample = () => {
-  const [showErrors1, setShowErrors1] = useState(false);
-  const [showErrors2, setShowErrors2] = useState(false);
-
-  return (
-    <>
-      <IcTextField
-        label="What is your favourite coffee?"
-        helperText="Error already set on page load"
-        validationStatus={showErrors1 ? "" : "error"}
-        validationText={showErrors1 ? "" : "First error message"}
-      />
-      <br />
-      <IcTextField
-        label="What is your favourite coffee?"
-        helperText="Error set after page load"
-        validationStatus={showErrors1 ? "error" : ""}
-        validationText={showErrors1 ? "Second error message" : ""}
-      />
-      <br />
-      <IcButton onClick={() => setShowErrors1(!showErrors1)}>
-        Toggle errors
-      </IcButton>
-      <br />
-      <br />
-      <br />
-      <br />
-      <IcTextField
-        label="What is your favourite coffee?"
-        helperText="aria-live overridden as 'polite'"
-        validationAriaLive="polite"
-        validationStatus={showErrors2 ? "error" : ""}
-        validationText={showErrors2 ? "Third error message" : ""}
-      />
-      <br />
-      <IcTextField
-        label="What is your favourite coffee?"
-        helperText="aria-live overridden as 'polite'"
-        validationAriaLive="polite"
-        validationStatus={showErrors2 ? "error" : ""}
-        validationText={showErrors2 ? "Fourth error message" : ""}
-      />
-      <br />
-      <IcButton onClick={() => setShowErrors2(!showErrors2)}>
-        Toggle errors
-      </IcButton>
-    </>
-  );
-};
-
 const defaultArgs = {
   debounce: 0,
   disabled: false,
@@ -140,7 +90,6 @@ const defaultArgs = {
   spellcheck: false,
   theme: "inherit",
   type: "text",
-  validationAriaLive: "default",
   validationInline: false,
   validationStatus: "no status",
   validationText: "",
@@ -558,11 +507,6 @@ export const Validation = {
   name: "Validation",
 };
 
-export const AriaLiveBehaviour = {
-  render: () => <AriaLiveBehaviourExample />,
-  name: "Aria-live behaviour",
-};
-
 export const TextAreaWithResize = {
   render: () => (
     <IcTextField
@@ -698,7 +642,6 @@ export const Playground = {
         spellcheck={args.spellcheck}
         theme={args.theme}
         type={args.type}
-        validationAriaLive={args.validationAriaLive}
         validationInline={args.validationInline}
         validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
@@ -755,14 +698,6 @@ export const Playground = {
 
       control: {
         type: "select",
-      },
-    },
-
-    validationAriaLive: {
-      options: ["default", "polite", "assertive", "off"],
-
-      control: {
-        type: "inline-radio",
       },
     },
 
