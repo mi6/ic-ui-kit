@@ -1,4 +1,4 @@
-import { Element, Component, Host, Prop, h, Watch } from "@stencil/core";
+import { Element, Component, Host, Prop, h } from "@stencil/core";
 
 import {
   IcInformationStatus,
@@ -14,12 +14,11 @@ import {
 } from "../../utils/helpers";
 import { IcAriaLiveModeVariants } from "./ic-input-validation.types";
 
-const ICON = {
+const icon = {
   [IcInformationStatus.Warning]: warningIcon,
   [IcInformationStatus.Error]: errorIcon,
   [IcInformationStatus.Success]: successIcon,
 };
-const INVISIBLE_CHAR = "\u200B";
 
 /**
  * @slot validation-message-adornment - Content will be placed to the right of the validation message.
@@ -29,8 +28,6 @@ const INVISIBLE_CHAR = "\u200B";
   styleUrl: "ic-input-validation.css",
 })
 export class InputValidation {
-  private messageEl!: HTMLSpanElement;
-
   @Element() el: HTMLIcInputValidationElement;
 
   /**
@@ -52,15 +49,6 @@ export class InputValidation {
    * The validation message to display.
    */
   @Prop() message!: string;
-  @Watch("message")
-  watchMessageHandler(newValue: string) {
-    // Force detectable DOM changes
-    // Invisible character used as screen readers can ignore whitespace changes e.g. "" and " "
-    this.messageEl.textContent = INVISIBLE_CHAR;
-    setTimeout(() => {
-      this.messageEl.textContent = newValue;
-    }, 100); // Delay to help ensure screen readers detect change
-  }
 
   /**
    * The status of the validation - e.g. 'error' | 'warning' | 'success'.
@@ -72,12 +60,11 @@ export class InputValidation {
       [{ prop: this.message, propName: "message" }],
       "Input Validation"
     );
-    this.messageEl.textContent = INVISIBLE_CHAR;
   }
 
   render() {
     const { ariaLiveMode, fullWidth, status, message } = this;
-    const displayIcon = status !== "" ? ICON[status!] : "";
+    const displayIcon = status !== "" ? icon[status!] : "";
     return (
       <Host
         class={{
@@ -94,17 +81,16 @@ export class InputValidation {
             innerHTML={displayIcon}
           />
         )}
+
         <ic-typography variant="caption" class="statustext">
-          <span id={this.for && getInputValidationTextID(this.for)}>
+          <span
+            aria-live={ariaLiveMode}
+            id={this.for && getInputValidationTextID(this.for)}
+          >
             {message}
           </span>
-          {/* Separate aria-live region to avoid flashing due to textContent delay */}
-          <span
-            ref={(el) => (this.messageEl = el as HTMLSpanElement)}
-            class="sr-only"
-            aria-live={ariaLiveMode}
-          ></span>
         </ic-typography>
+
         <slot name="validation-message-adornment"></slot>
       </Host>
     );

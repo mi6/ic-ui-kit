@@ -9,7 +9,7 @@
 
 | Property               | Attribute        | Description                                                            | Type                                                   | Default     |
 | ---------------------- | ---------------- | ---------------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
-| `ariaLiveMode`         | `aria-live-mode` | The ARIA live mode to apply to the message.                            | `"assertive" \| "off" \| "polite" \| undefined`        | `"polite"`  |
+| `ariaLiveMode`         | `aria-live-mode` | The ARIA live mode to apply to the message.                            | `"assertive" \| "polite" \| undefined`                 | `"polite"`  |
 | `for`                  | `for`            | The ID of the form element the validation is bound to.                 | `string \| undefined`                                  | `undefined` |
 | `fullWidth`            | `full-width`     | If `true`, the input validation will fill the width of the container.  | `boolean \| undefined`                                 | `false`     |
 | `message` _(required)_ | `message`        | The validation message to display.                                     | `string`                                               | `undefined` |
