@@ -41,8 +41,3 @@ ic-input-validation .statustext {
     var(--ic-color-text-primary)
   );
 }
-
-ic-input-validation .sr-only {
-  position: absolute;
-  left: -9999px;
-}

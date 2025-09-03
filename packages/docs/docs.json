@@ -8718,10 +8718,10 @@
       "props": [
         {
           "name": "ariaLiveMode",
-          "type": "\"assertive\" | \"off\" | \"polite\" | undefined",
+          "type": "\"assertive\" | \"polite\" | undefined",
           "complexType": {
             "original": "IcAriaLiveModeVariants",
-            "resolved": "\"assertive\" | \"off\" | \"polite\" | undefined",
+            "resolved": "\"assertive\" | \"polite\" | undefined",
             "references": {
               "IcAriaLiveModeVariants": {
                 "location": "import",
@@ -8739,10 +8739,6 @@
           "values": [
             {
               "value": "assertive",
-              "type": "string"
-            },
-            {
-              "value": "off",
               "type": "string"
             },
             {
@@ -19960,49 +19956,6 @@
           "setter": false
         },
         {
-          "name": "validationAriaLive",
-          "type": "\"assertive\" | \"default\" | \"off\" | \"polite\"",
-          "complexType": {
-            "original": "IcValidationAriaLive",
-            "resolved": "\"assertive\" | \"default\" | \"off\" | \"polite\"",
-            "references": {
-              "IcValidationAriaLive": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValidationAriaLive"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "validation-aria-live",
-          "reflectToAttr": false,
-          "docs": "The value of the `aria-live` attribute on the validation message. When set to \"default\", the `aria-live` value will be handled automatically, e.g. \"assertive\" for `validation-status=\"error\"`.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "assertive",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "polite",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "validationInline",
           "type": "boolean",
           "complexType": {
@@ -23111,11 +23064,6 @@
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
-    "src/utils/types.ts::IcValidationAriaLive": {
-      "declaration": "export type IcValidationAriaLive = \"default\" | \"polite\" | \"assertive\" | \"off\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
     "src/utils/types.ts::IcAutocompleteTypes": {
       "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
       "docstring": "",
@@ -23227,7 +23175,7 @@
       "path": "src/components/ic-hero/ic-hero.types.tsx"
     },
     "src/components/ic-input-validation/ic-input-validation.types.tsx::IcAriaLiveModeVariants": {
-      "declaration": "export type IcAriaLiveModeVariants = \"polite\" | \"assertive\" | \"off\";",
+      "declaration": "export type IcAriaLiveModeVariants = \"polite\" | \"assertive\";",
       "docstring": "",
       "path": "src/components/ic-input-validation/ic-input-validation.types.tsx"
     },

@@ -20,7 +20,6 @@ import {
   IcValueEventDetail,
   IcSizesNoLarge,
   IcThemeMode,
-  IcValidationAriaLive,
 } from "../../utils/types";
 import {
   inheritAttributes,
@@ -99,11 +98,6 @@ export class TextField {
    * @internal Used to identify any related child component
    */
   @Prop() ariaOwns?: string;
-
-  /**
-   * The value of the `aria-live` attribute on the validation message. When set to "default", the `aria-live` value will be handled automatically, e.g. "assertive" for `validation-status="error"`.
-   */
-  @Prop() validationAriaLive: IcValidationAriaLive = "default";
 
   /**
    * The automatic capitalisation of the text value as it is entered/edited by the user.
@@ -525,19 +519,6 @@ export class TextField {
     this.value = this.initialValue;
   };
 
-  private showValidationMargin = (): boolean => {
-    const maxNumChars = this.readonly ? 0 : this.maxCharacters;
-    const emptyString =
-      isEmptyString(this.validationStatus) ||
-      isEmptyString(this.validationText);
-    const valueOutsideRange = this.minValueUnattained || this.maxValueExceeded;
-    const charsOutsideRange = maxNumChars > 0 || this.minCharactersUnattained;
-    return (
-      (!emptyString || valueOutsideRange || charsOutsideRange) &&
-      !this.validationInlineInternal
-    );
-  };
-
   // triggered when attributes of host element change
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
@@ -592,7 +573,6 @@ export class TextField {
       minMessage,
       minValueUnattained,
       maxValueExceeded,
-      validationAriaLive,
       validationStatus,
       validationText,
       validationInline,
@@ -641,14 +621,12 @@ export class TextField {
 
     const maxNumChars = readonly ? 0 : maxCharacters;
     const messageAriaLive =
-      validationAriaLive === "default"
-        ? maxCharactersWarning ||
-          maxValueExceeded ||
-          minValueUnattained ||
-          currentStatus === IcInformationStatus.Error
-          ? "assertive"
-          : "polite"
-        : validationAriaLive;
+      maxCharactersWarning ||
+      maxValueExceeded ||
+      minValueUnattained ||
+      currentStatus === IcInformationStatus.Error
+        ? "assertive"
+        : "polite";
 
     const showStatusText =
       this.hasStatus(currentStatus) &&
@@ -805,44 +783,52 @@ export class TextField {
             )}
           </ic-input-component-container>
           {isSlotUsed(el, "menu") && <slot name="menu"></slot>}
-          <ic-input-validation
-            class={{ "hidden-validation": !this.showValidationMargin() }}
-            status={
-              this.hasStatus(currentStatus) === false ||
-              (currentStatus === IcInformationStatus.Success &&
-                validationInline) ||
-              validationInlineInternal
-                ? ""
-                : currentStatus
-            }
-            message={showStatusText ? currentValidationText : ""}
-            ariaLiveMode={messageAriaLive}
-            for={inputId}
-            fullWidth={fullWidth}
-          >
-            {!readonly && maxNumChars > 0 && (
-              <div slot="validation-message-adornment">
-                {!hideCharCount && (
-                  <ic-typography variant="caption" class="char-count-text">
-                    <span class="char-count">
-                      {numChars}/{maxNumChars}
+          {(!isEmptyString(validationStatus) ||
+            !isEmptyString(validationText) ||
+            maxNumChars > 0 ||
+            maxValueExceeded ||
+            maxCharactersWarning ||
+            minCharactersUnattained ||
+            minValueUnattained) &&
+            !validationInlineInternal && (
+              <ic-input-validation
+                status={
+                  this.hasStatus(currentStatus) === false ||
+                  (currentStatus === IcInformationStatus.Success &&
+                    validationInline) ||
+                  validationInlineInternal
+                    ? ""
+                    : currentStatus
+                }
+                message={showStatusText ? currentValidationText : ""}
+                ariaLiveMode={messageAriaLive}
+                for={inputId}
+                fullWidth={fullWidth}
+              >
+                {!readonly && maxNumChars > 0 && (
+                  <div slot="validation-message-adornment">
+                    {!hideCharCount && (
+                      <ic-typography variant="caption" class="char-count-text">
+                        <span class="char-count">
+                          {numChars}/{maxNumChars}
+                        </span>
+                      </ic-typography>
+                    )}
+                    <span
+                      class="remaining-char-count-desc"
+                      aria-live="polite"
+                      hidden={!isFocussed}
+                      id={remainingCharCountDescId}
+                    >
+                      {remainingCharCountDesc}
                     </span>
-                  </ic-typography>
+                    <span hidden={true} id={hiddenCharCountDescId}>
+                      Field can contain a maximum of {maxNumChars} characters.
+                    </span>
+                  </div>
                 )}
-                <span
-                  class="remaining-char-count-desc"
-                  aria-live="polite"
-                  hidden={!isFocussed}
-                  id={remainingCharCountDescId}
-                >
-                  {remainingCharCountDesc}
-                </span>
-                <span hidden={true} id={hiddenCharCountDescId}>
-                  Field can contain a maximum of {maxNumChars} characters.
-                </span>
-              </div>
+              </ic-input-validation>
             )}
-          </ic-input-validation>
         </ic-input-container>
       </Host>
     );

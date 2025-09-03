@@ -1,1 +1,1 @@
-export type IcAriaLiveModeVariants = "polite" | "assertive" | "off";
+export type IcAriaLiveModeVariants = "polite" | "assertive";

@@ -213,7 +213,6 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
                 <ic-input-component-container size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
-                <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-2" message="" status=""></ic-input-validation>
               </ic-input-container>
             </template>
           </ic-text-field>
@@ -288,7 +287,6 @@ exports[`ic-radio-group should render with selected static additional field: ren
                 <ic-input-component-container size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
-                <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-1" message="" status=""></ic-input-validation>
               </ic-input-container>
             </template>
           </ic-text-field>
@@ -336,7 +334,6 @@ exports[`ic-radio-group should render with unselected static additional field: r
                 <ic-input-component-container disabled="" size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
-                <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
               </ic-input-container>
             </template>
           </ic-text-field>

@@ -9,7 +9,6 @@ exports[`ic-text-field should render a textarea 1`] = `
       </ic-input-label>
       <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" rows="6" value=""></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
@@ -25,7 +24,6 @@ exports[`ic-text-field should render textarea disabled 1`] = `
       </ic-input-label>
       <ic-input-component-container disabled="" multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" disabled="" id="ic-text-field-input-7" inputmode="text" name="ic-text-field-input-7" placeholder="" rows="6" value="test value"></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-7" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" disabled="" name="ic-text-field-input-7" type="hidden" value="test value">
@@ -41,7 +39,6 @@ exports[`ic-text-field should render textarea readonly 1`] = `
       </ic-input-label>
       <ic-input-component-container disabled="" multiline="" readonly="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-left-pad no-resize readonly" disabled="" id="ic-text-field-input-8" inputmode="text" name="ic-text-field-input-8" placeholder="" readonly="" rows="6" value="test value"></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-8" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" disabled="" name="ic-text-field-input-8" type="hidden" value="test value">
@@ -57,7 +54,6 @@ exports[`ic-text-field should render textarea with autoprops 1`] = `
       </ic-input-label>
       <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="on" autocomplete="on" class="no-resize" id="ic-text-field-input-4" inputmode="text" name="ic-text-field-input-4" placeholder="" rows="6" value="test value"></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-4" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-4" type="hidden" value="test value">
@@ -89,7 +85,6 @@ exports[`ic-text-field should render textarea with helperText, required and smal
       </ic-input-label>
       <ic-input-component-container multiline="" size="small" validationstatus=""><textarea aria-describedby="ic-text-field-input-3-helper-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-3" inputmode="text" name="ic-text-field-input-3" placeholder="" required="" rows="6" value=""></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-3" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-3" type="hidden" value="">
@@ -102,7 +97,6 @@ exports[`ic-text-field should render textarea with hidden label 1`] = `
     <ic-input-container>
       <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-5" inputmode="text" name="ic-text-field-input-5" placeholder="" rows="6" value="test value"></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-5" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-5" type="hidden" value="test value">
@@ -121,7 +115,6 @@ exports[`ic-text-field should render textarea with icon 1`] = `
           <slot name="icon"></slot>
         </span><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-6" inputmode="text" name="ic-text-field-input-6" placeholder="" rows="6" value=""></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-6" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +164,6 @@ exports[`ic-text-field should render textarea with name & full width 1`] = `
       </ic-input-label>
       <ic-input-component-container fullwidth="" multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-11" inputmode="text" name="mycontrolname" placeholder="" rows="2" value="test value"></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-11" fullwidth="" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="mycontrolname" type="hidden" value="test value">
@@ -187,7 +179,6 @@ exports[`ic-text-field should render textarea with placeholder 1`] = `
       </ic-input-label>
       <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="placeholder" rows="6" value=""></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-1" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-1" type="hidden" value="">
@@ -203,7 +194,6 @@ exports[`ic-text-field should render textarea with resize 1`] = `
       </ic-input-label>
       <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-15" inputmode="text" name="ic-text-field-input-15" placeholder="" rows="6" value="test value"></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-15" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-15" type="hidden" value="test value">
@@ -235,7 +225,6 @@ exports[`ic-text-field should render textarea with value 1`] = `
       </ic-input-label>
       <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="" rows="6" value="test value"></textarea>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-2" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-2" type="hidden" value="test value">
