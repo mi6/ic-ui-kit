@@ -5,6 +5,50 @@ export default {
   component: "ic-toggle-button",
 };
 
+const CUSTOM_BUTTON = "Custom Button";
+const INLINE_RADIO = "inline-radio";
+
+const defaultArgs = {
+  label: CUSTOM_BUTTON,
+  disabled: false,
+  loading: false,
+  monochrome: false,
+  outline: true,
+  size: "medium",
+  theme: "inherit",
+  variant: "default",
+  fullWidth: false,
+  checked: false,
+};
+
+const defaultWithIconArgs = {
+  label: CUSTOM_BUTTON,
+  disabled: false,
+  loading: false,
+  monochrome: false,
+  size: "medium",
+  variant: "default",
+  theme: "inherit",
+  fullWidth: false,
+  iconPlacement: "left",
+  checked: false,
+  accessibleLabel: "Custom Button Ally Label",
+};
+
+const defaultIconArgs = {
+  label: CUSTOM_BUTTON,
+  disabled: false,
+  loading: false,
+  monochrome: false,
+  size: "medium",
+  theme: "inherit",
+  variant: "icon",
+  fullWidth: false,
+  checked: false,
+  accessibleLabel: "Custom Button Ally Label",
+  tooltipPlacement: "bottom",
+};
+
 export const Default = {
   render: (args) =>
     html`<ic-toggle-button label="Toggle"></ic-toggle-button>
@@ -431,4 +475,196 @@ export const HideOutline = {
     html`<ic-toggle-button label="Toggle" outline="false"></ic-toggle-button>`,
 
   name: "Hide outline",
+};
+
+export const Playground = {
+  render: (args) => html` <ic-toggle-button
+    label=${args.label}
+    disabled=${args.disabled}
+    variant=${args.variant}
+    size=${args.size}
+    loading=${args.loading}
+    monochrome=${args.monochrome}
+    outline=${args.outline}
+    full-width=${args.fullWidth}
+    checked=${args.checked}
+    theme=${args.theme}
+  />`,
+
+  args: defaultArgs,
+
+  argTypes: {
+    size: {
+      options: ["medium", "large", "small"],
+
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+
+    checked: {
+      control: {
+        type: "boolean",
+      },
+    },
+
+    fullWidth: {
+      control: {
+        type: "boolean",
+      },
+    },
+
+    theme: {
+      options: ["inherit", "light", "dark"],
+
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+  },
+
+  name: "Playground",
+};
+
+export const PlaygroundDefaultWithIcon = {
+  render: (args) => html` <ic-toggle-button
+    label=${args.label}
+    disabled=${args.disabled}
+    variant=${args.variant}
+    size=${args.size}
+    loading=${args.loading}
+    monochrome=${args.monochrome}
+    full-width=${args.fullWidth}
+    checked=${args.checked}
+    icon-placement=${args.iconPlacement}
+    theme=${args.theme}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      slot="icon"
+      height="24px"
+      view-box="0 0 24 24"
+      width="24px"
+      fill="#000000"
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path
+        d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+      />
+    </svg>
+  </ic-toggle-button>`,
+
+  args: defaultWithIconArgs,
+
+  argTypes: {
+    size: {
+      options: ["medium", "large", "small"],
+
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+
+    checked: {
+      control: {
+        type: "boolean",
+      },
+    },
+
+    iconPlacement: {
+      options: ["left", "right", "top"],
+
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+
+    fullWidth: {
+      control: {
+        type: "boolean",
+      },
+    },
+
+    theme: {
+      options: ["inherit", "light", "dark"],
+
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+  },
+
+  name: "Playground - default with icon",
+};
+
+export const PlaygroundIconVariant = {
+  render: (args) => html` <ic-toggle-button
+    label=${args.label}
+    disabled=${args.disabled}
+    variant=${args.variant}
+    size=${args.size}
+    loading=${args.loading}
+    monochrome=${args.monochrome}
+    full-width=${args.fullWidth}
+    checked=${args.checked}
+    accessible-label=${args.accessibleLabel}
+    theme=${args.theme}
+    tooltip-placement=${args.tooltipPlacement}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      slot="icon"
+      height="24px"
+      view-box="0 0 24 24"
+      width="24px"
+      fill="#000000"
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path
+        d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+      />
+    </svg>
+  </ic-toggle-button>`,
+
+  args: defaultIconArgs,
+
+  argTypes: {
+    size: {
+      options: ["medium", "large", "small"],
+
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+
+    checked: {
+      control: {
+        type: "boolean",
+      },
+    },
+
+    fullWidth: {
+      control: {
+        type: "boolean",
+      },
+    },
+
+    theme: {
+      options: ["inherit", "light", "dark"],
+
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+
+    tooltipPlacement: {
+      options: ["bottom", "top", "left", "right"],
+
+      control: {
+        type: "radio",
+      },
+    },
+  },
+
+  name: "Playground - icon variant",
 };

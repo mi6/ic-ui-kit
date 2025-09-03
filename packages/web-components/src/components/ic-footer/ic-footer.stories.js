@@ -5,6 +5,78 @@ export default {
   component: "ic-footer",
 };
 
+const defaultArgs = {
+  aligned: "left",
+  breakpoint: "medium",
+  caption:
+    "All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence.",
+  copyright: true,
+  description:
+    "The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch.",
+  groupLinks: true,
+};
+
+export const Playground = {
+  render: (args) => html` <ic-footer
+    aligned=${args.aligned}
+    breakpoint=${args.breakpoint}
+    caption=${args.caption}
+    copyright=${args.copyright}
+    description=${args.description}
+    group-links=${args.groupLinks}
+  >
+    <ic-footer-link-group slot="link" label="Links 1">
+      <ic-footer-link href="/">Get Started</ic-footer-link>
+      <ic-footer-link href="/">Accessibility</ic-footer-link>
+      <ic-footer-link href="/">Styles</ic-footer-link>
+    </ic-footer-link-group>
+    <ic-footer-link-group slot="link" label="Links 2">
+      <ic-footer-link href="/">Get Started</ic-footer-link>
+      <ic-footer-link href="/">Accessibility</ic-footer-link>
+      <ic-footer-link href="/">Styles</ic-footer-link>
+    </ic-footer-link-group>
+    <ic-footer-link-group slot="link" label="Links 3">
+      <ic-footer-link href="/">Get Started</ic-footer-link>
+      <ic-footer-link href="/">Accessibility</ic-footer-link>
+      <ic-footer-link href="/">Styles</ic-footer-link>
+    </ic-footer-link-group>
+    <div
+      slot="logo"
+      style="
+          width:100px;
+          height:100px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          background-color:var(--ic-brand-color-primary);
+          color:var(--ic-brand-text-color);"
+    >
+      Logo
+    </div>
+  </ic-footer>`,
+
+  args: defaultArgs,
+  name: "Playground",
+
+  argTypes: {
+    aligned: {
+      options: ["center", "full-width", "left"],
+
+      control: {
+        type: "select",
+      },
+    },
+
+    breakpoint: {
+      options: ["extra large", "extra small", "large", "medium", "small"],
+
+      control: {
+        type: "select",
+      },
+    },
+  },
+};
+
 export const UngroupedLinks = {
   render: () => html`
     <ic-footer
