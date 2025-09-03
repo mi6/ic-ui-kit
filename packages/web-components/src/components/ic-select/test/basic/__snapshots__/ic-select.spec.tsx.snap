@@ -11,7 +11,7 @@ exports[`ic-select multi should not render a native select on a mobile / tablet 
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-73-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-73-menu" class="select-input" id="ic-select-input-73">
+            <button aria-controls="ic-select-input-73-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-73-menu" aria-required="false" class="select-input" id="ic-select-input-73" role="combobox">
               <ic-typography class="placeholder value-text" variant="body">
                 Select an option
               </ic-typography>
@@ -73,7 +73,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-76-menu" aria-describedby="" aria-expanded="true" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, 1 of 3 selected, Test label 1" aria-owns="ic-select-input-76-menu" class="select-input" id="ic-select-input-76">
+            <button aria-controls="ic-select-input-76-menu" aria-describedby="" aria-expanded="true" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, 1 of 3 selected, Test label 1" aria-owns="ic-select-input-76-menu" aria-required="false" class="select-input" id="ic-select-input-76" role="combobox">
               <ic-typography class="value-text" variant="body">
                 Test label 1
               </ic-typography>
@@ -140,7 +140,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-76-menu" aria-describedby="" aria-expanded="true" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, 2 of 3 selected, Test label 1, Test label 2" aria-owns="ic-select-input-76-menu" class="select-input" id="ic-select-input-76">
+            <button aria-controls="ic-select-input-76-menu" aria-describedby="" aria-expanded="true" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, 2 of 3 selected, Test label 1, Test label 2" aria-owns="ic-select-input-76-menu" aria-required="false" class="select-input" id="ic-select-input-76" role="combobox">
               <ic-typography class="value-text" variant="body">
                 Test label 1, Test label 2
               </ic-typography>
@@ -389,7 +389,7 @@ exports[`ic-select should have correct validation status: with-validation-status
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-4-menu" aria-describedby="ic-select-input-4-validation-text" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-4-menu" class="select-input" id="ic-select-input-4">
+            <button aria-controls="ic-select-input-4-menu" aria-describedby="ic-select-input-4-validation-text" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-4-menu" aria-required="false" class="select-input" id="ic-select-input-4" role="combobox">
               <ic-typography class="placeholder value-text" variant="body">
                 Select an option
               </ic-typography>
@@ -433,7 +433,7 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-5-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-5-menu" class="select-input" disabled="" id="ic-select-input-5">
+            <button aria-controls="ic-select-input-5-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-5-menu" aria-required="false" class="select-input" disabled="" id="ic-select-input-5" role="combobox">
               <ic-typography class="placeholder value-text" variant="body">
                 Select an option
               </ic-typography>
@@ -473,7 +473,7 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-0-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-0-menu" class="select-input" id="ic-select-input-0">
+            <button aria-controls="ic-select-input-0-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-0-menu" aria-required="false" class="select-input" id="ic-select-input-0" role="combobox">
               <ic-typography class="placeholder value-text" variant="body">
                 Select an option
               </ic-typography>
@@ -516,7 +516,7 @@ exports[`ic-select should not render validation text if no validation status has
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-7-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-7-menu" class="select-input" id="ic-select-input-7">
+            <button aria-controls="ic-select-input-7-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-7-menu" aria-required="false" class="select-input" id="ic-select-input-7" role="combobox">
               <ic-typography class="placeholder value-text" variant="body">
                 Select an option
               </ic-typography>
@@ -559,7 +559,7 @@ exports[`ic-select should render correct validation text: with-validation-text 1
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-6-menu" aria-describedby="ic-select-input-6-validation-text" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-6-menu" class="select-input" id="ic-select-input-6">
+            <button aria-controls="ic-select-input-6-menu" aria-describedby="ic-select-input-6-validation-text" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-6-menu" aria-required="false" class="select-input" id="ic-select-input-6" role="combobox">
               <ic-typography class="placeholder value-text" variant="body">
                 Select an option
               </ic-typography>
@@ -642,7 +642,7 @@ exports[`ic-select should render with an icon: with-icon 1`] = `
             </span>
           </div>
           <div class="select-container">
-            <button aria-controls="ic-select-input-3-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-3-menu" class="select-input" id="ic-select-input-3">
+            <button aria-controls="ic-select-input-3-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-3-menu" aria-required="false" class="select-input" id="ic-select-input-3" role="combobox">
               <ic-typography class="placeholder value-text" variant="body">
                 Select an option
               </ic-typography>
@@ -689,7 +689,7 @@ exports[`ic-select should test select as submit on form 1`] = `
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-1-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-1-menu" class="select-input" id="ic-select-input-1">
+            <button aria-controls="ic-select-input-1-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-1-menu" aria-required="false" class="select-input" id="ic-select-input-1" role="combobox">
               <ic-typography class="placeholder value-text" variant="body">
                 Select an option
               </ic-typography>
@@ -732,7 +732,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-8-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Test label 1" aria-owns="ic-select-input-8-menu" class="select-input" id="ic-select-input-8">
+            <button aria-controls="ic-select-input-8-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Test label 1" aria-owns="ic-select-input-8-menu" aria-required="false" class="select-input" id="ic-select-input-8" role="combobox">
               <ic-typography class="value-text with-clear-button" variant="body">
                 Test label 1
               </ic-typography>
