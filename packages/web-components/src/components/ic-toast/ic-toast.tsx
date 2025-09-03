@@ -396,7 +396,7 @@ export class Toast {
               id="dismiss-button"
               innerHTML={closeIcon}
               onClick={this.dismissAction}
-              variant="icon"
+              variant="icon-tertiary"
               aria-label={dismissButtonAriaLabel}
             ></ic-button>
           )}

@@ -239,7 +239,7 @@ export class ToggleButton {
       >
         <ic-button
           aria-pressed={`${checked}`}
-          variant={iconVariant ? "icon" : "secondary"}
+          variant={iconVariant ? "icon-tertiary" : "secondary"}
           onClick={this.handleClick}
           title={accessibleLabel}
           aria-label={`${accessibleLabel ? accessibleLabel : label}, ${

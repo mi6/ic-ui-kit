@@ -59,8 +59,8 @@ exports[`ic-back-to-top should render with an icon only: should render with an i
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-large ic-button-variant-icon-secondary icon-only" exportparts="button">
       <template shadowrootmode="open">
-        <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-12" label="Back to top" placement="bottom" silent="" target="ic-button-with-tooltip-12">
-          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-12" aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
+        <ic-tooltip label="Back to top" placement="bottom" silent="" target="ic-button-with-tooltip-12">
+          <button aria-label="Back to top" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </ic-tooltip>

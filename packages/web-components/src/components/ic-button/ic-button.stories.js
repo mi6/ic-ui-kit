@@ -539,6 +539,20 @@ export const IconVariants = {
               />
             </svg>
           </ic-button>
+          <ic-button variant="icon" aria-label="refresh" id="testbutton">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-button>
           <ic-button
             variant="icon-destructive"
             aria-label="refresh"
@@ -864,6 +878,25 @@ export const IconVariants = {
             </svg>
           </ic-button>
           <ic-button
+            variant="icon"
+            aria-label="refresh"
+            id="testbutton"
+            disabled
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-button>
+          <ic-button
             variant="icon-destructive"
             aria-label="refresh"
             id="testbutton"
@@ -931,6 +964,26 @@ export const IconVariants = {
           </ic-button>
           <ic-button
             variant="icon-tertiary"
+            aria-label="refresh"
+            id="testbutton"
+            theme="light"
+            monochrome
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-button>
+          <ic-button
+            variant="icon"
             aria-label="refresh"
             id="testbutton"
             theme="light"
@@ -1077,6 +1130,25 @@ export const IconVariants = {
             </svg>
           </ic-button>
           <ic-button
+            variant="icon"
+            aria-label="refresh"
+            id="testbutton"
+            theme="dark"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-button>
+          <ic-button
             variant="icon-destructive"
             aria-label="refresh"
             id="testbutton"
@@ -1144,6 +1216,26 @@ export const IconVariants = {
           </ic-button>
           <ic-button
             variant="icon-tertiary"
+            aria-label="refresh"
+            id="testbutton"
+            theme="dark"
+            loading
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-button>
+          <ic-button
+            variant="icon"
             aria-label="refresh"
             id="testbutton"
             theme="dark"
@@ -1250,6 +1342,26 @@ export const IconVariants = {
             </svg>
           </ic-button>
           <ic-button
+            variant="icon"
+            aria-label="refresh"
+            id="testbutton"
+            theme="dark"
+            monochrome
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-button>
+          <ic-button
             variant="icon-primary"
             aria-label="refresh"
             id="testbutton"
@@ -1293,6 +1405,27 @@ export const IconVariants = {
           </ic-button>
           <ic-button
             variant="icon-tertiary"
+            aria-label="refresh"
+            id="testbutton"
+            theme="dark"
+            loading
+            monochrome
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-button>
+          <ic-button
+            variant="icon"
             aria-label="refresh"
             id="testbutton"
             theme="dark"
@@ -1621,6 +1754,25 @@ export const Dropdown = {
         <ic-button dropdown="true" variant="tertiary" size="large"
           >Button</ic-button
         >
+      </div>
+      <div style="padding: 6px">
+        <ic-button dropdown="true" variant="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-button>
+        <ic-button dropdown="true" variant="icon-primary"> </ic-button>
+        <ic-button dropdown="true" variant="icon-secondary"> </ic-button>
+        <ic-button dropdown="true" variant="icon-tertiary"> </ic-button>
       </div>
     </div>`,
 
@@ -2198,6 +2350,45 @@ export const Tooltips = {
         aria-label="refresh"
         title="aria label sets the icon button's accessible name, title adds a tooltip"
         id="testbutton"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+          /></svg
+      ></ic-button>
+      <ic-button variant="icon-primary" aria-label="primary" id="testbutton"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+          /></svg
+      ></ic-button>
+      <ic-button variant="icon-secondary" aria-label="secondary" id="testbutton"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+          /></svg
+      ></ic-button>
+      <ic-button variant="icon-tertiary" aria-label="tertiary" id="testbutton"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"

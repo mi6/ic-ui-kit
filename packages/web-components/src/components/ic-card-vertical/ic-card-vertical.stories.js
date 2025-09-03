@@ -174,7 +174,7 @@ export const WithInteractionButton = {
         />
       </svg>
       <ic-button
-        variant="icon"
+        variant="icon-tertiary"
         title="More information"
         slot="interaction-button"
       >
@@ -209,7 +209,7 @@ export const Adornment = {
         size="small"
       ></ic-status-tag>
       <ic-button
-        variant="icon"
+        variant="icon-tertiary"
         title="More information"
         slot="interaction-button"
       >
@@ -258,7 +258,7 @@ export const TopImage = {
         size="small"
       ></ic-status-tag>
       <ic-button
-        variant="icon"
+        variant="icon-tertiary"
         title="More information"
         slot="interaction-button"
       >
@@ -327,7 +327,7 @@ export const MiddleImage = {
         size="small"
       ></ic-status-tag>
       <ic-button
-        variant="icon"
+        variant="icon-tertiary"
         title="More information"
         slot="interaction-button"
       >
@@ -396,7 +396,7 @@ export const InteractionControls = {
         size="small"
       ></ic-status-tag>
       <ic-button
-        variant="icon"
+        variant="icon-tertiary"
         title="More information"
         slot="interaction-button"
       >
@@ -473,7 +473,7 @@ export const CustomWidth = {
           size="small"
         ></ic-status-tag>
         <ic-button
-          variant="icon"
+          variant="icon-tertiary"
           title="More information"
           slot="interaction-button"
         >
@@ -555,7 +555,7 @@ export const CustomWidth = {
           size="small"
         ></ic-status-tag>
         <ic-button
-          variant="icon"
+          variant="icon-tertiary"
           title="More information"
           slot="interaction-button"
         >
@@ -643,7 +643,7 @@ export const AdditionalHeight = {
         size="small"
       ></ic-status-tag>
       <ic-button
-        variant="icon"
+        variant="icon-tertiary"
         title="More information"
         slot="interaction-button"
       >
@@ -719,7 +719,7 @@ export const Expandable = {
         size="small"
       ></ic-status-tag>
       <ic-button
-        variant="icon"
+        variant="icon-tertiary"
         title="More information"
         slot="interaction-button"
       >
@@ -945,7 +945,7 @@ export const Playground = {
       ${args.showInteractionButton &&
       html`
         <ic-button
-          variant="icon"
+          variant="icon-tertiary"
           title="More information"
           slot="interaction-button"
         >
