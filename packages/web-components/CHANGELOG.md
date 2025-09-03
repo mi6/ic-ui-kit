@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.10.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.9.0...@ukic/web-components@3.10.0) (2025-09-03)
+
+### Bug Fixes
+
+- **web-components:** add autocomplete to multiline text field ([cdd7b90](https://github.com/mi6/ic-ui-kit/commit/cdd7b9015428439a773d66eb1028cd63dba6f4fc))
+- **web-components:** fix clear button overlapping with ic-select text ([b329db8](https://github.com/mi6/ic-ui-kit/commit/b329db8334b38727608aea2689903a44cf0d10ed)), closes [#3900](https://github.com/mi6/ic-ui-kit/issues/3900)
+- **web-components:** update horizontal scroll buttons to have the right colour on block colour comps ([16b90ea](https://github.com/mi6/ic-ui-kit/commit/16b90eafb811e6dc622b75e9bde3b3870de2dc9b)), closes [#3698](https://github.com/mi6/ic-ui-kit/issues/3698)
+
+### Features
+
+- **web-components:** fix text field validation aria-live behaviour, add validationAriaLive prop ([f11a07f](https://github.com/mi6/ic-ui-kit/commit/f11a07f46c150001141822c50a944ea3834ff6da)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+
+### Reverts
+
+- **web-components:** revert changes from PR [#3910](https://github.com/mi6/ic-ui-kit/issues/3910) so canary issues can be fixed ([403f6df](https://github.com/mi6/ic-ui-kit/commit/403f6df06a9f7d7a476a3dd5bef16c7e386680cd))
+
 # [3.9.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.8.0...@ukic/web-components@3.9.0) (2025-08-20)
 
 ### Bug Fixes
