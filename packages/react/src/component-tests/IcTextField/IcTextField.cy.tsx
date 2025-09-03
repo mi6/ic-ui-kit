@@ -242,6 +242,10 @@ describe("IcTextField end-to-end tests", () => {
     const input = cy.findShadowEl(IC_TEXTFIELD, 'input[type="number"]');
 
     input.type("2").wait(200).should(HAVE_VALUE, "2");
+    cy.get(IC_TEXTFIELD)
+      .shadow()
+      .find('[id$="validation-text"]')
+      .should(NOT_EXIST);
     cy.findShadowEl(IC_TEXTFIELD, ".icon-error").should(NOT_EXIST);
 
     input.clear();
