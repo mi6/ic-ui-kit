@@ -33,6 +33,7 @@ const TIME_INPUT = "ic-time-input";
 const HOUR_INPUT = 'input[id="hour-input"]';
 const MINUTE_INPUT = 'input[id="minute-input"]';
 const SECOND_INPUT = 'input[id="second-input"]';
+const STATUS_TEXT_SPAN = ".statustext span";
 
 const DEFAULT_TEST_THRESHOLD = 0.008;
 
@@ -332,7 +333,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.get(TIME_INPUT)
         .shadow()
-        .find(".statustext")
+        .find(STATUS_TEXT_SPAN)
+        .eq(0)
         .should(HAVE_TEXT, "Please enter a valid time.");
     });
 
@@ -350,7 +352,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.get(TIME_INPUT)
         .shadow()
-        .find(".statustext")
+        .find(STATUS_TEXT_SPAN)
+        .eq(0)
         .should(HAVE_TEXT, "Please enter a valid time.");
     });
 
@@ -368,7 +371,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.get(TIME_INPUT)
         .shadow()
-        .find(".statustext")
+        .find(STATUS_TEXT_SPAN)
+        .eq(0)
         .should(HAVE_TEXT, "Please enter a time after 08:00:00.");
     });
 
@@ -386,7 +390,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.get(TIME_INPUT)
         .shadow()
-        .find(".statustext")
+        .find(STATUS_TEXT_SPAN)
+        .eq(0)
         .should(HAVE_TEXT, "Please enter a time before 16:00:00.");
     });
 
@@ -404,7 +409,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.get(TIME_INPUT)
         .shadow()
-        .find(".statustext")
+        .find(STATUS_TEXT_SPAN)
+        .eq(0)
         .should(HAVE_TEXT, "Please enter a valid time.");
     });
 
@@ -422,7 +428,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.get(TIME_INPUT)
         .shadow()
-        .find(".statustext")
+        .find(STATUS_TEXT_SPAN)
+        .eq(0)
         .should(HAVE_TEXT, "Please enter a valid time.");
     });
 
@@ -440,7 +447,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.get(TIME_INPUT)
         .shadow()
-        .find(".statustext")
+        .find(STATUS_TEXT_SPAN)
+        .eq(0)
         .should(HAVE_TEXT, "Please enter a valid time.");
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("10");
