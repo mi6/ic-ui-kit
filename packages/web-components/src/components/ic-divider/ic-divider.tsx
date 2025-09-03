@@ -33,6 +33,8 @@ import {
   scoped: true,
 })
 export class Divider {
+  private parentElIsSideNav: boolean = false;
+
   @Element() el: HTMLIcDividerElement;
 
   @State() foregroundColor: IcBrandForeground = getBrandForegroundAppearance();
@@ -76,6 +78,17 @@ export class Divider {
   }
 
   private updateMonochromeState(): void {
+    if (this.parentElIsSideNav) {
+      this.el.classList.add("ic-side-navigation-keyline");
+      if (this.foregroundColor === "light") {
+        this.theme = "dark";
+      } else {
+        this.theme = "light";
+      }
+    }
+  }
+
+  componentWillRender(): void {
     const parentEl = this.el.parentElement;
     if (parentEl) {
       const isBottomSideNav = parentEl.classList.contains("bottom-side-nav");
@@ -86,17 +99,9 @@ export class Divider {
         parentEl.tagName === "IC-SIDE-NAVIGATION" ||
         (isBottomSideNav && isBottomWrapper)
       ) {
-        this.el.classList.add("ic-side-navigation-keyline");
-        if (this.foregroundColor === "light") {
-          this.theme = "dark";
-        } else {
-          this.theme = "light";
-        }
+        this.parentElIsSideNav = true;
       }
     }
-  }
-
-  componentWillRender(): void {
     this.updateMonochromeState();
   }
 
@@ -178,7 +183,8 @@ export class Divider {
         })}
       >
         {orientation === "horizontal" &&
-          (!renderLabel() || !isPropDefined(labelPlacement)) && <hr />}
+          (!renderLabel() || !isPropDefined(labelPlacement)) &&
+          (this.parentElIsSideNav ? <li role="separator" /> : <hr />)}
         {!!isPropDefined(labelPlacement) && !!renderLabel() && renderLabel()}
         {orientation === "vertical" &&
           (!renderLabel() || !isPropDefined(labelPlacement)) && (

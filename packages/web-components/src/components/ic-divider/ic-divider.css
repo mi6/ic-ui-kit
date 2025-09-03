@@ -36,12 +36,17 @@
   column-gap: var(--ic-space-xxs);
 }
 
-hr {
+hr,
+li {
   padding: 0;
   margin: 0;
   border: none;
   border-bottom: solid var(--ic-space-1px) var(--ic-divider-background);
   width: inherit;
+}
+
+li {
+  list-style: none;
 }
 
 :host(.ic-divider-horizontal)::before,
@@ -84,6 +89,7 @@ hr {
 
 /* Theme */
 hr,
+li,
 :host(.ic-divider-horizontal)[label-placement="right"]::before,
 :host(.ic-divider-horizontal[label-placement="center"])::before,
 :host(.ic-divider-horizontal[label-placement="left"])::after,
@@ -92,6 +98,7 @@ hr,
 }
 
 :host(.ic-divider-monochrome) hr,
+:host(.ic-divider-monochrome) li,
 :host(.ic-divider-monochrome.ic-divider-horizontal)[label-placement="right"]::before,
 :host(.ic-divider-monochrome.ic-divider-horizontal[label-placement="center"])::before,
 :host(.ic-divider-monochrome.ic-divider-horizontal[label-placement="left"])::after,
@@ -125,6 +132,7 @@ hr,
 }
 
 :host(.ic-side-navigation-keyline.ic-theme-dark) hr,
+:host(.ic-side-navigation-keyline.ic-theme-dark) li,
 :host(.ic-side-navigation-keyline.ic-theme-dark.ic-divider-horizontal)[label-placement="right"]::before,
 :host(.ic-side-navigation-keyline.ic-theme-dark.ic-divider-horizontal[label-placement="center"])::before,
 :host(.ic-side-navigation-keyline.ic-theme-dark.ic-divider-horizontal[label-placement="left"])::after,
@@ -141,6 +149,7 @@ hr,
 }
 
 :host(.ic-side-navigation-keyline.ic-theme-light) hr,
+:host(.ic-side-navigation-keyline.ic-theme-light) li,
 :host(.ic-side-navigation-keyline.ic-theme-light.ic-divider-horizontal)[label-placement="right"]::before,
 :host(.ic-side-navigation-keyline.ic-theme-light.ic-divider-horizontal[label-placement="center"])::before,
 :host(.ic-side-navigation-keyline.ic-theme-light.ic-divider-horizontal[label-placement="left"])::after,
@@ -158,6 +167,7 @@ hr,
 
 /* Weight */
 :host(.ic-divider-very-thick) hr,
+:host(.ic-divider-very-thick) li,
 :host(.ic-divider-very-thick[label-placement="right"])::before,
 :host(.ic-divider-very-thick[label-placement="center"])::before,
 :host(.ic-divider-very-thick[label-placement="left"])::after,
@@ -174,6 +184,7 @@ hr,
 }
 
 :host(.ic-divider-thick) hr,
+:host(.ic-divider-thick) li,
 :host(.ic-divider-thick[label-placement="right"])::before,
 :host(.ic-divider-thick[label-placement="center"])::before,
 :host(.ic-divider-thick[label-placement="left"])::after,
@@ -190,6 +201,7 @@ hr,
 }
 
 :host(.ic-divider-medium) hr,
+:host(.ic-divider-medium) li,
 :host(.ic-divider-medium[label-placement="right"])::before,
 :host(.ic-divider-medium[label-placement="center"])::before,
 :host(.ic-divider-medium[label-placement="left"])::after,
@@ -206,6 +218,7 @@ hr,
 }
 
 :host(.ic-divider-thin) hr,
+:host(.ic-divider-thin) li,
 :host(.ic-divider-thin[label-placement="right"])::before,
 :host(.ic-divider-thin[label-placement="center"])::before,
 :host(.ic-divider-thin[label-placement="left"])::after,
@@ -223,6 +236,7 @@ hr,
 
 /* Border styling */
 :host(.ic-divider-dashed) hr,
+:host(.ic-divider-dashed) li,
 :host(.ic-divider-dashed[label-placement="right"])::before,
 :host(.ic-divider-dashed[label-placement="center"])::before,
 :host(.ic-divider-dashed[label-placement="left"])::after,
@@ -282,6 +296,7 @@ hr,
 /* High contrast */
 @media (forced-colors: active) {
   hr,
+  li,
   :host(.ic-divider-horizontal[label-placement="right"])::before,
   :host(.ic-divider-horizontal[label-placement="center"])::before,
   :host(.ic-divider-horizontal[label-placement="left"])::after,
