@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.10.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.9.0...@ukic/react@3.10.0) (2025-09-03)
+
+### Bug Fixes
+
+- **react:** fix back to top plaground target ([e13a719](https://github.com/mi6/ic-ui-kit/commit/e13a719d894272bad05fe89d80b2c4a6a41f63bc))
+
+### Features
+
+- **react:** add story for testing validation aria-live behaviour ([539e299](https://github.com/mi6/ic-ui-kit/commit/539e299ccf9a3fc3b9ab169b3c1f5e6dab41f2f6)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+
+### Reverts
+
+- **react:** revert changes from PR [#3910](https://github.com/mi6/ic-ui-kit/issues/3910) so canary issues can be fixed ([b11f5ae](https://github.com/mi6/ic-ui-kit/commit/b11f5aeb08c8fa2a06bc1f728a12109217067063))
+
 # [3.9.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.8.0...@ukic/react@3.9.0) (2025-08-20)
 
 ### Bug Fixes

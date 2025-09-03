@@ -7,6 +7,78 @@ export default {
   component: "ic-hero",
 };
 
+const defaultArgs = {
+  aligned: "left",
+  backgroundImage: image,
+  contentAligned: "left",
+  disableBackgroundParallax: false,
+  heading: "Hero heading",
+  secondaryHeading: "Secondary Heading",
+  secondarySubheading: "This is a secondary description.",
+  size: "medium",
+  subheading:
+    "Hero description. This is a Hero component, it should be used as a page heading.",
+  showSecondary: false,
+};
+
+export const Playground = {
+  render: (args) => html` <ic-hero
+    aligned=${args.aligned}
+    background-image=${args.backgroundImage}
+    content-aligned=${args.contentAligned}
+    disable-background-parallax=${args.disableBackgroundParallax}
+    heading=${args.heading}
+    secondary-heading=${args.secondaryHeading}
+    secondary-subheading=${args.secondarySubheading}
+    size=${args.size}
+    subheading=${args.subheading}
+  >
+    <ic-button variant="primary" slot="interaction"> Button </ic-button>
+    <ic-button variant="secondary" slot="interaction"> Button </ic-button>
+    ${args.showSecondary &&
+    html`
+      <ic-card-vertical
+        heading="Latest announcement"
+        message="This is some example text that can be included in the card copy."
+        slot="secondary"
+      />
+    `}
+  </ic-hero>`,
+
+  args: defaultArgs,
+  name: "Playground",
+
+  parameters: {
+    layout: "fullscreen",
+  },
+
+  argTypes: {
+    aligned: {
+      options: ["center", "full-width", "left"],
+
+      control: {
+        type: "select",
+      },
+    },
+
+    contentAligned: {
+      options: ["center", "left"],
+
+      control: {
+        type: "select",
+      },
+    },
+
+    size: {
+      options: ["medium", "small"],
+
+      control: {
+        type: "select",
+      },
+    },
+  },
+};
+
 export const LeftAligned = {
   render: () =>
     html`<ic-hero

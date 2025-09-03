@@ -275,7 +275,7 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
         <!---->
         <div class="focus-indicator">
           <div class="searchable-select-container">
-            <input aria-autocomplete="list" aria-controls="ic-select-input-29-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input" id="ic-select-input-29" placeholder="Select an option" role="combobox">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-29-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input value-text" id="ic-select-input-29" placeholder="Select an option" role="combobox">
             <span aria-hidden="true" class="expand-icon">
               svg
             </span>
@@ -313,7 +313,7 @@ exports[`ic-select searchable should render disabled: disabled-removed 1`] = `
         <!---->
         <div class="focus-indicator">
           <div class="searchable-select-container">
-            <input aria-autocomplete="list" aria-controls="ic-select-input-71-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="false" autocomplete="off" class="select-input" id="ic-select-input-71" placeholder="Select an option" role="combobox">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-71-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="false" autocomplete="off" class="select-input value-text" id="ic-select-input-71" placeholder="Select an option" role="combobox">
             <span aria-hidden="true" class="expand-icon">
               svg
             </span>
@@ -351,7 +351,7 @@ exports[`ic-select searchable should render disabled: renders-disabled 1`] = `
         <!---->
         <div class="focus-indicator">
           <div class="searchable-select-container">
-            <input aria-autocomplete="list" aria-controls="ic-select-input-71-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="false" autocomplete="off" class="select-input" disabled="" id="ic-select-input-71" placeholder="Select an option" role="combobox">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-71-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="false" autocomplete="off" class="select-input value-text" disabled="" id="ic-select-input-71" placeholder="Select an option" role="combobox">
             <span aria-hidden="true" class="expand-icon">
               svg
             </span>

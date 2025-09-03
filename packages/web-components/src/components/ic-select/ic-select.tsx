@@ -1253,6 +1253,7 @@ export class Select {
               <div class="searchable-select-container">
                 <input
                   class={{
+                    "value-text": true,
                     "select-input": true,
                     "with-clear-button": !!searchableSelectInputValue,
                   }}
