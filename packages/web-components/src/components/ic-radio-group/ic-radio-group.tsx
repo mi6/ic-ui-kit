@@ -368,7 +368,7 @@ export class RadioGroup {
         <fieldset
           role="radiogroup"
           id={this.name}
-          // aria-label={`${label} ${required ? ", required" : ""}`}
+          aria-required={`${required}`}
         >
           {!hideLabel && (
             <legend>
