@@ -33,7 +33,6 @@ const defaultArgs = {
   spellcheck: false,
   theme: "inherit",
   type: "text",
-  validationAriaLive: "default",
   validationInline: false,
   validationStatus: "no status",
   validationText: "",
@@ -801,90 +800,6 @@ export const Validation = {
   name: "Validation",
 };
 
-export const AriaLiveBehaviour = {
-  render: (args) =>
-    html`<ic-text-field
-        id="field-1"
-        label="What is your favourite coffee?"
-        helper-text="Error already set on page load"
-        validation-status="error"
-        validation-text="First error message"
-      ></ic-text-field>
-      <br />
-      <ic-text-field
-        id="field-2"
-        label="What is your favourite coffee?"
-        helper-text="Error set after page load"
-      ></ic-text-field>
-      <br />
-      <ic-button id="toggle-btn-1">Toggle errors</ic-button>
-      <script>
-        let showErrors1 = false;
-        const btn1 = document.getElementById("toggle-btn-1");
-        const field1 = document.getElementById("field-1");
-        const field2 = document.getElementById("field-2");
-
-        btn1.addEventListener("click", () => {
-          showErrors1 = !showErrors1;
-
-          field1.setAttribute("validation-status", showErrors1 ? "" : "error");
-          field1.setAttribute(
-            "validation-text",
-            showErrors1 ? "" : "First error message"
-          );
-
-          field2.setAttribute("validation-status", showErrors1 ? "error" : "");
-          field2.setAttribute(
-            "validation-text",
-            showErrors1 ? "Second error message" : ""
-          );
-        });
-      </script>
-      <br />
-      <br />
-      <br />
-      <br />
-      <ic-text-field
-        id="field-3"
-        label="What is your favourite coffee?"
-        helper-text="aria-live overridden as 'polite'"
-        validation-aria-live="polite"
-      ></ic-text-field>
-      <br />
-      <ic-text-field
-        id="field-4"
-        label="What is your favourite coffee?"
-        helper-text="aria-live overridden as 'polite'"
-        validation-aria-live="polite"
-      ></ic-text-field>
-      <br />
-      <ic-button id="toggle-btn-2">Toggle errors</ic-button>
-      <script>
-        let showErrors2 = false;
-        const btn2 = document.getElementById("toggle-btn-2");
-        const field3 = document.getElementById("field-3");
-        const field4 = document.getElementById("field-4");
-
-        btn2.addEventListener("click", () => {
-          showErrors2 = !showErrors2;
-
-          field3.setAttribute("validation-status", showErrors2 ? "error" : "");
-          field3.setAttribute(
-            "validation-text",
-            showErrors2 ? "Third error message" : ""
-          );
-
-          field4.setAttribute("validation-status", showErrors2 ? "error" : "");
-          field4.setAttribute(
-            "validation-text",
-            showErrors2 ? "Fourth error message" : ""
-          );
-        });
-      </script>`,
-
-  name: "Aria-live behaviour",
-};
-
 export const TextAreaWithResize = {
   render: (args) =>
     html`<ic-text-field
@@ -954,8 +869,6 @@ export const MinAndMax = {
         type="number"
         min-message="You must order at least 1 coffee"
         max-message="You cannot order more than 4 coffees"
-        min="1"
-        max="4"
       >
       </ic-text-field>`,
 
@@ -1000,8 +913,8 @@ export const MaximumAndMinimumCharacters = {
       </ic-text-field>
       <br />
       <ic-text-field
-        min-characters="2"
-        max-characters="5"
+        min-characters="{2}"
+        max-characters="{5}"
         min-characters-message="Too short - please type at least 2 characters"
         max-characters-message="5 characters is long enough"
         label="What is your favourite coffee?"
@@ -1010,8 +923,6 @@ export const MaximumAndMinimumCharacters = {
 
   name: "Maximum and minimum characters",
 };
-
-const inlineRadioSelector = "inline-radio";
 
 export const Playground = {
   render: (args) =>
@@ -1051,7 +962,6 @@ export const Playground = {
           spellcheck=${args.spellcheck}
           theme=${args.theme}
           type=${args.type}
-          validation-aria-live=${args.validationAriaLive}
           validation-inline=${args.validationInline}
           validation-status=${args.validationStatus === "no status"
             ? ""
@@ -1105,7 +1015,7 @@ export const Playground = {
       options: ["medium", "small"],
 
       control: {
-        type: inlineRadioSelector,
+        type: "inline-radio",
       },
     },
 
@@ -1114,14 +1024,6 @@ export const Playground = {
 
       control: {
         type: "select",
-      },
-    },
-
-    validationAriaLive: {
-      options: ["default", "polite", "assertive", "off"],
-
-      control: {
-        type: inlineRadioSelector,
       },
     },
 
@@ -1143,7 +1045,7 @@ export const Playground = {
       options: ["inherit", "light", "dark"],
 
       control: {
-        type: inlineRadioSelector,
+        type: "inline-radio",
       },
     },
   },

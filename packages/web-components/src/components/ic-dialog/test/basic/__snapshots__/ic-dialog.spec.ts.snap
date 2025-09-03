@@ -300,7 +300,6 @@ exports[`ic-dialog component should render with slotted content 1`] = `
         <ic-input-component-container size="medium" validationstatus="">
           <input aria-describedby="" aria-invalid="false" aria-label="What is your favourite coffee?" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" type="text" value="">
         </ic-input-component-container>
-        <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
       </ic-input-container>
     </template>
     <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
