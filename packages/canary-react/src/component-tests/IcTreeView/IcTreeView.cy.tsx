@@ -11,6 +11,7 @@ import {
   HAVE_PROP,
   NOT_EXIST,
   NOT_HAVE_CSS,
+  NOT_HAVE_BEEN_CALLED,
 } from "@ukic/react/src/component-tests/utils/constants";
 import { IcTreeItemOptions } from "@ukic/canary-web-components";
 
@@ -1076,6 +1077,29 @@ describe("IcTreeView", () => {
       name: "/single-selected-item-child-nodes-on-delay",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
+  });
+
+  it("should test code in tree item elements", () => {
+    cy.spy(window, "alert").as("spyAlert");
+    const clonedItems = JSON.parse(JSON.stringify(treeItemsWithIcons));
+    clonedItems[1].icon = `<img src=x onerror=alert(12345)//>`;
+    clonedItems[1].children[0].icon = `<img src=x onerror=alert(12345)//>`;
+
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" treeItemData={clonedItems}>
+          <Icon />
+        </IcTreeView>
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+    cy.get("@spyAlert").should(NOT_HAVE_BEEN_CALLED);
   });
 });
 
