@@ -266,6 +266,13 @@ export class Checkbox {
             </ic-typography>
           )}
         </div>
+        <span
+          id={`${id}-additional-field-description`}
+          role="alert"
+          class="sr-only"
+        >
+          {isDynamicAdditionalField && checked ? dynamicText : ""}
+        </span>
         {isSlotUsed(el, "additional-field") && (
           <div
             class="dynamic-container"
@@ -275,8 +282,8 @@ export class Checkbox {
             <div class="dynamic-field-container">
               {isDynamicAdditionalField && (
                 <ic-typography variant="caption">
-                  <p class="dynamic-text" aria-live="polite">
-                    {dynamicText}
+                  <p class="dynamic-text">
+                    {isDynamicAdditionalField && checked ? dynamicText : ""}
                   </p>
                 </ic-typography>
               )}

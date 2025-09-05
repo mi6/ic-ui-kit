@@ -317,44 +317,27 @@ export const ConditionalStatic = {
 export const HelperText = {
   render: (args) => html`
     <ic-checkbox-group
-      label="This is a label"
+      label="Coffee extras"
       name="group1"
-      helper-text="Helper text"
+      helper-text="Helper text provided by prop"
     >
-      <ic-checkbox
-        value="valueName1"
-        label="Unselected / Default"
-      ></ic-checkbox>
-      <ic-checkbox
-        value="valueName2"
-        label="Selected / Default"
-        checked
-      ></ic-checkbox>
-      <ic-checkbox
-        value="valueName3"
-        label="Unselected / Disabled"
-        Disabled
-      ></ic-checkbox>
+      <ic-checkbox value="valueName1" label="Sugar"></ic-checkbox>
+      <ic-checkbox value="valueName2" label="Milk" checked></ic-checkbox>
+      <ic-checkbox value="valueName3" label="salt" Disabled></ic-checkbox>
     </ic-checkbox-group>
     <br />
-    <ic-checkbox-group label="This is a label" name="group2">
+    <ic-checkbox-group label="More coffee extras" name="group2">
       <ic-typography variant="caption" slot="helper-text">
         <span>
-          Slotted helper text with a <ic-link href="#">link</ic-link>
+          Slotted helper text with a
+          <ic-link href="#">helpful link to guidance</ic-link>
         </span>
       </ic-typography>
-      <ic-checkbox
-        value="valueName1"
-        label="Unselected / Default"
-      ></ic-checkbox>
-      <ic-checkbox
-        value="valueName2"
-        label="Selected / Default"
-        checked
-      ></ic-checkbox>
+      <ic-checkbox value="valueName1" label="Shortbread"></ic-checkbox>
+      <ic-checkbox value="valueName2" label="Scone" checked></ic-checkbox>
       <ic-checkbox
         value="valueName3"
-        label="Unselected / Disabled"
+        label="Ham Sandwich"
         Disabled
       ></ic-checkbox>
     </ic-checkbox-group>

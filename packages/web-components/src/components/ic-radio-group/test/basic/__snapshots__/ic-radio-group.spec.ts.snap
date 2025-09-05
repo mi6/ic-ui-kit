@@ -3,14 +3,16 @@
 exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`] = `
 <ic-radio-group helpertext="helper test" label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
@@ -30,14 +32,16 @@ exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`
 exports[`ic-radio-group should render as required: renders-required 1`] = `
 <ic-radio-group label="test label" name="test" required="">
   <template shadowrootmode="open">
-    <div aria-label="test label, required" role="radiogroup">
-      <ic-input-label label="test label" required="">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label" required="">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
@@ -57,14 +61,16 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
 exports[`ic-radio-group should render radio group disabled: disabled-removed 1`] = `
 <ic-radio-group label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test">
     <!---->
@@ -86,14 +92,16 @@ exports[`ic-radio-group should render radio group disabled: disabled-removed 1`]
 exports[`ic-radio-group should render radio group disabled: renders-disabled 1`] = `
 <ic-radio-group disabled="" label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label class="disabled" disabled="" label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label class="disabled" disabled="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" group-label="test group" label="test label" value="test">
     <!---->
@@ -115,14 +123,16 @@ exports[`ic-radio-group should render radio group disabled: renders-disabled 1`]
 exports[`ic-radio-group should render radio option disabled: disabled-removed 1`] = `
 <ic-radio-group label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test">
     <!---->
@@ -144,14 +154,16 @@ exports[`ic-radio-group should render radio option disabled: disabled-removed 1`
 exports[`ic-radio-group should render radio option disabled: renders-option-disabled 1`] = `
 <ic-radio-group label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" disabled="" group-label="test group" label="test label" value="test">
     <!---->
@@ -173,14 +185,16 @@ exports[`ic-radio-group should render radio option disabled: renders-option-disa
 exports[`ic-radio-group should render with dynamic additional field: renders-with-dynamic-additional-field 1`] = `
 <ic-radio-group label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="dynamic" group-label="test group" label="test label" selected="" value="test">
     <!---->
@@ -198,7 +212,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
     <div class="dynamic-container">
       <div class="branch-corner"></div>
       <div>
-        <ic-typography variant="caption">
+        <ic-typography role="alert" variant="caption">
           <p class="dynamic-text">
             This selection requires additional answers
           </p>
@@ -227,14 +241,16 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
 exports[`ic-radio-group should render with selected option: renders-with-selected-option 1`] = `
 <ic-radio-group label="test label" name="test" required="">
   <template shadowrootmode="open">
-    <div aria-label="test label, required" role="radiogroup">
-      <ic-input-label label="test label" required="">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label" required="">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <!---->
@@ -254,14 +270,16 @@ exports[`ic-radio-group should render with selected option: renders-with-selecte
 exports[`ic-radio-group should render with selected static additional field: renders-with-selected-additional-field 1`] = `
 <ic-radio-group label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" selected="" value="test">
     <!---->
@@ -302,14 +320,16 @@ exports[`ic-radio-group should render with selected static additional field: ren
 exports[`ic-radio-group should render with unselected static additional field: renders-with-unselected-additional-field 1`] = `
 <ic-radio-group label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" disabled="" group-label="test group" label="test label" value="test">
     <!---->
@@ -350,14 +370,16 @@ exports[`ic-radio-group should render with unselected static additional field: r
 exports[`ic-radio-group should render with validation status: renders-with-validation-status 1`] = `
 <ic-radio-group label="test label" name="test" required="" validation-status="error" validation-text="error">
   <template shadowrootmode="open">
-    <div aria-label="test label, required" role="radiogroup">
-      <ic-input-label class="error" label="test label" required="">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label class="error" label="test label" required="">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
     <ic-input-validation arialivemode="polite" message="error" status="error"></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
@@ -378,14 +400,16 @@ exports[`ic-radio-group should render with validation status: renders-with-valid
 exports[`ic-radio-group should render: renders 1`] = `
 <ic-radio-group label="test label" name="test">
   <template shadowrootmode="open">
-    <div aria-label="test label" role="radiogroup">
-      <ic-input-label label="test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
+    <fieldset id="test" role="radiogroup">
+      <legend>
+        <ic-input-label label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
-    </div>
+    </fieldset>
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
