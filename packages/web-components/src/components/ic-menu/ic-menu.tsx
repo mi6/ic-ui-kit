@@ -29,6 +29,7 @@ import {
   isMacDevice,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
+import { sanitizeHTMLString } from "../../utils/common-helpers";
 import {
   IcOptionSelectEventDetail,
   IcMenuChangeEventDetail,
@@ -1260,7 +1261,7 @@ export class Menu {
             {option.icon && (
               <div
                 class="option-icon"
-                innerHTML={option.icon}
+                innerHTML={sanitizeHTMLString(option.icon)}
                 aria-hidden="true"
               ></div>
             )}
@@ -1281,7 +1282,7 @@ export class Menu {
           {option.element && (
             <div
               class="option-element"
-              innerHTML={option.element.component}
+              innerHTML={sanitizeHTMLString(option.element.component)}
               aria-hidden="true"
             ></div>
           )}
