@@ -365,23 +365,26 @@ export class RadioGroup {
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
-        <div
+        <fieldset
           role="radiogroup"
-          aria-label={`${label}${required ? ", required" : ""}`}
+          id={this.name}
+          // aria-label={`${label} ${required ? ", required" : ""}`}
         >
           {!hideLabel && (
-            <ic-input-label
-              class={{
-                [`${validationStatus}`]: true,
-                ["disabled"]: !!disabled,
-              }}
-              label={label}
-              helperText={helperText}
-              required={required}
-              disabled={disabled}
-            >
-              <slot name="helper-text" slot="helper-text"></slot>
-            </ic-input-label>
+            <legend>
+              <ic-input-label
+                class={{
+                  [`${validationStatus}`]: true,
+                  ["disabled"]: !!disabled,
+                }}
+                label={label}
+                helperText={helperText}
+                required={required}
+                disabled={disabled}
+              >
+                <slot name="helper-text" slot="helper-text"></slot>
+              </ic-input-label>
+            </legend>
           )}
           <div
             class={{
@@ -392,7 +395,7 @@ export class RadioGroup {
           >
             <slot></slot>
           </div>
-        </div>
+        </fieldset>
         {hasValidationStatus(validationStatus, disabled) && (
           <ic-input-validation
             ariaLiveMode="polite"

@@ -248,41 +248,40 @@ export const ConditionalStatic = {
 
 export const HelperText = {
   render: (args) => html`
-    <ic-radio-group label="This is a label" name="1" helper-text="Helper text">
-      <ic-radio-option
-        value="valueName1"
-        label="Unselected / Default"
-      ></ic-radio-option>
+    <ic-radio-group
+      label="Pick Your Coffee"
+      name="1"
+      helper-text="Helper text provided by prop"
+    >
+      <ic-radio-option value="valueName1" label="Mocha"></ic-radio-option>
       <ic-radio-option
         value="valueName2"
-        label="Selected / Default"
+        label="Americano"
         selected
       ></ic-radio-option>
       <ic-radio-option
         value="valueName3"
-        label="Unselected / Disabled"
+        label="Tea"
         disabled
       ></ic-radio-option>
     </ic-radio-group>
     <br />
-    <ic-radio-group label="This is a label" name="2">
+    <ic-radio-group label="Another Coffee Choice" name="2">
       <ic-typography variant="caption" slot="helper-text">
         <span>
-          Slotted helper text with a <ic-link href="#">link</ic-link>
+          Slotted helper text with a
+          <ic-link href="#">helpful link to guidance</ic-link>
         </span>
       </ic-typography>
-      <ic-radio-option
-        value="valueName1"
-        label="Unselected / Default"
-      ></ic-radio-option>
+      <ic-radio-option value="valueName1" label="Flat White"></ic-radio-option>
       <ic-radio-option
         value="valueName2"
-        label="Selected / Default"
+        label="Espresso"
         selected
       ></ic-radio-option>
       <ic-radio-option
         value="valueName3"
-        label="Unselected / Disabled"
+        label="Orange Juice"
         disabled
       ></ic-radio-option>
     </ic-radio-group>
