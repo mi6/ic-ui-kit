@@ -24,6 +24,7 @@ exports[`ic-checkbox-group should pass the size on the checkbox group to the chi
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-small" label="test label" value="test">
@@ -36,6 +37,7 @@ exports[`ic-checkbox-group should pass the size on the checkbox group to the chi
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -65,6 +67,7 @@ exports[`ic-checkbox-group should prioritise the size on an individual checkbox 
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-small" id="small-checkbox" label="test label" size="small" value="test">
@@ -77,6 +80,7 @@ exports[`ic-checkbox-group should prioritise the size on an individual checkbox 
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -101,6 +105,7 @@ exports[`ic-checkbox-group should render an aria label when checkbox label hidde
       <div class="container">
         <input aria-label="test label" class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -128,6 +133,7 @@ exports[`ic-checkbox-group should render an aria label when group label hidden: 
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -157,6 +163,7 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -189,6 +196,7 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -224,6 +232,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
     <input class="ic-input" name="test" type="hidden" value="test">
   </ic-checkbox>
@@ -254,6 +263,7 @@ exports[`ic-checkbox-group should render in a disabled state: disabled-removed 1
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -283,6 +293,7 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -313,6 +324,7 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
     <input class="ic-input" name="test" type="hidden" value="test">
   </ic-checkbox>
@@ -342,6 +354,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
       <div class="dynamic-container">
         <div class="dynamic-field-container">
           <div class="additional-field-wrapper">
@@ -375,6 +388,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
       <div class="dynamic-container">
         <div class="dynamic-field-container">
           <div class="additional-field-wrapper">
@@ -446,11 +460,14 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert">
+        This selection requires additional answers
+      </span>
       <div class="dynamic-container" style="display: flex;">
         <div class="branch-corner"></div>
         <div class="dynamic-field-container">
           <ic-typography variant="caption">
-            <p aria-live="polite" class="dynamic-text">
+            <p class="dynamic-text">
               This selection requires additional answers
             </p>
           </ic-typography>
@@ -502,13 +519,12 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
       <div class="dynamic-container" style="display: none;">
         <div class="branch-corner"></div>
         <div class="dynamic-field-container">
           <ic-typography variant="caption">
-            <p aria-live="polite" class="dynamic-text">
-              This selection requires additional answers
-            </p>
+            <p class="dynamic-text"></p>
           </ic-typography>
           <div>
             <slot name="additional-field"></slot>
@@ -557,6 +573,7 @@ exports[`ic-checkbox-group should render with validation status: renders-with-va
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -586,6 +603,7 @@ exports[`ic-checkbox-group should render: renders 1`] = `
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -620,6 +638,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
       <div class="dynamic-container">
         <div class="dynamic-field-container">
           <div class="additional-field-wrapper">
@@ -660,6 +679,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
       <div class="dynamic-container">
         <div class="dynamic-field-container">
           <div class="additional-field-wrapper">
@@ -714,6 +734,7 @@ exports[`ic-checkbox-group should test checkbox option as submit on form 1`] = `
         </label>
       </ic-typography>
     </div>
+    <span class="sr-only" id="ic-checkbox-IC-Checkbox-Test-undefined-additional-field-description" role="alert"></span>
   </template>
 </ic-checkbox>
 `;
@@ -742,6 +763,7 @@ exports[`ic-checkbox-group should test labelNameHandler 1`] = `
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -771,6 +793,7 @@ exports[`ic-checkbox-group should test labelNameHandler 2`] = `
           </label>
         </ic-typography>
       </div>
+      <span class="sr-only" id="ic-checkbox-test-label-new-label-additional-field-description" role="alert"></span>
     </template>
   </ic-checkbox>
 </ic-checkbox-group>

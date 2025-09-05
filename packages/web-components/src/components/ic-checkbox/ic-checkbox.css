@@ -222,6 +222,11 @@
   flex: 100%;
 }
 
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
 @media (max-width: 576px) {
   ::slotted(*) {
     --input-width: 100%;
