@@ -198,7 +198,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
     <div class="dynamic-container">
       <div class="branch-corner"></div>
       <div>
-        <ic-typography variant="caption">
+        <ic-typography role="alert" variant="caption">
           <p class="dynamic-text">
             This selection requires additional answers
           </p>
