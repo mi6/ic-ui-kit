@@ -8,14 +8,14 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 import { IcThemeMode } from "@ukic/web-components";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-import { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
+import { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcThemeMode } from "@ukic/web-components";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-export { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
+export { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -537,6 +537,40 @@ export namespace Components {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcTableOfContents {
+        /**
+          * Heading text of the table of contents.
+         */
+        "heading": string;
+        /**
+          * Maximum heading level of child content that will generate an item in the table of contents. E.g. when set to '3', headings of <h4> and <h5> will not appear.
+         */
+        "maximumHeadingLevel": number;
+        /**
+          * If `true`, the table of contents will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * Whether the table of contents will appear on the right of or above child content on large viewport widths.
+         */
+        "position": IcPositionTopOrRight;
+        /**
+          * Vertical offset to page scroll (in percent) when table of contents item is selected, to account for other page components like headers.
+         */
+        "setScrollHeight": number;
+        /**
+          * The size of the table of contents items.
+         */
+        "size": IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode1;
+        /**
+          * If `true`, the table of contents item label will be truncated.
+         */
+        "truncate": boolean;
+    }
     interface IcTimeInput {
         /**
           * An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
@@ -856,6 +890,12 @@ declare global {
         prototype: HTMLIcPaginationBarElement;
         new (): HTMLIcPaginationBarElement;
     };
+    interface HTMLIcTableOfContentsElement extends Components.IcTableOfContents, HTMLStencilElement {
+    }
+    var HTMLIcTableOfContentsElement: {
+        prototype: HTMLIcTableOfContentsElement;
+        new (): HTMLIcTableOfContentsElement;
+    };
     interface HTMLIcTimeInputElementEventMap {
         "clockButtonClicked": { value: Date | null };
         "icBlur": { value: Date | null };
@@ -917,6 +957,7 @@ declare global {
         "ic-date-input": HTMLIcDateInputElement;
         "ic-date-picker": HTMLIcDatePickerElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
+        "ic-table-of-contents": HTMLIcTableOfContentsElement;
         "ic-time-input": HTMLIcTimeInputElement;
         "ic-tree-item": HTMLIcTreeItemElement;
         "ic-tree-view": HTMLIcTreeViewElement;
@@ -1488,6 +1529,40 @@ declare namespace LocalJSX {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcTableOfContents {
+        /**
+          * Heading text of the table of contents.
+         */
+        "heading"?: string;
+        /**
+          * Maximum heading level of child content that will generate an item in the table of contents. E.g. when set to '3', headings of <h4> and <h5> will not appear.
+         */
+        "maximumHeadingLevel"?: number;
+        /**
+          * If `true`, the table of contents will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * Whether the table of contents will appear on the right of or above child content on large viewport widths.
+         */
+        "position"?: IcPositionTopOrRight;
+        /**
+          * Vertical offset to page scroll (in percent) when table of contents item is selected, to account for other page components like headers.
+         */
+        "setScrollHeight"?: number;
+        /**
+          * The size of the table of contents items.
+         */
+        "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode1;
+        /**
+          * If `true`, the table of contents item label will be truncated.
+         */
+        "truncate"?: boolean;
+    }
     interface IcTimeInput {
         /**
           * An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
@@ -1693,6 +1768,7 @@ declare namespace LocalJSX {
         "ic-date-input": IcDateInput;
         "ic-date-picker": IcDatePicker;
         "ic-pagination-bar": IcPaginationBar;
+        "ic-table-of-contents": IcTableOfContents;
         "ic-time-input": IcTimeInput;
         "ic-tree-item": IcTreeItem;
         "ic-tree-view": IcTreeView;
@@ -1708,6 +1784,7 @@ declare module "@stencil/core" {
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
             "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
+            "ic-table-of-contents": LocalJSX.IcTableOfContents & JSXBase.HTMLAttributes<HTMLIcTableOfContentsElement>;
             "ic-time-input": LocalJSX.IcTimeInput & JSXBase.HTMLAttributes<HTMLIcTimeInputElement>;
             "ic-tree-item": LocalJSX.IcTreeItem & JSXBase.HTMLAttributes<HTMLIcTreeItemElement>;
             "ic-tree-view": LocalJSX.IcTreeView & JSXBase.HTMLAttributes<HTMLIcTreeViewElement>;

@@ -301,3 +301,5 @@ export enum IcWeekDays {
   Friday = 5,
   Saturday = 6,
 }
+
+export type IcPositionTopOrRight = "top" | "right";

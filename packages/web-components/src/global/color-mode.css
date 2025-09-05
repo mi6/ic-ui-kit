@@ -1584,6 +1584,20 @@ ic-theme,
   --ic-tree-view-hover: var(--ic-action-dark-bg-hover);
   --ic-tree-view-pressed: var(--ic-action-dark-bg-pressed);
   --ic-tree-view-selected: var(--ic-action-default-bg-pressed);
+
+  /* Table of contents */
+  --ic-table-of-contents-text: var(--ic-color-text-primary);
+  --ic-table-of-contents-label: var(--ic-color-text-primary);
+  --ic-table-of-contents-banner: var(--ic-action-default);
+  --ic-table-of-contents-banner-monochrome: var(--ic-color-text-primary);
+  --ic-table-of-contents-hover: var(--ic-state-layers-action-bg-hover);
+  --ic-table-of-contents-hover-monochrome: var(
+    --ic-state-layers-action-bg-dark-hover
+  );
+  --ic-table-of-contents-pressed: var(--ic-state-layers-action-bg-pressed);
+  --ic-table-of-contents-pressed-monochrome: var(
+    --ic-state-layers-action-bg-dark-pressed
+  );
 }
 
 /* colors for system dark mode */
@@ -3263,6 +3277,20 @@ ic-theme,
     --ic-tree-view-hover: var(--ic-action-light-bg-hover);
     --ic-tree-view-pressed: var(--ic-action-light-bg-pressed);
     --ic-tree-view-selected: var(--ic-action-default-bg-pressed-30);
+
+    /* Table of contents */
+    --ic-table-of-contents-text: var(--ic-color-text-primary);
+    --ic-table-of-contents-label: var(--ic-color-text-primary);
+    --ic-table-of-contents-banner: var(--ic-action-default);
+    --ic-table-of-contents-banner-monochrome: var(--ic-color-text-primary);
+    --ic-table-of-contents-hover: var(--ic-state-layers-action-bg-hover);
+    --ic-table-of-contents-hover-monochrome: var(
+      --ic-state-layers-action-bg-dark-hover
+    );
+    --ic-table-of-contents-pressed: var(--ic-state-layers-action-bg-pressed);
+    --ic-table-of-contents-pressed-monochrome: var(
+      --ic-state-layers-action-bg-dark-pressed
+    );
   }
 }
 
@@ -4853,4 +4881,18 @@ ic-theme,
   --ic-tree-view-hover: var(--ic-action-light-bg-hover);
   --ic-tree-view-pressed: var(--ic-action-light-bg-pressed);
   --ic-tree-view-selected: var(--ic-action-default-bg-pressed-30);
+
+  /* Table of contents */
+  --ic-table-of-contents-text: var(--ic-color-text-primary);
+  --ic-table-of-contents-label: var(--ic-color-text-primary);
+  --ic-table-of-contents-banner: var(--ic-action-default);
+  --ic-table-of-contents-banner-monochrome: var(--ic-color-text-primary);
+  --ic-table-of-contents-hover: var(--ic-state-layers-action-bg-hover);
+  --ic-table-of-contents-hover-monochrome: var(
+    --ic-state-layers-action-bg-dark-hover
+  );
+  --ic-table-of-contents-pressed: var(--ic-state-layers-action-bg-pressed);
+  --ic-table-of-contents-pressed-monochrome: var(
+    --ic-state-layers-action-bg-dark-pressed
+  );
 }
