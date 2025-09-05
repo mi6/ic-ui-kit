@@ -18,6 +18,7 @@ import {
   removeDisabledFalse,
   renderDynamicChildSlots,
 } from "../../utils/helpers";
+import { sanitizeHTMLString } from "../../../../web-components/src/utils/common-helpers";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
 
 let treeItemIds = 0;
@@ -336,7 +337,9 @@ export class TreeItem {
 
     if (!typographyEl && slottedContent) {
       const newTypographyEl = document.createElement("ic-typography");
-      newTypographyEl.innerHTML = slottedContent.textContent!;
+      newTypographyEl.innerHTML = sanitizeHTMLString(
+        slottedContent.textContent!
+      );
       newTypographyEl.classList.add("tree-item-label");
       slottedContent.replaceChild(newTypographyEl, slottedContent.firstChild!);
       typographyEl = newTypographyEl;

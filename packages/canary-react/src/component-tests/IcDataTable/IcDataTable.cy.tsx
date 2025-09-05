@@ -72,6 +72,7 @@ import {
   NOT_BE_VISIBLE,
   NOT_EXIST,
   NOT_HAVE_CSS,
+  NOT_HAVE_BEEN_CALLED,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
@@ -675,6 +676,24 @@ describe("IcDataTables", () => {
       },
     });
     cy.checkA11yWithWait();
+  });
+
+  it("should test code in column definition object", () => {
+    const clonedCols = JSON.parse(JSON.stringify(ICON_COLS));
+    clonedCols[1].icon.icon = `<img src=x onerror=alert(12345)//>`;
+
+    cy.spy(window, "alert").as("spyAlert");
+
+    mount(
+      <IcDataTable
+        columns={clonedCols}
+        data={ICON_DATA}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.get("@spyAlert").should(NOT_HAVE_BEEN_CALLED);
   });
 
   it("should render the empty state when data is null", () => {
@@ -4460,6 +4479,23 @@ describe("IcDataTable table with descriptions", () => {
         capture: "viewport",
       },
     });
+  });
+
+  it("should test code in description object", () => {
+    const clonedData = JSON.parse(
+      JSON.stringify(LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS)
+    );
+    clonedData[0].firstName.icon = `<img src=x onerror=alert(12345)//>`;
+    clonedData[0].firstName.description.icon = `<img src=x onerror=alert(12345)//>`;
+
+    cy.spy(window, "alert").as("spyAlert");
+
+    mount(
+      <IcDataTable columns={COLS} data={clonedData} caption="Data Tables" />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.get("@spyAlert").should(NOT_HAVE_BEEN_CALLED);
   });
 
   it("should truncate long text without truncating descriptions - using show/hide pattern when global row height is set", () => {

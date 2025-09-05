@@ -237,6 +237,26 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should test code in custom elements", () => {
+    cy.spy(window, "alert").as("spyAlert");
+    const clonedOptions = JSON.parse(JSON.stringify(coffeeCustomElements));
+    clonedOptions[1].element.component = `<img src=x onerror=alert(12345)//>`;
+    clonedOptions[2].icon = `<img src=x onerror=alert(12345)//>`;
+
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={clonedOptions}
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.wait(2000);
+    cy.get("@spyAlert").should(NOT_HAVE_BEEN_CALLED);
+  });
+
   it("should render small", () => {
     mount(
       <div style={{ padding: "10px" }}>
