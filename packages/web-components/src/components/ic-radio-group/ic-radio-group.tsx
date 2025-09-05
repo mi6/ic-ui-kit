@@ -365,10 +365,7 @@ export class RadioGroup {
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
-        <div
-          role="radiogroup"
-          aria-label={`${label}${required ? ", required" : ""}`}
-        >
+        <div role="radiogroup" aria-required={required} aria-label={`${label}`}>
           {!hideLabel && (
             <ic-input-label
               class={{

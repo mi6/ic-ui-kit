@@ -1265,7 +1265,7 @@ export class Select {
                   aria-autocomplete="list"
                   aria-expanded={`${open}`}
                   aria-invalid={invalid}
-                  aria-required={`${required}`}
+                  aria-required={required}
                   aria-controls={menuId}
                   ref={(el) => (this.searchableSelectElement = el)}
                   id={inputId}
@@ -1320,6 +1320,7 @@ export class Select {
             ) : (
               <div class="select-container">
                 <button
+                  role="combobox"
                   class="select-input"
                   ref={(el) => (this.customSelectElement = el)}
                   id={inputId}
@@ -1331,13 +1332,14 @@ export class Select {
                           options
                         )} selected, ${valueLabelString}`
                       : valueLabelString) || placeholder
-                  }${required ? ", required" : ""}`}
+                  }`}
                   aria-describedby={describedBy}
                   aria-invalid={invalid}
                   aria-haspopup="listbox"
                   aria-expanded={`${open}`}
                   aria-owns={menuId}
                   aria-controls={menuId}
+                  aria-required={required}
                   disabled={disabled}
                   onBlur={this.onBlur}
                   onFocus={this.onFocus}

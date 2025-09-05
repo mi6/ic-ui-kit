@@ -30,7 +30,7 @@ exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`
 exports[`ic-radio-group should render as required: renders-required 1`] = `
 <ic-radio-group label="test label" name="test" required="">
   <template shadowrootmode="open">
-    <div aria-label="test label, required" role="radiogroup">
+    <div aria-label="test label" aria-required="" role="radiogroup">
       <ic-input-label label="test label" required="">
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
@@ -227,7 +227,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
 exports[`ic-radio-group should render with selected option: renders-with-selected-option 1`] = `
 <ic-radio-group label="test label" name="test" required="">
   <template shadowrootmode="open">
-    <div aria-label="test label, required" role="radiogroup">
+    <div aria-label="test label" aria-required="" role="radiogroup">
       <ic-input-label label="test label" required="">
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
@@ -350,7 +350,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
 exports[`ic-radio-group should render with validation status: renders-with-validation-status 1`] = `
 <ic-radio-group label="test label" name="test" required="" validation-status="error" validation-text="error">
   <template shadowrootmode="open">
-    <div aria-label="test label, required" role="radiogroup">
+    <div aria-label="test label" aria-required="" role="radiogroup">
       <ic-input-label class="error" label="test label" required="">
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
