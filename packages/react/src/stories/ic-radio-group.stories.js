@@ -373,12 +373,12 @@ export const ConditionalStatic = {
 export const HelperText = {
   render: () => (
     <>
-    <IcRadioGroup label="This is a label" name="1" helperText="Helper text">
-      <IcRadioOption value="valueName1" label="Unselected / Default" />
-      <IcRadioOption value="valueName2" label="Selected / Default" selected />
+    <IcRadioGroup label="Pick your coffee" name="1" helperText="Helper text provided by prop">
+      <IcRadioOption value="valueName1" label="Mocha" />
+      <IcRadioOption value="valueName2" label="Americano" selected />
       <IcRadioOption
         value="valueName3"
-        label="Unselected / Disabled"
+        label="Tea"
         disabled
       />
     </IcRadioGroup>
@@ -386,14 +386,14 @@ export const HelperText = {
     <IcRadioGroup label="This is a label" name="2">
       <IcTypography variant="caption" slot="helper-text">
         <span>
-          Slotted helper text with a <IcLink href="#">link</IcLink>
+          Slotted helper text with a <IcLink href="#">helpful link to guidance</IcLink>
         </span>
       </IcTypography>
-      <IcRadioOption value="valueName1" label="Unselected / Default" />
-      <IcRadioOption value="valueName2" label="Selected / Default" selected />
+      <IcRadioOption value="valueName1" label="Flat White" />
+      <IcRadioOption value="valueName2" label="Espresso" selected />
       <IcRadioOption
         value="valueName3"
-        label="Unselected / Disabled"
+        label="Orange Juice"
         disabled
       />
     </IcRadioGroup>
