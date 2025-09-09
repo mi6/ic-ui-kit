@@ -102,6 +102,10 @@ export const dateMatches = (a: Date | null, b: Date | null): boolean =>
   a.getMonth() === b.getMonth() &&
   a.getDate() === b.getDate();
 
+export const dateIsToday = (d: Date) => {
+  return dateMatches(d, new Date());
+};
+
 export const clampDate = (
   date: Date,
   min: Date | null,

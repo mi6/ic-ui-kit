@@ -7,7 +7,11 @@ export const createDatePickerElement = () => {
   return datePicker;
 };
 
-export const Default = (): HTMLIcDatePickerElement => createDatePickerElement();
+export const Default = (): HTMLIcDatePickerElement => {
+  const datePicker = createDatePickerElement();
+  datePicker.emitDatePartChange = true;
+  return datePicker;
+};
 
 export const Small = (): HTMLIcDatePickerElement => {
   const datePicker = createDatePickerElement();
