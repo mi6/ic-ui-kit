@@ -5,19 +5,80 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcAriaLive, IcCardDensity, IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
+import { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-import { IcThemeMode as IcThemeMode1 } from "@ukic/web-components";
 import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
-export { IcAriaLive, IcCardDensity, IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
+export { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-export { IcThemeMode as IcThemeMode1 } from "@ukic/web-components";
 export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export namespace Components {
+    interface IcCalendar {
+        "clearDialogDescription": () => Promise<void>;
+        /**
+          * The format in which the date will be displayed.
+         */
+        "dateFormat": IcDateFormat;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * If `true`, dates in the future are not allowed.
+         */
+        "disableFuture"?: boolean;
+        /**
+          * If `true`, dates in the past are not allowed.
+         */
+        "disablePast"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled": boolean;
+        /**
+          * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+         */
+        "max": string | Date;
+        /**
+          * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+         */
+        "min": string | Date;
+        /**
+          * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "openAtDate": string | Date;
+        /**
+          * If `true`, the `Clear` button on the calendar will be visible.
+         */
+        "showClearButton"?: boolean;
+        /**
+          * If `true`, days outside the current month will be visible in the calendar.
+         */
+        "showDaysOutsideMonth"?: boolean;
+        /**
+          * If `true`, the `Go to today` button on the calendar will be visible.
+         */
+        "showTodayButton"?: boolean;
+        /**
+          * The size of the calendar to be displayed.
+         */
+        "size": IcSizes;
+        /**
+          * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "startOfWeek": IcWeekDays;
+        /**
+          * Sets the calendar to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value of the calendar and the date visible when the calendar opens. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: IcDateValueFormat;
+    }
     interface IcCardHorizontal {
         /**
           * If `true`, the horizontal card will be a clickable variant, instead of static.
@@ -350,7 +411,7 @@ export namespace Components {
         /**
           * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
-        "value"?: string | Date | null | undefined;
+        "value"?: IcDateValueFormat;
     }
     interface IcDatePicker {
         /**
@@ -476,7 +537,7 @@ export namespace Components {
         /**
           * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
-        "value"?: string | Date | null | undefined;
+        "value"?: IcDateValueFormat;
     }
     interface IcPaginationBar {
         /**
@@ -541,7 +602,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -680,7 +741,7 @@ export namespace Components {
         /**
           * The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
          */
-        "value"?: string | Date | null | undefined;
+        "value"?: IcDateValueFormat;
     }
     interface IcTreeItem {
         /**
@@ -768,6 +829,10 @@ export namespace Components {
         "truncateTreeItems": boolean;
     }
 }
+export interface IcCalendarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcCalendarElement;
+}
 export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcDataTableElement;
@@ -797,6 +862,35 @@ export interface IcTreeItemCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIcTreeItemElement;
 }
 declare global {
+    interface HTMLIcCalendarElementEventMap {
+        "icChange": {
+    value: Date | null;
+    dateObject: {
+      day: string | null;
+      month: string | null;
+      year: string | null;
+    };
+    utcValue: Date | null;
+  };
+        "icCalendarClearButtonClick": void;
+        "icCalendarDaySelect": void;
+        "icCalendarMonthSelect": void;
+        "icCalendarYearSelect": void;
+    }
+    interface HTMLIcCalendarElement extends Components.IcCalendar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcCalendarElementEventMap>(type: K, listener: (this: HTMLIcCalendarElement, ev: IcCalendarCustomEvent<HTMLIcCalendarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcCalendarElementEventMap>(type: K, listener: (this: HTMLIcCalendarElement, ev: IcCalendarCustomEvent<HTMLIcCalendarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcCalendarElement: {
+        prototype: HTMLIcCalendarElement;
+        new (): HTMLIcCalendarElement;
+    };
     interface HTMLIcCardHorizontalElement extends Components.IcCardHorizontal, HTMLStencilElement {
     }
     var HTMLIcCardHorizontalElement: {
@@ -876,7 +970,15 @@ declare global {
         new (): HTMLIcDateInputElement;
     };
     interface HTMLIcDatePickerElementEventMap {
-        "icChange": { value: Date };
+        "icChange": {
+    value: Date | null;
+    dateObject?: {
+      day: string | null;
+      month: string | null;
+      year: string | null;
+    };
+    utcValue: Date | null;
+  };
     }
     interface HTMLIcDatePickerElement extends Components.IcDatePicker, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcDatePickerElementEventMap>(type: K, listener: (this: HTMLIcDatePickerElement, ev: IcDatePickerCustomEvent<HTMLIcDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -971,6 +1073,7 @@ declare global {
         new (): HTMLIcTreeViewElement;
     };
     interface HTMLElementTagNameMap {
+        "ic-calendar": HTMLIcCalendarElement;
         "ic-card-horizontal": HTMLIcCardHorizontalElement;
         "ic-data-table": HTMLIcDataTableElement;
         "ic-data-table-title-bar": HTMLIcDataTableTitleBarElement;
@@ -984,6 +1087,93 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface IcCalendar {
+        /**
+          * The format in which the date will be displayed.
+         */
+        "dateFormat"?: IcDateFormat;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * If `true`, dates in the future are not allowed.
+         */
+        "disableFuture"?: boolean;
+        /**
+          * If `true`, dates in the past are not allowed.
+         */
+        "disablePast"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+         */
+        "min"?: string | Date;
+        /**
+          * Emitted when the clear button has been clicked.
+         */
+        "onIcCalendarClearButtonClick"?: (event: IcCalendarCustomEvent<void>) => void;
+        "onIcCalendarDaySelect"?: (event: IcCalendarCustomEvent<void>) => void;
+        /**
+          * Emitted when a month is selected.
+         */
+        "onIcCalendarMonthSelect"?: (event: IcCalendarCustomEvent<void>) => void;
+        /**
+          * Emitted when a year is selected.
+         */
+        "onIcCalendarYearSelect"?: (event: IcCalendarCustomEvent<void>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onIcChange"?: (event: IcCalendarCustomEvent<{
+    value: Date | null;
+    dateObject: {
+      day: string | null;
+      month: string | null;
+      year: string | null;
+    };
+    utcValue: Date | null;
+  }>) => void;
+        /**
+          * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "openAtDate"?: string | Date;
+        /**
+          * If `true`, the `Clear` button on the calendar will be visible.
+         */
+        "showClearButton"?: boolean;
+        /**
+          * If `true`, days outside the current month will be visible in the calendar.
+         */
+        "showDaysOutsideMonth"?: boolean;
+        /**
+          * If `true`, the `Go to today` button on the calendar will be visible.
+         */
+        "showTodayButton"?: boolean;
+        /**
+          * The size of the calendar to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "startOfWeek"?: IcWeekDays;
+        /**
+          * Sets the calendar to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value of the calendar and the date visible when the calendar opens. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: IcDateValueFormat;
+    }
     interface IcCardHorizontal {
         /**
           * If `true`, the horizontal card will be a clickable variant, instead of static.
@@ -1354,7 +1544,7 @@ declare namespace LocalJSX {
         /**
           * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
-        "value"?: string | Date | null | undefined;
+        "value"?: IcDateValueFormat;
     }
     interface IcDatePicker {
         /**
@@ -1432,7 +1622,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onIcChange"?: (event: IcDatePickerCustomEvent<{ value: Date }>) => void;
+        "onIcChange"?: (event: IcDatePickerCustomEvent<{
+    value: Date | null;
+    dateObject?: {
+      day: string | null;
+      month: string | null;
+      year: string | null;
+    };
+    utcValue: Date | null;
+  }>) => void;
         /**
           * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
@@ -1484,7 +1682,7 @@ declare namespace LocalJSX {
         /**
           * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
-        "value"?: string | Date | null | undefined;
+        "value"?: IcDateValueFormat;
     }
     interface IcPaginationBar {
         /**
@@ -1557,7 +1755,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -1710,7 +1908,7 @@ declare namespace LocalJSX {
         /**
           * The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
          */
-        "value"?: string | Date | null | undefined;
+        "value"?: IcDateValueFormat;
     }
     interface IcTreeItem {
         /**
@@ -1804,6 +2002,7 @@ declare namespace LocalJSX {
         "truncateTreeItems"?: boolean;
     }
     interface IntrinsicElements {
+        "ic-calendar": IcCalendar;
         "ic-card-horizontal": IcCardHorizontal;
         "ic-data-table": IcDataTable;
         "ic-data-table-title-bar": IcDataTableTitleBar;
@@ -1820,6 +2019,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ic-calendar": LocalJSX.IcCalendar & JSXBase.HTMLAttributes<HTMLIcCalendarElement>;
             "ic-card-horizontal": LocalJSX.IcCardHorizontal & JSXBase.HTMLAttributes<HTMLIcCardHorizontalElement>;
             "ic-data-table": LocalJSX.IcDataTable & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
             "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;

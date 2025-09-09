@@ -18,6 +18,7 @@ import {
   IcSizes,
   IcDateFormat,
   IcDateInputMonths,
+  IcDateValueFormat,
   IcDayNames,
   IcWeekDays,
   IcThemeMode,
@@ -309,7 +310,7 @@ export class DateInput {
   /**
    * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    */
-  @Prop({ mutable: true }) value?: string | Date | null | undefined = "";
+  @Prop({ mutable: true }) value?: IcDateValueFormat = "";
 
   /**
    * The value of the `aria-live` attribute on the validation message.
