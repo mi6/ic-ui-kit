@@ -293,7 +293,6 @@ export class RadioOption {
             <label htmlFor={id}>{label}</label>
           </ic-typography>
         </div>
-
         {hasAdditionalField && (
           <div
             class={{
@@ -306,7 +305,7 @@ export class RadioOption {
             )}
             <div>
               {additionalFieldDisplay === "dynamic" && (
-                <ic-typography variant="caption">
+                <ic-typography variant="caption" role="alert">
                   <p class="dynamic-text">{dynamicText}</p>
                 </ic-typography>
               )}

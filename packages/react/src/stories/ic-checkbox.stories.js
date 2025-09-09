@@ -560,21 +560,21 @@ export const ConditionalStatic = {
 export const HelperText = {
   render: () => (
     <>
-    <IcCheckboxGroup label="This is a label" name="1" helperText="Helper text">
-      <IcCheckbox value="valueName1" label="Unselected / Default" />
-      <IcCheckbox value="valueName2" label="Selected / Default" checked />
-      <IcCheckbox value="valueName3" label="Unselected / Disabled" disabled />
+    <IcCheckboxGroup label="Coffee Extras" name="1" helperText="Helper text provided by prop">
+      <IcCheckbox value="valueName1" label="Sugar" />
+      <IcCheckbox value="valueName2" label="Milk" checked />
+      <IcCheckbox value="valueName3" label="Salt" disabled />
     </IcCheckboxGroup>
     <br />
-    <IcCheckboxGroup label="This is a label" name="2">
+    <IcCheckboxGroup label="More coffee extras" name="2">
       <IcTypography variant="caption" slot="helper-text">
         <span>
-          Slotted helper text with a <IcLink href="#">link</IcLink>
+          Slotted helper text with a <IcLink href="#">helpful link to guidance</IcLink>
         </span>
       </IcTypography>
-      <IcCheckbox value="valueName1" label="Unselected / Default" />
-      <IcCheckbox value="valueName2" label="Selected / Default" checked />
-      <IcCheckbox value="valueName3" label="Unselected / Disabled" disabled />
+      <IcCheckbox value="valueName1" label="Shortbread" />
+      <IcCheckbox value="valueName2" label="Scone" checked />
+      <IcCheckbox value="valueName3" label="Ham sandwich" disabled />
     </IcCheckboxGroup>
     </>
   ),
