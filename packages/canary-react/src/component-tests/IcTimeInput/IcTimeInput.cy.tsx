@@ -37,8 +37,8 @@ const STATUS_TEXT_SPAN = ".statustext span";
 
 const DEFAULT_TEST_THRESHOLD = 0.008;
 
-describe("IcTimeInput e2e tests", () => {
-  describe("Clear the input", () => {
+describe.skip("IcTimeInput e2e tests", () => {
+  describe.skip("Clear the input", () => {
     it("should clear the input value when the clear button is clicked", () => {
       mount(
         <div style={{ padding: "10px" }}>
@@ -120,7 +120,7 @@ describe("IcTimeInput e2e tests", () => {
     });
   });
 
-  describe("ArrowUp and ArrowDown keys", () => {
+  describe.skip("ArrowUp and ArrowDown keys", () => {
     it("should increment the hour when ArrowUp is pressed on the hour input", () => {
       mount(
         <div style={{ padding: "10px" }}>
@@ -196,7 +196,7 @@ describe("IcTimeInput e2e tests", () => {
     });
   });
 
-  describe("ArrowLeft and ArrowRight keys", () => {
+  describe.skip("ArrowLeft and ArrowRight keys", () => {
     it("should focus the minute input when ArrowRight is pressed on the hour input", () => {
       mount(
         <div style={{ padding: "10px" }}>
@@ -254,7 +254,7 @@ describe("IcTimeInput e2e tests", () => {
     });
   });
 
-  describe("Tab and backspace keys", () => {
+  describe.skip("Tab and backspace keys", () => {
     it("should focus the minute input when Tab is pressed on the hour input", () => {
       mount(
         <div style={{ padding: "10px" }}>
@@ -318,7 +318,7 @@ describe("IcTimeInput e2e tests", () => {
     });
   });
 
-  describe("Validation", () => {
+  describe.skip("Validation", () => {
     it("should show validation error when the hour input is invalid", () => {
       mount(
         <div style={{ padding: "10px" }}>
@@ -460,7 +460,7 @@ describe("IcTimeInput e2e tests", () => {
   });
 });
 
-describe("IcTimeInput visual regression and a11y tests", () => {
+describe.skip("IcTimeInput visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });

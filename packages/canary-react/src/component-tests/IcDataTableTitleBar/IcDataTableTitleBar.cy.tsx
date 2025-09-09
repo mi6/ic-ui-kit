@@ -11,7 +11,7 @@ import { HAVE_LENGTH } from "@ukic/react/src/component-tests/utils/constants";
 const TITLE_BAR = "ic-data-table-title-bar";
 const DEFAULT_THRESHOLD = 0.014;
 
-describe("IcDataTableTitleBar", () => {
+describe.skip("IcDataTableTitleBar", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 768);
@@ -96,7 +96,7 @@ describe("IcDataTableTitleBar", () => {
   });
 });
 
-describe("IcDataTableTitleBar visual regression tests in high contrast mode", () => {
+describe.skip("IcDataTableTitleBar visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

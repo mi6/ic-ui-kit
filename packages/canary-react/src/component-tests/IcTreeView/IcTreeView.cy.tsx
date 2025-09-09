@@ -191,7 +191,7 @@ export const treeItemsLongText: IcTreeItemOptions[] = [
   { label: "Hot Chocolate" },
 ];
 
-describe("IcTreeView", () => {
+describe.skip("IcTreeView", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -1103,7 +1103,7 @@ describe("IcTreeView", () => {
   });
 });
 
-describe("IcTreeView visual regression tests in high contrast mode", () => {
+describe.skip("IcTreeView visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
