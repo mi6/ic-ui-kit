@@ -69,35 +69,34 @@ npm run storybook
 
 Developers are able to build and install components locally, enabling effective testing of apps and IC UI kit components in a local environment.
 
-To get started make sure you are in the top-level directory of `ic-ui-kit`:
+To get started make sure you are in the top-level directory of `ic-ui-kit` and run:
 
 ```console
-npm run build
-cd packages/docs
-npm pack
-cd ../fonts
-npm pack
-cd ../react
-npm pack
-cd ../web-components
-npm pack
+./pack-all-tars.sh
 ```
-Alternatively, you can use the [`build-tar.sh` script](./build-tar.sh) to do the same.
 
-In the `package.json` of your project replace the value of `@ukic/docs`, `@ukic/fonts`, `@ukic/react` and `@ukic/web-components` with the full filepath to the .tgz file in each respective directory, for example:
+This will build all the components, pack them up and log out the paths of archives of each package in the ui-kit.
+
+You can copy the paths output by that script into the `package.json` of your project, replacing the paths of `@ukic/docs`, `@ukic/fonts`, `@ukic/react` and `@ukic/web-components`, including the canary packages if appropriate. The script assumes that ic-ui-kit is in the same directory as your project, be aware you might need to replace `..` with the path on your system.
+
+For example:
 
 ### [./package.json](https://github.com/mi6/ic-ui-kit/blob/main/package.json)
 
 ```json
 "dependencies": {
-  "@ukic/docs": "../ic-ui-kit/packages/docs/ukic-docs-2.1.0-beta.17.tgz"
-  "@ukic/fonts": "../ic-ui-kit/packages/fonts/ukic-fonts-2.1.0-beta.17.tgz",
-  "@ukic/react": "../ic-ui-kit/packages/react/ukic-react-2.1.0-beta.17.tgz",
-  "@ukic/web-components": "../ic-ui-kit/packages/web-components/ukic-web-components-2.1.0-beta.17.tgz",
+  "@ukic/canary-docs": "../ic-ui-kit/packages/canary-docs/ukic-canary-docs-3.0.0-canary.19.tgz",
+  "@ukic/canary-react": "../ic-ui-kit/packages/canary-react/ukic-canary-react-3.0.0-canary.25.tgz",
+  "@ukic/canary-web-components": "../ic-ui-kit/packages/canary-web-components/ukic-canary-web-components-3.0.0-canary.25.tgz",
+  // ...
+  "@ukic/docs": "../ic-ui-kit/packages/docs/ukic-docs-3.3.0.tgz",
+  "@ukic/fonts": "../ic-ui-kit/packages/fonts/ukic-fonts-3.2.2.tgz",
+  "@ukic/react": "../ic-ui-kit/packages/react/ukic-react-3.10.0.tgz",
+  "@ukic/web-components": "../ic-ui-kit/packages/web-components/ukic-web-components-3.10.0.tgz",
 }
 ```
 
-Finally, install the dependencies:
+Finally, install the dependencies in your project:
 
 ```console
 npm install
