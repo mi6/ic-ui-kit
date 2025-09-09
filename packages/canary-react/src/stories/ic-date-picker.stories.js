@@ -2,10 +2,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useArgs } from "@storybook/preview-api";
-import {
-  IcLink,
-  IcTypography,
-} from "@ukic/react";
+import { IcLink, IcTypography } from "@ukic/react";
 import React, { useState } from "react";
 import readme from "../../../canary-web-components/src/components/ic-date-picker/readme.md";
 import { IcDatePicker } from "../components";
@@ -117,12 +114,10 @@ export const HelperText = {
         label="When would you like to collect your coffee?"
         helperText="We will have your order ready for you on this date"
       />
-      <IcDatePicker
-        label="When would you like to collect your coffee?"
-      >
+      <IcDatePicker label="When would you like to collect your coffee?">
         <IcTypography variant="caption" slot="helper-text">
           <span>
-            For special requests, <IcLink href="#" >contact us</IcLink> before choosing a date
+            For special requests, <IcLink href="#">contact us</IcLink> before choosing a date
           </span>
         </IcTypography>
       </IcDatePicker>
@@ -349,10 +344,23 @@ export const IcChangeEvent = {
  */
 export const CalendarOpensAboveInput = {
   render: () => (
-    <div style={{marginTop: "400px"}}>
-      <IcDatePicker label="When would you like to collect your coffee?" openAtDate="2025-02-03" />
-      <IcDatePicker label="When would you like to collect your coffee?" openAtDate="2025-02-03" size="small" startOfWeek={0}/>
-      <IcDatePicker label="When would you like to collect your coffee?" openAtDate="2025-02-03" size="large" startOfWeek={4} />
+    <div style={{ marginTop: "400px" }}>
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        openAtDate="2025-02-03"
+      />
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        openAtDate="2025-02-03"
+        size="small"
+        startOfWeek={0}
+      />
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        openAtDate="2025-02-03"
+        size="large"
+        startOfWeek={4}
+      />
     </div>
   ),
   name: "Calendar opens above input",
@@ -387,6 +395,16 @@ const defaultArgs = {
   validationStatus: "no status",
   validationText: "",
   value: "",
+};
+
+const weekDays = {
+  Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
 };
 
 /**
@@ -434,7 +452,9 @@ export const Playground = {
         startOfWeek={args.startOfWeek}
         theme={args.theme}
         validationAriaLive={args.validationAriaLive}
-        validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
+        validationStatus={
+          args.validationStatus === "no status" ? "" : args.validationStatus
+        }
         validationText={args.validationText}
         value={value}
         onIcChange={updateDate}
@@ -469,9 +489,19 @@ export const Playground = {
       },
     },
     startOfWeek: {
-      options: [0, 1, 2, 3, 4, 5, 6],
+      options: Object.keys(weekDays),
+      mapping: weekDays,
       control: {
-        type: "select",
+        type: "inline-radio",
+        labels: {
+          Sunday: "Sunday",
+          Monday: "Monday",
+          Tuesday: "Tuesday",
+          Wednesday: "Wednesday",
+          Thursday: "Thursday",
+          Friday: "Friday",
+          Saturday: "Saturday",
+        },
       },
     },
     openAtDate: {
