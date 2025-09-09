@@ -1373,8 +1373,8 @@ export const DATA_ELEMENTS_WITH_DESCRIPTIONS = [
 
 export const createDataTableElement = (
   caption: string,
-  columns: IcDataTableColumnObject[] = COLS,
-  data: object[] = DATA
+  columns: IcDataTableColumnObject[] = [],
+  data: object[] = []
 ): HTMLIcDataTableElement => {
   const dataTable = document.createElement("ic-data-table");
   dataTable.setAttribute("caption", caption);
@@ -1384,7 +1384,7 @@ export const createDataTableElement = (
 };
 
 export const Basic = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Basic Table");
+  const dataTable = createDataTableElement("Basic Table", COLS, DATA);
   dataTable.setAttribute("sortable", "true");
   return dataTable;
 };
@@ -1443,19 +1443,23 @@ export const LargeDataSet = (): HTMLIcDataTableElement => {
 };
 
 export const Embedded = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Embedded Table");
+  const dataTable = createDataTableElement("Embedded Table", COLS, DATA);
   dataTable.setAttribute("embedded", "true");
   return dataTable;
 };
 
 export const Dense = (): HTMLElement => {
-  const dataTableDense = createDataTableElement("Dense Table");
+  const dataTableDense = createDataTableElement("Dense Table", COLS, DATA);
   dataTableDense.setAttribute("density", "dense");
   return dataTableDense;
 };
 
 export const Spacious = (): HTMLElement => {
-  const dataTableSpacious = createDataTableElement("Spacious Table");
+  const dataTableSpacious = createDataTableElement(
+    "Spacious Table",
+    COLS,
+    DATA
+  );
   dataTableSpacious.setAttribute("density", "spacious");
   return dataTableSpacious;
 };
@@ -1650,10 +1654,10 @@ export const SlottedElementsWithPagination = (): HTMLIcDataTableElement => {
 };
 
 export const Empty = (): HTMLIcDataTableElement =>
-  createDataTableElement("Empty State", COLS, undefined);
+  createDataTableElement("Empty State", COLS);
 
 export const EmptySlotted = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Empty State", COLS, undefined);
+  const dataTable = createDataTableElement("Empty State", COLS);
 
   const emptyState = document.createElement("ic-empty-state");
   emptyState.setAttribute("aligned", "left");
@@ -1678,11 +1682,7 @@ export const Loading = (): HTMLIcDataTableElement => {
 };
 
 export const EmptyLoading = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement(
-    "Empty and Loading State",
-    COLS,
-    undefined
-  );
+  const dataTable = createDataTableElement("Empty and Loading State", COLS);
 
   setTimeout(() => {
     dataTable.setAttribute("loading", "true");
