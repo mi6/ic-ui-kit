@@ -12,7 +12,9 @@ import {
 import {
   IcBrand,
   IcBrandForeground,
+  IcBrandForegroundEnum,
   IcCardDensity,
+  IcSizes,
   IcThemeMode,
 } from "../../utils/types";
 import {
@@ -22,7 +24,6 @@ import {
   removeDisabledFalse,
   renderDynamicChildSlots,
 } from "../../utils/helpers";
-import { IcBrandForegroundEnum, IcSizes } from "../../utils/types";
 
 /**
  * @slot heading - Content will be placed at the top of the horizontal card to the right of the icon.

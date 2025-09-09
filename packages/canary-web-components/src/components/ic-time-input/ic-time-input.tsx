@@ -13,6 +13,7 @@ import {
 } from "@stencil/core";
 import {
   IcAriaLive,
+  IcDateValueFormat,
   IcDisableTimeSelection,
   IcInformationStatus,
   IcInformationStatusOrEmpty,
@@ -241,7 +242,7 @@ export class TimeInput {
   /**
    * The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
    */
-  @Prop({ mutable: true }) value?: string | Date | null | undefined = "";
+  @Prop({ mutable: true }) value?: IcDateValueFormat = "";
 
   /**
    * The value of the `aria-live` attribute on the validation message.
