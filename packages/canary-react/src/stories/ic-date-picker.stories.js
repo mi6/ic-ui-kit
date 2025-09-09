@@ -389,6 +389,16 @@ const defaultArgs = {
   value: "",
 };
 
+const weekDays = {
+  Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+}
+
 /**
  * Go to the <ic-link href="/?path=/story/react-components-date-picker--playground">separate page for the playground example</ic-link> to view the prop controls.
  */
@@ -469,9 +479,19 @@ export const Playground = {
       },
     },
     startOfWeek: {
-      options: [0, 1, 2, 3, 4, 5, 6],
+      options: Object.keys(weekDays),
+      mapping: weekDays,
       control: {
-        type: "select",
+        type: "inline-radio", 
+        labels: {
+          Sunday: "Sunday",
+          Monday: "Monday",
+          Tuesday: "Tuesday",
+          Wednesday: "Wednesday",
+          Thursday: "Thursday",
+          Friday: "Friday",
+          Saturday: "Saturday",
+        },
       },
     },
     openAtDate: {
