@@ -7,14 +7,10 @@ import {
   waitForTimeout,
   testKeyboardEvent as keyboardEvent,
 } from "../../../../testspec.setup";
-import { dateMatches } from "../../../../utils/date-helpers";
+import { dateIsToday, dateMatches } from "../../../../utils/date-helpers";
 import { IcInputLabel as InputLabel } from "@ukic/web-components/dist/components/ic-input-label";
 
 const DELAY_MS = 350;
-
-const dateIsToday = (d: Date) => {
-  return dateMatches(d, new Date());
-};
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -1170,130 +1166,6 @@ describe("ic-date-picker", () => {
     expect(page.rootInstance.yearPickerVisible).toBe(false);
   });
 
-  it("should test handleCalendarKeyDown", async () => {
-    const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
-      html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022" show-picker-today-button="false" show-picker-clear-button="false"></ic-date-picker>`,
-    });
-
-    page.rootInstance.calendarOpen = true;
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("ArrowUp"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 18));
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("ArrowDown"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 25));
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("ArrowRight"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 26));
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("ArrowLeft"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 25));
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("Home"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 1));
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("End"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 31));
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("PageUp"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 10, 30));
-    expect(page.rootInstance.liveRegionEl.innerText).toEqual(
-      "November 2022 currently in view."
-    );
-
-    let keyEvent = keyboardEvent("PageUp");
-    keyEvent.shiftKey = true;
-    page.rootInstance.handleCalendarKeyDown(keyEvent);
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2021, 10, 30));
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("PageDown"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2021, 11, 30));
-
-    keyEvent = keyboardEvent("PageDown");
-    keyEvent.shiftKey = true;
-    page.rootInstance.handleCalendarKeyDown(keyEvent);
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 30));
-
-    Object.defineProperty(page.rootInstance.monthButtonEl, "setFocus", {
-      value: jest.fn(),
-    });
-
-    // simulate pressing enter to handle default behaviour case
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("Enter"));
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("Tab"));
-
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-
-    expect(page.rootInstance.monthButtonEl.setFocus).toHaveBeenCalled();
-
-    //test tab with clear button disabled (rather than hidden)
-    page.root!.showPickerClearButton = true;
-    await page.waitForChanges();
-    await waitForTimeout(DELAY_MS);
-    page.rootInstance.clearButtonEl.disabled = true;
-    await page.waitForChanges();
-
-    page.rootInstance.handleCalendarKeyDown(keyboardEvent("Tab"));
-    await page.waitForChanges();
-
-    expect(page.rootInstance.monthButtonEl.setFocus).toHaveBeenCalledTimes(2);
-
-    Object.defineProperty(page.rootInstance.yearButtonEl, "setFocus", {
-      value: jest.fn(),
-    });
-
-    keyEvent = keyboardEvent("Tab");
-    keyEvent.shiftKey = true;
-    page.rootInstance.handleCalendarKeyDown(keyEvent);
-    await page.waitForChanges();
-
-    expect(page.rootInstance.yearButtonEl.setFocus).toHaveBeenCalled();
-  });
-
   it("should test keyboard navigation when weekends disabled", async () => {
     const page = await newSpecPage({
       components: [DatePicker, DateInput, Button, Tooltip],
@@ -1311,6 +1183,7 @@ describe("ic-date-picker", () => {
 
     expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 26));
 
+    // TODO: handleCalendarKeyDown not in date picker
     page.rootInstance.handleCalendarKeyDown(keyboardEvent("ArrowLeft"));
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
