@@ -3045,14 +3045,14 @@
       "dependents": [],
       "dependencies": [
         "ic-button",
-        "ic-date-input",
-        "ic-typography"
+        "ic-typography",
+        "ic-date-input"
       ],
       "dependencyGraph": {
         "ic-date-picker": [
           "ic-button",
-          "ic-date-input",
-          "ic-typography"
+          "ic-typography",
+          "ic-date-input"
         ],
         "ic-button": [
           "ic-loading-indicator",
