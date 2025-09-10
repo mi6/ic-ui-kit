@@ -129,7 +129,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
   });
 
   it("should remove validation status (from now) when disabled date is updated", () => {
-    mount(<IcDateInput label="Test Label" disableFuture value="31/08/2025" />);
+    mount(<IcDateInput label="Test Label" disableFuture value="31/08/2080" />);
 
     cy.checkHydrated(DATE_INPUT);
 
