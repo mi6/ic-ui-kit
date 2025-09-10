@@ -313,7 +313,7 @@ export const CustomIconsExample = {
  * If you'd rather let the row calculate its own height based on its content, either set `globalRowHeight` to `auto`, or return `auto` from `variableRowHeight`.
  */
 export const CustomRowHeightsExample = {
-  render: () => CustomRowHeights(),
+  render: () => CustomRowHeights("custom-row-heights-example"),
   name: "Custom row heights",
 };
 
