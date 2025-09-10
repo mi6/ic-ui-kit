@@ -150,7 +150,8 @@
       "screenreaders",
       "showdefaulticon",
       "spelcheck",
-      "testid"
+      "testid",
+      "dompurify"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [
