@@ -1520,11 +1520,11 @@ exports[`ic-data-table should correctly render a custom icon in the header when 
               <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
                   <span class="icon">
-                    <svg aria-labelledby="error-title" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title id="error-title">
+                    <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>
                         Error
                       </title>
-                      <g id="close-octagon">
+                      <g>
                         <path d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" id="Vector"></path>
                       </g>
                     </svg>
@@ -3912,11 +3912,11 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
               <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
                   <span class="icon">
-                    <svg aria-labelledby="error-title" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title id="error-title">
+                    <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>
                         Error
                       </title>
-                      <g id="close-octagon">
+                      <g>
                         <path d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" id="Vector"></path>
                       </g>
                     </svg>
@@ -3997,11 +3997,11 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
               <td class="table-cell">
                 <div class="cell-container cell-icon data-type-string">
                   <span class="icon">
-                    <svg aria-labelledby="error-title" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title id="error-title">
+                    <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>
                         Error
                       </title>
-                      <g id="close-octagon">
+                      <g>
                         <path d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" id="Vector"></path>
                       </g>
                     </svg>
@@ -4045,11 +4045,11 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
               <td class="table-cell">
                 <div class="cell-container cell-icon data-type-string">
                   <span class="icon">
-                    <svg aria-labelledby="error-title" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title id="error-title">
+                    <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>
                         Error
                       </title>
-                      <g id="close-octagon">
+                      <g>
                         <path d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" id="Vector"></path>
                       </g>
                     </svg>
@@ -4093,11 +4093,11 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
               <td class="table-cell">
                 <div class="cell-container cell-icon data-type-string">
                   <span class="icon">
-                    <svg aria-labelledby="error-title" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title id="error-title">
+                    <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>
                         Error
                       </title>
-                      <g id="close-octagon">
+                      <g>
                         <path d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" id="Vector"></path>
                       </g>
                     </svg>
@@ -4141,11 +4141,11 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
               <td class="table-cell">
                 <div class="cell-container cell-icon data-type-string">
                   <span class="icon">
-                    <svg aria-labelledby="error-title" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title id="error-title">
+                    <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>
                         Error
                       </title>
-                      <g id="close-octagon">
+                      <g>
                         <path d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" id="Vector"></path>
                       </g>
                     </svg>
@@ -4189,11 +4189,11 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
               <td class="table-cell">
                 <div class="cell-container cell-icon data-type-string">
                   <span class="icon">
-                    <svg aria-labelledby="error-title" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title id="error-title">
+                    <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>
                         Error
                       </title>
-                      <g id="close-octagon">
+                      <g>
                         <path d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" id="Vector"></path>
                       </g>
                     </svg>
