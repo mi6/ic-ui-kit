@@ -20,6 +20,10 @@ import {
   IcSwitch,
   IcTooltip,
   SlottedSVG,
+  IcTab,
+  IcTabContext,
+  IcTabGroup,
+  IcTabPanel,
 } from "../..";
 import { IcStatusVariants } from "@ukic/web-components";
 
@@ -244,6 +248,46 @@ export const LotsOfSlottedContentDialog = () => {
             </SlottedSVG>
           </IcChip>
           <IcSwitch label="Switch label"></IcSwitch>
+        </div>
+      </IcDialog>
+    </>
+  );
+};
+
+export const SlottedTabsDialog = () => {
+  return (
+    <>
+      <IcDialog disableWidthConstraint size="large" open>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.75rem",
+          }}
+        >
+          <IcTypography slot="heading" variant="h4">
+            This is a slotted heading
+          </IcTypography>
+          <IcTypography slot="label" variant="label">
+            Slotted label
+          </IcTypography>
+          <IcTabContext
+            onIcTabSelect={(ev) =>
+              console.log({
+                tabIndex: ev.detail.tabIndex,
+                tabLabel: ev.detail.tabLabel,
+              })
+            }
+          >
+            <IcTabGroup label="Example tab group">
+              <IcTab>Ingredients</IcTab>
+              <IcTab>Method</IcTab>
+              <IcTab>History</IcTab>
+            </IcTabGroup>
+            <IcTabPanel>Tab One - Ingredients</IcTabPanel>
+            <IcTabPanel>Tab Two - Method</IcTabPanel>
+            <IcTabPanel>Tab Three - History</IcTabPanel>
+          </IcTabContext>
         </div>
       </IcDialog>
     </>
