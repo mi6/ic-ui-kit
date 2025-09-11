@@ -1372,11 +1372,15 @@ export const DATA_ELEMENTS_WITH_DESCRIPTIONS = [
 ];
 
 export const createDataTableElement = (
+  id: string,
   caption: string,
   columns: IcDataTableColumnObject[] = [],
   data: object[] = []
 ): HTMLIcDataTableElement => {
+  const existingTable = document.querySelector(`ic-data-table#${id}`);
+  if (existingTable) existingTable.parentElement?.removeChild(existingTable);
   const dataTable = document.createElement("ic-data-table");
+  dataTable.setAttribute("id", id);
   dataTable.setAttribute("caption", caption);
   dataTable.columns = columns;
   dataTable.data = data;
@@ -1384,20 +1388,30 @@ export const createDataTableElement = (
 };
 
 export const Basic = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Basic Table", COLS, DATA);
+  const dataTable = createDataTableElement("basic", "Basic Table", COLS, DATA);
   dataTable.setAttribute("sortable", "true");
   return dataTable;
 };
 
 export const DataTableSizing = (): HTMLElement => {
-  const dataTable = createDataTableElement("Basic Table", COLS_WIDTH, DATA);
+  const dataTable = createDataTableElement(
+    "data-table-sizing",
+    "Basic Table",
+    COLS_WIDTH,
+    DATA
+  );
   dataTable.setAttribute("width", "800px");
   dataTable.setAttribute("table-layout", "auto");
   return dataTable;
 };
 
 export const HiddenCol = (): HTMLElement => {
-  const dataTable = createDataTableElement("Basic Table", COLS_HIDDEN, DATA);
+  const dataTable = createDataTableElement(
+    "hidden-col",
+    "Basic Table",
+    COLS_HIDDEN,
+    DATA
+  );
   const setColumnVisible = (visible: boolean) => {
     const cols = [...COLS_HIDDEN];
     cols[2].hidden = !visible;
@@ -1437,25 +1451,41 @@ export const HiddenCol = (): HTMLElement => {
 // }
 
 export const LargeDataSet = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Basic Table", LONG_COLS, LONG_DATA);
+  const dataTable = createDataTableElement(
+    "large-data-set",
+    "Basic Table",
+    LONG_COLS,
+    LONG_DATA
+  );
   dataTable.setAttribute("sortable", "true");
   return dataTable;
 };
 
 export const Embedded = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Embedded Table", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "embedded",
+    "Embedded Table",
+    COLS,
+    DATA
+  );
   dataTable.setAttribute("embedded", "true");
   return dataTable;
 };
 
 export const Dense = (): HTMLElement => {
-  const dataTableDense = createDataTableElement("Dense Table", COLS, DATA);
+  const dataTableDense = createDataTableElement(
+    "dense",
+    "Dense Table",
+    COLS,
+    DATA
+  );
   dataTableDense.setAttribute("density", "dense");
   return dataTableDense;
 };
 
 export const Spacious = (): HTMLElement => {
   const dataTableSpacious = createDataTableElement(
+    "spacious",
     "Spacious Table",
     COLS,
     DATA
@@ -1466,6 +1496,7 @@ export const Spacious = (): HTMLElement => {
 
 export const Scrollable = (): HTMLElement => {
   const dataTable = createDataTableElement(
+    "scrollable",
     "Scrollable Table",
     LONG_COLS,
     LONG_DATA
@@ -1499,6 +1530,7 @@ export const Scrollable = (): HTMLElement => {
 
 export const HeaderTruncation = (): HTMLElement => {
   const dataTable = createDataTableElement(
+    "header-truncation",
     "Column Header Truncation",
     COLS,
     DATA
@@ -1511,10 +1543,15 @@ export const HeaderTruncation = (): HTMLElement => {
 };
 
 export const RowHeaders = (): HTMLIcDataTableElement =>
-  createDataTableElement("Row Header Table", ROW_HEADER_COLS, ROW_HEADER_DATA);
+  createDataTableElement(
+    "row-headers",
+    "Row Header Table",
+    ROW_HEADER_COLS,
+    ROW_HEADER_DATA
+  );
 
 export const Sort = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Sort", COLS, DATA);
+  const dataTable = createDataTableElement("sort", "Sort", COLS, DATA);
   dataTable.setAttribute("sortable", "true");
   dataTable.addEventListener("icSortChange", (event: CustomEvent) => {
     console.log("Sort changed", event.detail);
@@ -1523,7 +1560,12 @@ export const Sort = (): HTMLIcDataTableElement => {
 };
 
 export const SortOptions = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Sort Order", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "sort-options",
+    "Sort Order",
+    COLS,
+    DATA
+  );
   dataTable.setAttribute("sortable", "true");
   dataTable.sortOptions = {
     sortOrders: ["descending", "unsorted"],
@@ -1537,7 +1579,7 @@ export const SortOptions = (): HTMLIcDataTableElement => {
 
 export const DisableSort = (): HTMLIcDataTableElement => {
   const originalData = [...DATA];
-  const dataTable = createDataTableElement("Sort", COLS, DATA);
+  const dataTable = createDataTableElement("disable-sort", "Sort", COLS, DATA);
   dataTable.setAttribute("sortable", "true");
   dataTable.setAttribute("disable-auto-sort", "true");
   dataTable.addEventListener("icSortChange", (event: CustomEvent) => {
@@ -1567,6 +1609,7 @@ export const DisableSort = (): HTMLIcDataTableElement => {
 export const DisableAutoSortColumns = () => {
   const originalData = [...DATA];
   const dataTable = createDataTableElement(
+    "disable-auto-sort-columns",
     "Disable sort on columns",
     COLS_DISABLE_AUTO_SORT,
     DATA
@@ -1598,13 +1641,23 @@ export const DisableAutoSortColumns = () => {
 };
 
 export const ExcludeColumnsFromSort = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Sort", COLS_EXCLUDE_SORT, DATA);
+  const dataTable = createDataTableElement(
+    "exclude-sort",
+    "Sort",
+    COLS_EXCLUDE_SORT,
+    DATA
+  );
   dataTable.setAttribute("sortable", "true");
   return dataTable;
 };
 
 export const Pagination = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Pagination", LONG_COLS, LONG_DATA);
+  const dataTable = createDataTableElement(
+    "pagination",
+    "Pagination",
+    LONG_COLS,
+    LONG_DATA
+  );
   dataTable.setAttribute("show-pagination", "true");
   dataTable.paginationBarOptions = {
     itemsPerPageOptions: [
@@ -1619,16 +1672,32 @@ export const Pagination = (): HTMLIcDataTableElement => {
 };
 
 export const ColumnOverrides = (): HTMLIcDataTableElement =>
-  createDataTableElement("Column Overrides", COLS_ALIGNMENT, DATA);
+  createDataTableElement(
+    "column-overrides",
+    "Column Overrides",
+    COLS_ALIGNMENT,
+    DATA
+  );
 
 export const RowOverrides = (): HTMLIcDataTableElement =>
-  createDataTableElement("Row Overrides", ROW_HEADER_COLS, ROW_ALIGNMENT);
+  createDataTableElement(
+    "row-overrides",
+    "Row Overrides",
+    ROW_HEADER_COLS,
+    ROW_ALIGNMENT
+  );
 
 export const CellOverrides = (): HTMLIcDataTableElement =>
-  createDataTableElement("Cell Overrides", COLS, DATA_CELL_ALIGNMENT);
+  createDataTableElement(
+    "cell-overrides",
+    "Cell Overrides",
+    COLS,
+    DATA_CELL_ALIGNMENT
+  );
 
 export const LinksHTMLElements = (): HTMLIcDataTableElement =>
   createDataTableElement(
+    "links-html-elements",
     "Links and HTML Elements Overrides",
     COLS_ELEMENTS,
     DATA_ELEMENTS
@@ -1636,6 +1705,7 @@ export const LinksHTMLElements = (): HTMLIcDataTableElement =>
 
 export const SlottedElementsWithPagination = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement(
+    "slotted-els-with-pagination",
     "Slotted elements with pagination",
     COLS_ELEMENTS_SINGLE_ACTION,
     DATA_ELEMENTS_PAGINATION
@@ -1654,10 +1724,14 @@ export const SlottedElementsWithPagination = (): HTMLIcDataTableElement => {
 };
 
 export const Empty = (): HTMLIcDataTableElement =>
-  createDataTableElement("Empty State", COLS);
+  createDataTableElement("empty-state", "Empty State", COLS);
 
 export const EmptySlotted = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Empty State", COLS);
+  const dataTable = createDataTableElement(
+    "empty-slotted",
+    "Empty State",
+    COLS
+  );
 
   const emptyState = document.createElement("ic-empty-state");
   emptyState.setAttribute("aligned", "left");
@@ -1675,14 +1749,23 @@ export const EmptySlotted = (): HTMLIcDataTableElement => {
 };
 
 export const Loading = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Loading State", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "loading",
+    "Loading State",
+    COLS,
+    DATA
+  );
 
   dataTable.setAttribute("loading", "true");
   return dataTable;
 };
 
 export const EmptyLoading = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Empty and Loading State", COLS);
+  const dataTable = createDataTableElement(
+    "empty-loading",
+    "Empty and Loading State",
+    COLS
+  );
 
   setTimeout(() => {
     dataTable.setAttribute("loading", "true");
@@ -1692,17 +1775,26 @@ export const EmptyLoading = (): HTMLIcDataTableElement => {
 };
 
 export const Updating = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Updating State", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "updating",
+    "Updating State",
+    COLS,
+    DATA
+  );
   dataTable.updatingOptions = { progress: 30 };
   dataTable.setAttribute("updating", "true");
   return dataTable;
 };
 
 export const CustomIcons = (): HTMLIcDataTableElement =>
-  createDataTableElement("Custom icons", ICON_COLS, ICON_DATA);
+  createDataTableElement("custom-icons", "Custom icons", ICON_COLS, ICON_DATA);
 
-export const CustomRowHeights = (): HTMLElement => {
+export const CustomRowHeights = (id: string): HTMLElement => {
+  const existing = document.querySelector(`div#${id}`);
+  if (existing) existing.parentElement?.removeChild(existing);
+
   const dataTable = createDataTableElement(
+    id,
     "Custom Row Heights",
     COLUMNS_NO_TEXT_WRAP,
     LONG_DATA_VALUES
@@ -1731,13 +1823,19 @@ export const CustomRowHeights = (): HTMLElement => {
   buttonWrapper.insertAdjacentElement("beforeend", resetButton);
 
   const wrapper = document.createElement("div");
+  wrapper.setAttribute("id", id);
   wrapper.insertAdjacentElement("afterbegin", dataTable);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   return wrapper;
 };
 
 export const TruncationShowHide = (): HTMLElement => {
-  const dataTable = CustomRowHeights().querySelector("ic-data-table")!;
+  const existing = document.querySelector(`div#truncation-show-hide-wrapper`);
+  if (existing) existing.parentElement?.removeChild(existing);
+
+  const dataTable = CustomRowHeights("truncation-show-hide").querySelector(
+    "ic-data-table"
+  )!;
   dataTable.globalRowHeight = 40;
   dataTable.variableRowHeight = undefined;
   dataTable.truncationPattern = "show-hide";
@@ -1769,6 +1867,7 @@ export const TruncationShowHide = (): HTMLElement => {
   buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
 
   const wrapper = document.createElement("div");
+  wrapper.setAttribute("id", "truncation-show-hide-wrapper");
   wrapper.insertAdjacentElement("afterbegin", dataTable);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   return wrapper;
@@ -1776,6 +1875,7 @@ export const TruncationShowHide = (): HTMLElement => {
 
 export const TruncationTextWrap = (): HTMLElement => {
   const dataTable = createDataTableElement(
+    "text-wrap",
     "Text Wrap",
     COLUMNS_TEXT_WRAP,
     TEXT_WRAP_LONG_DATA
@@ -1783,13 +1883,14 @@ export const TruncationTextWrap = (): HTMLElement => {
   dataTable.globalRowHeight = 40;
   dataTable.variableRowHeight = undefined;
 
-  const wrapper = document.createElement("div");
-  wrapper.insertAdjacentElement("afterbegin", dataTable);
-  return wrapper;
+  return dataTable;
 };
 
 export const TruncationTooltip = (): HTMLElement => {
-  const dataTable = CustomRowHeights().querySelector("ic-data-table")!;
+  const existing = document.querySelector(`div#truncation-tooltip-wrapper`);
+  if (existing) existing.parentElement?.removeChild(existing);
+  const dataTable =
+    CustomRowHeights("truncation-tooltip").querySelector("ic-data-table")!;
   dataTable.globalRowHeight = 40;
   dataTable.variableRowHeight = undefined;
   dataTable.setAttribute("truncation-pattern", "tooltip");
@@ -1813,13 +1914,19 @@ export const TruncationTooltip = (): HTMLElement => {
   buttonWrapper.insertAdjacentElement("beforeend", resetButton);
 
   const wrapper = document.createElement("div");
+  wrapper.setAttribute("id", "truncation-tooltip-wrapper");
   wrapper.insertAdjacentElement("afterbegin", dataTable);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   return wrapper;
 };
 
 export const CustomTitleBar = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Custom Title Bar", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "custom-title-bar",
+    "Custom Title Bar",
+    COLS,
+    DATA
+  );
 
   const titleBar = document.createElement("ic-data-table-title-bar");
   titleBar.setAttribute(
@@ -1858,7 +1965,14 @@ export const CustomTitleBar = (): HTMLIcDataTableElement => {
 };
 
 export const UpdatingData = (): HTMLElement => {
-  const dataTable = createDataTableElement("Updating Data", LONG_COLS, []);
+  const existing = document.querySelector(`div#updating-data-wrapper`);
+  if (existing) existing.parentElement?.removeChild(existing);
+  const dataTable = createDataTableElement(
+    "updating-data",
+    "Updating Data",
+    LONG_COLS,
+    []
+  );
   const pageOptions = [{ label: "5", value: "5" }];
 
   dataTable.showPagination = true;
@@ -1913,6 +2027,7 @@ export const UpdatingData = (): HTMLElement => {
   buttonWrapper.insertAdjacentElement("beforeend", resetPaginationButton);
 
   const wrapper = document.createElement("div");
+  wrapper.setAttribute("id", "updating-data-wrapper");
   wrapper.insertAdjacentElement("afterbegin", dataTable);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   return wrapper;
@@ -1921,6 +2036,7 @@ export const UpdatingData = (): HTMLElement => {
 export const SlottedPagination = (): HTMLIcDataTableElement => {
   let itemsPerPage = 5;
   const dataTable = createDataTableElement(
+    "slotted-pagination",
     "slotted-pagination",
     LONG_COLS,
     LONG_DATA
@@ -1946,7 +2062,12 @@ export const SlottedPagination = (): HTMLIcDataTableElement => {
 };
 
 export const ActionElement = (): HTMLElement => {
-  const dataTable = createDataTableElement("Action Element", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "action-element",
+    "Action Element",
+    COLS,
+    DATA
+  );
 
   const actionElement = document.createElement("div");
   actionElement.setAttribute("slot", "firstName-0-action-element");
@@ -1986,10 +2107,16 @@ export const ActionElement = (): HTMLElement => {
 };
 
 export const MissingCellData = (): HTMLElement =>
-  createDataTableElement("Missing Cell Data", COLS, DATA_WITH_EMPTY_VALUES);
+  createDataTableElement(
+    "missing-cell-data",
+    "Missing Cell Data",
+    COLS,
+    DATA_WITH_EMPTY_VALUES
+  );
 
 export const SelectWithCheckbox = (): HTMLElement => {
   const dataTable = createDataTableElement(
+    "select-using-checkboxes",
     "Select using checkboxes",
     COLS,
     DATA
@@ -2007,7 +2134,10 @@ export const SelectWithCheckbox = (): HTMLElement => {
 };
 
 export const DevArea = (): HTMLElement => {
+  const existing = document.querySelector(`div#dev-area-wrapper`);
+  if (existing) existing.parentElement?.removeChild(existing);
   const dataTable = createDataTableElement(
+    "dev-area",
     "Basic Table",
     COLS,
     VERY_LONG_DATA(5)
@@ -2090,6 +2220,7 @@ export const DevArea = (): HTMLElement => {
   buttonWrapper.insertAdjacentElement("beforeend", updateRows200Btn);
 
   const wrapper = document.createElement("div");
+  wrapper.setAttribute("id", "dev-area-wrapper");
   wrapper.insertAdjacentElement("beforeend", description);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   wrapper.insertAdjacentElement("beforeend", dataTable);
@@ -2098,6 +2229,7 @@ export const DevArea = (): HTMLElement => {
 
 export const CellDescriptions = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement(
+    "cell-descriptions",
     "Cell descriptions data table",
     COLS,
     DATA_ELEMENTS_WITH_DESCRIPTIONS
@@ -2108,6 +2240,7 @@ export const CellDescriptions = (): HTMLIcDataTableElement => {
 
 export const LongCellDescriptions = (): HTMLElement => {
   const dataTable = createDataTableElement(
+    "long-cell-descriptions",
     "Cell descriptions data table auto with tooltip",
     COLS,
     LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS
