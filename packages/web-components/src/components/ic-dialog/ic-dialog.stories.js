@@ -307,6 +307,45 @@ export const SlottedContent = {
   name: "Slotted content",
 };
 
+export const SlottedTabs = {
+  render: () => html`
+  <script>
+      function showDialog() {
+        dialog = document.querySelector("ic-dialog");
+        dialog.open = true;
+      }
+      function hideDialog() {
+        dialog.open = false;
+      }
+    </script>
+      <ic-button variant="primary" onclick="showDialog()">
+        Launch dialog
+      </ic-button>
+      <ic-dialog dismiss-label="Close" size="large" disable-width-constraint="true">
+      <div style="display:flex; flex-direction:column; gap: 0.75rem">
+          <ic-typography slot="heading" variant="h4">
+            This is a slotted heading
+          </ic-typography>
+          <ic-typography slot="label" variant="label">
+            Slotted label
+          </ic-typography>
+           <ic-tab-context>
+          <ic-tab-group label="Example tab group">
+            <ic-tab>Ingredients</ic-tab>
+            <ic-tab>Method</ic-tab>
+            <ic-tab>History</ic-tab>
+          </ic-tab-group>
+          <ic-tab-panel>Tab One - Ingredients</ic-tab-panel>
+          <ic-tab-panel>Tab Two - Method</ic-tab-panel>
+          <ic-tab-panel>Tab Three - History</ic-tab-panel>
+        </ic-tab-context>
+        </div>
+      </ic-dialog>
+    </>`,
+
+  name: "Slotted tabs",
+};
+
 export const BackgroundClosePrevented = {
   render: () => html`
     <script>
