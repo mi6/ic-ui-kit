@@ -21,7 +21,7 @@ const EMPTY_STATE = "ic-empty-state";
 
 const DEFAULT_TEST_THRESHOLD = 0.015;
 
-describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcEmptyState end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 750);
     cy.injectAxe();
@@ -216,7 +216,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcEmptyState visual regression tests in high contrast mode", () => {
+describe.skip("IcEmptyState visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

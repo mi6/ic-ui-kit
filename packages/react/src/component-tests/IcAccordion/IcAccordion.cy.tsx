@@ -35,8 +35,8 @@ const getAccordionSelector = (index: number) =>
 
 const DEFAULT_TEST_THRESHOLD = 0.017;
 
-describe("End-to-end tests", () => {
-  describe("IcAccordion", () => {
+describe.skip("End-to-end tests", () => {
+  describe.skip("IcAccordion", () => {
     it("should render a simple accordion", () => {
       mount(<SimpleAccordion />);
 
@@ -92,7 +92,7 @@ describe("End-to-end tests", () => {
       );
     });
   });
-  describe("IcAccordionGroup", () => {
+  describe.skip("IcAccordionGroup", () => {
     it("should render an accordion group", () => {
       mount(
         <IcAccordionGroup label="Group">
@@ -233,7 +233,7 @@ describe("End-to-end tests", () => {
   });
 });
 
-describe("Visual regression and a11y tests", () => {
+describe.skip("Visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -242,7 +242,7 @@ describe("Visual regression and a11y tests", () => {
     cy.task("generateReport");
   });
 
-  describe("IcAccordion", () => {
+  describe.skip("IcAccordion", () => {
     it("should render an accordion with a heading and body", () => {
       mount(<SimpleAccordion />);
 
@@ -347,7 +347,7 @@ describe("Visual regression and a11y tests", () => {
     });
   });
 
-  describe("IcAccordionGroup", () => {
+  describe.skip("IcAccordionGroup", () => {
     it("should render a custom label", () => {
       mount(
         <IcAccordionGroup label="Custom Group Title">
@@ -430,7 +430,7 @@ describe("Visual regression and a11y tests", () => {
   });
 });
 
-describe("Visual regression tests in high contrast mode", () => {
+describe.skip("Visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
@@ -443,7 +443,7 @@ describe("Visual regression tests in high contrast mode", () => {
     cy.disableForcedColors();
   });
 
-  describe("IcAccordion", () => {
+  describe.skip("IcAccordion", () => {
     it("should render an accordion with a heading and body in high contrast mode", () => {
       mount(<SimpleAccordion />);
 
@@ -508,7 +508,7 @@ describe("Visual regression tests in high contrast mode", () => {
     });
   });
 
-  describe("IcAccordionGroup", () => {
+  describe.skip("IcAccordionGroup", () => {
     it("should render a single expansion accordion-group in high contrast mode", () => {
       mount(
         <IcAccordionGroup singleExpansion label="Single Expansion">

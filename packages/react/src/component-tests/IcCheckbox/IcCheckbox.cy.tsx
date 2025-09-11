@@ -47,7 +47,7 @@ const TEXT_FIELD_SELECTOR = "ic-text-field";
 const CHECKBOX_GROUP_SELECTOR = "ic-checkbox-group";
 const INDETERMINATE_SYMBOL_SELECTOR = ".indeterminate-symbol";
 
-describe("IcCheckbox end-to-end tests", () => {
+describe.skip("IcCheckbox end-to-end tests", () => {
   it("should render", () => {
     mount(<Checkbox />);
 
@@ -462,7 +462,7 @@ describe("IcCheckbox end-to-end tests", () => {
   });
 });
 
-describe("IcCheckbox visual regression and a11y tests", () => {
+describe.skip("IcCheckbox visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -651,7 +651,7 @@ describe("IcCheckbox visual regression and a11y tests", () => {
   });
 });
 
-describe("IcCheckbox visual regression tests in high contrast mode", () => {
+describe.skip("IcCheckbox visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

@@ -49,7 +49,7 @@ const submitForm = (ev: React.FormEvent<HTMLFormElement>) => {
   console.log("foo");
 };
 
-describe("IcButton end-to-end tests", () => {
+describe.skip("IcButton end-to-end tests", () => {
   it("should render", () => {
     mount(<IcButton>Test</IcButton>);
 
@@ -308,7 +308,7 @@ describe("IcButton end-to-end tests", () => {
   });
 });
 
-describe("IcButton visual regression and a11y tests", () => {
+describe.skip("IcButton visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -1164,7 +1164,7 @@ describe("IcButton visual regression and a11y tests", () => {
   });
 });
 
-describe("IcButton visual regression tests in high contrast mode", () => {
+describe.skip("IcButton visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

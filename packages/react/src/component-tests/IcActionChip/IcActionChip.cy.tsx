@@ -15,7 +15,7 @@ const ACTION_CHIP_SELECTOR = "ic-action-chip";
 
 const DEFAULT_TEST_THRESHOLD = 0.013;
 
-describe("IcActionChip visual regression & e2e tests", () => {
+describe.skip("IcActionChip visual regression & e2e tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });

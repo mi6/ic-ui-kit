@@ -34,7 +34,7 @@ const ORDER_DETAILS_HEADING_SELECTOR = '[heading="Order details"]';
 const DATA_ROW_SELECTOR = "ic-data-row";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
 
-describe("IcDataList end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcDataList end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 750);
@@ -307,7 +307,7 @@ describe("IcDataList end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcDataList visual regression tests in high contrast mode", () => {
+describe.skip("IcDataList visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

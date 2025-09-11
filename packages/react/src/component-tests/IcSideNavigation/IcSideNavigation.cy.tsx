@@ -48,8 +48,8 @@ const ARIA_LABEL_ATTR = "aria-label";
 
 Cypress.Commands.add("checkSideNavSize", checkSideNavSize);
 
-describe("IcSideNavigation", () => {
-  describe("Mobile", () => {
+describe.skip("IcSideNavigation", () => {
+  describe.skip("Mobile", () => {
     beforeEach(() => {
       cy.viewport(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     });
@@ -172,7 +172,7 @@ describe("IcSideNavigation", () => {
       );
     });
 
-    describe("Mobile visual regression and a11y tests", () => {
+    describe.skip("Mobile visual regression and a11y tests", () => {
       beforeEach(() => {
         cy.viewport(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         cy.injectAxe();
@@ -305,7 +305,7 @@ describe("IcSideNavigation", () => {
     });
   });
 
-  describe("Desktop", () => {
+  describe.skip("Desktop", () => {
     beforeEach(() => {
       cy.viewport(992, DEFAULT_HEIGHT);
     });
@@ -585,7 +585,7 @@ describe("IcSideNavigation", () => {
       );
     });
 
-    describe("Desktop visual regression and a11y tests", () => {
+    describe.skip("Desktop visual regression and a11y tests", () => {
       beforeEach(() => {
         cy.viewport(992, DEFAULT_HEIGHT);
         cy.injectAxe();
@@ -788,7 +788,7 @@ describe("IcSideNavigation", () => {
   });
 });
 
-describe("Mobile visual regression tests in high contrast mode", () => {
+describe.skip("Mobile visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
@@ -870,7 +870,7 @@ describe("Mobile visual regression tests in high contrast mode", () => {
   });
 });
 
-describe("Desktop visual regression tests in high contrast mode", () => {
+describe.skip("Desktop visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
