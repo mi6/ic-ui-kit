@@ -34,7 +34,7 @@ exports[`button component should correctly render with text 1`] = `
 `;
 
 exports[`button component should disable tooltip when prop set 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon" disable-tooltip="" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" disable-tooltip="" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
     <button aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -211,7 +211,7 @@ exports[`button component should render correct HTML with right icon 1`] = `
 `;
 
 exports[`button component should render icon variant with a tooltip 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
     <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
@@ -231,9 +231,9 @@ exports[`button component should render icon variant with a tooltip 1`] = `
 `;
 
 exports[`button component should render icon variant with a tooltip based on aria-label 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" tooltip-placement="top" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" tooltip-placement="top" variant="icon-tertiary">
   <template shadowrootmode="open">
-    <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
         <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
           <ic-typography variant="caption">
@@ -243,7 +243,7 @@ exports[`button component should render icon variant with a tooltip based on ari
         </div>
         <slot></slot>
       </template>
-      <button aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -253,7 +253,7 @@ exports[`button component should render icon variant with a tooltip based on ari
 `;
 
 exports[`button component should render icon variant with a tooltip based on title 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
     <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
@@ -325,10 +325,10 @@ exports[`button component should test aria-describedby is updated 1`] = `
 `;
 
 exports[`button component should test tooltip visibility changes when disable tooltip prop changes 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-dark monochrome" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark monochrome" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
-    <ic-tooltip label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
-      <button aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -338,7 +338,7 @@ exports[`button component should test tooltip visibility changes when disable to
 `;
 
 exports[`button component should test tooltip visibility changes when disable tooltip prop changes 2`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-dark monochrome" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark monochrome" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
     <button aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
       <slot></slot>
@@ -349,10 +349,10 @@ exports[`button component should test tooltip visibility changes when disable to
 `;
 
 exports[`button component should test tooltip visibility changes when disable tooltip prop changes 3`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-dark monochrome" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark monochrome" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
-    <ic-tooltip label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
-      <button aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -362,7 +362,7 @@ exports[`button component should test tooltip visibility changes when disable to
 `;
 
 exports[`button component should update aria-expanded when attribute changed 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
     <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" placement="bottom" target="ic-button-with-tooltip-test-button">
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-expanded="false" class="button" part="button" tabindex="0" type="button">
@@ -375,7 +375,7 @@ exports[`button component should update aria-expanded when attribute changed 1`]
 `;
 
 exports[`button component should update aria-expanded when attribute changed 2`] = `
-<ic-button aria-expanded="true" class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" variant="icon">
+<ic-button aria-expanded="true" class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
     <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" placement="bottom" target="ic-button-with-tooltip-test-button">
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-expanded="true" class="button" part="button" tabindex="0" type="button">
@@ -388,9 +388,9 @@ exports[`button component should update aria-expanded when attribute changed 2`]
 `;
 
 exports[`button component should update aria-label when attribute changed 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
-    <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
         <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
           <ic-typography variant="caption">
@@ -400,7 +400,7 @@ exports[`button component should update aria-label when attribute changed 1`] = 
         </div>
         <slot></slot>
       </template>
-      <button aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" part="button" tabindex="0" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -410,9 +410,9 @@ exports[`button component should update aria-label when attribute changed 1`] = 
 `;
 
 exports[`button component should update aria-label when attribute changed 2`] = `
-<ic-button aria-label="New tooltip text" class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" variant="icon">
+<ic-button aria-label="New tooltip text" class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
-    <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
         <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
           <ic-typography variant="caption">
@@ -422,7 +422,7 @@ exports[`button component should update aria-label when attribute changed 2`] = 
         </div>
         <slot></slot>
       </template>
-      <button aria-label="New tooltip text" class="button" part="button" tabindex="0" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="New tooltip text" class="button" part="button" tabindex="0" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -432,7 +432,7 @@ exports[`button component should update aria-label when attribute changed 2`] = 
 `;
 
 exports[`button component should update tooltip label when title attribute changed 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">
     <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" part="button" tabindex="0" type="button">
@@ -445,7 +445,7 @@ exports[`button component should update tooltip label when title attribute chang
 `;
 
 exports[`button component should update tooltip label when title attribute changed 2`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon" exportparts="button" id="test-button" title="New tooltip text" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="test-button" title="New tooltip text" variant="icon-tertiary">
   <template shadowrootmode="open">
     <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="New tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" part="button" tabindex="0" type="button">

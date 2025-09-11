@@ -25,7 +25,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark hidden" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -46,7 +46,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -86,7 +86,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -122,7 +122,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -494,7 +494,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark hidden" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -515,7 +515,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -555,7 +555,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon disabled flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary disabled flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-disabled="true" aria-hidden="true" class="button" disabled="" part="button" type="button">
                     <slot></slot>
@@ -579,7 +579,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
               October
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon disabled" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary disabled" exportparts="button" id="next-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-disabled="true" aria-hidden="true" class="button" disabled="" part="button" type="button">
                     <slot></slot>
@@ -591,7 +591,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon disabled flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary disabled flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-disabled="true" aria-hidden="true" class="button" disabled="" part="button" type="button">
                     <slot></slot>
@@ -615,7 +615,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
               2023
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon disabled" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary disabled" exportparts="button" id="next-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-disabled="true" aria-hidden="true" class="button" disabled="" part="button" type="button">
                     <slot></slot>
@@ -1012,7 +1012,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark hidden" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -1033,7 +1033,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -1073,7 +1073,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1109,7 +1109,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1481,7 +1481,7 @@ exports[`ic-date-picker should render as required field 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark hidden" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -1502,7 +1502,7 @@ exports[`ic-date-picker should render as required field 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -1562,7 +1562,7 @@ exports[`ic-date-picker should render default size 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -1583,7 +1583,7 @@ exports[`ic-date-picker should render default size 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -1625,7 +1625,7 @@ exports[`ic-date-picker should render default size 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1661,7 +1661,7 @@ exports[`ic-date-picker should render default size 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -2082,7 +2082,7 @@ exports[`ic-date-picker should render disabled 1`] = `
                   <input aria-label="year" class="year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark disabled hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark disabled hidden" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -2103,7 +2103,7 @@ exports[`ic-date-picker should render disabled 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button disabled" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -2163,7 +2163,7 @@ exports[`ic-date-picker should render large datepicker 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-large ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-large ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -2184,7 +2184,7 @@ exports[`ic-date-picker should render large datepicker 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="divider large"></div>
-                    <ic-button class="button-size-large ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-large ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -2226,7 +2226,7 @@ exports[`ic-date-picker should render large datepicker 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-large ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-large ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -2262,7 +2262,7 @@ exports[`ic-date-picker should render large datepicker 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-large ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-large ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -2683,7 +2683,7 @@ exports[`ic-date-picker should render small datepicker 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-small ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-small ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -2704,7 +2704,7 @@ exports[`ic-date-picker should render small datepicker 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="divider small"></div>
-                    <ic-button class="button-size-small ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-small ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -2746,7 +2746,7 @@ exports[`ic-date-picker should render small datepicker 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-small ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-small ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -2782,7 +2782,7 @@ exports[`ic-date-picker should render small datepicker 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-small ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-small ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3203,7 +3203,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -3224,7 +3224,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -3266,7 +3266,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3302,7 +3302,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3734,7 +3734,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -3755,7 +3755,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -3797,7 +3797,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3833,7 +3833,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -4254,7 +4254,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -4275,7 +4275,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -4317,7 +4317,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -4353,7 +4353,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -4774,7 +4774,7 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark hidden" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -4795,7 +4795,7 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -4855,7 +4855,7 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark hidden" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -4876,7 +4876,7 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -4937,7 +4937,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -4958,7 +4958,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -5000,7 +5000,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5036,7 +5036,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5457,7 +5457,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -5478,7 +5478,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -5520,7 +5520,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5556,7 +5556,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5960,7 +5960,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2022">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -5981,7 +5981,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -6023,7 +6023,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6059,7 +6059,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6244,7 +6244,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2022">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon-tertiary clear-button dark" exportparts="button" id="clear-button">
                     <template shadowrootmode="open">
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
@@ -6265,7 +6265,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon-tertiary calendar-button" exportparts="button" id="calendar-button">
                       <template shadowrootmode="open">
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
@@ -6307,7 +6307,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6343,7 +6343,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon-tertiary flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <template shadowrootmode="open">
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>

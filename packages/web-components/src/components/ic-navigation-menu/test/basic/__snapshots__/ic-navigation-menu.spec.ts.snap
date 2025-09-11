@@ -10,7 +10,7 @@ exports[`ic-navigation-menu should render with version and status: renders-with-
       </span>
       <nav aria-hidden="true" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button aria-label="Close app menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
+          <ic-button aria-label="Close app menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon-tertiary">
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
               <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
@@ -44,10 +44,10 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
       </span>
       <nav aria-hidden="true" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
+          <ic-button class="ic-button-size-large ic-button-variant-icon-tertiary menu-close-button" exportparts="button" id="menu-close-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Close app menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
-                <button aria-label="Close app menu" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-menu-close-button" label="Close app menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-menu-close-button" aria-label="Close app menu" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -109,7 +109,7 @@ exports[`ic-navigation-menu should test slotted link: renders-with-slotted-link 
       </span>
       <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
+          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon-tertiary">
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
               <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
@@ -145,10 +145,10 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
       </span>
       <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
+          <ic-button class="ic-button-size-large ic-button-variant-icon-tertiary menu-close-button" exportparts="button" id="menu-close-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Close navigation menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
-                <button aria-label="Close navigation menu" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-menu-close-button" label="Close navigation menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-menu-close-button" aria-label="Close navigation menu" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -223,7 +223,7 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
       </span>
       <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container nav-group-first">
-          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
+          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon-tertiary">
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
               <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
@@ -270,7 +270,7 @@ exports[`ic-navigation-menu should test slotted navigation item: renders-with-sl
       </span>
       <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
+          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon-tertiary">
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
               <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
