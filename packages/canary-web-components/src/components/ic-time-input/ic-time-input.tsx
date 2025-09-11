@@ -1000,6 +1000,7 @@ export class TimeInput {
               aria-label="hour"
               placeholder="HH"
               disabled={this.disabled}
+              aria-required={`${this.required}`}
               inputmode="number"
               pattern="[0-9]*"
               onPaste={this.handlePaste}
@@ -1017,6 +1018,7 @@ export class TimeInput {
               aria-label="minute"
               placeholder="MM"
               disabled={this.disabled}
+              aria-required={`${this.required}`}
               inputmode="number"
               pattern="[0-9]*"
               onPaste={this.handlePaste}
@@ -1035,6 +1037,7 @@ export class TimeInput {
                 aria-label="second"
                 placeholder="SS"
                 disabled={this.disabled}
+                aria-required={`${this.required}`}
                 inputmode="number"
                 pattern="[0-9]*"
                 onPaste={this.handlePaste}

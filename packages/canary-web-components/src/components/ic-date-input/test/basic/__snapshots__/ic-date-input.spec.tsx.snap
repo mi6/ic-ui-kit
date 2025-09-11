@@ -5,6 +5,8 @@ exports[`ic-date-input component date format conversion should handle US format 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-13" id="ic-date-input-13-label">
             Test label
@@ -26,11 +28,11 @@ exports[`ic-date-input component date format conversion should handle US format 
       <ic-input-component-container aria-labelledby="ic-date-input-13-label ic-date-input-13-screen-reader-info ic-date-input-13-validation-text ic-date-input-13-selected-date-info ic-date-input-13-assistive-hint" id="ic-date-input-13" role="group" size="medium" validationstatus="error">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
             /
-            <input aria-invalid="true" aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="26">
+            <input aria-invalid="true" aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="26">
             /
-            <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -56,6 +58,8 @@ exports[`ic-date-input component date format conversion should handle US format 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-14" id="ic-date-input-14-label">
             Test label
@@ -77,11 +81,11 @@ exports[`ic-date-input component date format conversion should handle US format 
       <ic-input-component-container aria-labelledby="ic-date-input-14-label ic-date-input-14-screen-reader-info  ic-date-input-14-selected-date-info ic-date-input-14-assistive-hint" id="ic-date-input-14" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
+            <input aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
             /
-            <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="26">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="26">
             /
-            <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -97,7 +101,7 @@ exports[`ic-date-input component date format conversion should handle US format 
       </span>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-14" type="hidden" value="2001-07-25T23:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-14" type="hidden" value="2001-07-26T00:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -106,6 +110,8 @@ exports[`ic-date-input component date format conversion should handle US format 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-15" id="ic-date-input-15-label">
             Test label
@@ -127,11 +133,11 @@ exports[`ic-date-input component date format conversion should handle US format 
       <ic-input-component-container aria-labelledby="ic-date-input-15-label ic-date-input-15-screen-reader-info ic-date-input-15-validation-text ic-date-input-15-selected-date-info ic-date-input-15-assistive-hint" id="ic-date-input-15" role="group" size="medium" validationstatus="error">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
             /
-            <input aria-invalid="true" aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="26">
+            <input aria-invalid="true" aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="26">
             /
-            <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -157,6 +163,8 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-16" id="ic-date-input-16-label">
             Test label
@@ -178,11 +186,11 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
       <ic-input-component-container aria-labelledby="ic-date-input-16-label ic-date-input-16-screen-reader-info  ic-date-input-16-selected-date-info ic-date-input-16-assistive-hint" id="ic-date-input-16" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
             /
-            <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="10">
+            <input aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="10">
             /
-            <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -198,7 +206,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
       </span>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-16" type="hidden" value="2001-10-06T23:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-16" type="hidden" value="2001-10-07T00:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -207,6 +215,8 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-17" id="ic-date-input-17-label">
             Test label
@@ -228,11 +238,11 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
       <ic-input-component-container aria-labelledby="ic-date-input-17-label ic-date-input-17-screen-reader-info  ic-date-input-17-selected-date-info ic-date-input-17-assistive-hint" id="ic-date-input-17" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
+            <input aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
             /
-            <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="10">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="10">
             /
-            <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -248,7 +258,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
       </span>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-17" type="hidden" value="2001-07-09T23:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-17" type="hidden" value="2001-07-10T00:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -257,6 +267,8 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-18" id="ic-date-input-18-label">
             Test label
@@ -278,11 +290,11 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
       <ic-input-component-container aria-labelledby="ic-date-input-18-label ic-date-input-18-screen-reader-info  ic-date-input-18-selected-date-info ic-date-input-18-assistive-hint" id="ic-date-input-18" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
             /
-            <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="10">
+            <input aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="10">
             /
-            <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -298,7 +310,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
       </span>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-18" type="hidden" value="2001-10-06T23:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-18" type="hidden" value="2001-10-07T00:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -307,6 +319,8 @@ exports[`ic-date-input component date format conversion should handle single dig
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-12" id="ic-date-input-12-label">
             Test label
@@ -328,11 +342,11 @@ exports[`ic-date-input component date format conversion should handle single dig
       <ic-input-component-container aria-labelledby="ic-date-input-12-label ic-date-input-12-screen-reader-info  ic-date-input-12-selected-date-info ic-date-input-12-assistive-hint" id="ic-date-input-12" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="01">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="01">
             /
-            <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
+            <input aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
             /
-            <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -357,6 +371,8 @@ exports[`ic-date-input component should render 1`] = `
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-0" id="ic-date-input-0-label">
             Test label
@@ -378,11 +394,11 @@ exports[`ic-date-input component should render 1`] = `
       <ic-input-component-container aria-labelledby="ic-date-input-0-label ic-date-input-0-screen-reader-info   ic-date-input-0-assistive-hint" id="ic-date-input-0" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -405,6 +421,8 @@ exports[`ic-date-input component should render as disabled 1`] = `
   <template shadowrootmode="open">
     <ic-input-container disabled="">
       <ic-input-label class="ic-input-label-disabled with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-2">
             Test label
@@ -426,11 +444,11 @@ exports[`ic-date-input component should render as disabled 1`] = `
       <ic-input-component-container disabled="" id="ic-date-input-2" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" disabled="" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" disabled="" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="month" class="month-input" disabled="" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" disabled="" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="year" class="year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" disabled="" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -453,6 +471,8 @@ exports[`ic-date-input component should render as required 1`] = `
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-1" id="ic-date-input-1-label">
             Test label
@@ -477,11 +497,11 @@ exports[`ic-date-input component should render as required 1`] = `
       <ic-input-component-container aria-labelledby="ic-date-input-1-label ic-date-input-1-screen-reader-info   ic-date-input-1-assistive-hint" id="ic-date-input-1" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="true" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="true" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="true" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -504,6 +524,8 @@ exports[`ic-date-input component should render as required: required-prop-false 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-1" id="ic-date-input-1-label">
             Test label
@@ -525,11 +547,11 @@ exports[`ic-date-input component should render as required: required-prop-false 
       <ic-input-component-container aria-labelledby="ic-date-input-1-label ic-date-input-1-screen-reader-info   ic-date-input-1-assistive-hint" id="ic-date-input-1" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -552,6 +574,8 @@ exports[`ic-date-input component should render correctly with MM/DD/YYYY format 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-7" id="ic-date-input-7-label">
             Test label
@@ -573,11 +597,11 @@ exports[`ic-date-input component should render correctly with MM/DD/YYYY format 
       <ic-input-component-container aria-labelledby="ic-date-input-7-label ic-date-input-7-screen-reader-info   ic-date-input-7-assistive-hint" id="ic-date-input-7" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -600,6 +624,8 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-8" id="ic-date-input-8-label">
             Test label
@@ -621,11 +647,11 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
       <ic-input-component-container aria-labelledby="ic-date-input-8-label ic-date-input-8-screen-reader-info   ic-date-input-8-assistive-hint" id="ic-date-input-8" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -648,6 +674,8 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
   <template shadowrootmode="open">
     <ic-input-container disabled="">
       <ic-input-label class="ic-input-label-disabled with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-11">
             Test label
@@ -669,17 +697,17 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
       <ic-input-component-container disabled="" id="ic-date-input-11" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input fit-to-value" disabled="" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" disabled="" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
             /
-            <input aria-label="month" class="fit-to-value month-input" disabled="" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
+            <input aria-label="month" aria-required="false" class="fit-to-value month-input" disabled="" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
             /
-            <input aria-label="year" class="fit-to-value year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
             <ic-button class="clear-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
               <template shadowrootmode="open">
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" type="button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" tabindex="0" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
@@ -691,7 +719,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
               <ic-button class="calendar-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="calendar-button">
                 <template shadowrootmode="open">
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" silent="" target="ic-button-with-tooltip-calendar-button">
-                    <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
+                    <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" tabindex="0" type="button">
                       <slot></slot>
                     </button>
                   </ic-tooltip>
@@ -718,6 +746,8 @@ exports[`ic-date-input component should render large 1`] = `
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-4" id="ic-date-input-4-label">
             Test label
@@ -739,11 +769,11 @@ exports[`ic-date-input component should render large 1`] = `
       <ic-input-component-container aria-labelledby="ic-date-input-4-label ic-date-input-4-screen-reader-info   ic-date-input-4-assistive-hint" id="ic-date-input-4" role="group" size="large" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="large" theme="dark" variant="icon-tertiary">
@@ -772,6 +802,8 @@ exports[`ic-date-input component should render small 1`] = `
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-3" id="ic-date-input-3-label">
             Test label
@@ -793,11 +825,11 @@ exports[`ic-date-input component should render small 1`] = `
       <ic-input-component-container aria-labelledby="ic-date-input-3-label ic-date-input-3-screen-reader-info   ic-date-input-3-assistive-hint" id="ic-date-input-3" role="group" size="small" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="small" theme="dark" variant="icon-tertiary">
@@ -826,6 +858,8 @@ exports[`ic-date-input component should render with custom helper text 1`] = `
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-5" id="ic-date-input-5-label">
             Test label
@@ -847,11 +881,11 @@ exports[`ic-date-input component should render with custom helper text 1`] = `
       <ic-input-component-container aria-labelledby="ic-date-input-5-label ic-date-input-5-screen-reader-info ic-date-input-5-helper-text  ic-date-input-5-assistive-hint" id="ic-date-input-5" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -874,6 +908,8 @@ exports[`ic-date-input component should render with custom validation status and
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-9" id="ic-date-input-9-label">
             Test label
@@ -895,11 +931,11 @@ exports[`ic-date-input component should render with custom validation status and
       <ic-input-component-container aria-labelledby="ic-date-input-9-label ic-date-input-9-screen-reader-info ic-date-input-9-validation-text  ic-date-input-9-assistive-hint" id="ic-date-input-9" role="group" size="medium" validationstatus="error">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -923,6 +959,8 @@ exports[`ic-date-input component should render with helper text hidden 1`] = `
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label>
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-6" id="ic-date-input-6-label">
             Test label
@@ -940,11 +978,11 @@ Use format DD/MM/YYYY.
       <ic-input-component-container aria-labelledby="ic-date-input-6-label ic-date-input-6-screen-reader-info   ic-date-input-6-assistive-hint" id="ic-date-input-6" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
             /
-            <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
             /
-            <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
             <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
@@ -967,6 +1005,8 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-date-input-10" id="ic-date-input-10-label">
             Test label
@@ -988,17 +1028,17 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
       <ic-input-component-container aria-labelledby="ic-date-input-10-label ic-date-input-10-screen-reader-info  ic-date-input-10-selected-date-info ic-date-input-10-assistive-hint" id="ic-date-input-10" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
-            <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
+            <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
             /
-            <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
+            <input aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
             /
-            <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
             <ic-button class="clear-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
               <template shadowrootmode="open">
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" tabindex="0" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
@@ -1010,7 +1050,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
               <ic-button class="calendar-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="calendar-button">
                 <template shadowrootmode="open">
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" silent="" target="ic-button-with-tooltip-calendar-button">
-                    <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                    <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" tabindex="0" type="button">
                       <slot></slot>
                     </button>
                   </ic-tooltip>
