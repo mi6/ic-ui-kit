@@ -26,6 +26,7 @@ import {
   NoWidthConstraintDialog,
   ThemeDark,
   DialogWithTooltips,
+  SlottedTabsDialog,
 } from "./IcDialogTestData";
 import {
   BE_VISIBLE,
@@ -141,6 +142,23 @@ describe("IcDialog end-to-end tests", () => {
     cy.get("ic-checkbox[label=Disagree]").should(HAVE_FOCUS);
     cy.realPress("Tab");
     cy.get("ic-chip").should(HAVE_FOCUS);
+  });
+
+  it("should tab through slotted tabs", () => {
+    mount(<SlottedTabsDialog />);
+
+    cy.get(DIALOG).should("exist");
+    cy.wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+    cy.get("ic-tab").should(HAVE_FOCUS);
+
+    // after 4 tabs, the tab should have focus again
+    cy.realPress("Tab");
+    cy.get("ic-tab").should("not.have.focus");
+    cy.realPress("Tab");
+    cy.realPress("Tab");
+    cy.realPress("Tab");
+    cy.get("ic-tab").should(HAVE_FOCUS);
   });
 
   it("should tab backwards through slotted content", () => {

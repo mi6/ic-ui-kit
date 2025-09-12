@@ -23,6 +23,10 @@ import {
   IcTextField,
   IcTooltip,
   IcTypography,
+  IcTabContext,
+  IcTabGroup,
+  IcTab,
+  IcTabPanel,
 } from "../components";
 
 const options = [
@@ -404,23 +408,67 @@ export const SlottedContent = {
   name: "Slotted content",
 };
 
+export const SlottedTabs = {
+  render: () => {
+    return(
+    <>
+      <IcButton variant="primary" onclick={showDialog}>
+        Launch dialog
+      </IcButton>
+      <IcDialog disableWidthConstraint size="large">
+        <div style={{
+          display:"flex",
+          flexDirection: "column",
+          gap: "0.75rem"
+        }}>
+          <IcTypography slot="heading" variant="h4">
+            This is a slotted heading
+          </IcTypography>
+          <IcTypography slot="label" variant="label">
+            Slotted label
+          </IcTypography>
+           <IcTabContext
+          onIcTabSelect={(ev) =>
+            console.log({
+              tabIndex: ev.detail.tabIndex,
+              tabLabel: ev.detail.tabLabel,
+            })
+          }
+        >
+          <IcTabGroup label="Example tab group">
+            <IcTab>Ingredients</IcTab>
+            <IcTab>Method</IcTab>
+            <IcTab>History</IcTab>
+          </IcTabGroup>
+          <IcTabPanel>Tab One - Ingredients</IcTabPanel>
+          <IcTabPanel>Tab Two - Method</IcTabPanel>
+          <IcTabPanel>Tab Three - History</IcTabPanel>
+        </IcTabContext>       
+        </div>
+      </IcDialog>
+    </>
+  )},
+
+  name: "Slotted tabs",
+};
+
 export const BackgroundClosePrevented = {
   render: () => (
     <>
       <IcButton variant="primary" onclick={showClosePreventedDialog}>
       Launch close prevented dialog
-    </IcButton>
-    <IcDialog
-      heading="This dialog can't be closed by clicking the background"
-      label="Background close prevented"
-      closeOnBackdropClick="false"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    </>
+      </IcButton>
+      <IcDialog
+        heading="This dialog can't be closed by clicking the background"
+        label="Background close prevented"
+        closeOnBackdropClick="false"
+      >
+        <IcTypography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </IcTypography>
+      </IcDialog>
+      </>
   ),
 
   name: "Background close prevented",
