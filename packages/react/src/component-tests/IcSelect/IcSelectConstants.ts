@@ -11,6 +11,7 @@ export const ARIA_SELECTED = "aria-selected";
 export const TYPE_DOWN_ARROW = "{downArrow}";
 export const TYPE_ENTER = "{enter}";
 export const TYPE_BACKSPACE = "{backspace}";
+export const DATA_VALUE_CAPPUCCINO = '[data-value="cappuccino"]';
 export const DATA_VALUE_ESPRESSO = "[data-value='espresso']";
 export const DATA_VALUE_CAP = '[data-value="Cap"]';
 export const DATA_VALUE_AMERICANO = '[data-value="americano"]';
