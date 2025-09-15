@@ -108,6 +108,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: var(--ic-space-xs);
 }
 
 .loading-option p {
@@ -181,7 +182,7 @@
 }
 
 .option-text-container.show-check-icon {
-  width: calc(var(--ic-space-lg) * 10 + var(--ic-space-xl));
+  flex-grow: 1;
 }
 
 .option.loading-option .option-text-container {
@@ -208,7 +209,6 @@
   height: var(--ic-space-lg);
   min-width: var(--ic-space-lg);
   width: var(--ic-space-lg);
-  margin-left: var(--ic-space-xs);
   pointer-events: none;
 }
 
