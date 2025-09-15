@@ -72,7 +72,7 @@ const optionsWithDescriptions = [
   {
     label: "Cappuccino",
     value: "Cap",
-    description: "Coffee frothed up with pressurised steam",
+    description: "An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture",
   },
   {
     label: "Latte",
@@ -130,7 +130,7 @@ const playgroundOptions = [
   {
     label: "Cappuccino",
     value: "Cap",
-    description: "Coffee frothed up with pressurised steam",
+    description: "An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture",
   },
   {
     label: "Boring",

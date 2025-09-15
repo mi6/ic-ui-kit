@@ -32,7 +32,8 @@ export const coffeeOptionsDescriptions = [
   {
     label: "Cappuccino",
     value: "cappuccino",
-    description: "Coffee frothed up with pressurised steam",
+    description:
+      "An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture",
   },
   {
     label: "Americano",
@@ -92,7 +93,8 @@ export const groupAndDescriptionCoffeeOption = [
     children: [
       {
         label: "Cappuccino",
-        description: "Coffee frothed up with pressurised steam",
+        description:
+          "An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture",
         value: "Cap",
       },
       { label: "Flat white", value: "Flat" },
@@ -142,7 +144,8 @@ export const searchableDescriptionsCoffeeOption = [
   {
     label: "Cappuccino",
     value: "Cap",
-    description: "Coffee frothed up with pressurised steam",
+    description:
+      "An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture",
   },
   {
     label: "Americano",
