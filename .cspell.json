@@ -170,7 +170,11 @@
     "Nicht",
     "erforderlich",
     "wahlweise",
-    "abgeschlossen"
+    "abgeschlossen",
+    "packagr",
+    "ngFactory",
+    "ngSummary",
+    "codegen"
   ],
   "dictionaries": [
     "npm",

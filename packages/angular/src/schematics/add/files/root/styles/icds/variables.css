@@ -1,0 +1,7 @@
+/** ICDS CSS Variables **/
+:root {
+  /** primary theme **/
+  --ic-theme-primary-r: 92;
+  --ic-theme-primary-g: 9;
+  --ic-theme-primary-b: 72;
+}
