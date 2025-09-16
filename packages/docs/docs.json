@@ -3324,7 +3324,7 @@
               }
             }
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The variant of the button to be displayed.",
