@@ -171,6 +171,10 @@
     "erforderlich",
     "wahlweise",
     "abgeschlossen",
+    "packagr",
+    "ngFactory",
+    "ngSummary",
+    "codegen"
     "boissons",
     "limonade",
     "chocolat",
