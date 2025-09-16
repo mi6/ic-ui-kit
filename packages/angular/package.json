@@ -1,0 +1,80 @@
+
+{
+    "name": "@ukic/angular",
+    "version": "0.0.1",
+    "description": "Angular specific wrappers for @ukic/web-components",
+    "license": "MIT",
+    "author": "mi6",
+    "bugs": {
+        "url": "https://github.com/mi6/ic-ui-kit",
+        "email": "icds@gchq.gov.uk"
+    },
+    "repository": {
+        "url": "https://github.com/mi6/ic-ui-kit",
+        "directory": "packages/angular"
+    },
+    "homepage": "https://design.sis.gov.uk",
+    "scripts": {
+        "build": "npm run clean && npm run build.ng && npm run build.core && npm run clean-generated",
+        "build.core": "node scripts/build-core.js",
+        "build.ng": "ng-packagr -p ng-package.json -c tsconfig.json",
+        "build.watch": "npm run build.ng -- --watch",
+        "clean": "node scripts/clean.js",
+        "clean-generated": "node ./scripts/clean-generated.js",
+        "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
+        "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
+        "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
+        "lint:fix": "echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css --fix && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src --fix",
+        "sync": "./scripts/sync.sh",
+        "tsc": "tsc -p .",
+        "validate": "npm i && npm run lint && npm run test && npm run build",
+        "pack": "npm pack ./dist",
+        "audit": "echo 'Audit for: @ukic/angular' & audit-ci -m --config ../../audit-ci.json"
+    },
+    "exports": {
+        "./css/*": {
+        "style": "./css/*"
+        }
+    },
+    "dependencies": {
+        "@ukic/web-components": "^3.10.0",
+        "jsonc-parser": "^3.0.0",
+        "tslib": "^2.8.1"
+    },
+    "peerDependencies": {
+        "@ukic/fonts": "^3.2.0",
+        "@angular/core": ">=20.0.0",
+        "@angular/forms": ">=20.0.0",
+        "@angular/router": ">=20.0.0",
+        "rxjs": ">=7.8.0",
+        "zone.js": ">=0.15.0"
+    },
+    "devDependencies": {
+        "@angular-devkit/core": "^20.0.0",
+        "@angular-devkit/schematics": "^20.0.0",
+        "@angular/cli": "^20.0.0",
+        "@angular/common": "^20.0.0",
+        "@angular/compiler": "^20.0.0",
+        "@angular/compiler-cli": "^20.0.0",
+        "@angular/core": "^20.0.0",
+        "@angular/forms": "^20.0.0",
+        "@angular/platform-browser": "^20.0.0",
+        "@angular/platform-browser-dynamic": "^20.0.0",
+        "@angular/router": "^20.0.0",
+        "@schematics/angular": "^20.0.0",
+        "@types/node": "22.15.14",
+        "@typescript-eslint/eslint-plugin": "^8.0.0",
+        "@typescript-eslint/parser": "^8.0.0",
+        "angular-eslint": "^20.0.0",
+        "eslint": "^9.0.0",
+        "eslint-plugin-import": "^2.30.0",
+        "fs-extra": "^11.3.0",
+        "ng-packagr": "^20.0.0",
+        "prettier": "^3.5.3",
+        "rxjs": "~7.5.0",
+        "typescript": "~5.8.0",
+        "typescript-eslint-language-service": "^5.0.0",
+        "zone.js": "~0.15.0"
+    },
+    "schematics": "./schematics/collection.json"
+}
