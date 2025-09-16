@@ -1581,7 +1581,8 @@ export declare interface IcTab extends Components.IcTab {}
 
 
 @ProxyCmp({
-  inputs: ['activationType', 'contextId', 'monochrome', 'selectedTabIndex', 'theme']
+  inputs: ['activationType', 'contextId', 'monochrome', 'selectedTabIndex', 'theme'],
+  methods: ['setFocus']
 })
 @Component({
   selector: 'ic-tab-context',
