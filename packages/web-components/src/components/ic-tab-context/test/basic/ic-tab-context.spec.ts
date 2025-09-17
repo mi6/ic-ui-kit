@@ -566,4 +566,31 @@ describe("ic-tab-context component", () => {
     tabs.forEach((tab) => expect(tab.theme).toBe("dark"));
     tabPanels.forEach((tabPanel) => expect(tabPanel.theme).toBe("dark"));
   });
+
+  it("should apply theme prop to sub-components when applied after initial render", async () => {
+    const page = await newSpecPage({
+      components: [TabContext, TabGroup, Tab, TabPanel],
+      html: `<ic-tab-context selected-tab-index="0">
+      <ic-tab-group label="Example tab group">
+        <ic-tab>One</ic-tab>
+        <ic-tab>Two</ic-tab>
+        <ic-tab>Three</ic-tab>
+      </ic-tab-group>
+      <ic-tab-panel>Tab One</ic-tab-panel>
+      <ic-tab-panel>Tab Two</ic-tab-panel>
+      <ic-tab-panel>Tab Three</ic-tab-panel>
+      </ic-tab-context>`,
+    });
+
+    const tab = document.querySelector("ic-tab");
+
+    // console.log(tab);
+    Object.defineProperty(tab, "setFocus", {
+      value: jest.fn(),
+    });
+    await page.rootInstance.setFocus();
+    if (tab) {
+      expect(tab.setFocus).toHaveBeenCalled();
+    }
+  });
 });

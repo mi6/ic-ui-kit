@@ -144,7 +144,7 @@ exports[`ic-alert component should render with a dismiss icon when the prop is a
         </div>
       </div>
       <div class="dismiss-icon-container">
-        <ic-button class="dismiss-icon svg-container" theme="dark" title="Dismiss" variant="icon">
+        <ic-button class="dismiss-icon svg-container" theme="dark" title="Dismiss" variant="icon-tertiary">
           svg
         </ic-button>
       </div>

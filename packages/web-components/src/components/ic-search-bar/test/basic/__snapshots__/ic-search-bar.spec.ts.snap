@@ -7,10 +7,10 @@ exports[`ic-search-bar search should render aria-label when hideLabel is set: re
       <ic-input-component-container size="medium">
         <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-2" inputmode="search" name="ic-search-bar-input-2" placeholder="Search" value="">
         <div class="clear-button-container">
-          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -20,10 +20,10 @@ exports[`ic-search-bar search should render aria-label when hideLabel is set: re
           <div class="divider"></div>
         </div>
         <div class="search-submit-button-container search-submit-button-disabled">
-          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                <button aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -50,10 +50,10 @@ exports[`ic-search-bar search should render disabled variant: disabled-removed 1
       <ic-input-component-container size="medium">
         <input autocapitalize="off" autocomplete="off" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" value="">
         <div class="clear-button-container">
-          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -63,10 +63,10 @@ exports[`ic-search-bar search should render disabled variant: disabled-removed 1
           <div class="divider"></div>
         </div>
         <div class="search-submit-button-container search-submit-button-disabled">
-          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                <button aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -93,10 +93,10 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
       <ic-input-component-container disabled="" size="medium">
         <input autocapitalize="off" autocomplete="off" disabled="" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" value="">
         <div class="clear-button-container">
-          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -106,10 +106,10 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
           <div class="divider"></div>
         </div>
         <div class="search-submit-button-container search-submit-button-disabled">
-          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                <button aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -136,10 +136,10 @@ exports[`ic-search-bar search should render readonly variant: renders-readonly 1
       <ic-input-component-container disabled="" readonly="" size="medium">
         <input autocapitalize="off" autocomplete="off" class="no-left-pad readonly" disabled="" id="ic-search-bar-input-5" inputmode="search" name="ic-search-bar-input-5" placeholder="Search" readonly="" value="">
         <div class="clear-button-container">
-          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -149,10 +149,10 @@ exports[`ic-search-bar search should render readonly variant: renders-readonly 1
           <div class="divider"></div>
         </div>
         <div class="search-submit-button-container search-submit-button-disabled">
-          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                <button aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -179,10 +179,10 @@ exports[`ic-search-bar search should render required variant: renders-required 1
       <ic-input-component-container size="medium">
         <input autocapitalize="off" autocomplete="off" id="ic-search-bar-input-3" inputmode="search" name="ic-search-bar-input-3" placeholder="Search" required="" value="">
         <div class="clear-button-container">
-          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -192,10 +192,10 @@ exports[`ic-search-bar search should render required variant: renders-required 1
           <div class="divider"></div>
         </div>
         <div class="search-submit-button-container search-submit-button-disabled">
-          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                <button aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -230,13 +230,13 @@ exports[`ic-search-bar search should render with characters-until-suggestion set
         <ic-input-component-container size="medium">
           <input aria-autocomplete="list" aria-controls="ic-search-bar-input-30-menu" aria-describedby="ic-search-bar-input-30-assistive-hint" aria-expanded="true" aria-haspopup="listbox" aria-owns="ic-search-bar-input-30-menu" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-30" inputmode="search" name="ic-search-bar-input-30" placeholder="Search" role="combobox" value="">
           <div class="clear-button-container">
-            <ic-button aria-label="Clear" class="clear-button clear-button-unfocused" id="clear-button" size="medium" theme="dark" type="button" variant="icon">
+            <ic-button aria-label="Clear" class="clear-button clear-button-unfocused" id="clear-button" size="medium" theme="dark" type="button" variant="icon-tertiary">
               svg
             </ic-button>
             <div class="divider"></div>
           </div>
           <div class="search-submit-button-container search-submit-button-disabled">
-            <ic-button aria-label="Search" class="search-submit-button search-submit-button-disabled search-submit-button-unfocused" disabled="" id="search-submit-button" size="medium" theme="dark" type="button" variant="icon">
+            <ic-button aria-label="Search" class="search-submit-button search-submit-button-disabled search-submit-button-unfocused" disabled="" id="search-submit-button" size="medium" theme="dark" type="button" variant="icon-tertiary">
               svg
             </ic-button>
           </div>
@@ -277,10 +277,10 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
         <ic-input-component-container size="medium">
           <input aria-autocomplete="list" aria-describedby="ic-search-bar-input-7-helper-text ic-search-bar-input-7-assistive-hint" aria-haspopup="listbox" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-7" inputmode="search" name="ic-search-bar-input-7" placeholder="Search" value="Espresso">
           <div class="clear-button-container">
-            <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+            <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
               <template shadowrootmode="open">
-                <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                  <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+                <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
@@ -290,10 +290,10 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
             <div class="divider"></div>
           </div>
           <div class="search-submit-button-container">
-            <ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+            <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-unfocused" exportparts="button" id="search-submit-button">
               <template shadowrootmode="open">
-                <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                  <button aria-label="Search" class="button" part="button" tabindex="0" type="button">
+                <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" part="button" tabindex="0" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
@@ -321,10 +321,10 @@ exports[`ic-search-bar search should render with options: renders-with-options 1
       <ic-input-component-container size="medium">
         <input aria-autocomplete="list" aria-describedby="ic-search-bar-input-6-assistive-hint" aria-haspopup="listbox" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" value="Espresso">
         <div class="clear-button-container">
-          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -334,10 +334,10 @@ exports[`ic-search-bar search should render with options: renders-with-options 1
           <div class="divider"></div>
         </div>
         <div class="search-submit-button-container">
-          <ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+          <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-unfocused" exportparts="button" id="search-submit-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                <button aria-label="Search" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -364,10 +364,10 @@ exports[`ic-search-bar search should render with value: renders-with-value 1`] =
       <ic-input-component-container size="medium">
         <input autocapitalize="off" autocomplete="off" id="ic-search-bar-input-1" inputmode="search" name="ic-search-bar-input-1" placeholder="Search" value="foo">
         <div class="clear-button-container">
-          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -377,10 +377,10 @@ exports[`ic-search-bar search should render with value: renders-with-value 1`] =
           <div class="divider"></div>
         </div>
         <div class="search-submit-button-container">
-          <ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+          <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-unfocused" exportparts="button" id="search-submit-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                <button aria-label="Search" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -407,10 +407,10 @@ exports[`ic-search-bar search should render: renders 1`] = `
       <ic-input-component-container size="medium">
         <input autocapitalize="off" autocomplete="off" id="ic-search-bar-input-0" inputmode="search" name="ic-search-bar-input-0" placeholder="Search" value="">
         <div class="clear-button-container">
-          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
+          <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                <button aria-label="Clear" class="button" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -420,10 +420,10 @@ exports[`ic-search-bar search should render: renders 1`] = `
           <div class="divider"></div>
         </div>
         <div class="search-submit-button-container search-submit-button-disabled">
-          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
+          <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark search-submit-button search-submit-button-disabled search-submit-button-unfocused" exportparts="button" id="search-submit-button">
             <template shadowrootmode="open">
-              <ic-tooltip label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
-                <button aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-search-submit-button" label="Search" placement="bottom" silent="" target="ic-button-with-tooltip-search-submit-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>

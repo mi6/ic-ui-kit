@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.4.0...@ukic/docs@3.4.1) (2025-09-17)
+
+### Reverts
+
+- **docs:** revert changes from PR [#3910](https://github.com/mi6/ic-ui-kit/issues/3910) so canary issues can be fixed ([d19d7a2](https://github.com/mi6/ic-ui-kit/commit/d19d7a2db739cb2f5cb5b8f4eb30524549bd83a0))
+
 # [3.4.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.3.0...@ukic/docs@3.4.0) (2025-08-20)
 
 ### Features

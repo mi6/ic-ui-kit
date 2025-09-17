@@ -19,10 +19,10 @@ exports[`ic-dialog component should render 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" data-gets-focus exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-0">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-0" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-0">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-0" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -59,10 +59,10 @@ exports[`ic-dialog component should render as large size 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" data-gets-focus exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-14">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-14" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-14">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-14" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -99,10 +99,10 @@ exports[`ic-dialog component should render as large size and disableWidthConstra
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" data-gets-focus exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-154">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-154" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-154">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-154" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -139,10 +139,10 @@ exports[`ic-dialog component should render as medium size 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" data-gets-focus exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-12">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-12" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-12">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-12" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -181,10 +181,10 @@ exports[`ic-dialog component should render with a label 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" data-gets-focus exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-2">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-2" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-2">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-2" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -221,7 +221,7 @@ exports[`ic-dialog component should render with no buttons 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
+        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon-tertiary">
           svg
         </ic-button>
       </div>
@@ -255,10 +255,10 @@ exports[`ic-dialog component should render with slotted content 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-6">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-6" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-6">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-6" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -300,6 +300,7 @@ exports[`ic-dialog component should render with slotted content 1`] = `
         <ic-input-component-container size="medium" validationstatus="">
           <input aria-describedby="" aria-invalid="false" aria-label="What is your favourite coffee?" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" type="text" value="">
         </ic-input-component-container>
+        <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
       </ic-input-container>
     </template>
     <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
@@ -334,10 +335,10 @@ exports[`ic-dialog component should render with slotted controls 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-60">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-60" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-60">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-60" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -385,10 +386,10 @@ exports[`ic-dialog component should render with the close button 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-132">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-132" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-132">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-132" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -443,10 +444,10 @@ exports[`ic-dialog component should render with two default buttons 1`] = `
             </slot>
           </div>
         </div>
-        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
+        <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
           <template shadowrootmode="open">
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-16">
-              <button aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-16" label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-16">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-16" aria-label="Dismiss" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>

@@ -1057,6 +1057,7 @@ export class DateInput {
         aria-label="day"
         placeholder="DD"
         disabled={this.disabled}
+        aria-required={`${this.required}`}
         onPaste={this.handlePaste}
         inputmode="number"
         pattern="[0-9]*"
@@ -1072,6 +1073,7 @@ export class DateInput {
         aria-label="month"
         placeholder="MM"
         disabled={this.disabled}
+        aria-required={`${this.required}`}
         onPaste={this.handlePaste}
         inputmode="number"
         pattern="[0-9]*"
@@ -1088,6 +1090,7 @@ export class DateInput {
         placeholder="YYYY"
         maxLength={4}
         disabled={this.disabled}
+        aria-required={`${this.required}`}
         onPaste={this.handlePaste}
         inputmode="number"
         pattern="[0-9]*"

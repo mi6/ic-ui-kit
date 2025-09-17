@@ -38,7 +38,7 @@ exports[`ic-toast component should render a variant icon and banner when a varia
           </ic-typography>
         </div>
       </div>
-      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon">
+      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon-tertiary">
         svg
       </ic-button>
     </div>
@@ -64,7 +64,7 @@ exports[`ic-toast component should render when a heading and message is supplied
           </ic-typography>
         </div>
       </div>
-      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon">
+      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon-tertiary">
         svg
       </ic-button>
     </div>
@@ -85,7 +85,7 @@ exports[`ic-toast component should render when heading is supplied 1`] = `
           </ic-typography>
         </div>
       </div>
-      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon">
+      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon-tertiary">
         svg
       </ic-button>
     </div>

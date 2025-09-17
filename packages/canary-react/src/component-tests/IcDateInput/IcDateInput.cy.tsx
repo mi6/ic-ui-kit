@@ -32,7 +32,7 @@ const MONTH_INPUT_ARIA_LABEL = 'input[aria-label="month"]';
 const CUSTOM_DISABLE_DAY_MESSAGE = "Date disabled";
 const LONG_CUSTOM_DISABLE_DAY_MESSAGE =
   "This is a very long message to test the validation message";
-const STATUS_TEXT_SPAN = ".statustext";
+const STATUS_TEXT_SPAN = ".statustext span";
 const DEFAULT_HELPER_TEXT = "Use format DD/MM/YYYY";
 const DEFAULT_THRESHOLD = 0.031;
 
@@ -122,16 +122,15 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("01");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
 
-    cy.get("ic-date-input")
-      .shadow()
-      .find(".statustext")
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
       .should(
         HAVE_TEXT,
         "Dates in the past are not allowed. Please select a date in the future."
       );
   });
 
-  it("should display validation error if date in the past is entered while disable past date is set to true", () => {
+  it("should display validation error if date in the future is entered while disable future date is set to true", () => {
     mount(<IcDateInput label="Test Label" disableFuture />);
 
     cy.checkHydrated(DATE_INPUT);
@@ -140,9 +139,8 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("01");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("4000");
 
-    cy.get("ic-date-input")
-      .shadow()
-      .find(".statustext")
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
       .should(
         HAVE_TEXT,
         "Dates in the future are not allowed. Please select a date in the past."
@@ -154,10 +152,12 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated(DATE_INPUT);
 
-    cy.findShadowEl(DATE_INPUT, "ic-input-validation ic-typography").should(
-      HAVE_TEXT,
-      "Dates in the future are not allowed. Please select a date in the past."
-    );
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(
+        HAVE_TEXT,
+        "Dates in the future are not allowed. Please select a date in the past."
+      );
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
 
@@ -169,10 +169,12 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated(DATE_INPUT);
 
-    cy.findShadowEl(DATE_INPUT, "ic-input-validation ic-typography").should(
-      HAVE_TEXT,
-      "Dates in the past are not allowed. Please select a date in the future."
-    );
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(
+        HAVE_TEXT,
+        "Dates in the past are not allowed. Please select a date in the future."
+      );
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3000");
 
@@ -476,9 +478,8 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("06");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000").wait(200);
 
-    cy.get("ic-date-input")
-      .shadow()
-      .find(".statustext")
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
       .should(HAVE_TEXT, "Please enter a date after 01/07/2001.");
 
     cy.checkA11yWithWait(undefined, 500);
@@ -505,10 +506,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("12");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2050").wait(200);
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      HAVE_TEXT,
-      "Please enter a date before 01/07/2024."
-    );
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, "Please enter a date before 01/07/2024.");
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -554,10 +554,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("14");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000").wait(200);
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      HAVE_TEXT,
-      "Invalid date"
-    );
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, "Invalid date");
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -587,10 +586,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024").wait(200);
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      HAVE_TEXT,
-      CUSTOM_DISABLE_DAY_MESSAGE
-    );
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, CUSTOM_DISABLE_DAY_MESSAGE);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -648,10 +646,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024").wait(200);
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      HAVE_TEXT,
-      CUSTOM_DISABLE_DAY_MESSAGE
-    );
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, CUSTOM_DISABLE_DAY_MESSAGE);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -709,10 +706,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990").wait(200);
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      HAVE_TEXT,
-      CUSTOM_DISABLE_DAY_MESSAGE
-    );
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, CUSTOM_DISABLE_DAY_MESSAGE);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -830,7 +826,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
       </div>
     );
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Error");
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, "Error");
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -872,7 +870,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
       </div>
     );
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Warning");
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, "Warning");
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -914,7 +914,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
       </div>
     );
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Success");
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, "Success");
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -1183,10 +1185,9 @@ describe("IcDateInput visual regression tests in high contrast mode", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024").wait(200);
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      HAVE_TEXT,
-      CUSTOM_DISABLE_DAY_MESSAGE
-    );
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
+      .eq(0)
+      .should(HAVE_TEXT, CUSTOM_DISABLE_DAY_MESSAGE);
 
     cy.wait(500).compareSnapshot({
       name: "/date-input-with-custom-disable-days-message-high-contrast",

@@ -28,6 +28,7 @@ import {
   ARIA_SELECTED,
   DATA_LABEL_CAPPUCCINO,
   DATA_LABEL_ESPRESSO,
+  DATA_VALUE_CAPPUCCINO,
   DATA_VALUE_ESPRESSO,
   DATA_VALUE_AMERICANO,
   DISABLED_OPTION_MENU,
@@ -326,7 +327,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
       <div style={{ padding: "10px" }}>
         <IcSelect
           label="What is your favourite coffee?"
-          options={coffeeOptions}
+          options={coffeeOptionsDescriptions}
           fullWidth
         />
       </div>
@@ -345,7 +346,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
       <div style={{ padding: "10px" }}>
         <IcSelect
           label="What is your favourite coffee?"
-          options={coffeeOptions}
+          options={coffeeOptionsDescriptions}
           fullWidth
         />
       </div>
@@ -358,6 +359,21 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/full-width-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, DATA_VALUE_CAPPUCCINO).should(
+      HAVE_ATTR,
+      ARIA_SELECTED,
+      "true"
+    );
+    cy.findShadowEl(IC_SELECT, `${DATA_VALUE_CAPPUCCINO} span`).should(
+      HAVE_CLASS,
+      "check-icon"
+    );
+    cy.compareSnapshot({
+      name: "/full-width-open-selected",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -767,7 +783,9 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(IC_SELECT, SC_IC_MENU_TYPOGRAPHY)
       .eq(1)
       .should(HAVE_CLASS, "option-description")
-      .contains("Coffee frothed up with pressurised steam");
+      .contains(
+        "An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture"
+      );
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -817,22 +835,26 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
-        options={coffeeOptions}
+        options={coffeeOptionsDescriptions}
       />
     );
 
     cy.checkHydrated(IC_SELECT);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl(IC_SELECT, DATA_VALUE_ESPRESSO).should(
+    cy.findShadowEl(IC_SELECT, DATA_VALUE_CAPPUCCINO).should(
       HAVE_ATTR,
       ARIA_SELECTED,
       "true"
     );
-    cy.findShadowEl(IC_SELECT, "[data-value='espresso'] span").should(
+    cy.findShadowEl(IC_SELECT, `${DATA_VALUE_CAPPUCCINO} span`).should(
       HAVE_CLASS,
       "check-icon"
     );
+    cy.compareSnapshot({
+      name: "/descriptions-open-selected",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
   });
 
   it("should open, set focus on menu and set aria-expanded to 'true' when input clicked", () => {
@@ -1226,7 +1248,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
     cy.findShadowEl(
       IC_SELECT,
-      '[aria-label="Cappuccino, Coffee frothed up with pressurised steam"]'
+      '[aria-label="Cappuccino, An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture"]'
     ).should("exist");
     cy.findShadowEl(
       IC_SELECT,
@@ -1278,7 +1300,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
     cy.findShadowEl(
       IC_SELECT,
-      '[aria-label="Cappuccino, Coffee frothed up with pressurised steam, Fancy group"]'
+      '[aria-label="Cappuccino, An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture, Fancy group"]'
     ).should("exist");
   });
 

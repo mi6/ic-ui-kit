@@ -174,9 +174,7 @@ describe("IcAlert end-to-end tests", () => {
     );
 
     cy.checkHydrated(ALERT_SELECTOR);
-    cy.findShadowEl(ALERT_SELECTOR, "svg")
-      .should(BE_VISIBLE)
-      .and(HAVE_ATTR, "aria-labelledby", "info-title");
+    cy.findShadowEl(ALERT_SELECTOR, "svg").should(BE_VISIBLE);
   });
 
   it("should render the alert with the correct minimum height depending on the theme", () => {

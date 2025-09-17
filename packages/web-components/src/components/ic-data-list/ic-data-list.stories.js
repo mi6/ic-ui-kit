@@ -151,7 +151,11 @@ export const IconButton = {
   render: () =>
     html`<ic-data-list heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson">
-        <ic-button variant="icon" aria-label="Edit" slot="end-component">
+        <ic-button
+          variant="icon-tertiary"
+          aria-label="Edit"
+          slot="end-component"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -165,7 +169,11 @@ export const IconButton = {
         </ic-button>
       </ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995">
-        <ic-button variant="icon" aria-label="Edit" slot="end-component">
+        <ic-button
+          variant="icon-tertiary"
+          aria-label="Edit"
+          slot="end-component"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -179,7 +187,11 @@ export const IconButton = {
         </ic-button>
       </ic-data-row>
       <ic-data-row label="Telephone" value="07449 7654873">
-        <ic-button variant="icon" aria-label="Edit" slot="end-component">
+        <ic-button
+          variant="icon-tertiary"
+          aria-label="Edit"
+          slot="end-component"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -193,7 +205,11 @@ export const IconButton = {
         </ic-button>
       </ic-data-row>
       <ic-data-row label="Email" value="mjohnson@coffee.gov">
-        <ic-button variant="icon" aria-label="Edit" slot="end-component">
+        <ic-button
+          variant="icon-tertiary"
+          aria-label="Edit"
+          slot="end-component"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -216,7 +232,11 @@ export const IconButton = {
           <br />
           United Kingdom
         </ic-typography>
-        <ic-button variant="icon" aria-label="Edit" slot="end-component">
+        <ic-button
+          variant="icon-tertiary"
+          aria-label="Edit"
+          slot="end-component"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -478,7 +498,11 @@ export const Playground = {
         size=${args.rowSize}
         theme=${args.rowTheme}
       >
-        <ic-button variant="icon" aria-label="Edit" slot=${args.endCompSlot}>
+        <ic-button
+          variant="icon-tertiary"
+          aria-label="Edit"
+          slot=${args.endCompSlot}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

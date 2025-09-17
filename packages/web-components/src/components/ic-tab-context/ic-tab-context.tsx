@@ -154,6 +154,16 @@ export class TabContext {
   }
 
   /**
+   * Sets focus on the tab context.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.selectedTab != null) {
+      this.tabs[this.selectedTab].setFocus();
+    }
+  }
+
+  /**
    * @internal Used to set tab/tab panel IDs when a tab/tab panel has been removed
    */
   @Method()
@@ -170,7 +180,7 @@ export class TabContext {
       this.setInitialTab();
     }
 
-    if (hadFocus && this.selectedTab) {
+    if (hadFocus && this.selectedTab != null) {
       this.tabs[this.selectedTab].setFocus();
     }
   }
