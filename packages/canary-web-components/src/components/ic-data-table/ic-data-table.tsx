@@ -42,7 +42,6 @@ import {
   checkResizeObserver,
   deviceSizeMatches,
 } from "../../utils/helpers";
-import { sanitizeHTMLString } from "../../../../web-components/src/utils/common-helpers";
 import { IC_DEVICE_SIZES } from "../../utils/constants";
 
 /**
@@ -1389,7 +1388,7 @@ export class DataTable {
       innerHTML={
         columnProps?.dataType === "element" &&
         !isSlotUsed(this.el, cellSlotName)
-          ? sanitizeHTMLString(cell as string)
+          ? (cell as string)
           : undefined
       }
       class={{
@@ -1446,10 +1445,7 @@ export class DataTable {
             (cellValue("icon") || columnProps?.icon?.icon) && (
               <span
                 class="icon"
-                innerHTML={
-                  sanitizeHTMLString(cellValue("icon")) ||
-                  sanitizeHTMLString(columnProps?.icon?.icon as string)
-                }
+                innerHTML={cellValue("icon") || columnProps?.icon?.icon}
               ></span>
             )
           )}
@@ -1503,9 +1499,7 @@ export class DataTable {
                       {cellValue("description")?.icon && (
                         <span
                           class="cell-description-icon"
-                          innerHTML={sanitizeHTMLString(
-                            cellValue("description").icon
-                          )}
+                          innerHTML={cellValue("description").icon}
                         ></span>
                       )}
                       <ic-typography
@@ -1642,10 +1636,7 @@ export class DataTable {
               ) : (
                 icon &&
                 !icon.hideOnHeader && (
-                  <span
-                    class="icon"
-                    innerHTML={sanitizeHTMLString(icon.icon)}
-                  ></span>
+                  <span class="icon" innerHTML={icon.icon}></span>
                 )
               )}
               {this.columnHeaderTruncation ? (
