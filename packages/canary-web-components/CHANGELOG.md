@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.26](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.24...@ukic/canary-web-components@3.0.0-canary.26) (2025-09-17)
+
+### Bug Fixes
+
+- **canary-web-components:** add aria-required attribute to date input and time input fields ([0789448](https://github.com/mi6/ic-ui-kit/commit/078944885d01933ab1664a6453cac441e14a0733)), closes [#3896](https://github.com/mi6/ic-ui-kit/issues/3896)
+- **canary-web-components:** fixes issues adding custom elements ([19d67c6](https://github.com/mi6/ic-ui-kit/commit/19d67c6625cc8cf8966d67522fbaba6c03998786))
+- **canary-web-components:** remove unecessary ids from svgs ([c837ca4](https://github.com/mi6/ic-ui-kit/commit/c837ca4147cc4c71d456f2567fddf46c6261b1d6)), closes [#3902](https://github.com/mi6/ic-ui-kit/issues/3902)
+
+### Features
+
+- **canary-web-components:** add initial Table of Contents work ([aed219c](https://github.com/mi6/ic-ui-kit/commit/aed219cef139eb589290687caa1525d14bce58ef)), closes [#752](https://github.com/mi6/ic-ui-kit/issues/752)
+- **canary-web-components:** remove internal use of ic-button variant=icon ([297b389](https://github.com/mi6/ic-ui-kit/commit/297b38951ef09f5cf33d87dd1ee65a181bbe3226))
+
+### Reverts
+
+- **canary-web-components:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([49eac5e](https://github.com/mi6/ic-ui-kit/commit/49eac5e9d02341cbf70c59f2bf9e105a9b741178))
+
 # [3.0.0-canary.25](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.24...@ukic/canary-web-components@3.0.0-canary.25) (2025-09-03)
 
 **Note:** Version bump only for package @ukic/canary-web-components

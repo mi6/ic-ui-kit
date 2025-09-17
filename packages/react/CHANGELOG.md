@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.9.0...@ukic/react@3.11.0) (2025-09-17)
+
+### Bug Fixes
+
+- **react:** add react story and cypress tests ([403a8ad](https://github.com/mi6/ic-ui-kit/commit/403a8ad56ae033063e1f041a50431ad68fbf106c))
+- **react:** adds test for custom elements fix ([d7036a9](https://github.com/mi6/ic-ui-kit/commit/d7036a98ae01c3d64e316824c35d0a860ed2911b))
+- **react:** fix back to top plaground target ([810d345](https://github.com/mi6/ic-ui-kit/commit/810d345dd1addd8ed84c1a5e37d1ffd4540bdcf9))
+- **react:** update tests to show how the width of ic-select options grow with the width of ic-menu ([62a3026](https://github.com/mi6/ic-ui-kit/commit/62a3026cdf7cc4eb724743bdbaa58e8b5c54fac3)), closes [#3940](https://github.com/mi6/ic-ui-kit/issues/3940)
+
+### Features
+
+- **react:** add story for testing validation aria-live behaviour ([1738fa1](https://github.com/mi6/ic-ui-kit/commit/1738fa1ce4155f94dbc6bd01733b4153e2a8d3fb)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+- **react:** add story for testing validation aria-live behaviour ([d385460](https://github.com/mi6/ic-ui-kit/commit/d3854604b53f0e672e2a3dc450be673ef6a9bf0c)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+
+### Reverts
+
+- **react:** revert changes from PR [#3910](https://github.com/mi6/ic-ui-kit/issues/3910) so canary issues can be fixed ([7ac7ff2](https://github.com/mi6/ic-ui-kit/commit/7ac7ff209e0afd167af596d923f9c0f0b69ea9c6))
+- **react:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([ac8220a](https://github.com/mi6/ic-ui-kit/commit/ac8220a9beb9b6826fd1dd167e9e832a931bd8ec))
+
 # [3.10.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.9.0...@ukic/react@3.10.0) (2025-09-03)
 
 ### Bug Fixes
