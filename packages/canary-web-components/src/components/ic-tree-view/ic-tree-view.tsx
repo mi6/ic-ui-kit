@@ -17,7 +17,6 @@ import {
   isSlotUsed,
   renderDynamicChildSlots,
 } from "../../utils/helpers";
-import { sanitizeHTMLString } from "../../../../web-components/src/utils/common-helpers";
 import { IcTreeItemOptions } from "./ic-tree-view.types";
 
 let treeViewIds = 0;
@@ -334,7 +333,7 @@ export class TreeView {
         if (icon) {
           const iconSlot = document.createElement("div");
           iconSlot.setAttribute("slot", "icon");
-          iconSlot.innerHTML = sanitizeHTMLString(icon);
+          iconSlot.innerHTML = icon;
           treeItem.appendChild(iconSlot);
         }
 
