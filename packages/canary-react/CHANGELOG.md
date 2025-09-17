@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.26](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.24...@ukic/canary-react@3.0.0-canary.26) (2025-09-17)
+
+### Bug Fixes
+
+- **canary-react:** adds tests for fixes to data-table and tree-view ([a5cb7af](https://github.com/mi6/ic-ui-kit/commit/a5cb7af66186637dda4af72c8a30379d2e9daeeb))
+
+### Reverts
+
+- **canary-react:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([3b231b0](https://github.com/mi6/ic-ui-kit/commit/3b231b06eb98b489db1e86624b449e0511d8adc6))
+
 # [3.0.0-canary.25](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.24...@ukic/canary-react@3.0.0-canary.25) (2025-09-03)
 
 **Note:** Version bump only for package @ukic/canary-react
