@@ -311,7 +311,6 @@ export class Drawer {
     const chevronButton = (
       <ic-button
         class="chevron-btn"
-        size="small"
         theme={theme}
         variant="icon-tertiary"
         innerHTML={chevronIcon}
@@ -332,7 +331,6 @@ export class Drawer {
           collapsed: !expanded,
           expanded: expanded,
           "ic-boundary-parent": this.boundary === "parent",
-          "ic-drawer": true,
           [`ic-${position}-position`]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
@@ -362,12 +360,8 @@ export class Drawer {
         >
           {!expanded && trigger === "arrow" && chevronButton}
           {expanded && (
-            <ic-section-container
-              aligned="full-width"
-              fullHeight
-              class="inner-drawer-panel"
-            >
-              <a id="drawer-content"></a>
+            <div class="inner-drawer-panel">
+              <a id="drawer-content"></a> {/* CHECK THIS WORKS */}
               <div class="drawer-header">
                 <div
                   class={{
@@ -406,16 +400,13 @@ export class Drawer {
                   ></ic-button>
                 )}
               </div>
-              <ic-section-container
-                aligned="full-width"
-                fullHeight
-                class="main-content"
-              >
+              <div class="main-content">
+                {/* IS THIS CONDITION NEEDED OR SHOULD THE MESSAGE AREA ALWAYS BE HERE? */}
                 {(isSlotUsed(this.el, "message") || !!message) && (
                   <div
                     class={{
                       ["message-area"]: true,
-                      ["message-area-padding"]: isSlotUsed(this.el, "message"),
+                      // ["message-area-padding"]: isSlotUsed(this.el, "message"),
                     }}
                     tabindex={0}
                   >
@@ -425,10 +416,10 @@ export class Drawer {
                       <ic-typography
                         class={{
                           ["body-text"]: true,
-                          ["message-area-padding"]: !isSlotUsed(
-                            this.el,
-                            "message"
-                          ),
+                          // ["message-area-padding"]: !isSlotUsed(
+                          //   this.el,
+                          //   "message"
+                          // ),
                         }}
                       >
                         <p>{message}</p>
@@ -446,8 +437,8 @@ export class Drawer {
                     <slot name="actions" />
                   </div>
                 )}
-              </ic-section-container>
-            </ic-section-container>
+              </div>
+            </div>
           )}
         </div>
       </Host>
