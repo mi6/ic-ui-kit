@@ -436,6 +436,7 @@ export const Playground = {
           slot=${args.additionalFieldSlot}
           placeholder="Placeholder"
           label="What's your favourite type of coffee?"
+          size=${args.size}
         ></ic-text-field>
       </ic-radio-option>
       <ic-radio-option value="valueName2" label="Radio 2"></ic-radio-option>
