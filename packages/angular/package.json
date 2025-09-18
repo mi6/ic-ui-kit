@@ -33,7 +33,10 @@
     },
     "exports": {
         "./css/*": {
-        "style": "./css/*"
+            "style": "./css/*"
+        },
+        "./package.json": {
+            "default": "./package.json"
         }
     },
     "dependencies": {
@@ -76,5 +79,5 @@
         "typescript-eslint-language-service": "^5.0.0",
         "zone.js": "~0.15.0"
     },
-    "schematics": "./schematics/collection.json"
+    "schematics": "./src/schematics/collection.json"
 }
