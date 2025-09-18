@@ -300,6 +300,52 @@ export const Small = () => {
   );
 };
 
+export const SmallConditionalStatic = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcRadioGroup size="small" label="This is a label" name="radio-group-1">
+        <IcRadioOption
+          additionalFieldDisplay="static"
+          value="valueName1"
+          label="Option 1"
+        >
+          <IcTextField
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+            size="small"
+          />
+        </IcRadioOption>
+        <IcRadioOption value="valueName2" label="Option 2" />
+        <IcRadioOption value="valueName3" label="Option 3" />
+      </IcRadioGroup>
+    </div>
+  );
+};
+
+export const SmallConditionalDynamic = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcRadioGroup size="small" label="This is a label" name="radio-group-1">
+        <IcRadioOption
+          additionalFieldDisplay="dynamic"
+          value="valueName1"
+          label="Option 1"
+        >
+          <IcTextField
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+            size="small"
+          />
+        </IcRadioOption>
+        <IcRadioOption value="valueName2" label="Option 2" />
+        <IcRadioOption value="valueName3" label="Option 3" />
+      </IcRadioGroup>
+    </div>
+  );
+};
+
 export const Validation = () => {
   return (
     <div style={{ padding: "10px" }}>
