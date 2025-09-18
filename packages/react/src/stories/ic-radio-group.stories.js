@@ -516,7 +516,7 @@ export const Playground = {
     },
 
     size: {
-      options: ["default", "small"],
+      options: ["medium", "small"],
 
       control: {
         type: "inline-radio",
