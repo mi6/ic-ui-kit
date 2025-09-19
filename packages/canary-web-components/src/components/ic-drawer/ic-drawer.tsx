@@ -337,14 +337,14 @@ export class Drawer {
         aria-expanded={expanded}
       >
         <div
-          class={{ ["ic-drawer-overlay"]: true }}
+          class={{ "ic-drawer-overlay": true }}
           onClick={this.onBackdropClick}
         ></div>
         <div
           class={{
-            ["ic-drawer-panel"]: true,
-            ["collapsed-drawer"]: !expanded,
-            ["manual-control"]: trigger === "controlled",
+            "ic-drawer-panel": true,
+            "collapsed-drawer": !expanded,
+            "manual-control": trigger === "controlled",
             [`${size}`]: expanded,
           }}
           {...(expanded && { role: "dialog" })}
@@ -358,7 +358,7 @@ export class Drawer {
             ? { "aria-label": this.ariaLabel }
             : {})}
         >
-          {!expanded && trigger === "arrow" && chevronButton}
+          {trigger === "arrow" && chevronButton}
           {expanded && (
             <div class="inner-drawer-panel">
               <a id="drawer-content"></a> {/* CHECK THIS WORKS */}
@@ -366,10 +366,10 @@ export class Drawer {
                 <div
                   class={{
                     ["heading-area"]: true,
-                    ["no-arrow"]: trigger !== "arrow",
+                    // ["no-arrow"]: trigger !== "arrow", (can't remember why I commented this out)
                   }}
                 >
-                  {trigger === "arrow" && chevronButton}
+                  {/* {trigger === "arrow" && chevronButton} */}
                   {isSlotUsed(this.el, "heading-adornment") && (
                     <slot name="heading-adornment" />
                   )}
@@ -430,8 +430,8 @@ export class Drawer {
                 {isSlotUsed(this.el, "actions") && (
                   <div
                     class={{
-                      ["action-area"]: true,
-                      ["main-content-overflow"]: true,
+                      "action-area": true,
+                      "main-content-overflow": true,
                     }}
                   >
                     <slot name="actions" />

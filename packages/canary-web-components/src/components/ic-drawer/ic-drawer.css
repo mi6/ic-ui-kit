@@ -10,6 +10,7 @@
   position: fixed;
   display: flex;
   z-index: var(--ic-z-index-drawer);
+  overflow: hidden; /* Prevent overflow of box-shadow and content outside drawer's parent container */
 }
 
 :host .ic-drawer-panel {
@@ -50,7 +51,7 @@
 
 /* Collapsed state */
 :host(.collapsed) {
-  flex: 0 0 56px;
+  width: calc(var(--ic-space-xs) * 7 + var(--ic-space-xxxs));
 }
 
 :host(.ic-left-position) .ic-drawer-panel.collapsed-drawer.manual-control,
@@ -73,13 +74,13 @@
   }
 }
 
-:host(.ic-left-position) .collapsed-drawer,
-:host(.ic-right-position) .collapsed-drawer {
-  width: var(--ic-space-xxl);
+:host(.collapsed.ic-left-position) .ic-drawer-panel,
+:host(.collapsed.ic-right-position) .ic-drawer-panel {
+  width: calc(var(--ic-space-xxl) + var(--ic-space-xxxs));
 }
 
-:host(.ic-top-position) .collapsed-drawer,
-:host(.ic-bottom-position) .collapsed-drawer {
+:host(.collapsed.ic-top-position) .ic-drawer-panel,
+:host(.collapsed.ic-bottom-position) .ic-drawer-panel {
   height: calc(var(--ic-space-xl) + var(--ic-space-xs) + var(--ic-space-xxxs));
   align-items: center;
 }
@@ -101,6 +102,15 @@
   z-index: -1;
   flex: auto;
   background-color: rgb(0 0 0 / 20%);
+}
+
+:host(.ic-right-position.expanded) .ic-drawer-panel,
+:host(.ic-left-position.expanded) .ic-drawer-panel {
+  flex-direction: row;
+}
+
+:host(.ic-left-position.expanded) .ic-drawer-panel {
+  justify-content: flex-end;
 }
 
 /* Sizing */
@@ -206,9 +216,12 @@
   border-bottom: var(--ic-space-1px) solid var(--ic-drawer-divider-color);
 }
 
+:host(.ic-left-position) .drawer-header {
+  padding-left: calc(var(--ic-space-xxl) + var(--ic-space-xs));
+}
+
 :host .heading-area {
   display: flex;
-  /* align-items: center; */
   gap: var(--ic-space-xs);
   width: 100%;
 }
@@ -305,13 +318,25 @@
 }
 
 /* Chevron styling */
+:host .chevron-btn {
+  position: absolute;
+}
+
 :host .chevron-btn::part(button) {
   padding: var(--ic-space-xxs);
 }
 
-:host(.ic-left-position) .collapsed-drawer .chevron-btn,
-:host(.ic-right-position) .collapsed-drawer .chevron-btn {
-  margin: var(--ic-space-xs);
+:host(.ic-left-position) .chevron-btn {
+  left: 0;
+}
+
+:host(.ic-right-position) .chevron-btn {
+  right: 0;
+}
+
+:host(.ic-left-position) .chevron-btn,
+:host(.ic-right-position) .chevron-btn {
+  padding: var(--ic-space-xs) calc(var(--ic-space-xs) + var(--ic-space-1px));
 }
 
 :host(.ic-top-position) .collapsed-drawer .chevron-btn,
@@ -322,9 +347,16 @@
   margin: var(--ic-space-xs) 0;
 }
 
-:host(.ic-right-position.expanded) .chevron-btn {
-  order: 3;
-  margin-left: auto;
+:host(.ic-left-position) .collapsed-drawer .chevron-btn,
+:host(.ic-right-position) .collapsed-drawer .chevron-btn {
+  height: 100%; /* Make button full height so clicking on whole collapsed drawer expands it */
+  box-sizing: border-box;
+}
+
+:host(.expanded) .chevron-btn {
+  height: fit-content;
+  background-color: var(--ic-drawer-background);
+  z-index: calc(var(--ic-z-index-drawer) + 1);
 }
 
 :host .chevron-btn svg {
