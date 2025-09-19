@@ -1,7 +1,11 @@
 import { Component, Element, Host, Prop, h, State, Watch } from "@stencil/core";
 import { checkResizeObserver, pxToRem } from "../../utils/helpers";
 import { IcStepperAlignment } from "./ic-stepper.types";
-import { IcStepTypes, IcStepVariants } from "../ic-step/ic-step.types";
+import {
+  IcStepTypes,
+  IcStepVariants,
+  IcStepI18n,
+} from "../ic-step/ic-step.types";
 import { IcThemeMode } from "../../utils/types";
 
 @Component({
@@ -41,6 +45,20 @@ export class Stepper {
    * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
    */
   @Prop() hideStepInfo?: boolean = false;
+
+  /**
+   * Provide alternative values for text in all child steps. For the purpose of translating the application into other languages.
+   */
+  @Prop() icI18n?: IcStepI18n = {
+    next: "Next",
+    step: "Step",
+    of: "of",
+    lastStep: "Last step",
+    completed: "Completed",
+    notRequired: "Not required",
+    required: "Required",
+    optional: "Optional",
+  };
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -140,6 +158,10 @@ export class Stepper {
 
   private initialiseStepStates = (): void => {
     this.steps.forEach((step, index) => {
+      // Set language
+      if (this.icI18n !== undefined) {
+        step.icI18n = this.icI18n;
+      }
       // Set variant
       step.variant = this.variant!;
       // Assign stepNum to each step

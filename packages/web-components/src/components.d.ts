@@ -29,7 +29,7 @@ import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-rad
 import { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 import { IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
-import { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
+import { IcStepI18n, IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
 import { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
@@ -60,7 +60,7 @@ export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-rad
 export { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 export { IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
-export { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
+export { IcStepI18n, IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
 export { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 export { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
@@ -2103,6 +2103,10 @@ export namespace Components {
           * The title of the step within the stepper.
          */
         "heading"?: string;
+        /**
+          * Words within the component that can be replaced to translate the component into a different language
+         */
+        "icI18n": IcStepI18n;
         "lastStep": boolean;
         "lastStepNum"?: number;
         "nextStepHeading"?: string;
@@ -2136,6 +2140,10 @@ export namespace Components {
           * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
          */
         "hideStepInfo"?: boolean;
+        /**
+          * Provide alternative values for text in all child steps. For the purpose of translating the application into other languages.
+         */
+        "icI18n"?: IcStepI18n;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -5827,6 +5835,10 @@ declare namespace LocalJSX {
           * The title of the step within the stepper.
          */
         "heading"?: string;
+        /**
+          * Words within the component that can be replaced to translate the component into a different language
+         */
+        "icI18n"?: IcStepI18n;
         "lastStep": boolean;
         "lastStepNum"?: number;
         "nextStepHeading"?: string;
@@ -5860,6 +5872,10 @@ declare namespace LocalJSX {
           * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
          */
         "hideStepInfo"?: boolean;
+        /**
+          * Provide alternative values for text in all child steps. For the purpose of translating the application into other languages.
+         */
+        "icI18n"?: IcStepI18n;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
