@@ -159,7 +159,17 @@
     "testid",
     "shadowrootmode",
     "HMGCC",
-    "dompurify"
+    "dompurify",
+    "Aktualisierung",
+    "Lesen",
+    "Löschen",
+    "nächste",
+    "Schritt",
+    "Letzter",
+    "Nicht",
+    "erforderlich",
+    "wahlweise",
+    "abgeschlossen"
   ],
   "dictionaries": [
     "npm",
