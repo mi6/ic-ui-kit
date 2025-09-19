@@ -17939,6 +17939,35 @@
           "setter": false
         },
         {
+          "name": "icI18n",
+          "type": "{ next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
+          "complexType": {
+            "original": "IcStepI18n",
+            "resolved": "{ next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
+            "references": {
+              "IcStepI18n": {
+                "location": "import",
+                "path": "./ic-step.types",
+                "id": "src/components/ic-step/ic-step.types.ts::IcStepI18n"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Words within the component that can be replaced to translate the component into a different language",
+          "docsTags": [],
+          "default": "{\n    next: \"Next\",\n    step: \"Step\",\n    of: \"of\",\n    lastStep: \"Last step\",\n    completed: \"Completed\",\n    notRequired: \"Not required\",\n    required: \"Required\",\n    optional: \"Optional\",\n  }",
+          "values": [
+            {
+              "type": "{ next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "status",
           "type": "\"optional\" | \"required\" | undefined",
           "complexType": {
@@ -18163,6 +18192,38 @@
             },
             {
               "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "icI18n",
+          "type": "undefined | { next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
+          "complexType": {
+            "original": "IcStepI18n",
+            "resolved": "undefined | { next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
+            "references": {
+              "IcStepI18n": {
+                "location": "import",
+                "path": "../ic-step/ic-step.types",
+                "id": "src/components/ic-step/ic-step.types.ts::IcStepI18n"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Provide alternative values for text in all child steps. For the purpose of translating the application into other languages.",
+          "docsTags": [],
+          "default": "{\n    next: \"Next\",\n    step: \"Step\",\n    of: \"of\",\n    lastStep: \"Last step\",\n    completed: \"Completed\",\n    notRequired: \"Not required\",\n    required: \"Required\",\n    optional: \"Optional\",\n  }",
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }"
             }
           ],
           "optional": true,
@@ -23336,6 +23397,11 @@
     },
     "src/components/ic-step/ic-step.types.ts::IcStepTypes": {
       "declaration": "export type IcStepTypes = \"active\" | \"current\" | \"completed\" | \"disabled\";",
+      "docstring": "",
+      "path": "src/components/ic-step/ic-step.types.ts"
+    },
+    "src/components/ic-step/ic-step.types.ts::IcStepI18n": {
+      "declaration": "{\n  next: string;\n  step: string;\n  of: string;\n  lastStep: string;\n  completed: string;\n  notRequired: string;\n  required: string;\n  optional: string;\n}",
       "docstring": "",
       "path": "src/components/ic-step/ic-step.types.ts"
     },
