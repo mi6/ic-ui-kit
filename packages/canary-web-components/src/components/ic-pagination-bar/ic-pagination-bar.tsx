@@ -13,7 +13,10 @@ import {
 } from "@stencil/core";
 import { IcThemeMode } from "@ukic/web-components";
 import { capitalize, checkResizeObserver } from "../../utils/helpers";
-import { IcPageChangeEventDetail } from "./ic-pagination-bar.types";
+import {
+  IcItemsPerPageChangeEventDetail,
+  IcPageChangeEventDetail,
+} from "./ic-pagination-bar.types";
 import {
   IcPaginationAlignmentOptions,
   IcPaginationLabelTypes,
@@ -110,17 +113,10 @@ export class PaginationBar {
       this.selectedItemsPerPage !== null &&
       this.selectedItemsPerPage !== undefined
     ) {
-      if (
-        this.displayedItemsPerPageOptions?.filter(
-          (option) => option.value === `${this.selectedItemsPerPage}`
-        ).length
-      ) {
-        this.setItemsPerPage(this.selectedItemsPerPage);
-      } else {
-        console.error(
-          `The selected items per page option "${this.selectedItemsPerPage}" does not exist`
-        );
-      }
+      this.setSelectedItemsPerPage(
+        this.selectedItemsPerPage,
+        this.displayedItemsPerPageOptions
+      );
     }
   }
 
@@ -243,7 +239,7 @@ export class PaginationBar {
   /**
    * Emitted when the items per page option is changed.
    */
-  @Event() icItemsPerPageChange: EventEmitter<{ value: number }>;
+  @Event() icItemsPerPageChange: EventEmitter<IcItemsPerPageChangeEventDetail>;
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
@@ -254,7 +250,6 @@ export class PaginationBar {
     this.watchPageLabelHandler();
     this.watchItemLabelHandler();
     this.setPaginationBarContent();
-    this.watchSelectedItemsPerPageHandler();
   }
 
   componentDidLoad(): void {
@@ -278,6 +273,23 @@ export class PaginationBar {
     const page = ev.detail.value;
     this.changePage(page);
   }
+
+  private setSelectedItemsPerPage = (
+    selectedItemsPerPage: number,
+    displayedItemsPerPageOptions: { label: string; value: string }[] = []
+  ) => {
+    const isSelectedItemsPerPagePresent = displayedItemsPerPageOptions?.some(
+      ({ value }) => value === this.selectedItemsPerPage?.toString()
+    );
+    if (isSelectedItemsPerPagePresent) {
+      this.setItemsPerPage(selectedItemsPerPage, false);
+    } else {
+      console.error(
+        `The selected items per page option "${this.selectedItemsPerPage}" does not exist`
+      );
+      this.setItemsPerPage(+displayedItemsPerPageOptions[0]?.value, false);
+    }
+  };
 
   private changeItemsPerPage = () => {
     this.setItemsPerPage(Number(this.pageDropdownEl.value));
@@ -413,11 +425,14 @@ export class PaginationBar {
     this.icPageChange.emit({ value: firstPage });
   };
 
-  private setItemsPerPage = (newValue: number) => {
+  private setItemsPerPage = (newValue: number, isUserAction = true) => {
     if (this.itemsPerPage !== newValue) {
       this.itemsPerPage = newValue;
       this.itemsPerPageString = newValue.toString();
-      this.icItemsPerPageChange.emit({ value: this.itemsPerPage });
+      this.icItemsPerPageChange.emit({
+        value: this.itemsPerPage,
+        isUserAction,
+      });
 
       if (this.setToFirstPageOnPaginationChange) {
         this.setToFirstPage();
@@ -458,6 +473,7 @@ export class PaginationBar {
             { label: "100", value: "100" },
             { label: "1000", value: "1000" },
           ]);
+
     !this.hideAllFromItemsPerPage &&
       displayedItemsPerPageOptions.push({
         label: "All",
@@ -477,16 +493,26 @@ export class PaginationBar {
       });
       this.setItemsPerPage(lastOptionValue);
     } else {
-      const updated = this.displayedItemsPerPageOptions.some(({ value }) => {
-        lastOptionValue = Number(value);
-        return this.itemsPerPage <= lastOptionValue;
-      });
-
-      this.setItemsPerPage(
-        updated || (!updated && this.itemsPerPage > lastOptionValue)
-          ? lastOptionValue
-          : this.itemsPerPage
-      );
+      if (
+        this.selectedItemsPerPage !== null &&
+        this.selectedItemsPerPage !== undefined
+      ) {
+        this.setSelectedItemsPerPage(
+          this.selectedItemsPerPage,
+          this.displayedItemsPerPageOptions
+        );
+      } else {
+        const updated = this.displayedItemsPerPageOptions.some(({ value }) => {
+          lastOptionValue = Number(value);
+          return this.itemsPerPage <= lastOptionValue;
+        });
+        this.setItemsPerPage(
+          updated || (!updated && this.itemsPerPage > lastOptionValue)
+            ? lastOptionValue
+            : this.itemsPerPage,
+          false
+        );
+      }
     }
   };
 

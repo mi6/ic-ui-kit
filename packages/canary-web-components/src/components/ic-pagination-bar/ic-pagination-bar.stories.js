@@ -45,7 +45,7 @@ export const ItemsPerPageControl = {
       ></ic-pagination-bar>
     </div>
     <script>
-      const paginationBar = document.querySelector("ic-pagination-bar");
+      var paginationBar = document.querySelector("ic-pagination-bar");
       paginationBar.itemsPerPageOptions = [
         { label: "50", value: "50" },
         { label: "100", value: "100" },
