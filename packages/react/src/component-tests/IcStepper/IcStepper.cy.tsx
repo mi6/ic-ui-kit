@@ -15,6 +15,8 @@ import {
   SmallConnectorWidth,
   LightCompact,
   Disabled,
+  Internationalisation,
+  ICI18N,
 } from "./IcStepperTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
@@ -69,6 +71,24 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/custom-compact",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+    });
+  });
+
+  it("should render translated compact stepper", () => {
+    mount(<Internationalisation />);
+
+    cy.checkHydrated(STEPPER_SELECTOR);
+
+    // Check that the translations have been applied
+    cy.findShadowEl("ic-step", ".current .next-step").should(
+      HAVE_TEXT,
+      `${ICI18N.next} ${ICI18N.step}: Update`
+    );
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/i18n-compact",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
