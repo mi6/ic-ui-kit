@@ -22,6 +22,17 @@ const customCompactStepTypes = [
   "disabled",
 ];
 
+export const ICI18N = {
+  next: "Der nächste",
+  step: "Schritt",
+  of: "von",
+  lastStep: "Letzter Schritt",
+  completed: "abgeschlossen",
+  notRequired: "Nicht erforderlich",
+  required: "erforderlich",
+  optional: "wahlweise",
+};
+
 export const FullWidth = () => {
   return (
     <div style={{ padding: "100px" }}>
@@ -84,6 +95,19 @@ export const Compact = () => {
       >
         Next
       </IcButton>
+    </div>
+  );
+};
+
+export const Internationalisation = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcStepper variant="compact" id="i18n-compact-stepper" icI18n={ICI18N}>
+        <IcStep heading="Create" />
+        <IcStep heading="Read" type="current" />
+        <IcStep heading="Update" status="optional" />
+        <IcStep heading="Delete" status="required" />
+      </IcStepper>
     </div>
   );
 };
