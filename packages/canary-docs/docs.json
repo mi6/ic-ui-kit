@@ -4249,12 +4249,18 @@
       "events": [
         {
           "event": "icItemsPerPageChange",
-          "detail": "{ value: number; }",
+          "detail": "IcItemsPerPageChangeEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: number }",
-            "resolved": "{ value: number; }",
-            "references": {}
+            "original": "IcItemsPerPageChangeEventDetail",
+            "resolved": "IcItemsPerPageChangeEventDetail",
+            "references": {
+              "IcItemsPerPageChangeEventDetail": {
+                "location": "import",
+                "path": "./ic-pagination-bar.types",
+                "id": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcItemsPerPageChangeEventDetail"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -6197,6 +6203,11 @@
     },
     "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
       "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
+    },
+    "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcItemsPerPageChangeEventDetail": {
+      "declaration": "export interface IcItemsPerPageChangeEventDetail {\n  value: number;\n  isUserAction?: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
