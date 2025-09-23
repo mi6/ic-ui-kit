@@ -197,6 +197,6 @@ ic-input-validation {
 
 @media (forced-colors: active) {
   .clear-button svg {
-    color: currentColor;
+    color: currentcolor;
   }
 }
