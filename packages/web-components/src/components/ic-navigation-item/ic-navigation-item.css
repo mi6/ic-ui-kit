@@ -52,6 +52,8 @@ svg {
   transition: var(--ic-easing-transition-fast);
   position: relative;
   white-space: nowrap;
+
+  --ic-typography-color: var(--navigation-link-colour);
 }
 
 :host(.navigation-item) ::slotted(a) {
@@ -149,6 +151,13 @@ svg {
 :host(.navigation-item-side-menu) ::slotted(svg),
 :host(.navigation-item-page-header) ::slotted(svg) {
   fill: var(--ic-color-text-primary);
+}
+
+:host(.navigation-item-top-nav-child) .link,
+:host(.navigation-item-top-nav-child) ::slotted(a) {
+  color: var(--ic-color-text-primary);
+
+  --ic-typography-color: var(--ic-color-text-primary);
 }
 
 :host(.navigation-item-side-menu) ::slotted(a) {
