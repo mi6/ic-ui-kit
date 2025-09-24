@@ -1537,8 +1537,8 @@ ic-theme,
   /* Top Navigation */
   --ic-top-navigation-background: var(--ic-brand-color-primary);
   --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
-  --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
-  --ic-top-navigation-text: var(--ic-color-brand-text);
+  --ic-top-navigation-icon-and-label: var(--ic-brand-text-color);
+  --ic-top-navigation-text: var(--ic-brand-text-color);
   --ic-top-navigation-title-hover: var(--ic-action-light-bg-hover);
   --ic-top-navigation-title-pressed: var(--ic-action-light-bg-pressed);
   --ic-top-navigation-icon-active: var(--ic-color-icon-action-default);
@@ -1557,17 +1557,15 @@ ic-theme,
   --ic-top-navigation-nav-item-banner: var(--ic-action-default);
   --ic-top-navigation-nav-group-chevron: var(--ic-color-icon-neutral);
   --ic-top-navigation-link: var(--ic-color-brand-text);
-  --ic-top-navigation-status-tag: var(--ic-color-background-primary);
-  --ic-top-navigation-status-tag-text: var(--ic-color-text-primary);
-  --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-lighten-20);
-  --ic-top-navigation-logo: var(--ic-color-icon-brand);
-  --ic-top-navigation-icon: var(--ic-color-icon-brand);
-  --ic-top-navigation-theme: var(--ic-color-icon-brand);
+  --ic-top-navigation-status-tag: var(--ic-brand-text-color);
+  --ic-top-navigation-logo: var(--ic-brand-text-color);
+  --ic-top-navigation-icon: var(--ic-brand-text-color);
+  --ic-top-navigation-theme: var(--ic-brand-text-color);
   --ic-top-navigation-disabled: var(--ic-color-text-disabled-mid);
   --ic-top-navigation-enabled: var(--ic-color-brand-text);
   --ic-top-navigation-menu-background: var(--ic-color-background-secondary);
   --ic-top-navigation-menu-border: var(--ic-color-border-neutral-default);
-  --ic-top-navigation-selected: var(--ic-color-icon-brand);
+  --ic-top-navigation-selected: var(--ic-brand-text-color);
   --ic-top-navigation-search-placeholder-text: var(
     --ic-atoms-input-text-field-content-placeholder
   );
@@ -3228,8 +3226,8 @@ ic-theme,
     /* Top Navigation */
     --ic-top-navigation-background: var(--ic-brand-color-primary);
     --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
-    --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
-    --ic-top-navigation-text: var(--ic-color-brand-text);
+    --ic-top-navigation-icon-and-label: var(--ic-brand-text-color);
+    --ic-top-navigation-text: var(--ic-brand-text-color);
     --ic-top-navigation-title-hover: var(--ic-action-light-bg-hover);
     --ic-top-navigation-title-pressed: var(--ic-action-light-bg-pressed);
     --ic-top-navigation-icon-active: var(--ic-color-icon-action-default);
@@ -3250,12 +3248,10 @@ ic-theme,
     --ic-top-navigation-nav-item-banner: var(--ic-action-default);
     --ic-top-navigation-nav-group-chevron: var(--ic-color-icon-brand);
     --ic-top-navigation-link: var(--ic-color-brand-text);
-    --ic-top-navigation-status-tag: var(--ic-color-background-primary-light);
-    --ic-top-navigation-status-tag-text: var(--ic-color-text-primary-light);
-    --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-lighten-20);
-    --ic-top-navigation-logo: var(--ic-color-icon-brand);
-    --ic-top-navigation-icon: var(--ic-color-icon-brand);
-    --ic-top-navigation-theme: var(--ic-color-icon-brand);
+    --ic-top-navigation-status-tag: var(--ic-brand-text-color);
+    --ic-top-navigation-logo: var(--ic-brand-text-color);
+    --ic-top-navigation-icon: var(--ic-brand-text-color);
+    --ic-top-navigation-theme: var(--ic-brand-text-color);
     --ic-top-navigation-disabled: var(--ic-color-text-disabled-dark);
     --ic-top-navigation-enabled: var(--ic-color-brand-text);
     --ic-top-navigation-menu-background: var(--ic-color-background-primary);
@@ -4834,8 +4830,8 @@ ic-theme,
   /* Top Navigation */
   --ic-top-navigation-background: var(--ic-brand-color-primary);
   --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
-  --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
-  --ic-top-navigation-text: var(--ic-color-brand-text);
+  --ic-top-navigation-icon-and-label: var(--ic-brand-text-color);
+  --ic-top-navigation-text: var(--ic-brand-text-color);
   --ic-top-navigation-title-hover: var(--ic-action-light-bg-hover);
   --ic-top-navigation-title-pressed: var(--ic-action-light-bg-pressed);
   --ic-top-navigation-icon-active: var(--ic-color-icon-action-default);
@@ -4854,12 +4850,10 @@ ic-theme,
   --ic-top-navigation-nav-item-banner: var(--ic-action-default);
   --ic-top-navigation-nav-group-chevron: var(--ic-color-icon-brand);
   --ic-top-navigation-link: var(--ic-color-brand-text);
-  --ic-top-navigation-status-tag: var(--ic-color-background-primary-light);
-  --ic-top-navigation-status-tag-text: var(--ic-color-text-primary-light);
-  --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-lighten-20);
-  --ic-top-navigation-logo: var(--ic-color-icon-brand);
-  --ic-top-navigation-icon: var(--ic-color-icon-brand);
-  --ic-top-navigation-theme: var(--ic-color-icon-brand);
+  --ic-top-navigation-status-tag: var(--ic-brand-text-color);
+  --ic-top-navigation-logo: var(--ic-brand-text-color);
+  --ic-top-navigation-icon: var(--ic-brand-text-color);
+  --ic-top-navigation-theme: var(--ic-brand-text-color);
   --ic-top-navigation-disabled: var(--ic-color-text-disabled-dark);
   --ic-top-navigation-enabled: var(--ic-color-brand-text);
   --ic-top-navigation-menu-background: var(--ic-color-background-primary);
