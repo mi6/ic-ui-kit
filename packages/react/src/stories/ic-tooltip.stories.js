@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useState } from 'react';
-import { IcButton, IcSwitch, IcTooltip, IcTypography } from "../components";
+import { IcButton, IcSwitch, IcTextField, IcTooltip, IcTypography } from "../components";
 
 const defaultArgs = {
   disableClick: false,
@@ -20,18 +20,29 @@ export default {
 
 export const Default = {
   render: () => (
-    <IcTooltip
-      label="This is a description of the button"
-      id="ic-tooltip-test-button-default"
-      target="test-button-default"
-    >
-      <button
-        aria-describedby="ic-tooltip-test-button-default"
-        id="test-button-default"
+    <>
+      <IcTooltip
+        label="This is a description of the button"
+        id="ic-tooltip-test-button"
       >
-        Default
-      </button>
-    </IcTooltip>
+        <button
+          aria-describedby="ic-tooltip-test-button"
+        >
+          Default
+        </button>
+      </IcTooltip>
+      <IcTooltip
+        label="This is a description of the button"
+        id="ic-tooltip-test-button-1"
+      >
+        <IcButton
+          aria-describedby="ic-tooltip-test-button-1"
+        >
+          Default
+        </IcButton>
+      </IcTooltip>
+    </>
+
   ),
 
   name: "Default",
@@ -52,11 +63,9 @@ export const UsingExternalMethod = {
         <IcTooltip
           label="This is a description of the button"
           id="ic-tooltip-test-button-default"
-          target="test-button-default"
         >
           <button
             aria-describedby="ic-tooltip-test-button-default"
-            id="test-button-default"
           >
             Default
           </button>
@@ -73,12 +82,10 @@ export const DisabledHover = {
     <IcTooltip
       label="This shows 'Code' has been copied"
       id="ic-tooltip-test-button-disable-hover"
-      target="test-button-disable-hover"
       disableHover
     >
       <button
         aria-describedby="ic-tooltip-test-button-disable-hover"
-        id="test-button-disable-hover"
         onClick={() => navigator.clipboard.writeText("Code")}
       >
         Show tooltip
@@ -100,10 +107,8 @@ export const TopPlacements = {
         placement="top-start"
         label="This is a description of the button"
         id="ic-tooltip-test-button-top-start"
-        target="test-button-top-start"
       >
         <button
-          id="test-button-top-start"
           aria-describedby="ic-tooltip-test-button-top-start"
         >
           Top start
@@ -113,10 +118,8 @@ export const TopPlacements = {
         placement="top"
         label="This is a description of the button"
         id="ic-tooltip-test-button-top"
-        target="test-button-top"
       >
         <button
-          id="test-button-top"
           aria-describedby="ic-tooltip-test-button-top"
         >
           Top
@@ -126,10 +129,8 @@ export const TopPlacements = {
         placement="top-end"
         label="This is a description of the button"
         id="ic-tooltip-test-button-top-end"
-        target="test-button-top-end"
       >
         <button
-          id="test-button-top-end"
           aria-describedby="ic-tooltip-test-button-top-end"
         >
           Top end
@@ -152,10 +153,8 @@ export const BottomPlacements = {
         placement="bottom-start"
         label="This is a description of the button"
         id="ic-tooltip-test-button-bottom-start"
-        target="test-button-bottom-start"
       >
         <button
-          id="test-button-bottom-start"
           aria-describedby="ic-tooltip-test-button-bottom-start"
         >
           Bottom start
@@ -165,10 +164,8 @@ export const BottomPlacements = {
         placement="bottom"
         label="This is a description of the button"
         id="ic-tooltip-test-button-bottom"
-        target="test-button-bottom"
       >
         <button
-          id="test-button-bottom"
           aria-describedby="ic-tooltip-test-button-bottom"
         >
           Bottom
@@ -178,10 +175,8 @@ export const BottomPlacements = {
         placement="bottom-end"
         label="This is a description of the button"
         id="ic-tooltip-test-button-bottom-end"
-        target="test-button-bottom-end"
       >
         <button
-          id="test-button-bottom-end"
           aria-describedby="ic-tooltip-test-button-bottom-end"
         >
           Bottom end
@@ -204,10 +199,8 @@ export const RightPlacements = {
         placement="right-start"
         label="This is a description of the button"
         id="ic-tooltip-test-button-right-start"
-        target="test-button-right-start"
       >
         <button
-          id="test-button-right-start"
           aria-describedby="ic-tooltip-test-button-right-start"
         >
           Right start
@@ -217,10 +210,8 @@ export const RightPlacements = {
         placement="right"
         label="This is a description of the button"
         id="ic-tooltip-test-button-right"
-        target="test-button-right"
       >
         <button
-          id="test-button-right"
           aria-describedby="ic-tooltip-test-button-right"
         >
           Right
@@ -230,10 +221,8 @@ export const RightPlacements = {
         placement="right-end"
         label="This is a description of the button"
         id="ic-tooltip-test-button-right-end"
-        target="test-button-right-end"
       >
         <button
-          id="test-button-right-end"
           aria-describedby="ic-tooltip-test-button-right-end"
         >
           Right end
@@ -256,10 +245,8 @@ export const LeftPlacements = {
         placement="left-start"
         label="This is a description of the button"
         id="ic-tooltip-test-button-left-start"
-        target="test-button-left-start"
       >
         <button
-          id="test-button-left-start"
           aria-describedby="ic-tooltip-test-button-left-start"
         >
           Left start
@@ -269,10 +256,8 @@ export const LeftPlacements = {
         placement="left"
         label="This is a description of the button"
         id="ic-tooltip-test-button-left"
-        target="test-button-left"
       >
         <button
-          id="test-button-left"
           aria-describedby="ic-tooltip-test-button-left"
         >
           Left
@@ -282,10 +267,8 @@ export const LeftPlacements = {
         placement="left-end"
         label="This is a description of the button"
         id="ic-tooltip-test-button-left-end"
-        target="test-button-left-end"
       >
         <button
-          id="test-button-left-end"
           aria-describedby="ic-tooltip-test-button-left-end"
         >
           Left end
@@ -303,11 +286,9 @@ export const Truncation = {
       label="This is a body of text that is truncated to three lines within a tooltip. It has been truncated based on the maxLines prop. The number of lines in the text is clamped to the number passed through the maxLines prop."
       maxLines={3}
       id="ic-tooltip-test-button-truncation"
-      target="test-button-truncation"
     >
       <button
         aria-describedby="ic-tooltip-test-button-truncation"
-        id="test-button-truncation"
       >
         Default
       </button>
@@ -328,11 +309,9 @@ export const DarkBackground = {
       <IcTooltip
         label="This is a description of the button"
         id="ic-tooltip-test-button-dark"
-        target="test-button-dark"
       >
         <button
           aria-describedby="ic-tooltip-test-button-dark"
-          id="test-button-dark"
         >
           Default
         </button>
@@ -398,10 +377,9 @@ export const PositioningStrategy = {
           <IcTooltip
             label="This is a tooltip with a long label"
             id="ic-tooltip-test-button-1"
-            target="button-1"
             fixedPositioning={fixed}
           >
-            <IcButton aria-describedby="ic-tooltip-test-button-1" id="button-1">
+            <IcButton aria-describedby="ic-tooltip-test-button-1">
               Button
             </IcButton>
           </IcTooltip>          
@@ -429,17 +407,31 @@ export const Playground = {
         maxLines={args.maxLines}
         disableClick={args.disableClick}
         disableHover={args.disableHover}
-        id="ic-tooltip-test-button-default"
-        target="button-id"
+        id="ic-tooltip-1"
         theme={args.theme}
         fixedPositioning={args.fixedPositioning}
       >
         <button
-          id="button-id"
-          aria-describedby="ic-tooltip-test-button-default"
+          aria-describedby="ic-tooltip-1"
         >
-          Button 1
+          Native
         </button>
+      </IcTooltip>
+      <IcTooltip
+        label={args.label}
+        placement={args.placement}
+        maxLines={args.maxLines}
+        disableClick={args.disableClick}
+        disableHover={args.disableHover}
+        id="ic-tooltip-2"
+        theme={args.theme}
+        fixedPositioning={args.fixedPositioning}
+      >
+        <IcButton
+          aria-describedby="ic-tooltip-2"
+        >
+          ICDS
+        </IcButton>
       </IcTooltip>
     </div>
   ),
