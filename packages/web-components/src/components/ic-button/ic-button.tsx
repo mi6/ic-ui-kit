@@ -66,7 +66,11 @@ export class Button {
   @Element() el: HTMLIcButtonElement;
 
   @State() ariaLabel = "";
-  @State() describedByContent? = "";
+  @State() describedbyNode: Node | null;
+  @Watch("describedbyNode")
+  watchDescribedbyNodeHandler(): void {
+    this.updateAriaDescribedbyClone();
+  }
   @State() title = "";
 
   /**
@@ -294,12 +298,10 @@ export class Button {
       const describedById = this.inheritedAttributes["aria-describedby"];
       if (describedById) {
         this.describedById = describedById;
-        const el = this.el.parentElement?.querySelector<HTMLElement>(
-          `#${describedById}`
-        );
+        const el = document.querySelector<HTMLElement>(`#${describedById}`);
         if (el) {
-          this.describedByContent = el.innerText;
           this.describedbyEl = el;
+          this.describedbyNode = el.cloneNode(true);
         }
       }
     }
@@ -331,6 +333,8 @@ export class Button {
 
       if (this.hasRouterSlot()) this.arrangeRouterItem();
     }
+
+    this.updateAriaDescribedbyClone();
   }
 
   componentWillRender(): void {
@@ -434,10 +438,32 @@ export class Button {
   }
 
   /**
-   * Triggered when text content of sibling element in light DOM changes
+   * Creates/updates clone of aria-describedby element node tree in shadow dom
+   * Required due to ids being scoped to the shadow dom
+   */
+  private updateAriaDescribedbyClone = () => {
+    if (this.describedbyNode) {
+      const wrapper = this.el.shadowRoot?.querySelector("#describedby-wrapper");
+      if (!wrapper) {
+        this.el.shadowRoot?.appendChild(
+          Object.assign(document.createElement("div"), {
+            id: "describedby-wrapper",
+            className: "ic-button-describedby",
+          })
+        );
+      }
+
+      while (wrapper?.firstChild) wrapper.firstChild.remove();
+      wrapper?.appendChild(this.describedbyNode);
+    }
+  };
+
+  /**
+   * Triggered when light dom aria-describedby element updates
    */
   private mutationCallback = () => {
-    this.describedByContent = this.describedbyEl?.innerText;
+    if (this.describedbyEl)
+      this.describedbyNode = this.describedbyEl?.cloneNode(true);
   };
 
   /**
@@ -543,7 +569,6 @@ export class Button {
       ariaLabel,
       ariaOwnsId,
       buttonIdNum,
-      describedByContent,
       describedById,
       disabled,
       download,
@@ -710,11 +735,6 @@ export class Button {
         )}
         {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
         {!hasTooltip && <ButtonContent />}
-        {describedByContent && (
-          <span id={describedby} class="ic-button-describedby">
-            {describedByContent}
-          </span>
-        )}
       </Host>
     );
   }
