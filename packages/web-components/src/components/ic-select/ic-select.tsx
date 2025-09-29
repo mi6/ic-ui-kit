@@ -30,6 +30,7 @@ import {
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
+  IcAriaLive,
   IcInformationStatus,
   IcInformationStatusOrEmpty,
   IcMenuOption,
@@ -215,6 +216,11 @@ export class Select {
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
   @Prop() theme: IcThemeMode = "inherit";
+
+  /**
+   * The value of the `aria-live` attribute on the validation message.
+   */
+  @Prop() validationAriaLive: IcAriaLive = "polite";
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
@@ -1118,6 +1124,7 @@ export class Select {
       required,
       searchable,
       showClearButton,
+      validationAriaLive,
       validationStatus,
       validationText,
       currValue,
@@ -1151,11 +1158,13 @@ export class Select {
 
     const invalid = `${validationStatus === IcInformationStatus.Error}`;
 
+    const showValidation = hasValidationStatus(validationStatus, !!disabled);
+
     const describedBy = getInputDescribedByText(
       this.el,
       inputId,
       helperText !== "",
-      hasValidationStatus(validationStatus, !!disabled)
+      showValidation
     ).trim();
 
     const valueLabelString = multiple
@@ -1435,15 +1444,15 @@ export class Select {
               class="multi-select-selected-count"
             ></div>
           )}
-          {hasValidationStatus(validationStatus, disabled) && (
-            <ic-input-validation
-              class={{ "menu-open": open }}
-              ariaLiveMode="polite"
-              status={validationStatus}
-              message={validationText}
-              for={inputId}
-            ></ic-input-validation>
-          )}
+          <ic-input-validation
+            class={{
+              "menu-open": open,
+            }}
+            ariaLiveMode={validationAriaLive}
+            status={showValidation ? validationStatus : ""}
+            message={showValidation ? validationText : ""}
+            for={inputId}
+          ></ic-input-validation>
         </ic-input-container>
       </Host>
     );
