@@ -136,3 +136,5 @@ export const IGNORED_KEYBOARD_CHARACTERS = [
   "Shift",
   "Tab",
 ];
+
+export const IC_CUSTOM_ALLOWED_COMPONENTS: string[] = [];
