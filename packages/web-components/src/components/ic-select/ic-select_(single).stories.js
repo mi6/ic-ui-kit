@@ -13,6 +13,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "medium",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   ["validation-text"]: "",
   ["show-clear-button"]: false,
@@ -574,6 +575,101 @@ export const Validation = {
   name: "Validation",
 };
 
+export const AriaLiveBehaviour = {
+  render: (args) =>
+    html`<ic-select
+        id="field-1"
+        label="What is your favourite coffee?"
+        helper-text="Error already set on page load and aria-live overridden as 'assertive'"
+        validation-status="error"
+        validation-text="First error message"
+        validation-aria-live="assertive"
+      ></ic-select>
+      <br />
+      <ic-select
+        id="field-2"
+        label="What is your favourite coffee?"
+        helper-text="Error set after page load and aria-live overridden as 'assertive'"
+        validation-aria-live="assertive"
+      ></ic-select>
+      <br />
+      <ic-button id="toggle-btn-1">Toggle errors</ic-button>
+      <script>
+        let showErrors1 = false;
+        const btn1 = document.getElementById("toggle-btn-1");
+        const field1 = document.getElementById("field-1");
+        const field2 = document.getElementById("field-2");
+
+        btn1.addEventListener("click", () => {
+          showErrors1 = !showErrors1;
+
+          field1.setAttribute("validation-status", showErrors1 ? "" : "error");
+          field1.setAttribute(
+            "validation-text",
+            showErrors1 ? "" : "First error message"
+          );
+
+          field2.setAttribute("validation-status", showErrors1 ? "error" : "");
+          field2.setAttribute(
+            "validation-text",
+            showErrors1 ? "Second error message" : ""
+          );
+        });
+      </script>
+      <br />
+      <br />
+      <br />
+      <br />
+      <ic-select
+        id="field-3"
+        label="What is your favourite coffee?"
+        helper-text="Default aria-live behaviour (i.e. 'polite')"
+      ></ic-select>
+      <br />
+      <ic-select
+        id="field-4"
+        label="What is your favourite coffee?"
+        helper-text="Default aria-live behaviour (i.e. 'polite')"
+      ></ic-select>
+      <br />
+      <ic-button id="toggle-btn-2">Toggle errors</ic-button>
+      <script>
+        let showErrors2 = false;
+        const btn2 = document.getElementById("toggle-btn-2");
+        const field3 = document.getElementById("field-3");
+        const field4 = document.getElementById("field-4");
+
+        btn2.addEventListener("click", () => {
+          showErrors2 = !showErrors2;
+
+          field3.setAttribute("validation-status", showErrors2 ? "error" : "");
+          field3.setAttribute(
+            "validation-text",
+            showErrors2 ? "Third error message" : ""
+          );
+
+          field4.setAttribute("validation-status", showErrors2 ? "error" : "");
+          field4.setAttribute(
+            "validation-text",
+            showErrors2 ? "Fourth error message" : ""
+          );
+        });
+
+        document.querySelectorAll("ic-select").forEach((el) => {
+          el.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          el.addEventListener("icChange", function (event) {
+            console.log("icChange: " + event.detail.value);
+          });
+        });
+      </script>`,
+
+  name: "Aria-live behaviour",
+};
+
 export const ScrollBehaviour = {
   render: () =>
     html`<ic-select
@@ -679,6 +775,8 @@ export const EmittingIcOptionSelectOnEnter = {
   name: "Emitting icOptionSelect on enter",
 };
 
+const inlineRadioSelector = "inline-radio";
+
 export const Playground = {
   render: (args) =>
     html` <ic-select
@@ -695,6 +793,7 @@ export const Playground = {
         required=${args.required}
         show-clear-button=${args["show-clear-button"]}
         size=${args.size}
+        validation-aria-live=${args.validationAriaLive}
         validation-status=${args.validationStatus === "no status"
           ? ""
           : args.validationStatus}
@@ -777,6 +876,14 @@ export const Playground = {
   args: defaultArgs,
 
   argTypes: {
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
+
+      control: {
+        type: inlineRadioSelector,
+      },
+    },
+
     validationStatus: {
       defaultValue: "no status",
       options: ["no status", "error", "success", "warning"],
@@ -790,7 +897,7 @@ export const Playground = {
       options: ["small", "medium", "large"],
 
       control: {
-        type: "inline-radio",
+        type: inlineRadioSelector,
       },
     },
 
@@ -804,7 +911,7 @@ export const Playground = {
       options: ["inherit", "light", "dark"],
 
       control: {
-        type: "inline-radio",
+        type: inlineRadioSelector,
       },
     },
   },

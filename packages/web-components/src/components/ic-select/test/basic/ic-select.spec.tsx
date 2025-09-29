@@ -199,6 +199,15 @@ describe("ic-select", () => {
     expect(page.root).toMatchSnapshot("no-validation-text-if-no-status");
   });
 
+  it("should render with validation-aria-live", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: getTestSelect('validation-aria-live="assertive"'),
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-validation-aria-live");
+  });
+
   it("should test with clear button", async () => {
     const eventSpy = jest.fn();
     const page = await newSpecPage({

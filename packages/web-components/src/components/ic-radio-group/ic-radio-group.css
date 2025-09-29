@@ -24,11 +24,11 @@ ic-input-label.disabled {
   );
 }
 
-ic-input-validation {
+ic-input-validation.show-validation {
   margin-top: var(--ic-space-sm);
 }
 
-:host(.ic-radio-group-small) ic-input-validation {
+:host(.ic-radio-group-small) ic-input-validation.show-validation {
   margin-top: calc(var(--ic-space-sm) / 2);
 }
 

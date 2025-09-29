@@ -15,7 +15,7 @@ exports[`ic-input-validation should render 1`] = `
 `;
 
 exports[`ic-input-validation should render with error status 1`] = `
-<ic-input-validation class="ic-input-validation-error" for="test-id" message="validation message" status="error">
+<ic-input-validation class="ic-input-validation-error ic-input-validation-with-status" for="test-id" message="validation message" status="error">
   <!---->
   <span class="icon-error status-icon">
     svg
@@ -46,7 +46,7 @@ exports[`ic-input-validation should render with full width 1`] = `
 `;
 
 exports[`ic-input-validation should render with success status 1`] = `
-<ic-input-validation class="ic-input-validation-success" for="test-id" message="validation message" status="success">
+<ic-input-validation class="ic-input-validation-success ic-input-validation-with-status" for="test-id" message="validation message" status="success">
   <!---->
   <span class="icon-success status-icon">
     svg
@@ -63,7 +63,7 @@ exports[`ic-input-validation should render with success status 1`] = `
 `;
 
 exports[`ic-input-validation should render with warning status 1`] = `
-<ic-input-validation class="ic-input-validation-warning" for="test-id" message="validation message" status="warning">
+<ic-input-validation class="ic-input-validation-warning ic-input-validation-with-status" for="test-id" message="validation message" status="warning">
   <!---->
   <span class="icon-warning status-icon">
     svg

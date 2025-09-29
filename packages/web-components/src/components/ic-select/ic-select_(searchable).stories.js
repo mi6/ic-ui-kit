@@ -12,6 +12,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "medium",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   ["validation-text"]: "",
   ["include-descriptions-in-search"]: false,
@@ -853,6 +854,7 @@ export const Playground = {
         search-match-position=${args["search-match-position"]}
         searchable
         size=${args.size}
+        validation-aria-live=${args.validationAriaLive}
         validation-status=${args.validationStatus === "no status"
           ? ""
           : args.validationStatus}
@@ -938,6 +940,14 @@ export const Playground = {
     ["search-match-position"]: {
       defaultValue: "anywhere",
       options: ["anywhere", "start"],
+
+      control: {
+        type: inlineRadioSelector,
+      },
+    },
+
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
 
       control: {
         type: inlineRadioSelector,

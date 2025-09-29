@@ -56,7 +56,7 @@ describe("ic-input-validation", () => {
 
     page.rootInstance.message = "new validation message";
 
-    await waitForTimeout(200);
+    await waitForTimeout(300);
     expect(page.root).toMatchSnapshot();
   });
 });
