@@ -6,6 +6,10 @@
   vertical-align: middle;
 }
 
+:host(.ic-chip-dismissed) {
+  display: none;
+}
+
 .chip {
   --chip-bg-color: transparent;
   --chip-hover-bg: var(--ic-chip-action-hover);
