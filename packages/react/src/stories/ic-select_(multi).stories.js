@@ -18,6 +18,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "medium",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   validationText: "",
   showClearButton: false,
@@ -633,6 +634,7 @@ export const Playground = {
       required={args.required}
       showClearButton={args.showClearButton}
       size={args.size}
+      validationAriaLive={args.validationAriaLive}
       validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
       validationText={args.validationText}
       theme={args.theme}
@@ -659,6 +661,14 @@ export const Playground = {
   argTypes: {
     size: {
       options: ["medium", "large", "small"],
+
+      control: {
+        type: "inline-radio",
+      },
+    },
+
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
 
       control: {
         type: "inline-radio",
