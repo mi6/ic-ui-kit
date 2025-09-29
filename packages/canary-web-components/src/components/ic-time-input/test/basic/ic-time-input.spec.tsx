@@ -282,10 +282,10 @@ describe("ic-time-input component", () => {
     expect(hourInput.value).toBe("13");
   });
 
-  it("should set hour value to 0 if hour value is 11 and time period is 12 and ArrowUp is pressed", async () => {
+  it("should set hour value to 1 if hour value is 12 and time period is 12 and ArrowUp is pressed", async () => {
     const { hourInput, componentInstance } = await createTimeInputEnv();
 
-    hourInput.value = "11";
+    hourInput.value = "12";
     componentInstance.timePeriod = "12";
 
     componentInstance.handleUpDownArrowKeyPress(
@@ -293,7 +293,7 @@ describe("ic-time-input component", () => {
       keyboardEvent("ArrowUp")
     );
 
-    expect(hourInput.value).toBe("00");
+    expect(hourInput.value).toBe("01");
   });
 
   it("should set minute value to 0 if minute value is 59 and ArrowUp is pressed", async () => {
@@ -335,10 +335,10 @@ describe("ic-time-input component", () => {
     expect(hourInput.value).toBe("23");
   });
 
-  it("should set hour value to 11 if hour value is 0 and time period is 12 and ArrowDown is pressed", async () => {
+  it("should set hour value to 12 if hour value is 1 and time period is 12 and ArrowDown is pressed", async () => {
     const { hourInput, componentInstance } = await createTimeInputEnv();
 
-    hourInput.value = "00";
+    hourInput.value = "01";
     componentInstance.timePeriod = "12";
 
     componentInstance.handleUpDownArrowKeyPress(
@@ -346,7 +346,7 @@ describe("ic-time-input component", () => {
       keyboardEvent("ArrowDown")
     );
 
-    expect(hourInput.value).toBe("11");
+    expect(hourInput.value).toBe("12");
   });
 
   it("should set minute value to 59 if minute value is 0 and ArrowDown is pressed", async () => {
