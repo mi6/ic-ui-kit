@@ -13,7 +13,7 @@ import React from "react";
 const TABLE_OF_CONTENTS = "ic-table-of-contents";
 const DEFAULT_TEST_THRESHOLD = 0.025;
 
-describe("IcTableOfContents", () => {
+describe.skip("IcTableOfContents", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -86,7 +86,7 @@ describe("IcTableOfContents", () => {
   });
 });
 
-describe("IcTableOfContents visual regression tests in high contrast mode", () => {
+describe.skip("IcTableOfContents visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

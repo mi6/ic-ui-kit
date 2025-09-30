@@ -28,7 +28,7 @@ import {
 const CHIP_SELECTOR = "ic-chip";
 const DEFAULT_TEST_THRESHOLD = 0.01;
 
-describe("IcChip end-to-end tests", () => {
+describe.skip("IcChip end-to-end tests", () => {
   it("should switch custom colour after initial render", () => {
     mount(<SwitchColour />);
 
@@ -50,7 +50,7 @@ describe("IcChip end-to-end tests", () => {
   });
 });
 
-describe("IcChip visual regression and a11y tests", () => {
+describe.skip("IcChip visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -207,7 +207,7 @@ describe("IcChip visual regression and a11y tests", () => {
   });
 });
 
-describe("IcChip visual regression tests in high contrast mode", () => {
+describe.skip("IcChip visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

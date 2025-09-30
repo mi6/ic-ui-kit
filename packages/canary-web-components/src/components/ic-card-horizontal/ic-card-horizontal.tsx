@@ -9,7 +9,6 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import { IcBrand, IcBrandForeground, IcThemeMode } from "@ukic/web-components";
 import {
   getBrandFromContext,
   isSlotUsed,
@@ -17,7 +16,12 @@ import {
   removeDisabledFalse,
   renderDynamicChildSlots,
 } from "../../utils/helpers";
-import { IcBrandForegroundEnum } from "../../utils/types";
+import {
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
+  IcThemeMode,
+} from "../../utils/types";
 import { IcCardSizes } from "./ic-card-horizontal.types";
 
 /**

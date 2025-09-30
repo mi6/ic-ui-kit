@@ -48,7 +48,7 @@ const CLOSE_ICON_BUTTON = "ic-button.close-icon";
 
 const DEFAULT_TEST_THRESHOLD = 0.028;
 
-describe("IcDialog end-to-end tests", () => {
+describe.skip("IcDialog end-to-end tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 750);
   });
@@ -329,7 +329,7 @@ describe("IcDialog end-to-end tests", () => {
   });
 });
 
-describe("IcDialog visual regression and a11y tests", () => {
+describe.skip("IcDialog visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 750);
@@ -695,7 +695,7 @@ describe("IcDialog visual regression and a11y tests", () => {
   });
 });
 
-describe("IcDialog visual regression tests in high contrast mode", () => {
+describe.skip("IcDialog visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

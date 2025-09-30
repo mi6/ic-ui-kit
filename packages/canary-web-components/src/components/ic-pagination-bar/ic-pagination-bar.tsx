@@ -11,7 +11,7 @@ import {
   Watch,
   Host,
 } from "@stencil/core";
-import { IcThemeMode } from "@ukic/web-components";
+import { IcThemeMode } from "../../utils/types";
 import { capitalize, checkResizeObserver } from "../../utils/helpers";
 import {
   IcItemsPerPageChangeEventDetail,

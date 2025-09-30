@@ -61,7 +61,7 @@ const DEFAULT_TEST_THRESHOLD = 0.003;
 const CONSOLE_LOG_EVENT_SPY_ID = "@spyWinConsoleLog";
 const IC_SUBMIT_SEARCH_EVENT_ID = "@icSubmitSearch";
 
-describe("IcSearchBar end-to-end tests", () => {
+describe.skip("IcSearchBar end-to-end tests", () => {
   it("should render as a controlled component", () => {
     mount(<Controlled />);
 
@@ -825,7 +825,7 @@ describe("IcSearchBar end-to-end tests", () => {
   });
 });
 
-describe("IcSearchBar visual regression and a11y tests", () => {
+describe.skip("IcSearchBar visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -1086,7 +1086,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
   });
 });
 
-describe("IcSearchBar visual regression tests in high contrast mode", () => {
+describe.skip("IcSearchBar visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

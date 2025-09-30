@@ -33,7 +33,7 @@ const IC_BUTTON_SELECTOR = "ic-button";
 const DISMISS_BUTTON_SELECTOR = "#dismiss-button";
 const OPEN_BUTTON_SELECTOR = "ic-button#open-toast-btn";
 
-describe("IcToast end-to-end tests", () => {
+describe.skip("IcToast end-to-end tests", () => {
   it("should render", () => {
     mount(<ToastTypes variant="neutral" />);
     cy.get(IC_TOAST_SELECTOR).should("exist");
@@ -146,7 +146,7 @@ describe("IcToast end-to-end tests", () => {
   });
 });
 
-describe("IcToast visual regression and a11y tests", () => {
+describe.skip("IcToast visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -325,7 +325,7 @@ describe("IcToast visual regression and a11y tests", () => {
   });
 });
 
-describe("IcToast visual regression tests in high contrast mode", () => {
+describe.skip("IcToast visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

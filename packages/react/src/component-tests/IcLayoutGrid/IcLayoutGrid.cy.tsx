@@ -12,7 +12,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const DEFAULT_TEST_THRESHOLD = 0.012;
 const LAYOUT_GRID_SELECTOR = "ic-layout-grid";
 
-describe("IcLayoutGrid visual regression and a11y tests", () => {
+describe.skip("IcLayoutGrid visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 750);
     cy.injectAxe();

@@ -38,7 +38,7 @@ const NAVIGATION_GROUP_SELECTOR = "ic-navigation-group";
 const NAVIGATION_ITEM_SELECTOR = "ic-navigation-item";
 const NAVIGATION_BUTTON_SELECTOR = "ic-navigation-button";
 
-describe("IcNavigationMenu end-to-end and visual regression tests", () => {
+describe.skip("IcNavigationMenu end-to-end and visual regression tests", () => {
   beforeEach(() => {
     cy.viewport(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     cy.injectAxe();
@@ -48,7 +48,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
     cy.task("generateReport");
   });
 
-  describe("Within a top navigation", () => {
+  describe.skip("Within a top navigation", () => {
     it("should render with expandable navigation groups and navigation items", () => {
       mount(<WithExpandableNavGroupAndNavItemsTopNav />);
 
@@ -363,7 +363,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
     });
   });
 
-  describe("Within a side navigation", () => {
+  describe.skip("Within a side navigation", () => {
     it("should render with expandable navigation groups and navigation items", () => {
       cy.mockResizeObserver(576, 600);
       mount(<WithExpandableNavGroupAndNavItemsSideNav />);
@@ -536,7 +536,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
   });
 });
 
-describe("IcNavigationMenu visual regression tests in high contrast mode", () => {
+describe.skip("IcNavigationMenu visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

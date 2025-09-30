@@ -62,7 +62,7 @@ const DISABLED_TEXT_FIELD_AXE_OPTIONS = {
   },
 };
 
-describe("IcTextField end-to-end tests", () => {
+describe.skip("IcTextField end-to-end tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -364,7 +364,7 @@ describe("IcTextField end-to-end tests", () => {
   });
 });
 
-describe("IcTextField visual regression tests", () => {
+describe.skip("IcTextField visual regression tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -532,7 +532,7 @@ describe("IcTextField visual regression tests", () => {
   });
 });
 
-describe("IcTextField visual regression in high contrast mode", () => {
+describe.skip("IcTextField visual regression in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

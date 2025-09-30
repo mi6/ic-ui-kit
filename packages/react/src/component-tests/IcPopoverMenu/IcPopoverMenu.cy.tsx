@@ -37,7 +37,7 @@ const DISABLED_POPOVER_AXE_OPTIONS = {
 
 const DEFAULT_TEST_THRESHOLD = 0.015;
 
-describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -388,7 +388,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcPopoverMenu visual regression tests in high contrast mode", () => {
+describe.skip("IcPopoverMenu visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

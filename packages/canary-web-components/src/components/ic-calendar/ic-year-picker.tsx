@@ -58,6 +58,7 @@ export const YearPicker: FunctionalComponent<YearPickerProps> = ({
           class={{
             "year-button": true,
           }}
+          full-width
           disabled={!yearInRange(prevDecade, minDate, maxDate)}
           data-year={prevDecade}
           tabIndex={-1}
@@ -76,7 +77,7 @@ export const YearPicker: FunctionalComponent<YearPickerProps> = ({
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M11.3333 5.33341H3.21996L6.94663 1.60675L5.99996 0.666748L0.666626 6.00008L5.99996 11.3334L6.93996 10.3934L3.21996 6.66675H11.3333V5.33341Z"
+              d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
               fill="currentColor"
             />
           </svg>
@@ -92,6 +93,7 @@ export const YearPicker: FunctionalComponent<YearPickerProps> = ({
               selected: current,
               focussed: focussed,
             }}
+            full-width
             disabled={!yearInRange(yr, minDate, maxDate)}
             data-year={yr}
             tabIndex={focussed ? 0 : -1}
@@ -104,7 +106,7 @@ export const YearPicker: FunctionalComponent<YearPickerProps> = ({
             onFocus={handleYearFocus}
             onBlur={handleYearBlur}
             size={size}
-            ref={(el: HTMLIcButtonElement) => {
+            ref={(el: HTMLIcButtonElement | undefined) => {
               if (focussed && el) {
                 focussedYearRef(el);
               }
@@ -121,6 +123,7 @@ export const YearPicker: FunctionalComponent<YearPickerProps> = ({
             "year-button": true,
             flip: true,
           }}
+          full-width
           disabled={!yearInRange(nextDecade, minDate, maxDate)}
           data-year={nextDecade}
           tabIndex={-1}
@@ -137,9 +140,10 @@ export const YearPicker: FunctionalComponent<YearPickerProps> = ({
             height="12"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
           >
             <path
-              d="M11.3333 5.33341H3.21996L6.94663 1.60675L5.99996 0.666748L0.666626 6.00008L5.99996 11.3334L6.93996 10.3934L3.21996 6.66675H11.3333V5.33341Z"
+              d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
               fill="currentColor"
             />
           </svg>
