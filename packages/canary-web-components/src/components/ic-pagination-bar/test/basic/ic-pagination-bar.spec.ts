@@ -7,6 +7,7 @@ import { waitForTimeout } from "../../../../testspec.setup";
 import { newSpecPage } from "@stencil/core/testing";
 import { IcSelect } from "@ukic/web-components/dist/components/ic-select";
 import { IcTypography } from "@ukic/web-components/dist/components/ic-typography";
+import { IcMenu } from "@ukic/web-components/dist/components/ic-menu";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -764,5 +765,138 @@ describe("ic-pagination-bar", () => {
 
     await page.rootInstance.setItemsPerPage(20);
     expect(page.rootInstance.activePage).toEqual(3);
+  });
+  it("should set items per page dropdown to All if totalItems is updated from 100 to 0", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
+      html: `<ic-pagination-bar show-items-per-page-control="true" total-items="100"></ic-pagination-bar>`,
+    });
+
+    page.root!.totalItems = "0";
+
+    await page.waitForChanges();
+
+    const paginationBar = document.querySelector("ic-pagination-bar");
+
+    const select = paginationBar!.shadowRoot!.querySelector("ic-select");
+
+    const selectBtn = select!.shadowRoot!.querySelector("ic-typography");
+
+    expect(select!.value).toBe("0");
+    expect(selectBtn!.textContent).toBe("All");
+  });
+  it("should set items per page dropdown to 100 if selectedItemsPerPage is 100, totalItems is initially set to 30 and then updated to 200", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
+      html: `<ic-pagination-bar show-items-per-page-control="true" total-items="30" selected-items-per-page="100"></ic-pagination-bar>`,
+    });
+
+    page.root!.totalItems = "200";
+
+    await page.waitForChanges();
+
+    const paginationBar = document.querySelector("ic-pagination-bar");
+
+    const select = paginationBar!.shadowRoot!.querySelector("ic-select");
+
+    const selectBtn = select!.shadowRoot!.querySelector("ic-typography");
+
+    expect(select!.value).toBe("100");
+    expect(selectBtn!.textContent).toBe("100");
+  });
+  it("should set the items per page dropdown to 10 if selectedItemsPerPage is 100, totalItems is initially set to 211 and then updated to 30", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
+      html: `<ic-pagination-bar show-items-per-page-control="true" total-items="211" selected-items-per-page="100"></ic-pagination-bar>`,
+    });
+
+    page.root!.totalItems = "30";
+
+    await page.waitForChanges();
+
+    const paginationBar = document.querySelector("ic-pagination-bar");
+
+    const select = paginationBar!.shadowRoot!.querySelector("ic-select");
+
+    const selectBtn = select!.shadowRoot!.querySelector("ic-typography");
+
+    expect(select!.value).toBe("10");
+    expect(selectBtn!.textContent).toBe("10");
+  });
+  it("should set items per page dropdown to 10 if totalItems is 50 and selectedItemsPerPage is 100", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
+      html: `<ic-pagination-bar show-items-per-page-control="true" total-items="50" selected-items-per-page="100"></ic-pagination-bar>`,
+    });
+
+    await page.waitForChanges();
+
+    const paginationBar = document.querySelector("ic-pagination-bar");
+
+    const select = paginationBar!.shadowRoot!.querySelector("ic-select");
+
+    const selectBtn = select!.shadowRoot!.querySelector("ic-typography");
+
+    expect(select!.value).toBe("10");
+    expect(selectBtn!.textContent).toBe("10");
+  });
+  it("should emit 'isUserAction' false when 'icItemsPerPageChange' is triggered from updated totalItems", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
+      html: `<ic-pagination-bar show-items-per-page-control="true" total-items="30" selected-items-per-page="100"></ic-pagination-bar>`,
+    });
+
+    const paginationBar = document.querySelector("ic-pagination-bar");
+
+    const callbackFn = jest.fn();
+    paginationBar!.addEventListener("icItemsPerPageChange", callbackFn);
+
+    await page.waitForChanges();
+
+    // Changing the totalItems makes items per page "100" option available triggering icItemsPerPageChange
+    page.rootInstance.totalItems = "120";
+
+    await page.waitForChanges();
+
+    expect(callbackFn).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          isUserAction: false,
+        }),
+      })
+    );
+  });
+  it("should emit 'isUserAction: true' when explicitly changing items per page select value", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography, IcMenu],
+      html: `<ic-pagination-bar show-items-per-page-control="true" total-items="127" selected-items-per-page="100"></ic-pagination-bar>`,
+    });
+
+    const paginationBar = document.querySelector("ic-pagination-bar");
+
+    const callbackFn = jest.fn();
+    paginationBar!.addEventListener("icItemsPerPageChange", callbackFn);
+
+    const itemsPerPageSelect = paginationBar!.shadowRoot!.querySelector(
+      ".items-per-page-input"
+    ) as HTMLIcSelectElement;
+
+    itemsPerPageSelect!.click();
+
+    const options = Array.from(
+      itemsPerPageSelect!.shadowRoot!.querySelectorAll(".option")
+    );
+
+    (options[0] as HTMLIcMenuItemElement).click();
+
+    await page.waitForChanges();
+
+    expect(callbackFn).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          isUserAction: true,
+        }),
+      })
+    );
   });
 });

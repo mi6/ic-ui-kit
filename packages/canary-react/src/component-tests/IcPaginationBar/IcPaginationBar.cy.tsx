@@ -814,6 +814,76 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
+  it("should set items per page dropdown to All if totalItems is updated from 100 to 0", () => {
+    mount(<IcPaginationBar totalItems={100} showItemsPerPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.get(PAGINATION_BAR).invoke("prop", "totalItems", 0);
+
+    cy.wait(250);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .should("contain.text", "All");
+  });
+  it("should set items per page dropdown to 100 if selectedItemsPerPage is 100, totalItems is initially set to 30 and then updated to 200", () => {
+    mount(
+      <IcPaginationBar
+        totalItems={30}
+        selectedItemsPerPage={100}
+        showItemsPerPageControl
+      />
+    );
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.get(PAGINATION_BAR).invoke("prop", "totalItems", 200);
+
+    cy.wait(250);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .should("contain.text", "100");
+  });
+  it("should set the items per page dropdown to 10 if selectedItemsPerPage is 100, totalItems is initially set to 211 and then updated to 30", () => {
+    mount(
+      <IcPaginationBar
+        totalItems={211}
+        selectedItemsPerPage={100}
+        showItemsPerPageControl
+      />
+    );
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.get(PAGINATION_BAR).invoke("prop", "totalItems", 30);
+
+    cy.wait(250);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .should("contain.text", "10");
+  });
+  it("should set items per page dropdown to 10 if totalItems is 50 and selectedItemsPerPage is 100", () => {
+    mount(
+      <IcPaginationBar
+        totalItems={50}
+        selectedItemsPerPage={100}
+        showItemsPerPageControl
+      />
+    );
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .should("contain.text", "10");
+  });
 });
 
 describe("IcPaginationBar visual regression tests in high contrast mode", () => {
