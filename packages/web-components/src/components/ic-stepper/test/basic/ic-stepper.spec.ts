@@ -210,7 +210,7 @@ describe("default variant of ic-stepper component", () => {
     const disabledSteps = document.querySelectorAll('ic-step[type="disabled"]');
 
     disabledSteps.forEach((step) => {
-      expect(step.getAttribute("aria-label")).toMatch(/. Non-required step/i);
+      expect(step.getAttribute("aria-label")).toMatch(/. Not required/i);
     });
   });
 
@@ -645,7 +645,7 @@ describe("compact variant of ic-stepper component", () => {
         `<span class="warning-icon step-icon" aria-hidden="true">svg</span>`
       );
 
-      expect(step.getAttribute("aria-label")).toMatch(/. Non-required step/i);
+      expect(step.getAttribute("aria-label")).toMatch(/. Not required/i);
     });
   });
 
@@ -703,7 +703,7 @@ describe("compact variant of ic-stepper component", () => {
         `<span class="check-icon step-icon" aria-hidden="true">svg</span>`
       );
 
-      expect(step.getAttribute("aria-label")).toMatch(/. Completed step/i);
+      expect(step.getAttribute("aria-label")).toMatch(/. Completed/i);
     });
   });
 
@@ -749,7 +749,7 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(optionalSteps).not.toBeNull();
     optionalSteps?.forEach((step) => {
-      expect(step.getAttribute("aria-label")).toMatch(/. Optional step/i);
+      expect(step.getAttribute("aria-label")).toMatch(/. Optional/i);
     });
   });
 
@@ -795,7 +795,7 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(requiredSteps).not.toBeNull();
     requiredSteps?.forEach((step) => {
-      expect(step.getAttribute("aria-label")).toMatch(/. Required step/i);
+      expect(step.getAttribute("aria-label")).toMatch(/. Required/i);
     });
   });
 
