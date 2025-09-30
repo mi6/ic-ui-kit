@@ -43,7 +43,7 @@ describe("IcToggleButton end-to-end tests", () => {
   it("should render", () => {
     mount(<IcToggleButton label="Test" />);
 
-    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should("exist");
+    cy.get(IC_TOGGLE_BUTTON_SELECTOR);
   });
 
   it("should switch to checked when clicked", () => {
@@ -84,8 +84,7 @@ describe("IcToggleButton end-to-end tests", () => {
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
     cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
       .shadow()
-      .find("ic-loading-indicator")
-      .should("exist");
+      .find("ic-loading-indicator");
   });
 
   it("should not be clickable when loading", () => {

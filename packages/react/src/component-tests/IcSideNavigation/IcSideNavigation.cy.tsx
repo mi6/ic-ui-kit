@@ -72,9 +72,7 @@ describe("IcSideNavigation", () => {
         .invoke("attr", "aria-expanded")
         .should("eq", "false");
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-      cy.findShadowEl(SIDE_NAV_SELECTOR, INNER_SIDE_NAV_SELECTOR).should(
-        "exist"
-      );
+      cy.findShadowEl(SIDE_NAV_SELECTOR, INNER_SIDE_NAV_SELECTOR);
       cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)
         .shadow()
         .find("button")
@@ -102,9 +100,7 @@ describe("IcSideNavigation", () => {
 
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
 
-      cy.findShadowEl(SIDE_NAV_SELECTOR, INNER_SIDE_NAV_SELECTOR).should(
-        "exist"
-      );
+      cy.findShadowEl(SIDE_NAV_SELECTOR, INNER_SIDE_NAV_SELECTOR);
       cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)
         .shadow()
         .find("button")
@@ -164,9 +160,7 @@ describe("IcSideNavigation", () => {
 
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
 
-      cy.findShadowEl(SIDE_NAV_SELECTOR, INNER_SIDE_NAV_SELECTOR).should(
-        "exist"
-      );
+      cy.findShadowEl(SIDE_NAV_SELECTOR, INNER_SIDE_NAV_SELECTOR);
       cy.findShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR).should(
         NOT_EXIST
       );
