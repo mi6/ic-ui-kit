@@ -349,7 +349,7 @@ export const HorizontalScroll = (): ReactElement => {
 export const Brand = (): ReactElement => {
   return (
     <div style={{ overflowY: "hidden" }}>
-      <IcTheme brandColor="rgb(255, 201, 60)" />
+      <IcTheme brandColor="rgb(255, 201, 60)">
       <IcTopNavigation
         appTitle="ApplicationName"
         status="alpha"
@@ -369,6 +369,7 @@ export const Brand = (): ReactElement => {
         />
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
       </IcTopNavigation>
+      </IcTheme>
     </div>
   );
 };
@@ -376,7 +377,7 @@ export const Brand = (): ReactElement => {
 export const BrandWithSlottedNavItems = (): ReactElement => {
   return (
     <div style={{ overflowY: "hidden" }}>
-      <IcTheme brandColor="rgb(255, 201, 60)" />
+      <IcTheme brandColor="rgb(255, 201, 60)">
       <IcTopNavigation status="alpha" version="v0.0.7">
         <ReusableAppIcon />
         <a href="/" slot="app-title">
@@ -396,6 +397,7 @@ export const BrandWithSlottedNavItems = (): ReactElement => {
           <a href="/">Three</a>
         </IcNavigationItem>
       </IcTopNavigation>
+      </IcTheme>
     </div>
   );
 };
@@ -436,6 +438,7 @@ export const TopNavHorizontalScroll = (): ReactElement => {
         version="v0.0.7"
       >
         <ReusableAppIcon />
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
         <IcNavigationButton label="Button One" slot="buttons">
           <ReusableIcon />
         </IcNavigationButton>

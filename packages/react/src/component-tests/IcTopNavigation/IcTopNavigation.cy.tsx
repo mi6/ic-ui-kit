@@ -430,14 +430,15 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     cy.viewport(1000, 750);
     mount(
       <div>
-        <IcTheme theme="light" />
-        <TopNavHorizontalScroll />
+        <IcTheme brandColor="rgb(255, 201, 60)" theme="light">
+          <TopNavHorizontalScroll />
+        </IcTheme>
       </div>
     );
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.compareSnapshot({
-      name: "/horizontal-scroll",
+      name: "/horizontal-scroll-sunrise-brand-light-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -446,14 +447,15 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     cy.viewport(1000, 750);
     mount(
       <div>
-        <IcTheme theme="dark" />
-        <TopNavHorizontalScroll />
+        <IcTheme brandColor="rgb(255, 201, 60)" theme="dark">
+          <TopNavHorizontalScroll />
+        </IcTheme>
       </div>
     );
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.compareSnapshot({
-      name: "/horizontal-scroll",
+      name: "/horizontal-scroll-sunrise-brand-dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -462,14 +464,15 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     cy.viewport(1000, 750);
     mount(
       <div>
-        <IcTheme brandColor="rgb(27, 60, 121)" theme="light" />
-        <TopNavHorizontalScroll />
+        <IcTheme brandColor="rgb(27, 60, 121)" theme="light">
+          <TopNavHorizontalScroll />
+        </IcTheme>
       </div>
     );
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.compareSnapshot({
-      name: "/horizontal-scroll-dark",
+      name: "/horizontal-scroll-dark-brand-light-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -478,14 +481,15 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     cy.viewport(1000, 750);
     mount(
       <div>
-        <IcTheme brandColor="rgb(27, 60, 121)" theme="dark" />
-        <TopNavHorizontalScroll />
+        <IcTheme brandColor="rgb(27, 60, 121)" theme="dark">
+          <TopNavHorizontalScroll />
+        </IcTheme>
       </div>
     );
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.compareSnapshot({
-      name: "/horizontal-scroll-dark",
+      name: "/horizontal-scroll-dark-brand-dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -504,8 +508,9 @@ describe("IcTopNavigation mobile visual regression tests", () => {
   it("should render app icon and title", () => {
     mount(
       <div>
-        <IcTheme brandColor="rgb(27, 60, 121)" />
-        <IconAndTitle />
+        <IcTheme brandColor="rgb(27, 60, 121)">
+          <IconAndTitle />
+        </IcTheme>
       </div>
     );
     cy.checkHydrated(TOP_NAV_SELECTOR);
