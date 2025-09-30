@@ -1,7 +1,7 @@
 {
-  "total": 870,
-  "totalPassed": 867,
-  "totalFailed": 3,
+  "total": 871,
+  "totalPassed": 870,
+  "totalFailed": 1,
   "totalSuites": 45,
   "suites": [
     {
@@ -605,14 +605,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/position-centre.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcBackToTop.cy.tsx/icon",
-          "percentage": 0,
+          "percentage": 0.025845695966640173,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/icon.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcBackToTop.cy.tsx/icon.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/icon.png"
         },
         {
@@ -2186,14 +2186,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/dynamic.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCheckbox.cy.tsx/validation",
-          "percentage": 0.06483826030978931,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
           "specFilename": "IcCheckbox.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/validation.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCheckbox.cy.tsx/validation.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/validation.png"
         },
         {
@@ -2208,14 +2208,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/focus.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCheckbox.cy.tsx/theme-dark",
-          "percentage": 0.10854066549819175,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
           "specFilename": "IcCheckbox.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/theme-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCheckbox.cy.tsx/theme-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/theme-dark.png"
         },
         {
@@ -2274,14 +2274,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/dynamic-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCheckbox.cy.tsx/validation-high-contrast",
-          "percentage": 0.06954135460285484,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
           "specFilename": "IcCheckbox.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/validation-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCheckbox.cy.tsx/validation-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/validation-high-contrast.png"
         },
         {
@@ -7496,6 +7496,17 @@
         },
         {
           "status": "pass",
+          "name": "IcStepper.cy.tsx/i18n-compact",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
+          "specFilename": "IcStepper.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx/i18n-compact.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx/i18n-compact.png"
+        },
+        {
+          "status": "pass",
           "name": "IcStepper.cy.tsx/full-width",
           "percentage": 0,
           "failureThreshold": 0,
@@ -9845,9 +9856,9 @@
       ]
     }
   ],
-  "startedAt": "2025-09-29T18:26:03.947Z",
-  "endedAt": "2025-09-29T18:45:16.814Z",
-  "duration": 1048855,
+  "startedAt": "2025-09-30T10:06:02.865Z",
+  "endedAt": "2025-09-30T10:23:57.089Z",
+  "duration": 978097,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
