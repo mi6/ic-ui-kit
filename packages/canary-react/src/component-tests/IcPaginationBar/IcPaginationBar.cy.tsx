@@ -10,6 +10,7 @@ import {
   HAVE_CLASS,
   HAVE_LENGTH,
   HAVE_TEXT,
+  NOT_EXIST,
 } from "@ukic/react/src/component-tests/utils/constants";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import {
@@ -182,8 +183,7 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find('[role="navigation"]')
-      .should("exist");
+      .find('[role="navigation"]');
   });
 
   it("should update pagination label when complex pagination button is clicked", () => {
@@ -529,7 +529,7 @@ describe("IcPaginationBar end-to-end tests", () => {
     cy.checkHydrated(PAGINATION_BAR);
 
     cy.findShadowEl(PAGINATION_BAR, ITEM_PAGINATION_LABEL_SELECTOR).should(
-      "not.exist"
+      NOT_EXIST
     );
   });
 
