@@ -128,7 +128,7 @@ describe("IcActionChip visual regression & e2e tests", () => {
 
     cy.wait(5000);
 
-    cy.findShadowEl(ACTION_CHIP_SELECTOR, ".icon").should("exist");
+    cy.findShadowEl(ACTION_CHIP_SELECTOR, ".icon");
 
     cy.wait(5000);
 
@@ -162,7 +162,7 @@ describe("IcActionChip visual regression & e2e tests", () => {
 
     cy.wait(5000);
 
-    cy.findShadowEl(ACTION_CHIP_SELECTOR, ".icon").should("exist");
+    cy.findShadowEl(ACTION_CHIP_SELECTOR, ".icon");
 
     cy.wait(5000);
 

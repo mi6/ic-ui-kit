@@ -67,10 +67,10 @@ describe("IcTab end-to-end tests", () => {
 
     cy.checkHydrated(IC_TAB_GROUP);
 
-    cy.get(IC_TAB_CONTEXT).should("exist");
-    cy.get(IC_TAB_GROUP).should("exist");
-    cy.get(IC_TAB).should("exist");
-    cy.get(IC_TAB_PANEL).should("exist");
+    cy.get(IC_TAB_CONTEXT);
+    cy.get(IC_TAB_GROUP);
+    cy.get(IC_TAB);
+    cy.get(IC_TAB_PANEL);
     cy.get(IC_TAB_GROUP).should(HAVE_ATTR, "label", "Example tab group");
   });
 

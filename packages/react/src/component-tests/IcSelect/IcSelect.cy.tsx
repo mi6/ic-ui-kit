@@ -87,7 +87,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.get(IC_SELECT).should("exist");
+    cy.get(IC_SELECT);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -409,7 +409,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.get('[hide-label="true"]').should("exist");
+    cy.get('[hide-label="true"]');
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -767,7 +767,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
-    cy.findShadowEl(IC_SELECT, ".last-recommended-option ").should("exist");
+    cy.findShadowEl(IC_SELECT, ".last-recommended-option ");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -973,9 +973,10 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_MENU_UL).should(HAVE_FOCUS);
-    cy.findShadowEl(IC_SELECT, ".expand-icon")
-      .should("exist")
-      .should(HAVE_CLASS, "expand-icon expand-icon-open");
+    cy.findShadowEl(IC_SELECT, ".expand-icon").should(
+      HAVE_CLASS,
+      "expand-icon expand-icon-open"
+    );
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).click();
     cy.get(".ic-input").should(CONTAIN_VALUE, "espresso");
   });
@@ -1252,7 +1253,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
-    cy.get(IC_SELECT).shadow().find('[aria-invalid="true"]').should("exist");
+    cy.get(IC_SELECT).shadow().find('[aria-invalid="true"]');
   });
 
   it("should set the aria-label correctly if an option has a description", () => {
@@ -1269,15 +1270,12 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(
       IC_SELECT,
       '[aria-label="Cappuccino, An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture"]'
-    ).should("exist");
+    );
     cy.findShadowEl(
       IC_SELECT,
       '[aria-label="Americano, Espresso coffee diluted with hot water"]'
-    ).should("exist");
-    cy.findShadowEl(
-      IC_SELECT,
-      '[aria-label="Mocha, Coffee with chocolate"]'
-    ).should("exist");
+    );
+    cy.findShadowEl(IC_SELECT, '[aria-label="Mocha, Coffee with chocolate"]');
   });
 
   it("should set the aria-label correctly if an option is within a group", () => {
@@ -1292,18 +1290,10 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
-    cy.findShadowEl(IC_SELECT, '[aria-label="Cappuccino, Fancy group"]').should(
-      "exist"
-    );
-    cy.findShadowEl(IC_SELECT, '[aria-label="Flat white, Fancy group"]').should(
-      "exist"
-    );
-    cy.findShadowEl(IC_SELECT, '[aria-label="Filter, Boring group"]').should(
-      "exist"
-    );
-    cy.findShadowEl(IC_SELECT, '[aria-label="Latte, Boring group"]').should(
-      "exist"
-    );
+    cy.findShadowEl(IC_SELECT, '[aria-label="Cappuccino, Fancy group"]');
+    cy.findShadowEl(IC_SELECT, '[aria-label="Flat white, Fancy group"]');
+    cy.findShadowEl(IC_SELECT, '[aria-label="Filter, Boring group"]');
+    cy.findShadowEl(IC_SELECT, '[aria-label="Latte, Boring group"]');
   });
 
   it("should set the aria-label correctly if an option has a description and is within a group", () => {
@@ -1321,7 +1311,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(
       IC_SELECT,
       '[aria-label="Cappuccino, An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture, Fancy group"]'
-    ).should("exist");
+    );
   });
 
   it("should display a loading message and then the options when fetching options externally", () => {
@@ -1330,7 +1320,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.get("ic-button").click();
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.findShadowEl(IC_SELECT, "ic-loading-indicator").should("exist");
+    cy.findShadowEl(IC_SELECT, "ic-loading-indicator");
     cy.get(IC_SELECT).invoke("prop", "options", coffeeOptions);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, DATA_LABEL_ESPRESSO).should(BE_VISIBLE);
@@ -1687,9 +1677,10 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
       MENU_SCROLL_CLASS
     );
     cy.get(IC_SELECT).invoke("prop", "options", manyOptions);
-    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
-      .should(HAVE_CLASS, "menu sc-ic-menu menu-scroll")
-      .should("exist");
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL).should(
+      HAVE_CLASS,
+      "menu sc-ic-menu menu-scroll"
+    );
   });
 
   it("should scroll menu", () => {

@@ -113,20 +113,22 @@ describe("IcButton end-to-end tests", () => {
       HAVE_ATTR,
       "aria-describedby"
     );
-    cy.findShadowEl(IC_BUTTON_SELECTOR, "#button-description")
-      .should("exist")
-      .should(CONTAIN_TEXT, "This button does something amazing");
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "#button-description").should(
+      CONTAIN_TEXT,
+      "This button does something amazing"
+    );
     cy.clickOnButton(IC_BUTTON_SELECTOR);
-    cy.findShadowEl(IC_BUTTON_SELECTOR, "#button-description")
-      .should("exist")
-      .should(CONTAIN_TEXT, "See, I told you it was amazing!");
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "#button-description").should(
+      CONTAIN_TEXT,
+      "See, I told you it was amazing!"
+    );
   });
 
   it("should have loading bar when loading", () => {
     mount(<IcButton loading>Loading</IcButton>);
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
-    cy.findShadowEl(IC_BUTTON_SELECTOR, "ic-loading-indicator").should("exist");
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "ic-loading-indicator");
   });
 
   it("should not be clickable when loading", () => {
@@ -134,7 +136,7 @@ describe("IcButton end-to-end tests", () => {
     mount(<IcButton loading>Loading</IcButton>);
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
-    cy.findShadowEl(IC_BUTTON_SELECTOR, "ic-loading-indicator").should("exist");
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "ic-loading-indicator");
     cy.clickOnButton(IC_BUTTON_SELECTOR);
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
   });
@@ -270,7 +272,7 @@ describe("IcButton end-to-end tests", () => {
       "icFileSelection",
       cy.stub().as("icFileSelection")
     );
-    cy.get(IC_BUTTON_SELECTOR + '[file-upload="true"]').should("exist");
+    cy.get(IC_BUTTON_SELECTOR + '[file-upload="true"]');
     cy.findShadowEl(IC_BUTTON_SELECTOR, "button").should(
       HAVE_ATTR,
       "aria-describedby"
@@ -290,9 +292,10 @@ describe("IcButton end-to-end tests", () => {
           descEl.innerText = value as string;
         }
       });
-    cy.findShadowEl(IC_BUTTON_SELECTOR, "#selected-file")
-      .should("exist")
-      .should(CONTAIN_TEXT, "C:\\fakepath\\ICDSFileUpload.json");
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "#selected-file").should(
+      CONTAIN_TEXT,
+      "C:\\fakepath\\ICDSFileUpload.json"
+    );
     cy.get("@icFileSelection").should(HAVE_BEEN_CALLED_ONCE);
   });
 
@@ -304,7 +307,7 @@ describe("IcButton end-to-end tests", () => {
     );
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR + '[download="true"]').should("exist");
+    cy.get(IC_BUTTON_SELECTOR + '[download="true"]');
   });
 });
 

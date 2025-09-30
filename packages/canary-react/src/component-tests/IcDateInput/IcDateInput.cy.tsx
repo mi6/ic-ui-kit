@@ -56,8 +56,8 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.get(DATE_INPUT).should(BE_VISIBLE);
 
     cy.findShadowEl(DATE_INPUT, "ic-input-label").then(($el) => {
-      cy.wrap($el).find("label").should("exist");
-      cy.wrap($el).find(".helpertext").should("exist");
+      cy.wrap($el).find("label");
+      cy.wrap($el).find(".helpertext");
     });
 
     cy.checkA11yWithWait();
@@ -1077,7 +1077,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated("ic-date-input");
 
-    cy.findShadowEl(DATE_INPUT, "label").should("not.exist");
+    cy.findShadowEl(DATE_INPUT, "label").should(NOT_EXIST);
 
     const inputContainerID = cy
       .findShadowEl(DATE_INPUT, "ic-input-component-container")
@@ -1098,7 +1098,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated("ic-date-input");
 
-    cy.findShadowEl(DATE_INPUT, "ic-input-label").should("not.exist");
+    cy.findShadowEl(DATE_INPUT, "ic-input-label").should(NOT_EXIST);
   });
 
   it("should not fire icChange emit when a field is input and emitDatePartChange is set to false", () => {

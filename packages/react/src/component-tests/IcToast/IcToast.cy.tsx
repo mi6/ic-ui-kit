@@ -36,7 +36,7 @@ const OPEN_BUTTON_SELECTOR = "ic-button#open-toast-btn";
 describe("IcToast end-to-end tests", () => {
   it("should render", () => {
     mount(<ToastTypes variant="neutral" />);
-    cy.get(IC_TOAST_SELECTOR).should("exist");
+    cy.get(IC_TOAST_SELECTOR);
   });
 
   it("should close on dismiss icon click", () => {
@@ -64,7 +64,7 @@ describe("IcToast end-to-end tests", () => {
   it("should set the dismissMode to manual if the action slot is used on an autoDismiss toast", () => {
     mount(<SlottedActionAutoDismissToast />);
     cy.get(OPEN_BUTTON_SELECTOR).click();
-    cy.findShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR).should("exist");
+    cy.findShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR);
     cy.findShadowEl(IC_TOAST_SELECTOR, "ic-loading-indicator").should(
       NOT_EXIST
     );
@@ -73,7 +73,7 @@ describe("IcToast end-to-end tests", () => {
   it("should set the dismissMode to automatic if no action slot is specified", () => {
     mount(<SimpleAutoDismissToast />);
     cy.get(IC_BUTTON_SELECTOR).click();
-    cy.findShadowEl(IC_TOAST_SELECTOR, "ic-loading-indicator").should("exist");
+    cy.findShadowEl(IC_TOAST_SELECTOR, "ic-loading-indicator");
     cy.findShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR).should(
       NOT_EXIST
     );
@@ -82,7 +82,7 @@ describe("IcToast end-to-end tests", () => {
   it("should set the variant to neutral if the neutral-icon slot is used when the variant isn't set", () => {
     mount(<SlottedIconToast />);
     cy.get(IC_BUTTON_SELECTOR).click();
-    cy.findShadowEl(IC_TOAST_SELECTOR, "div.divider-neutral").should("exist");
+    cy.findShadowEl(IC_TOAST_SELECTOR, "div.divider-neutral");
   });
 
   it("should not render an icon if the variant is neutral and the neutral-icon slot is not used", () => {
@@ -134,10 +134,7 @@ describe("IcToast end-to-end tests", () => {
     cy.get(IC_TOAST_SELECTOR).click(60, 40);
 
     cy.realPress("Tab").realPress("Tab");
-    cy.get(IC_TOAST_SELECTOR)
-      .shadow()
-      .find(DISMISS_BUTTON_SELECTOR)
-      .should("exist");
+    cy.get(IC_TOAST_SELECTOR).shadow().find(DISMISS_BUTTON_SELECTOR);
   });
 
   it("should render a toast on page load if openToast is set early", () => {

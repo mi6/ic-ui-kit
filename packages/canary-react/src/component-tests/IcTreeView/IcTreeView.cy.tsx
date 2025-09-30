@@ -790,7 +790,7 @@ describe("IcTreeView", () => {
       .eq(0)
       .should(HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
 
-    cy.findShadowEl(TREE_ITEM, "ic-tooltip").should("exist");
+    cy.findShadowEl(TREE_ITEM, "ic-tooltip");
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({

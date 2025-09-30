@@ -231,7 +231,7 @@ describe("IcTextField end-to-end tests", () => {
     cy.checkHydrated(IC_TEXTFIELD);
 
     cy.findShadowEl(IC_TEXTFIELD, ".char-count-text").should(NOT_EXIST);
-    cy.findShadowEl(IC_TEXTFIELD, ".remaining-char-count-desc").should("exist");
+    cy.findShadowEl(IC_TEXTFIELD, ".remaining-char-count-desc");
   });
 
   it("should trigger min / max value validation when lower / higher value set", () => {
@@ -356,11 +356,11 @@ describe("IcTextField end-to-end tests", () => {
 
     cy.get(IC_TEXTFIELD).invoke("prop", "hiddenInput", true);
 
-    cy.get(IC_TEXTFIELD).find('input[type="hidden"]').should("exist");
+    cy.get(IC_TEXTFIELD).find('input[type="hidden"]');
 
     cy.get(IC_TEXTFIELD).invoke("prop", "hiddenInput", false);
 
-    cy.get(IC_TEXTFIELD).find('input[type="hidden"]').should("not.exist");
+    cy.get(IC_TEXTFIELD).find('input[type="hidden"]').should(NOT_EXIST);
   });
 });
 

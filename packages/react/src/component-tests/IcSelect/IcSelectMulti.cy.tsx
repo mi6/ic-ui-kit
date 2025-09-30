@@ -232,9 +232,7 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
       ARIA_SELECTED,
       "true"
     );
-    cy.findShadowEl(IC_SELECT, `${DATA_VALUE_ESPRESSO} .check-icon`).should(
-      "exist"
-    );
+    cy.findShadowEl(IC_SELECT, `${DATA_VALUE_ESPRESSO} .check-icon`);
 
     cy.realPress("ArrowDown").realPress("Enter");
 
