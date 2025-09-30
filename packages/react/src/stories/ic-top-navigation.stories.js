@@ -941,6 +941,7 @@ export const Playground = {
       shortAppTitle={args.shortAppTitle}
       status={args.status}
       version={args.version}
+      theme={args.theme}
     >
       <svg
         slot={args.appIconSlot}
