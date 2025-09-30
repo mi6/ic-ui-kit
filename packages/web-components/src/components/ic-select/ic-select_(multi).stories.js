@@ -12,6 +12,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "medium",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   ["validation-text"]: "",
   ["show-clear-button"]: false,
@@ -771,6 +772,8 @@ export const InForm = {
   name: "In form",
 };
 
+const inlineRadioSelector = "inline-radio";
+
 export const Playground = {
   render: (args) =>
     html` <ic-select
@@ -788,6 +791,7 @@ export const Playground = {
         required=${args.required}
         show-clear-button=${args["show-clear-button"]}
         size=${args.size}
+        validation-aria-live=${args.validationAriaLive}
         validation-status=${args.validationStatus === "no status"
           ? ""
           : args.validationStatus}
@@ -870,6 +874,14 @@ export const Playground = {
   args: defaultArgs,
 
   argTypes: {
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
+
+      control: {
+        type: inlineRadioSelector,
+      },
+    },
+
     validationStatus: {
       defaultValue: "no status",
       options: ["no status", "error", "success", "warning"],
@@ -883,7 +895,7 @@ export const Playground = {
       options: ["small", "medium", "large"],
 
       control: {
-        type: "inline-radio",
+        type: inlineRadioSelector,
       },
     },
 
@@ -897,7 +909,7 @@ export const Playground = {
       options: ["inherit", "light", "dark"],
 
       control: {
-        type: "inline-radio",
+        type: inlineRadioSelector,
       },
     },
   },

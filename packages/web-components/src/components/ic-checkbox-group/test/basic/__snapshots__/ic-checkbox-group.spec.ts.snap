@@ -342,7 +342,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
         <slot></slot>
       </div>
     </fieldset>
-    <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
+    <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
     <template shadowrootmode="open">
@@ -372,7 +372,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
           <ic-input-component-container disabled="" size="medium" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
-          <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-2" message="" status=""></ic-input-validation>
+          <ic-input-validation arialivemode="polite" for="ic-text-field-input-2" message="" status=""></ic-input-validation>
         </ic-input-container>
       </template>
       <input class="ic-input" disabled="" name="ic-text-field-input-2" type="hidden" value="">
@@ -407,7 +407,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
             <ic-input-component-container disabled="" size="medium" validationstatus="">
               <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-3" inputmode="text" name="ic-text-field-input-3" placeholder="Placeholder" type="text" value="">
             </ic-input-component-container>
-            <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-3" message="" status=""></ic-input-validation>
+            <ic-input-validation arialivemode="polite" for="ic-text-field-input-3" message="" status=""></ic-input-validation>
           </ic-input-container>
         </template>
         <input class="ic-input" disabled="" name="ic-text-field-input-3" type="hidden" value="">
@@ -421,7 +421,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
             <ic-input-component-container disabled="" size="medium" validationstatus="">
               <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-4" inputmode="text" name="ic-text-field-input-4" placeholder="Placeholder" type="text" value="">
             </ic-input-component-container>
-            <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-4" message="" status=""></ic-input-validation>
+            <ic-input-validation arialivemode="polite" for="ic-text-field-input-4" message="" status=""></ic-input-validation>
           </ic-input-container>
         </template>
         <input class="ic-input" disabled="" name="ic-text-field-input-4" type="hidden" value="">
@@ -442,7 +442,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
         <slot></slot>
       </div>
     </fieldset>
-    <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
+    <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="dynamic" checked="" class="ic-checkbox-medium" label="test label" value="test">
     <template shadowrootmode="open">
@@ -486,7 +486,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
           <ic-input-component-container size="medium" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
-          <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-1" message="" status=""></ic-input-validation>
+          <ic-input-validation arialivemode="polite" for="ic-text-field-input-1" message="" status=""></ic-input-validation>
         </ic-input-container>
       </template>
       <input class="ic-input" name="ic-text-field-input-1" type="hidden" value="">
@@ -507,7 +507,7 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
         <slot></slot>
       </div>
     </fieldset>
-    <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
+    <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="dynamic" class="ic-checkbox-medium" label="test label" value="test">
     <template shadowrootmode="open">
@@ -541,7 +541,7 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
           <ic-input-component-container size="medium" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
-          <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
+          <ic-input-validation arialivemode="polite" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
         </ic-input-container>
       </template>
       <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
@@ -561,7 +561,7 @@ exports[`ic-checkbox-group should render with validation status: renders-with-va
         <slot></slot>
       </div>
     </fieldset>
-    <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
+    <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
     <template shadowrootmode="open">
@@ -620,7 +620,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
         <slot></slot>
       </div>
     </fieldset>
-    <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
+    <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" label="test label" value="test">
     <template shadowrootmode="open">
@@ -656,7 +656,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
           <ic-input-component-container size="medium" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-5" inputmode="text" name="ic-text-field-input-5" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
-          <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-5" message="" status=""></ic-input-validation>
+          <ic-input-validation arialivemode="polite" for="ic-text-field-input-5" message="" status=""></ic-input-validation>
         </ic-input-container>
       </template>
       <input class="ic-input" name="ic-text-field-input-5" type="hidden" value="">
@@ -698,7 +698,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
             <ic-input-component-container size="medium" validationstatus="">
               <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-6" inputmode="text" name="ic-text-field-input-6" placeholder="Placeholder" type="text" value="">
             </ic-input-component-container>
-            <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-6" message="" status=""></ic-input-validation>
+            <ic-input-validation arialivemode="polite" for="ic-text-field-input-6" message="" status=""></ic-input-validation>
           </ic-input-container>
         </template>
         <input class="ic-input" name="ic-text-field-input-6" type="hidden" value="">
@@ -712,7 +712,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
             <ic-input-component-container size="medium" validationstatus="">
               <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-7" inputmode="text" name="ic-text-field-input-7" placeholder="Placeholder" type="text" value="">
             </ic-input-component-container>
-            <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-7" message="" status=""></ic-input-validation>
+            <ic-input-validation arialivemode="polite" for="ic-text-field-input-7" message="" status=""></ic-input-validation>
           </ic-input-container>
         </template>
         <input class="ic-input" name="ic-text-field-input-7" type="hidden" value="">

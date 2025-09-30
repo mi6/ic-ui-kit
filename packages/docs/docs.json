@@ -8720,13 +8720,13 @@
           "name": "ariaLiveMode",
           "type": "\"assertive\" | \"off\" | \"polite\" | undefined",
           "complexType": {
-            "original": "IcAriaLiveModeVariants",
+            "original": "IcAriaLive",
             "resolved": "\"assertive\" | \"off\" | \"polite\" | undefined",
             "references": {
-              "IcAriaLiveModeVariants": {
+              "IcAriaLive": {
                 "location": "import",
-                "path": "./ic-input-validation.types",
-                "id": "src/components/ic-input-validation/ic-input-validation.types.tsx::IcAriaLiveModeVariants"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAriaLive"
               }
             }
           },
@@ -13835,6 +13835,45 @@
           "setter": false
         },
         {
+          "name": "validationAriaLive",
+          "type": "\"assertive\" | \"off\" | \"polite\"",
+          "complexType": {
+            "original": "IcAriaLive",
+            "resolved": "\"assertive\" | \"off\" | \"polite\"",
+            "references": {
+              "IcAriaLive": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAriaLive"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "validation-aria-live",
+          "reflectToAttr": false,
+          "docs": "The value of the `aria-live` attribute on the validation message.",
+          "docsTags": [],
+          "default": "\"polite\"",
+          "values": [
+            {
+              "value": "assertive",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "polite",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\" | undefined",
           "complexType": {
@@ -13881,10 +13920,10 @@
         },
         {
           "name": "validationText",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -13896,12 +13935,9 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -16521,6 +16557,45 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "validationAriaLive",
+          "type": "\"assertive\" | \"off\" | \"polite\"",
+          "complexType": {
+            "original": "IcAriaLive",
+            "resolved": "\"assertive\" | \"off\" | \"polite\"",
+            "references": {
+              "IcAriaLive": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAriaLive"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "validation-aria-live",
+          "reflectToAttr": false,
+          "docs": "The value of the `aria-live` attribute on the validation message.",
+          "docsTags": [],
+          "default": "\"polite\"",
+          "values": [
+            {
+              "value": "assertive",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "polite",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -23195,11 +23270,6 @@
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
-    "src/utils/types.ts::IcValidationAriaLive": {
-      "declaration": "export type IcValidationAriaLive = \"default\" | \"polite\" | \"assertive\" | \"off\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
     "src/utils/types.ts::IcAutocompleteTypes": {
       "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
       "docstring": "",
@@ -23224,6 +23294,11 @@
       "declaration": "export type IcTextFieldTypes =\n  | \"email\"\n  | \"password\"\n  | \"tel\"\n  | \"text\"\n  | \"url\"\n  | \"number\"\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
+    },
+    "src/utils/types.ts::IcValidationAriaLive": {
+      "declaration": "export type IcValidationAriaLive = \"default\" | \"polite\" | \"assertive\" | \"off\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
       "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
@@ -23270,6 +23345,11 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/utils/types.ts::IcAriaLive": {
+      "declaration": "export type IcAriaLive = \"polite\" | \"assertive\" | \"off\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
       "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
       "docstring": "",
@@ -23309,11 +23389,6 @@
       "declaration": "export type IcHeroContentAlignments = \"left\" | \"center\";",
       "docstring": "",
       "path": "src/components/ic-hero/ic-hero.types.tsx"
-    },
-    "src/components/ic-input-validation/ic-input-validation.types.tsx::IcAriaLiveModeVariants": {
-      "declaration": "export type IcAriaLiveModeVariants = \"polite\" | \"assertive\" | \"off\";",
-      "docstring": "",
-      "path": "src/components/ic-input-validation/ic-input-validation.types.tsx"
     },
     "src/components/ic-layout-grid/ic-layout-grid.types.ts::IcGridBreakpoints": {
       "declaration": "export type IcGridBreakpoints =\n  | number\n  | {\n      xs?: number;\n      sm?: number;\n      md?: number;\n      lg?: number;\n      xl?: number;\n    };",

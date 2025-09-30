@@ -7,7 +7,6 @@ export * from "./components/ic-button/ic-button.types";
 export * from "./components/ic-classification-banner/ic-classification-banner.types";
 export * from "./components/ic-footer/ic-footer.types";
 export * from "./components/ic-hero/ic-hero.types";
-export * from "./components/ic-input-validation/ic-input-validation.types";
 export * from "./components/ic-loading-indicator/ic-loading-indicator.types";
 export * from "./components/ic-navigation-button/ic-navigation-button.types";
 export * from "./components/ic-skeleton/ic-skeleton.types";

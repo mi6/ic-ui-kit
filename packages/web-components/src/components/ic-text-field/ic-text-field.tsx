@@ -101,11 +101,6 @@ export class TextField {
   @Prop() ariaOwns?: string;
 
   /**
-   * The value of the `aria-live` attribute on the validation message. When set to "default", the `aria-live` value will be handled automatically, e.g. "assertive" for `validation-status="error"`.
-   */
-  @Prop() validationAriaLive: IcValidationAriaLive = "default";
-
-  /**
    * The automatic capitalisation of the text value as it is entered/edited by the user.
    * Available options: "off", "none", "on", "sentences", "words", "characters".
    */
@@ -279,6 +274,11 @@ export class TextField {
    * The type of control to display. The default type is text.
    */
   @Prop() type: IcTextFieldTypes = "text";
+
+  /**
+   * The value of the `aria-live` attribute on the validation message. When set to "default", the `aria-live` value will be handled automatically, e.g. "assertive" for `validation-status="error"`.
+   */
+  @Prop() validationAriaLive: IcValidationAriaLive = "default";
 
   /**
    * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
@@ -806,7 +806,7 @@ export class TextField {
           </ic-input-component-container>
           {isSlotUsed(el, "menu") && <slot name="menu"></slot>}
           <ic-input-validation
-            class={{ "hidden-validation": !this.showValidationMargin() }}
+            class={{ "show-validation": this.showValidationMargin() }}
             status={
               this.hasStatus(currentStatus) === false ||
               (currentStatus === IcInformationStatus.Success &&

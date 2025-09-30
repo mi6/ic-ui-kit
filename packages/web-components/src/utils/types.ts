@@ -226,4 +226,8 @@ export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";
 
 export type IcThemeSettings = "dark" | "light" | "system";
 
+// Matches HTML aria-live attribute options
+export type IcAriaLive = "polite" | "assertive" | "off";
+
+// Includes 'default' option for when the aria-live value is handled within a component
 export type IcValidationAriaLive = "default" | "polite" | "assertive" | "off";

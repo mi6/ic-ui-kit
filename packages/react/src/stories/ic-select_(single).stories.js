@@ -3,7 +3,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { useRef, useState } from "react";
 
-import { IcLink, IcSelect, IcTypography } from "../components";
+import { IcButton, IcLink, IcSelect, IcTypography } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const defaultArgs = {
@@ -18,6 +18,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "medium",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   validationText: "",
   showClearButton: false,
@@ -217,6 +218,56 @@ const Uncontrolled = () => {
         options={options}
         onIcChange={handleChange}
       />
+    </>
+  );
+};
+
+const AriaLiveBehaviourExample = () => {
+  const [showErrors1, setShowErrors1] = useState(false);
+  const [showErrors2, setShowErrors2] = useState(false);
+
+  return (
+    <>
+      <IcSelect
+        label="What is your favourite coffee?"
+        helperText="Error already set on page load and aria-live overridden as 'assertive'"
+        validationStatus={showErrors1 ? "" : "error"}
+        validationText={showErrors1 ? "" : "First error message"}
+        validationAriaLive="assertive"
+      />
+      <br />
+      <IcSelect
+        label="What is your favourite coffee?"
+        helperText="Error set after page load and aria-live overridden as 'assertive'"
+        validationStatus={showErrors1 ? "error" : ""}
+        validationText={showErrors1 ? "Second error message" : ""}
+        validationAriaLive="assertive"
+      />
+      <br />
+      <IcButton onClick={() => setShowErrors1(!showErrors1)}>
+        Toggle errors
+      </IcButton>
+      <br />
+      <br />
+      <br />
+      <br />
+      <IcSelect
+        label="What is your favourite coffee?"
+        helperText="Default aria-live behaviour (i.e. 'polite')"
+        validationStatus={showErrors2 ? "error" : ""}
+        validationText={showErrors2 ? "Third error message" : ""}
+      />
+      <br />
+      <IcSelect
+        label="What is your favourite coffee?"
+        helperText="Default aria-live behaviour (i.e. 'polite')"
+        validationStatus={showErrors2 ? "error" : ""}
+        validationText={showErrors2 ? "Fourth error message" : ""}
+      />
+      <br />
+      <IcButton onClick={() => setShowErrors2(!showErrors2)}>
+        Toggle errors
+      </IcButton>
     </>
   );
 };
@@ -531,6 +582,11 @@ export const Validation = {
   name: "Validation",
 };
 
+export const AriaLiveBehaviour = {
+  render: () => <AriaLiveBehaviourExample />,
+  name: "Aria-live behaviour",
+};
+
 export const ScrollBehaviour = {
   render: () => {
     return (
@@ -593,6 +649,7 @@ export const Playground = {
       required={args.required}
       showClearButton={args.showClearButton}
       size={args.size}
+      validationAriaLive={args.validationAriaLive}
       validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
       validationText={args.validationText}
       theme={args.theme}
@@ -619,6 +676,14 @@ export const Playground = {
   argTypes: {
     size: {
       options: ["medium", "large", "small"],
+
+      control: {
+        type: "inline-radio",
+      },
+    },
+
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
 
       control: {
         type: "inline-radio",

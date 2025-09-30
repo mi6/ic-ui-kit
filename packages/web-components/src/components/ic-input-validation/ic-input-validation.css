@@ -1,7 +1,10 @@
 ic-input-validation {
   width: var(--input-width, 20rem);
-  margin-top: var(--ic-space-xs);
   display: flex;
+}
+
+ic-input-validation.ic-input-validation-with-status {
+  margin-top: var(--ic-space-xs);
 }
 
 ic-input-validation.ic-input-validation-full-width {

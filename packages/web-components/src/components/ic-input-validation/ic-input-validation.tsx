@@ -1,6 +1,7 @@
 import { Element, Component, Host, Prop, h, Watch } from "@stencil/core";
 
 import {
+  IcAriaLive,
   IcInformationStatus,
   IcInformationStatusOrEmpty,
 } from "../../utils/types";
@@ -12,7 +13,6 @@ import {
   getInputValidationTextID,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
-import { IcAriaLiveModeVariants } from "./ic-input-validation.types";
 
 const ICON = {
   [IcInformationStatus.Warning]: warningIcon,
@@ -36,7 +36,7 @@ export class InputValidation {
   /**
    *  The ARIA live mode to apply to the message.
    */
-  @Prop() ariaLiveMode?: IcAriaLiveModeVariants = "polite";
+  @Prop() ariaLiveMode?: IcAriaLive = "polite";
 
   /**
    * The ID of the form element the validation is bound to.
@@ -59,7 +59,7 @@ export class InputValidation {
     this.messageEl.textContent = INVISIBLE_CHAR;
     setTimeout(() => {
       this.messageEl.textContent = newValue;
-    }, 100); // Delay to help ensure screen readers detect change
+    }, 200); // Delay to help ensure screen readers detect change
   }
 
   /**
@@ -83,6 +83,7 @@ export class InputValidation {
         class={{
           [`ic-input-validation-${status}`]: status !== "",
           "ic-input-validation-full-width": !!fullWidth,
+          "ic-input-validation-with-status": status !== "",
         }}
       >
         {displayIcon !== "" && (

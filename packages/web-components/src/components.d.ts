@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
 import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -15,7 +15,6 @@ import { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./co
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
-import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
 import { IcGridBreakpoints, IcGridType } from "./components/ic-layout-grid/ic-layout-grid.types";
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
@@ -36,7 +35,7 @@ import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
 export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -46,7 +45,6 @@ export { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./co
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
-export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
 export { IcGridBreakpoints, IcGridType } from "./components/ic-layout-grid/ic-layout-grid.types";
 export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
@@ -1040,7 +1038,7 @@ export namespace Components {
         /**
           * The ARIA live mode to apply to the message.
          */
-        "ariaLiveMode"?: IcAriaLiveModeVariants;
+        "ariaLiveMode"?: IcAriaLive;
         /**
           * The ID of the form element the validation is bound to.
          */
@@ -1650,13 +1648,17 @@ export namespace Components {
          */
         "theme"?: IcThemeMode;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message.
          */
-        "validationText"?: string;
+        "validationText": string;
     }
     interface IcRadioOption {
         /**
@@ -1962,6 +1964,10 @@ export namespace Components {
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
@@ -4699,7 +4705,7 @@ declare namespace LocalJSX {
         /**
           * The ARIA live mode to apply to the message.
          */
-        "ariaLiveMode"?: IcAriaLiveModeVariants;
+        "ariaLiveMode"?: IcAriaLive;
         /**
           * The ID of the form element the validation is bound to.
          */
@@ -5305,6 +5311,10 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -5694,6 +5704,10 @@ declare namespace LocalJSX {
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
