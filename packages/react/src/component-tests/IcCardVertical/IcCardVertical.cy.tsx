@@ -224,7 +224,7 @@ describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
     mount(<WithTopImage />);
 
     cy.checkHydrated(CARD_SELECTOR);
-    cy.findShadowEl(CARD_SELECTOR, ".card").find(".image-top").should("exist");
+    cy.findShadowEl(CARD_SELECTOR, ".card").find(".image-top");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -237,7 +237,7 @@ describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
     mount(<WithMiddleImage />);
 
     cy.checkHydrated(CARD_SELECTOR);
-    cy.findShadowEl(CARD_SELECTOR, ".card").find(".image-mid").should("exist");
+    cy.findShadowEl(CARD_SELECTOR, ".card").find(".image-mid");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -250,9 +250,8 @@ describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
     mount(<WithInteractionControls />);
 
     cy.checkHydrated(CARD_SELECTOR);
-    cy.findShadowEl(CARD_SELECTOR, ".card")
-      .find(".interaction-area")
-      .should("exist");
+    cy.findShadowEl(CARD_SELECTOR, ".card").find(".interaction-area");
+
     cy.get("ic-button").should(BE_VISIBLE).should(HAVE_LENGTH, "2");
 
     cy.checkA11yWithWait();
@@ -306,7 +305,7 @@ describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
     mount(<Disabled />);
 
     cy.checkHydrated(CARD_SELECTOR);
-    cy.get('[disabled="true"]').should("exist");
+    cy.get('[disabled="true"]');
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({

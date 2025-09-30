@@ -26,7 +26,6 @@ describe("IcBackToTop end-to-end tests", () => {
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
       .find("ic-button")
-      .should("exist")
       .should(NOT_BE_VISIBLE);
   });
 

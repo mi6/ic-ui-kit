@@ -476,7 +476,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.get(IC_SELECT).shadow().find('[data-label="Latte"]').should("exist");
+    cy.get(IC_SELECT).shadow().find('[data-label="Latte"]');
     for (let i = 0; i <= 5; i++) {
       cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
     }
