@@ -6,7 +6,10 @@ import { mount } from "cypress/react";
 import { IcDataTableTitleBar } from "../../components";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import { IcLink, IcTypography } from "@ukic/react";
-import { HAVE_LENGTH } from "@ukic/react/src/component-tests/utils/constants";
+import {
+  HAVE_LENGTH,
+  NOT_EXIST,
+} from "@ukic/react/src/component-tests/utils/constants";
 
 const TITLE_BAR = "ic-data-table-title-bar";
 const DEFAULT_THRESHOLD = 0.014;
@@ -50,7 +53,7 @@ describe("IcDataTableTitleBar", () => {
 
     cy.checkHydrated(TITLE_BAR);
 
-    cy.findShadowEl(TITLE_BAR, ".density-input").should("not.exist");
+    cy.findShadowEl(TITLE_BAR, ".density-input").should(NOT_EXIST);
   });
 
   it("should render slotted header and description as links", () => {
