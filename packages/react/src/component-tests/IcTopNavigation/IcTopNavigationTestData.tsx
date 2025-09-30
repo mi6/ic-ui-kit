@@ -349,26 +349,27 @@ export const HorizontalScroll = (): ReactElement => {
 export const Brand = (): ReactElement => {
   return (
     <div style={{ overflowY: "hidden" }}>
-      <IcTheme brandColor="rgb(255, 201, 60)" />
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <ReusableAppIcon />
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <ReusableIcon />
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation" label="One" href="/" />
-        <IcNavigationItem
-          slot="navigation"
-          label="Two"
-          href="/"
-          target="_blank"
-        />
-        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-      </IcTopNavigation>
+      <IcTheme brandColor="rgb(255, 201, 60)">
+        <IcTopNavigation
+          appTitle="ApplicationName"
+          status="alpha"
+          version="v0.0.7"
+        >
+          <ReusableAppIcon />
+          <IcSearchBar slot="search" label="Search" placeholder="Search" />
+          <IcNavigationButton label="Button One" slot="buttons">
+            <ReusableIcon />
+          </IcNavigationButton>
+          <IcNavigationItem slot="navigation" label="One" href="/" />
+          <IcNavigationItem
+            slot="navigation"
+            label="Two"
+            href="/"
+            target="_blank"
+          />
+          <IcNavigationItem slot="navigation" label="Three" href="/" selected />
+        </IcTopNavigation>
+      </IcTheme>
     </div>
   );
 };
@@ -376,26 +377,27 @@ export const Brand = (): ReactElement => {
 export const BrandWithSlottedNavItems = (): ReactElement => {
   return (
     <div style={{ overflowY: "hidden" }}>
-      <IcTheme brandColor="rgb(255, 201, 60)" />
-      <IcTopNavigation status="alpha" version="v0.0.7">
-        <ReusableAppIcon />
-        <a href="/" slot="app-title">
-          ApplicationName
-        </a>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <ReusableIcon />
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation">
-          <a href="/">One</a>
-        </IcNavigationItem>
-        <IcNavigationItem slot="navigation">
-          <a href="/">Two</a>
-        </IcNavigationItem>
-        <IcNavigationItem slot="navigation">
-          <a href="/">Three</a>
-        </IcNavigationItem>
-      </IcTopNavigation>
+      <IcTheme brandColor="rgb(255, 201, 60)">
+        <IcTopNavigation status="alpha" version="v0.0.7">
+          <ReusableAppIcon />
+          <a href="/" slot="app-title">
+            ApplicationName
+          </a>
+          <IcSearchBar slot="search" label="Search" placeholder="Search" />
+          <IcNavigationButton label="Button One" slot="buttons">
+            <ReusableIcon />
+          </IcNavigationButton>
+          <IcNavigationItem slot="navigation">
+            <a href="/">One</a>
+          </IcNavigationItem>
+          <IcNavigationItem slot="navigation">
+            <a href="/">Two</a>
+          </IcNavigationItem>
+          <IcNavigationItem slot="navigation">
+            <a href="/">Three</a>
+          </IcNavigationItem>
+        </IcTopNavigation>
+      </IcTheme>
     </div>
   );
 };
@@ -427,6 +429,33 @@ export const ThemeDark = (): ReactElement => {
   );
 };
 
+export const ThemeLight = (): ReactElement => {
+  return (
+    <div style={{ overflowY: "hidden" }}>
+      <IcTopNavigation
+        appTitle="ApplicationName"
+        status="alpha"
+        version="v0.0.7"
+        theme="light"
+      >
+        <ReusableAppIcon />
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <ReusableIcon />
+        </IcNavigationButton>
+        <IcNavigationItem slot="navigation" label="One" href="/" />
+        <IcNavigationItem
+          slot="navigation"
+          label="Two"
+          href="/"
+          target="_blank"
+        />
+        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
+      </IcTopNavigation>
+    </div>
+  );
+};
+
 export const TopNavHorizontalScroll = (): ReactElement => {
   return (
     <div style={{ overflowY: "hidden" }}>
@@ -436,6 +465,7 @@ export const TopNavHorizontalScroll = (): ReactElement => {
         version="v0.0.7"
       >
         <ReusableAppIcon />
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
         <IcNavigationButton label="Button One" slot="buttons">
           <ReusableIcon />
         </IcNavigationButton>
