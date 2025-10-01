@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.27](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.24...@ukic/canary-web-components@3.0.0-canary.27) (2025-10-01)
+
+### Bug Fixes
+
+- **canary-web-components:** add aria-required attribute to date input and time input fields ([05065b7](https://github.com/mi6/ic-ui-kit/commit/05065b71a1710b9e28477b9f7c1f703df0423808)), closes [#3896](https://github.com/mi6/ic-ui-kit/issues/3896)
+- **canary-web-components:** fixes issue with 12 hour time input ([c647321](https://github.com/mi6/ic-ui-kit/commit/c6473211ef2802e0778bcce4266bc6d8ad039b10))
+- **canary-web-components:** fixes issues adding custom elements ([83a075e](https://github.com/mi6/ic-ui-kit/commit/83a075e1d9783edb3c79196805541c1c126d581f))
+- **canary-web-components:** fixes issues adding custom elements ([8e0fbf8](https://github.com/mi6/ic-ui-kit/commit/8e0fbf85765034f56fb1b71a985abcbfea85e1cd))
+- **canary-web-components:** itemsPerPage select bug fix ([dea69c4](https://github.com/mi6/ic-ui-kit/commit/dea69c443b9bcdc8335dd53433e350edaf615bc1)), closes [#3939](https://github.com/mi6/ic-ui-kit/issues/3939)
+- **canary-web-components:** make date input clear button visible in HCM ([2d3556e](https://github.com/mi6/ic-ui-kit/commit/2d3556e4d95f688d67560c28f9ec4601754401e1)), closes [#3929](https://github.com/mi6/ic-ui-kit/issues/3929)
+- **canary-web-components:** remove unecessary ids from svgs ([12e20ca](https://github.com/mi6/ic-ui-kit/commit/12e20ca615d4ecb14f8e5e9c43cee652d44f2678)), closes [#3902](https://github.com/mi6/ic-ui-kit/issues/3902)
+
+### Features
+
+- **canary-web-components:** add initial Table of Contents work ([67d365c](https://github.com/mi6/ic-ui-kit/commit/67d365ce688d4fb6a5a85b93241e91ea814bce1b)), closes [#752](https://github.com/mi6/ic-ui-kit/issues/752)
+- **canary-web-components:** remove internal use of ic-button variant=icon ([408a0fc](https://github.com/mi6/ic-ui-kit/commit/408a0fc09266a5297b077687790273dee03936b9))
+
+### Reverts
+
+- **canary-web-components:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([7978947](https://github.com/mi6/ic-ui-kit/commit/7978947fb0d526c70dae86a57d2aada47786f495))
+
 # [3.0.0-canary.26](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.24...@ukic/canary-web-components@3.0.0-canary.26) (2025-09-17)
 
 ### Bug Fixes
