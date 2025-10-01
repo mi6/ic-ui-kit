@@ -4432,7 +4432,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
+          * Cancellation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
          */
         "onIcDialogCancelled"?: (event: IcDialogCustomEvent<void>) => void;
         /**
