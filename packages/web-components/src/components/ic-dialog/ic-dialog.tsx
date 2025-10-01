@@ -51,6 +51,7 @@ export class Dialog {
   private resizeObserver: ResizeObserver | null = null;
   private resizeTimeout: number;
   private sourceElement: HTMLElement;
+  private focusAttemptCount = 0;
 
   @Element() el: HTMLIcDialogElement;
 
@@ -423,6 +424,7 @@ export class Dialog {
     this.setFocusIndexBasedOnShiftKey(shiftKey);
     this.loopNextFocusIndexIfLastElement();
 
+    this.focusAttemptCount = 0;
     this.focusElement(this.getNextFocusEl(this.focusedElementIndex), shiftKey);
     return true;
   };
@@ -454,6 +456,10 @@ export class Dialog {
     shiftKey = false
   ) => {
     if (!element) {
+      return;
+    }
+
+    if (this.focusAttemptCount++ > this.interactiveElementList.length) {
       return;
     }
 
