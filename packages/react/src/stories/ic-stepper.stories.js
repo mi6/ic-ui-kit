@@ -4,6 +4,17 @@
 import React from 'react';
 import { IcStep, IcStepper, IcButton } from "../components";
 
+const ICI18N = {
+  next: "Der nächste",
+  step: "Schritt",
+  of: "von",
+  lastStep: "Letzter Schritt",
+  completed: "abgeschlossen",
+  notRequired: "Nicht erforderlich",
+  required: "erforderlich",
+  optional: "wahlweise",
+};
+
 const defaultArgs = {
   aligned: "full-width",
   connectorWidth: 100,
@@ -14,6 +25,7 @@ const defaultArgs = {
   status: "optional",
   subheading: "Optional subtitle",
   theme: "inherit",
+  icI18n: ICI18N,
 };
 
 const CompactButtons = () => (
@@ -199,6 +211,22 @@ export const CompactStepper = {
   name: "Compact stepper",
 };
 
+export const Internationalisation = {
+  render: () => (
+    <>
+      <IcStepper variant="compact" id="standard-compact-stepper" icI18n={ICI18N}>
+      <IcStep heading="Create" />
+      <IcStep heading="Read" type="current" />
+      <IcStep heading="Update" status="optional" />
+      <IcStep heading="Delete" status="required" />
+    </IcStepper>
+    <CompactButtons/>
+    </>
+  ),
+
+  name: "Internationalisation",
+};
+
 export const CustomCompactStepper = {
   render: () => (
     <>
@@ -315,6 +343,7 @@ export const Playground = {
             ? "standard-compact-stepper"
             : "default-stepper"
         }
+        icI18n={args.icI18n}
       >
         <IcStep heading="Create" type="completed" />
         <IcStep

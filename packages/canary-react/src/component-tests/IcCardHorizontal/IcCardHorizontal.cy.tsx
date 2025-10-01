@@ -239,7 +239,7 @@ describe("IcCardHorizontal", () => {
   it("should render disabled", () => {
     mount(<BasicCardHorizontal disabled clickable />);
 
-    cy.get('[disabled="true"]').should("exist");
+    cy.get('[disabled="true"]');
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({

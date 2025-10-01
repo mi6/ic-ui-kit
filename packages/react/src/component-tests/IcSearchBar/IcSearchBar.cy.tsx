@@ -734,7 +734,7 @@ describe("IcSearchBar end-to-end tests", () => {
       CONTAIN_TEXT,
       "Oops error"
     );
-    cy.findShadowEl(SEARCH_SELECTOR, RETRY_BUTTON_ID).should("exist");
+    cy.findShadowEl(SEARCH_SELECTOR, RETRY_BUTTON_ID);
     cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).should(
       HAVE_CLASS,
       BUTTON_DISABLED_CLASS

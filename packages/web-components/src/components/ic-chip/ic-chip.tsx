@@ -190,6 +190,7 @@ export class Chip {
     return (
       <Host
         class={{
+          "ic-chip-dismissed": !visible,
           [`ic-theme-${theme}`]: theme !== "inherit",
           [`ic-chip-${foregroundColor}-text`]:
             variant === "filled" && !!foregroundColor,

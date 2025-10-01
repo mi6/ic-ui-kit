@@ -151,7 +151,7 @@ describe("IcTimeInput e2e tests", () => {
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "00");
     });
 
-    it("should increment the hour to 00 when ArrowUp is pressed on the hour input, timePeriod is 12 and the hour input value is 11", () => {
+    it("should increment the hour to 01 when ArrowUp is pressed on the hour input, timePeriod is 12 and the hour input value is 12", () => {
       mount(
         <div style={{ padding: "10px" }}>
           <TimePeriodTimeInput />
@@ -160,11 +160,11 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("11");
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12");
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("{uparrow}");
 
-      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "00");
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "01");
     });
 
     it("should decrement the hour when ArrowDown is pressed on the hour input", () => {
@@ -181,7 +181,7 @@ describe("IcTimeInput e2e tests", () => {
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "23");
     });
 
-    it("should decrement the hour to 11 when ArrowDown is pressed on the hour input and timePeriod is 12", () => {
+    it("should decrement the hour to 12 when ArrowDown is pressed on the hour input and timePeriod is 12", () => {
       mount(
         <div style={{ padding: "10px" }}>
           <TimePeriodTimeInput />
@@ -192,7 +192,7 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("{downarrow}");
 
-      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "11");
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "12");
     });
   });
 

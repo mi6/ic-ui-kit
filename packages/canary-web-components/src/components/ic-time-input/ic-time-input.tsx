@@ -390,7 +390,7 @@ export class TimeInput {
 
   private setTimeValidity = () => {
     const minHour = 0;
-    const maxHour = this.timePeriod === "12" ? 11 : 23;
+    const maxHour = this.timePeriod === "12" ? 12 : 23;
     if (!isEmptyString(this.hour)) {
       this.isValidHour = +this.hour >= minHour && +this.hour <= maxHour;
     } else {
@@ -655,8 +655,8 @@ export class TimeInput {
     let minValue = 0;
     let maxValue = 59;
     if (input === this.hourInputEl) {
-      minValue = 0;
-      maxValue = this.timePeriod === "12" ? 11 : 23;
+      minValue = this.timePeriod === "12" ? 1 : 0;
+      maxValue = this.timePeriod === "12" ? 12 : 23;
     }
     let val = +input.value;
     if (event.key === "ArrowUp") {

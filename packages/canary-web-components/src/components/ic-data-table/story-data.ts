@@ -977,49 +977,39 @@ export const COLS_ELEMENTS_SINGLE_ACTION: IcDataTableColumnObject[] = [
 
 export const DATA_ELEMENTS = [
   {
-    actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: {
       data: "Joe",
       href: "https://www.example.com",
       target: "_blank",
       rel: "noopener noreferrer",
     },
-    actions2: `<ic-button aria-label="Delete row" variant='icon-tertiary' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
   },
   {
-    actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: {
       data: "Sarah",
       href: "https://www.example.org",
     },
-    actions2: `<ic-button aria-label="Delete row" variant='icon-tertiary' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 28,
     jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: "Mark",
-    actions2: `<ic-button aria-label="Delete row" variant='icon-tertiary' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 45,
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: "Naomi",
-    actions2: `<ic-button aria-label="Delete row" variant='icon-tertiary' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 32,
     jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: "Luke",
-    actions2: `<ic-button aria-label="Delete row" variant='icon-tertiary' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
@@ -1028,7 +1018,6 @@ export const DATA_ELEMENTS = [
 
 export const DATA_ELEMENTS_PAGINATION = [
   {
-    actions: `<ic-button onClick='console.log("1")'>1</ic-button>`,
     firstName: {
       data: "Joe",
       href: "https://www.example.com",
@@ -1040,7 +1029,6 @@ export const DATA_ELEMENTS_PAGINATION = [
     address: "1 Main Street, Town, County, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("2")'>2</ic-button>`,
     firstName: {
       data: "Sarah",
       href: "https://www.example.org",
@@ -1050,56 +1038,48 @@ export const DATA_ELEMENTS_PAGINATION = [
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("3")'>3</ic-button>`,
     firstName: "Mark",
     age: 45,
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("4")'>4</ic-button>`,
     firstName: "Naomi",
     age: 32,
     jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-select placeholder="Placeholder goes here"></ic-select>`,
     firstName: "Luke",
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("6")'>6</ic-button>`,
     firstName: "Dave",
     age: 33,
     jobTitle: "Analyst",
     address: "4 Extra Street, Town, County, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("7")'>7</ic-button>`,
     firstName: "Amy",
     age: 27,
     jobTitle: "Analyst",
     address: "3 Main Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("8")'>8</ic-button>`,
     firstName: "Mary",
     age: 31,
     jobTitle: "Developer",
     address: "8 Main Street, Town, County, Postcode",
   },
   {
-    actions: `<ic-button onClick='console.log("9")'>9</ic-button>`,
     firstName: "Alice",
     age: 38,
     jobTitle: "Team Lead",
     address: "10 High Street, Town, Country, Postcode",
   },
   {
-    actions: `<ic-select placeholder="Placeholder goes here"></ic-select>`,
     firstName: "Ben",
     age: 40,
     jobTitle: "Team Lead",
@@ -1695,13 +1675,47 @@ export const CellOverrides = (): HTMLIcDataTableElement =>
     DATA_CELL_ALIGNMENT
   );
 
-export const LinksHTMLElements = (): HTMLIcDataTableElement =>
-  createDataTableElement(
+export const LinksHTMLElements = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement(
     "links-html-elements",
     "Links and HTML Elements Overrides",
     COLS_ELEMENTS,
     DATA_ELEMENTS
   );
+
+  DATA_ELEMENTS.map((_, index) => {
+    const button1 = document.createElement("ic-button");
+    button1.setAttribute("slot", "actions-" + index);
+    button1.setAttribute("variant", "destructive");
+    button1.innerHTML = "Delete";
+    dataTable.appendChild(button1);
+    button1.addEventListener("click", (e: Event) => {
+      const btn = e.target as HTMLIcButtonElement;
+      btn.assignedSlot!.closest("tr")!.remove();
+    });
+    const button2 = document.createElement("ic-button");
+    button2.setAttribute("slot", "actions2-" + index);
+    button2.setAttribute("variant", "icon-tertiary");
+    button2.setAttribute("aria-label", "Delete row");
+    button2.innerHTML = `<svg
+        viewBox="0 0 24 24"
+        role="presentation"
+        style="width: 1.5rem; height: 1.5rem;"
+      >
+        <path
+          d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+          style="fill: currentcolor;"
+        ></path>
+      </svg>`;
+    dataTable.appendChild(button2);
+    button2.addEventListener("click", (e: Event) => {
+      const btn = e.target as HTMLIcButtonElement;
+      btn.assignedSlot!.closest("tr")!.remove();
+    });
+  });
+
+  return dataTable;
+};
 
 export const SlottedElementsWithPagination = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement(
@@ -1720,6 +1734,25 @@ export const SlottedElementsWithPagination = (): HTMLIcDataTableElement => {
     showGoToPageControl: true,
     selectedItemsPerPage: 5,
   };
+
+  DATA_ELEMENTS_PAGINATION.map((_, index) => {
+    if (index === 4 || index === 9) {
+      const select = document.createElement("ic-select");
+      select.setAttribute("slot", "actions-" + index);
+      select.setAttribute("placeholder", "Placeholder goes here");
+      dataTable.appendChild(select);
+    } else {
+      const button = document.createElement("ic-button");
+      button.setAttribute("slot", "actions-" + index);
+      button.innerHTML = String(index);
+      dataTable.appendChild(button);
+      button.addEventListener("click", (e: Event) => {
+        const btn = e.target as HTMLIcButtonElement;
+        console.log(btn.innerText);
+      });
+    }
+  });
+
   return dataTable;
 };
 

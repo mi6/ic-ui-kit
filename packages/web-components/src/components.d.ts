@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
 import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -15,7 +15,6 @@ import { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./co
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
-import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
 import { IcGridBreakpoints, IcGridType } from "./components/ic-layout-grid/ic-layout-grid.types";
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
@@ -29,14 +28,14 @@ import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-rad
 import { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 import { IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
-import { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
+import { IcStepI18n, IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
 import { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
 export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -46,7 +45,6 @@ export { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./co
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
-export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
 export { IcGridBreakpoints, IcGridType } from "./components/ic-layout-grid/ic-layout-grid.types";
 export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
@@ -60,7 +58,7 @@ export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-rad
 export { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 export { IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
-export { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
+export { IcStepI18n, IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
 export { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 export { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
@@ -1040,7 +1038,7 @@ export namespace Components {
         /**
           * The ARIA live mode to apply to the message.
          */
-        "ariaLiveMode"?: IcAriaLiveModeVariants;
+        "ariaLiveMode"?: IcAriaLive;
         /**
           * The ID of the form element the validation is bound to.
          */
@@ -1650,13 +1648,17 @@ export namespace Components {
          */
         "theme"?: IcThemeMode;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message.
          */
-        "validationText"?: string;
+        "validationText": string;
     }
     interface IcRadioOption {
         /**
@@ -1963,6 +1965,10 @@ export namespace Components {
          */
         "timeout"?: number;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
@@ -2103,6 +2109,10 @@ export namespace Components {
           * The title of the step within the stepper.
          */
         "heading"?: string;
+        /**
+          * Words within the component that can be replaced to translate the component into a different language
+         */
+        "icI18n": IcStepI18n;
         "lastStep": boolean;
         "lastStepNum"?: number;
         "nextStepHeading"?: string;
@@ -2136,6 +2146,10 @@ export namespace Components {
           * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
          */
         "hideStepInfo"?: boolean;
+        /**
+          * Provide alternative values for text in all child steps. For the purpose of translating the application into other languages.
+         */
+        "icI18n"?: IcStepI18n;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -4691,7 +4705,7 @@ declare namespace LocalJSX {
         /**
           * The ARIA live mode to apply to the message.
          */
-        "ariaLiveMode"?: IcAriaLiveModeVariants;
+        "ariaLiveMode"?: IcAriaLive;
         /**
           * The ID of the form element the validation is bound to.
          */
@@ -5297,6 +5311,10 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -5687,6 +5705,10 @@ declare namespace LocalJSX {
          */
         "timeout"?: number;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -5827,6 +5849,10 @@ declare namespace LocalJSX {
           * The title of the step within the stepper.
          */
         "heading"?: string;
+        /**
+          * Words within the component that can be replaced to translate the component into a different language
+         */
+        "icI18n"?: IcStepI18n;
         "lastStep": boolean;
         "lastStepNum"?: number;
         "nextStepHeading"?: string;
@@ -5860,6 +5886,10 @@ declare namespace LocalJSX {
           * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
          */
         "hideStepInfo"?: boolean;
+        /**
+          * Provide alternative values for text in all child steps. For the purpose of translating the application into other languages.
+         */
+        "icI18n"?: IcStepI18n;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */

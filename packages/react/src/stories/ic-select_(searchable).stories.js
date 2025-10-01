@@ -18,6 +18,7 @@ const defaultArgs = {
   readonly: false,
   required: false,
   size: "default",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   validationText: "",
   includeDescriptionsInSearch: false,
@@ -680,6 +681,7 @@ export const Playground = {
       searchMatchPosition={args.searchMatchPosition}
       searchable
       size={args.size}
+      validationAriaLive={args.validationAriaLive}
       validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
       validationText={args.validationText}
       theme={args.theme}
@@ -715,6 +717,14 @@ export const Playground = {
 
     size: {
       options: ["medium", "large", "small"],
+
+      control: {
+        type: "inline-radio",
+      },
+    },
+
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
 
       control: {
         type: "inline-radio",

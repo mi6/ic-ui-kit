@@ -152,7 +152,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated(LINK_SELECTOR);
 
-    cy.get('[download="true"]').should("exist");
+    cy.get('[download="true"]');
 
     cy.checkA11yWithWait();
   });

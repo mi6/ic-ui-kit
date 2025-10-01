@@ -224,6 +224,15 @@ describe("ic-text-field", () => {
     expect(page.root).toMatchSnapshot("renders-with-inline-success-validation");
   });
 
+  it("should not have a validation status if disabled", async () => {
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field label="Test label" validation-status="error" validation-text="error text" value="test value" disabled></ic-text-field>`,
+    });
+
+    expect(page.root).toMatchSnapshot("no-validation-status-if-disabled");
+  });
+
   it("should render with validation-aria-live", async () => {
     const page = await newSpecPage({
       components: [TextField],

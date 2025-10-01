@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-radio-group should not have a validation status if disabled: no-validation-status-if-disabled 1`] = `
+<ic-radio-group disabled="" label="test label" name="test" required="" validation-status="error" validation-text="error">
+  <template shadowrootmode="open">
+    <fieldset aria-required="true" id="test" role="radiogroup">
+      <legend>
+        <ic-input-label class="disabled error" disabled="" label="test label" required="">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
+      <div class="radio-buttons-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
+  </template>
+  <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" selected="" value="test">
+    <!---->
+    <div class="container disabled">
+      <div>
+        <input checked="" disabled="" id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
+        <span class="checkmark"></span>
+      </div>
+      <ic-typography class="radio-label" variant="body">
+        <label htmlfor="ic-radio-option-test-test label"></label>
+      </ic-typography>
+    </div>
+  </ic-radio-option>
+</ic-radio-group>
+`;
+
 exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`] = `
 <ic-radio-group helpertext="helper test" label="test label" name="test">
   <template shadowrootmode="open">
@@ -13,6 +43,7 @@ exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
@@ -42,6 +73,7 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
@@ -71,6 +103,7 @@ exports[`ic-radio-group should render radio group disabled: disabled-removed 1`]
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test">
     <!---->
@@ -102,6 +135,7 @@ exports[`ic-radio-group should render radio group disabled: renders-disabled 1`]
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" group-label="test group" label="test label" value="test">
     <!---->
@@ -133,6 +167,7 @@ exports[`ic-radio-group should render radio option disabled: disabled-removed 1`
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test">
     <!---->
@@ -164,6 +199,7 @@ exports[`ic-radio-group should render radio option disabled: renders-option-disa
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" disabled="" group-label="test group" label="test label" value="test">
     <!---->
@@ -195,6 +231,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="dynamic" group-label="test group" label="test label" selected="" value="test">
     <!---->
@@ -227,7 +264,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
                 <ic-input-component-container size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
-                <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-2" message="" status=""></ic-input-validation>
+                <ic-input-validation arialivemode="polite" for="ic-text-field-input-2" message="" status=""></ic-input-validation>
               </ic-input-container>
             </template>
           </ic-text-field>
@@ -251,6 +288,7 @@ exports[`ic-radio-group should render with selected option: renders-with-selecte
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <!---->
@@ -280,6 +318,7 @@ exports[`ic-radio-group should render with selected static additional field: ren
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" selected="" value="test">
     <!---->
@@ -306,7 +345,7 @@ exports[`ic-radio-group should render with selected static additional field: ren
                 <ic-input-component-container size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
-                <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-1" message="" status=""></ic-input-validation>
+                <ic-input-validation arialivemode="polite" for="ic-text-field-input-1" message="" status=""></ic-input-validation>
               </ic-input-container>
             </template>
           </ic-text-field>
@@ -330,6 +369,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" disabled="" group-label="test group" label="test label" value="test">
     <!---->
@@ -356,7 +396,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
                 <ic-input-component-container disabled="" size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
-                <ic-input-validation arialivemode="polite" class="hidden-validation" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
+                <ic-input-validation arialivemode="polite" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
               </ic-input-container>
             </template>
           </ic-text-field>
@@ -380,7 +420,37 @@ exports[`ic-radio-group should render with validation status: renders-with-valid
         <slot></slot>
       </div>
     </fieldset>
-    <ic-input-validation arialivemode="polite" message="error" status="error"></ic-input-validation>
+    <ic-input-validation arialivemode="polite" class="show-validation" message="error" status="error"></ic-input-validation>
+  </template>
+  <ic-radio-option additional-field-display="static" selected="" value="test">
+    <!---->
+    <div class="container">
+      <div>
+        <input checked="" id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
+        <span class="checkmark"></span>
+      </div>
+      <ic-typography class="radio-label" variant="body">
+        <label htmlfor="ic-radio-option-test-test label"></label>
+      </ic-typography>
+    </div>
+  </ic-radio-option>
+</ic-radio-group>
+`;
+
+exports[`ic-radio-group should render with validation-aria-live: renders-with-validation-aria-live 1`] = `
+<ic-radio-group label="test label" name="test" required="" validation-aria-live="assertive" validation-status="error" validation-text="error">
+  <template shadowrootmode="open">
+    <fieldset aria-required="true" id="test" role="radiogroup">
+      <legend>
+        <ic-input-label class="error" label="test label" required="">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
+      <div class="radio-buttons-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+    <ic-input-validation arialivemode="assertive" class="show-validation" message="error" status="error"></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <!---->
@@ -410,6 +480,7 @@ exports[`ic-radio-group should render: renders 1`] = `
         <slot></slot>
       </div>
     </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->

@@ -13,6 +13,7 @@ import {
   IcSectionContainer,
   IcTypography,
   IcLink,
+  IcSelect,
 } from "@ukic/react";
 import { IcPaginationBarOptions } from "@ukic/canary-web-components/src/utils/types";
 import {
@@ -72,6 +73,7 @@ import {
   NOT_BE_VISIBLE,
   NOT_EXIST,
   NOT_HAVE_CSS,
+  NOT_HAVE_BEEN_CALLED,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
@@ -226,6 +228,41 @@ export const ExternalSortColumnDataTable = (): ReactElement => {
         sortOrders: ["ascending", "descending"],
       }}
     />
+  );
+};
+
+export const PaginationDataTable = (): ReactElement => {
+  return (
+    <IcDataTable
+      caption="Data tables"
+      columns={COLS_ELEMENTS_SINGLE_ACTION}
+      data={DATA_ELEMENTS_PAGINATION}
+      showPagination
+    >
+      {DATA_ELEMENTS_PAGINATION.map((_, index) => (
+        <>
+          {index === 4 || index === 9 ? (
+            <IcSelect
+              label="Select label"
+              hideLabel
+              placeholder="Placeholder goes here"
+              slot={`actions-${index}`}
+              key={`actions-${index}`}
+            ></IcSelect>
+          ) : (
+            <IcButton
+              onClick={() => {
+                console.log(`${index + 1}`);
+              }}
+              slot={`actions-${index}`}
+              key={`actions-${index}`}
+            >
+              {index + 1}
+            </IcButton>
+          )}
+        </>
+      ))}
+    </IcDataTable>
   );
 };
 
@@ -675,6 +712,24 @@ describe("IcDataTables", () => {
       },
     });
     cy.checkA11yWithWait();
+  });
+
+  it("should test code in column definition object", () => {
+    const clonedCols = JSON.parse(JSON.stringify(ICON_COLS));
+    clonedCols[1].icon.icon = `<img src=x onerror=alert(12345)//>`;
+
+    cy.spy(window, "alert").as("spyAlert");
+
+    mount(
+      <IcDataTable
+        columns={clonedCols}
+        data={ICON_DATA}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.get("@spyAlert").should(NOT_HAVE_BEEN_CALLED);
   });
 
   it("should render the empty state when data is null", () => {
@@ -1364,7 +1419,7 @@ describe("IcDataTables", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
         .eq(1)
         .find("span")
-        .should("not.exist");
+        .should(NOT_EXIST);
     });
 
     it("should apply styling to the cell container if an action element is present in the cell", () => {
@@ -1439,7 +1494,7 @@ describe("IcDataTables", () => {
     );
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(BE_VISIBLE);
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
-      "not.exist"
+      NOT_EXIST
     );
   });
 
@@ -1459,9 +1514,9 @@ describe("IcDataTables", () => {
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_OVERLAY_SELECTOR).should(
-      "not.exist"
+      NOT_EXIST
     );
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(NOT_EXIST);
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR)
       .shadow()
       .find(LOADING_INDICATOR_OUTER_SELECTOR)
@@ -1486,7 +1541,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_OVERLAY_SELECTOR).should(
       BE_VISIBLE
     );
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(NOT_EXIST);
     cy.findShadowEl(DATA_TABLE_SELECTOR, EMPTY_STATE).should(BE_VISIBLE);
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR)
       .shadow()
@@ -1498,12 +1553,12 @@ describe("IcDataTables", () => {
     cy.wait(1000);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_OVERLAY_SELECTOR).should(
-      "not.exist"
+      NOT_EXIST
     );
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(BE_VISIBLE);
-    cy.findShadowEl(DATA_TABLE_SELECTOR, EMPTY_STATE).should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, EMPTY_STATE).should(NOT_EXIST);
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
-      "not.exist"
+      NOT_EXIST
     );
   });
 
@@ -1741,17 +1796,10 @@ describe("IcDataTables with IcPaginationBar", () => {
   });
 
   it("should render a select menu above the pagination bar", () => {
-    mount(
-      <IcDataTable
-        caption="Data tables"
-        columns={COLS_ELEMENTS_SINGLE_ACTION}
-        data={DATA_ELEMENTS_PAGINATION}
-        showPagination
-      />
-    );
+    mount(<PaginationDataTable />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".data-type-element").eq(9).click();
+    cy.get("ic-select").eq(1).click();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -1853,9 +1901,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr").each(($row) => {
-        cy.wrap($row)
-          .find(".table-cell:first-child ic-tooltip")
-          .should("exist");
+        cy.wrap($row).find(".table-cell:first-child ic-tooltip");
       });
     });
 
@@ -2022,9 +2068,7 @@ describe("IcDataTable with truncation", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
         .filter(":lt(3)")
         .each(($row) => {
-          cy.wrap($row)
-            .find(`${LAST_CELL_SELECTOR} ic-tooltip`)
-            .should("exist");
+          cy.wrap($row).find(`${LAST_CELL_SELECTOR} ic-tooltip`);
         });
     });
 
@@ -2052,10 +2096,7 @@ describe("IcDataTable with truncation", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(
         ($row, i) => {
           if (i > 5 && i < 11) {
-            cy.wrap($row)
-              .find(LAST_CELL_SELECTOR)
-              .find(TOOLTIP_SELECTOR)
-              .should("exist");
+            cy.wrap($row).find(LAST_CELL_SELECTOR).find(TOOLTIP_SELECTOR);
           }
         }
       );
@@ -2119,10 +2160,7 @@ describe("IcDataTable with truncation", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
         .filter(":lt(3)")
         .each(($row) => {
-          cy.wrap($row)
-            .find(LAST_CELL_SELECTOR)
-            .find(TOOLTIP_SELECTOR)
-            .should("exist");
+          cy.wrap($row).find(LAST_CELL_SELECTOR).find(TOOLTIP_SELECTOR);
         });
 
       cy.compareSnapshot({
@@ -2148,10 +2186,7 @@ describe("IcDataTable with truncation", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
         .filter(":lt(3)")
         .each(($row) => {
-          cy.wrap($row)
-            .find(LAST_CELL_SELECTOR)
-            .find(TOOLTIP_SELECTOR)
-            .should("exist");
+          cy.wrap($row).find(LAST_CELL_SELECTOR).find(TOOLTIP_SELECTOR);
         });
 
       cy.compareSnapshot({
@@ -2183,7 +2218,7 @@ describe("IcDataTable with truncation", () => {
         .click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
-        cy.wrap($row).find(TOOLTIP_SELECTOR).should("exist");
+        cy.wrap($row).find(TOOLTIP_SELECTOR);
       });
     });
 
@@ -2214,7 +2249,7 @@ describe("IcDataTable with truncation", () => {
         .click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
-        cy.wrap($row).find(TOOLTIP_SELECTOR).should("exist");
+        cy.wrap($row).find(TOOLTIP_SELECTOR);
       });
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
@@ -2229,7 +2264,7 @@ describe("IcDataTable with truncation", () => {
         .click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
-        cy.wrap($row).find(TOOLTIP_SELECTOR).should("exist");
+        cy.wrap($row).find(TOOLTIP_SELECTOR);
       });
     });
 
@@ -2271,7 +2306,7 @@ describe("IcDataTable with truncation", () => {
         .click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
-        cy.wrap($row).find(TOOLTIP_SELECTOR).should("exist");
+        cy.wrap($row).find(TOOLTIP_SELECTOR);
       });
     });
 
@@ -2345,10 +2380,7 @@ describe("IcDataTable with truncation", () => {
         .should(HAVE_ATTR, "style", "--ic-line-clamp: 1");
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
-        cy.wrap($row)
-          .find(LAST_CELL_SELECTOR)
-          .find(TOOLTIP_SELECTOR)
-          .should("exist");
+        cy.wrap($row).find(LAST_CELL_SELECTOR).find(TOOLTIP_SELECTOR);
       });
     });
 
@@ -2413,10 +2445,7 @@ describe("IcDataTable with truncation", () => {
         .filter(":gt(4)")
         .filter(":lt(11)")
         .each(($row) => {
-          cy.wrap($row)
-            .find(LAST_CELL_SELECTOR)
-            .find(TOOLTIP_SELECTOR)
-            .should("exist");
+          cy.wrap($row).find(LAST_CELL_SELECTOR).find(TOOLTIP_SELECTOR);
         });
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, ODD_TABLE_ROWS_SELECTOR)
@@ -3235,7 +3264,7 @@ describe("IcDataTable with truncation", () => {
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, EVEN_TABLE_ROWS_SELECTOR).each(
         ($row) => {
-          cy.wrap($row).find(TABLE_CELL_TOOLTIP_SELECTOR).should("not.exist");
+          cy.wrap($row).find(TABLE_CELL_TOOLTIP_SELECTOR).should(NOT_EXIST);
         }
       );
     });
@@ -3304,7 +3333,7 @@ describe("IcDataTable with truncation", () => {
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, EVEN_TABLE_ROWS_SELECTOR).each(
         ($row) => {
-          cy.wrap($row).find(TABLE_CELL_TOOLTIP_SELECTOR).should("exist");
+          cy.wrap($row).find(TABLE_CELL_TOOLTIP_SELECTOR);
         }
       );
 
@@ -3342,7 +3371,7 @@ describe("IcDataTable with truncation", () => {
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, EVEN_TABLE_ROWS_SELECTOR).each(
         ($row) => {
-          cy.wrap($row).find(TABLE_CELL_TOOLTIP_SELECTOR).should("not.exist");
+          cy.wrap($row).find(TABLE_CELL_TOOLTIP_SELECTOR).should(NOT_EXIST);
         }
       );
     });
@@ -3407,7 +3436,7 @@ describe("IcDataTable with truncation", () => {
           .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find(BUTTON_SELECTOR)
-          .should("not.exist");
+          .should(NOT_EXIST);
       });
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
@@ -3475,7 +3504,7 @@ describe("IcDataTable with truncation", () => {
           .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find(BUTTON_SELECTOR)
-          .should("not.exist");
+          .should(NOT_EXIST);
       });
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, EVEN_TABLE_ROWS_SELECTOR).each(
@@ -3542,7 +3571,7 @@ describe("IcDataTable with truncation", () => {
           .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find(BUTTON_SELECTOR)
-          .should("not.exist");
+          .should(NOT_EXIST);
       });
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, EVEN_TABLE_ROWS_SELECTOR).each(
@@ -3992,8 +4021,7 @@ describe("IcDataTable table sizing and column width", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
-      .find(".table-cell:nth-child(2) ic-tooltip")
-      .should("exist");
+      .find(".table-cell:nth-child(2) ic-tooltip");
   });
 
   it("should display show-hide truncation on truncation column set with px", () => {
@@ -4033,8 +4061,7 @@ describe("IcDataTable table sizing and column width", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
-      .find(".table-cell:nth-child(2) ic-tooltip")
-      .should("exist");
+      .find(".table-cell:nth-child(2) ic-tooltip");
   });
 
   it("should display show-hide truncation on column when first column width set with px and table width set to 500px", () => {
@@ -4448,8 +4475,7 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
-      .find(".table-cell:nth-child(1) div div span")
-      .should("exist");
+      .find(".table-cell:nth-child(1) div div span");
 
     cy.checkA11yWithWait();
 
@@ -4460,6 +4486,23 @@ describe("IcDataTable table with descriptions", () => {
         capture: "viewport",
       },
     });
+  });
+
+  it("should test code in description object", () => {
+    const clonedData = JSON.parse(
+      JSON.stringify(LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS)
+    );
+    clonedData[0].firstName.icon = `<img src=x onerror=alert(12345)//>`;
+    clonedData[0].firstName.description.icon = `<img src=x onerror=alert(12345)//>`;
+
+    cy.spy(window, "alert").as("spyAlert");
+
+    mount(
+      <IcDataTable columns={COLS} data={clonedData} caption="Data Tables" />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.get("@spyAlert").should(NOT_HAVE_BEEN_CALLED);
   });
 
   it("should truncate long text without truncating descriptions - using show/hide pattern when global row height is set", () => {
@@ -4512,7 +4555,7 @@ describe("IcDataTable table with descriptions", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(".table-cell:nth-child(1) ic-tooltip")
-      .should("not.exist");
+      .should(NOT_EXIST);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
@@ -4551,8 +4594,7 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
-      .find(".table-cell:nth-child(1) ic-tooltip")
-      .should("exist");
+      .find(".table-cell:nth-child(1) ic-tooltip");
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
@@ -5099,10 +5141,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
       .filter(":lt(3)")
       .each(($row) => {
-        cy.wrap($row)
-          .find(LAST_CELL_SELECTOR)
-          .find(TOOLTIP_SELECTOR)
-          .should("exist");
+        cy.wrap($row).find(LAST_CELL_SELECTOR).find(TOOLTIP_SELECTOR);
       });
 
     cy.compareSnapshot({

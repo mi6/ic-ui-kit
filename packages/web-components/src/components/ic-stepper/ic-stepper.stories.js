@@ -252,6 +252,81 @@ export const CustomCompactStepper = {
   name: "Custom compact stepper",
 };
 
+export const InternationalStepper = {
+  render: () =>
+    html`<ic-stepper variant="compact" id="standard-compact-stepper">
+        <ic-step heading="Aktualisierung"></ic-step>
+        <ic-step id="read-step" heading="Lesen" type="current"></ic-step>
+        <ic-step heading="Aktualisierung" status="optional"></ic-step>
+        <ic-step heading="Löschen" status="required"></ic-step>
+      </ic-stepper>
+      <ic-button
+        class="back-btn-compact-stepper"
+        style="margin-right: var(--ic-space-lg)"
+        onclick="toPreviousStep()"
+        >Back</ic-button
+      >
+      <ic-button class="next-btn-compact-stepper" onclick="toNextStep()"
+        >Next</ic-button
+      >
+      <script>
+        const stepper = document.getElementById("standard-compact-stepper");
+        stepper.icI18n = {
+          next: "Der nächste",
+          step: "Schritt",
+          of: "von",
+          lastStep: "Letzter Schritt",
+          completed: "abgeschlossen",
+          notRequired: "Nicht erforderlich",
+          required: "erforderlich",
+          optional: "wahlweise",
+        };
+        const compactStepTypes = [
+          "active",
+          "completed",
+          "disabled",
+          "completed",
+        ];
+        const backBtn = document.querySelector(".back-btn-compact-stepper");
+        const nextBtn = document.querySelector(".next-btn-compact-stepper");
+        const steps = document.querySelectorAll(
+          "#standard-compact-stepper > ic-step"
+        );
+        function toPreviousStep() {
+          for (let i = steps.length - 1; i > 0; i--) {
+            if (steps[i].type === "current") {
+              steps[i].type = compactStepTypes[i];
+              steps[i - 1].type = "current";
+              i--;
+            }
+          }
+          if (steps[steps.length - 2].type === "current") {
+            nextBtn.setAttribute("disabled", "false");
+          }
+          if (steps[0].type === "current") {
+            backBtn.setAttribute("disabled", "true");
+          }
+        }
+        function toNextStep() {
+          for (let i = 0; i < steps.length - 1; i++) {
+            if (steps[i].type === "current") {
+              steps[i].type = compactStepTypes[i];
+              steps[i + 1].type = "current";
+              i++;
+            }
+          }
+          if (steps[1].type === "current") {
+            backBtn.setAttribute("disabled", "false");
+          }
+          if (steps[steps.length - 1].type === "current") {
+            nextBtn.setAttribute("disabled", "true");
+          }
+        }
+      </script>`,
+
+  name: "Internationalisation",
+};
+
 export const Playground = {
   render: (args) =>
     html`<ic-stepper theme=${args.theme}>

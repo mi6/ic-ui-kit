@@ -184,7 +184,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
     mount(<BrandChange />);
 
     cy.checkHydrated(IC_HERO_SELECTOR);
-    cy.get("ic-theme").should("exist");
+    cy.get("ic-theme");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({

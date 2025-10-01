@@ -132,7 +132,7 @@ describe("IcAlert end-to-end tests", () => {
     mount(<Dismissible />);
 
     cy.checkHydrated(ALERT_SELECTOR);
-    cy.get(ALERT_SELECTOR).should("exist");
+    cy.get(ALERT_SELECTOR);
     cy.findShadowEl(ALERT_SELECTOR, "ic-button").should(BE_VISIBLE).click();
     cy.get(ALERT_SELECTOR).should(NOT_BE_VISIBLE);
   });

@@ -59,8 +59,8 @@ export const coffeeCustomElements = [
     label: "Latte",
     value: "Lat",
     element: {
-      component: `<ic-status-tag label="Neutral status"></ic-status-tag>`,
-      ariaLabel: "Neutral status tag",
+      component: `<ic-status-tag label="Success status" status="success"></ic-status-tag>`,
+      ariaLabel: "Success status tag",
     },
   },
   {

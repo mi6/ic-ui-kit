@@ -10,14 +10,14 @@ import { IcThemeMode } from "@ukic/web-components";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcThemeMode } from "@ukic/web-components";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export namespace Components {
     interface IcCardHorizontal {
@@ -874,7 +874,7 @@ declare global {
     };
     interface HTMLIcPaginationBarElementEventMap {
         "icPageChange": IcPageChangeEventDetail;
-        "icItemsPerPageChange": { value: number };
+        "icItemsPerPageChange": IcItemsPerPageChangeEventDetail;
     }
     interface HTMLIcPaginationBarElement extends Components.IcPaginationBar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcPaginationBarElementEventMap>(type: K, listener: (this: HTMLIcPaginationBarElement, ev: IcPaginationBarCustomEvent<HTMLIcPaginationBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1483,7 +1483,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the items per page option is changed.
          */
-        "onIcItemsPerPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
+        "onIcItemsPerPageChange"?: (event: IcPaginationBarCustomEvent<IcItemsPerPageChangeEventDetail>) => void;
         /**
           * Emitted when a page is navigated to via the 'go to' input. The `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.
          */

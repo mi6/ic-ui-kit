@@ -24,6 +24,8 @@ import {
   RadioGroupInAdditionalField,
   StaticChildRadioGroup,
   HelperTextSlot,
+  SmallConditionalStatic,
+  SmallConditionalDynamic,
 } from "./IcRadioTestData";
 import {
   HAVE_PROP,
@@ -532,6 +534,31 @@ describe("IcRadio visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+  });
+
+  it("should render conditional static IcRadio in small variant", () => {
+    mount(<SmallConditionalStatic />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/small-conditional-static",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render conditional dynamic IcRadio in small variant", () => {
+    mount(<SmallConditionalDynamic />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/small-conditional-dynamic",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 

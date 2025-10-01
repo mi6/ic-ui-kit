@@ -177,3 +177,9 @@ ic-input-validation {
   --ic-input-validation-warning-icon-color: var(--ic-date-input-icon-warning);
   --ic-input-validation-success-icon-color: var(--ic-date-input-icon-success);
 }
+
+@media (forced-colors: active) {
+  .clear-button svg {
+    color: currentcolor;
+  }
+}

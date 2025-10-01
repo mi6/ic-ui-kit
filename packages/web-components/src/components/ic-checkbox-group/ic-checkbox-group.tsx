@@ -183,6 +183,8 @@ export class CheckboxGroup {
 
     const renderSRText = validationStatus === "error" || required || hideLabel;
 
+    const showValidation = hasValidationStatus(validationStatus, disabled);
+
     return (
       <Host
         class={{
@@ -226,8 +228,11 @@ export class CheckboxGroup {
             <slot></slot>
           </div>
         </fieldset>
-        {hasValidationStatus(validationStatus, disabled) && (
+        {showValidation && (
           <ic-input-validation
+            class={{
+              "show-validation": showValidation,
+            }}
             for={name}
             ariaLiveMode="polite"
             status={validationStatus}

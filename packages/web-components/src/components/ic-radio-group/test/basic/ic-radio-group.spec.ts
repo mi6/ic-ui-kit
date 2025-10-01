@@ -72,6 +72,27 @@ describe("ic-radio-group", () => {
     expect(page.root).toMatchSnapshot("renders-with-validation-status");
   });
 
+  it("should not have a validation status if disabled", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test" required validation-status="error" validation-text="error" disabled>
+        <ic-radio-option value="test" selected></ic-radio-option>
+      </ic-radio-group>`,
+    });
+    expect(page.root).toMatchSnapshot("no-validation-status-if-disabled");
+  });
+
+  it("should render with validation-aria-live", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test" required validation-status="error" validation-text="error" validation-aria-live="assertive">
+        <ic-radio-option value="test" selected></ic-radio-option>
+      </ic-radio-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-validation-aria-live");
+  });
+
   it("should render radio group disabled", async () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],

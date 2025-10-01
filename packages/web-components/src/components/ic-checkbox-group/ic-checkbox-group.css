@@ -46,15 +46,15 @@ ic-input-label .helpertext {
   display: block;
 }
 
-ic-input-validation {
+ic-input-validation.show-validation {
   margin-top: var(--ic-space-sm);
 }
 
-:host(.ic-checkbox-group-small) ic-input-validation {
+:host(.ic-checkbox-group-small) ic-input-validation.show-validation {
   margin-top: calc(var(--ic-space-sm) / 2);
 }
 
-:host(.ic-checkbox-group-large) ic-input-validation {
+:host(.ic-checkbox-group-large) ic-input-validation.show-validation {
   margin-top: calc(var(--ic-space-sm) * 1.5);
 }
 

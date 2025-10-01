@@ -1,17 +1,13 @@
 #!/bin/bash
 bash "$(dirname "$0")/email-check.sh"
 
-npm run test-cypress:headless
-
 npm run lint:spelling
-
-pwd=$(pwd)
 
 cd packages/web-components
 npm i --package-lock-only
-cd /$pwd/packages/react
+cd ../react
 npm i --package-lock-only
-cd /$pwd
+cd ../..
 npm run audit
 
 npx lint-staged

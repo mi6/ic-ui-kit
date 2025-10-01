@@ -18,6 +18,7 @@ import {
   checkResizeObserver,
 } from "../../utils/helpers";
 import {
+  IcAriaLive,
   IcInformationStatusOrEmpty,
   IcOrientation,
   IcSizesNoLarge,
@@ -98,6 +99,11 @@ export class RadioGroup {
   @Prop() size?: IcSizesNoLarge = "medium";
 
   /**
+   * The value of the `aria-live` attribute on the validation message.
+   */
+  @Prop() validationAriaLive: IcAriaLive = "polite";
+
+  /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
@@ -105,7 +111,7 @@ export class RadioGroup {
   /**
    * The text to display as the validation message.
    */
-  @Prop() validationText?: string = "";
+  @Prop() validationText: string = "";
 
   @Watch("orientation")
   orientationChangeHandler(): void {
@@ -352,10 +358,13 @@ export class RadioGroup {
       label,
       required,
       size,
+      validationAriaLive,
       validationStatus,
       validationText,
       theme,
     } = this;
+
+    const showValidation = hasValidationStatus(validationStatus, disabled);
 
     return (
       <Host
@@ -396,13 +405,14 @@ export class RadioGroup {
             <slot></slot>
           </div>
         </fieldset>
-        {hasValidationStatus(validationStatus, disabled) && (
-          <ic-input-validation
-            ariaLiveMode="polite"
-            status={validationStatus}
-            message={validationText!}
-          ></ic-input-validation>
-        )}
+        <ic-input-validation
+          class={{
+            "show-validation": showValidation,
+          }}
+          ariaLiveMode={validationAriaLive}
+          status={showValidation ? validationStatus : ""}
+          message={showValidation ? validationText : ""}
+        ></ic-input-validation>
       </Host>
     );
   }
