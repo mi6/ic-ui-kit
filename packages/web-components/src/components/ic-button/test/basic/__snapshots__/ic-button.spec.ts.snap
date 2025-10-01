@@ -296,34 +296,6 @@ exports[`button component should render with defined "a" tag props 1`] = `
 </ic-button>
 `;
 
-exports[`button component should test aria-describedby is set 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-dark monochrome" exportparts="button" id="ic-button">
-  <template shadowrootmode="open">
-    <button aria-describedby="button-description" class="button" part="button" tabindex="0" type="button">
-      <slot></slot>
-    </button>
-    <span class="ic-button-describedby" id="button-description">
-      This is the button description
-    </span>
-  </template>
-  Button
-</ic-button>
-`;
-
-exports[`button component should test aria-describedby is updated 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-dark monochrome" exportparts="button" id="ic-button">
-  <template shadowrootmode="open">
-    <button aria-describedby="button-description" class="button" part="button" tabindex="0" type="button">
-      <slot></slot>
-    </button>
-    <span class="ic-button-describedby" id="button-description">
-      This is the new description
-    </span>
-  </template>
-  Button
-</ic-button>
-`;
-
 exports[`button component should test tooltip visibility changes when disable tooltip prop changes 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark monochrome" exportparts="button" id="test-button" variant="icon-tertiary">
   <template shadowrootmode="open">

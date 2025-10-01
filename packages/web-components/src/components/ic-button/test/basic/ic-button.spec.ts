@@ -3,6 +3,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import * as helpers from "../../../../utils/helpers";
 import { testKeyboardEvent as keyboardEvent } from "../../../../testspec.setup";
 import { Tooltip } from "../../../ic-tooltip/ic-tooltip";
+import { Typography } from "../../../ic-typography/ic-typography";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -489,35 +490,84 @@ describe("button component", () => {
   });
 
   it("should test aria-describedby is set", async () => {
-    const page = await newSpecPage({
+    const describedby = "button-description";
+    await newSpecPage({
       components: [Button],
-      html: `<span id="button-description">
+      html: `<span id=${describedby}>
         This is the button description
       </span>
-      <ic-button id='ic-button' aria-describedby="button-description">Button</ic-button>
+      <ic-button id='ic-button' aria-describedby=${describedby}>Button</ic-button>
       `,
     });
 
-    expect(page.root).toMatchSnapshot();
+    const icButton = document.querySelector("ic-button");
+    const nativeButton = icButton?.shadowRoot?.querySelector("button");
+
+    // native button has aria-describedby correctly set
+    expect(nativeButton?.getAttribute("aria-describedby")).toBe(describedby);
+
+    // describedby element correctly recreated in shadow dom
+    const shadowDescribedby = icButton?.shadowRoot?.querySelector(
+      `#describedby-wrapper #${describedby}`
+    );
+    expect(shadowDescribedby?.textContent?.trim()).toBe(
+      "This is the button description"
+    );
+  });
+
+  it("shold test complex aria-describedby element with shadow dom", async () => {
+    const describedby = "button-description";
+    await newSpecPage({
+      components: [Button, Typography],
+      html: `<div id=${describedby} role="tooltip">
+        <ic-typography>I'm the accessible description</ic-typography>
+      </div>
+      <ic-button id='ic-button' aria-describedby=${describedby}>Button</ic-button>
+      `,
+    });
+
+    const icButton = document.querySelector("ic-button");
+    const nativeButton = icButton?.shadowRoot?.querySelector("button");
+
+    // native button has aria-describedby correctly set
+    expect(nativeButton?.getAttribute("aria-describedby")).toBe(describedby);
+
+    // describedby element correctly recreated in shadow dom
+    const shadowDescribedby = icButton?.shadowRoot?.querySelector(
+      `#describedby-wrapper #${describedby}`
+    );
+    expect(shadowDescribedby?.textContent?.trim()).toBe(
+      "I'm the accessible description"
+    );
   });
 
   it("should test aria-describedby is updated", async () => {
+    const describedby = "button-description";
     const page = await newSpecPage({
       components: [Button],
-      html: `<span id="button-description">
+      html: `<span id=${describedby}>
         This is the button description
       </span>
-      <ic-button id='ic-button' aria-describedby="button-description">Button</ic-button>
+      <ic-button id='ic-button' aria-describedby=${describedby}>Button</ic-button>
       `,
     });
 
+    const newDescription = "This is the new description";
+
+    // change description in light dom
     (document.querySelector("#button-description") as HTMLElement).innerText =
-      "This is the new description";
+      newDescription;
     page.rootInstance.mutationCallback();
 
     await page.waitForChanges();
 
-    expect(page.root).toMatchSnapshot();
+    const icButton = document.querySelector("ic-button");
+
+    // shadow dom describedby element also updates
+    const shadowDescribedby = icButton?.shadowRoot?.querySelector(
+      `#describedby-wrapper #${describedby}`
+    );
+    expect(shadowDescribedby?.textContent?.trim()).toBe(newDescription);
   });
 
   it("should test tooltip visibility changes when disable tooltip prop changes", async () => {
