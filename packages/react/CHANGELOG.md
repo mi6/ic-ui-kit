@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.38.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.38.1...@ukic/react@2.38.2) (2025-10-01)
+
+**Note:** Version bump only for package @ukic/react
+
 ## [2.38.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.38.0...@ukic/react@2.38.1) (2025-07-09)
 
 **Note:** Version bump only for package @ukic/react
