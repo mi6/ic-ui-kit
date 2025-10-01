@@ -36,6 +36,10 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   margin: var(--ic-space-xxs) 0 var(--ic-space-xxs) var(--ic-space-xxs);
 }
 
+.ic-radio-group-small .container {
+  margin: 0 0 0 var(--ic-space-xxs);
+}
+
 .container.disabled,
 .container.disabled input:disabled {
   cursor: default;
@@ -55,6 +59,11 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   border: none;
 }
 
+.ic-radio-group-small .container input {
+  height: var(--ic-space-md);
+  width: var(--ic-space-md);
+}
+
 /* Create a custom radio button */
 .checkmark {
   display: block;
@@ -68,6 +77,11 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   border-radius: 50%;
   transition: var(--ic-easing-transition-fast);
   box-sizing: border-box;
+}
+
+.ic-radio-group-small .checkmark {
+  height: var(--ic-space-md);
+  width: var(--ic-space-md);
 }
 
 /* Show the indicator (dot/circle) when checked */
@@ -100,6 +114,10 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
 .container:active input:checked ~ .checkmark {
   border: 0.125rem solid var(--ic-radio-button-default-pressed);
   box-shadow: 0 0 0 0.25rem var(--ic-radio-button-active-pressed);
+}
+
+.ic-radio-group-small .container input:checked ~ .checkmark {
+  border-width: var(--ic-space-1px);
 }
 
 /* When pressed and selected, adds the active colours */
@@ -150,10 +168,24 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   background: var(--ic-radio-button-default-active);
 }
 
+.ic-radio-group-small .container .checkmark::after {
+  top: 50%;
+  left: 50%;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: var(--ic-radio-button-default-active);
+  transform: translate(-50%, -50%);
+}
+
 .radio-label {
   margin-left: var(--ic-space-md);
 
   --ic-typography-color: var(--ic-radio-button-text-option);
+}
+
+.ic-radio-group-small .radio-label {
+  margin-left: var(--ic-space-xs);
 }
 
 .additional-field-wrapper {
@@ -175,8 +207,12 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
 .dynamic-container {
   display: flex;
   position: relative;
-  margin: var(--ic-space-xxxs) 0 var(--ic-space-xxs) var(--ic-space-md);
+  margin: var(--ic-space-xxs) 0 var(--ic-space-xxs) var(--ic-space-md);
   gap: var(--ic-space-xs);
+}
+
+.ic-radio-group-small .dynamic-container {
+  margin-left: 12px;
 }
 
 .dynamic-container.hidden {
