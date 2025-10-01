@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.12.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.9.0...@ukic/react@3.12.0) (2025-10-01)
+
+### Bug Fixes
+
+- **react:** add react story and cypress tests ([f1da7ba](https://github.com/mi6/ic-ui-kit/commit/f1da7babf9d41b13268c687342f8cb759cb0ef21))
+- **react:** adds test for custom elements fix ([8cd7a3b](https://github.com/mi6/ic-ui-kit/commit/8cd7a3b50fa20ed7ba066efa545d974c83d5c69c))
+- **react:** adds test for custom elements fix ([79a8805](https://github.com/mi6/ic-ui-kit/commit/79a8805362b0dbadfdd477de2be62c29b22cc5b9))
+- **react:** fix back to top plaground target ([810d345](https://github.com/mi6/ic-ui-kit/commit/810d345dd1addd8ed84c1a5e37d1ffd4540bdcf9))
+- **react:** remove unnecessary exist assertions from cypress tests ([3cdffed](https://github.com/mi6/ic-ui-kit/commit/3cdffed1c129a5697ca72d38ab27e7db4a317c04))
+- **react:** update tests to show how the width of ic-select options grow with the width of ic-menu ([dcd8829](https://github.com/mi6/ic-ui-kit/commit/dcd88293c80a955d5d4ed587b1224dedbfd338dd)), closes [#3940](https://github.com/mi6/ic-ui-kit/issues/3940)
+
+### Features
+
+- **react:** add story for testing validation aria-live behaviour ([7a5ec1f](https://github.com/mi6/ic-ui-kit/commit/7a5ec1f8dbaa27de2ab274055f7279b87fa6711a)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+- **react:** add story for testing validation aria-live behaviour ([d385460](https://github.com/mi6/ic-ui-kit/commit/d3854604b53f0e672e2a3dc450be673ef6a9bf0c)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+- **react:** update Cypress visual regression test baseline images ([bcc7950](https://github.com/mi6/ic-ui-kit/commit/bcc7950722cf471bde25b1e61470bd3e50012738))
+- **react:** update radio and select stories for testing updated validation SR behaviour ([933d157](https://github.com/mi6/ic-ui-kit/commit/933d157e695807e99a22fe66c8b1f33f8a494649)), closes [#3959](https://github.com/mi6/ic-ui-kit/issues/3959)
+
+### Reverts
+
+- **react:** revert changes from PR [#3910](https://github.com/mi6/ic-ui-kit/issues/3910) so canary issues can be fixed ([7ac7ff2](https://github.com/mi6/ic-ui-kit/commit/7ac7ff209e0afd167af596d923f9c0f0b69ea9c6))
+- **react:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([68686be](https://github.com/mi6/ic-ui-kit/commit/68686be5013f9725faa883ef54c9c3dd683bb3b2))
+
 # [3.11.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.9.0...@ukic/react@3.11.0) (2025-09-17)
 
 ### Bug Fixes
