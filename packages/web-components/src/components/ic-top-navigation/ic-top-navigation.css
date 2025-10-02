@@ -10,22 +10,15 @@
   --ic-button-secondary-text-monochrome: var(--ic-brand-text-color);
   --ic-button-secondary-border-monochrome: var(--ic-brand-text-color);
   --navigation-link-colour: var(--ic-top-navigation-text);
+  --ic-top-navigation-status-tag-text: var(--ic-color-text-primary-light);
+  --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-lighten-20);
 }
 
 :host(.dark) {
-  color: var(--ic-color-text-primary-light);
-
-  --ic-typography-color: var(--ic-color-text-primary-light);
-  --ic-top-navigation-logo: var(--ic-color-icon-neutral);
-  --ic-top-navigation-icon: var(--ic-color-icon-neutral);
-  --ic-top-navigation-icon-and-label: var(--ic-color-text-primary-light);
-  --ic-top-navigation-theme: var(--ic-color-icon-neutral);
-  --ic-top-navigation-status-tag: var(--ic-color-background-primary-dark);
-  --ic-top-navigation-status-tag-text: var(--ic-color-brand-text);
+  --ic-top-navigation-status-tag-text: var(--ic-color-text-primary-dark);
   --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-darken-10);
   --ic-top-navigation-title-hover: var(--ic-action-dark-bg-hover);
   --ic-top-navigation-title-pressed: var(--ic-action-dark-bg-pressed);
-  --navigation-link-colour: var(--ic-color-text-primary-light);
 }
 
 :host(.dark) ::slotted(ic-navigation-button) {
@@ -62,6 +55,8 @@
   color: var(--ic-top-navigation-icon-and-label);
   text-decoration: none;
   outline: none;
+
+  --ic-typography-color: var(--ic-top-navigation-icon-and-label);
 }
 
 :host .title-link:hover:not(:focus) {
@@ -74,6 +69,11 @@
 
 :host .title-link:hover {
   border-radius: var(--ic-border-radius);
+}
+
+:host .menu-button-container {
+  --ic-button-secondary-text-monochrome: var(--ic-brand-text-color);
+  --ic-button-secondary-border-monochrome: var(--ic-brand-text-color);
 }
 
 :host .title-link:focus,
@@ -159,6 +159,8 @@
   margin-left: var(--ic-space-xs);
   flex: 1 1 0;
   max-width: fit-content;
+
+  --ic-typography-color: var(--ic-top-navigation-status-tag);
 }
 
 slot[name="app-icon"]::slotted(*) {
@@ -189,6 +191,7 @@ slot[name="toggle-icon"] svg {
   width: 1px;
   height: 1px;
   overflow: hidden;
+  color: var(--ic-brand-text-color);
 }
 
 .menu-button-container .navigation-landmark-button-text:dir(rtl) {
