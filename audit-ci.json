@@ -104,6 +104,13 @@
         "notes": "requires upgrade to webpack-dev-server > 5.2.0 in react package, which is a breaking change",
         "expiry": "29 October 2025"
       }
+    },
+    {
+      "GHSA-vj76-c3g6-qr5v": {
+        "active": true,
+        "notes": "issue in tar-fs in puppeteer used in cypress - no current fix",
+        "expiry": "29 October 2025"
+      }
     }
   ]
 }
