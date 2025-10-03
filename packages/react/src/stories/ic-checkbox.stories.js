@@ -305,6 +305,101 @@ const CheckOptionsDynamic = () => {
   );
 };
 
+const AriaLiveBehaviourExample = () => {
+  const [showErrors1, setShowErrors1] = useState(false);
+  const [showErrors2, setShowErrors2] = useState(false);
+
+  return (
+    <>
+      <IcCheckboxGroup
+        id="field-1"
+        label="This is a label"
+        name="1"
+        helperText="Error already set on page load and aria-live overridden as 'assertive'"
+        validationStatus={showErrors1 ? "" : "error"}
+        validationText={showErrors1 ? "" : "First error message"}
+        validationAriaLive="assertive"
+      >
+        <IcCheckbox value="valueName1" label="Unselected / Default" />
+        <IcCheckbox value="valueName2" label="Selected / Default" selected />
+        <IcCheckbox
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        />
+      </IcCheckboxGroup>
+      <br />
+      <IcCheckboxGroup
+        id="field-2"
+        label="This is a label"
+        name="2"
+        helperText="Error set after page load and aria-live overridden as 'assertive'"
+        validationStatus={showErrors1 ? "error" : ""}
+        validationText={showErrors1 ? "Second error message" : ""}
+        validationAriaLive="assertive"
+      >
+        <IcCheckbox value="valueName1" label="Unselected / Default" />
+        <IcCheckbox value="valueName2" label="Selected / Default" selected />
+        <IcCheckbox
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        />
+      </IcCheckboxGroup>
+      <br />
+      <IcButton onClick={() => setShowErrors1(!showErrors1)}>
+        Toggle errors
+      </IcButton>
+      <br />
+      <br />
+      <br />
+      <br />
+      <IcCheckboxGroup
+        id="field-3"
+        label="This is a label"
+        name="3"
+        helperText="Default aria-live behaviour (i.e. 'polite')"
+        validationStatus={showErrors2 ? "error" : ""}
+        validationText={showErrors2 ? "Third error message" : ""}
+      >
+        <IcCheckbox value="valueName1" label="Unselected / Default" />
+        <IcCheckbox value="valueName2" label="Selected / Default" selected />
+        <IcCheckbox
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        />
+      </IcCheckboxGroup>
+      <br />
+      <IcCheckboxGroup
+        id="field-4"
+        label="This is a label"
+        name="4"
+        helperText="Default aria-live behaviour (i.e. 'polite')"
+        validationStatus={showErrors2 ? "error" : ""}
+        validationText={showErrors2 ? "Fourth error message" : ""}
+      >
+        <IcCheckbox value="valueName1" label="Unselected / Default" />
+        <IcCheckbox value="valueName2" label="Selected / Default" selected />
+        <IcCheckbox
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        />
+      </IcCheckboxGroup>
+      <br />
+      <IcButton onClick={() => setShowErrors2(!showErrors2)}>
+        Toggle errors
+      </IcButton>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </>
+  );
+};
+
 const defaultArgs = {
   additionalFieldDisplay: "dynamic",
   additionalFieldSlot: "additional-field",
@@ -320,6 +415,7 @@ const defaultArgs = {
   nativeIndeterminateBehaviour: false,
   required: false,
   size: "medium",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   validationText: "",
   value: "checkbox-value",
@@ -599,6 +695,11 @@ export const Validation = {
   name: "Validation",
 };
 
+export const AriaLiveBehaviour = {
+  render: () => <AriaLiveBehaviourExample />,
+  name: "Aria-live behaviour",
+};
+
 export const Form_ = {
   render: () => <Form />,
   name: "Form",
@@ -646,6 +747,7 @@ export const Playground = {
         helperText={args.helperText}
         hideLabel={args.hideGroupLabel}
         required={args.required}
+        validationAriaLive={args.validationAriaLive}
         validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
         theme={args.theme}
@@ -698,6 +800,14 @@ export const Playground = {
 
     size: {
       options: ["medium", "large", "small"],
+
+      control: {
+        type: "inline-radio",
+      },
+    },
+
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
 
       control: {
         type: "inline-radio",
