@@ -16,6 +16,7 @@ import {
   removeDisabledFalse,
 } from "../../utils/helpers";
 import {
+  IcAriaLive,
   IcInformationStatusOrEmpty,
   IcSizes,
   IcThemeMode,
@@ -107,6 +108,11 @@ export class CheckboxGroup {
   }
 
   /**
+   * The value of the `aria-live` attribute on the validation message.
+   */
+  @Prop() validationAriaLive: IcAriaLive = "polite";
+
+  /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
@@ -170,6 +176,7 @@ export class CheckboxGroup {
       required,
       size,
       theme,
+      validationAriaLive,
       validationStatus,
       validationText,
     } = this;
@@ -228,17 +235,15 @@ export class CheckboxGroup {
             <slot></slot>
           </div>
         </fieldset>
-        {showValidation && (
-          <ic-input-validation
-            class={{
-              "show-validation": showValidation,
-            }}
-            for={name}
-            ariaLiveMode="polite"
-            status={validationStatus}
-            message={validationText}
-          ></ic-input-validation>
-        )}
+        <ic-input-validation
+          class={{
+            "show-validation": showValidation,
+          }}
+          for={name}
+          ariaLiveMode={validationAriaLive}
+          status={showValidation ? validationStatus : ""}
+          message={showValidation ? validationText : ""}
+        ></ic-input-validation>
       </Host>
     );
   }

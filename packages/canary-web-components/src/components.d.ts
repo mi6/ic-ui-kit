@@ -8,14 +8,14 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 import { IcThemeMode } from "@ukic/web-components";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-import { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
+import { IcAriaLive, IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcThemeMode } from "@ukic/web-components";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-export { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
+export { IcAriaLive, IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -330,6 +330,10 @@ export namespace Components {
         "theme"?: IcThemeMode1;
         "triggerIcChange": (d: Date | null) => Promise<void>;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
         "validationStatus": IcInformationStatusOrEmpty;
@@ -451,6 +455,10 @@ export namespace Components {
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode1;
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
@@ -651,6 +659,10 @@ export namespace Components {
          */
         "timePeriod": "12" | "24";
         "triggerIcChange": (t: Date | null) => Promise<void>;
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in time validation.
          */
@@ -1310,6 +1322,10 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode1;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -1435,6 +1451,10 @@ declare namespace LocalJSX {
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode1;
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
@@ -1657,6 +1677,10 @@ declare namespace LocalJSX {
           * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
          */
         "timePeriod"?: "12" | "24";
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in time validation.
          */

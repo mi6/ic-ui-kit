@@ -111,6 +111,15 @@ describe("ic-date-input component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with validation-aria-live", async () => {
+    const page = await newSpecPage({
+      components: [DateInput, IcInputLabel],
+      html: `<ic-date-input label="Test label" validation-status="error" validation-text="Test error text" validation-aria-live="assertive"></ic-date-input>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render with open calendar button", async () => {
     const page = await newSpecPage({
       components: [DateInput, IcInputLabel, IcButton],

@@ -2470,6 +2470,45 @@
           "setter": false
         },
         {
+          "name": "validationAriaLive",
+          "type": "\"assertive\" | \"off\" | \"polite\"",
+          "complexType": {
+            "original": "IcAriaLive",
+            "resolved": "\"assertive\" | \"off\" | \"polite\"",
+            "references": {
+              "IcAriaLive": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAriaLive"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "validation-aria-live",
+          "reflectToAttr": false,
+          "docs": "The value of the `aria-live` attribute on the validation message.",
+          "docsTags": [],
+          "default": "\"polite\"",
+          "values": [
+            {
+              "value": "assertive",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "polite",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -3527,6 +3566,45 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "validationAriaLive",
+          "type": "\"assertive\" | \"off\" | \"polite\"",
+          "complexType": {
+            "original": "IcAriaLive",
+            "resolved": "\"assertive\" | \"off\" | \"polite\"",
+            "references": {
+              "IcAriaLive": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAriaLive"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "validation-aria-live",
+          "reflectToAttr": false,
+          "docs": "The value of the `aria-live` attribute on the validation message.",
+          "docsTags": [],
+          "default": "\"polite\"",
+          "values": [
+            {
+              "value": "assertive",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "polite",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -5167,6 +5245,45 @@
           "setter": false
         },
         {
+          "name": "validationAriaLive",
+          "type": "\"assertive\" | \"off\" | \"polite\"",
+          "complexType": {
+            "original": "IcAriaLive",
+            "resolved": "\"assertive\" | \"off\" | \"polite\"",
+            "references": {
+              "IcAriaLive": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAriaLive"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "validation-aria-live",
+          "reflectToAttr": false,
+          "docs": "The value of the `aria-live` attribute on the validation message.",
+          "docsTags": [],
+          "default": "\"polite\"",
+          "values": [
+            {
+              "value": "assertive",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "polite",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -6228,6 +6345,11 @@
     },
     "src/utils/types.ts::IcSizes": {
       "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcAriaLive": {
+      "declaration": "export type IcAriaLive = \"polite\" | \"assertive\" | \"off\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

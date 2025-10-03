@@ -27,6 +27,7 @@ import {
   removeDisabledFalse,
 } from "../../utils/helpers";
 import {
+  IcAriaLive,
   IcWeekDays,
   IcShortDayNames,
   IcDateInputMonths,
@@ -76,6 +77,7 @@ interface IcDateInputProps {
   showCalendarButton?: boolean;
   size?: IcSizes;
   value?: string | Date | null;
+  validationAriaLive?: IcAriaLive;
   validationStatus?: IcInformationStatusOrEmpty;
   validationText?: string;
 }
@@ -315,6 +317,11 @@ export class DatePicker {
    * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
    */
   @Prop() theme?: IcThemeMode = "inherit";
+
+  /**
+   * The value of the `aria-live` attribute on the validation message.
+   */
+  @Prop() validationAriaLive: IcAriaLive = "polite";
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
@@ -1277,6 +1284,7 @@ export class DatePicker {
       showCalendarButton: true,
       value: this.value,
       emitDatePartChange: this.emitDatePartChange,
+      validationAriaLive: this.validationAriaLive,
     };
 
     if (this.dateFormat !== DEFAULT_DATE_FORMAT) {

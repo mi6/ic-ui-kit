@@ -383,6 +383,7 @@ const defaultArgs = {
   size: "medium",
   startOfWeek: 1,
   theme: "inherit",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   validationText: "",
   value: "",
@@ -432,6 +433,7 @@ export const Playground = {
         size={args.size}
         startOfWeek={args.startOfWeek}
         theme={args.theme}
+        validationAriaLive={args.validationAriaLive}
         validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
         value={value}
@@ -443,6 +445,13 @@ export const Playground = {
   argTypes: {
     dateFormat: {
       options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
+
       control: {
         type: "inline-radio",
       },

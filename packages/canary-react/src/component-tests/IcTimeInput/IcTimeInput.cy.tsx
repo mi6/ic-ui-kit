@@ -455,7 +455,11 @@ describe("IcTimeInput e2e tests", () => {
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).type("00");
 
-      cy.get(TIME_INPUT).shadow().find(".statustext").should(NOT_EXIST);
+      cy.get(TIME_INPUT)
+        .shadow()
+        .find(STATUS_TEXT_SPAN)
+        .eq(0)
+        .should(HAVE_TEXT, "");
     });
   });
 });
