@@ -161,7 +161,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
 
-    cy.findShadowEl(DATE_INPUT, "ic-input-validation").should(NOT_EXIST);
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).eq(0).should(HAVE_TEXT, "");
   });
 
   it("should remove validation status (until now) when disabled date is updated", () => {
@@ -178,7 +178,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3000");
 
-    cy.findShadowEl(DATE_INPUT, "ic-input-validation").should(NOT_EXIST);
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).eq(0).should(HAVE_TEXT, "");
   });
 
   it("should increase day when switching between input and arrow up", () => {
