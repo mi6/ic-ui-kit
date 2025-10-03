@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-accordion/ic-accordion.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion",
-      "readme": "# ic-accordion\n\n\n",
+      "readme": "# ic-accordion\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -268,7 +268,7 @@
       "filePath": "src/components/ic-accordion-group/ic-accordion-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion-group",
-      "readme": "# ic-accordion-title\n\n\n",
+      "readme": "# ic-accordion-title\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -538,7 +538,7 @@
       "filePath": "src/components/ic-action-chip/ic-action-chip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-action-chip",
-      "readme": "# ic-action-chip\n\n\n",
+      "readme": "# ic-action-chip\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -2155,7 +2155,7 @@
       "filePath": "src/components/ic-breadcrumb/ic-breadcrumb.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb",
-      "readme": "# ic-breadcrumb\n\n\n",
+      "readme": "# ic-breadcrumb\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -2292,7 +2292,7 @@
       "filePath": "src/components/ic-breadcrumb-group/ic-breadcrumb-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb-group",
-      "readme": "# ic-breadcrumb-group\n\n\n",
+      "readme": "# ic-breadcrumb-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3584,7 +3584,7 @@
       "filePath": "src/components/ic-card-vertical/ic-card-vertical.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-vertical",
-      "readme": "# ic-card-vertical\n\n\n",
+      "readme": "# ic-card-vertical\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -4137,7 +4137,7 @@
       "filePath": "src/components/ic-checkbox/ic-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox",
-      "readme": "# ic-checkbox\n\n\n",
+      "readme": "# ic-checkbox\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -4595,7 +4595,7 @@
       "filePath": "src/components/ic-checkbox-group/ic-checkbox-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox-group",
-      "readme": "# ic-checkbox-group\n\n\n",
+      "readme": "# ic-checkbox-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -4957,7 +4957,7 @@
       "filePath": "src/components/ic-chip/ic-chip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-chip",
-      "readme": "# ic-chip\n\n\n",
+      "readme": "# ic-chip\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5507,6 +5507,179 @@
       }
     },
     {
+      "filePath": "src/components/ic-combobox/ic-combobox.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-combobox",
+      "readme": "# ic-select-new\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "emptyOptionListText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "empty-option-list-text",
+          "reflectToAttr": false,
+          "docs": "The text displayed when there are no options in the option list.",
+          "docsTags": [],
+          "default": "\"No results found\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "loadingLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading-label",
+          "reflectToAttr": false,
+          "docs": "The message displayed whilst the options are being loaded externally.",
+          "docsTags": [],
+          "default": "\"Loading...\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "options",
+          "type": "IcMenuOption[]",
+          "complexType": {
+            "original": "IcMenuOption[]",
+            "resolved": "IcMenuOption[]",
+            "references": {
+              "IcMenuOption": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcMenuOption"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The possible selection options.",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "IcMenuOption[]"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "searchable",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "searchable",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "keyup",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "ic-select-new"
+      ],
+      "dependencies": [
+        "ic-input-container",
+        "ic-input-label",
+        "ic-input-component-container",
+        "ic-listbox"
+      ],
+      "dependencyGraph": {
+        "ic-combobox": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-listbox"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-listbox": [
+          "ic-typography"
+        ],
+        "ic-select-new": [
+          "ic-combobox"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-list",
@@ -5658,7 +5831,7 @@
       "filePath": "src/components/ic-data-row/ic-data-row.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-row",
-      "readme": "# ic-data-row\n\n\n",
+      "readme": "# ic-data-row\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -6728,7 +6901,7 @@
       "filePath": "src/components/ic-empty-state/ic-empty-state.tsx",
       "encapsulation": "shadow",
       "tag": "ic-empty-state",
-      "readme": "# ic-empty-state\n\n\n",
+      "readme": "# ic-empty-state\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -7026,7 +7199,7 @@
       "filePath": "src/components/ic-footer/ic-footer.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer",
-      "readme": "# ic-footer\n\n\n",
+      "readme": "# ic-footer\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -7293,7 +7466,7 @@
       "filePath": "src/components/ic-footer-link/ic-footer-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link",
-      "readme": "# ic-footer-link\n\n\n",
+      "readme": "# ic-footer-link\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7529,7 +7702,7 @@
       "filePath": "src/components/ic-footer-link-group/ic-footer-link-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link-group",
-      "readme": "# ic-footer-link-group\n\n\n",
+      "readme": "# ic-footer-link-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7593,7 +7766,7 @@
       "filePath": "src/components/ic-hero/ic-hero.tsx",
       "encapsulation": "shadow",
       "tag": "ic-hero",
-      "readme": "# ic-hero\n\n\n",
+      "readme": "# ic-hero\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -7943,7 +8116,7 @@
       "filePath": "src/components/ic-horizontal-scroll/ic-horizontal-scroll.tsx",
       "encapsulation": "shadow",
       "tag": "ic-horizontal-scroll",
-      "readme": "# ic-horizontal-scroll\n\n\n",
+      "readme": "# ic-horizontal-scroll\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8346,16 +8519,24 @@
       ],
       "parts": [],
       "dependents": [
+        "ic-combobox",
         "ic-search-bar",
         "ic-select",
+        "ic-select-new",
         "ic-text-field"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ic-combobox": [
+          "ic-input-component-container"
+        ],
         "ic-search-bar": [
           "ic-input-component-container"
         ],
         "ic-select": [
+          "ic-input-component-container"
+        ],
+        "ic-select-new": [
           "ic-input-component-container"
         ],
         "ic-text-field": [
@@ -8434,16 +8615,24 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "ic-combobox",
         "ic-search-bar",
         "ic-select",
+        "ic-select-new",
         "ic-text-field"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ic-combobox": [
+          "ic-input-container"
+        ],
         "ic-search-bar": [
           "ic-input-container"
         ],
         "ic-select": [
+          "ic-input-container"
+        ],
+        "ic-select-new": [
           "ic-input-container"
         ],
         "ic-text-field": [
@@ -8669,9 +8858,11 @@
       "parts": [],
       "dependents": [
         "ic-checkbox-group",
+        "ic-combobox",
         "ic-radio-group",
         "ic-search-bar",
         "ic-select",
+        "ic-select-new",
         "ic-switch",
         "ic-text-field"
       ],
@@ -8685,6 +8876,9 @@
         "ic-checkbox-group": [
           "ic-input-label"
         ],
+        "ic-combobox": [
+          "ic-input-label"
+        ],
         "ic-radio-group": [
           "ic-input-label"
         ],
@@ -8692,6 +8886,9 @@
           "ic-input-label"
         ],
         "ic-select": [
+          "ic-input-label"
+        ],
+        "ic-select-new": [
           "ic-input-label"
         ],
         "ic-switch": [
@@ -9410,7 +9607,7 @@
       "filePath": "src/components/ic-link/ic-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-link",
-      "readme": "# ic-link\n\n\n",
+      "readme": "# ic-link\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -9743,6 +9940,178 @@
         ],
         "ic-skip-link": [
           "ic-link"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/ic-listbox/ic-listbox.tsx",
+      "encapsulation": "scoped",
+      "tag": "ic-listbox",
+      "readme": "# ic-menu\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "activedescendantIndex",
+          "type": "null | number",
+          "complexType": {
+            "original": "number | null",
+            "resolved": "null | number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "activedescendant-index",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "anchorEl",
+          "type": "HTMLElement | undefined",
+          "complexType": {
+            "original": "HTMLElement",
+            "resolved": "HTMLElement | undefined",
+            "references": {
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The reference to an anchor element the menu will position itself from when rendered.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "HTMLElement"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "listboxId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "listbox-id",
+          "reflectToAttr": false,
+          "docs": "The ID of the menu.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "If `true`, the menu will be displayed open.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": true,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "options",
+          "type": "IcMenuOption[]",
+          "complexType": {
+            "original": "IcMenuOption[]",
+            "resolved": "IcMenuOption[]",
+            "references": {
+              "IcMenuOption": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcMenuOption"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The possible menu selection options.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "IcMenuOption[]"
+            }
+          ],
+          "optional": false,
+          "required": true,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-menu",
+          "annotation": "prop",
+          "docs": "z-index of menu"
+        }
+      ],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "ic-combobox",
+        "ic-select-new"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-listbox": [
+          "ic-typography"
+        ],
+        "ic-combobox": [
+          "ic-listbox"
+        ],
+        "ic-select-new": [
+          "ic-listbox"
         ]
       }
     },
@@ -10623,7 +10992,7 @@
       "filePath": "src/components/ic-menu-group/ic-menu-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-group",
-      "readme": "# ic-menu-group\n\n\n",
+      "readme": "# ic-menu-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10675,7 +11044,7 @@
       "filePath": "src/components/ic-menu-item/ic-menu-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-item",
-      "readme": "# ic-menu-item\n\n\n",
+      "readme": "# ic-menu-item\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -11114,7 +11483,7 @@
       "filePath": "src/components/ic-navigation-button/ic-navigation-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-button",
-      "readme": "# ic-navigation-button\n\n\n",
+      "readme": "# ic-navigation-button\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -12610,7 +12979,7 @@
       "filePath": "src/components/ic-pagination/ic-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination",
-      "readme": "# ic-pagination\n\n\n",
+      "readme": "# ic-pagination\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -13065,7 +13434,7 @@
       "filePath": "src/components/ic-pagination-item/ic-pagination-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-item",
-      "readme": "# ic-pagination-item\n\n\n",
+      "readme": "# ic-pagination-item\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -13553,7 +13922,7 @@
       "filePath": "src/components/ic-radio-group/ic-radio-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-radio-group",
-      "readme": "# ic-radio-group\n\n\n",
+      "readme": "# ic-radio-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -13972,7 +14341,7 @@
       "filePath": "src/components/ic-radio-option/ic-radio-option.tsx",
       "encapsulation": "none",
       "tag": "ic-radio-option",
-      "readme": "# ic-radio-option\n\n\n",
+      "readme": "# ic-radio-option\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -15703,7 +16072,7 @@
       "filePath": "src/components/ic-section-container/ic-section-container.tsx",
       "encapsulation": "shadow",
       "tag": "ic-section-container",
-      "readme": "# ic-section-container\n\n\n",
+      "readme": "# ic-section-container\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16892,6 +17261,863 @@
       }
     },
     {
+      "filePath": "src/components/ic-select-new/ic-select-new.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-select-new",
+      "readme": "# ic-select-new\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "debounce",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "debounce",
+          "reflectToAttr": false,
+          "docs": "The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disableAutoFiltering",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-auto-filtering",
+          "reflectToAttr": false,
+          "docs": "If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If `true`, the disabled state will be set.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "emptyOptionListText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "empty-option-list-text",
+          "reflectToAttr": false,
+          "docs": "The text displayed when there are no options in the option list.",
+          "docsTags": [],
+          "default": "\"No results found\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "form",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form",
+          "reflectToAttr": false,
+          "docs": "The <form> element to associate the select with.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "full-width",
+          "reflectToAttr": false,
+          "docs": "If `true`, the select will fill the width of the container.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "The helper text that will be displayed for additional field guidance.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "hideLabel",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-label",
+          "reflectToAttr": false,
+          "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "includeDescriptionsInSearch",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "include-descriptions-in-search",
+          "reflectToAttr": false,
+          "docs": "If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "includeGroupTitlesInSearch",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "include-group-titles-in-search",
+          "reflectToAttr": false,
+          "docs": "If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label for the select.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "If `true`, the loading state will be triggered when fetching options asynchronously.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "loadingErrorLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading-error-label",
+          "reflectToAttr": false,
+          "docs": "The message displayed when external loading times out.",
+          "docsTags": [],
+          "default": "\"Loading Error\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "loadingLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading-label",
+          "reflectToAttr": false,
+          "docs": "The message displayed whilst the options are being loaded externally.",
+          "docsTags": [],
+          "default": "\"Loading...\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": false,
+          "docs": "If `true`, multiple options can be selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The name of the control, which is submitted with the form data.",
+          "docsTags": [],
+          "default": "this.inputId",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "options",
+          "type": "IcMenuOption[]",
+          "complexType": {
+            "original": "IcMenuOption[]",
+            "resolved": "IcMenuOption[]",
+            "references": {
+              "IcMenuOption": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcMenuOption"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The possible selection options.",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "IcMenuOption[]"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "The placeholder value to be displayed.",
+          "docsTags": [],
+          "default": "\"Select an option\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "If `true`, the readonly state will be set.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If `true`, the select will require a value.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "searchMatchPosition",
+          "type": "\"anywhere\" | \"start\"",
+          "complexType": {
+            "original": "IcSearchMatchPositions",
+            "resolved": "\"anywhere\" | \"start\"",
+            "references": {
+              "IcSearchMatchPositions": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSearchMatchPositions"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "search-match-position",
+          "reflectToAttr": false,
+          "docs": "Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.",
+          "docsTags": [],
+          "default": "\"anywhere\"",
+          "values": [
+            {
+              "value": "anywhere",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "searchable",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "searchable",
+          "reflectToAttr": false,
+          "docs": "If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "selectOnEnter",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "select-on-enter",
+          "reflectToAttr": false,
+          "docs": "If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showClearButton",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-clear-button",
+          "reflectToAttr": false,
+          "docs": "If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the select.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "timeout",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "timeout",
+          "reflectToAttr": false,
+          "docs": "If using external filtering, set a timeout for when loading takes too long.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "validationStatus",
+          "type": "\"\" | \"error\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "IcInformationStatusOrEmpty",
+            "resolved": "\"\" | \"error\" | \"success\" | \"warning\"",
+            "references": {
+              "IcInformationStatusOrEmpty": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcInformationStatusOrEmpty"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "validation-status",
+          "reflectToAttr": false,
+          "docs": "The validation status - e.g. 'error' | 'warning' | 'success'.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "validationText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "validation-text",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "null | string | string[]",
+          "complexType": {
+            "original": "string | string[] | null",
+            "resolved": "null | string | string[]",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of the select, reflected by the value of the currently selected option.\r\nFor the searchable variant, the value is also reflected by the user input.\r\nFor the multi-select variant, the value must be an array of option values.",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string[]"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-menu",
+          "annotation": "prop",
+          "docs": "z-index of select menu"
+        },
+        {
+          "name": "--input-width",
+          "annotation": "prop",
+          "docs": "Width of the input field"
+        },
+        {
+          "name": "--menu-width",
+          "annotation": "prop",
+          "docs": "Width of the dropdown menu"
+        }
+      ],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography",
+        "ic-combobox",
+        "ic-input-container",
+        "ic-input-label",
+        "ic-input-component-container",
+        "ic-listbox"
+      ],
+      "dependencyGraph": {
+        "ic-select-new": [
+          "ic-typography",
+          "ic-combobox",
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-listbox"
+        ],
+        "ic-combobox": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-listbox"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-listbox": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-side-navigation/ic-side-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-side-navigation",
@@ -17301,8 +18527,8 @@
       "filePath": "src/components/ic-skeleton/ic-skeleton.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skeleton",
-      "readme": "# ic-skeleton\n\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \n",
-      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
+      "readme": "# ic-skeleton\r\n\r\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \r\n\r",
+      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -17642,7 +18868,7 @@
       "filePath": "src/components/ic-status-tag/ic-status-tag.tsx",
       "encapsulation": "shadow",
       "tag": "ic-status-tag",
-      "readme": "# ic-status-tag\n\n\n",
+      "readme": "# ic-status-tag\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17907,7 +19133,7 @@
       "filePath": "src/components/ic-step/ic-step.tsx",
       "encapsulation": "shadow",
       "tag": "ic-step",
-      "readme": "# ic-step\n\n\n",
+      "readme": "# ic-step\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -18073,7 +19299,7 @@
       "filePath": "src/components/ic-stepper/ic-stepper.tsx",
       "encapsulation": "shadow",
       "tag": "ic-stepper",
-      "readme": "# ic-stepper\n\nThis is a wrapper component to be placed around one or more ic-step components\n",
+      "readme": "# ic-stepper\r\n\r\nThis is a wrapper component to be placed around one or more ic-step components\r\n\r",
       "docs": "This is a wrapper component to be placed around one or more ic-step components",
       "docsTags": [],
       "usage": {},
@@ -18265,7 +19491,7 @@
       "filePath": "src/components/ic-switch/ic-switch.tsx",
       "encapsulation": "shadow",
       "tag": "ic-switch",
-      "readme": "# ic-switch\n\n\n",
+      "readme": "# ic-switch\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -18652,7 +19878,7 @@
       "filePath": "src/components/ic-tab/ic-tab.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab",
-      "readme": "# ic-tab\n\n\n",
+      "readme": "# ic-tab\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -18991,7 +20217,7 @@
       "filePath": "src/components/ic-tab-group/ic-tab-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-group",
-      "readme": "# ic-tab-group\n\n\n",
+      "readme": "# ic-tab-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -19081,7 +20307,7 @@
       "filePath": "src/components/ic-tab-panel/ic-tab-panel.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-panel",
-      "readme": "# ic-tab-panel\n\n\n",
+      "readme": "# ic-tab-panel\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -20332,7 +21558,7 @@
       "filePath": "src/components/ic-theme/ic-theme.tsx",
       "encapsulation": "none",
       "tag": "ic-theme",
-      "readme": "# ic-theme\n\n\n",
+      "readme": "# ic-theme\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -20779,7 +22005,7 @@
       "filePath": "src/components/ic-toast-region/ic-toast-region.tsx",
       "encapsulation": "none",
       "tag": "ic-toast-region",
-      "readme": "# ic-toast-region\n\n\n",
+      "readme": "# ic-toast-region\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -20835,7 +22061,7 @@
       "filePath": "src/components/ic-toggle-button/ic-toggle-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button",
-      "readme": "# ic-toggle-button\n\n\n",
+      "readme": "# ic-toggle-button\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -21296,7 +22522,7 @@
       "filePath": "src/components/ic-toggle-button-group/ic-toggle-button-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button-group",
-      "readme": "# ic-toggle-button-group\n\n\n",
+      "readme": "# ic-toggle-button-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -22124,7 +23350,7 @@
       "filePath": "src/components/ic-top-navigation/ic-top-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-top-navigation",
-      "readme": "# ic-top-navigation\n\n\n",
+      "readme": "# ic-top-navigation\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -22542,7 +23768,7 @@
       "filePath": "src/components/ic-typography/ic-typography.tsx",
       "encapsulation": "shadow",
       "tag": "ic-typography",
-      "readme": "# ic-typography\n\n\n",
+      "readme": "# ic-typography\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -22872,6 +24098,7 @@
         "ic-hero",
         "ic-input-label",
         "ic-input-validation",
+        "ic-listbox",
         "ic-loading-indicator",
         "ic-menu",
         "ic-menu-group",
@@ -22884,6 +24111,7 @@
         "ic-popover-menu",
         "ic-radio-option",
         "ic-select",
+        "ic-select-new",
         "ic-side-navigation",
         "ic-status-tag",
         "ic-step",
@@ -22955,6 +24183,9 @@
         "ic-input-validation": [
           "ic-typography"
         ],
+        "ic-listbox": [
+          "ic-typography"
+        ],
         "ic-loading-indicator": [
           "ic-typography"
         ],
@@ -22989,6 +24220,9 @@
           "ic-typography"
         ],
         "ic-select": [
+          "ic-typography"
+        ],
+        "ic-select-new": [
           "ic-typography"
         ],
         "ic-side-navigation": [
@@ -23169,15 +24403,15 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarSearchModes": {
-      "declaration": "export type IcSearchBarSearchModes = \"navigation\" | \"query\";",
-      "docstring": "",
-      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
-    },
     "src/utils/types.ts::IcMenuOption": {
       "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarSearchModes": {
+      "declaration": "export type IcSearchBarSearchModes = \"navigation\" | \"query\";",
+      "docstring": "",
+      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail": {
       "declaration": "export interface IcOptionSelectEventDetail {\n  value: string | undefined;\n  label?: string;\n  optionId?: string;\n}",

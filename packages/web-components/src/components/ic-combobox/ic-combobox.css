@@ -1,0 +1,26 @@
+.listbox {
+  text-decoration: none;
+  list-style-type: none;
+  border-radius: 1px;
+  background-color: var(
+    --menu-bg-color,
+    var(--ic-menu-list-option-background-color)
+  );
+  visibility: hidden;
+  max-height: 0;
+  overflow-y: hidden;
+}
+
+.listbox-open {
+  visibility: visible;
+  max-height: calc(var(--ic-space-xl) * 10 + var(--ic-space-xxxs));
+}
+
+.listbox-option:hover {
+    background-color: var(--ic-popover-background-hover);
+}
+
+.listbox-option:focus,
+.listbox-option:focus-visible {
+    background-color: var(--ic-popover-background-focus);;
+}
