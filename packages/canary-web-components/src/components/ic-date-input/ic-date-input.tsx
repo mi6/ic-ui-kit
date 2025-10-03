@@ -12,6 +12,7 @@ import {
   Watch,
 } from "@stencil/core";
 import {
+  IcAriaLive,
   IcInformationStatus,
   IcInformationStatusOrEmpty,
   IcSizes,
@@ -309,6 +310,11 @@ export class DateInput {
    * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    */
   @Prop({ mutable: true }) value?: string | Date | null | undefined = "";
+
+  /**
+   * The value of the `aria-live` attribute on the validation message.
+   */
+  @Prop() validationAriaLive: IcAriaLive = "polite";
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
@@ -1614,6 +1620,7 @@ export class DateInput {
       showCalendarButton,
       size,
       theme,
+      validationAriaLive,
     } = this;
 
     const hasCustomValidation = !isEmptyString(this.validationStatus);
@@ -1734,15 +1741,14 @@ export class DateInput {
               role="status"
             ></span>
           </span>
-          {(hasCustomValidation || !isEmptyString(this.invalidDateText)) && (
-            <ic-input-validation
-              status={validationStatus}
-              message={
-                hasCustomValidation ? this.validationText : this.invalidDateText
-              }
-              for={inputId}
-            ></ic-input-validation>
-          )}
+          <ic-input-validation
+            status={validationStatus}
+            message={
+              hasCustomValidation ? this.validationText : this.invalidDateText
+            }
+            for={inputId}
+            ariaLiveMode={validationAriaLive}
+          ></ic-input-validation>
         </ic-input-container>
       </Host>
     );

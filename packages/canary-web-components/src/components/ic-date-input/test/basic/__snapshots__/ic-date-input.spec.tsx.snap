@@ -8,24 +8,24 @@ exports[`ic-date-input component date format conversion should handle US format 
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-13" id="ic-date-input-13-label">
+          <label htmlfor="ic-date-input-14" id="ic-date-input-14-label">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
-          <span id="ic-date-input-13-helper-text">
+          <span id="ic-date-input-14-helper-text">
             Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-13-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-14-screen-reader-info">
         invalid data, Use format DD/MM/YYYY.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-13-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-14-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-13-label ic-date-input-13-screen-reader-info ic-date-input-13-validation-text ic-date-input-13-selected-date-info ic-date-input-13-assistive-hint" id="ic-date-input-13" role="group" size="medium" validationstatus="error">
+      <ic-input-component-container aria-labelledby="ic-date-input-14-label ic-date-input-14-screen-reader-info ic-date-input-14-validation-text ic-date-input-14-selected-date-info ic-date-input-14-assistive-hint" id="ic-date-input-14" role="group" size="medium" validationstatus="error">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
@@ -41,15 +41,15 @@ exports[`ic-date-input component date format conversion should handle US format 
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-13-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-14-selected-date-info">
         <span role="status">
           Selected date: Friday, 7 February 2003
         </span>
       </span>
-      <ic-input-validation for="ic-date-input-13" message="Please enter a valid date." status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-14" message="Please enter a valid date." status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-13" type="hidden" value="2003-02-07T00:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-14" type="hidden" value="2003-02-07T00:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -61,24 +61,24 @@ exports[`ic-date-input component date format conversion should handle US format 
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-14" id="ic-date-input-14-label">
+          <label htmlfor="ic-date-input-15" id="ic-date-input-15-label">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
-          <span id="ic-date-input-14-helper-text">
+          <span id="ic-date-input-15-helper-text">
             Use format MM/DD/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-14-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-15-screen-reader-info">
         Use format MM/DD/YYYY.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-14-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-15-assistive-hint">
         Type or use the up and down arrow keys to change the values for the month, day, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-14-label ic-date-input-14-screen-reader-info  ic-date-input-14-selected-date-info ic-date-input-14-assistive-hint" id="ic-date-input-14" role="group" size="medium" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-15-label ic-date-input-15-screen-reader-info  ic-date-input-15-selected-date-info ic-date-input-15-assistive-hint" id="ic-date-input-15" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
@@ -94,14 +94,15 @@ exports[`ic-date-input component date format conversion should handle US format 
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-14-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-15-selected-date-info">
         <span role="status">
           Selected date: Thursday, 26 July 2001
         </span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-15" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-14" type="hidden" value="2001-07-26T00:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-15" type="hidden" value="2001-07-25T23:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -113,24 +114,24 @@ exports[`ic-date-input component date format conversion should handle US format 
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-15" id="ic-date-input-15-label">
+          <label htmlfor="ic-date-input-16" id="ic-date-input-16-label">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
-          <span id="ic-date-input-15-helper-text">
+          <span id="ic-date-input-16-helper-text">
             Use format YYYY/MM/DD
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-15-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-16-screen-reader-info">
         invalid data, Use format YYYY/MM/DD.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-15-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-16-assistive-hint">
         Type or use the up and down arrow keys to change the values for the year, month, and day.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-15-label ic-date-input-15-screen-reader-info ic-date-input-15-validation-text ic-date-input-15-selected-date-info ic-date-input-15-assistive-hint" id="ic-date-input-15" role="group" size="medium" validationstatus="error">
+      <ic-input-component-container aria-labelledby="ic-date-input-16-label ic-date-input-16-screen-reader-info ic-date-input-16-validation-text ic-date-input-16-selected-date-info ic-date-input-16-assistive-hint" id="ic-date-input-16" role="group" size="medium" validationstatus="error">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
@@ -146,15 +147,15 @@ exports[`ic-date-input component date format conversion should handle US format 
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-15-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-16-selected-date-info">
         <span role="status">
           Selected date: Friday, 7 February 2003
         </span>
       </span>
-      <ic-input-validation for="ic-date-input-15" message="Please enter a valid date." status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-16" message="Please enter a valid date." status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-15" type="hidden" value="2003-02-07T00:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-16" type="hidden" value="2003-02-07T00:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -166,24 +167,24 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-16" id="ic-date-input-16-label">
+          <label htmlfor="ic-date-input-17" id="ic-date-input-17-label">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
-          <span id="ic-date-input-16-helper-text">
+          <span id="ic-date-input-17-helper-text">
             Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-16-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-17-screen-reader-info">
         Use format DD/MM/YYYY.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-16-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-17-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-16-label ic-date-input-16-screen-reader-info  ic-date-input-16-selected-date-info ic-date-input-16-assistive-hint" id="ic-date-input-16" role="group" size="medium" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-17-label ic-date-input-17-screen-reader-info  ic-date-input-17-selected-date-info ic-date-input-17-assistive-hint" id="ic-date-input-17" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
@@ -199,14 +200,15 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-16-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-17-selected-date-info">
         <span role="status">
           Selected date: Sunday, 7 October 2001
         </span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-17" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-16" type="hidden" value="2001-10-07T00:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-17" type="hidden" value="2001-10-06T23:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -218,24 +220,24 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-17" id="ic-date-input-17-label">
+          <label htmlfor="ic-date-input-18" id="ic-date-input-18-label">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
-          <span id="ic-date-input-17-helper-text">
+          <span id="ic-date-input-18-helper-text">
             Use format MM/DD/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-17-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-18-screen-reader-info">
         Use format MM/DD/YYYY.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-17-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-18-assistive-hint">
         Type or use the up and down arrow keys to change the values for the month, day, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-17-label ic-date-input-17-screen-reader-info  ic-date-input-17-selected-date-info ic-date-input-17-assistive-hint" id="ic-date-input-17" role="group" size="medium" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-18-label ic-date-input-18-screen-reader-info  ic-date-input-18-selected-date-info ic-date-input-18-assistive-hint" id="ic-date-input-18" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="month" aria-required="false" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
@@ -251,14 +253,15 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-17-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-18-selected-date-info">
         <span role="status">
           Selected date: Tuesday, 10 July 2001
         </span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-18" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-17" type="hidden" value="2001-07-10T00:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-18" type="hidden" value="2001-07-09T23:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -270,24 +273,24 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-18" id="ic-date-input-18-label">
+          <label htmlfor="ic-date-input-19" id="ic-date-input-19-label">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
-          <span id="ic-date-input-18-helper-text">
+          <span id="ic-date-input-19-helper-text">
             Use format YYYY/MM/DD
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-18-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-19-screen-reader-info">
         Use format YYYY/MM/DD.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-18-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-19-assistive-hint">
         Type or use the up and down arrow keys to change the values for the year, month, and day.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-18-label ic-date-input-18-screen-reader-info  ic-date-input-18-selected-date-info ic-date-input-18-assistive-hint" id="ic-date-input-18" role="group" size="medium" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-19-label ic-date-input-19-screen-reader-info  ic-date-input-19-selected-date-info ic-date-input-19-assistive-hint" id="ic-date-input-19" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="year" aria-required="false" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
@@ -303,14 +306,15 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-18-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-19-selected-date-info">
         <span role="status">
           Selected date: Sunday, 7 October 2001
         </span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-19" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-18" type="hidden" value="2001-10-07T00:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-19" type="hidden" value="2001-10-06T23:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -322,24 +326,24 @@ exports[`ic-date-input component date format conversion should handle single dig
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-12" id="ic-date-input-12-label">
+          <label htmlfor="ic-date-input-13" id="ic-date-input-13-label">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
-          <span id="ic-date-input-12-helper-text">
+          <span id="ic-date-input-13-helper-text">
             Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-12-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-13-screen-reader-info">
         Use format DD/MM/YYYY.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-12-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-13-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-12-label ic-date-input-12-screen-reader-info  ic-date-input-12-selected-date-info ic-date-input-12-assistive-hint" id="ic-date-input-12" role="group" size="medium" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-13-label ic-date-input-13-screen-reader-info  ic-date-input-13-selected-date-info ic-date-input-13-assistive-hint" id="ic-date-input-13" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="01">
@@ -355,14 +359,15 @@ exports[`ic-date-input component date format conversion should handle single dig
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-12-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-13-selected-date-info">
         <span role="status">
           Selected date: Monday, 1 January 2001
         </span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-13" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-12" type="hidden" value="2001-01-01T00:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-13" type="hidden" value="2001-01-01T00:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -410,6 +415,7 @@ exports[`ic-date-input component should render 1`] = `
       <span aria-live="polite" class="sr-only" id="ic-date-input-0-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-0" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-0" type="hidden" value="">
@@ -460,6 +466,7 @@ exports[`ic-date-input component should render as disabled 1`] = `
       <span aria-live="polite" class="sr-only" id="ic-date-input-2-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-2" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" disabled="" name="ic-date-input-2" type="hidden" value="">
@@ -513,6 +520,7 @@ exports[`ic-date-input component should render as required 1`] = `
       <span aria-live="polite" class="sr-only" id="ic-date-input-1-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-1" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-1" type="hidden" value="">
@@ -563,6 +571,7 @@ exports[`ic-date-input component should render as required: required-prop-false 
       <span aria-live="polite" class="sr-only" id="ic-date-input-1-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-1" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-1" type="hidden" value="">
@@ -613,6 +622,7 @@ exports[`ic-date-input component should render correctly with MM/DD/YYYY format 
       <span aria-live="polite" class="sr-only" id="ic-date-input-7-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-7" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-7" type="hidden" value="">
@@ -663,6 +673,7 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
       <span aria-live="polite" class="sr-only" id="ic-date-input-8-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-8" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-8" type="hidden" value="">
@@ -677,24 +688,24 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-11">
+          <label htmlfor="ic-date-input-12">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext" variant="caption">
-          <span id="ic-date-input-11-helper-text">
+          <span id="ic-date-input-12-helper-text">
             Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-11-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-12-screen-reader-info">
         Use format DD/MM/YYYY.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-11-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-12-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container disabled="" id="ic-date-input-11" role="group" size="medium" validationstatus="">
+      <ic-input-component-container disabled="" id="ic-date-input-12" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" aria-required="false" class="day-input fit-to-value" disabled="" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
@@ -730,14 +741,15 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-11-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-12-selected-date-info">
         <span role="status">
           Selected date: Sunday, 21 January 2001
         </span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-12" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" disabled="" name="ic-date-input-11" type="hidden" value="2001-01-21T00:00:00.000Z">
+  <input class="ic-input" disabled="" name="ic-date-input-12" type="hidden" value="2001-01-21T00:00:00.000Z">
 </ic-date-input>
 `;
 
@@ -791,6 +803,7 @@ exports[`ic-date-input component should render large 1`] = `
       <span aria-live="polite" class="sr-only" id="ic-date-input-4-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-4" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-4" type="hidden" value="">
@@ -847,6 +860,7 @@ exports[`ic-date-input component should render small 1`] = `
       <span aria-live="polite" class="sr-only" id="ic-date-input-3-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-3" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-3" type="hidden" value="">
@@ -897,6 +911,7 @@ exports[`ic-date-input component should render with custom helper text 1`] = `
       <span aria-live="polite" class="sr-only" id="ic-date-input-5-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-5" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-5" type="hidden" value="">
@@ -947,7 +962,7 @@ exports[`ic-date-input component should render with custom validation status and
       <span aria-live="polite" class="sr-only" id="ic-date-input-9-selected-date-info">
         <span role="status"></span>
       </span>
-      <ic-input-validation for="ic-date-input-9" message="Test error text" status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-9" message="Test error text" status="error"></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-9" type="hidden" value="">
@@ -994,6 +1009,7 @@ Use format DD/MM/YYYY.
       <span aria-live="polite" class="sr-only" id="ic-date-input-6-selected-date-info">
         <span role="status"></span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-6" status=""></ic-input-validation>
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-date-input-6" type="hidden" value="">
@@ -1008,24 +1024,24 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
         <!---->
         <slot name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-10" id="ic-date-input-10-label">
+          <label htmlfor="ic-date-input-11" id="ic-date-input-11-label">
             Test label
           </label>
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
-          <span id="ic-date-input-10-helper-text">
+          <span id="ic-date-input-11-helper-text">
             Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-10-screen-reader-info">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-11-screen-reader-info">
         Use format DD/MM/YYYY.
       </span>
-      <span aria-hidden="true" class="sr-only" id="ic-date-input-10-assistive-hint">
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-11-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-10-label ic-date-input-10-screen-reader-info  ic-date-input-10-selected-date-info ic-date-input-10-assistive-hint" id="ic-date-input-10" role="group" size="medium" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-11-label ic-date-input-11-screen-reader-info  ic-date-input-11-selected-date-info ic-date-input-11-assistive-hint" id="ic-date-input-11" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" aria-required="false" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
@@ -1061,13 +1077,65 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
           </div>
         </div>
       </ic-input-component-container>
-      <span aria-live="polite" class="sr-only" id="ic-date-input-10-selected-date-info">
+      <span aria-live="polite" class="sr-only" id="ic-date-input-11-selected-date-info">
         <span role="status">
           Selected date: Sunday, 21 January 2001
         </span>
       </span>
+      <ic-input-validation arialivemode="polite" for="ic-date-input-11" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-date-input-10" type="hidden" value="2001-01-21T00:00:00.000Z">
+  <input class="ic-input" name="ic-date-input-11" type="hidden" value="2001-01-21T00:00:00.000Z">
+</ic-date-input>
+`;
+
+exports[`ic-date-input component should render with validation-aria-live 1`] = `
+<ic-date-input label="Test label" validation-aria-live="assertive" validation-status="error" validation-text="Test error text">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label class="with-helper">
+        <!---->
+        <slot name="helper-text" slot="helper-text"></slot>
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-10" id="ic-date-input-10-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext helpertext-normal" variant="caption">
+          <span id="ic-date-input-10-helper-text">
+            Use format DD/MM/YYYY
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-10-screen-reader-info">
+        invalid data, Use format DD/MM/YYYY.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-10-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the day, month, and year.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-10-label ic-date-input-10-screen-reader-info ic-date-input-10-validation-text  ic-date-input-10-assistive-hint" id="ic-date-input-10" role="group" size="medium" validationstatus="error">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="day" aria-required="false" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
+            /
+            <input aria-label="month" aria-required="false" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+            /
+            <input aria-label="year" aria-required="false" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
+          </div>
+          <div class="action-buttons">
+            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-10-selected-date-info">
+        <span role="status"></span>
+      </span>
+      <ic-input-validation arialivemode="assertive" for="ic-date-input-10" message="Test error text" status="error"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-date-input-10" type="hidden" value="">
 </ic-date-input>
 `;
