@@ -275,6 +275,90 @@ export const Validation = {
   name: "Custom validation",
 };
 
+export const AriaLiveBehaviour = {
+  render: (args) =>
+    html`<ic-date-input
+        id="field-1"
+        label="When would you like to collect your coffee?"
+        helper-text="Error already set on page load and aria-live overridden as 'assertive'"
+        validation-status="error"
+        validation-text="First error message"
+        validation-aria-live="assertive"
+      ></ic-date-input>
+      <br />
+      <ic-date-input
+        id="field-2"
+        label="When would you like to collect your coffee?"
+        helper-text="Error set after page load and aria-live overridden as 'assertive'"
+        validation-aria-live="assertive"
+      ></ic-date-input>
+      <br />
+      <ic-button id="toggle-btn-1">Toggle errors</ic-button>
+      <script>
+        let showErrors1 = false;
+        const btn1 = document.getElementById("toggle-btn-1");
+        const field1 = document.getElementById("field-1");
+        const field2 = document.getElementById("field-2");
+
+        btn1.addEventListener("click", () => {
+          showErrors1 = !showErrors1;
+
+          field1.setAttribute("validation-status", showErrors1 ? "" : "error");
+          field1.setAttribute(
+            "validation-text",
+            showErrors1 ? "" : "First error message"
+          );
+
+          field2.setAttribute("validation-status", showErrors1 ? "error" : "");
+          field2.setAttribute(
+            "validation-text",
+            showErrors1 ? "Second error message" : ""
+          );
+        });
+      </script>
+      <br />
+      <br />
+      <br />
+      <br />
+      <ic-date-input
+        id="field-3"
+        label="When would you like to collect your coffee?"
+        helper-text="Default aria-live behaviour (i.e. 'polite')"
+      ></ic-date-input>
+      <br />
+      <ic-date-input
+        id="field-4"
+        label="When would you like to collect your coffee?"
+        helper-text="Default aria-live behaviour (i.e. 'polite')"
+      ></ic-date-input>
+      <br />
+      <ic-button id="toggle-btn-2">Toggle errors</ic-button>
+      <script>
+        let showErrors2 = false;
+        const btn2 = document.getElementById("toggle-btn-2");
+        const field3 = document.getElementById("field-3");
+        const field4 = document.getElementById("field-4");
+
+        btn2.addEventListener("click", () => {
+          showErrors2 = !showErrors2;
+
+          field3.setAttribute("validation-status", showErrors2 ? "error" : "");
+          field3.setAttribute(
+            "validation-text",
+            showErrors2 ? "Third error message" : ""
+          );
+
+          field4.setAttribute("validation-status", showErrors2 ? "error" : "");
+          field4.setAttribute(
+            "validation-text",
+            showErrors2 ? "Fourth error message" : ""
+          );
+        });
+      </script>`,
+
+  name: "Aria-live behaviour",
+};
+
 /**
  * Validation can be set on the date input if a date in the past has been set by setting the `disable-past` attribute to `true`.
  *

@@ -83,6 +83,15 @@ describe("ic-time-input component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with validation-aria-live", async () => {
+    const page = await newSpecPage({
+      components: [TimeInput, IcInputLabel],
+      html: `<ic-time-input label="Test label" validation-status="error" validation-text="Test error text" validation-aria-live="assertive"></ic-time-input>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render with open clock button", async () => {
     const page = await newSpecPage({
       components: [TimeInput, IcInputLabel, IcButton],

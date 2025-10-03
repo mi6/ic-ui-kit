@@ -107,6 +107,15 @@ describe("ic-date-picker", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with validation-aria-live", async () => {
+    const page = await newSpecPage({
+      components: [DatePicker, DateInput, Button, Tooltip],
+      html: `<ic-date-picker label="Test label" validation-status="error" validation-text="Test error text" validation-aria-live="assertive"></ic-date-picker>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render with DD/MM/YYYY format", async () => {
     const page = await newSpecPage({
       components: [DatePicker, DateInput, Button, Tooltip],
