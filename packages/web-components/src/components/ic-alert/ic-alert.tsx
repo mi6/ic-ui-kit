@@ -193,7 +193,7 @@ export class Alert {
             </div>
           );
         } else if (!showDefaultIcon) {
-          return <div class="icon-placeholder"></div>;
+          return <div></div>;
         }
       }
 
@@ -211,13 +211,9 @@ export class Alert {
           }}
         >
           <div class={{ container: true, [`container-${variant}`]: true }}>
-            <div class="alert-icon-container">
-              <div
-                class={{ divider: true, [`divider-${variant}`]: true }}
-              ></div>
-              <Icon />
-            </div>
+            <div class={{ divider: true, [`divider-${variant}`]: true }}></div>
             <div class="alert-content">
+              <Icon />
               <div
                 class={{
                   "alert-message": true,

@@ -4,13 +4,11 @@ exports[`ic-alert component should render an action in the correct position when
 <ic-alert message="This has an action" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-neutral svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <slot name="message">
             <ic-typography variant="body">
@@ -33,13 +31,11 @@ exports[`ic-alert component should render an element in the message slot 1`] = `
 <ic-alert heading="Using custom message" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-neutral svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <ic-typography class="alert-title" variant="subtitle-large">
             <p>
@@ -64,13 +60,11 @@ exports[`ic-alert component should render an icon in the neutral-icon slot 1`] =
 <ic-alert heading="Using custom icon" message="This has a slotted icon" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <div class="alert-icon icon-neutral svg-container">
           <slot name="neutral-icon"></slot>
         </div>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <ic-typography class="alert-title" variant="subtitle-large">
             <p>
@@ -98,13 +92,11 @@ exports[`ic-alert component should render default icon of success variant when t
 <ic-alert heading="Success" message="This alert has the default success icon" role="alert" show-default-icon="false" variant="success" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-success">
-      <div class="alert-icon-container">
-        <div class="divider divider-success"></div>
+      <div class="divider divider-success"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-success svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <ic-typography class="alert-title" variant="subtitle-large">
             <p>
@@ -128,13 +120,11 @@ exports[`ic-alert component should render with a dismiss icon when the prop is a
 <ic-alert dismissible="true" message="This is dismissible" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-neutral svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <slot name="message">
             <ic-typography variant="body">
@@ -157,13 +147,11 @@ exports[`ic-alert component should render with a heading when supplied 1`] = `
 <ic-alert heading="Test heading" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-neutral svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <ic-typography class="alert-title" variant="subtitle-large">
             <p>
@@ -185,13 +173,11 @@ exports[`ic-alert component should render with a message when supplied 1`] = `
 <ic-alert message="Test message" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-neutral svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <slot name="message">
             <ic-typography variant="body">
@@ -210,13 +196,11 @@ exports[`ic-alert component should render with no icon when the show-default-ico
 <ic-alert heading="No icon" message="This alert has no icon" role="alert" show-defaul-icon="false" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-neutral svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <ic-typography class="alert-title" variant="subtitle-large">
             <p>
@@ -240,13 +224,11 @@ exports[`ic-alert component should test rendering an action after initial render
 <ic-alert heading="Test heading" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-neutral svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <ic-typography class="alert-title" variant="subtitle-large">
             <p>

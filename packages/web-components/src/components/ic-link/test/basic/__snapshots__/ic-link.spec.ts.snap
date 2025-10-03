@@ -103,13 +103,11 @@ exports[`ic-link component should get theme from context: alert-theme-context 1`
 <ic-alert message="This has an action" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
-      <div class="alert-icon-container">
-        <div class="divider divider-neutral"></div>
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
         <span class="alert-icon icon-neutral svg-container">
           svg
         </span>
-      </div>
-      <div class="alert-content">
         <div class="alert-message">
           <slot name="message">
             <ic-typography variant="body">
