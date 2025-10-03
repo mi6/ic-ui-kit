@@ -631,6 +631,10 @@ export namespace Components {
          */
         "theme": IcThemeMode;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
@@ -4289,6 +4293,10 @@ declare namespace LocalJSX {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
