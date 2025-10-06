@@ -35,9 +35,10 @@ import { IcThemeMode } from "../../utils/types";
 })
 export class Drawer {
   private DEFAULT_CLOSE_BUTTON_ARIA_LABEL = "Close drawer";
-  private IC_ACCORDION: string = "IC-ACCORDION";
-  private IC_ACCORDION_GROUP: string = "IC-ACCORDION-GROUP";
-  private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
+  private DRAWER_TRANSITION_DURATION = 300;
+  private IC_ACCORDION = "IC-ACCORDION";
+  private IC_ACCORDION_GROUP = "IC-ACCORDION-GROUP";
+  private IC_TEXT_FIELD = "IC-TEXT-FIELD";
 
   private focusedElementIndex = 0;
   private interactiveElementList: HTMLElement[];
@@ -88,7 +89,7 @@ export class Drawer {
   /**
    * The position of the drawer.
    */
-  @Prop() position: IcPosition = "right";
+  @Prop() position: IcPosition = "right"; // SHOULD THIS BE LEFT INSTEAD?
 
   /**
    * If set to `true`, an X (close) button will be displayed in the drawer.
@@ -129,7 +130,7 @@ export class Drawer {
           this.focusNextInteractiveElement(ev.shiftKey);
           break;
         case "Escape":
-          this.setDrawerExpanded();
+          this.setDrawerExpanded(ev);
           break;
       }
     }
@@ -148,7 +149,7 @@ export class Drawer {
               (
                 this.interactiveElementList[0] as HTMLIcButtonElement
               ).setFocus();
-            }, 0);
+            }, this.DRAWER_TRANSITION_DURATION);
           });
         } else {
           this.interactiveElementList[1].focus();
@@ -157,7 +158,13 @@ export class Drawer {
     } else {
       setTimeout(() => {
         this.sourceElement?.focus();
-      }, 80);
+      }, this.DRAWER_TRANSITION_DURATION);
+    }
+  }
+
+  componentWillLoad(): void {
+    if (this.el.parentElement && this.boundary === "parent") {
+      this.el.parentElement.style.overflow = "hidden";
     }
   }
 
@@ -212,10 +219,10 @@ export class Drawer {
     ];
   };
 
-  // When trigger is controlled, focus should be set to the first interactive element on drawer expansion
-
   private getNextFocusEl = (focusedElementIndex: number) =>
     this.interactiveElementList[focusedElementIndex];
+
+  // When trigger is controlled, focus should be set to the first interactive element on drawer expansion
 
   private focusNextInteractiveElement = (shiftKey: boolean) => {
     this.getFocusedElementIndex();
@@ -270,13 +277,20 @@ export class Drawer {
     }
   };
 
-  private setDrawerExpanded = (): void => {
+  private setDrawerExpanded = (ev: Event): void => {
+    ev.stopPropagation();
     this.expanded = !this.expanded;
     if (this.expanded) {
+      // MAKE SURE TO SORT FOR WHEN PREFERS-REDUCED-MOTION IS ON
+      this.el.classList.add("ic-drawer-expanding");
+      requestAnimationFrame(() => {
+        this.el.classList.remove("ic-drawer-expanding");
+      });
+
       this.getInteractiveElements();
       setTimeout(() => {
         this.getFocusedElementIndex();
-      }, 80);
+      }, 1000); // CHANGE FOR WHEN PREFERS-REDUCED-MOTION IS ON
       if (this.interactiveElementList.length > 0) {
         if (this.interactiveElementList[0].tagName === "IC-BUTTON") {
           (this.interactiveElementList[0] as HTMLIcButtonElement).setFocus();
@@ -284,14 +298,19 @@ export class Drawer {
           this.interactiveElementList[1].focus();
         }
       }
+    } else {
+      this.el.classList.add("ic-drawer-collapsing");
+      setTimeout(() => {
+        this.el.classList.remove("ic-drawer-collapsing");
+      }, this.DRAWER_TRANSITION_DURATION);
     }
   };
 
-  private onBackdropClick = (e: { stopPropagation: () => void }) => {
+  private onBackdropClick = (ev: Event) => {
     if (this.closeOnBackdropClick) {
-      this.setDrawerExpanded();
+      this.setDrawerExpanded(ev);
     }
-    e.stopPropagation();
+    ev.stopPropagation();
   };
 
   render() {
@@ -313,7 +332,6 @@ export class Drawer {
         class="chevron-btn"
         theme={theme}
         variant="icon-tertiary"
-        innerHTML={chevronIcon}
         aria-label={`${
           isPropDefined(chevronButtonAriaLabel ?? "")
             ? chevronButtonAriaLabel
@@ -321,7 +339,9 @@ export class Drawer {
             ? this.DEFAULT_CLOSE_BUTTON_ARIA_LABEL
             : "Open drawer"
         }`}
+        innerHTML={chevronIcon}
         onClick={this.setDrawerExpanded}
+        // tooltipPlacement={this.OPPOSITE_POSITION[position]}
       ></ic-button>
     );
 
@@ -340,12 +360,13 @@ export class Drawer {
           class={{ "ic-drawer-overlay": true }}
           onClick={this.onBackdropClick}
         ></div>
+        {/* <div class="drawer-panel-wrapper"> */}
         <div
           class={{
             "ic-drawer-panel": true,
             "collapsed-drawer": !expanded,
             "manual-control": trigger === "controlled",
-            [`${size}`]: expanded,
+            [`${size}`]: true,
           }}
           {...(expanded && { role: "dialog" })}
           {...(expanded && !isSlotUsed(this.el, "heading")
@@ -357,90 +378,91 @@ export class Drawer {
           {...(expanded && isSlotUsed(this.el, "heading")
             ? { "aria-label": this.ariaLabel }
             : {})}
+          onClick={!expanded ? this.setDrawerExpanded : undefined}
         >
           {trigger === "arrow" && chevronButton}
-          {expanded && (
-            <div class="inner-drawer-panel">
-              <a id="drawer-content"></a> {/* CHECK THIS WORKS */}
-              <div class="drawer-header">
+          <div class="inner-drawer-panel">
+            <a id="drawer-content"></a> {/* CHECK THIS WORKS */}
+            <div class="drawer-header">
+              <div
+                class={{
+                  ["heading-area"]: true,
+                  // ["no-arrow"]: trigger !== "arrow", (can't remember why I commented this out)
+                }}
+              >
+                {/* {trigger === "arrow" && chevronButton} */}
+                {isSlotUsed(this.el, "heading-adornment") && (
+                  <slot name="heading-adornment" />
+                )}
+                {isSlotUsed(this.el, "heading") ? (
+                  <slot name="heading" />
+                ) : (
+                  <ic-typography
+                    class="drawer-heading"
+                    id="ic-drawer-heading"
+                    variant="h4"
+                  >
+                    {heading}
+                  </ic-typography>
+                )}
+              </div>
+              {showCloseButton && (
+                <ic-button
+                  className="close-btn"
+                  variant="icon-tertiary"
+                  theme={theme}
+                  onClick={this.setDrawerExpanded}
+                  innerHTML={closeIcon}
+                  aria-label={
+                    isPropDefined(closeButtonAriaLabel)
+                      ? closeButtonAriaLabel
+                      : this.DEFAULT_CLOSE_BUTTON_ARIA_LABEL
+                  }
+                ></ic-button>
+              )}
+            </div>
+            <div class="main-content">
+              {/* IS THIS CONDITION NEEDED OR SHOULD THE MESSAGE AREA ALWAYS BE HERE? */}
+              {(isSlotUsed(this.el, "message") || !!message) && (
                 <div
                   class={{
-                    ["heading-area"]: true,
-                    // ["no-arrow"]: trigger !== "arrow", (can't remember why I commented this out)
+                    ["message-area"]: true,
+                    // ["message-area-padding"]: isSlotUsed(this.el, "message"),
                   }}
+                  tabindex={0}
                 >
-                  {/* {trigger === "arrow" && chevronButton} */}
-                  {isSlotUsed(this.el, "heading-adornment") && (
-                    <slot name="heading-adornment" />
-                  )}
-                  {isSlotUsed(this.el, "heading") ? (
-                    <slot name="heading" />
+                  {isSlotUsed(this.el, "message") ? (
+                    <slot name="message" />
                   ) : (
                     <ic-typography
-                      class="drawer-heading"
-                      id="ic-drawer-heading"
-                      variant="h4"
+                      class={{
+                        ["body-text"]: true,
+                        // ["message-area-padding"]: !isSlotUsed(
+                        //   this.el,
+                        //   "message"
+                        // ),
+                      }}
                     >
-                      {heading}
+                      <p>{message}</p>
                     </ic-typography>
                   )}
                 </div>
-                {showCloseButton && trigger === "controlled" && (
-                  <ic-button
-                    className="close-btn"
-                    variant="icon-tertiary"
-                    theme={theme}
-                    onClick={this.setDrawerExpanded}
-                    innerHTML={closeIcon}
-                    aria-label={
-                      isPropDefined(closeButtonAriaLabel)
-                        ? closeButtonAriaLabel
-                        : this.DEFAULT_CLOSE_BUTTON_ARIA_LABEL
-                    }
-                  ></ic-button>
-                )}
-              </div>
-              <div class="main-content">
-                {/* IS THIS CONDITION NEEDED OR SHOULD THE MESSAGE AREA ALWAYS BE HERE? */}
-                {(isSlotUsed(this.el, "message") || !!message) && (
-                  <div
-                    class={{
-                      ["message-area"]: true,
-                      // ["message-area-padding"]: isSlotUsed(this.el, "message"),
-                    }}
-                    tabindex={0}
-                  >
-                    {isSlotUsed(this.el, "message") ? (
-                      <slot name="message" />
-                    ) : (
-                      <ic-typography
-                        class={{
-                          ["body-text"]: true,
-                          // ["message-area-padding"]: !isSlotUsed(
-                          //   this.el,
-                          //   "message"
-                          // ),
-                        }}
-                      >
-                        <p>{message}</p>
-                      </ic-typography>
-                    )}
-                  </div>
-                )}
-                {isSlotUsed(this.el, "actions") && (
-                  <div
-                    class={{
-                      "action-area": true,
-                      "main-content-overflow": true,
-                    }}
-                  >
-                    <slot name="actions" />
-                  </div>
-                )}
-              </div>
+              )}
+              {/* {console.log(this.innerDrawerPanel)} */}
+              {isSlotUsed(this.el, "actions") && (
+                <div
+                  class={{
+                    "action-area": true,
+                    "main-content-overflow": true,
+                  }}
+                >
+                  <slot name="actions" />
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
+        {/* </div> */}
       </Host>
     );
   }
