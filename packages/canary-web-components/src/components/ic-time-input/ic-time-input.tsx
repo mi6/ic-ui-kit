@@ -30,6 +30,7 @@ import {
   removeDisabledFalse,
   removeFormResetListener,
   renderHiddenInput,
+  parseTimeHelper,
 } from "../../utils/helpers";
 import Clear from "../../assets/clear-icon.svg";
 import Clock from "../../assets/clock.svg";
@@ -185,7 +186,7 @@ export class TimeInput {
   @Prop() max: string | Date = "";
   @Watch("max")
   watchMaxHandler(): void {
-    this.maxTime = this.parseTime(this.max);
+    this.maxTime = parseTimeHelper(this.max).date;
   }
 
   /**
@@ -194,7 +195,7 @@ export class TimeInput {
   @Prop() min: string | Date = "";
   @Watch("min")
   watchMinHandler(): void {
-    this.minTime = this.parseTime(this.min);
+    this.minTime = parseTimeHelper(this.min).date;
   }
 
   /**
@@ -411,23 +412,6 @@ export class TimeInput {
     }
   };
 
-  private parseTime = (value: string | Date): Date | null => {
-    if (!value) return null;
-    if (value instanceof Date) return value;
-    const parts = value.split(/[:.]/);
-    if (parts.length >= 2) {
-      const d = new Date();
-      d.setHours(
-        +parts[0],
-        +parts[1],
-        parts[2] ? +parts[2] : 0,
-        parts[3] ? +parts[3] : 0
-      );
-      return d;
-    }
-    return null;
-  };
-
   private isHHMMFormat = () => this.timeFormat === "HH:MM";
 
   private isKeyboardOrEvent = (event: Event) => {
@@ -499,8 +483,8 @@ export class TimeInput {
   };
 
   private setValidationMessage = () => {
-    this.maxTime = this.parseTime(this.max);
-    this.minTime = this.parseTime(this.min);
+    this.maxTime = parseTimeHelper(this.max).date;
+    this.minTime = parseTimeHelper(this.min).date;
     this.setTimeValidity();
     let outOfBoundsMsg = "";
     let isDisabledTime = false;
@@ -558,25 +542,25 @@ export class TimeInput {
             "start" in t &&
             "end" in t
           ) {
-            const start = this.parseTime(t.start);
-            const end = this.parseTime(t.end);
+            const start = parseTimeHelper(t.start).date;
+            const end = parseTimeHelper(t.end).date;
             if (start && end) {
               return this.selectedTime! >= start && this.selectedTime! <= end;
             }
             return false;
           }
-          const parsed = this.parseTime(t as string | Date);
+          const parsed = parseTimeHelper(t as string | Date).parts;
           if (!parsed) return false;
           let selectedHour = this.selectedTime!.getHours();
-          let parsedHour = parsed.getHours();
+          let parsedHour = parsed.hour;
           if (this.timePeriod === "12" && this.showAmPmToggle) {
             selectedHour = this.convertTo24Hour(selectedHour);
             parsedHour = this.convertTo24Hour(parsedHour);
           }
           return (
             parsedHour === selectedHour &&
-            parsed.getMinutes() === this.selectedTime!.getMinutes() &&
-            parsed.getSeconds() === this.selectedTime!.getSeconds()
+            parsed.minute === this.selectedTime!.getMinutes() &&
+            parsed.second === this.selectedTime!.getSeconds()
           );
         });
         if (isDisabledTime) {
