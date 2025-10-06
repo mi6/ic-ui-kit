@@ -10,6 +10,7 @@
 | Property                 | Attribute                   | Description                                                                                                                                                                                         | Type                                          | Default          |
 | ------------------------ | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ---------------- |
 | `ariaLabel`              | `aria-label`                | The aria label applied to the drawer. This is required when the heading slot is used.                                                                                                               | `string`                                      | `""`             |
+| `boundary`               | `boundary`                  | The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".                                         | `"parent" \| "viewport"`                      | `"viewport"`     |
 | `chevronButtonAriaLabel` | `chevron-button-aria-label` | The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".                                                                      | `string \| undefined`                         | `""`             |
 | `closeButtonAriaLabel`   | `close-button-aria-label`   | The aria label of the close button when the show-close-button attribute (web-components) / showCloseButton prop (React) is set to `true`. The default aria label is "Open drawer" / "Close drawer". | `string`                                      | `"Close drawer"` |
 | `closeOnBackdropClick`   | `close-on-backdrop-click`   | If set to `false`, the drawer will not close when the backdrop is clicked.                                                                                                                          | `boolean \| undefined`                        | `true`           |
@@ -55,14 +56,12 @@
 ### Depends on
 
 - ic-button
-- ic-section-container
 - ic-typography
 
 ### Graph
 ```mermaid
 graph TD;
   ic-drawer --> ic-button
-  ic-drawer --> ic-section-container
   ic-drawer --> ic-typography
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator

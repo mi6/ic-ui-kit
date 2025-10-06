@@ -10,7 +10,10 @@
   position: fixed;
   display: flex;
   z-index: var(--ic-z-index-drawer);
-  overflow: hidden; /* Prevent overflow of box-shadow and content outside drawer's parent container */
+}
+
+:host .ic-drawer-overlay {
+  background-color: rgb(0 0 0 / 20%);
 }
 
 :host .ic-drawer-panel {
@@ -18,6 +21,11 @@
   display: flex;
   background-color: var(--ic-drawer-background);
   box-shadow: var(--ic-drawer-drop-shadow);
+}
+
+:host .inner-drawer-panel,
+:host .ic-drawer-overlay {
+  transition: opacity 300ms;
 }
 
 :host(.ic-boundary-parent),
@@ -30,29 +38,82 @@
   height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  :host(.ic-right-position) .ic-drawer-panel,
-  :host(.ic-left-position) .ic-drawer-panel {
-    transition: width var(--ic-easing-transition-slow);
+:host(.ic-right-position) .ic-drawer-panel,
+:host(.ic-left-position) .ic-drawer-panel {
+  transition: width 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+:host(.ic-top-position) .ic-drawer-panel,
+:host(.ic-bottom-position) .ic-drawer-panel {
+  transition: height 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+:host(.expanded) .inner-drawer-panel,
+:host(.expanded) .ic-drawer-overlay {
+  opacity: 1;
+}
+
+:host(.expanded) .inner-drawer-panel,
+:host(.ic-drawer-collapsing) .inner-drawer-panel,
+:host(.expanded) .ic-drawer-overlay,
+:host(.ic-drawer-collapsing) .ic-drawer-overlay {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+:host(.collapsed) .inner-drawer-panel,
+:host(.ic-drawer-expanding) .inner-drawer-panel,
+:host(.collapsed) .ic-drawer-overlay,
+:host(.ic-drawer-expanding) .ic-drawer-overlay {
+  opacity: 0;
+}
+
+:host(.collapsed:not(.ic-drawer-collapsing)) .inner-drawer-panel,
+:host(.collapsed:not(.ic-drawer-collapsing)) .ic-drawer-overlay {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.collapsed) .inner-drawer-panel {
+    display: none;
   }
 }
 
 :host(.ic-top-position) .ic-drawer-panel,
 :host(.ic-bottom-position) .ic-drawer-panel {
   width: 100%;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  :host(.ic-top-position) .ic-drawer-panel,
-  :host(.ic-bottom-position) .ic-drawer-panel {
-    transition: height var(--ic-easing-transition-slow);
-  }
+:host(.ic-left-position) .ic-drawer-panel {
+  justify-content: flex-end;
+}
+
+:host(.ic-right-position) .ic-drawer-panel {
+  justify-content: flex-start;
+}
+
+:host(.ic-top-position) .ic-drawer-panel {
+  align-items: flex-end;
+}
+
+:host(.ic-bottom-position) .ic-drawer-panel {
+  align-items: flex-start;
 }
 
 /* Collapsed state */
-:host(.collapsed) {
+
+/* CHECK IF THIS IS ACTUALLY NEEDED */
+/* :host(.collapsed:not(.ic-drawer-collapsing).ic-left-position),
+:host(.collapsed:not(.ic-drawer-collapsing).ic-right-position) {
   width: calc(var(--ic-space-xs) * 7 + var(--ic-space-xxxs));
-}
+} */
+
+/* :host(.collapsed:not(.ic-drawer-collapsing).ic-top-position),
+:host(.collapsed:not(.ic-drawer-collapsing).ic-bottom-position) {
+  height: calc(var(--ic-space-xs) * 7 + var(--ic-space-xxxs));
+} */
 
 :host(.ic-left-position) .ic-drawer-panel.collapsed-drawer.manual-control,
 :host(.ic-right-position) .ic-drawer-panel.collapsed-drawer.manual-control {
@@ -64,15 +125,16 @@
   width: 0;
 }
 
-:host .ic-drawer-overlay {
+/* :host .ic-drawer-overlay {
   visibility: hidden;
-}
+  opacity: 0;
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   :host .ic-drawer-overlay {
-    transition: visibility var(--ic-easing-transition-slow);
+    transition: opacity 10s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
-}
+} */
 
 :host(.collapsed.ic-left-position) .ic-drawer-panel,
 :host(.collapsed.ic-right-position) .ic-drawer-panel {
@@ -81,27 +143,20 @@
 
 :host(.collapsed.ic-top-position) .ic-drawer-panel,
 :host(.collapsed.ic-bottom-position) .ic-drawer-panel {
-  height: calc(var(--ic-space-xl) + var(--ic-space-xs) + var(--ic-space-xxxs));
-  align-items: center;
+  height: calc(var(--ic-space-xxl) + var(--ic-space-xxxs));
 }
 
 /* Expanded state */
-:host(.expanded) {
+:host(.expanded),
+:host(.ic-drawer-collapsing) {
   width: 100vw;
   height: 100vh;
 }
 
-:host(.ic-boundary-parent.expanded) {
+:host(.ic-boundary-parent.expanded),
+:host(.ic-boundary-parent.ic-drawer-collapsing) {
   width: 100%;
   height: 100%;
-}
-
-:host(.expanded) .ic-drawer-overlay {
-  display: block;
-  visibility: visible;
-  z-index: -1;
-  flex: auto;
-  background-color: rgb(0 0 0 / 20%);
 }
 
 :host(.ic-right-position.expanded) .ic-drawer-panel,
@@ -109,11 +164,17 @@
   flex-direction: row;
 }
 
-:host(.ic-left-position.expanded) .ic-drawer-panel {
-  justify-content: flex-end;
+/* Sizing */
+:host(.ic-left-position) .ic-drawer-panel.medium .inner-drawer-panel,
+:host(.ic-right-position) .ic-drawer-panel.medium .inner-drawer-panel {
+  min-width: var(--ic-drawer-width, calc(var(--ic-space-xs) * 56.25));
 }
 
-/* Sizing */
+:host(.ic-top-position) .ic-drawer-panel.medium .inner-drawer-panel,
+:host(.ic-bottom-position) .ic-drawer-panel.medium .inner-drawer-panel {
+  min-height: var(--ic-drawer-height, calc(var(--ic-space-xs) * 56.25));
+}
+
 :host(.ic-right-position.expanded) .ic-drawer-panel.small,
 :host(.ic-left-position.expanded) .ic-drawer-panel.small {
   width: var(--ic-drawer-width, calc(var(--ic-space-sm) * 25));
@@ -121,12 +182,7 @@
 
 :host(.ic-right-position.expanded) .ic-drawer-panel.medium,
 :host(.ic-left-position.expanded) .ic-drawer-panel.medium {
-  width: var(--ic-drawer-width, calc(var(--ic-space-sm) * 37.5));
-}
-
-:host(.ic-left-position.expanded) .ic-drawer-panel.medium .inner-drawer-panel,
-:host(.ic-right-position.expanded) .ic-drawer-panel.medium .inner-drawer-panel {
-  min-width: var(--ic-drawer-width, calc(var(--ic-space-sm) * 37.5));
+  width: var(--ic-drawer-width, calc(var(--ic-space-xs) * 56.25));
 }
 
 :host(.ic-right-position.expanded) .ic-drawer-panel.large,
@@ -141,7 +197,7 @@
 
 :host(.ic-top-position.expanded) .ic-drawer-panel.medium,
 :host(.ic-bottom-position.expanded) .ic-drawer-panel.medium {
-  height: var(--ic-drawer-height, calc(var(--ic-space-sm) * 37.5));
+  height: var(--ic-drawer-height, calc(var(--ic-space-xs) * 56.25));
 }
 
 :host(.ic-top-position.expanded) .ic-drawer-panel.large,
@@ -200,11 +256,8 @@
 }
 
 :host .inner-drawer-panel {
-  display: flex;
   flex-flow: column;
-  /* flex: 1 1 0; DON'T THINK THIS IS NEEDED */
-
-  /* --section-container-margin: 0; DON'T THINK THIS IS NEEDED */
+  height: 100%;
 }
 
 /* Drawer panel styling */
@@ -212,12 +265,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--ic-space-xs);
+  padding: var(--ic-space-xs) var(--ic-space-md);
   border-bottom: var(--ic-space-1px) solid var(--ic-drawer-divider-color);
 }
 
 :host(.ic-left-position) .drawer-header {
   padding-left: calc(var(--ic-space-xxl) + var(--ic-space-xs));
+}
+
+:host(.ic-right-position) .ic-drawer-panel:not(.manual-control) .drawer-header {
+  padding-right: calc(var(--ic-space-xxl) + var(--ic-space-xs));
 }
 
 :host .heading-area {
@@ -315,15 +372,24 @@
   margin-top: var(--ic-space-md);
   /* padding: 0 var(--ic-space-md); */
   gap: var(--ic-space-md);
+  flex-wrap: wrap;
 }
 
 /* Chevron styling */
 :host .chevron-btn {
+  background-color: var(--ic-drawer-background);
+  box-sizing: border-box;
   position: absolute;
+  z-index: calc(var(--ic-z-index-drawer) + 1);
 }
 
 :host .chevron-btn::part(button) {
   padding: var(--ic-space-xxs);
+}
+
+:host .chevron-btn svg {
+  height: 24px !important;
+  width: 24px !important;
 }
 
 :host(.ic-left-position) .chevron-btn {
@@ -334,34 +400,25 @@
   right: 0;
 }
 
+:host(.ic-bottom-position) .chevron-btn {
+  align-self: flex-end;
+}
+
 :host(.ic-left-position) .chevron-btn,
 :host(.ic-right-position) .chevron-btn {
   padding: var(--ic-space-xs) calc(var(--ic-space-xs) + var(--ic-space-1px));
 }
 
-:host(.ic-top-position) .collapsed-drawer .chevron-btn,
-:host(.ic-bottom-position) .collapsed-drawer .chevron-btn {
+:host(.ic-top-position) .chevron-btn,
+:host(.ic-bottom-position) .chevron-btn {
+  padding: calc(var(--ic-space-xs) + var(--ic-space-1px)) var(--ic-space-xs);
+}
+
+:host(.collapsed.ic-top-position) .chevron-btn,
+:host(.collapsed.ic-bottom-position) .chevron-btn {
   display: flex;
-  flex: 1 1 0;
+  /* flex: 1 1 0; NOT SURE IF THIS IS NEEDED */
   justify-content: center;
-  margin: var(--ic-space-xs) 0;
-}
-
-:host(.ic-left-position) .collapsed-drawer .chevron-btn,
-:host(.ic-right-position) .collapsed-drawer .chevron-btn {
-  height: 100%; /* Make button full height so clicking on whole collapsed drawer expands it */
-  box-sizing: border-box;
-}
-
-:host(.expanded) .chevron-btn {
-  height: fit-content;
-  background-color: var(--ic-drawer-background);
-  z-index: calc(var(--ic-z-index-drawer) + 1);
-}
-
-:host .chevron-btn svg {
-  height: 24px !important;
-  width: 24px !important;
 }
 
 :host(.ic-left-position.expanded) .chevron-btn svg,
@@ -377,10 +434,6 @@
 :host(.ic-top-position.collapsed) .chevron-btn svg,
 :host(.ic-bottom-position.expanded) .chevron-btn svg {
   transform: rotate(90deg);
-}
-
-.drawer-expanded-body {
-  overflow: hidden !important;
 }
 
 /* High contrast mode */

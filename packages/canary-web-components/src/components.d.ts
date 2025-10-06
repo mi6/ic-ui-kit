@@ -9,7 +9,7 @@ import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.
 import { IcThemeMode } from "@ukic/web-components";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
-import { IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
+import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -17,7 +17,7 @@ export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.
 export { IcThemeMode } from "@ukic/web-components";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
-export { IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
+export { IcDrawerBoundary, IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -471,6 +471,10 @@ export namespace Components {
           * The aria label applied to the drawer. This is required when the heading slot is used.
          */
         "ariaLabel": string;
+        /**
+          * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
+         */
+        "boundary": IcDrawerBoundary;
         /**
           * The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".
          */
@@ -1490,6 +1494,10 @@ declare namespace LocalJSX {
           * The aria label applied to the drawer. This is required when the heading slot is used.
          */
         "ariaLabel"?: string;
+        /**
+          * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
+         */
+        "boundary"?: IcDrawerBoundary;
         /**
           * The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".
          */

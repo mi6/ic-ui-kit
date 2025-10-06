@@ -149,6 +149,7 @@ export const LongContentLeft = {
 
     Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     position="left"
+    show-close-button="true"
   >
     <svg
       slot="heading-adornment"
@@ -238,11 +239,16 @@ export const SlottedContent = {
     </ic-typography>
     <ic-button variant="secondary" slot="actions">Learn more</ic-button>
     <ic-button slot="actions">Add to order</ic-button>
+    <ic-button slot="actions">Add to order</ic-button>
+    <ic-button slot="actions">Add to order</ic-button>
+    <ic-button slot="actions">Add to order</ic-button>
+    <ic-button slot="actions">Add to order</ic-button>
+    <ic-button slot="actions">Add to order</ic-button>
   </ic-drawer>`,
   name: "Slotted content",
 };
 
-export const ManualTrigger = {
+export const ManualTriggerRight = {
   render: () => html` <ic-button
       id="button-1"
       onclick="expandDrawer()"
@@ -264,7 +270,85 @@ export const ManualTrigger = {
         icDrawer.expanded = !icDrawer.expanded;
       }
     </script>`,
-  name: "Manual trigger",
+  name: "Manual trigger right",
+};
+
+export const ManualTriggerLeft = {
+  render: () => html` <ic-button
+      id="button-1"
+      onclick="expandDrawer()"
+      style="margin: 16px;"
+      >Open drawer</ic-button
+    >
+    <ic-drawer
+      position="left"
+      id="drawer-1"
+      show-close-button="true"
+      trigger="controlled"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+    >
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      let icDrawer = document.querySelector("ic-drawer#drawer-1");
+      function expandDrawer() {
+        icDrawer.expanded = !icDrawer.expanded;
+      }
+    </script>`,
+  name: "Manual trigger left",
+};
+
+export const ManualTriggerTop = {
+  render: () => html` <ic-button
+      id="button-1"
+      onclick="expandDrawer()"
+      style="margin: 16px;"
+      >Open drawer</ic-button
+    >
+    <ic-drawer
+      position="top"
+      id="drawer-1"
+      show-close-button="true"
+      trigger="controlled"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+    >
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      let icDrawer = document.querySelector("ic-drawer#drawer-1");
+      function expandDrawer() {
+        icDrawer.expanded = !icDrawer.expanded;
+      }
+    </script>`,
+  name: "Manual trigger top",
+};
+
+export const ManualTriggerBottom = {
+  render: () => html` <ic-button
+      id="button-1"
+      onclick="expandDrawer()"
+      style="margin: 16px;"
+      >Open drawer</ic-button
+    >
+    <ic-drawer
+      position="bottom"
+      id="drawer-1"
+      show-close-button="true"
+      trigger="controlled"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+    >
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      let icDrawer = document.querySelector("ic-drawer#drawer-1");
+      function expandDrawer() {
+        icDrawer.expanded = !icDrawer.expanded;
+      }
+    </script>`,
+  name: "Manual trigger bottom",
 };
 
 export const ContainedWithinParent = {

@@ -3785,6 +3785,41 @@
           "setter": false
         },
         {
+          "name": "boundary",
+          "type": "\"parent\" | \"viewport\"",
+          "complexType": {
+            "original": "IcDrawerBoundary",
+            "resolved": "\"parent\" | \"viewport\"",
+            "references": {
+              "IcDrawerBoundary": {
+                "location": "import",
+                "path": "./ic-drawer.types",
+                "id": "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerBoundary"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "boundary",
+          "reflectToAttr": false,
+          "docs": "The area within which the drawer should be contained. When set to \"parent\", the value of the parent element's `position` CSS property must not be \"static\".",
+          "docsTags": [],
+          "default": "\"viewport\"",
+          "values": [
+            {
+              "value": "parent",
+              "type": "string"
+            },
+            {
+              "value": "viewport",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "chevronButtonAriaLabel",
           "type": "string | undefined",
           "complexType": {
@@ -4155,7 +4190,7 @@
               "IcDrawerExpandedDetail": {
                 "location": "import",
                 "path": "./ic-drawer.types",
-                "id": "src/components/ic-drawer/ic-drawer.types.d.ts::IcDrawerExpandedDetail"
+                "id": "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerExpandedDetail"
               }
             }
           },
@@ -4212,13 +4247,11 @@
       "dependents": [],
       "dependencies": [
         "ic-button",
-        "ic-section-container",
         "ic-typography"
       ],
       "dependencyGraph": {
         "ic-drawer": [
           "ic-button",
-          "ic-section-container",
           "ic-typography"
         ],
         "ic-button": [
@@ -6453,15 +6486,20 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerBoundary": {
+      "declaration": "export type IcDrawerBoundary = \"viewport\" | \"parent\";",
+      "docstring": "",
+      "path": "src/components/ic-drawer/ic-drawer.types.tsx"
+    },
     "src/utils/types.ts::IcPosition": {
       "declaration": "export type IcPosition = \"left\" | \"right\" | \"top\" | \"bottom\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/components/ic-drawer/ic-drawer.types.d.ts::IcDrawerExpandedDetail": {
+    "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerExpandedDetail": {
       "declaration": "export interface IcDrawerExpandedDetail {\n  expanded: boolean;\n}",
       "docstring": "",
-      "path": "src/components/ic-drawer/ic-drawer.types.d.ts"
+      "path": "src/components/ic-drawer/ic-drawer.types.tsx"
     },
     "src/utils/types.ts::IcDisableTimeSelection": {
       "declaration": "export type IcDisableTimeSelection =\n  | string\n  | Date\n  | { start: string | Date; end: string | Date };",
