@@ -252,7 +252,7 @@ export const CustomCompactStepper = {
   name: "Custom compact stepper",
 };
 
-export const InternationalStepper = {
+export const Internationalisation = {
   render: () =>
     html`<ic-stepper variant="compact" id="standard-compact-stepper">
         <ic-step heading="Aktualisierung"></ic-step>
@@ -274,6 +274,7 @@ export const InternationalStepper = {
         stepper.icI18n = {
           next: "Der nächste",
           step: "Schritt",
+          steps: "Schritte",
           of: "von",
           lastStep: "Letzter Schritt",
           completed: "abgeschlossen",
