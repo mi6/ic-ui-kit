@@ -13,7 +13,7 @@ exports[`compact variant of ic-step component should render a compact step with 
           <ic-typography class="step-num" variant="caption">
             3 of 4
             <span class="visually-hidden">
-              steps
+              Steps
             </span>
           </ic-typography>
         </div>
@@ -43,7 +43,7 @@ exports[`compact variant of ic-step component should render a step status icon f
           <ic-typography class="step-num" variant="caption">
             3 of 4
             <span class="visually-hidden">
-              steps
+              Steps
             </span>
           </ic-typography>
           <div class="step-status">
@@ -81,7 +81,7 @@ exports[`compact variant of ic-step component should render an step status icon 
           <ic-typography class="step-num" variant="caption">
             3 of 4
             <span class="visually-hidden">
-              steps
+              Steps
             </span>
           </ic-typography>
           <div class="step-status">

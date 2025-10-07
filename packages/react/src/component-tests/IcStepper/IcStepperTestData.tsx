@@ -25,6 +25,7 @@ const customCompactStepTypes = [
 export const ICI18N = {
   next: "Der nächste",
   step: "Schritt",
+  steps: "Schritte",
   of: "von",
   lastStep: "Letzter Schritt",
   completed: "abgeschlossen",

@@ -52,6 +52,7 @@ export class Stepper {
   @Prop() icI18n?: IcStepI18n = {
     next: "Next",
     step: "Step",
+    steps: "Steps",
     of: "of",
     lastStep: "Last step",
     completed: "Completed",
