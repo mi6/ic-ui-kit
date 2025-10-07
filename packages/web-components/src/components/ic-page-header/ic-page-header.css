@@ -33,6 +33,10 @@ header.tabs {
   margin-bottom: var(--ic-space-md);
 }
 
+::slotted(ic-navigation-item) {
+  --navigation-link-colour: var(--ic-color-text-primary);
+}
+
 .main-content {
   display: grid;
   grid-template-columns: auto 1fr;
