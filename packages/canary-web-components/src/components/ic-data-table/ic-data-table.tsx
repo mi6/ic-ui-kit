@@ -2330,6 +2330,7 @@ export class DataTable {
       createUpdatingIndicator,
       data,
       density,
+      embedded,
       hideColumnHeaders,
       rowSelection,
       loading,
@@ -2364,7 +2365,11 @@ export class DataTable {
     return (
       <Host
         style={{ ...this.setTableDimensions() }}
-        class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}
+        class={{
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          [`ic-data-table-show-pagination`]: !!showPagination,
+          [`ic-data-table-embedded`]: !!embedded,
+        }}
       >
         <div class="table-container">
           {isSlotUsed(this.el, "title-bar") && <slot name="title-bar" />}
