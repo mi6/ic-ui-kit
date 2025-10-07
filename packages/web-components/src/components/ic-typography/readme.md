@@ -43,6 +43,7 @@
  - [ic-hero](../ic-hero)
  - [ic-input-label](../ic-input-label)
  - [ic-input-validation](../ic-input-validation)
+ - [ic-listbox](../ic-listbox)
  - [ic-loading-indicator](../ic-loading-indicator)
  - [ic-menu](../ic-menu)
  - [ic-menu-group](../ic-menu-group)
@@ -55,6 +56,7 @@
  - [ic-popover-menu](../ic-popover-menu)
  - [ic-radio-option](../ic-radio-option)
  - [ic-select](../ic-select)
+ - [ic-select-new](../ic-select-new)
  - [ic-side-navigation](../ic-side-navigation)
  - [ic-status-tag](../ic-status-tag)
  - [ic-step](../ic-step)
@@ -87,6 +89,7 @@ graph TD;
   ic-hero --> ic-typography
   ic-input-label --> ic-typography
   ic-input-validation --> ic-typography
+  ic-listbox --> ic-typography
   ic-loading-indicator --> ic-typography
   ic-menu --> ic-typography
   ic-menu-group --> ic-typography
@@ -99,6 +102,7 @@ graph TD;
   ic-popover-menu --> ic-typography
   ic-radio-option --> ic-typography
   ic-select --> ic-typography
+  ic-select-new --> ic-typography
   ic-side-navigation --> ic-typography
   ic-status-tag --> ic-typography
   ic-step --> ic-typography

@@ -16,10 +16,11 @@ import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-stat
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcGridBreakpoints, IcGridType } from "./components/ic-layout-grid/ic-layout-grid.types";
+import { IcOptionSelectEventDetail } from "./components/ic-listbox/ic-listbox.types";
+import { Options } from "@popperjs/core";
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
-import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
-import { Options } from "@popperjs/core";
+import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail as IcOptionSelectEventDetail1 } from "./components/ic-menu/ic-menu.types";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
@@ -46,10 +47,11 @@ export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-stat
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcGridBreakpoints, IcGridType } from "./components/ic-layout-grid/ic-layout-grid.types";
+export { IcOptionSelectEventDetail } from "./components/ic-listbox/ic-listbox.types";
+export { Options } from "@popperjs/core";
 export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
-export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
-export { Options } from "@popperjs/core";
+export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail as IcOptionSelectEventDetail1 } from "./components/ic-menu/ic-menu.types";
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 export { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
@@ -707,6 +709,128 @@ export namespace Components {
          */
         "upTo"?: boolean;
     }
+    interface IcCombobox {
+        /**
+          * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
+         */
+        "disableAutoFiltering": boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled": boolean;
+        /**
+          * The text displayed when there are no options in the option list.
+         */
+        "emptyOptionListText": string;
+        /**
+          * The <form> element to associate the select with.
+         */
+        "form"?: string;
+        /**
+          * If `true`, the select will fill the width of the container.
+         */
+        "fullWidth": boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText": string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel": boolean;
+        /**
+          * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
+         */
+        "includeDescriptionsInSearch": boolean;
+        /**
+          * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
+         */
+        "includeGroupTitlesInSearch": boolean;
+        /**
+          * The label for the select.
+         */
+        "label": string;
+        /**
+          * If `true`, the loading state will be triggered when fetching options asynchronously.
+         */
+        "loading": boolean;
+        /**
+          * The message displayed when external loading times out.
+         */
+        "loadingErrorLabel": string;
+        /**
+          * The message displayed whilst the options are being loaded externally.
+         */
+        "loadingLabel": string;
+        /**
+          * If `true`, multiple options can be selected.
+         */
+        "multiple": boolean;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * The possible selection options.
+         */
+        "options": IcMenuOption[];
+        /**
+          * The placeholder value to be displayed.
+         */
+        "placeholder": string;
+        /**
+          * If `true`, the readonly state will be set.
+         */
+        "readonly": boolean;
+        /**
+          * If `true`, the select will require a value.
+         */
+        "required": boolean;
+        /**
+          * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
+         */
+        "searchMatchPosition": IcSearchMatchPositions;
+        /**
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
+         */
+        "searchable": boolean;
+        /**
+          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.
+         */
+        "selectOnEnter": boolean;
+        /**
+          * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
+         */
+        "showClearButton": boolean;
+        /**
+          * The size of the select.
+         */
+        "size": IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
+        /**
+          * If using external filtering, set a timeout for when loading takes too long.
+         */
+        "timeout"?: number;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
+         */
+        "validationStatus": IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message.
+         */
+        "validationText": string;
+        /**
+          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
+         */
+        "value": string | string[] | null;
+    }
     interface IcDataList {
         /**
           * The title for the data list.
@@ -1157,6 +1281,31 @@ export namespace Components {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
+    }
+    interface IcListbox {
+        "activedescendantIndex": number | null;
+        /**
+          * The reference to an anchor element the menu will position itself from when rendered.
+         */
+        "anchorEl"?: HTMLElement;
+        "initPopperJs": (anchor: HTMLElement) => Promise<void>;
+        /**
+          * The ID of the menu.
+         */
+        "listboxId": string;
+        /**
+          * If `true`, the menu will be displayed open.
+         */
+        "open": boolean;
+        /**
+          * The possible menu selection options.
+         */
+        "options": IcMenuOption[];
+        /**
+          * @param props object - createPopper props set externally
+         */
+        "setExternalPopperProps": <T extends Partial<Options>>(props: T) => Promise<void>;
+        "value": string | string[] | null;
     }
     interface IcLoadingIndicator {
         /**
@@ -1985,6 +2134,128 @@ export namespace Components {
          */
         "value": string | string[] | null;
     }
+    interface IcSelectNew {
+        /**
+          * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
+         */
+        "disableAutoFiltering": boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled": boolean;
+        /**
+          * The text displayed when there are no options in the option list.
+         */
+        "emptyOptionListText": string;
+        /**
+          * The <form> element to associate the select with.
+         */
+        "form"?: string;
+        /**
+          * If `true`, the select will fill the width of the container.
+         */
+        "fullWidth": boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText": string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel": boolean;
+        /**
+          * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
+         */
+        "includeDescriptionsInSearch": boolean;
+        /**
+          * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
+         */
+        "includeGroupTitlesInSearch": boolean;
+        /**
+          * The label for the select.
+         */
+        "label": string;
+        /**
+          * If `true`, the loading state will be triggered when fetching options asynchronously.
+         */
+        "loading": boolean;
+        /**
+          * The message displayed when external loading times out.
+         */
+        "loadingErrorLabel": string;
+        /**
+          * The message displayed whilst the options are being loaded externally.
+         */
+        "loadingLabel": string;
+        /**
+          * If `true`, multiple options can be selected.
+         */
+        "multiple": boolean;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * The possible selection options.
+         */
+        "options": IcMenuOption[];
+        /**
+          * The placeholder value to be displayed.
+         */
+        "placeholder": string;
+        /**
+          * If `true`, the readonly state will be set.
+         */
+        "readonly": boolean;
+        /**
+          * If `true`, the select will require a value.
+         */
+        "required": boolean;
+        /**
+          * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
+         */
+        "searchMatchPosition": IcSearchMatchPositions;
+        /**
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
+         */
+        "searchable": boolean;
+        /**
+          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.
+         */
+        "selectOnEnter": boolean;
+        /**
+          * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
+         */
+        "showClearButton": boolean;
+        /**
+          * The size of the select.
+         */
+        "size": IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
+        /**
+          * If using external filtering, set a timeout for when loading takes too long.
+         */
+        "timeout"?: number;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
+         */
+        "validationStatus": IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message.
+         */
+        "validationText": string;
+        /**
+          * The value of the select, reflected by the value of the currently selected option. For the multi-select variant, the value must be an array of option values.
+         */
+        "value": string | string[] | null;
+    }
     interface IcSideNavigation {
         /**
           * The app title to be displayed. This is required, unless a slotted app title link is used.
@@ -2741,6 +3012,10 @@ export interface IcFooterCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcFooterElement;
 }
+export interface IcListboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcListboxElement;
+}
 export interface IcMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcMenuElement;
@@ -2990,6 +3265,12 @@ declare global {
         prototype: HTMLIcClassificationBannerElement;
         new (): HTMLIcClassificationBannerElement;
     };
+    interface HTMLIcComboboxElement extends Components.IcCombobox, HTMLStencilElement {
+    }
+    var HTMLIcComboboxElement: {
+        prototype: HTMLIcComboboxElement;
+        new (): HTMLIcComboboxElement;
+    };
     interface HTMLIcDataListElement extends Components.IcDataList, HTMLStencilElement {
     }
     var HTMLIcDataListElement: {
@@ -3117,6 +3398,24 @@ declare global {
         prototype: HTMLIcLinkElement;
         new (): HTMLIcLinkElement;
     };
+    interface HTMLIcListboxElementEventMap {
+        "flatttenedOptionsSet": { options: IcMenuOption[] };
+        "menuOptionSelect": IcOptionSelectEventDetail;
+    }
+    interface HTMLIcListboxElement extends Components.IcListbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcListboxElementEventMap>(type: K, listener: (this: HTMLIcListboxElement, ev: IcListboxCustomEvent<HTMLIcListboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcListboxElementEventMap>(type: K, listener: (this: HTMLIcListboxElement, ev: IcListboxCustomEvent<HTMLIcListboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcListboxElement: {
+        prototype: HTMLIcListboxElement;
+        new (): HTMLIcListboxElement;
+    };
     interface HTMLIcLoadingIndicatorElement extends Components.IcLoadingIndicator, HTMLStencilElement {
     }
     var HTMLIcLoadingIndicatorElement: {
@@ -3127,7 +3426,7 @@ declare global {
         "icClear": void;
         "menuKeyPress": { isNavKey: boolean; key: string };
         "menuOptionId": IcMenuOptionIdEventDetail;
-        "menuOptionSelect": IcOptionSelectEventDetail;
+        "menuOptionSelect": IcOptionSelectEventDetail1;
         "menuOptionSelectAll": { select: boolean };
         "menuStateChange": IcMenuChangeEventDetail;
         "retryButtonClicked": IcMultiValueEventDetail;
@@ -3331,7 +3630,7 @@ declare global {
         "icChange": IcValueEventDetail;
         "icClear": void;
         "icInput": IcValueEventDetail;
-        "icOptionSelect": IcOptionSelectEventDetail;
+        "icOptionSelect": IcOptionSelectEventDetail1;
         "icMenuChange": IcMenuChangeEventDetail;
         "icClearBlur": IcBlurEventDetail;
         "icRetryLoad": IcMultiValueEventDetail;
@@ -3369,8 +3668,8 @@ declare global {
         "icFocus": void;
         "icInput": IcMultiValueEventDetail;
         "icOpen": void;
-        "icOptionSelect": IcOptionSelectEventDetail;
-        "icOptionDeselect": IcOptionSelectEventDetail;
+        "icOptionSelect": IcOptionSelectEventDetail1;
+        "icOptionDeselect": IcOptionSelectEventDetail1;
         "icRetryLoad": IcMultiValueEventDetail;
     }
     interface HTMLIcSelectElement extends Components.IcSelect, HTMLStencilElement {
@@ -3386,6 +3685,12 @@ declare global {
     var HTMLIcSelectElement: {
         prototype: HTMLIcSelectElement;
         new (): HTMLIcSelectElement;
+    };
+    interface HTMLIcSelectNewElement extends Components.IcSelectNew, HTMLStencilElement {
+    }
+    var HTMLIcSelectNewElement: {
+        prototype: HTMLIcSelectNewElement;
+        new (): HTMLIcSelectNewElement;
     };
     interface HTMLIcSideNavigationElementEventMap {
         "icSideNavExpanded": IcExpandedDetail;
@@ -3675,6 +3980,7 @@ declare global {
         "ic-checkbox-group": HTMLIcCheckboxGroupElement;
         "ic-chip": HTMLIcChipElement;
         "ic-classification-banner": HTMLIcClassificationBannerElement;
+        "ic-combobox": HTMLIcComboboxElement;
         "ic-data-list": HTMLIcDataListElement;
         "ic-data-row": HTMLIcDataRowElement;
         "ic-dialog": HTMLIcDialogElement;
@@ -3692,6 +3998,7 @@ declare global {
         "ic-layout-grid": HTMLIcLayoutGridElement;
         "ic-layout-grid-item": HTMLIcLayoutGridItemElement;
         "ic-link": HTMLIcLinkElement;
+        "ic-listbox": HTMLIcListboxElement;
         "ic-loading-indicator": HTMLIcLoadingIndicatorElement;
         "ic-menu": HTMLIcMenuElement;
         "ic-menu-group": HTMLIcMenuGroupElement;
@@ -3709,6 +4016,7 @@ declare global {
         "ic-search-bar": HTMLIcSearchBarElement;
         "ic-section-container": HTMLIcSectionContainerElement;
         "ic-select": HTMLIcSelectElement;
+        "ic-select-new": HTMLIcSelectNewElement;
         "ic-side-navigation": HTMLIcSideNavigationElement;
         "ic-skeleton": HTMLIcSkeletonElement;
         "ic-skip-link": HTMLIcSkipLinkElement;
@@ -4370,6 +4678,128 @@ declare namespace LocalJSX {
          */
         "upTo"?: boolean;
     }
+    interface IcCombobox {
+        /**
+          * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
+         */
+        "disableAutoFiltering"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The text displayed when there are no options in the option list.
+         */
+        "emptyOptionListText"?: string;
+        /**
+          * The <form> element to associate the select with.
+         */
+        "form"?: string;
+        /**
+          * If `true`, the select will fill the width of the container.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText"?: string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
+         */
+        "includeDescriptionsInSearch"?: boolean;
+        /**
+          * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
+         */
+        "includeGroupTitlesInSearch"?: boolean;
+        /**
+          * The label for the select.
+         */
+        "label": string;
+        /**
+          * If `true`, the loading state will be triggered when fetching options asynchronously.
+         */
+        "loading"?: boolean;
+        /**
+          * The message displayed when external loading times out.
+         */
+        "loadingErrorLabel"?: string;
+        /**
+          * The message displayed whilst the options are being loaded externally.
+         */
+        "loadingLabel"?: string;
+        /**
+          * If `true`, multiple options can be selected.
+         */
+        "multiple"?: boolean;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * The possible selection options.
+         */
+        "options"?: IcMenuOption[];
+        /**
+          * The placeholder value to be displayed.
+         */
+        "placeholder"?: string;
+        /**
+          * If `true`, the readonly state will be set.
+         */
+        "readonly"?: boolean;
+        /**
+          * If `true`, the select will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
+         */
+        "searchMatchPosition"?: IcSearchMatchPositions;
+        /**
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
+         */
+        "searchable"?: boolean;
+        /**
+          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.
+         */
+        "selectOnEnter"?: boolean;
+        /**
+          * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
+         */
+        "showClearButton"?: boolean;
+        /**
+          * The size of the select.
+         */
+        "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * If using external filtering, set a timeout for when loading takes too long.
+         */
+        "timeout"?: number;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
+         */
+        "value"?: string | string[] | null;
+    }
     interface IcDataList {
         /**
           * The title for the data list.
@@ -4825,6 +5255,28 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode;
     }
+    interface IcListbox {
+        "activedescendantIndex"?: number | null;
+        /**
+          * The reference to an anchor element the menu will position itself from when rendered.
+         */
+        "anchorEl"?: HTMLElement;
+        /**
+          * The ID of the menu.
+         */
+        "listboxId": string;
+        "onFlatttenedOptionsSet"?: (event: IcListboxCustomEvent<{ options: IcMenuOption[] }>) => void;
+        "onMenuOptionSelect"?: (event: IcListboxCustomEvent<IcOptionSelectEventDetail>) => void;
+        /**
+          * If `true`, the menu will be displayed open.
+         */
+        "open": boolean;
+        /**
+          * The possible menu selection options.
+         */
+        "options": IcMenuOption[];
+        "value"?: string | string[] | null;
+    }
     interface IcLoadingIndicator {
         /**
           * The description that will be set as the aria-label of the loading indicator when not using a visible label.
@@ -4913,7 +5365,7 @@ declare namespace LocalJSX {
         "onIcClear"?: (event: IcMenuCustomEvent<void>) => void;
         "onMenuKeyPress"?: (event: IcMenuCustomEvent<{ isNavKey: boolean; key: string }>) => void;
         "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
-        "onMenuOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onMenuOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail1>) => void;
         "onMenuOptionSelectAll"?: (event: IcMenuCustomEvent<{ select: boolean }>) => void;
         "onMenuStateChange"?: (event: IcMenuCustomEvent<IcMenuChangeEventDetail>) => void;
         "onRetryButtonClicked"?: (event: IcMenuCustomEvent<IcMultiValueEventDetail>) => void;
@@ -5486,7 +5938,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when option is highlighted within the menu
          */
-        "onIcOptionSelect"?: (event: IcSearchBarCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onIcOptionSelect"?: (event: IcSearchBarCustomEvent<IcOptionSelectEventDetail1>) => void;
         /**
           * Emitted when the 'retry loading' button is clicked
          */
@@ -5659,11 +6111,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when `multiple` is `true` and an option is deselected.
          */
-        "onIcOptionDeselect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onIcOptionDeselect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail1>) => void;
         /**
           * Emitted when an option is selected. Selecting an option will also trigger an `icChange/onIcChange` due to the value being updated.
          */
-        "onIcOptionSelect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onIcOptionSelect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail1>) => void;
         /**
           * Emitted when the 'retry loading' button is clicked for a searchable variant.
          */
@@ -5726,6 +6178,128 @@ declare namespace LocalJSX {
         "validationText"?: string;
         /**
           * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
+         */
+        "value"?: string | string[] | null;
+    }
+    interface IcSelectNew {
+        /**
+          * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
+         */
+        "disableAutoFiltering"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The text displayed when there are no options in the option list.
+         */
+        "emptyOptionListText"?: string;
+        /**
+          * The <form> element to associate the select with.
+         */
+        "form"?: string;
+        /**
+          * If `true`, the select will fill the width of the container.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText"?: string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
+         */
+        "includeDescriptionsInSearch"?: boolean;
+        /**
+          * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
+         */
+        "includeGroupTitlesInSearch"?: boolean;
+        /**
+          * The label for the select.
+         */
+        "label": string;
+        /**
+          * If `true`, the loading state will be triggered when fetching options asynchronously.
+         */
+        "loading"?: boolean;
+        /**
+          * The message displayed when external loading times out.
+         */
+        "loadingErrorLabel"?: string;
+        /**
+          * The message displayed whilst the options are being loaded externally.
+         */
+        "loadingLabel"?: string;
+        /**
+          * If `true`, multiple options can be selected.
+         */
+        "multiple"?: boolean;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * The possible selection options.
+         */
+        "options"?: IcMenuOption[];
+        /**
+          * The placeholder value to be displayed.
+         */
+        "placeholder"?: string;
+        /**
+          * If `true`, the readonly state will be set.
+         */
+        "readonly"?: boolean;
+        /**
+          * If `true`, the select will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
+         */
+        "searchMatchPosition"?: IcSearchMatchPositions;
+        /**
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
+         */
+        "searchable"?: boolean;
+        /**
+          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.
+         */
+        "selectOnEnter"?: boolean;
+        /**
+          * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
+         */
+        "showClearButton"?: boolean;
+        /**
+          * The size of the select.
+         */
+        "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * If using external filtering, set a timeout for when loading takes too long.
+         */
+        "timeout"?: number;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the select, reflected by the value of the currently selected option. For the multi-select variant, the value must be an array of option values.
          */
         "value"?: string | string[] | null;
     }
@@ -6506,6 +7080,7 @@ declare namespace LocalJSX {
         "ic-checkbox-group": IcCheckboxGroup;
         "ic-chip": IcChip;
         "ic-classification-banner": IcClassificationBanner;
+        "ic-combobox": IcCombobox;
         "ic-data-list": IcDataList;
         "ic-data-row": IcDataRow;
         "ic-dialog": IcDialog;
@@ -6523,6 +7098,7 @@ declare namespace LocalJSX {
         "ic-layout-grid": IcLayoutGrid;
         "ic-layout-grid-item": IcLayoutGridItem;
         "ic-link": IcLink;
+        "ic-listbox": IcListbox;
         "ic-loading-indicator": IcLoadingIndicator;
         "ic-menu": IcMenu;
         "ic-menu-group": IcMenuGroup;
@@ -6540,6 +7116,7 @@ declare namespace LocalJSX {
         "ic-search-bar": IcSearchBar;
         "ic-section-container": IcSectionContainer;
         "ic-select": IcSelect;
+        "ic-select-new": IcSelectNew;
         "ic-side-navigation": IcSideNavigation;
         "ic-skeleton": IcSkeleton;
         "ic-skip-link": IcSkipLink;
@@ -6580,6 +7157,7 @@ declare module "@stencil/core" {
             "ic-checkbox-group": LocalJSX.IcCheckboxGroup & JSXBase.HTMLAttributes<HTMLIcCheckboxGroupElement>;
             "ic-chip": LocalJSX.IcChip & JSXBase.HTMLAttributes<HTMLIcChipElement>;
             "ic-classification-banner": LocalJSX.IcClassificationBanner & JSXBase.HTMLAttributes<HTMLIcClassificationBannerElement>;
+            "ic-combobox": LocalJSX.IcCombobox & JSXBase.HTMLAttributes<HTMLIcComboboxElement>;
             "ic-data-list": LocalJSX.IcDataList & JSXBase.HTMLAttributes<HTMLIcDataListElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
             "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
@@ -6597,6 +7175,7 @@ declare module "@stencil/core" {
             "ic-layout-grid": LocalJSX.IcLayoutGrid & JSXBase.HTMLAttributes<HTMLIcLayoutGridElement>;
             "ic-layout-grid-item": LocalJSX.IcLayoutGridItem & JSXBase.HTMLAttributes<HTMLIcLayoutGridItemElement>;
             "ic-link": LocalJSX.IcLink & JSXBase.HTMLAttributes<HTMLIcLinkElement>;
+            "ic-listbox": LocalJSX.IcListbox & JSXBase.HTMLAttributes<HTMLIcListboxElement>;
             "ic-loading-indicator": LocalJSX.IcLoadingIndicator & JSXBase.HTMLAttributes<HTMLIcLoadingIndicatorElement>;
             "ic-menu": LocalJSX.IcMenu & JSXBase.HTMLAttributes<HTMLIcMenuElement>;
             "ic-menu-group": LocalJSX.IcMenuGroup & JSXBase.HTMLAttributes<HTMLIcMenuGroupElement>;
@@ -6614,6 +7193,7 @@ declare module "@stencil/core" {
             "ic-search-bar": LocalJSX.IcSearchBar & JSXBase.HTMLAttributes<HTMLIcSearchBarElement>;
             "ic-section-container": LocalJSX.IcSectionContainer & JSXBase.HTMLAttributes<HTMLIcSectionContainerElement>;
             "ic-select": LocalJSX.IcSelect & JSXBase.HTMLAttributes<HTMLIcSelectElement>;
+            "ic-select-new": LocalJSX.IcSelectNew & JSXBase.HTMLAttributes<HTMLIcSelectNewElement>;
             "ic-side-navigation": LocalJSX.IcSideNavigation & JSXBase.HTMLAttributes<HTMLIcSideNavigationElement>;
             "ic-skeleton": LocalJSX.IcSkeleton & JSXBase.HTMLAttributes<HTMLIcSkeletonElement>;
             "ic-skip-link": LocalJSX.IcSkipLink & JSXBase.HTMLAttributes<HTMLIcSkipLinkElement>;

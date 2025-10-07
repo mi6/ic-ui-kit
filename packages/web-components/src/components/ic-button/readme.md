@@ -73,14 +73,6 @@ Type: `Promise<void>`
 | `"top-icon"`    | Content will be placed above the button label.                                                                |
 
 
-## CSS Custom Properties
-
-| Name          | Description                  |
-| ------------- | ---------------------------- |
-| `--height`    | The height of the button.    |
-| `--min-width` | Minimum width of the button. |
-
-
 ## Dependencies
 
 ### Used by
@@ -88,6 +80,7 @@ Type: `Promise<void>`
  - [ic-accordion-group](../ic-accordion-group)
  - [ic-alert](../ic-alert)
  - [ic-back-to-top](../ic-back-to-top)
+ - [ic-combobox](../ic-combobox)
  - [ic-dialog](../ic-dialog)
  - [ic-horizontal-scroll](../ic-horizontal-scroll)
  - [ic-menu](../ic-menu)
@@ -97,6 +90,7 @@ Type: `Promise<void>`
  - [ic-pagination](../ic-pagination)
  - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
+ - [ic-select-new](../ic-select-new)
  - [ic-side-navigation](../ic-side-navigation)
  - [ic-toast](../ic-toast)
  - [ic-toggle-button](../ic-toggle-button)
@@ -119,6 +113,7 @@ graph TD;
   ic-accordion-group --> ic-button
   ic-alert --> ic-button
   ic-back-to-top --> ic-button
+  ic-combobox --> ic-button
   ic-dialog --> ic-button
   ic-horizontal-scroll --> ic-button
   ic-menu --> ic-button
@@ -128,6 +123,7 @@ graph TD;
   ic-pagination --> ic-button
   ic-search-bar --> ic-button
   ic-select --> ic-button
+  ic-select-new --> ic-button
   ic-side-navigation --> ic-button
   ic-toast --> ic-button
   ic-toggle-button --> ic-button

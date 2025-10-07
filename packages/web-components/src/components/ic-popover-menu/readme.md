@@ -23,15 +23,6 @@ This is a wrapper component to be placed around one or more ic-menu-item compone
 | `icPopoverClosed` | Emitted when the popover menu is closed. | `CustomEvent<HTMLIcMenuItemElement>` |
 
 
-## CSS Custom Properties
-
-| Name                   | Description                         |
-| ---------------------- | ----------------------------------- |
-| `--ic-z-index-popover` | z-index of popover menu.            |
-| `--max-height`         | Maximum height of the popover menu. |
-| `--popover-width`      | Default width of the popover menu.  |
-
-
 ## Dependencies
 
 ### Depends on

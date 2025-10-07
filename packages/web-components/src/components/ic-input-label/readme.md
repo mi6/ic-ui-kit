@@ -24,9 +24,11 @@
 ### Used by
 
  - [ic-checkbox-group](../ic-checkbox-group)
+ - [ic-combobox](../ic-combobox)
  - [ic-radio-group](../ic-radio-group)
  - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
+ - [ic-select-new](../ic-select-new)
  - [ic-switch](../ic-switch)
  - [ic-text-field](../ic-text-field)
 
@@ -39,9 +41,11 @@
 graph TD;
   ic-input-label --> ic-typography
   ic-checkbox-group --> ic-input-label
+  ic-combobox --> ic-input-label
   ic-radio-group --> ic-input-label
   ic-search-bar --> ic-input-label
   ic-select --> ic-input-label
+  ic-select-new --> ic-input-label
   ic-switch --> ic-input-label
   ic-text-field --> ic-input-label
   style ic-input-label fill:#f9f,stroke:#333,stroke-width:4px

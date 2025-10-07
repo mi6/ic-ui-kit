@@ -29,18 +29,12 @@
 | `"ic-loading-container"` |             |
 
 
-## CSS Custom Properties
-
-| Name                  | Description                                        |
-| --------------------- | -------------------------------------------------- |
-| `--circular-diameter` | Diameter of the circular-indicator in px, rem or % |
-
-
 ## Dependencies
 
 ### Used by
 
  - [ic-button](../ic-button)
+ - [ic-listbox](../ic-listbox)
  - [ic-menu](../ic-menu)
  - [ic-step](../ic-step)
  - [ic-toast](../ic-toast)
@@ -54,6 +48,7 @@
 graph TD;
   ic-loading-indicator --> ic-typography
   ic-button --> ic-loading-indicator
+  ic-listbox --> ic-loading-indicator
   ic-menu --> ic-loading-indicator
   ic-step --> ic-loading-indicator
   ic-toast --> ic-loading-indicator

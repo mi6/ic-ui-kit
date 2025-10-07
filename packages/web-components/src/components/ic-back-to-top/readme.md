@@ -15,16 +15,6 @@
 | `variant`             | `variant`  | The variant of the button to render                                                                                                     | `"default" \| "icon" \| undefined`            | `"default"` |
 
 
-## CSS Custom Properties
-
-| Name                       | Description                      |
-| -------------------------- | -------------------------------- |
-| `--footer-offset`          | offset of x-position from footer |
-| `--ic-z-index-back-to-top` | z-index of back to top           |
-| `--margin-left`            | left y-position of back to top   |
-| `--margin-right`           | right y-position of back to top  |
-
-
 ## Dependencies
 
 ### Depends on

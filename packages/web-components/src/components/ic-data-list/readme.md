@@ -21,13 +21,6 @@
 | `"heading"` | Content will be placed at the top of the data list. |
 
 
-## CSS Custom Properties
-
-| Name                     | Description                                 |
-| ------------------------ | ------------------------------------------- |
-| `--data-row-label-width` | Width of the label column in the data list. |
-
-
 ## Dependencies
 
 ### Depends on
