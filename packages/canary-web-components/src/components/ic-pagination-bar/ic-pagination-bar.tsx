@@ -287,7 +287,7 @@ export class PaginationBar {
       console.error(
         `The selected items per page option "${this.selectedItemsPerPage}" does not exist`
       );
-      this.setItemsPerPage(+displayedItemsPerPageOptions[0]?.value, false);
+      this.setItemsPerPage(+this.totalItems, false);
     }
   };
 
