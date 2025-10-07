@@ -1,0 +1,124 @@
+@import "../../global/normalize.css";
+
+/**
+ * @prop --input-width: Width of the input field
+ * @prop --menu-width: Width of the dropdown menu
+ * @prop --ic-z-index-menu: z-index of select menu
+ */
+:host {
+  display: block;
+  position: relative;
+
+  --ic-input-label-helpertext-padding: var(--ic-space-xs);
+  --menu-max-height: 100px;
+  --border-color: var(--ic-select-field-border);
+  --border-color-hover: var(--ic-select-field-border-hover);
+  --border-color-pressed: var(--ic-select-field-border-pressed);
+  --border-color-disabled: var(--ic-select-field-border-disabled);
+  --border-color-error: var(--ic-select-field-border-error);
+  --border-color-error-hover: var(--ic-select-field-border-error-hover);
+  --border-color-error-pressed: var(--ic-select-field-border-error-pressed);
+  --border-color-success: var(--ic-select-field-border-success);
+  --border-color-success-hover: var(--ic-select-field-border-success-hover);
+  --border-color-success-pressed: var(--ic-select-field-border-success-pressed);
+  --border-color-warning: var(--ic-select-field-border-warning);
+  --border-color-warning-hover: var(--ic-select-field-border-warning-hover);
+  --border-color-warning-pressed: var(--ic-select-field-border-warning-pressed);
+  --ic-input-label-text-color: var(--ic-select-field-labe);
+  --ic-input-label-helper-text-color: var(
+    --ic-select-input-field-label-subtitle
+  );
+  --ic-input-validation-status-text-color: var(--ic-select-state-text);
+  --ic-input-validation-error: var(--ic-select-state-icon-error);
+  --ic-input-validation-warning-icon-color: var(--ic-select-state-icon-warning);
+  --ic-input-validation-success-icon-color: var(--ic-select-state-icon-success);
+  --menu-item-text-color: var(--ic-select-list-option-text);
+  --menu-bg-color: var(--ic-select-list-option-background);
+  --menu-border-color: var(--ic-select-dropdown-list-border);
+}
+
+:host(.ic-select-disabled) {
+  --ic-input-label-text-color: var(--ic-select-field-label-disabled);
+  --ic-input-label-helper-text-color: var(
+    --ic-select-input-field-label-subtitle-disabled
+  );
+}
+
+:host(.ic-select-full-width) {
+  width: 100%;
+}
+
+ic-input-component-container.menu-open {
+  --border-color: var(--ic-select-field-border-pressed);
+}
+
+.listbox {
+  text-decoration: none;
+  list-style-type: none;
+  border-radius: 1px;
+  background-color: var(
+    --menu-bg-color,
+    var(--ic-menu-list-option-background-color)
+  );
+  visibility: hidden;
+  max-height: 0;
+  overflow-y: hidden;
+}
+
+.listbox-open {
+  visibility: visible;
+  max-height: calc(var(--ic-space-xl) * 10 + var(--ic-space-xxxs));
+}
+
+.listbox-option:hover {
+    background-color: var(--ic-popover-background-hover);
+}
+
+.listbox-option:focus,
+.listbox-option:focus-visible {
+    background-color: var(--ic-popover-background-focus);;
+}
+
+.select-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.select-input {
+  width: 100%;
+  height: 100%;
+  padding: 0 0.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  background-color: var(--ic-select-field-background);
+  color: var(--ic-select-content-text);
+}
+
+.select-input:focus {
+  outline: none;
+}
+
+.placeholder {
+  color: var(--ic-select-content-placeholder-text);
+}
+
+.value-text {
+  max-width: calc(100% - (var(--ic-space-lg) + var(--ic-space-xxs)));
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+}
+
+:host(.ic-select-disabled) .value-text,
+:host(.ic-select-disabled) .select-input,
+:host(.ic-select-disabled) .placeholder,
+:host(.ic-select-disabled.ic-select-searchable) .select-input::placeholder {
+  color: var(--ic-select-content-text-disabled);
+}

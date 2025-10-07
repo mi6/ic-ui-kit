@@ -18,19 +18,6 @@
 | `weight`         | `weight`          | The thickness of the divider.                                                                                                                                                                                                                                                            | `"medium" \| "thick" \| "thin" \| "very-thick" \| undefined`      | `"thin"`       |
 
 
-## CSS Custom Properties
-
-| Name                                 | Description                                                                                                                                                                                |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `--ic-divider-background`            |                                                                                                                                                                                            |
-| `--ic-divider-background-monochrome` |                                                                                                                                                                                            |
-| `--ic-divider-horizontal-width`      | The width of a horizontal divider. The default value is `inherit`.                                                                                                                         |
-| `--ic-divider-label`                 |                                                                                                                                                                                            |
-| `--ic-divider-label-monochrome`      |                                                                                                                                                                                            |
-| `--ic-divider-label-width`           | The max-width of the divider label. When orientation is set to `horizontal`, the default value is `max(20rem, 60%)`. When orientation is set to `vertical`, the default value is `20 rem`. |
-| `--ic-divider-vertical-height`       | The height of a vertical divider. The default value is `inherit`.                                                                                                                          |
-
-
 ## Dependencies
 
 ### Used by

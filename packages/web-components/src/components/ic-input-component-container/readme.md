@@ -25,38 +25,23 @@
 | `"left-icon"` | Content will be placed to the left of the input. |
 
 
-## CSS Custom Properties
-
-| Name                             | Description                                                                |
-| -------------------------------- | -------------------------------------------------------------------------- |
-| `--border-color`                 | Border colour of the input component container                             |
-| `--border-color-disabled`        | Border colour of the input component container when disabled               |
-| `--border-color-error`           | Border colour of the error variant for input component container           |
-| `--border-color-error-hover`     | Border colour of the error hover variant for input component container     |
-| `--border-color-error-pressed`   | Border colour of the error pressed variant for input component container   |
-| `--border-color-hover`           | Border colour of the input component container on hover                    |
-| `--border-color-pressed`         | Border colour of the input component container when pressed                |
-| `--border-color-success`         | Border colour of the success variant for input component container         |
-| `--border-color-success-hover`   | Border colour of the success hover variant for input component container   |
-| `--border-color-success-pressed` | Border colour of the success pressed variant for input component container |
-| `--border-color-warning`         | Border colour of the warning variant for input component container         |
-| `--border-color-warning-hover`   | Border colour of the warning hover variant for input component container   |
-| `--border-color-warning-pressed` | Border colour of the warning pressed variant for input component container |
-
-
 ## Dependencies
 
 ### Used by
 
+ - [ic-combobox](../ic-combobox)
  - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
+ - [ic-select-new](../ic-select-new)
  - [ic-text-field](../ic-text-field)
 
 ### Graph
 ```mermaid
 graph TD;
+  ic-combobox --> ic-input-component-container
   ic-search-bar --> ic-input-component-container
   ic-select --> ic-input-component-container
+  ic-select-new --> ic-input-component-container
   ic-text-field --> ic-input-component-container
   style ic-input-component-container fill:#f9f,stroke:#333,stroke-width:4px
 ```

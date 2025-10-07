@@ -31,13 +31,6 @@ Type: `Promise<void>`
 
 
 
-## CSS Custom Properties
-
-| Name                          | Description                                                                                     |
-| ----------------------------- | ----------------------------------------------------------------------------------------------- |
-| `--ic-skip-link-position-top` | The top position of the skip link when it is not displayed inline and has an absolute position. |
-
-
 ## Dependencies
 
 ### Depends on
