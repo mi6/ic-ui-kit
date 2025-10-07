@@ -333,7 +333,10 @@ export class Toast {
     } = this;
     return (
       <Host
-        class={{ ["ic-toast-hidden"]: !visible }}
+        class={{
+          ["ic-toast-hidden"]: !visible,
+          [`ic-toast-variant-${variant}`]: variant !== undefined,
+        }}
         tabindex="0"
         onFocus={this.onFocus}
         onBlur={this.onBlur}

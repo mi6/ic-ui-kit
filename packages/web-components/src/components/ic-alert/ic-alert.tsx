@@ -208,6 +208,8 @@ export class Alert {
           role={announced ? "alert" : null}
           class={{
             [`ic-theme-${theme}`]: theme !== "inherit",
+            [`ic-alert-variant-${variant}`]: true,
+            [`ic-alert-no-default-icon`]: !showDefaultIcon,
           }}
         >
           <div class={{ container: true, [`container-${variant}`]: true }}>

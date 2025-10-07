@@ -48,22 +48,23 @@ ic-link {
   --breadcrumb-link-gap: var(--ic-space-xs);
 }
 
-:host([aria-current="page"]) {
+:host(.ic-breadcrumb-aria-current-page) {
   cursor: text;
 }
 
-:host([aria-current="page"]) .current-page-container {
+:host(.ic-breadcrumb-aria-current-page) .current-page-container {
   display: flex;
   align-items: center;
   gap: var(--ic-space-xs);
   color: var(--ic-breadcrumb-text);
 }
 
-:host([aria-current="page"].ic-breadcrumb-monochrome) .current-page-container {
+:host(.ic-breadcrumb-aria-current-page).ic-breadcrumb-monochrome
+  .current-page-container {
   color: var(--ic-breadcrumb-text-monochrome);
 }
 
-:host([aria-current="page"]) slot {
+:host(.ic-breadcrumb-aria-current-page) slot {
   pointer-events: none;
 }
 

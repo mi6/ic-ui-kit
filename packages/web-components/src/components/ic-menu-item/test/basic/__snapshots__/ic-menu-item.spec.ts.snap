@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`menu item variants should render a menu item with a description 1`] = `
-<ic-menu-item description="This is the default variant of the menu item with a description" label="Default variant" variant="default">
+<ic-menu-item class="ic-menu-item-variant-default" description="This is the default variant of the menu item with a description" label="Default variant" variant="default">
   <template shadowrootmode="open">
     <ic-button aria-disabled="false" aria-label="Default variant, This is the default variant of the menu item with a description" fullwidth="" role="menuitem" variant="tertiary">
       <div class="focus-border">
@@ -22,7 +22,7 @@ exports[`menu item variants should render a menu item with a description 1`] = `
 `;
 
 exports[`menu item variants should render the default variant 1`] = `
-<ic-menu-item label="Default variant" variant="default">
+<ic-menu-item class="ic-menu-item-variant-default" label="Default variant" variant="default">
   <template shadowrootmode="open">
     <ic-button aria-disabled="false" aria-label="Default variant" fullwidth="" role="menuitem" variant="tertiary">
       <div class="focus-border">
@@ -40,7 +40,7 @@ exports[`menu item variants should render the default variant 1`] = `
 `;
 
 exports[`menu item variants should render the destructive variant 1`] = `
-<ic-menu-item label="Destructive variant" variant="destructive">
+<ic-menu-item class="ic-menu-item-variant-destructive" label="Destructive variant" variant="destructive">
   <template shadowrootmode="open">
     <ic-button aria-disabled="false" aria-label="Destructive variant, destructive" fullwidth="" role="menuitem" variant="tertiary">
       <div class="focus-border">
@@ -58,7 +58,7 @@ exports[`menu item variants should render the destructive variant 1`] = `
 `;
 
 exports[`menu item variants should render the disabled variant 1`] = `
-<ic-menu-item class="ic-menu-item-disabled" disabled="" label="Default variant" variant="default">
+<ic-menu-item class="ic-menu-item-disabled ic-menu-item-variant-default" disabled="" label="Default variant" variant="default">
   <template shadowrootmode="open">
     <ic-button aria-disabled="true" aria-label="Default variant" fullwidth="" role="menuitem" variant="tertiary">
       <div class="focus-border">
@@ -76,7 +76,7 @@ exports[`menu item variants should render the disabled variant 1`] = `
 `;
 
 exports[`menu item variants should render the disabled variant: disabled-removed 1`] = `
-<ic-menu-item label="Default variant" variant="default">
+<ic-menu-item class="ic-menu-item-variant-default" label="Default variant" variant="default">
   <template shadowrootmode="open">
     <ic-button aria-disabled="false" aria-label="Default variant" fullwidth="" role="menuitem" variant="tertiary">
       <div class="focus-border">
@@ -94,7 +94,7 @@ exports[`menu item variants should render the disabled variant: disabled-removed
 `;
 
 exports[`menu item variants should render the toggle variant 1`] = `
-<ic-menu-item id="test-menu-item" label="Toggle variant" variant="toggle">
+<ic-menu-item class="ic-menu-item-variant-toggle" id="test-menu-item" label="Toggle variant" variant="toggle">
   <template shadowrootmode="open">
     <ic-button aria-checked="false" class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary" exportparts="button" role="menuitemcheckbox">
       <template shadowrootmode="open">
@@ -120,7 +120,7 @@ exports[`menu item variants should render the toggle variant 1`] = `
 `;
 
 exports[`menu item variants should render with keyboard shortcut 1`] = `
-<ic-menu-item keyboard-shortcut-label="Cmd+" label="Toggle variant" variant="default">
+<ic-menu-item class="ic-menu-item-variant-default" keyboard-shortcut-label="Cmd+" label="Toggle variant" variant="default">
   <template shadowrootmode="open">
     <ic-button aria-disabled="false" aria-label="Toggle variant, Cmd+" fullwidth="" role="menuitem" variant="tertiary">
       <div class="focus-border">

@@ -265,6 +265,7 @@ export class LoadingIndicator {
           "ic-loading-indicator-full-width": fullWidth,
           "ic-loading-indicator-label": !!label,
           "ic-loading-indicator-monochrome": monochrome,
+          [`ic-loading-indicator-size-${size}`]: true,
         }}
       >
         <div class="ic-loading-container" part="ic-loading-container">
