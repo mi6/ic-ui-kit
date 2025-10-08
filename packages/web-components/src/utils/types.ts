@@ -172,6 +172,7 @@ export interface IcMenuOption {
     ariaLabel: string;
   };
   icon?: any;
+  hideLabel?: boolean;
 }
 
 export type IcSearchMatchPositions = "start" | "anywhere";
