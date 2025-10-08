@@ -23311,7 +23311,7 @@
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
     "src/utils/types.ts::IcMenuOption": {
-      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n}",
+      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n  hideLabel?: boolean;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
