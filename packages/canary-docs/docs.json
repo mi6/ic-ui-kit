@@ -22,11 +22,27 @@
         },
         {
           "name": "slot",
-          "text": "image - Content will be placed to the left of all other content."
+          "text": "subheading - Content will be placed below the card heading. Only for `density=\"spacious\"`."
+        },
+        {
+          "name": "slot",
+          "text": "adornment - Content will be placed below the card subheading. Only for `density=\"spacious\"`."
+        },
+        {
+          "name": "slot",
+          "text": "image-left - Content will be placed to the left of all other content."
+        },
+        {
+          "name": "slot",
+          "text": "image-right - Content will be placed to the right of all other content."
         },
         {
           "name": "slot",
           "text": "icon - Content will be placed to the left of the horizontal card heading."
+        },
+        {
+          "name": "slot",
+          "text": "interaction-button - Content will be placed in the top right corner of the heading section."
         },
         {
           "name": "slot",
@@ -52,6 +68,41 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "density",
+          "type": "\"default\" | \"spacious\"",
+          "complexType": {
+            "original": "IcCardDensity",
+            "resolved": "\"default\" | \"spacious\"",
+            "references": {
+              "IcCardDensity": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcCardDensity"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "density",
+          "reflectToAttr": false,
+          "docs": "The padding of the horizontal card.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "spacious",
+              "type": "string"
             }
           ],
           "optional": false,
@@ -280,15 +331,15 @@
         },
         {
           "name": "size",
-          "type": "\"extra-large\" | \"large\" | \"medium\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
-            "original": "IcCardSizes",
-            "resolved": "\"extra-large\" | \"large\" | \"medium\" | \"small\"",
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
-              "IcCardSizes": {
+              "IcSizes": {
                 "location": "import",
-                "path": "./ic-card-horizontal.types",
-                "id": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts::IcCardSizes"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -299,10 +350,6 @@
           "docsTags": [],
           "default": "\"medium\"",
           "values": [
-            {
-              "value": "extra-large",
-              "type": "string"
-            },
             {
               "value": "large",
               "type": "string"
@@ -317,6 +364,32 @@
             }
           ],
           "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "subheading",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "subheading",
+          "reflectToAttr": false,
+          "docs": "The subheading for the card.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false
@@ -356,8 +429,8 @@
             "references": {
               "IcThemeMode": {
                 "location": "import",
-                "path": "@ukic/web-components",
-                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
               }
             }
           },
@@ -437,6 +510,10 @@
       ],
       "slots": [
         {
+          "name": "adornment",
+          "docs": "Content will be placed below the card subheading. Only for `density=\"spacious\"`."
+        },
+        {
           "name": "badge",
           "docs": "Badge component overlaying the top right of the horizontal card."
         },
@@ -449,12 +526,24 @@
           "docs": "Content will be placed to the left of the horizontal card heading."
         },
         {
-          "name": "image",
+          "name": "image-left",
           "docs": "Content will be placed to the left of all other content."
+        },
+        {
+          "name": "image-right",
+          "docs": "Content will be placed to the right of all other content."
+        },
+        {
+          "name": "interaction-button",
+          "docs": "Content will be placed in the top right corner of the heading section."
         },
         {
           "name": "message",
           "docs": "Content will be placed in the main body of the horizontal card."
+        },
+        {
+          "name": "subheading",
+          "docs": "Content will be placed below the card heading. Only for `density=\"spacious\"`."
         }
       ],
       "parts": [],
@@ -6248,15 +6337,20 @@
     }
   ],
   "typeLibrary": {
-    "src/components/ic-card-horizontal/ic-card-horizontal.types.ts::IcCardSizes": {
-      "declaration": "export type IcCardSizes = \"small\" | \"medium\" | \"large\" | \"extra-large\";",
+    "src/utils/types.ts::IcCardDensity": {
+      "declaration": "export type IcCardDensity = \"default\" | \"spacious\";",
       "docstring": "",
-      "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
+      "path": "src/utils/types.ts"
     },
-    "../web-components/dist/types/interface.d.ts::IcThemeMode": {
-      "declaration": "any",
+    "src/utils/types.ts::IcSizes": {
+      "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
       "docstring": "",
-      "path": "../web-components/dist/types/interface.d.ts"
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcThemeMode": {
+      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
       "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: IcDataTableAlignmentOptions;\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n  excludeColumnFromSort?: boolean;\n  hidden?: boolean;\n  disableAutoSort?: boolean;\n}",
@@ -6288,11 +6382,6 @@
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
-    "src/utils/types.ts::IcThemeMode": {
-      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
       "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
       "docstring": "",
@@ -6307,6 +6396,11 @@
       "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
       "docstring": "",
       "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
+    },
+    "../web-components/dist/types/interface.d.ts::IcThemeMode": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "../web-components/dist/types/interface.d.ts"
     },
     "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationTypes": {
       "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
@@ -6340,11 +6434,6 @@
     },
     "src/utils/types.ts::IcWeekDays": {
       "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcSizes": {
-      "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
