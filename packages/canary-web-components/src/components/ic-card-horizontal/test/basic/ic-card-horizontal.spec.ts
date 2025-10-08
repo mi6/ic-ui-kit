@@ -1,6 +1,8 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Card } from "../../ic-card-horizontal";
 import { IcTypography as Typography } from "@ukic/web-components/dist/components/ic-typography";
+import { IcBadge as Badge } from "@ukic/web-components/dist/components/ic-badge";
+import { IcButton as Button } from "@ukic/web-components/dist/components/ic-button";
 
 describe("ic-card-horizontal", () => {
   it("should render", async () => {
@@ -80,6 +82,41 @@ describe("ic-card-horizontal", () => {
     expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
+  it("should render with spacious layout", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card-horizontal heading="Card" message="This is a static card" density="spacious"></ic-card-horizontal>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with spacious layout and a subheading and adornment", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card-horizontal heading="Card" message="This is a static card" density="spacious" subheading="This is a subheading">
+        <div slot="adornment">Adornment</div>
+      </ic-card-horizontal>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should not render with a subheading and adornment with default density", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card-horizontal heading="Card" message="This is a static card" density="default" subheading="This is a subheading">
+        <div slot="adornment">Adornment</div>
+      </ic-card-horizontal>`,
+    });
+
+    const adornment = page.root!.querySelector(".adornment");
+    const subheading = page.root!.querySelector(".subheading");
+
+    expect(adornment).toBeNull();
+    expect(subheading).toBeNull();
+  });
+
   it("should apply 'focussed' style when parent is focussed", async () => {
     const page = await newSpecPage({
       components: [Card],
@@ -138,7 +175,16 @@ describe("ic-card-horizontal", () => {
   it("should render with an image", async () => {
     const page = await newSpecPage({
       components: [Card],
-      html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card"><div slot="image">Image placeholder</div></ic-card-horizontal>`,
+      html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card"><div slot="image-left">Image placeholder</div></ic-card-horizontal>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with an image on the right", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card"><div slot="image-right">Image placeholder</div></ic-card-horizontal>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -158,6 +204,58 @@ describe("ic-card-horizontal", () => {
       components: [Card, Typography],
       html: `<ic-card-horizontal id="test-card">
       <ic-typography slot="heading">Heading</ic-typography>
+      <ic-typography slot="message">Message</ic-typography>
+    </ic-card-horizontal>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with a badge", async () => {
+    const page = await newSpecPage({
+      components: [Card, Badge],
+      html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card">
+      <ic-badge slot="badge">Badge</ic-badge>
+    </ic-card-horizontal>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with an interaction button", async () => {
+    const page = await newSpecPage({
+      components: [Card, Button],
+      html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card">
+      <ic-button
+        variant="icon-tertiary"
+        title="More information"
+        slot="interaction-button"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-three-dots-vertical"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+          />
+        </svg>
+      </ic-button>
+    </ic-card-horizontal>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with a slotted heading, subheading and message in spacious layout", async () => {
+    const page = await newSpecPage({
+      components: [Card, Typography],
+      html: `<ic-card-horizontal id="test-card" density="spacious">
+      <ic-typography slot="heading">Heading</ic-typography>
+      <ic-typography slot="subheading">Subheading</ic-typography>
       <ic-typography slot="message">Message</ic-typography>
     </ic-card-horizontal>`,
     });

@@ -7,25 +7,28 @@
 :host {
   display: flex;
 
-  --card-max-width: 548px;
-  --image-size: 114px;
+  --card-max-width: 550px;
+  --image-size: 132px;
   --message-max-lines: 2;
 }
 
 .card.small {
   --card-max-width: 360px;
+  --image-size: calc(var(--ic-space-sm) * 10);
+}
+
+.card.small.spacious {
+  --image-size: 100px;
 }
 
 .card.large {
-  --card-max-width: 720px;
-  --image-size: 142px;
+  --card-max-width: 1130px;
+  --image-size: 164px;
   --message-max-lines: 3;
 }
 
-.card.extra-large {
-  --card-max-width: 1130px;
-  --image-size: 186px;
-  --message-max-lines: 5;
+.card.large .card-message {
+  margin-top: var(--ic-space-md);
 }
 
 a {
@@ -135,11 +138,12 @@ button {
 }
 
 .card-message {
-  margin-top: var(--ic-space-xxxs);
+  margin-top: var(--ic-space-xs);
   align-items: left;
 }
 
-.card.disabled .card-message {
+.card.disabled .card-message,
+.card.disabled .subheading {
   --ic-typography-color: var(--ic-card-disabled-text);
 }
 
@@ -148,7 +152,8 @@ button {
   border-radius: var(--ic-border-radius);
 }
 
-.image ::slotted([slot="image"]) {
+.image ::slotted([slot="image-left"]),
+.image ::slotted([slot="image-right"]) {
   height: var(--image-size);
   width: var(--image-size);
 }
@@ -195,6 +200,53 @@ button {
   overflow: hidden;
 }
 
+.card.spacious {
+  padding: var(--ic-space-md);
+}
+
+.card.spacious .card-content {
+  padding: 0;
+}
+
+.card.spacious .card-content.left-image {
+  padding: 0 0 0 var(--ic-space-md);
+}
+
+.card.spacious .card-content.right-image {
+  padding: 0 var(--ic-space-md) 0 0;
+}
+
+.card.spacious .image ::slotted([slot="image-left"]),
+.card.spacious .image ::slotted([slot="image-right"]) {
+  border-radius: var(--ic-border-radius);
+}
+
+.interaction-button {
+  margin-left: auto;
+}
+
+.adornment {
+  margin-top: var(--ic-space-xxs);
+}
+
+.subheading {
+  margin-top: var(--ic-space-xxs);
+}
+
+.card-title.with-interaction-button {
+  margin-right: var(--ic-space-md);
+}
+
+::slotted(p),
+::slotted(h1),
+::slotted(h2),
+::slotted(h3),
+::slotted(h4),
+::slotted(h5),
+::slotted(h6) {
+  line-height: normal;
+}
+
 /** High Contrast **/
 @media (forced-colors: active) {
   .card ::slotted(svg) {
@@ -210,7 +262,8 @@ button {
   }
 
   .card.disabled .card-message,
-  .card.disabled .card-title {
+  .card.disabled .card-title,
+  .card.disabled .subheading {
     color: GrayText;
 
     --ic-typography-color: GrayText;
