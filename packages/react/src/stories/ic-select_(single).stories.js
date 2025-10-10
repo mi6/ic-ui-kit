@@ -123,6 +123,12 @@ const manyOptions = [
   { label: "Latte macchiato", value: "Lam" },
 ];
 
+const optionsWithLangProps = [
+  { label: "Cappuccino", value: "Cap", htmlProps: { lang: "it" } },
+  { label: "Latte", value: "Lat", htmlProps: { lang: "it" } },
+  { label: "Americano", value: "Ame", htmlProps: { lang: "it" } },
+];
+
 const playgroundOptions = [
   {
     label: "Cappuccino",
