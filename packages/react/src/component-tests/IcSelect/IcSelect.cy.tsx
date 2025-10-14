@@ -63,6 +63,7 @@ import {
   groupAndDescriptionCoffeeOption,
   groupCoffeeOption,
   manyOptions,
+  optionsWithHiddenLabels,
   recommendedCoffeeOption,
   validationCoffeeOption,
 } from "./IcSelectTestData";
@@ -256,6 +257,28 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.wait(2000);
     cy.get("@spyAlert").should(NOT_HAVE_BEEN_CALLED);
+  });
+
+  it("should render with option labels hidden", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee size?"
+          options={optionsWithHiddenLabels}
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
+      .type(TYPE_DOWN_ARROW)
+      .type(TYPE_DOWN_ARROW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/hidden-option-labels",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
   });
 
   it("should render small", () => {

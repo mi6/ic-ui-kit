@@ -1260,18 +1260,22 @@ export class Menu {
             "show-check-icon": showCheckIcon,
           }}
         >
-          <div class="option-label">
-            {option.icon && (
-              <div
-                class="option-icon"
-                innerHTML={sanitizeHTMLIconString(option.icon)}
-                aria-hidden="true"
-              ></div>
-            )}
-            <ic-typography variant="body" aria-hidden="true">
-              {option[this.labelField]}
-            </ic-typography>
-          </div>
+          {(option.icon || !option.hideLabel) && (
+            <div class="option-label">
+              {option.icon && (
+                <div
+                  class="option-icon"
+                  innerHTML={sanitizeHTMLIconString(option.icon)}
+                  aria-hidden="true"
+                ></div>
+              )}
+              {!option.hideLabel && (
+                <ic-typography variant="body" aria-hidden="true">
+                  {option[this.labelField]}
+                </ic-typography>
+              )}
+            </div>
+          )}
           {option.description && (
             <ic-typography
               id={`${this.getOptionId(option[this.valueField])}-description`}
@@ -1284,7 +1288,10 @@ export class Menu {
           )}
           {option.element && (
             <div
-              class="option-element"
+              class={{
+                "option-element":
+                  option.icon || !option.hideLabel || option.description,
+              }}
               innerHTML={sanitizeHTMLString(option.element.component)}
               aria-hidden="true"
             ></div>

@@ -101,12 +101,7 @@ Object {
       </li>
       <li aria-disabled="false" aria-label="Mocha, Neutral status tag" aria-selected="false" class="option" data-label="Mocha" data-value="mocha" id="menu-id-mocha" role="option" tabindex="-1">
         <div class="option-text-container">
-          <div class="option-label">
-            <ic-typography aria-hidden="true" variant="body">
-              Mocha
-            </ic-typography>
-          </div>
-          <div aria-hidden="true" class="option-element">
+          <div aria-hidden="true">
             <ic-status-tag label="Neutral status"></ic-status-tag>
           </div>
         </div>
@@ -307,12 +302,7 @@ exports[`ic-menu in isolation should test handleSelectAllFocus function 1`] = `
     </li>
     <li aria-disabled="false" aria-label="Mocha, Neutral status tag" aria-selected="false" class="option" data-label="Mocha" data-value="mocha" id="menu-id-mocha" role="option" tabindex="-1">
       <div class="option-text-container">
-        <div class="option-label">
-          <ic-typography aria-hidden="true" variant="body">
-            Mocha
-          </ic-typography>
-        </div>
-        <div aria-hidden="true" class="option-element">
+        <div aria-hidden="true">
           <ic-status-tag label="Neutral status"></ic-status-tag>
         </div>
       </div>

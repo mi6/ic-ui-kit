@@ -33,6 +33,7 @@ const menuOptions = [
       component: `<ic-status-tag label="Neutral status"></ic-status-tag>`,
       ariaLabel: "Neutral status tag",
     },
+    hideLabel: true,
   },
 ];
 
