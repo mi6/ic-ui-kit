@@ -45,7 +45,7 @@ export class Dialog {
   private IC_ACCORDION: string = "IC-ACCORDION";
   private IC_ACCORDION_GROUP: string = "IC-ACCORDION-GROUP";
   private IC_SEARCH_BAR: string = "IC-SEARCH-BAR";
-  private interactiveElementList: HTMLElement[];
+  private interactiveElementList: HTMLElement[] = [];
   private resizeObserver: ResizeObserver = null;
   private resizeTimeout: number;
   private sourceElement: HTMLElement;
@@ -170,7 +170,7 @@ export class Dialog {
   }
 
   /**
-   * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
+   * Cancellation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
    */
   @Event() icDialogCancelled: EventEmitter<void>;
 
@@ -200,7 +200,6 @@ export class Dialog {
   }
 
   componentDidLoad(): void {
-    this.getInteractiveElements();
     this.setAlertVariant();
 
     this.refreshInteractiveElementsOnSlotChange();
@@ -323,6 +322,7 @@ export class Dialog {
     }, 10);
 
     setTimeout(() => {
+      this.getInteractiveElements();
       this.setInitialFocus();
       checkResizeObserver(this.runResizeObserver);
     }, 75);
@@ -384,17 +384,33 @@ export class Dialog {
   private setInitialFocus = () => {
     this.sourceElement = document.activeElement as HTMLElement;
 
-    let focusedElement;
+    if (!this.interactiveElementList.length) {
+      // Retry after short delay if Cypress or render timing means not focusable yet
+      setTimeout(() => {
+        this.getInteractiveElements();
+        if (this.interactiveElementList.length) {
+          this.setInitialFocus();
+        }
+      }, 10);
+      return;
+    }
+
+    let focusedElement: HTMLElement | null = null;
 
     if (this.el.querySelector(this.DATA_GETS_FOCUS_SELECTOR) !== null) {
       focusedElement = this.el.querySelector(
         this.DATA_GETS_FOCUS_SELECTOR
       ) as HTMLElement;
     } else {
-      focusedElement = this.el.shadowRoot.querySelector(
+      focusedElement = this.el.shadowRoot?.querySelector(
         this.DATA_GETS_FOCUS_SELECTOR
       ) as HTMLElement;
     }
+
+    if (!focusedElement) {
+      return;
+    }
+
     if (focusedElement.tagName === this.IC_TEXT_FIELD) {
       (focusedElement as HTMLIcTextFieldElement).setFocus();
     } else if (focusedElement.tagName === this.IC_ACCORDION_GROUP) {
@@ -469,7 +485,7 @@ export class Dialog {
     this.getFocusedElementIndex();
 
     if (
-      this.interactiveElementList[this.focusedElementIndex].tagName ===
+      this.interactiveElementList[this.focusedElementIndex]?.tagName ===
       "IC-SEARCH-BAR"
     ) {
       return false;
@@ -479,6 +495,9 @@ export class Dialog {
     this.loopNextFocusIndexIfLastElement();
 
     let nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
+    if (!nextFocusEl) {
+      return false;
+    }
 
     const isHidden =
       getComputedStyle(nextFocusEl).visibility === "hidden" ||
@@ -494,6 +513,11 @@ export class Dialog {
 
         nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
       }
+
+      if (!nextFocusEl) {
+        return false;
+      }
+
       if (nextFocusEl.tagName === this.IC_ACCORDION_GROUP) {
         (nextFocusEl as HTMLIcAccordionGroupElement).setFocus();
       } else if (nextFocusEl.tagName === this.IC_ACCORDION) {

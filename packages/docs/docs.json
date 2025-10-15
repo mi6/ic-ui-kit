@@ -5074,7 +5074,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.",
+          "docs": "Cancellation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.",
           "docsTags": []
         },
         {
