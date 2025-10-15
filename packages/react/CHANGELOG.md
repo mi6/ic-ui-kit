@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.9.0...@ukic/react@3.13.0) (2025-10-15)
+
+### Bug Fixes
+
+- **react:** add react story and cypress tests ([f1da7ba](https://github.com/mi6/ic-ui-kit/commit/f1da7babf9d41b13268c687342f8cb759cb0ef21))
+- **react:** add tests ([8c50017](https://github.com/mi6/ic-ui-kit/commit/8c500170d85cc5e6d6876e72493a06ccc5c006fd))
+- **react:** adds test for custom elements fix ([cf0daa2](https://github.com/mi6/ic-ui-kit/commit/cf0daa2788d0539f01df70787a4be201dcc79c99))
+- **react:** adds test for custom elements fix ([79a8805](https://github.com/mi6/ic-ui-kit/commit/79a8805362b0dbadfdd477de2be62c29b22cc5b9))
+- **react:** fix back to top plaground target ([810d345](https://github.com/mi6/ic-ui-kit/commit/810d345dd1addd8ed84c1a5e37d1ffd4540bdcf9))
+- **react:** remove unnecessary exist assertions from cypress tests ([1737d88](https://github.com/mi6/ic-ui-kit/commit/1737d880e7e935886121c1af3625b342e4996a42))
+- **react:** update tests to show how the width of ic-select options grow with the width of ic-menu ([dcd8829](https://github.com/mi6/ic-ui-kit/commit/dcd88293c80a955d5d4ed587b1224dedbfd338dd)), closes [#3940](https://github.com/mi6/ic-ui-kit/issues/3940)
+- **react:** updates test image for status tag fix ([e66741c](https://github.com/mi6/ic-ui-kit/commit/e66741c026b45c46e09fc2e4d78bf7cb7b4f6300))
+
+### Features
+
+- **react:** add checkbox story and update playground to show updated aria live behaviour ([b8cd995](https://github.com/mi6/ic-ui-kit/commit/b8cd99586b34ed30c4c9ac49348405845bba9c96)), closes [#3959](https://github.com/mi6/ic-ui-kit/issues/3959)
+- **react:** add story for testing validation aria-live behaviour ([7a5ec1f](https://github.com/mi6/ic-ui-kit/commit/7a5ec1f8dbaa27de2ab274055f7279b87fa6711a)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+- **react:** add story for testing validation aria-live behaviour ([d385460](https://github.com/mi6/ic-ui-kit/commit/d3854604b53f0e672e2a3dc450be673ef6a9bf0c)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+- **react:** add story to demonstrate custom props on ic-menu <li> elements ([c901a73](https://github.com/mi6/ic-ui-kit/commit/c901a73cb99357329094943c5cd3b7bbf471e565)), closes [#3952](https://github.com/mi6/ic-ui-kit/issues/3952)
+- **react:** adds ability to hide menu option labels ([8f5b178](https://github.com/mi6/ic-ui-kit/commit/8f5b178de4475012d63887fc1e39c055151a6cc0))
+- **react:** update Cypress visual regression test baseline images ([9d5ba1e](https://github.com/mi6/ic-ui-kit/commit/9d5ba1e20cf36668aa351f08bbae4d1e73a6bb09))
+- **react:** update Cypress visual regression test baseline images ([5a07305](https://github.com/mi6/ic-ui-kit/commit/5a07305c985527a300e72196f1e8f62f4e5f7f6f))
+- **react:** update radio and select stories for testing updated validation SR behaviour ([1dc4e2f](https://github.com/mi6/ic-ui-kit/commit/1dc4e2fc8ed53b711793e3048f3ae66e23efb644)), closes [#3959](https://github.com/mi6/ic-ui-kit/issues/3959)
+- **react:** update stepper test and story to include new "steps" in i18n prop ([8eaf25e](https://github.com/mi6/ic-ui-kit/commit/8eaf25e6c1e795f31a5f5b439322293e62c57cf7))
+
+### Reverts
+
+- **react:** revert changes from PR [#3910](https://github.com/mi6/ic-ui-kit/issues/3910) so canary issues can be fixed ([7ac7ff2](https://github.com/mi6/ic-ui-kit/commit/7ac7ff209e0afd167af596d923f9c0f0b69ea9c6))
+- **react:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([68686be](https://github.com/mi6/ic-ui-kit/commit/68686be5013f9725faa883ef54c9c3dd683bb3b2))
+
 # [3.12.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.9.0...@ukic/react@3.12.0) (2025-10-01)
 
 ### Bug Fixes

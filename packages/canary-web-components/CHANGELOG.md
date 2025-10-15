@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.24...@ukic/canary-web-components@3.0.0-canary.28) (2025-10-15)
+
+### Bug Fixes
+
+- **canary-web-components:** add aria-required attribute to date input and time input fields ([05065b7](https://github.com/mi6/ic-ui-kit/commit/05065b71a1710b9e28477b9f7c1f703df0423808)), closes [#3896](https://github.com/mi6/ic-ui-kit/issues/3896)
+- **canary-web-components:** fix validation message SR behaviour not working - date + time components ([a910447](https://github.com/mi6/ic-ui-kit/commit/a910447323da442ecbcc17bf5dede93a646474d9)), closes [#3959](https://github.com/mi6/ic-ui-kit/issues/3959)
+- **canary-web-components:** fixes issue with 12 hour time input ([82c614c](https://github.com/mi6/ic-ui-kit/commit/82c614cc973728a4ab6906d95558578b6b72c47d))
+- **canary-web-components:** fixes issues adding custom elements ([8521d9d](https://github.com/mi6/ic-ui-kit/commit/8521d9de3f130e5287cd9febc0009e99c28c00f2))
+- **canary-web-components:** fixes issues adding custom elements ([8e0fbf8](https://github.com/mi6/ic-ui-kit/commit/8e0fbf85765034f56fb1b71a985abcbfea85e1cd))
+- **canary-web-components:** itemsPerPage select bug fix ([79d16bb](https://github.com/mi6/ic-ui-kit/commit/79d16bb531a853c8a9a525db468eb8fdced59e82)), closes [#3939](https://github.com/mi6/ic-ui-kit/issues/3939)
+- **canary-web-components:** make date input clear button visible in HCM ([ba06845](https://github.com/mi6/ic-ui-kit/commit/ba068452dfe8094c17ba8211d49875938110d002)), closes [#3929](https://github.com/mi6/ic-ui-kit/issues/3929)
+- **canary-web-components:** remove unecessary ids from svgs ([12e20ca](https://github.com/mi6/ic-ui-kit/commit/12e20ca615d4ecb14f8e5e9c43cee652d44f2678)), closes [#3902](https://github.com/mi6/ic-ui-kit/issues/3902)
+
+### Features
+
+- **canary-web-components:** add initial Table of Contents work ([67d365c](https://github.com/mi6/ic-ui-kit/commit/67d365ce688d4fb6a5a85b93241e91ea814bce1b)), closes [#752](https://github.com/mi6/ic-ui-kit/issues/752)
+- **canary-web-components:** remove internal use of ic-button variant=icon ([408a0fc](https://github.com/mi6/ic-ui-kit/commit/408a0fc09266a5297b077687790273dee03936b9))
+- **canary-web-components:** updating items per page select ([79a615c](https://github.com/mi6/ic-ui-kit/commit/79a615c1d4314ba0444b4ba5bb44e3b014a1fd39))
+
+### Reverts
+
+- **canary-web-components:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([7978947](https://github.com/mi6/ic-ui-kit/commit/7978947fb0d526c70dae86a57d2aada47786f495))
+
 # [3.0.0-canary.27](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.24...@ukic/canary-web-components@3.0.0-canary.27) (2025-10-01)
 
 ### Bug Fixes

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.24...@ukic/canary-react@3.0.0-canary.28) (2025-10-15)
+
+### Bug Fixes
+
+- **canary-react:** adds tests for fixes to data-table and tree-view ([f20814d](https://github.com/mi6/ic-ui-kit/commit/f20814d28da72db539f3f1111be85bc3add08648))
+- **canary-react:** adds tests for fixes to data-table and tree-view ([ea9948f](https://github.com/mi6/ic-ui-kit/commit/ea9948f0b3c195d6deafc6a79c4db6f18e7d08e4))
+- **canary-react:** fixes issue with 12 hour time input ([c014c6d](https://github.com/mi6/ic-ui-kit/commit/c014c6d3dbad8cc85202dc3fdddb03e314f9b4de))
+- **canary-react:** remove unnecessary exist assertions from cypress tests ([31710e9](https://github.com/mi6/ic-ui-kit/commit/31710e9512dd2329378b8e01b2c621bd3b5fc812))
+
+### Features
+
+- **canary-react:** update date + time components tests and stories - new validation SR behaviour ([d580ee2](https://github.com/mi6/ic-ui-kit/commit/d580ee2c6e8f35dd50e6889f0a81cc8e7a0fd753)), closes [#3959](https://github.com/mi6/ic-ui-kit/issues/3959)
+
+### Reverts
+
+- **canary-react:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([6a29bce](https://github.com/mi6/ic-ui-kit/commit/6a29bce1c4e2fd9fa4a5654bcf11161b89c39964))
+
 # [3.0.0-canary.27](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.24...@ukic/canary-react@3.0.0-canary.27) (2025-10-01)
 
 ### Bug Fixes
