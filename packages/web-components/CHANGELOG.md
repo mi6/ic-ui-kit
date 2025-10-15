@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.9.0...@ukic/web-components@3.13.0) (2025-10-15)
+
+### Bug Fixes
+
+- **web-components:** add aria-required attribute to radio group and select ([3e6ba82](https://github.com/mi6/ic-ui-kit/commit/3e6ba8247c2c60244ccdeb84e0f815dbe293ab5e)), closes [#3896](https://github.com/mi6/ic-ui-kit/issues/3896)
+- **web-components:** add autocomplete to multiline text field ([13c2a69](https://github.com/mi6/ic-ui-kit/commit/13c2a690c9f60570402eea19eb57143e1ad1c9c1))
+- **web-components:** dynamic fields on Checkboxes and Radio Buttons now report to screenreaders ([4a1238a](https://github.com/mi6/ic-ui-kit/commit/4a1238abbfd0454c78641453b861eeff971d09ad)), closes [#3898](https://github.com/mi6/ic-ui-kit/issues/3898)
+- **web-components:** fix checkbox validation messages not being read out correctly by screen readers ([f451832](https://github.com/mi6/ic-ui-kit/commit/f4518328318f8895d243641690a869f39a66e63e)), closes [#3959](https://github.com/mi6/ic-ui-kit/issues/3959)
+- **web-components:** fix clear button overlapping with ic-select text ([25667fb](https://github.com/mi6/ic-ui-kit/commit/25667fb95fcc054075cdb69c2a2a646fafa21e13)), closes [#3900](https://github.com/mi6/ic-ui-kit/issues/3900)
+- **web-components:** fix cypress race condition in ic-dialog setfocus method ([fcf23ef](https://github.com/mi6/ic-ui-kit/commit/fcf23ef825e670de663bd8a5777bb73362ddf64a))
+- **web-components:** fix dismissible chips leaving gap behind ([8075e6c](https://github.com/mi6/ic-ui-kit/commit/8075e6c418eb9c6a180aea9fd54b412a96ad4476)), closes [#3549](https://github.com/mi6/ic-ui-kit/issues/3549)
+- **web-components:** fix ic-top-navigation colour theming ([75f07dd](https://github.com/mi6/ic-ui-kit/commit/75f07dd0759132c38ac779515e9b0e035ccf6b04))
+- **web-components:** fix to tabbing through dialogue with tabs inside ([84a94d4](https://github.com/mi6/ic-ui-kit/commit/84a94d4af35a9f2dfa0dd3929d74811c3623f986))
+- **web-components:** fix validation messages not being read out by screen readers on radio + select ([c285b98](https://github.com/mi6/ic-ui-kit/commit/c285b981cce12ac203e1a0ef4171602d8ab1feb4)), closes [#3959](https://github.com/mi6/ic-ui-kit/issues/3959)
+- **web-components:** fixes ic-dialog infinite loop issue in Jest tests ([0d43140](https://github.com/mi6/ic-ui-kit/commit/0d43140c8ffe207895e92910925b39be643074df))
+- **web-components:** fixes issue with status tags in high contrast mode ([7bf4bda](https://github.com/mi6/ic-ui-kit/commit/7bf4bda3d2d3b33904d0b1186f1f47cb728fa0b2))
+- **web-components:** fixes issues with setting custom elements in menu options ([c520817](https://github.com/mi6/ic-ui-kit/commit/c52081715ba055569fce4d0cf752b647c8b7bfd7))
+- **web-components:** fixes issues with setting custom elements in menu options ([be83fd1](https://github.com/mi6/ic-ui-kit/commit/be83fd1c1caafabe46a1387063c542aaa99bcb4c))
+- **web-components:** remove unecessary ids from svgs ([3a9548a](https://github.com/mi6/ic-ui-kit/commit/3a9548a45c5c618e85698f0307c0bfecfe077990)), closes [#3902](https://github.com/mi6/ic-ui-kit/issues/3902)
+- **web-components:** tooltip undefined handling ([9aea094](https://github.com/mi6/ic-ui-kit/commit/9aea09437d63784fb337d251c609f7babdf5afae))
+- **web-components:** update appearance of ic-alert ([0aff3f7](https://github.com/mi6/ic-ui-kit/commit/0aff3f7af7bec764a72d95fd623a971a829bb5df)), closes [#3122](https://github.com/mi6/ic-ui-kit/issues/3122)
+- **web-components:** update css to fit figma designs ([8716659](https://github.com/mi6/ic-ui-kit/commit/8716659dad45705e4a727c4163b166b7511f8b74)), closes [#2004](https://github.com/mi6/ic-ui-kit/issues/2004)
+- **web-components:** update horizontal scroll buttons to have the right colour on block colour comps ([5492d63](https://github.com/mi6/ic-ui-kit/commit/5492d63e828cb50d2b9bc61fbc34bf8322aac710)), closes [#3698](https://github.com/mi6/ic-ui-kit/issues/3698)
+- **web-components:** update the width of ic-select options so they grow with the width of ic-menu ([b7392d2](https://github.com/mi6/ic-ui-kit/commit/b7392d27f558c484b16fcb6a1e0eee94f44c25f4)), closes [#3940](https://github.com/mi6/ic-ui-kit/issues/3940)
+
+### Features
+
+- **web-components:** add "steps" option to stepper i18n prop ([173603a](https://github.com/mi6/ic-ui-kit/commit/173603a65e7fdc9adb1a3fd0bbfdb02916969456))
+- **web-components:** add CSS tokens for table-of-contents ([25cf4c4](https://github.com/mi6/ic-ui-kit/commit/25cf4c434046d64fa27937d08daf181b8435aeef)), closes [#752](https://github.com/mi6/ic-ui-kit/issues/752)
+- **web-components:** add icI18n prop to Stepper and Step ([55b0e20](https://github.com/mi6/ic-ui-kit/commit/55b0e20c85a824f3011bb910c70415796b0cae82)), closes [#3905](https://github.com/mi6/ic-ui-kit/issues/3905)
+- **web-components:** adds ability to hide menu option labels ([642821e](https://github.com/mi6/ic-ui-kit/commit/642821e4ff44d87eaabaedc802f94252e15631e8))
+- **web-components:** exports constants from web components package ([a233fd1](https://github.com/mi6/ic-ui-kit/commit/a233fd120c70d2026148537963c894442332f953))
+- **web-components:** fix text field validation aria-live behaviour, add validationAriaLive prop ([3664c88](https://github.com/mi6/ic-ui-kit/commit/3664c882155ec0d516057dac8ea8463fa38cd2df)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+- **web-components:** fix text field validation aria-live behaviour, add validationAriaLive prop ([fa3bca3](https://github.com/mi6/ic-ui-kit/commit/fa3bca3b806a820609a844a9424d1cc2321d5cd4)), closes [#3878](https://github.com/mi6/ic-ui-kit/issues/3878)
+- **web-components:** ic-button map icon variant to icon-tertiary and replace internal use of icon ([eab86a5](https://github.com/mi6/ic-ui-kit/commit/eab86a5ee1068fcfc18e72631663c02e996e9993))
+- **web-components:** update ic-menu with new htmlProp option to allow custom props on <li>s ([6f0faad](https://github.com/mi6/ic-ui-kit/commit/6f0faad27b528982580625af746becaf401e8511)), closes [#3952](https://github.com/mi6/ic-ui-kit/issues/3952)
+
+### Reverts
+
+- **web-components:** revert changes from PR [#3910](https://github.com/mi6/ic-ui-kit/issues/3910) so canary issues can be fixed ([b3f158b](https://github.com/mi6/ic-ui-kit/commit/b3f158b9241bbd89fadbe86f3cbc9245d99229f6))
+- **web-components:** revert changes from PR [#3922](https://github.com/mi6/ic-ui-kit/issues/3922) ([71a420e](https://github.com/mi6/ic-ui-kit/commit/71a420e8ee54eed39e8530e83027fff614fd28e4))
+
 # [3.12.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.9.0...@ukic/web-components@3.12.0) (2025-10-01)
 
 ### Bug Fixes

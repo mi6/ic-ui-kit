@@ -225,6 +225,59 @@ export const Validation = {
   name: "Custom validation",
 };
 
+export const AriaLiveBehaviour = {
+  render: () => {
+    const [showErrors1, setShowErrors1] = useState(false);
+    const [showErrors2, setShowErrors2] = useState(false);
+
+    return (
+      <>
+        <IcTimeInput
+          label="What time would you like to collect your coffee?"
+          helperText="Error already set on page load and aria-live overridden as 'assertive'"
+          validationStatus={showErrors1 ? "" : "error"}
+          validationText={showErrors1 ? "" : "First error message"}
+          validationAriaLive="assertive"
+        />
+        <br />
+        <IcTimeInput
+          label="What time would you like to collect your coffee?"
+          helperText="Error set after page load and aria-live overridden as 'assertive'"
+          validationStatus={showErrors1 ? "error" : ""}
+          validationText={showErrors1 ? "Second error message" : ""}
+          validationAriaLive="assertive"
+        />
+        <br />
+        <IcButton onClick={() => setShowErrors1(!showErrors1)}>
+          Toggle errors
+        </IcButton>
+        <br />
+        <br />
+        <br />
+        <br />
+        <IcTimeInput
+          label="What time would you like to collect your coffee?"
+          helperText="Default aria-live behaviour (i.e. 'polite')"
+          validationStatus={showErrors2 ? "error" : ""}
+          validationText={showErrors2 ? "Third error message" : ""}
+        />
+        <br />
+        <IcTimeInput
+          label="What time would you like to collect your coffee?"
+          helperText="Default aria-live behaviour (i.e. 'polite')"
+          validationStatus={showErrors2 ? "error" : ""}
+          validationText={showErrors2 ? "Fourth error message" : ""}
+        />
+        <br />
+        <IcButton onClick={() => setShowErrors2(!showErrors2)}>
+          Toggle errors
+        </IcButton>
+      </>
+    );
+  },
+  name: "Aria-live behaviour",
+}
+
 /**
  * The `IcChange` event is emitted by the time input every time an input field is changed.
  */
@@ -362,6 +415,7 @@ const defaultArgs = {
   timeFormat: "HH:MM:SS",
   timePeriod: "24",
   value: "",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   validationText: ""
 };
@@ -389,6 +443,7 @@ export const Playground = {
         theme={args.theme}
         timeFormat={args.timeFormat}
         timePeriod={args.timePeriod}
+        validationAriaLive={args.validationAriaLive}
         validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
         value={args.value}
@@ -397,6 +452,13 @@ export const Playground = {
   },
   args: defaultArgs,
   argTypes: {
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
+
+      control: {
+        type: "inline-radio",
+      },
+    },
     validationStatus: {
       options: ["no status", "error", "success", "warning"],
       control: {

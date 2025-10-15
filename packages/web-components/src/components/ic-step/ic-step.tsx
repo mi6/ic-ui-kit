@@ -34,6 +34,7 @@ export class Step {
   @Prop() icI18n: IcStepI18n = {
     next: "Next",
     step: "Step",
+    steps: "Steps",
     of: "of",
     lastStep: "Last step",
     completed: "Completed",
@@ -200,7 +201,7 @@ export class Step {
           <div class="info-line">
             <ic-typography variant="caption" class="step-num">
               {`${stepNum} ${icI18n.of} ${lastStepNum}`}
-              <span class="visually-hidden"> steps</span>
+              <span class="visually-hidden">{` ${icI18n.steps}`}</span>
             </ic-typography>
             {(this.subheading ||
               type === "completed" ||

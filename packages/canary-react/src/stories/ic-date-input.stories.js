@@ -264,6 +264,59 @@ export const CustomValidation = {
   name: "Custom validation",
 };
 
+export const AriaLiveBehaviour = {
+  render: () => {
+    const [showErrors1, setShowErrors1] = useState(false);
+      const [showErrors2, setShowErrors2] = useState(false);
+
+      return (
+        <>
+          <IcDateInput
+            label="When would you like to collect your coffee?"
+            helperText="Error already set on page load and aria-live overridden as 'assertive'"
+            validationStatus={showErrors1 ? "" : "error"}
+            validationText={showErrors1 ? "" : "First error message"}
+            validationAriaLive="assertive"
+          />
+          <br />
+          <IcDateInput
+            label="When would you like to collect your coffee?"
+            helperText="Error set after page load and aria-live overridden as 'assertive'"
+            validationStatus={showErrors1 ? "error" : ""}
+            validationText={showErrors1 ? "Second error message" : ""}
+            validationAriaLive="assertive"
+          />
+          <br />
+          <IcButton onClick={() => setShowErrors1(!showErrors1)}>
+            Toggle errors
+          </IcButton>
+          <br />
+          <br />
+          <br />
+          <br />
+          <IcDateInput
+            label="When would you like to collect your coffee?"
+            helperText="Default aria-live behaviour (i.e. 'polite')"
+            validationStatus={showErrors2 ? "error" : ""}
+            validationText={showErrors2 ? "Third error message" : ""}
+          />
+          <br />
+          <IcDateInput
+            label="When would you like to collect your coffee?"
+            helperText="Default aria-live behaviour (i.e. 'polite')"
+            validationStatus={showErrors2 ? "error" : ""}
+            validationText={showErrors2 ? "Fourth error message" : ""}
+          />
+          <br />
+          <IcButton onClick={() => setShowErrors2(!showErrors2)}>
+            Toggle errors
+          </IcButton>
+        </>
+      );
+  },
+  name: "Aria-live behaviour",
+}
+
 /**
  * Validation can be set on the date input if a date in the past has been set by setting the `disablePast` prop.
  *
@@ -399,6 +452,7 @@ const defaultArgs = {
   showClearButton: true,
   size: "medium",
   theme: "inherit",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   validationText: "",
   value: "",
@@ -444,6 +498,7 @@ export const Playground = {
         size={args.size}
         startOfWeek={args.startOfWeek}
         theme={args.theme}
+        validationAriaLive={args.validationAriaLive}
         validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
         validationText={args.validationText}
         value={value}
@@ -455,6 +510,13 @@ export const Playground = {
   argTypes: {
     dateFormat: {
       options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
+
       control: {
         type: "inline-radio",
       },

@@ -7,6 +7,7 @@ export type IcStepTypes = "active" | "current" | "completed" | "disabled";
 export type IcStepI18n = {
   next: string;
   step: string;
+  steps: string;
   of: string;
   lastStep: string;
   completed: string;

@@ -12,6 +12,7 @@ import {
   Watch,
 } from "@stencil/core";
 import {
+  IcAriaLive,
   IcDisableTimeSelection,
   IcInformationStatus,
   IcInformationStatusOrEmpty,
@@ -230,6 +231,11 @@ export class TimeInput {
    * The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
    */
   @Prop({ mutable: true }) value?: string | Date | null | undefined = "";
+
+  /**
+   * The value of the `aria-live` attribute on the validation message.
+   */
+  @Prop() validationAriaLive: IcAriaLive = "polite";
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in time validation.
@@ -1177,6 +1183,7 @@ export class TimeInput {
       showClockButton,
       size,
       theme,
+      validationAriaLive,
     } = this;
     const hasCustomValidation = !isEmptyString(this.validationStatus);
     const validationStatus = hasCustomValidation
@@ -1303,15 +1310,14 @@ export class TimeInput {
               role="status"
             ></span>
           </span>
-          {(hasCustomValidation || !isEmptyString(this.invalidTimeText)) && (
-            <ic-input-validation
-              status={validationStatus}
-              message={
-                hasCustomValidation ? this.validationText : this.invalidTimeText
-              }
-              for={inputId}
-            ></ic-input-validation>
-          )}
+          <ic-input-validation
+            status={validationStatus}
+            message={
+              hasCustomValidation ? this.validationText : this.invalidTimeText
+            }
+            for={inputId}
+            ariaLiveMode={validationAriaLive}
+          ></ic-input-validation>
         </ic-input-container>
       </Host>
     );

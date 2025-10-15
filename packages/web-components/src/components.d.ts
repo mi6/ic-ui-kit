@@ -631,6 +631,10 @@ export namespace Components {
          */
         "theme": IcThemeMode;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
@@ -4290,6 +4294,10 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode;
         /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -4432,7 +4440,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
+          * Cancellation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
          */
         "onIcDialogCancelled"?: (event: IcDialogCustomEvent<void>) => void;
         /**

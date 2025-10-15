@@ -160,8 +160,10 @@ export type IcTypographyVariants =
 
 /**
  * @interface IcMenuOption
- * @field {string} A label field to options. Defaults to "label", but can have any custom name.
- * @field {string} A value field to options. Defaults to "value", but can have any custom name.
+ * Set "label" and "value" props to use as the option's label and value.
+ * Alternatively, custom names for these props can be used e.g. by setting the "labelField" and "valueField" props on the relevant component.
+ *
+ * Any props supplied to the "htmlProps" object will be spread onto the option's underlying <li> element.
  */
 export interface IcMenuOption {
   description?: string;
@@ -176,6 +178,7 @@ export interface IcMenuOption {
     ariaLabel: string;
   };
   icon?: any;
+  htmlProps?: Record<string, any>;
 }
 
 export type IcSearchMatchPositions = "start" | "anywhere";
@@ -303,3 +306,6 @@ export enum IcWeekDays {
 }
 
 export type IcPositionTopOrRight = "top" | "right";
+
+// Matches HTML aria-live attribute options
+export type IcAriaLive = "polite" | "assertive" | "off";

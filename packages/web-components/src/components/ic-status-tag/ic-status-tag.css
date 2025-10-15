@@ -82,11 +82,8 @@
 }
 
 @media (forced-colors: active) {
-  .tag {
-    border: var(--ic-border-hc);
+  :host {
     -ms-high-contrast-adjust: none;
     forced-color-adjust: none;
-
-    --ic-typography-color: var(--ic-status-tag-text);
   }
 }

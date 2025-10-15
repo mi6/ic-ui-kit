@@ -515,6 +515,52 @@ export const Recommended = {
   name: "Recommended",
 };
 
+export const HiddenMenuOptionLabels = {
+  render: () =>
+    html`<ic-select
+        id="hidden-menu-opts-select"
+        label="What is your favourite coffee size?"
+      ></ic-select>
+      <script>
+        var select = document.querySelector("#hidden-menu-opts-select");
+        select.options = [
+          {
+            label: "Small",
+            value: "s",
+            element: {
+              component: \`<ic-chip label="Small" size="small"></ic-chip>\`,
+              ariaLabel: "small chip",
+            },
+            hideLabel: true,
+          },
+          {
+            label: "Medium size",
+            value: "m",
+            element: {
+              component: \`<ic-chip label="Medium"></ic-chip>\`,
+              ariaLabel: "medium chip",
+            },
+            hideLabel: true,
+          },
+          {
+            label: "Large",
+            value: "l",
+            element: {
+              component: \`<ic-chip label="Large" size="large"></ic-chip>\`,
+              ariaLabel: "large chip",
+            },
+            hideLabel: true,
+          },
+          {
+            label: "Extra Large",
+            value: "xl",
+          },
+        ];
+      </script>`,
+
+  name: "Hidden menu option labels",
+};
+
 export const Validation = {
   render: () =>
     html`<ic-select
@@ -576,7 +622,7 @@ export const Validation = {
 };
 
 export const AriaLiveBehaviour = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="field-1"
         label="What is your favourite coffee?"
@@ -773,6 +819,33 @@ export const EmittingIcOptionSelectOnEnter = {
       </script>`,
 
   name: "Emitting icOptionSelect on enter",
+};
+
+export const CustomPropsOnLiElements = {
+  render: () =>
+    html`<ic-select
+        id="select-custom-li-props"
+        label="What is your favourite coffee?"
+      ></ic-select>
+      <br />
+      <p>
+        <code>lang="it"</code> has been set on each
+        <code>&lt;li&gt;</code> element. This can be tested using a screen
+        reader.
+      </p>
+      <script>
+        var select = document.querySelector("#select-custom-li-props");
+        select.options = [
+          { label: "Cappuccino", value: "Cap", htmlProps: { lang: "it" } },
+          { label: "Latte", value: "Lat", htmlProps: { lang: "it" } },
+          { label: "Americano", value: "Ame", htmlProps: { lang: "it" } },
+        ];
+        select.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>`,
+
+  name: "Custom props on <li>s",
 };
 
 const inlineRadioSelector = "inline-radio";

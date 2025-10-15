@@ -16,6 +16,7 @@ const defaultArgs = {
   nativeIndeterminateBehaviour: false,
   required: false,
   size: "medium",
+  validationAriaLive: "polite",
   validationStatus: "no status",
   validationText: "",
   value: "checkbox-value",
@@ -374,6 +375,159 @@ export const Validation = {
   name: "Validation",
 };
 
+export const AriaLiveBehaviour = {
+  render: (args) =>
+    html`<ic-checkbox-group
+        id="field-1"
+        label="This is a label"
+        name="1"
+        helper-text="Error already set on page load and aria-live overridden as 'assertive'"
+        validation-status="error"
+        validation-text="First error message"
+        validation-aria-live="assertive"
+      >
+        <ic-checkbox
+          value="valueName1"
+          label="Unselected / Default"
+        ></ic-checkbox>
+        <ic-checkbox
+          value="valueName2"
+          label="Selected / Default"
+          selected
+        ></ic-checkbox>
+        <ic-checkbox
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        ></ic-checkbox>
+      </ic-checkbox-group>
+      <br />
+      <ic-checkbox-group
+        id="field-2"
+        label="This is a label"
+        name="2"
+        helper-text="Error set after page load and aria-live overridden as 'assertive'"
+        validation-aria-live="assertive"
+      >
+        <ic-checkbox
+          value="valueName1"
+          label="Unselected / Default"
+        ></ic-checkbox>
+        <ic-checkbox
+          value="valueName2"
+          label="Selected / Default"
+          selected
+        ></ic-checkbox>
+        <ic-checkbox
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        ></ic-checkbox>
+      </ic-checkbox-group>
+      <br />
+      <ic-button id="toggle-btn-1">Toggle errors</ic-button>
+      <script>
+        let showErrors1 = false;
+        const btn1 = document.getElementById("toggle-btn-1");
+        const field1 = document.getElementById("field-1");
+        const field2 = document.getElementById("field-2");
+
+        btn1.addEventListener("click", () => {
+          showErrors1 = !showErrors1;
+
+          field1.setAttribute("validation-status", showErrors1 ? "" : "error");
+          field1.setAttribute(
+            "validation-text",
+            showErrors1 ? "" : "First error message"
+          );
+
+          field2.setAttribute("validation-status", showErrors1 ? "error" : "");
+          field2.setAttribute(
+            "validation-text",
+            showErrors1 ? "Second error message" : ""
+          );
+        });
+      </script>
+      <br />
+      <br />
+      <br />
+      <br />
+      <ic-checkbox-group
+        id="field-3"
+        label="This is a label"
+        name="3"
+        helper-text="Default aria-live behaviour (i.e. 'polite')"
+      >
+        <ic-checkbox
+          value="valueName1"
+          label="Unselected / Default"
+        ></ic-checkbox>
+        <ic-checkbox
+          value="valueName2"
+          label="Selected / Default"
+          selected
+        ></ic-checkbox>
+        <ic-checkbox
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        ></ic-checkbox>
+      </ic-checkbox-group>
+      <br />
+      <ic-checkbox-group
+        id="field-4"
+        label="This is a label"
+        name="4"
+        helper-text="Default aria-live behaviour (i.e. 'polite')"
+      >
+        <ic-checkbox
+          value="valueName1"
+          label="Unselected / Default"
+        ></ic-checkbox>
+        <ic-checkbox
+          value="valueName2"
+          label="Selected / Default"
+          selected
+        ></ic-checkbox>
+        <ic-checkbox
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        ></ic-checkbox>
+      </ic-checkbox-group>
+      <br />
+      <ic-button id="toggle-btn-2">Toggle errors</ic-button>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <script>
+        let showErrors2 = false;
+        const btn2 = document.getElementById("toggle-btn-2");
+        const field3 = document.getElementById("field-3");
+        const field4 = document.getElementById("field-4");
+
+        btn2.addEventListener("click", () => {
+          showErrors2 = !showErrors2;
+
+          field3.setAttribute("validation-status", showErrors2 ? "error" : "");
+          field3.setAttribute(
+            "validation-text",
+            showErrors2 ? "Third error message" : ""
+          );
+
+          field4.setAttribute("validation-status", showErrors2 ? "error" : "");
+          field4.setAttribute(
+            "validation-text",
+            showErrors2 ? "Fourth error message" : ""
+          );
+        });
+      </script>`,
+
+  name: "Aria-live behaviour",
+};
+
 export const Form = {
   render: (args) => html`
     <form>
@@ -658,6 +812,7 @@ export const Playground = {
       helper-text=${args.helperText}
       hide-label=${args.hideGroupLabel}
       required=${args.required}
+      validation-aria-live=${args.validationAriaLive}
       validation-status=${args.validationStatus === "no status"
         ? ""
         : args.validationStatus}
@@ -706,6 +861,14 @@ export const Playground = {
 
     size: {
       options: ["medium", "large", "small"],
+
+      control: {
+        type: inlineRadioSelector,
+      },
+    },
+
+    validationAriaLive: {
+      options: ["polite", "assertive", "off"],
 
       control: {
         type: inlineRadioSelector,

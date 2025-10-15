@@ -27,7 +27,7 @@
 
 | Event               | Description                                                                                                   | Type                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `icDialogCancelled` | Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.            | `CustomEvent<void>` |
+| `icDialogCancelled` | Cancellation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.           | `CustomEvent<void>` |
 | `icDialogClosed`    | Emitted when dialog has closed.                                                                               | `CustomEvent<void>` |
 | `icDialogConfirmed` | Confirmation event emitted when default 'Confirm' primary button clicked or 'confirmDialog' method is called. | `CustomEvent<void>` |
 | `icDialogOpened`    | Emitted when dialog has opened.                                                                               | `CustomEvent<void>` |

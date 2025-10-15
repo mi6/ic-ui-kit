@@ -4826,6 +4826,45 @@
           "setter": false
         },
         {
+          "name": "validationAriaLive",
+          "type": "\"assertive\" | \"off\" | \"polite\"",
+          "complexType": {
+            "original": "IcAriaLive",
+            "resolved": "\"assertive\" | \"off\" | \"polite\"",
+            "references": {
+              "IcAriaLive": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAriaLive"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "validation-aria-live",
+          "reflectToAttr": false,
+          "docs": "The value of the `aria-live` attribute on the validation message.",
+          "docsTags": [],
+          "default": "\"polite\"",
+          "values": [
+            {
+              "value": "assertive",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "polite",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -6266,7 +6305,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.",
+          "docs": "Cancellation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.",
           "docsTags": []
         },
         {
@@ -18015,10 +18054,10 @@
         },
         {
           "name": "icI18n",
-          "type": "{ next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
+          "type": "{ next: string; step: string; steps: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
           "complexType": {
             "original": "IcStepI18n",
-            "resolved": "{ next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
+            "resolved": "{ next: string; step: string; steps: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
             "references": {
               "IcStepI18n": {
                 "location": "import",
@@ -18031,10 +18070,10 @@
           "reflectToAttr": false,
           "docs": "Words within the component that can be replaced to translate the component into a different language",
           "docsTags": [],
-          "default": "{\n    next: \"Next\",\n    step: \"Step\",\n    of: \"of\",\n    lastStep: \"Last step\",\n    completed: \"Completed\",\n    notRequired: \"Not required\",\n    required: \"Required\",\n    optional: \"Optional\",\n  }",
+          "default": "{\n    next: \"Next\",\n    step: \"Step\",\n    steps: \"Steps\",\n    of: \"of\",\n    lastStep: \"Last step\",\n    completed: \"Completed\",\n    notRequired: \"Not required\",\n    required: \"Required\",\n    optional: \"Optional\",\n  }",
           "values": [
             {
-              "type": "{ next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }"
+              "type": "{ next: string; step: string; steps: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }"
             }
           ],
           "optional": false,
@@ -18276,10 +18315,10 @@
         },
         {
           "name": "icI18n",
-          "type": "undefined | { next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
+          "type": "undefined | { next: string; step: string; steps: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
           "complexType": {
             "original": "IcStepI18n",
-            "resolved": "undefined | { next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
+            "resolved": "undefined | { next: string; step: string; steps: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }",
             "references": {
               "IcStepI18n": {
                 "location": "import",
@@ -18292,13 +18331,13 @@
           "reflectToAttr": false,
           "docs": "Provide alternative values for text in all child steps. For the purpose of translating the application into other languages.",
           "docsTags": [],
-          "default": "{\n    next: \"Next\",\n    step: \"Step\",\n    of: \"of\",\n    lastStep: \"Last step\",\n    completed: \"Completed\",\n    notRequired: \"Not required\",\n    required: \"Required\",\n    optional: \"Optional\",\n  }",
+          "default": "{\n    next: \"Next\",\n    step: \"Step\",\n    steps: \"Steps\",\n    of: \"of\",\n    lastStep: \"Last step\",\n    completed: \"Completed\",\n    notRequired: \"Not required\",\n    required: \"Required\",\n    optional: \"Optional\",\n  }",
           "values": [
             {
               "type": "undefined"
             },
             {
-              "type": "{ next: string; step: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }"
+              "type": "{ next: string; step: string; steps: string; of: string; lastStep: string; completed: string; notRequired: string; required: string; optional: string; }"
             }
           ],
           "optional": true,
@@ -23255,6 +23294,11 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/utils/types.ts::IcAriaLive": {
+      "declaration": "export type IcAriaLive = \"polite\" | \"assertive\" | \"off\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcInformationStatusOrEmpty": {
       "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
       "docstring": "",
@@ -23311,7 +23355,7 @@
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
     "src/utils/types.ts::IcMenuOption": {
-      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n}",
+      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n  hideLabel?: boolean;\n  htmlProps?: Record<string, any>;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -23342,11 +23386,6 @@
     },
     "src/utils/types.ts::IcOrientation": {
       "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcAriaLive": {
-      "declaration": "export type IcAriaLive = \"polite\" | \"assertive\" | \"off\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -23476,7 +23515,7 @@
       "path": "src/components/ic-step/ic-step.types.ts"
     },
     "src/components/ic-step/ic-step.types.ts::IcStepI18n": {
-      "declaration": "{\n  next: string;\n  step: string;\n  of: string;\n  lastStep: string;\n  completed: string;\n  notRequired: string;\n  required: string;\n  optional: string;\n}",
+      "declaration": "{\n  next: string;\n  step: string;\n  steps: string;\n  of: string;\n  lastStep: string;\n  completed: string;\n  notRequired: string;\n  required: string;\n  optional: string;\n}",
       "docstring": "",
       "path": "src/components/ic-step/ic-step.types.ts"
     },

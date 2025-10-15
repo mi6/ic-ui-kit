@@ -804,7 +804,7 @@ describe("ic-pagination-bar", () => {
     expect(select!.value).toBe("100");
     expect(selectBtn!.textContent).toBe("100");
   });
-  it("should set the items per page dropdown to 10 if selectedItemsPerPage is 100, totalItems is initially set to 211 and then updated to 30", async () => {
+  it("should set the items per page dropdown to All if selectedItemsPerPage is 100, totalItems is initially set to 211 and then updated to 30", async () => {
     const page = await newSpecPage({
       components: [PaginationBar, IcPagination, IcSelect, IcTypography],
       html: `<ic-pagination-bar show-items-per-page-control="true" total-items="211" selected-items-per-page="100"></ic-pagination-bar>`,
@@ -820,10 +820,10 @@ describe("ic-pagination-bar", () => {
 
     const selectBtn = select!.shadowRoot!.querySelector("ic-typography");
 
-    expect(select!.value).toBe("10");
-    expect(selectBtn!.textContent).toBe("10");
+    expect(select!.value).toBe("30");
+    expect(selectBtn!.textContent).toBe("All");
   });
-  it("should set items per page dropdown to 10 if totalItems is 50 and selectedItemsPerPage is 100", async () => {
+  it("should set items per page dropdown to 50 if totalItems is 50 and selectedItemsPerPage is 100", async () => {
     const page = await newSpecPage({
       components: [PaginationBar, IcPagination, IcSelect, IcTypography],
       html: `<ic-pagination-bar show-items-per-page-control="true" total-items="50" selected-items-per-page="100"></ic-pagination-bar>`,
@@ -837,8 +837,8 @@ describe("ic-pagination-bar", () => {
 
     const selectBtn = select!.shadowRoot!.querySelector("ic-typography");
 
-    expect(select!.value).toBe("10");
-    expect(selectBtn!.textContent).toBe("10");
+    expect(select!.value).toBe("50");
+    expect(selectBtn!.textContent).toBe("50");
   });
   it("should emit 'isUserAction' false when 'icItemsPerPageChange' is triggered from updated totalItems", async () => {
     const page = await newSpecPage({

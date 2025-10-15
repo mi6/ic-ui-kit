@@ -70,6 +70,40 @@ export const coffeeCustomElements = [
   },
 ];
 
+export const optionsWithHiddenLabels = [
+  {
+    label: "Small",
+    value: "s",
+    element: {
+      component: `<ic-chip label="Small" size="small"></ic-chip>`,
+      ariaLabel: "small chip",
+    },
+    hideLabel: true,
+  },
+  {
+    label: "Medium size",
+    value: "m",
+    element: {
+      component: `<ic-chip label="Medium"></ic-chip>`,
+      ariaLabel: "medium chip",
+    },
+    hideLabel: true,
+  },
+  {
+    label: "Large",
+    value: "l",
+    element: {
+      component: `<ic-chip label="Large" size="large"></ic-chip>`,
+      ariaLabel: "large chip",
+    },
+    hideLabel: true,
+  },
+  {
+    label: "Extra Large",
+    value: "xl",
+  },
+];
+
 export const groupCoffeeOption = [
   {
     label: "Fancy",

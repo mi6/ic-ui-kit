@@ -33,6 +33,7 @@ const menuOptions = [
       component: `<ic-status-tag label="Neutral status"></ic-status-tag>`,
       ariaLabel: "Neutral status tag",
     },
+    hideLabel: true,
   },
 ];
 
@@ -1994,5 +1995,42 @@ describe("ic-menu in isolation", () => {
     expect(page.rootInstance.deselectSelectedOptions).toHaveBeenCalledWith([
       1, 2, 3,
     ]);
+  });
+
+  it("should apply custom option props to the associated <li> element", async () => {
+    const div = window.document.createElement("div");
+    const input = window.document.createElement("input");
+
+    const options = [
+      {
+        label: "Espresso",
+        value: "espresso",
+        htmlProps: {
+          prop: "test-value-1",
+          "multiple-word-prop": "test-value-2",
+        },
+      },
+    ];
+
+    const page = await newSpecPage({
+      components: [Menu, InputComponentContainer],
+      template: () => (
+        <ic-menu
+          open
+          activationType="automatic"
+          options={options}
+          menuId="menu-id"
+          inputLabel="input-label"
+          inputEl={input}
+          anchorEl={div}
+          value={options[0].value}
+          parentEl={div}
+        ></ic-menu>
+      ),
+    });
+
+    page.rootInstance.options = options;
+
+    expect(page).toMatchSnapshot();
   });
 });

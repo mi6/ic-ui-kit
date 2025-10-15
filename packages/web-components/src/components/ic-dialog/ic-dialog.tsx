@@ -47,10 +47,11 @@ export class Dialog {
   private IC_CHECKBOX = "IC-CHECKBOX";
   private IC_SEARCH_BAR: string = "IC-SEARCH-BAR";
   private IC_TAB_CONTEXT: string = "IC-TAB-CONTEXT";
-  private interactiveElementList: HTMLElement[];
+  private interactiveElementList: HTMLElement[] = [];
   private resizeObserver: ResizeObserver | null = null;
   private resizeTimeout: number;
   private sourceElement: HTMLElement;
+  private focusAttemptCount = 0;
 
   @Element() el: HTMLIcDialogElement;
 
@@ -138,7 +139,7 @@ export class Dialog {
   @Prop() theme?: IcThemeMode = "inherit";
 
   /**
-   * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
+   * Cancellation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
    */
   @Event() icDialogCancelled: EventEmitter<void>;
 
@@ -162,8 +163,6 @@ export class Dialog {
   }
 
   componentDidLoad(): void {
-    this.getInteractiveElements();
-
     this.refreshInteractiveElementsOnSlotChange();
 
     if (this.open) {
@@ -270,6 +269,7 @@ export class Dialog {
     }, 10);
 
     setTimeout(() => {
+      this.getInteractiveElements();
       this.setInitialFocus();
       checkResizeObserver(this.runResizeObserver);
     }, 75);
@@ -334,12 +334,30 @@ export class Dialog {
 
   private setInitialFocus = () => {
     this.sourceElement = document.activeElement as HTMLElement;
-    this.focusedElementIndex = this.interactiveElementList
-      ? this.interactiveElementList.findIndex((element) =>
-          element.hasAttribute(this.DATA_GETS_FOCUS)
-        )
-      : 0;
-    this.focusElement(this.interactiveElementList[this.focusedElementIndex]);
+
+    if (!this.interactiveElementList.length) {
+      // No interactive elements yet, retry shortly
+      setTimeout(() => {
+        this.getInteractiveElements();
+        if (this.interactiveElementList.length) {
+          this.setInitialFocus();
+        }
+      }, 10);
+      return;
+    }
+
+    this.focusedElementIndex = this.interactiveElementList.findIndex(
+      (element) => element.hasAttribute(this.DATA_GETS_FOCUS)
+    );
+
+    if (this.focusedElementIndex === -1) {
+      this.focusedElementIndex = 0;
+    }
+
+    const elToFocus = this.interactiveElementList[this.focusedElementIndex];
+    if (elToFocus) {
+      this.focusElement(elToFocus);
+    }
   };
 
   private getFocusedElementIndex = () => {
@@ -361,6 +379,7 @@ export class Dialog {
     this.interactiveElementList = Array.from(
       this.el.shadowRoot?.querySelectorAll("ic-button") || []
     );
+
     const slottedInteractiveElements = Array.from(
       this.el.querySelectorAll(
         `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
@@ -369,6 +388,7 @@ export class Dialog {
           ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker`
       )
     );
+
     if (slottedInteractiveElements.length > 0) {
       if (slottedInteractiveElements[0].slot !== this.DIALOG_CONTROLS) {
         slottedInteractiveElements[0].setAttribute(this.DATA_GETS_FOCUS, "");
@@ -378,6 +398,7 @@ export class Dialog {
         ].setAttribute(this.DATA_GETS_FOCUS, "");
       }
     }
+
     for (let i = 0; i < slottedInteractiveElements.length; i++) {
       this.interactiveElementList.splice(
         1 + i,
@@ -394,7 +415,7 @@ export class Dialog {
     this.getFocusedElementIndex();
 
     if (
-      this.interactiveElementList[this.focusedElementIndex].tagName ===
+      this.interactiveElementList[this.focusedElementIndex]?.tagName ===
       this.IC_SEARCH_BAR
     ) {
       return false;
@@ -403,11 +424,16 @@ export class Dialog {
     this.setFocusIndexBasedOnShiftKey(shiftKey);
     this.loopNextFocusIndexIfLastElement();
 
+    this.focusAttemptCount = 0;
     this.focusElement(this.getNextFocusEl(this.focusedElementIndex), shiftKey);
     return true;
   };
 
   private shouldSkipElement = (element: HTMLElement): boolean => {
+    if (!element) {
+      return true;
+    }
+
     const isHidden =
       getComputedStyle(element).visibility === "hidden" ||
       element.offsetHeight === 0 ||
@@ -425,15 +451,25 @@ export class Dialog {
     );
   };
 
-  private focusElement = (element: HTMLElement, shiftKey = false) => {
-    let nextFocusEl = element;
+  private focusElement = (
+    element: HTMLElement | undefined,
+    shiftKey = false
+  ) => {
+    if (!element) {
+      return;
+    }
+
+    if (this.focusAttemptCount++ > this.interactiveElementList.length) {
+      return;
+    }
 
     if (this.shouldSkipElement(element)) {
       this.setFocusIndexBasedOnShiftKey(shiftKey);
       this.loopNextFocusIndexIfLastElement();
-
-      nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
-      this.focusElement(nextFocusEl, shiftKey);
+      this.focusElement(
+        this.getNextFocusEl(this.focusedElementIndex),
+        shiftKey
+      );
     } else {
       switch (element.tagName) {
         case this.IC_ACCORDION_GROUP:
@@ -445,7 +481,7 @@ export class Dialog {
           (element as IcFocusableComponents).setFocus();
           break;
         default:
-          (element as HTMLElement).focus();
+          element.focus();
       }
     }
   };
