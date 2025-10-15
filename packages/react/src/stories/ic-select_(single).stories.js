@@ -157,6 +157,12 @@ const manyOptions = [
   { label: "Latte macchiato", value: "Lam" },
 ];
 
+const optionsWithLangProps = [
+  { label: "Cappuccino", value: "Cap", htmlProps: { lang: "it" } },
+  { label: "Latte", value: "Lat", htmlProps: { lang: "it" } },
+  { label: "Americano", value: "Ame", htmlProps: { lang: "it" } },
+];
+
 const playgroundOptions = [
   {
     label: "Cappuccino",
@@ -679,6 +685,28 @@ export const Controlled = {
 export const Uncontrolled_ = {
   render: () => <Uncontrolled />,
   name: "Uncontrolled",
+};
+
+export const CustomPropsOnLiElements = {
+  render: () => {
+    return (
+      <>
+      <IcSelect
+        label="What is your favourite coffee?"
+        options={optionsWithLangProps}
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+      <br />
+      <p>
+        <code>lang="it"</code> has been set on each
+        {" "}<code>&lt;li&gt;</code> element. This can be tested using a screen
+        reader.
+      </p>
+      </>
+    );
+  },
+
+  name: "Custom props on <li>s",
 };
 
 export const Playground = {

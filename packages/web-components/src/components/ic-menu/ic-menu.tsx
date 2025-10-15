@@ -843,7 +843,7 @@ export class Menu {
     if (this.multiSelect) {
       const menuOptions = this.getMenuOptions();
       const selectedOptionIndex = menuOptions.findIndex(
-        (option) => option.value === value
+        (option) => option[this.valueField] === value
       );
 
       this.handleOptionSelect(event, selectedOptionIndex, true);
@@ -1355,6 +1355,7 @@ export class Menu {
         onMouseDown={this.handleMouseDown}
         data-value={option[this.valueField]}
         data-label={option[this.labelField]}
+        {...(option.htmlProps ?? {})}
       >
         {option.timedOut ? (
           <Fragment>
@@ -1464,7 +1465,7 @@ export class Menu {
                       </ic-typography>
                       {option.children.map(
                         (childOption) =>
-                          childOption.label &&
+                          childOption[this.labelField] &&
                           this.displayOption(
                             childOption,
                             multiSelect
@@ -1482,7 +1483,7 @@ export class Menu {
               } else {
                 // Display option only if it has a label (rather than displaying an empty space)
                 return (
-                  option.label &&
+                  option[this.labelField] &&
                   this.displayOption(
                     option,
                     multiSelect

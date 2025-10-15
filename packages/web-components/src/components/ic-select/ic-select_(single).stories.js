@@ -821,6 +821,33 @@ export const EmittingIcOptionSelectOnEnter = {
   name: "Emitting icOptionSelect on enter",
 };
 
+export const CustomPropsOnLiElements = {
+  render: () =>
+    html`<ic-select
+        id="select-custom-li-props"
+        label="What is your favourite coffee?"
+      ></ic-select>
+      <br />
+      <p>
+        <code>lang="it"</code> has been set on each
+        <code>&lt;li&gt;</code> element. This can be tested using a screen
+        reader.
+      </p>
+      <script>
+        var select = document.querySelector("#select-custom-li-props");
+        select.options = [
+          { label: "Cappuccino", value: "Cap", htmlProps: { lang: "it" } },
+          { label: "Latte", value: "Lat", htmlProps: { lang: "it" } },
+          { label: "Americano", value: "Ame", htmlProps: { lang: "it" } },
+        ];
+        select.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>`,
+
+  name: "Custom props on <li>s",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {
