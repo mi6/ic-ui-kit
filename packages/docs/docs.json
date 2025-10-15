@@ -4826,6 +4826,45 @@
           "setter": false
         },
         {
+          "name": "validationAriaLive",
+          "type": "\"assertive\" | \"off\" | \"polite\"",
+          "complexType": {
+            "original": "IcAriaLive",
+            "resolved": "\"assertive\" | \"off\" | \"polite\"",
+            "references": {
+              "IcAriaLive": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcAriaLive"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "validation-aria-live",
+          "reflectToAttr": false,
+          "docs": "The value of the `aria-live` attribute on the validation message.",
+          "docsTags": [],
+          "default": "\"polite\"",
+          "values": [
+            {
+              "value": "assertive",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "polite",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -23255,6 +23294,11 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/utils/types.ts::IcAriaLive": {
+      "declaration": "export type IcAriaLive = \"polite\" | \"assertive\" | \"off\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcInformationStatusOrEmpty": {
       "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
       "docstring": "",
@@ -23342,11 +23386,6 @@
     },
     "src/utils/types.ts::IcOrientation": {
       "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcAriaLive": {
-      "declaration": "export type IcAriaLive = \"polite\" | \"assertive\" | \"off\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

@@ -109,12 +109,34 @@ describe("ic-checkbox-group", () => {
   it("should render with validation status", async () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
-      html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error">
+      html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error" validation-text="error message">
         <ic-checkbox value="test" label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-with-validation");
+  });
+
+  it("should not have a validation status if disabled", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error" validation-text="error message" disabled>
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
+      </ic-checkbox-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot("no-validation-status-if-disabled");
+  });
+
+  it("should render with validation-aria-live", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error" validation-text="error message" validation-aria-live="assertive">
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
+      </ic-checkbox-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-validation-aria-live");
   });
 
   it("should render with hidden dynamic additional field", async () => {

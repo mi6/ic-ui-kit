@@ -43,6 +43,7 @@ const PREV_YEAR_BUTTON_ID = "#previous-year-button";
 const NEXT_YEAR_BUTTON_ID = "#next-year-button";
 const PREV_DECADE_BUTTON_ID = "#prev-decade-button";
 const NEXT_DECADE_BUTTON_ID = "#next-decade-button";
+const STATUS_TEXT_SPAN = ".statustext span";
 const TOOLTIP = "ic-tooltip";
 const TOOLTIP_CONTAINER = ".ic-tooltip-container";
 const YEAR_INPUT_ARIA_LABEL = 'input[aria-label="year"]';
@@ -2573,8 +2574,8 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
 
         cy.findShadowEl(DATE_PICKER, DATE_INPUT)
           .shadow()
-          .find(INPUT_VALIDATION)
-          .should(NOT_EXIST);
+          .find(STATUS_TEXT_SPAN)
+          .should(HAVE_TEXT, "");
       });
   });
 
@@ -2635,8 +2636,8 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
 
         cy.findShadowEl(DATE_PICKER, DATE_INPUT)
           .shadow()
-          .find(INPUT_VALIDATION)
-          .should(NOT_EXIST);
+          .find(STATUS_TEXT_SPAN)
+          .should(HAVE_TEXT, "");
       });
   });
 

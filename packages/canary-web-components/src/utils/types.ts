@@ -306,3 +306,6 @@ export enum IcWeekDays {
 }
 
 export type IcPositionTopOrRight = "top" | "right";
+
+// Matches HTML aria-live attribute options
+export type IcAriaLive = "polite" | "assertive" | "off";
