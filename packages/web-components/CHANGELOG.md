@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.38.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.38.2...@ukic/web-components@2.38.3) (2025-10-15)
+
+### Bug Fixes
+
+- **web-components:** fix cypress race condition in ic-dialog setfocus method ([fe163d7](https://github.com/mi6/ic-ui-kit/commit/fe163d76f09bfe4120f1225837f11087b1e4f04d))
+
 ## [2.38.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.38.1...@ukic/web-components@2.38.2) (2025-10-01)
 
 **Note:** Version bump only for package @ukic/web-components

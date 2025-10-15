@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.15.7...@ukic/docs@2.15.8) (2025-10-15)
+
+### Bug Fixes
+
+- **docs:** fix cypress race condition in ic-dialog setfocus method ([c361b6e](https://github.com/mi6/ic-ui-kit/commit/c361b6e2391fbffc2e6debb0400ebb26714a07e3))
+
 ## [2.15.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.15.4...@ukic/docs@2.15.7) (2025-04-30)
 
 **Note:** Version bump only for package @ukic/docs
