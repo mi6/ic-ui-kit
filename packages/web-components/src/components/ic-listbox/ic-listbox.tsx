@@ -15,7 +15,7 @@ import {
   Instance as PopperInstance,
   Options,
 } from "@popperjs/core";
-import { IcMenuOption } from "../../utils/types";
+import { IcMenuOption, IcSizes } from "../../utils/types";
 import Check from "../../assets/check-icon.svg";
 import { Fragment } from "@stencil/core";
 import { sanitizeHTMLIconString, sanitizeHTMLString } from "../../utils/common-helpers";
@@ -29,9 +29,8 @@ import { IcOptionSelectEventDetail } from "./ic-listbox.types";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Listbox {
   @Element() el!: HTMLIcListboxElement;
-
+  // private selectAllButton?: HTMLIcButtonElement;
   private popperInstance: PopperInstance | null;
-  private flattenedOptions: IcMenuOption[] = [];
   private valueArr: string[] = [];
 
   @State() popperProps: Partial<Options> = {};
@@ -42,6 +41,11 @@ export class Listbox {
      * The reference to an anchor element the menu will position itself from when rendered.
   */
   @Prop() anchorEl?: HTMLElement;
+
+  /**
+   * The label for the input element.
+   */
+  @Prop() inputLabel!: string;
 
   /**
    * The ID of the menu.
@@ -58,22 +62,29 @@ export class Listbox {
   }
 
   /**
-     * If `true`, the menu will be displayed open.
-     */
-    @Prop({ reflect: true }) open!: boolean;
-    @Watch("open")
-    watchOpenHandler(): void {
-      if (!this.open && this.popperInstance) {
-        this.popperInstance.destroy();
-        this.popperInstance = null;
-      }
+   * If `true`, the menu will be displayed open.
+   */
+  @Prop({ reflect: true }) open!: boolean;
+  @Watch("open")
+  watchOpenHandler(): void {
+    if (!this.open && this.popperInstance) {
+      this.popperInstance.destroy();
+      this.popperInstance = null;
     }
+  }
+
+  /**
+   * The size of the menu.
+   */
+  @Prop() size: IcSizes = "medium";
   
   @Prop() value: string | string[] | null = null;
   @Watch("value")
   valueChangedHandler(newValue: string | string[] | null) {
     this.valueArr = newValue ? newValue.toString().split(",") : [];
   };
+
+  @Prop() hasSelectAll = false;
 
   /**
    * @internal Emitted when the flattened options have been set.
@@ -85,20 +96,29 @@ export class Listbox {
    */
   @Event() menuOptionSelect!: EventEmitter<IcOptionSelectEventDetail>;
 
+  /**
+   * Emitted when the clear all button is clicked.
+   */
+  @Event() icClear: EventEmitter<void>;
+
+  /**
+   * @internal Emitted when all options are selected or deselected.
+   */
+  @Event() menuOptionSelectAll!: EventEmitter<{ select: boolean }>;
+
   disconnectedCallback(): void {
     this.popperInstance?.destroy();
-  }
+  };
 
   componentWillLoad(): void {
-    // this.loadFlattenedOptions();
     this.valueArr = this.value ? this.value.toString().split(",") : [];
-  }
+  };
 
   componentDidRender(): void {
     if (this.open && !this.popperInstance && this.anchorEl) {
       this.initPopperJs(this.anchorEl);
     }
-  }
+  };
 
   /**
      * @internal Used to initialize popperJS with an anchor element.
@@ -138,45 +158,15 @@ export class Listbox {
       this.popperProps = props;
   }
 
-  /**
-   * Flattens options with children so they can be referenced by index
-   * Sorts options and removes disabled options
-   */
-  // private loadFlattenedOptions = () => {
-  //   const flattenedOptions: IcMenuOption[] = [];
-  //   if (this.options.length > 0 && this.options.map) {
-  //       this.options.map((option) => {
-  //         if (option.children) {
-  //           option.children.map(
-  //             (option) => !option.disabled && flattenedOptions.push(option)
-  //           );
-  //         } else if (!option.disabled) {
-  //           flattenedOptions.push(option);
-  //         }
-  //       });
-  //     }
-  //   // this.flattenedOptions = this.getSortedOptions(flattenedOptions);
-  //   // this.flatttenedOptionsSet.emit({ options: this.flattenedOptions });
-  //   this.flattenedOptions = flattenedOptions;
-  // };
-
-  // private getSortedOptions = (options: IcMenuOption[]): IcMenuOption[] => {
-  //   let sorted: IcMenuOption[] = [];
-  //   if (options.sort) {
-  //     sorted = options.sort((optionA, optionB) =>
-  //       optionA.recommended && !optionB.recommended ? -1 : 0
-  //     );
-  //   }
-  //   return sorted;
-  // };
-
   private getOptionId = (optionValue: string): string => {
     return `${this.listboxId}-${optionValue}`;
   };
 
   private optionHasVisualFocus = (optionValue: string): boolean => {
+    const optionEls: HTMLLIElement[] = Array.from(this.el.querySelectorAll('[role="option"]'));
+    const descendants = [this.el.querySelector<HTMLIcButtonElement>(`#${this.getOptionId("select-all")}`), ...optionEls];
     return this.activedescendantIndex !== null
-      ? this.flattenedOptions[this.activedescendantIndex].value === optionValue
+      ? descendants[this.activedescendantIndex]?.dataset.value === optionValue
       : false
   };
 
@@ -185,18 +175,60 @@ export class Listbox {
     this.menuOptionSelect.emit({value, label});
   };
 
+  private handleSelectAllClick = () => {
+    this.emitSelectAllEvents();
+  }
+
+  // Fix for Safari - select all button click was causing menu to close
+  private handleSelectAllMouseDown = (event: Event) => {
+    event.preventDefault();
+  };
+
+  private emitSelectAllEvents = () => {
+    // Select all if there is either no value or not all options are selected
+    // 'true' means select all, 'false' means clear all
+    const optionEls: HTMLLIElement[] = Array.from(this.el.querySelectorAll('[role="option"]'));
+    console.log("firing event");
+    this.menuOptionSelectAll.emit({
+      select:
+        !this.value || !(this.valueArr.length === optionEls.length),
+    });
+    // Emit clear event if all options are selected
+    if (this.valueArr.length === optionEls.length) {
+      this.icClear.emit();
+    }
+  };
+
+  private isLastRecommendedOption = (option: IcMenuOption) => {
+    const optionEls: HTMLLIElement[] = Array.from(this.el.querySelectorAll('[role="option"]'));
+    let optionIndex = optionEls.findIndex(el => el.dataset.value === option.value);
+    const nextOptionEl = optionEls[++optionIndex];
+
+    return !!option.recommended &&
+      !!nextOptionEl &&
+      nextOptionEl.dataset.recommended === undefined
+  };
+
+  private getSelectedOptionsText = () => {
+    const optionEls: HTMLLIElement[] = Array.from(this.el.querySelectorAll('[role="option"]'));
+    const total = optionEls.length;
+    const numberSelected = optionEls.filter(el => this.valueArr.includes(el.dataset.value || "")).length || 0;
+    return `${numberSelected}/${total} selected`
+  }
+
   render () {
     const {
+      hasSelectAll,
+      inputLabel,
       listboxId,
       options,
       open,
+      size,
       valueArr,
     } = this;
 
-    console.log(options);
-
-    const renderOptionContent = (option: IcMenuOption) => {
-      const isSelected = valueArr.includes(option.value);
+    const renderOptionContent = (option: IcMenuOption): HTMLElement => {
+    const isSelected = valueArr.includes(option.value);
 
       return (
         <Fragment>
@@ -239,6 +271,49 @@ export class Listbox {
       )
     };
 
+    const renderOption = (option: IcMenuOption) => {
+      if (option.children && option.children.length > 0) {
+        const groupTitleId = `group-title-${option["label"].toLowerCase().replace(/\s+/g, '')}`;
+        return (
+          <ul role="group" aria-labelledby={groupTitleId}>
+            <li role="presentation" id={groupTitleId}>
+              <ic-typography
+                class="option-group-title"
+                role="presentation"
+                variant="subtitle-small"
+              >
+                <p>{option["label"]}</p>
+              </ic-typography>
+            </li>
+            {option.children.map(child => renderOption(child))}
+          </ul>
+        )
+      } else {
+        return (
+          <li
+            id={this.getOptionId(option.value)}
+            role="option"
+            onClick={this.handleOptionClick}
+            class={{
+              "option": true,
+              "focused-option": this.optionHasVisualFocus(option.value),
+              "last-recommended-option": this.isLastRecommendedOption(option),
+            }}
+            data-value={option["value"]}
+            data-label={option["label"]}
+            data-recommended={option["recommended"]}
+          >
+            {renderOptionContent(option)}
+          </li>
+        )
+      }
+    };
+
+    const optionEls: HTMLLIElement[] = Array.from(this.el.querySelectorAll('[role="option"]'));
+    const selectAllButtonText = `${
+      valueArr.length === optionEls.length ? "Clear" : "Select"
+    } all`;
+
     return (
       <Host
         class={{
@@ -250,30 +325,33 @@ export class Listbox {
           class="listbox"
           id={listboxId}
         >
-          {options.map((option, index) => {
-            return (
-              <li
-                id={this.getOptionId(option.value)}
-                role="option"
-                onClick={this.handleOptionClick}
-                class={{
-                  "option": true,
-                  "focused-option": this.optionHasVisualFocus(option.value),
-                  "last-recommended-option": !!(
-                    option.recommended &&
-                    options[index + 1] &&
-                    !options[index + 1].recommended
-                  ),
-                }}
-                data-value={option["value"]}
-                data-label={option["label"]}
-              >
-                {renderOptionContent(option)}
-              </li>
-            )
+          {options.map(option => {
+            return renderOption(option);
           })}
-
         </ul>
+        {options.length !== 0 &&
+          hasSelectAll && (
+            <div class="option-bar">
+              <ic-typography>
+                <p>{this.getSelectedOptionsText()}</p>
+              </ic-typography>
+              <ic-button
+                class={{
+                  "select-all-button": true,
+                  "select-all-button-focus": this.optionHasVisualFocus("select-all"),
+                }}
+                aria-label={`${selectAllButtonText} options for ${inputLabel}`}
+                id={this.getOptionId("select-all")}
+                data-value="select-all"
+                variant="tertiary"
+                onClick={this.handleSelectAllClick}
+                onMouseDown={this.handleSelectAllMouseDown}
+                size={size === "small" ? "small" : "medium"}
+              >
+                {selectAllButtonText}
+              </ic-button>
+            </div>
+          )}
       </Host>
     )
   }
