@@ -9,6 +9,7 @@ enum SelectAction {
     OpenListbox,
     CloseListbox,
     ToggleSelected,
+    ToggleSelectAll,
     SelectAndCloseListbox,
     FirstOption,
     LastOption,
@@ -19,6 +20,12 @@ enum SelectAction {
     MatchingOption,
     ClearAndCloseListbox,
 };
+
+enum LoadingStatus {
+    Loading,
+    Loaded,
+    TimedOut,
+}
 
 /**
  * @slot helper-text - Content is set as the helper text for the select.
@@ -37,27 +44,28 @@ let inputIds = 0;
 
 export class SelectNew {
     @Element() el!: HTMLIcSelectNewElement;
-      private inputId = `ic-select-new-input-${inputIds++}`;
-    // private focussedOption = 0;
+    private inputId = `ic-select-new-input-${inputIds++}`;
     private anchorEl?: HTMLElement;
     private listboxId = `${this.inputId}-listbox`;
     private valueString = "";
     private valueArr: string[] = [];
-    private processedOptions: IcMenuOption[]; // Deduplicated, sorted options
-    private flattenedProcessedOptions: IcMenuOption[]; // To enable easily finding option by index
-    // private emptyOptions: IcMenuOption[];
-    // private loadingOptions: IcMenuOption[];
-    // private listboxEl = this.el.querySelector("ic-listbox");
-
+    private processedOptions: IcMenuOption[]; // Deduplicated, sorted options. Not safe to reference by index or use length because of nesting
+    @Watch("processedOptions")
+    processedOptionsHandler(): void {
+        this.isEmpptyOptions = (this.loadingStatus === LoadingStatus.Loaded && this.processedOptions.length === 0);
+    }
+    private optionEls: HTMLLIElement[] = []; // Safe to reference by index and use length
     private ariaActivedescendant = ""; // id of list item corresponding to option which is the current active descendant
+    private isEmpptyOptions: boolean;
+    private timeoutTimer?: number;
+
     @State() activedescendantIndex: number | null = null;
-    @State() activeDescendantValue: string | null = null // value of option which is the current active descendant
-    @State() activeDescendant = ""; // value of option which is the current active descendant
     @Watch("activedescendantIndex")
     activedescendantIndexHandler(): void {
         this.ariaActivedescendant = this.getAriaActivedescendant();
     };
     @State() open = false;
+    @State() loadingStatus = LoadingStatus.Loaded;
 
 
     /**
@@ -188,11 +196,10 @@ export class SelectNew {
      * If `true`, the loading state will be triggered when fetching options asynchronously.
      */
     @Prop({ mutable: true }) loading = false;
-    // @Watch("loading")
-    // loadingHandler(newValue: boolean): void {
-    // // n   ewValue ? this.triggerLoading() : this.setOptions();
-    // console.log(newValue);
-    // }
+    @Watch("loading")
+    loadingHandler(): void {
+        this.updateLoadingStatus();
+    }
 
     /**
        * The possible selection options.
@@ -201,7 +208,7 @@ export class SelectNew {
     @Watch("options")
     watchOptionsHandler(newValue: IcMenuOption[]): void {
         this.processedOptions = this.getProcessedOptions(newValue);
-        this.flattenedProcessedOptions = this.getFlattenedOptions(this.processedOptions);
+        // this.flattenedProcessedOptions = this.getFlattenedOptions(this.processedOptions);
     };
 
     /**
@@ -247,13 +254,37 @@ export class SelectNew {
     };
 
     componentWillLoad() {
-        // this.emptyOptions = [{ label: this.emptyOptionListText, value: "" }];
-        // this.loadingOptions = [{ label: this.loadingLabel, value: "", loading: true }];
         this.processedOptions = this.getProcessedOptions(this.options);
-        this.flattenedProcessedOptions = this.getFlattenedOptions(this.processedOptions);
 
         this.valueString = this.value ? this.value.toString() : "";
         this.valueArr = this.valueString ? this.valueString.split(",") : [];
+
+        this.updateLoadingStatus();
+    };
+
+    componentDidLoad() {
+        this.optionEls = Array.from(this.el.shadowRoot?.querySelectorAll('ic-listbox [role="option"]') || []);
+    }
+
+     /**
+     * Put the select component into loading state.
+     * Replace options with the loading message. If timeout is enabled, set the timeout and once passed, replace options with the loading error message
+     */
+    private updateLoadingStatus = () => {
+        if (this.loading) {
+            this.loadingStatus = LoadingStatus.Loading;
+            this.dispatchSelectAction(SelectAction.ClearAndCloseListbox);
+
+            if (this.timeout) {
+                this.timeoutTimer = window.setTimeout(() => {
+                    this.loadingStatus = LoadingStatus.TimedOut;
+                }, this.timeout);
+            }
+        } else {
+            this.loadingStatus = LoadingStatus.Loaded;
+            this.isEmpptyOptions = this.processedOptions.length === 0;
+            clearTimeout(this.timeoutTimer);
+        };
     };
 
     private getProcessedOptions = (options: IcMenuOption[]): IcMenuOption[] => {
@@ -266,34 +297,36 @@ export class SelectNew {
         const dedupedOptions: IcMenuOption[] = [];
     
         options.forEach((option) => {
-            if (option.children) {
-            //If an option has children, we will loop through them
-            const dedupedChildren: IcMenuOption[] = [];
-            option.children.forEach((child) => {
-                if (uniqueValues.includes(child.value)) {
-                console.warn(
-                    `ic-select with label ${this.label} was populated with duplicate option (value: ${child.value}) which has been removed.`
-                );
+            if (!option.disabled) {
+                if (option.children) {
+                    //If an option has children, we will loop through them
+                    const dedupedChildren: IcMenuOption[] = [];
+                    option.children.forEach((child) => {
+                        if (uniqueValues.includes(child.value)) {
+                        console.warn(
+                            `ic-select with label ${this.label} was populated with duplicate option (value: ${child.value}) which has been removed.`
+                        );
+                        } else {
+                        uniqueValues.push(child.value);
+                        dedupedChildren.push(child);
+                        }
+                    });
+                    // construct a modified option, inserting the deduplicated children alongside the original information
+                    dedupedOptions.push({
+                        ...option,
+                        children: dedupedChildren,
+                    });
                 } else {
-                uniqueValues.push(child.value);
-                dedupedChildren.push(child);
+                    // If an option does not have children, assess to see if it's value has been included already
+                    if (uniqueValues.includes(option.value)) {
+                        console.warn(
+                        `ic-select with label ${this.label} was populated with duplicate option (value: ${option.value}) which has been removed.`
+                        );
+                    } else {
+                        uniqueValues.push(option.value);
+                        dedupedOptions.push(option);
+                    }
                 }
-            });
-            // construct a modified option, inserting the deduplicated children alongside the original information
-            dedupedOptions.push({
-                ...option,
-                children: dedupedChildren,
-            });
-            } else {
-            // If an option does not have children, assess to see if it's value has been included already
-            if (uniqueValues.includes(option.value)) {
-                console.warn(
-                `ic-select with label ${this.label} was populated with duplicate option (value: ${option.value}) which has been removed.`
-                );
-            } else {
-                uniqueValues.push(option.value);
-                dedupedOptions.push(option);
-            }
             }
         });
 
@@ -309,119 +342,92 @@ export class SelectNew {
         }
         return sorted;
       };
-    
-    /**
-     * Flattens options with children so they can be referenced by index
-     * Sorts options and removes disabled options
-     */
-    private getFlattenedOptions = (options: IcMenuOption[]) => {
-        const flattenedOptions: IcMenuOption[] = [];
-        if (options.length > 0 && options.map) {
-            options.map((option) => {
-                if (option.children) {
-                option.children.map(
-                    (option) => !option.disabled && flattenedOptions.push(option)
-                );
-                } else if (!option.disabled) {
-                flattenedOptions.push(option);
-                }
-            });
-            }
-        return flattenedOptions;
-    };
-
-    private getOptionIndexByValue = (value: string) => {
-        return this.processedOptions.map(option => option.value).indexOf(value);
-    }
 
     private dispatchSelectAction = (action?: SelectAction, selectedOptionValue?: string) => {
+        const descendants = [this.el.shadowRoot?.querySelector<HTMLIcButtonElement>(`#${this.getOptionId("select-all")}`), ...this.optionEls];
+        const maxIndex = descendants.length - 1;
+        let currIndex = this.activedescendantIndex || 0;
+        const pageSize = 10; // Recommended by W3C
+        const selectedValue = selectedOptionValue ? selectedOptionValue : this.getValueFromActivedescendantIndex();
 
-    const maxIndex = this.flattenedProcessedOptions.length - 1;
-    let currIndex = this.activedescendantIndex || 0; //todo: based on value
-    let index = this.activeDescendantValue ? this.getOptionIndexByValue(this.activeDescendantValue) : 0;
-    const pageSize = 10; // Recommended by W3C
-    const selectedValue = selectedOptionValue ? selectedOptionValue : this.getValueFromActivedescendantIndex();
-
-    switch (action) {
-        case SelectAction.FirstOption:
-            this.dispatchSelectAction(SelectAction.OpenListbox);
-            this.activedescendantIndex = 0;
-            this.activeDescendantValue = this.processedOptions[0].value;
-            break;
-        case SelectAction.LastOption:
-            this.dispatchSelectAction(SelectAction.OpenListbox);
-            this.activedescendantIndex = maxIndex;
-            this.activeDescendantValue = this.processedOptions[0].value;
-            break;
-        case SelectAction.NextOption:
-            this.dispatchSelectAction(SelectAction.OpenListbox);
-            this.activedescendantIndex = Math.min(maxIndex, ++currIndex);
-            const nextIndex = Math.min(maxIndex, ++currIndex);
-            this.activeDescendantValue = this.processedOptions[nextIndex].value;
-            break;
-        case SelectAction.PrevOption:
-            this.dispatchSelectAction(SelectAction.OpenListbox);
-            this.activedescendantIndex = Math.max(0, --currIndex);
-            const prevIndex = Math.max(0, --currIndex);
-            this.activeDescendantValue = this.processedOptions[prevIndex].value;
-            break;
-        case SelectAction.PageUpOption:
-            /**
-             * Moves focus visually up 10 options
-             * Or to first option
-             */
-            this.activedescendantIndex = Math.min(0, currIndex - pageSize);
-            const pageUpIndex = Math.min(0, currIndex - pageSize);
-            this.activeDescendantValue = this.processedOptions[pageUpIndex].value
-            // todo - change active descendant to be based on value so we can remove flattening logic and highlight options based on value
-            break;
-        case SelectAction.PageDownOption:
-            /**
-             * Moves focus visually down 10 options
-             * Or to last option
-             */
-            this.activedescendantIndex = Math.max(0, currIndex + pageSize);
-            break;
-        case SelectAction.MatchingOption:
-            // todo
-            // move visual focus to first matching option
-            // if multiple keys before timeout, move visual focus ot first matching string
-            // if same key repeated before timeout, cycle through options starting with that letter
-            // if no match, don't move visual focus
-            this.open=true;
-            break
-            /**
-             * If a value is set, set the active descendant to the first selected option so it has visual focus when the listbox opens
-             * Open the listbox
-             */
-        case SelectAction.OpenListbox:
-            this.activedescendantIndex = this.getFirstSelectedOptionIndex();
-            this.open = true;
-            break;
-        case SelectAction.CloseListbox:
-            this.open = false;
-            this.activedescendantIndex = null;
-            break;
-        case SelectAction.ToggleSelected:
-            if(this.valueArr.includes(selectedValue)) {
-                this.value = this.valueArr.filter(value => value !== selectedValue);
-            } else {
-                this.value = [...this.valueArr, selectedValue];
-            };
-            break;
-        case SelectAction.SelectAndCloseListbox:
-            this.open = false;
-            this.value = selectedValue;
-            this.activedescendantIndex = null;
-            break;
-        case SelectAction.ClearAndCloseListbox:
-            this.value = null;
-            this.open = false;
-            this.activedescendantIndex = null;
-        default:
-            break;
+        switch (action) {
+            case SelectAction.FirstOption:
+                this.dispatchSelectAction(SelectAction.OpenListbox);
+                this.activedescendantIndex = 0;
+                break;
+            case SelectAction.LastOption:
+                this.dispatchSelectAction(SelectAction.OpenListbox);
+                this.activedescendantIndex = maxIndex;
+                break;
+            case SelectAction.NextOption:
+                this.dispatchSelectAction(SelectAction.OpenListbox);
+                this.activedescendantIndex = Math.min(maxIndex, ++currIndex);
+                break;
+            case SelectAction.PrevOption:
+                this.dispatchSelectAction(SelectAction.OpenListbox);
+                this.activedescendantIndex = Math.max(0, --currIndex);
+                break;
+            case SelectAction.PageUpOption:
+                /**
+                 * Moves focus visually up 10 options
+                 * Or to first option
+                 */
+                this.activedescendantIndex = Math.min(0, currIndex - pageSize);
+                // todo - change active descendant to be based on value so we can remove flattening logic and highlight options based on value
+                break;
+            case SelectAction.PageDownOption:
+                /**
+                 * Moves focus visually down 10 options
+                 * Or to last option
+                 */
+                this.activedescendantIndex = Math.max(0, currIndex + pageSize);
+                break;
+            case SelectAction.MatchingOption:
+                // todo
+                // move visual focus to first matching option
+                // if multiple keys before timeout, move visual focus ot first matching string
+                // if same key repeated before timeout, cycle through options starting with that letter
+                // if no match, don't move visual focus
+                this.open=true;
+                break
+                /**
+                 * If a value is set, set the active descendant to the first selected option so it has visual focus when the listbox opens
+                 * Open the listbox
+                 */
+            case SelectAction.OpenListbox:
+                this.activedescendantIndex = this.getFirstSelectedOptionIndex();
+                this.open = true;
+                break;
+            case SelectAction.CloseListbox:
+                this.open = false;
+                this.activedescendantIndex = null;
+                break;
+            case SelectAction.ToggleSelected:
+                if(this.valueArr.includes(selectedValue)) {
+                    this.value = this.valueArr.filter(value => value !== selectedValue);
+                } else {
+                    this.value = [...this.valueArr, selectedValue];
+                };
+                break;
+            case SelectAction.ToggleSelectAll:
+                // this.value = this.optionEls.map(el => el.dataset.value).filter(value => value !== undefined)
+                this.value = this.valueArr.length > 0
+                    ? []
+                    : this.optionEls.flatMap(el => el.dataset.value ? el.dataset.value : []);
+                break;
+            case SelectAction.SelectAndCloseListbox:
+                this.open = false;
+                this.value = selectedValue;
+                this.activedescendantIndex = null;
+                break;
+            case SelectAction.ClearAndCloseListbox:
+                this.value = null;
+                this.open = false;
+                this.activedescendantIndex = null;
+            default:
+                break;
+        };
     };
-  };
   
     private getActionFromKeyboardEvent = (event: KeyboardEvent): SelectAction | undefined => {
         const { key, altKey } = event;
@@ -491,11 +497,14 @@ export class SelectNew {
         this.dispatchSelectAction(SelectAction.ClearAndCloseListbox);
     };
 
-    // private handleKeyUp = (event: KeyboardEvent) => {
     private handleKeyDown = (event: KeyboardEvent) => {
         const action = this.getActionFromKeyboardEvent(event);
         this.dispatchSelectAction(action);
     };
+
+    private handleSelectAll = () => {
+        this.dispatchSelectAction(SelectAction.ToggleSelectAll);
+    }
 
     private getOptionId = (value: string) => {
         return `${this.listboxId}-${value}`;
@@ -506,24 +515,37 @@ export class SelectNew {
     };
 
     private getValueFromActivedescendantIndex = (): string => {
+        const descendants = [this.el.shadowRoot?.querySelector<HTMLIcButtonElement>(`#${this.getOptionId("select-all")}`), ...this.optionEls];
         return this.activedescendantIndex !== null
-        ? this.flattenedProcessedOptions[this.activedescendantIndex].value
+        ? descendants[this.activedescendantIndex]?.dataset.value || ""
         : ""
     };
 
     private getFirstSelectedOptionIndex = () => {
-        // if (this.value) this.activedescendantIndex = this.flattenedProcessedOptions.map((option) => option.value).indexOf(this.value);
-        const firstSelectedOption = this.flattenedProcessedOptions.find(option => {
-            this.valueArr.includes(option.value)
+        const firstSelectedOption = this.optionEls.find(option => {
+            this.valueArr.includes(option.dataset.value || "")
         });
-        return firstSelectedOption ? this.flattenedProcessedOptions.indexOf(firstSelectedOption) : null;
-    }
+        return firstSelectedOption ? this.optionEls.indexOf(firstSelectedOption) : null;
+    };
 
     private getLabelsFromValues = (): string | undefined => {
         return this.valueArr.map(value => {
-            return this.flattenedProcessedOptions.find(option => option.value === value)?.label
+            return this.optionEls.find(option => option.dataset.value === value)?.dataset.label
         }).join(", ");
     };
+
+    private getMenuOptions = (): IcMenuOption[] => {
+            switch (this.loadingStatus) {
+                case LoadingStatus.Loading:
+                    return [{ label: this.loadingLabel, value: "", loading: true }];
+                case LoadingStatus.TimedOut:
+                    return [{ label: this.loadingErrorLabel, value: "", timedOut: true },]
+                case LoadingStatus.Loaded:
+                    return this.isEmpptyOptions
+                        ? [{ label: this.emptyOptionListText, value: "" }]
+                        : this.processedOptions;
+            };
+        };
 
     render() {
         const {
@@ -531,14 +553,15 @@ export class SelectNew {
             activedescendantIndex,
             disabled,
             fullWidth,
+            helperText,
             hideLabel,
             inputId,
             label,
             listboxId,
             loading,
+            multiple,
             name,
             open,
-            flattenedProcessedOptions,
             placeholder,
             readonly,
             searchable,
@@ -567,7 +590,8 @@ export class SelectNew {
                         role="combobox"
                         id={inputId}
                         class="select-button"
-                        aria-labelledby="label"
+                        aria-label={label}
+                        aria-describedby={helperText}
                         aria-autocomplete="list"
                         aria-controls={listboxId}
                         aria-expanded="false"
@@ -652,17 +676,18 @@ export class SelectNew {
                     >
                         <SelectButton/>
                     </ic-input-component-container>
-                    {/* { isInteractive && ( */}
                         <ic-listbox
                             anchorEl={this.anchorEl}
+                            inputLabel={label}
                             activedescendantIndex={activedescendantIndex}
                             listboxId={listboxId}
                             open={open}
-                            options={flattenedProcessedOptions}
+                            options={this.getMenuOptions()}
                             value={value}
                             onMenuOptionSelect={this.handleOptionClick}
+                            onMenuOptionSelectAll={this.handleSelectAll}
+                            hasSelectAll={multiple}
                         />
-                    {/* )} */}
                 </Host>
             )
         )

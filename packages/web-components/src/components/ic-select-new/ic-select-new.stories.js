@@ -18,6 +18,7 @@ const defaultArgs = {
   ["validation-text"]: "",
   ["show-clear-button"]: false,
   theme: "inherit",
+  timeout: "",
 };
 
 export default {
@@ -65,7 +66,47 @@ export const Clearable = {
   name: "Clearable",
 };
 
+export const DisabledOptions = {
+  render: () =>
+    html`
+      <script>
+        var select = document.querySelector("ic-select-new");
+        select.options =  [
+          { label: "Cappuccino", value: "cappuccino", description: "Coffee frothed up with pressurised steam" },
+          { label: "Americano", value: "americano", description: "Espresso coffee diluted with hot water" },
+          { label: "Mocha", value: "mocha", description: "Coffee with chocolate" },
+          { label: "Cortado", value: "cortado", disabled: true },
+          { label: "Flat white", value: "flat", recommended: true },
+          { label: "Latte", value: "latte", disabled: true },
+        ];
+      </script>
+      <ic-select-new label="my label" show-clear-button></ic-select-new>
+    `,
+
+  name: "Disabled options",
+};
+
 export const Multiple = {
+  render: () =>
+    html`
+      <script>
+        var select = document.querySelector("ic-select-new");
+        select.options =  [
+          { label: "Cappuccino", value: "cappuccino", description: "Coffee frothed up with pressurised steam" },
+          { label: "Americano", value: "americano", description: "Espresso coffee diluted with hot water" },
+          { label: "Mocha", value: "mocha", description: "Coffee with chocolate" },
+          { label: "Cortado", value: "cortado" },
+          { label: "Flat white", value: "flat" },
+          { label: "Latte", value: "latte" },
+        ];
+      </script>
+      <ic-select-new label="my label" multiple></ic-select-new>
+    `,
+
+  name: "Multiple",
+};
+
+export const WithInitialValue = {
   render: () =>
     html`
       <script>
@@ -79,10 +120,30 @@ export const Multiple = {
           { label: "Latte", value: "latte" },
         ];
       </script>
-      <ic-select-new label="my label" multiple></ic-select-new>
+      <ic-select-new label="my label" value="cortado"></ic-select-new>
     `,
 
-  name: "Multiple",
+  name: "With initial value set",
+};
+
+export const Recommended = {
+  render: () =>
+    html`
+      <script>
+        var select = document.querySelector("ic-select-new");
+        select.options =  [
+          { label: "Cappuccino", value: "cappuccino", description: "Coffee frothed up with pressurised steam" },
+          { label: "Americano", value: "americano", description: "Espresso coffee diluted with hot water", recommended: true },
+          { label: "Mocha", value: "mocha", description: "Coffee with chocolate" },
+          { label: "Cortado", value: "cortado" },
+          { label: "Flat white", value: "flat", recommended: true },
+          { label: "Latte", value: "latte" },
+        ];
+      </script>
+      <ic-select-new label="my label"></ic-select-new>
+    `,
+
+  name: "Recommended",
 };
 
 export const GroupedOptions = {
@@ -121,6 +182,57 @@ export const GroupedOptions = {
   name: "Grouped options",
 };
 
+export const GroupedOptionsRecommended = {
+  render: () =>
+    html`
+      <script>
+        var select = document.querySelector("#select-0");
+        select.options = [
+          {
+            label: "Fancy",
+            children: [
+              { label: "Cappuccino", value: "Cap" },
+              { label: "Flat white", value: "Fla", recommended: true },
+              { label: "Macchiato", value: "Mac" },
+            ],
+          },
+          {
+            label: "Boring",
+            children: [
+              { label: "Filter", value: "Fil" },
+              { label: "Latte", value: "Lat" },
+              { label: "Americano", value: "Ame"},
+            ],
+          },
+        ];
+        var selectOne = document.querySelector("#select-1");
+        selectOne.options = [
+          {
+            label: "Boring",
+            children: [
+              { label: "Filter", value: "Fil" },
+              { label: "Latte", value: "Lat" },
+              { label: "Americano", value: "Ame"},
+            ],
+          },
+          {
+            label: "Fancy",
+            recommended: true,
+            children: [
+              { label: "Cappuccino", value: "Cap" },
+              { label: "Flat white", value: "Fla" },
+              { label: "Macchiato", value: "Mac"},
+            ],
+          },
+        ];
+      </script>
+      <ic-select-new id="select-0" label="Recommended children"></ic-select-new>
+      <ic-select-new id="select-1" label="Recommended group"></ic-select-new>
+    `,
+
+  name: "Grouped options with recommended",
+};
+
 export const Playground = {
   render: (args) =>
     html` <ic-select-new
@@ -143,6 +255,7 @@ export const Playground = {
         : args.validationStatus}
       validation-text=${args["validation-text"]}
       theme=${args.theme}
+      timeout=${args.timeout}
     >
       ${args.showIcon &&
       html` <svg
