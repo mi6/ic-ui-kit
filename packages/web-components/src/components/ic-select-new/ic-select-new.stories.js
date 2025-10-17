@@ -126,6 +126,66 @@ export const WithInitialValue = {
   name: "With initial value set",
 };
 
+export const Validation = {
+  render: () =>
+    html`<ic-select-new
+        id="select-success"
+        label="What is your favourite coffee?"
+        validation-status="success"
+        validation-text="Coffee available"
+      ></ic-select-new>
+      <script>
+        var select1 = document.querySelector("#select-success");
+        var option1 = "Cappuccino";
+        select1.options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        select1.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>
+      <ic-select-new
+        id="select-warning"
+        label="What is your favourite coffee?"
+        validation-status="warning"
+        validation-text="Only a few left"
+      ></ic-select-new>
+      <script>
+        var select2 = document.querySelector("#select-warning");
+        var option2 = "Cappuccino";
+        select2.options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        select2.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>
+      <ic-select-new
+        id="select-error"
+        label="What is your favourite coffee?"
+        validation-status="error"
+        validation-text="Coffee unavailable"
+      ></ic-select-new>
+      <script>
+        var select3 = document.querySelector("#select-error");
+        var option3 = "Cappuccino";
+        select3.options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        select3.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>`,
+
+  name: "Validation",
+};
+
 export const Recommended = {
   render: () =>
     html`
@@ -176,7 +236,7 @@ export const GroupedOptions = {
           },
         ];
       </script>
-      <ic-select-new label="my label"></ic-select-new>
+      <ic-select-new label="my label" value="Ame"></ic-select-new>
     `,
 
   name: "Grouped options",

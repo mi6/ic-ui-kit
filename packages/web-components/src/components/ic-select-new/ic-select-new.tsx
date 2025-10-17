@@ -1,6 +1,6 @@
 import { Component, Element, Host, Prop, State, Watch, h } from "@stencil/core";
 import { IcInformationStatusOrEmpty, IcMenuOption, IcSearchMatchPositions, IcSizes, IcThemeMode } from "../../utils/types";
-import { renderHiddenInput } from "../../utils/helpers";
+import { hasValidationStatus, renderHiddenInput } from "../../utils/helpers";
 import { IcOptionSelectEventDetail } from "../ic-listbox/ic-listbox.types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
@@ -50,11 +50,12 @@ export class SelectNew {
     private valueString = "";
     private valueArr: string[] = [];
     private processedOptions: IcMenuOption[]; // Deduplicated, sorted options. Not safe to reference by index or use length because of nesting
+    private flattenedProcessedOptions: IcMenuOption[];
     @Watch("processedOptions")
     processedOptionsHandler(): void {
         this.isEmpptyOptions = (this.loadingStatus === LoadingStatus.Loaded && this.processedOptions.length === 0);
     }
-    private optionEls: HTMLLIElement[] = []; // Safe to reference by index and use length
+    // private optionEls: HTMLLIElement[] = []; // Safe to reference by index and use length
     private ariaActivedescendant = ""; // id of list item corresponding to option which is the current active descendant
     private isEmpptyOptions: boolean;
     private timeoutTimer?: number;
@@ -208,7 +209,7 @@ export class SelectNew {
     @Watch("options")
     watchOptionsHandler(newValue: IcMenuOption[]): void {
         this.processedOptions = this.getProcessedOptions(newValue);
-        // this.flattenedProcessedOptions = this.getFlattenedOptions(this.processedOptions);
+        this.flattenedProcessedOptions = this.getFlattenedProcessedOptions();
     };
 
     /**
@@ -255,16 +256,13 @@ export class SelectNew {
 
     componentWillLoad() {
         this.processedOptions = this.getProcessedOptions(this.options);
+        this.flattenedProcessedOptions = this.getFlattenedProcessedOptions();
 
         this.valueString = this.value ? this.value.toString() : "";
         this.valueArr = this.valueString ? this.valueString.split(",") : [];
 
         this.updateLoadingStatus();
     };
-
-    componentDidLoad() {
-        this.optionEls = Array.from(this.el.shadowRoot?.querySelectorAll('ic-listbox [role="option"]') || []);
-    }
 
      /**
      * Put the select component into loading state.
@@ -342,13 +340,31 @@ export class SelectNew {
         }
         return sorted;
       };
+    
+    private getFlattenedProcessedOptions = () => {
+        const flattenedOptions: IcMenuOption[] = [];
+
+        if (this.processedOptions.length > 0) {
+        this.processedOptions.map((option) => {
+            if (option.children) {
+            option.children.map(
+                (option) => flattenedOptions.push(option)
+            );
+            } else {
+            flattenedOptions.push(option);
+            }
+        });
+        };
+        return flattenedOptions;
+    };
 
     private dispatchSelectAction = (action?: SelectAction, selectedOptionValue?: string) => {
-        const descendants = [this.el.shadowRoot?.querySelector<HTMLIcButtonElement>(`#${this.getOptionId("select-all")}`), ...this.optionEls];
-        const maxIndex = descendants.length - 1;
+        const maxIndex = this.multiple ? this.flattenedProcessedOptions.length : this.flattenedProcessedOptions.length - 1 // select all button is also a descendant
         let currIndex = this.activedescendantIndex || 0;
         const pageSize = 10; // Recommended by W3C
-        const selectedValue = selectedOptionValue ? selectedOptionValue : this.getValueFromActivedescendantIndex();
+        const selectedValue = selectedOptionValue
+            ? selectedOptionValue
+            : this.getValueFromActivedescendantIndex() || "";
 
         switch (action) {
             case SelectAction.FirstOption:
@@ -395,7 +411,12 @@ export class SelectNew {
                  * Open the listbox
                  */
             case SelectAction.OpenListbox:
-                this.activedescendantIndex = this.getFirstSelectedOptionIndex();
+                // if (!this.activedescendantIndex) this.activedescendantIndex = this.getFirstSelectedOptionIndex();
+                // this.activedescendantIndex = currIndex;
+                // this.activedescendantIndex = this.getFirstSelectedOptionIndex();
+                // this.activedescendantIndex = this.activedescendantIndex || currIndex;
+                currIndex = this.getFirstSelectedOptionIndex();
+                this.activedescendantIndex = currIndex;
                 this.open = true;
                 break;
             case SelectAction.CloseListbox:
@@ -410,10 +431,9 @@ export class SelectNew {
                 };
                 break;
             case SelectAction.ToggleSelectAll:
-                // this.value = this.optionEls.map(el => el.dataset.value).filter(value => value !== undefined)
-                this.value = this.valueArr.length > 0
+                this.value = this.valueArr.length === this.flattenedProcessedOptions.length
                     ? []
-                    : this.optionEls.flatMap(el => el.dataset.value ? el.dataset.value : []);
+                    : this.flattenedProcessedOptions.flatMap(opt => opt.value);
                 break;
             case SelectAction.SelectAndCloseListbox:
                 this.open = false;
@@ -506,46 +526,56 @@ export class SelectNew {
         this.dispatchSelectAction(SelectAction.ToggleSelectAll);
     }
 
-    private getOptionId = (value: string) => {
+    private getOptionIdFromValue = (value: string) => {
         return `${this.listboxId}-${value}`;
     };
 
     private getAriaActivedescendant = (): string => {
-        return this.getOptionId(this.getValueFromActivedescendantIndex());
+        const value = this.getValueFromActivedescendantIndex();
+        return value
+            ? this.getOptionIdFromValue(value)
+            : ""
     };
 
-    private getValueFromActivedescendantIndex = (): string => {
-        const descendants = [this.el.shadowRoot?.querySelector<HTMLIcButtonElement>(`#${this.getOptionId("select-all")}`), ...this.optionEls];
+    private getValueFromActivedescendantIndex = (): string | null => {
+        const descendants: (HTMLLIElement | HTMLIcButtonElement)[] = Array.from(this.el.shadowRoot?.querySelectorAll('[role="option"]') || []);
+        const selectAllBtn = this.el.shadowRoot?.querySelector<HTMLIcButtonElement>(`#${this.getOptionIdFromValue("select-all")}`);
+        if (selectAllBtn) descendants.unshift(selectAllBtn);
+
         return this.activedescendantIndex !== null
-        ? descendants[this.activedescendantIndex]?.dataset.value || ""
-        : ""
+        ? descendants[this.activedescendantIndex]?.dataset.value || null
+        : null
     };
 
+    /**
+     * 
+     * @returns the index of the first option that is in valueArr, otherwise 0
+     */
     private getFirstSelectedOptionIndex = () => {
-        const firstSelectedOption = this.optionEls.find(option => {
-            this.valueArr.includes(option.dataset.value || "")
+        const firstSelectedOption = this.flattenedProcessedOptions.find(option => {
+            return this.valueArr.includes(option.value)
         });
-        return firstSelectedOption ? this.optionEls.indexOf(firstSelectedOption) : null;
+        return firstSelectedOption ? this.flattenedProcessedOptions.indexOf(firstSelectedOption) : 0;
     };
 
-    private getLabelsFromValues = (): string | undefined => {
+    private getLabelsFromValues = (): string => {
         return this.valueArr.map(value => {
-            return this.optionEls.find(option => option.dataset.value === value)?.dataset.label
+            return this.flattenedProcessedOptions.find(option => option.value === value)?.label
         }).join(", ");
     };
 
     private getMenuOptions = (): IcMenuOption[] => {
-            switch (this.loadingStatus) {
-                case LoadingStatus.Loading:
-                    return [{ label: this.loadingLabel, value: "", loading: true }];
-                case LoadingStatus.TimedOut:
-                    return [{ label: this.loadingErrorLabel, value: "", timedOut: true },]
-                case LoadingStatus.Loaded:
-                    return this.isEmpptyOptions
-                        ? [{ label: this.emptyOptionListText, value: "" }]
-                        : this.processedOptions;
-            };
+        switch (this.loadingStatus) {
+            case LoadingStatus.Loading:
+                return [{ label: this.loadingLabel, value: "", loading: true }];
+            case LoadingStatus.TimedOut:
+                return [{ label: this.loadingErrorLabel, value: "", timedOut: true },]
+            case LoadingStatus.Loaded:
+                return this.isEmpptyOptions
+                    ? [{ label: this.emptyOptionListText, value: "" }]
+                    : this.processedOptions;
         };
+    };
 
     render() {
         const {
@@ -559,6 +589,7 @@ export class SelectNew {
             label,
             listboxId,
             loading,
+            loadingStatus,
             multiple,
             name,
             open,
@@ -570,7 +601,8 @@ export class SelectNew {
             theme,
             value,
             valueString,
-            validationStatus
+            validationStatus,
+            validationText,
         } = this;
 
         renderHiddenInput(
@@ -596,7 +628,7 @@ export class SelectNew {
                         aria-controls={listboxId}
                         aria-expanded="false"
                         aria-haspopup={listboxId}
-                        aria-activedescendant={ariaActivedescendant}
+                        aria-activedescendant={loadingStatus === LoadingStatus.Loaded ? ariaActivedescendant : ""}
                         onClick={this.handleSelectButtonClick}
                         onBlur={this.handleBlur}
                         onKeyDown={this.handleKeyDown}
@@ -665,7 +697,6 @@ export class SelectNew {
                                 <slot name="helper-text" slot="helper-text"></slot>
                             </ic-input-label>
                         )}
-                    </ic-input-container>
                     <ic-input-component-container
                         ref={(el) => (this.anchorEl = el)}
                         size={size}
@@ -679,7 +710,7 @@ export class SelectNew {
                         <ic-listbox
                             anchorEl={this.anchorEl}
                             inputLabel={label}
-                            activedescendantIndex={activedescendantIndex}
+                            activedescendantIndex={loadingStatus === LoadingStatus.Loaded ? activedescendantIndex : null}
                             listboxId={listboxId}
                             open={open}
                             options={this.getMenuOptions()}
@@ -688,6 +719,16 @@ export class SelectNew {
                             onMenuOptionSelectAll={this.handleSelectAll}
                             hasSelectAll={multiple}
                         />
+                        {hasValidationStatus(validationStatus, disabled) && (
+                            <ic-input-validation
+                                class={{ "listbox-open": open }}
+                                ariaLiveMode="polite"
+                                status={validationStatus}
+                                message={validationText}
+                                for={inputId}
+                            ></ic-input-validation>
+                        )}
+                    </ic-input-container>
                 </Host>
             )
         )

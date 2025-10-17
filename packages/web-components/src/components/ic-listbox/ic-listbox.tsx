@@ -29,7 +29,6 @@ import { IcOptionSelectEventDetail } from "./ic-listbox.types";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Listbox {
   @Element() el!: HTMLIcListboxElement;
-  // private selectAllButton?: HTMLIcButtonElement;
   private popperInstance: PopperInstance | null;
   private valueArr: string[] = [];
 
@@ -163,8 +162,10 @@ export class Listbox {
   };
 
   private optionHasVisualFocus = (optionValue: string): boolean => {
-    const optionEls: HTMLLIElement[] = Array.from(this.el.querySelectorAll('[role="option"]'));
-    const descendants = [this.el.querySelector<HTMLIcButtonElement>(`#${this.getOptionId("select-all")}`), ...optionEls];
+    const descendants: (HTMLLIElement | HTMLIcButtonElement)[] = Array.from(this.el.querySelectorAll('[role="option"]'));
+    const selectAllBtn = this.el.querySelector<HTMLIcButtonElement>(`#${this.getOptionId("select-all")}`);
+    if (selectAllBtn) descendants.unshift(selectAllBtn);
+    // const descendants = [this.el.querySelector<HTMLIcButtonElement>(`#${this.getOptionId("select-all")}`), ...optionEls];
     return this.activedescendantIndex !== null
       ? descendants[this.activedescendantIndex]?.dataset.value === optionValue
       : false

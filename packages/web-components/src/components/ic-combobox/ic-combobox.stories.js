@@ -69,8 +69,33 @@ export const GroupedOptions = {
   render: () =>
     html`
       <script>
-        var combobox = document.querySelector("ic-combobox");
-        combobox.options = [
+        var combo = document.querySelector("#combo-0");
+        combo.options = [
+          {
+            label: "Fancy",
+            children: [
+              { label: "Cappuccino", value: "Cap" },
+              { label: "Flat white", value: "Fla" },
+              {
+                label: "Macchiato",
+                value: "Mac",
+              },
+            ],
+          },
+          {
+            label: "Boring",
+            children: [
+              { label: "Filter", value: "Fil" },
+              { label: "Latte", value: "Lat" },
+              {
+                label: "Americano",
+                value: "Ame",
+              },
+            ],
+          },
+        ];
+        var combo1 = document.querySelector("#combo-1");
+        combo1.options = [
           {
             label: "Fancy",
             children: [
@@ -95,7 +120,8 @@ export const GroupedOptions = {
           },
         ];
       </script>
-      <ic-combobox label="my label"></ic-combobox>
+      <ic-combobox id="combo-0" label="Includes group titles in search" include-group-titles-in-search="true"></ic-combobox>
+      <ic-combobox id="combo-1" label="Doesn't include group titles in search" include-group-titles-in-search="false"></ic-combobox>
     `,
 
   name: "Grouped options",
@@ -150,6 +176,66 @@ export const GroupedOptionsRecommended = {
     `,
 
   name: "Grouped options with recommended",
+};
+
+export const Validation = {
+  render: () =>
+    html`<ic-combobox
+        id="combobox-success"
+        label="What is your favourite coffee?"
+        validation-status="success"
+        validation-text="Coffee available"
+      ></ic-combobox>
+      <script>
+        var combo1 = document.querySelector("#combobox-success");
+        var option1 = "Cappuccino";
+        combo1.options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        combo1.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>
+      <ic-combobox
+        id="combobox-warning"
+        label="What is your favourite coffee?"
+        validation-status="warning"
+        validation-text="Only a few left"
+      ></ic-combobox>
+      <script>
+        var combo2 = document.querySelector("#combobox-warning");
+        var option2 = "Cappuccino";
+        combo2.options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        combo2.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>
+      <ic-combobox
+        id="combobox-error"
+        label="What is your favourite coffee?"
+        validation-status="error"
+        validation-text="Coffee unavailable"
+      ></ic-combobox>
+      <script>
+        var combo3 = document.querySelector("#combobox-error");
+        var option3 = "Cappuccino";
+        combo3.options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        combo3.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>`,
+
+  name: "Validation",
 };
 
 export const Playground = {
