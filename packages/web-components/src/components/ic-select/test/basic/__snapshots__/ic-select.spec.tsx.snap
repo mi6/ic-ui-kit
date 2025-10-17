@@ -24,7 +24,7 @@ exports[`ic-select multi should not render a native select on a mobile / tablet 
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium ic-menu-multiple no-results">
+      <ic-menu class="ic-menu-medium ic-menu-multiple">
         <ul aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-74-menu" role="listbox" tabindex="-1">
           <li aria-disabled="false" aria-label="Test label 1" aria-selected="false" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-74-menu-Test value 1" role="option" tabindex="-1">
             <div class="option-text-container">
@@ -54,6 +54,21 @@ exports[`ic-select multi should not render a native select on a mobile / tablet 
             </div>
           </li>
         </ul>
+        <div class="option-bar">
+          <ic-typography>
+            <p>
+              0/3 selected
+            </p>
+          </ic-typography>
+          <ic-button class="ic-button-size-medium ic-button-variant-tertiary select-all-button" exportparts="button">
+            <template shadowrootmode="open">
+              <button aria-label="Select all options for IC Select Test" class="button" part="button" tabindex="0" type="button">
+                <slot></slot>
+              </button>
+            </template>
+            Select all
+          </ic-button>
+        </div>
       </ic-menu>
       <div aria-live="polite" class="multi-select-selected-count" role="status"></div>
       <ic-input-validation arialivemode="polite" for="ic-select-input-74" message="" status=""></ic-input-validation>
@@ -87,7 +102,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium ic-menu-multiple ic-menu-open no-results" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
+      <ic-menu class="ic-menu-medium ic-menu-multiple ic-menu-open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
         <ul aria-activedescendant="ic-select-input-77-menu-Test value 1" aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-77-menu" role="listbox" tabindex="-1">
           <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="focused-option option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-77-menu-Test value 1" role="option" tabindex="0">
             <div class="option-text-container show-check-icon">
@@ -120,6 +135,21 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
             </div>
           </li>
         </ul>
+        <div class="option-bar">
+          <ic-typography>
+            <p>
+              1/3 selected
+            </p>
+          </ic-typography>
+          <ic-button class="ic-button-size-medium ic-button-variant-tertiary select-all-button" exportparts="button">
+            <template shadowrootmode="open">
+              <button aria-label="Select all options for IC Select Test" class="button" part="button" tabindex="0" type="button">
+                <slot></slot>
+              </button>
+            </template>
+            Select all
+          </ic-button>
+        </div>
       </ic-menu>
       <div aria-live="polite" class="multi-select-selected-count" role="status">
         1 of 3 selected
@@ -155,7 +185,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium ic-menu-multiple ic-menu-open no-results" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
+      <ic-menu class="ic-menu-medium ic-menu-multiple ic-menu-open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
         <ul aria-activedescendant="ic-select-input-77-menu-Test value 2" aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-77-menu" role="listbox" tabindex="-1">
           <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-77-menu-Test value 1" role="option" tabindex="0">
             <div class="option-text-container show-check-icon">
@@ -191,6 +221,21 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
             </div>
           </li>
         </ul>
+        <div class="option-bar">
+          <ic-typography>
+            <p>
+              2/3 selected
+            </p>
+          </ic-typography>
+          <ic-button class="ic-button-size-medium ic-button-variant-tertiary select-all-button" exportparts="button">
+            <template shadowrootmode="open">
+              <button aria-label="Select all options for IC Select Test" class="button" part="button" tabindex="0" type="button">
+                <slot></slot>
+              </button>
+            </template>
+            Select all
+          </ic-button>
+        </div>
       </ic-menu>
       <div aria-live="polite" class="multi-select-selected-count" role="status">
         2 of 3 selected
@@ -814,7 +859,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
+      <ic-menu class="ic-menu-medium">
         <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-9-menu" role="listbox" tabindex="-1">
           <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-9-menu-Test value 1" role="option" tabindex="-1">
             <div class="option-text-container show-check-icon">

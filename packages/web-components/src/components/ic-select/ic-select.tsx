@@ -1142,7 +1142,6 @@ export class Select {
       inheritedAttributes,
       ariaActiveDescendant,
       hasTimedOut,
-      noOptions,
       filteredOptions,
       clearButtonFocused,
     } = this;
@@ -1404,7 +1403,10 @@ export class Select {
                 "no-results":
                   loading ||
                   hasTimedOut ||
-                  noOptions?.[0]?.label === emptyOptionListText,
+                  (searchable &&
+                    this.filteredOptions?.[0]?.label === emptyOptionListText) ||
+                  (!searchable &&
+                    this.uniqueOptions?.[0]?.label === emptyOptionListText),
               }}
               ref={(el) => (this.menu = el)}
               inputEl={
