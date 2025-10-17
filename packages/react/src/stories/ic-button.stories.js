@@ -10,7 +10,8 @@ import {
   IcPopoverMenu,
   IcTypography,
   IcBadge,
-  IcSwitch
+  IcSwitch,
+  IcTooltip
 } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
@@ -1472,6 +1473,50 @@ export const PositioningStrategy = {
     )   
   },
   name: "Tooltip positioning strategy",
+};
+
+export const AriaDescribedby = {
+  render: () => {
+    const accessibleDescription = ["I'm a dynamic accessible description", "I can change"];
+    const [option, setOption] = useState(0);
+
+    return (
+      <div style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--ic-space-xs)"
+        }}
+      >
+        <p id="desc">I'm the accessible description</p>
+        <IcButton aria-describedby="desc">Button with aria-describedby</IcButton>
+
+        <IcTypography id="desc-2">{accessibleDescription[option]}</IcTypography>
+        <IcButton variant="secondary" onClick={() => setOption(prev => prev ? 0 : 1)}>Update description</IcButton>
+        <IcButton aria-describedby="desc-2">Button with dynamic aria-describedby</IcButton>
+
+        <div id="tooltip" role="tooltip">
+          <p>I'm a more complex accessible description</p>
+          <p>In two parts</p>
+        </div>
+        <IcButton aria-describedby="tooltip">Button with more complex description</IcButton>
+
+        <IcTooltip id="test-ic-tooltip" label="I'm the accessible description">
+          <IcButton aria-describedby="test-ic-tooltip">Button with ic-tooltip</IcButton>
+        </IcTooltip>
+
+        <IcButton variant="icon-primary" aria-label="refresh">
+          {customSVG()}
+        </IcButton>
+
+        <IcTooltip id="test-ic-tooltip-1" label="This is an accessible description">
+          <IcButton variant="icon-primary" aria-label="refresh" aria-describedby="test-ic-tooltip-1" disableTooltip>
+            {customSVG()}
+          </IcButton>
+        </IcTooltip>
+      </div>
+    )
+  },
+  name: "Aria describedby",
 };
 
 export const Playground = {

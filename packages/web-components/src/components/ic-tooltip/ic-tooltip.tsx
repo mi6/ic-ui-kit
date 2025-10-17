@@ -10,7 +10,10 @@ import {
 } from "@stencil/core";
 import { Instance, Options, createPopper } from "@popperjs/core";
 import { IcTooltipPlacements } from "./ic-tooltip.types";
-import { onComponentRequiredPropUndefined } from "../../utils/helpers";
+import {
+  isSafari,
+  onComponentRequiredPropUndefined,
+} from "../../utils/helpers";
 import { IcThemeMode } from "../../utils/types";
 
 @Component({
@@ -301,6 +304,7 @@ export class Tooltip {
           "ic-tooltip": true,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
+        aria-label={isSafari && label} // accessible name needs to be in light dom to be announced by VoiceOver. Replace in v4 as aria-label on element with no role is not well-supported
       >
         <div
           ref={(el) => (this.toolTip = el as HTMLDivElement)}
