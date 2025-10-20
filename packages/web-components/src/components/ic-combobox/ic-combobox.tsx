@@ -1,29 +1,11 @@
 import { Component, Element, Host, Prop, State, Watch, h } from "@stencil/core";
-import { IcInformationStatusOrEmpty, IcMenuOption, IcSearchMatchPositions, IcSizes, IcThemeMode } from "../../utils/types";
+import { IcComboboxLoadingStatus, IcInformationStatusOrEmpty, IcMenuOption, IcSearchMatchPositions, IcSizes, IcThemeMode } from "../../utils/types";
 import { IcOptionSelectEventDetail } from "../ic-listbox/ic-listbox.types";
 import { getFilteredMenuOptions, hasValidationStatus, renderHiddenInput } from "../../utils/helpers";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
-
-enum ComboboxAction {
-    OpenListbox,
-    CloseListbox,
-    SelectAndCloseListbox,
-    FirstOption,
-    LastOption,
-    NextOption,
-    PrevOption,
-    PageUpOption,
-    PageDownOption,
-    MatchingOption,
-    ClearAndCloseListbox,
-};
-
-enum LoadingStatus {
-    Loading,
-    Loaded,
-    TimedOut,
-}
+import { getAriaActivedescendant, getDeduplicatedOptions, getFlattenedOptions, getSortedOptions, getValueFromActivedescendantIndex } from "../../utils/combobox-helpers";
+import { IcComboboxAction } from "./ic-combobox.types";
 
 let inputIds = 0;
 
@@ -42,38 +24,31 @@ export class Combobox {
     private valueString = "";
     private processedOptions: IcMenuOption[]; // Deduplicated, sorted options. Not safe to reference by index or use length (due to nesting)
     private flattenedFilteredOptions: IcMenuOption[]; // Safe to reference by index and use length
-    // private optionEls: HTMLLIElement[] = []; // Safe to reference by index and use length
     private ariaActivedescendant = ""; // id of list item corresponding to option which is the current active descendant
-    private inputEl?: HTMLInputElement;
-    private isEmpptyOptions: boolean;
+    private isEmptyOptions: boolean;
     private timeoutTimer?: number;
 
     @State() activedescendantIndex: number | null = null;
-    @State() activeDescendant = ""; // value of option which is the current active descendant
     @Watch("activedescendantIndex")
     activedescendantIndexHandler(): void {
-        if (this.loadingStatus !== LoadingStatus.Loaded || this.isEmpptyOptions) {
+        if (this.loadingStatus !== IcComboboxLoadingStatus.Loaded || this.isEmptyOptions) {
             this.activedescendantIndex = null;
         };
-        this.ariaActivedescendant = this.getAriaActivedescendant();
+        this.ariaActivedescendant = getAriaActivedescendant(this.listboxId, this.el, this.activedescendantIndex);
     };
     @State() filteredOptions: IcMenuOption[] = []; // Options passed to menu to be visible after filtering. Not safe to reference by index or use length
     @Watch("filteredOptions")
     filteredOptionsHandler(): void {
-        this.isEmpptyOptions = (this.loadingStatus === LoadingStatus.Loaded && this.filteredOptions.length === 0);
+        this.isEmptyOptions = (this.loadingStatus === IcComboboxLoadingStatus.Loaded && this.filteredOptions.length === 0);
     };
     @State() open = false;
-    @State() loadingStatus = LoadingStatus.Loaded;
+    @State() loadingStatus = IcComboboxLoadingStatus.Loaded;
 
 
     /**
         * If `true`, the disabled state will be set.
     */
     @Prop({ reflect: true }) disabled = false;
-    @Watch("disabled")
-    watchDisabledHandler(): void {
-        // removeDisabledFalse(this.disabled, this.el);
-    }
 
     /**
      * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
@@ -214,7 +189,7 @@ export class Combobox {
     watchOptionsHandler(newValue: IcMenuOption[]): void {
         this.processedOptions = this.getProcessedOptions(newValue);
         this.filteredOptions = this.processedOptions;
-        this.flattenedFilteredOptions = this.getFlattenedFilteredOptions();
+        this.flattenedFilteredOptions = getFlattenedOptions(this.filteredOptions);
     };
 
     /**
@@ -237,9 +212,7 @@ export class Combobox {
     @Prop({ mutable: true }) value: string | string[] | null = null;
     @Watch("value")
     updateValueString(newValue: string | string[] | null) {
-        // todo update in componentwillload?
         this.valueString = newValue ? newValue.toString() : "";
-        if (this.inputEl) this.inputEl.value = this.getLabelFromValue()
     };
 
 
@@ -262,23 +235,14 @@ export class Combobox {
     };
 
     componentWillLoad() {
-        // this.emptyOptions = [{ label: this.emptyOptionListText, value: "" }];
-        // this.loadingOptions = [{ label: this.loadingLabel, value: "", loading: true }];
         this.processedOptions = this.getProcessedOptions(this.options);
         this.filteredOptions = this.processedOptions;
-        this.flattenedFilteredOptions = this.getFlattenedFilteredOptions();
-        // this.setIsEmptyOptionsList();
+        this.flattenedFilteredOptions = getFlattenedOptions(this.filteredOptions);
 
         this.valueString = this.value ? this.value.toString() : "";
 
         this.updateLoadingStatus();
-
-        // this.updateIsClearable();
     };
-
-    // componentDidLoad() {
-    //     this.optionEls = Array.from(this.el.shadowRoot?.querySelectorAll('ic-listbox [role="option"]') || []);
-    // };
 
     /**
      * Put the select component into loading state.
@@ -286,130 +250,64 @@ export class Combobox {
      */
     private updateLoadingStatus = () => {
         if (this.loading) {
-            this.loadingStatus = LoadingStatus.Loading;
-            this.dispatchComboboxAction(ComboboxAction.ClearAndCloseListbox);
+            this.loadingStatus = IcComboboxLoadingStatus.Loading;
+            this.dispatchComboboxAction(IcComboboxAction.ClearAndCloseListbox);
 
             if (this.timeout) {
                 this.timeoutTimer = window.setTimeout(() => {
-                    this.loadingStatus = LoadingStatus.TimedOut;
+                    this.loadingStatus = IcComboboxLoadingStatus.TimedOut;
                 }, this.timeout);
             }
         } else {
-            this.loadingStatus = LoadingStatus.Loaded;
-            this.isEmpptyOptions = this.filteredOptions.length === 0;
+            this.loadingStatus = IcComboboxLoadingStatus.Loaded;
+            this.isEmptyOptions = this.filteredOptions.length === 0;
             clearTimeout(this.timeoutTimer);
         };
     };
 
     private getProcessedOptions = (options: IcMenuOption[]): IcMenuOption[] => {
-        const dedupedOptions = this.getDeduplicatedOptions(options);
-        return this.getSortedOptions(dedupedOptions);
+        const dedupedOptions = getDeduplicatedOptions(options, this.label);
+        return getSortedOptions(dedupedOptions);
     };
 
-    private getDeduplicatedOptions = (options: IcMenuOption[]): IcMenuOption[] => {
-        const uniqueValues: string[] = [];
-        const dedupedOptions: IcMenuOption[] = [];
-    
-        options.forEach((option) => {
-            if (option.children) {
-            //If an option has children, we will loop through them
-            const dedupedChildren: IcMenuOption[] = [];
-            option.children.forEach((child) => {
-                if (uniqueValues.includes(child.value)) {
-                console.warn(
-                    `ic-select with label ${this.label} was populated with duplicate option (value: ${child.value}) which has been removed.`
-                );
-                } else {
-                uniqueValues.push(child.value);
-                dedupedChildren.push(child);
-                }
-            });
-            // construct a modified option, inserting the deduplicated children alongside the original information
-            dedupedOptions.push({
-                ...option,
-                children: dedupedChildren,
-            });
-            } else {
-            // If an option does not have children, assess to see if it's value has been included already
-            if (uniqueValues.includes(option.value)) {
-                console.warn(
-                `ic-select with label ${this.label} was populated with duplicate option (value: ${option.value}) which has been removed.`
-                );
-            } else {
-                uniqueValues.push(option.value);
-                dedupedOptions.push(option);
-            }
-            }
-        });
-
-        return dedupedOptions;
-    };
-
-    private getSortedOptions = (options: IcMenuOption[]): IcMenuOption[] => {
-        let sorted: IcMenuOption[] = [];
-        if (options.sort) {
-          sorted = options.sort((optionA, optionB) =>
-            optionA.recommended && !optionB.recommended ? -1 : 0
-          );
-        }
-        return sorted;
-    };
-
-    private getFlattenedFilteredOptions = () => {
-        const flattenedOptions: IcMenuOption[] = [];
-
-        if (this.filteredOptions.length > 0) {
-        this.filteredOptions.map((option) => {
-            if (option.children) {
-            option.children.map(
-                (option) => flattenedOptions.push(option)
-            );
-            } else {
-            flattenedOptions.push(option);
-            }
-        });
-        };
-        return flattenedOptions;
-    };
-
-    private dispatchComboboxAction = (action?: ComboboxAction, selectedOptionValue?: string) => {
+    private dispatchComboboxAction = (action?: IcComboboxAction, selectedOptionValue?: string) => {
 
     const maxIndex = this.flattenedFilteredOptions.length - 1;
     let currIndex = this.activedescendantIndex || 0;
     const pageSize = 10; // Recommended by W3C
 
     switch (action) {
-        case ComboboxAction.FirstOption:
-            this.dispatchComboboxAction(ComboboxAction.OpenListbox);
+        case IcComboboxAction.FirstOption:
+            this.dispatchComboboxAction(IcComboboxAction.OpenListbox);
             this.activedescendantIndex = 0;
             break;
-        case ComboboxAction.LastOption:
-            this.dispatchComboboxAction(ComboboxAction.OpenListbox);
+        case IcComboboxAction.LastOption:
+            this.dispatchComboboxAction(IcComboboxAction.OpenListbox);
             this.activedescendantIndex = maxIndex;
             break;
-        case ComboboxAction.NextOption:
-            this.dispatchComboboxAction(ComboboxAction.OpenListbox);
+        case IcComboboxAction.NextOption:
+            this.dispatchComboboxAction(IcComboboxAction.OpenListbox);
             this.activedescendantIndex = Math.min(maxIndex, ++currIndex);
             break;
-        case ComboboxAction.PrevOption:
-            this.dispatchComboboxAction(ComboboxAction.OpenListbox);
+        case IcComboboxAction.PrevOption:
+            this.dispatchComboboxAction(IcComboboxAction.OpenListbox);
             this.activedescendantIndex = Math.max(0, --currIndex);
             break;
-        case ComboboxAction.PageUpOption:
+        case IcComboboxAction.PageUpOption:
             /**
              * Moves focus visually up 10 options
              * Or to first option
              */
             this.activedescendantIndex = Math.min(0, currIndex - pageSize);
             break;
-        case ComboboxAction.PageDownOption:
+        case IcComboboxAction.PageDownOption:
             /**
              * Moves focus visually down 10 options
              * Or to last option
              */
             this.activedescendantIndex = Math.max(0, currIndex + pageSize);
             break;
-        case ComboboxAction.MatchingOption:
+        case IcComboboxAction.MatchingOption:
             // todo
             // move visual focus to first matching option
             // if multiple keys before timeout, move visual focus ot first matching string
@@ -421,21 +319,21 @@ export class Combobox {
              * If a value is set, set the active descendant to the option with that value so it has visual focus when the listbox opens
              * Open the listbox
              */
-        case ComboboxAction.OpenListbox:
+        case IcComboboxAction.OpenListbox:
             if (this.value) currIndex = this.flattenedFilteredOptions.map((option) => option.value).indexOf(this.valueString);
             this.activedescendantIndex = currIndex
             this.open = true;
             break;
-        case ComboboxAction.CloseListbox:
+        case IcComboboxAction.CloseListbox:
             this.open = false;
             this.activedescendantIndex = null;
             break;
-        case ComboboxAction.SelectAndCloseListbox:
+        case IcComboboxAction.SelectAndCloseListbox:
             this.open = false;
-            this.value = !!selectedOptionValue ? selectedOptionValue : this.getValueFromActivedescendantIndex();
+            this.value = !!selectedOptionValue ? selectedOptionValue : getValueFromActivedescendantIndex(this.el, this.listboxId, this.activedescendantIndex);
             this.activedescendantIndex = null;
             break;
-        case ComboboxAction.ClearAndCloseListbox:
+        case IcComboboxAction.ClearAndCloseListbox:
             this.clearUserInput();
             this.value = null;
             this.open = false;
@@ -445,7 +343,7 @@ export class Combobox {
     };
   };
   
-    private getActionFromKeyboardEvent = (event: KeyboardEvent): ComboboxAction | undefined => {
+    private getActionFromKeyboardEvent = (event: KeyboardEvent): IcComboboxAction | undefined => {
         const { key, altKey } = event;
 
         // todo voiceover shortcuts?
@@ -456,25 +354,25 @@ export class Combobox {
                 case "Enter":
                 case " ":
                     event.preventDefault();
-                    return ComboboxAction.SelectAndCloseListbox;
+                    return IcComboboxAction.SelectAndCloseListbox;
                 case "Tab":
                     // Tab needs default behaviour of moving to next focusable el.
                     // This is not consistent with native select but is consistent with combobox behaviour
-                    return ComboboxAction.SelectAndCloseListbox;
+                    return IcComboboxAction.SelectAndCloseListbox;
                 case "Escape":
-                    return ComboboxAction.CloseListbox;
+                    return IcComboboxAction.CloseListbox;
                 case "ArrowDown":
-                    return ComboboxAction.NextOption;
+                    return IcComboboxAction.NextOption;
                 case "ArrowUp":
-                    return altKey ? ComboboxAction.SelectAndCloseListbox : ComboboxAction.PrevOption;
+                    return altKey ? IcComboboxAction.SelectAndCloseListbox : IcComboboxAction.PrevOption;
                 case "Home":
-                    return ComboboxAction.FirstOption;
+                    return IcComboboxAction.FirstOption;
                 case "End":
-                    return ComboboxAction.LastOption;
+                    return IcComboboxAction.LastOption;
                 case "PageUp":
-                    return ComboboxAction.PageUpOption;
+                    return IcComboboxAction.PageUpOption;
                 case "PageDown":
-                    return ComboboxAction.PageDownOption;
+                    return IcComboboxAction.PageDownOption;
                 default:
                     return;        
             }
@@ -485,11 +383,11 @@ export class Combobox {
                 case "Enter":
                 case "Space":
                     // todo - handle space in search string
-                    return ComboboxAction.OpenListbox;
+                    return IcComboboxAction.OpenListbox;
                 case "Home":
-                    return ComboboxAction.FirstOption;
+                    return IcComboboxAction.FirstOption;
                 case "End":
-                    return ComboboxAction.LastOption;
+                    return IcComboboxAction.LastOption;
                 default:
                     return;
             }
@@ -497,15 +395,15 @@ export class Combobox {
     };
 
     private handleOptionClick = (event: CustomEvent<IcOptionSelectEventDetail>) => {
-        if (event.detail.value) this.dispatchComboboxAction(ComboboxAction.SelectAndCloseListbox, event.detail.value);
+        if (event.detail.value) this.dispatchComboboxAction(IcComboboxAction.SelectAndCloseListbox, event.detail.value);
     };
     
     private handleComboboxClick = () => {
-        this.dispatchComboboxAction(this.open ? ComboboxAction.CloseListbox : ComboboxAction.OpenListbox);
+        this.dispatchComboboxAction(this.open ? IcComboboxAction.CloseListbox : IcComboboxAction.OpenListbox);
     };
 
     private handleBlur = () => {
-        this.dispatchComboboxAction(ComboboxAction.CloseListbox);
+        this.dispatchComboboxAction(IcComboboxAction.CloseListbox);
     };
 
     private handleKeyDown = (event: KeyboardEvent) => {
@@ -517,7 +415,7 @@ export class Combobox {
         const searchString = (event.target as HTMLInputElement).value;
         // this.filteredOptions = getFilteredMenuOptions(this.processedOptions, this.includeDescriptionsInSearch, searchString, this.searchMatchPosition);
         this.handleFilter(searchString);
-        this.dispatchComboboxAction(ComboboxAction.OpenListbox);
+        this.dispatchComboboxAction(IcComboboxAction.OpenListbox);
     };
 
     private handleFilter = (searchString: string) => {
@@ -553,51 +451,27 @@ export class Combobox {
                 }
             }
         });
-        console.log(filteredOptions);
         this.filteredOptions = filteredOptions;
     };
 
     private handleClear = () => {
-        this.dispatchComboboxAction(ComboboxAction.ClearAndCloseListbox);
-    };
-
-    private getOptionIdFromValue = (value: string) => {
-        return `${this.listboxId}-${value}`;
-    };
-
-    private getAriaActivedescendant = (): string => {
-        const value = this.getValueFromActivedescendantIndex()
-        return value
-            ? this.getOptionIdFromValue(value)
-            : ""
-    };
-
-    private getValueFromActivedescendantIndex = () => {
-        const descendants: (HTMLLIElement | HTMLIcButtonElement)[] = Array.from(this.el.shadowRoot?.querySelectorAll('[role="option"]') || []);
-        const selectAllBtn = this.el.shadowRoot?.querySelector<HTMLIcButtonElement>(`#${this.getOptionIdFromValue("select-all")}`);
-        if (selectAllBtn) descendants.unshift(selectAllBtn);
-
-        return this.activedescendantIndex !== null
-        // ? this.optionEls[this.activedescendantIndex]?.dataset.value || null
-        ? descendants[this.activedescendantIndex]?.dataset.value || null
-        : null
+        this.dispatchComboboxAction(IcComboboxAction.ClearAndCloseListbox);
     };
 
     private getLabelFromValue = (): string => {
         return !!this.value
-            // ? this.optionEls.find(option => option.dataset.value === this.value)?.dataset.label || ""
             ? this.flattenedFilteredOptions.find(option => option.value === this.value)?.label || ""
             : ""
     };
 
     private getMenuOptions = (): IcMenuOption[] => {
         switch (this.loadingStatus) {
-            case LoadingStatus.Loading:
+            case IcComboboxLoadingStatus.Loading:
                 return [{ label: this.loadingLabel, value: "", loading: true }];
-            case LoadingStatus.TimedOut:
+            case IcComboboxLoadingStatus.TimedOut:
                 return [{ label: this.loadingErrorLabel, value: "", timedOut: true },]
-            case LoadingStatus.Loaded:
-                return this.isEmpptyOptions
+            case IcComboboxLoadingStatus.Loaded:
+                return this.isEmptyOptions
                     ? [{ label: this.emptyOptionListText, value: "" }]
                     : this.filteredOptions;
         };
@@ -654,7 +528,7 @@ export class Combobox {
                     <input
                         role="combobox"
                         id={inputId}
-                        ref={(el) => (this.inputEl = el)}
+                        // ref={(el) => (this.inputEl = el)}
                         class="select-input"
                         aria-label={label}
                         aria-descibedby={helperText}
@@ -662,7 +536,7 @@ export class Combobox {
                         aria-controls={listboxId}
                         aria-expanded="false"
                         aria-haspopup={listboxId}
-                        aria-activedescendant={loadingStatus === LoadingStatus.Loaded ? ariaActivedescendant : ""}
+                        aria-activedescendant={loadingStatus === IcComboboxLoadingStatus.Loaded ? ariaActivedescendant : ""}
                         onClick={this.handleComboboxClick}
                         onBlur={this.handleBlur}
                         onKeyDown={this.handleKeyDown}
@@ -726,7 +600,7 @@ export class Combobox {
                     <ic-listbox
                         anchorEl={this.anchorEl}
                         inputLabel={label}
-                        activedescendantIndex={loadingStatus === LoadingStatus.Loaded ? activedescendantIndex : null}
+                        activedescendantIndex={loadingStatus === IcComboboxLoadingStatus.Loaded ? activedescendantIndex : null}
                         listboxId={listboxId}
                         open={open}
                         options={this.getMenuOptions()}

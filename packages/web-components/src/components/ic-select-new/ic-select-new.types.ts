@@ -1,0 +1,15 @@
+export enum IcSelectAction {
+    OpenListbox,
+    CloseListbox,
+    ToggleSelected,
+    ToggleSelectAll,
+    SelectAndCloseListbox,
+    FirstOption,
+    LastOption,
+    NextOption,
+    PrevOption,
+    PageUpOption,
+    PageDownOption,
+    MatchingOption,
+    ClearAndCloseListbox,
+};
