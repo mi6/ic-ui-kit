@@ -310,9 +310,8 @@ export class SelectNew {
                 this.activedescendantIndex = Math.max(0, currIndex + pageSize);
                 break;
             case IcSelectAction.MatchingOption:
-                // todo
-                // move visual focus to first matching option
-                // if multiple keys before timeout, move visual focus ot first matching string
+                // todo select matching option on printable chars - see w3c guidance
+                // if multiple keys before timeout, move visual focus to first matching string
                 // if same key repeated before timeout, cycle through options starting with that letter
                 // if no match, don't move visual focus
                 this.open=true;
