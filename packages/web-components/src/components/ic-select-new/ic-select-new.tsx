@@ -1,6 +1,6 @@
 import { Component, Element, Host, Prop, State, Watch, h } from "@stencil/core";
 import { IcComboboxLoadingStatus, IcInformationStatusOrEmpty, IcMenuOption, IcSearchMatchPositions, IcSizes, IcThemeMode } from "../../utils/types";
-import { hasValidationStatus, renderHiddenInput } from "../../utils/helpers";
+import { addFormResetListener, hasValidationStatus, removeFormResetListener, renderHiddenInput } from "../../utils/helpers";
 import { IcOptionSelectEventDetail } from "../ic-listbox/ic-listbox.types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
@@ -233,6 +233,10 @@ export class SelectNew {
         };
     };
 
+    disconnectedCallback() {
+        removeFormResetListener(this.el, this.handleFormReset)
+    };
+
     componentWillLoad() {
         this.processedOptions = this.getProcessedOptions(this.options);
         this.flattenedProcessedOptions = getFlattenedOptions(this.processedOptions);
@@ -241,6 +245,8 @@ export class SelectNew {
         this.valueArr = this.valueString ? this.valueString.split(",") : [];
 
         this.updateLoadingStatus();
+
+        addFormResetListener(this.el, this.handleFormReset);
     };
 
      /**
@@ -432,6 +438,10 @@ export class SelectNew {
         this.dispatchSelectAction(IcSelectAction.ToggleSelectAll);
     }
 
+    private handleFormReset = () => {
+        this.dispatchSelectAction(IcSelectAction.ClearAndCloseListbox);
+    };
+
     /**
      * 
      * @returns the index of the first option that is in valueArr, otherwise 0
@@ -461,6 +471,7 @@ export class SelectNew {
             ariaActivedescendant,
             activedescendantIndex,
             disabled,
+            form,
             fullWidth,
             helperText,
             hideLabel,
@@ -512,6 +523,7 @@ export class SelectNew {
                         onBlur={this.handleBlur}
                         onKeyDown={this.handleKeyDown}
                         disabled={disabled || readonly}
+                        form={form}
                     >
                         <ic-typography
                             variant="body"
