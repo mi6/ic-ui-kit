@@ -362,8 +362,10 @@ export class Combobox {
                 case "Escape":
                     return IcComboboxAction.CloseListbox;
                 case "ArrowDown":
+                    event.preventDefault();
                     return IcComboboxAction.NextOption;
                 case "ArrowUp":
+                    event.preventDefault();
                     return altKey ? IcComboboxAction.SelectAndCloseListbox : IcComboboxAction.PrevOption;
                 case "Home":
                     return IcComboboxAction.FirstOption;
@@ -413,7 +415,6 @@ export class Combobox {
 
     private handleInput = (event: InputEvent) => {
         const searchString = (event.target as HTMLInputElement).value;
-        // this.filteredOptions = getFilteredMenuOptions(this.processedOptions, this.includeDescriptionsInSearch, searchString, this.searchMatchPosition);
         this.handleFilter(searchString);
         this.dispatchComboboxAction(IcComboboxAction.OpenListbox);
     };
@@ -528,7 +529,6 @@ export class Combobox {
                     <input
                         role="combobox"
                         id={inputId}
-                        // ref={(el) => (this.inputEl = el)}
                         class="select-input"
                         aria-label={label}
                         aria-descibedby={helperText}
@@ -560,6 +560,7 @@ export class Combobox {
                         <ic-button
                             id="clear-button"
                             aria-label="Clear selection"
+                            aria-describedby={this.label}
                             class="clear-button"
                             innerHTML={Clear}
                             onClick={this.handleClear}
