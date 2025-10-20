@@ -1,7 +1,7 @@
 import { Component, Element, Host, Prop, State, Watch, h } from "@stencil/core";
 import { IcComboboxLoadingStatus, IcInformationStatusOrEmpty, IcMenuOption, IcSearchMatchPositions, IcSizes, IcThemeMode } from "../../utils/types";
 import { IcOptionSelectEventDetail } from "../ic-listbox/ic-listbox.types";
-import { getFilteredMenuOptions, hasValidationStatus, renderHiddenInput } from "../../utils/helpers";
+import { addFormResetListener, getFilteredMenuOptions, hasValidationStatus, removeFormResetListener, renderHiddenInput } from "../../utils/helpers";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
 import { getAriaActivedescendant, getDeduplicatedOptions, getFlattenedOptions, getSortedOptions, getValueFromActivedescendantIndex } from "../../utils/combobox-helpers";
@@ -234,6 +234,10 @@ export class Combobox {
         };
     };
 
+    disconnectedCallback() {
+        removeFormResetListener(this.el, this.handleFormReset);
+    };
+
     componentWillLoad() {
         this.processedOptions = this.getProcessedOptions(this.options);
         this.filteredOptions = this.processedOptions;
@@ -242,6 +246,8 @@ export class Combobox {
         this.valueString = this.value ? this.value.toString() : "";
 
         this.updateLoadingStatus();
+
+        addFormResetListener(this.el, this.handleFormReset);
     };
 
     /**
@@ -456,6 +462,10 @@ export class Combobox {
     };
 
     private handleClear = () => {
+        this.dispatchComboboxAction(IcComboboxAction.ClearAndCloseListbox);
+    };
+
+    private handleFormReset = () => {
         this.dispatchComboboxAction(IcComboboxAction.ClearAndCloseListbox);
     };
 

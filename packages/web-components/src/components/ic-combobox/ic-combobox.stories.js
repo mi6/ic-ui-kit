@@ -65,6 +65,71 @@ export const Recommended = {
   name: "Recommended",
 };
 
+export const InForm = {
+  render: () => html`
+    <form>
+      <ic-combobox
+        id="combobox-form"
+        label="What is your favourite coffee?"
+      ></ic-combobox>
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+    <script>
+      var combobox = document.querySelector("#combobox-form");
+      combobox.options = [
+        { label: "Cappuccino", value: "Cap" },
+        { label: "Latte", value: "Lat" },
+        { label: "Americano", value: "Ame" },
+      ];
+      combobox.addEventListener("icChange", function (event) {
+        console.log("icChange: " + event.detail.value);
+      });
+      document.querySelector("form").addEventListener("submit", (ev) => {
+        ev.preventDefault();
+        console.log(document.querySelector("input.ic-input").value);
+      });
+    </script>
+  `,
+
+  name: "In form",
+};
+
+export const AssociatedWithForm = {
+  render: () => html`
+    <form id="my-form">
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+    <ic-combobox
+      id="combobox-form"
+      label="What is your favourite coffee?"
+      form="my-form"
+    ></ic-combobox>
+    <br />
+    <br />
+    <script>
+      var combobox = document.querySelector("#combobox-form");
+      combobox.options = [
+        { label: "Cappuccino", value: "Cap" },
+        { label: "Latte", value: "Lat" },
+        { label: "Americano", value: "Ame" },
+      ];
+      combobox.addEventListener("icChange", function (event) {
+        console.log("icChange: " + event.detail.value);
+      });
+      document.querySelector("form").addEventListener("submit", (ev) => {
+        ev.preventDefault();
+        console.log(document.querySelector("input.ic-input").value);
+      });
+    </script>
+  `,
+
+  name: "Associated with form",
+};
+
 export const GroupedOptions = {
   render: () =>
     html`

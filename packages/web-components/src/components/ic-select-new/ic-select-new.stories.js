@@ -206,6 +206,71 @@ export const Recommended = {
   name: "Recommended",
 };
 
+export const InForm = {
+  render: () => html`
+    <form>
+      <ic-select-new
+        id="select-form"
+        label="What is your favourite coffee?"
+      ></ic-select-new>
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+    <script>
+      var select = document.querySelector("#select-form");
+      select.options = [
+        { label: "Cappuccino", value: "Cap" },
+        { label: "Latte", value: "Lat" },
+        { label: "Americano", value: "Ame" },
+      ];
+      select.addEventListener("icChange", function (event) {
+        console.log("icChange: " + event.detail.value);
+      });
+      document.querySelector("form").addEventListener("submit", (ev) => {
+        ev.preventDefault();
+        console.log(document.querySelector("input.ic-input").value);
+      });
+    </script>
+  `,
+
+  name: "In form",
+};
+
+export const AssociatedWithForm = {
+  render: () => html`
+    <form id="my-form">
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+    <ic-select-new
+      id="select-form"
+      label="What is your favourite coffee?"
+      form="my-form"
+    ></ic-select-new>
+    <br />
+    <br />
+    <script>
+      var select = document.querySelector("#select-form");
+      select.options = [
+        { label: "Cappuccino", value: "Cap" },
+        { label: "Latte", value: "Lat" },
+        { label: "Americano", value: "Ame" },
+      ];
+      select.addEventListener("icChange", function (event) {
+        console.log("icChange: " + event.detail.value);
+      });
+      document.querySelector("form").addEventListener("submit", (ev) => {
+        ev.preventDefault();
+        console.log(document.querySelector("input.ic-input").value);
+      });
+    </script>
+  `,
+
+  name: "Associated with form",
+};
+
 export const GroupedOptions = {
   render: () =>
     html`
