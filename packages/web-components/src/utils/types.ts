@@ -227,3 +227,9 @@ export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";
 export type IcThemeSettings = "dark" | "light" | "system";
 
 export type IcValidationAriaLive = "default" | "polite" | "assertive" | "off";
+
+export enum IcComboboxLoadingStatus {
+    Loading,
+    Loaded,
+    TimedOut,
+}
