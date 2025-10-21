@@ -25,7 +25,7 @@
 
 :host .inner-drawer-panel,
 :host .ic-drawer-overlay {
-  transition: opacity 300ms;
+  transition: opacity 10000ms;
 }
 
 :host(.ic-boundary-parent),
@@ -40,12 +40,12 @@
 
 :host(.ic-right-position) .ic-drawer-panel,
 :host(.ic-left-position) .ic-drawer-panel {
-  transition: width 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: width 10000ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 :host(.ic-top-position) .ic-drawer-panel,
 :host(.ic-bottom-position) .ic-drawer-panel {
-  transition: height 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: height 10000ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 :host(.expanded) .inner-drawer-panel,
@@ -122,7 +122,7 @@
 
 :host(.ic-top-position) .ic-drawer-panel.collapsed-drawer.manual-control,
 :host(.ic-bottom-position) .ic-drawer-panel.collapsed-drawer.manual-control {
-  width: 0;
+  height: 0;
 }
 
 /* :host .ic-drawer-overlay {
@@ -260,34 +260,51 @@
   height: 100%;
 }
 
-/* Drawer panel styling */
+/* Drawer header */
 :host .drawer-header {
+  border-bottom: var(--ic-space-1px) solid var(--ic-drawer-divider-color);
+  box-sizing: border-box;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: var(--ic-space-xs) var(--ic-space-md);
-  border-bottom: var(--ic-space-1px) solid var(--ic-drawer-divider-color);
-}
-
-:host(.ic-left-position) .drawer-header {
-  padding-left: calc(var(--ic-space-xxl) + var(--ic-space-xs));
 }
 
 :host(.ic-right-position) .ic-drawer-panel:not(.manual-control) .drawer-header {
   padding-right: calc(var(--ic-space-xxl) + var(--ic-space-xs));
 }
 
+:host(.ic-left-position) .ic-drawer-panel:not(.manual-control) .drawer-header {
+  padding-left: calc(var(--ic-space-xxl) + var(--ic-space-xs));
+}
+
+:host(.ic-right-position) .manual-control .drawer-header,
+:host(.ic-right-position) .manual-control .heading-area {
+  padding-left: var(--ic-space-xs);
+}
+
+:host(.ic-right-position) .manual-control .drawer-header {
+  flex-direction: row-reverse;
+}
+
+:host(.ic-left-position) .manual-control .drawer-header,
+:host(.ic-left-position) .manual-control .heading-area {
+  padding-right: var(--ic-space-xs);
+}
+
 :host .heading-area {
   display: flex;
   gap: var(--ic-space-xs);
-  width: 100%;
+}
+
+:host(.ic-right-position) .manual-control .heading-area {
+  margin-right: auto;
 }
 
 :host ::slotted([slot="heading-adornment"]) {
   height: var(--ic-space-lg);
-  width: var(--ic-space-lg);
   min-width: var(--ic-space-lg);
   padding: var(--ic-space-xxs) var(--ic-space-xxs) 0 0;
+  width: var(--ic-space-lg);
 }
 
 /* :host .heading-area.no-arrow {
