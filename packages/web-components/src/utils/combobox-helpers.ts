@@ -1,4 +1,4 @@
-import { IcMenuOption } from "./types";
+import { IcComboboxLoadingStatus, IcMenuOption } from "./types";
 
 const getOptionIdFromValue = (listboxId: string, value: string) => {
         return `${listboxId}-${value}`;
@@ -105,3 +105,16 @@ export const getFlattenedOptions = (groupedOptions: IcMenuOption[]) => {
     };
     return flattenedOptions;
 };
+
+export const getMenuOptions = (options: IcMenuOption[], loadingStatus: IcComboboxLoadingStatus, isEmptyOptions: boolean, loadingLabel: string, loadingErrorLabel: string, emptyOptionListText: string): IcMenuOption[] => {
+        switch (loadingStatus) {
+            case IcComboboxLoadingStatus.Loading:
+                return [{ label: loadingLabel, value: "", loading: true }];
+            case IcComboboxLoadingStatus.TimedOut:
+                return [{ label: loadingErrorLabel, value: "", timedOut: true },]
+            case IcComboboxLoadingStatus.Loaded:
+                return isEmptyOptions
+                    ? [{ label: emptyOptionListText, value: "" }]
+                    : options;
+        };
+    };

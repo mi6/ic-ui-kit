@@ -4,7 +4,7 @@ import { addFormResetListener, hasValidationStatus, removeFormResetListener, ren
 import { IcOptionSelectEventDetail } from "../ic-listbox/ic-listbox.types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
-import { getAriaActivedescendant, getDeduplicatedOptions, getFlattenedOptions, getLabelsFromValues, getSortedOptions, getValueFromActivedescendantIndex } from "../../utils/combobox-helpers";
+import { getAriaActivedescendant, getDeduplicatedOptions, getFlattenedOptions, getLabelsFromValues, getMenuOptions, getSortedOptions, getValueFromActivedescendantIndex } from "../../utils/combobox-helpers";
 import { IcSelectAction } from "./ic-select-new.types";
 
 /**
@@ -228,7 +228,7 @@ export class SelectNew {
     @Watch("multiple")
     validateMultipleSearchable() {
         if( this.multiple && this.searchable ) {
-            console.warn("Searchable functionality can only be used with the single-select variant. Defaulting to the single-select variant");
+            console.warn("Searchable functionality can only be used with the single-select variant. Using the select-only variant.");
             this.searchable = false;
         };
     };
@@ -453,37 +453,29 @@ export class SelectNew {
         return firstSelectedOption ? this.flattenedProcessedOptions.indexOf(firstSelectedOption) : 0;
     };
 
-    private getMenuOptions = (): IcMenuOption[] => {
-        switch (this.loadingStatus) {
-            case IcComboboxLoadingStatus.Loading:
-                return [{ label: this.loadingLabel, value: "", loading: true }];
-            case IcComboboxLoadingStatus.TimedOut:
-                return [{ label: this.loadingErrorLabel, value: "", timedOut: true },]
-            case IcComboboxLoadingStatus.Loaded:
-                return this.isEmptyOptions
-                    ? [{ label: this.emptyOptionListText, value: "" }]
-                    : this.processedOptions;
-        };
-    };
-
     render() {
         const {
             ariaActivedescendant,
             activedescendantIndex,
             disabled,
+            emptyOptionListText,
             form,
             fullWidth,
             helperText,
             hideLabel,
             inputId,
+            isEmptyOptions,
             label,
             listboxId,
             loading,
+            loadingErrorLabel,
+            loadingLabel,
             loadingStatus,
             multiple,
             name,
             open,
             placeholder,
+            processedOptions,
             readonly,
             searchable,
             showClearButton,
@@ -604,7 +596,7 @@ export class SelectNew {
                             activedescendantIndex={loadingStatus === IcComboboxLoadingStatus.Loaded ? activedescendantIndex : null}
                             listboxId={listboxId}
                             open={open}
-                            options={this.getMenuOptions()}
+                            options={getMenuOptions(processedOptions, loadingStatus, isEmptyOptions, loadingLabel, loadingErrorLabel, emptyOptionListText)}
                             value={value}
                             onMenuOptionSelect={this.handleOptionClick}
                             onMenuOptionSelectAll={this.handleSelectAll}
