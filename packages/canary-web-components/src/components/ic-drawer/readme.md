@@ -42,15 +42,6 @@
 | `"message"`           | Content will be rendered below the title area, in place of the message.  |
 
 
-## CSS Custom Properties
-
-| Name                  | Description                                     |
-| --------------------- | ----------------------------------------------- |
-| `--ic-drawer-height`  | the width of the expanded top or bottom drawer. |
-| `--ic-drawer-width`   | the width of the expanded left or right drawer. |
-| `--ic-z-index-drawer` | z-index of drawer.                              |
-
-
 ## Dependencies
 
 ### Depends on

@@ -35,7 +35,7 @@ import { IcThemeMode } from "../../utils/types";
 })
 export class Drawer {
   private DEFAULT_CLOSE_BUTTON_ARIA_LABEL = "Close drawer";
-  private DRAWER_TRANSITION_DURATION = 300;
+  private DRAWER_TRANSITION_DURATION = 10000;
   private IC_ACCORDION = "IC-ACCORDION";
   private IC_ACCORDION_GROUP = "IC-ACCORDION-GROUP";
   private IC_TEXT_FIELD = "IC-TEXT-FIELD";
@@ -290,7 +290,7 @@ export class Drawer {
       this.getInteractiveElements();
       setTimeout(() => {
         this.getFocusedElementIndex();
-      }, 1000); // CHANGE FOR WHEN PREFERS-REDUCED-MOTION IS ON
+      }, this.DRAWER_TRANSITION_DURATION); // CHANGE FOR WHEN PREFERS-REDUCED-MOTION IS ON
       if (this.interactiveElementList.length > 0) {
         if (this.interactiveElementList[0].tagName === "IC-BUTTON") {
           (this.interactiveElementList[0] as HTMLIcButtonElement).setFocus();

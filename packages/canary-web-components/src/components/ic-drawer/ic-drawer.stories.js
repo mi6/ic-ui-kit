@@ -351,6 +351,161 @@ export const ManualTriggerBottom = {
   name: "Manual trigger bottom",
 };
 
+export const ManualTriggerLongContentRight = {
+  render: () => html` <ic-button
+      id="button-1"
+      onclick="expandDrawer()"
+      style="margin: 16px;"
+      >Open drawer</ic-button
+    >
+    <ic-drawer
+      id="drawer-1"
+      show-close-button="true"
+      trigger="controlled"
+      heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
+      message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+
+    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+
+    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      let icDrawer = document.querySelector("ic-drawer#drawer-1");
+      function expandDrawer() {
+        icDrawer.expanded = !icDrawer.expanded;
+      }
+    </script>`,
+  name: "Manual trigger long content right",
+};
+
+export const ManualTriggerLongContentLeft = {
+  render: () => html` <ic-button
+      id="button-1"
+      onclick="expandDrawer()"
+      style="margin: 16px;"
+      >Open drawer</ic-button
+    >
+    <ic-drawer
+      id="drawer-1"
+      show-close-button="true"
+      trigger="controlled"
+      position="left"
+      heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
+      message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+
+    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+
+    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      let icDrawer = document.querySelector("ic-drawer#drawer-1");
+      function expandDrawer() {
+        icDrawer.expanded = !icDrawer.expanded;
+      }
+    </script>`,
+  name: "Manual trigger long content left",
+};
+
+export const ManualTriggerLongContentTop = {
+  render: () => html` <ic-button
+      id="button-1"
+      onclick="expandDrawer()"
+      style="margin: 16px;"
+      >Open drawer</ic-button
+    >
+    <ic-drawer
+      id="drawer-1"
+      show-close-button="true"
+      trigger="controlled"
+      position="top"
+      heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
+      message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+
+    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+
+    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      let icDrawer = document.querySelector("ic-drawer#drawer-1");
+      function expandDrawer() {
+        icDrawer.expanded = !icDrawer.expanded;
+      }
+    </script>`,
+  name: "Manual trigger long content top",
+};
+
+export const ManualTriggerLongContentBottom = {
+  render: () => html` <ic-button
+      id="button-1"
+      onclick="expandDrawer()"
+      style="margin: 16px;"
+      >Open drawer</ic-button
+    >
+    <ic-drawer
+      id="drawer-1"
+      show-close-button="true"
+      trigger="controlled"
+      position="bottom"
+      heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
+      message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+
+    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+
+    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      let icDrawer = document.querySelector("ic-drawer#drawer-1");
+      function expandDrawer() {
+        icDrawer.expanded = !icDrawer.expanded;
+      }
+    </script>`,
+  name: "Manual trigger long content bottom",
+};
+
 export const ContainedWithinParent = {
   render: () =>
     html` <div>
