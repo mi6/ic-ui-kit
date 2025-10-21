@@ -1344,9 +1344,11 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.get("ic-button").click();
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, "ic-loading-indicator");
+    cy.findShadowEl(IC_SELECT, "ic-menu").should(HAVE_CLASS, "no-results");
     cy.get(IC_SELECT).invoke("prop", "options", coffeeOptions);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, DATA_LABEL_ESPRESSO).should(BE_VISIBLE);
+    cy.findShadowEl(IC_SELECT, "ic-menu").should(NOT_HAVE_CLASS, "no-results");
   });
 
   it("should display a retry button and a custom loading error when it times out and should not update the options", () => {
