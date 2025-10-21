@@ -9,6 +9,7 @@ const defaultArgs = {
   loading: false,
   loadingLabel: "Loading...",
   label: "What is your favourite coffee?",
+  multiple: false,
   placeholder: "Select an option",
   readonly: false,
   required: false,
@@ -369,6 +370,7 @@ export const Playground = {
       loading=${args.loading}
       loading-label=${args["loading-label"]}
       label=${args.label}
+      multiple=${args.multiple}
       placeholder=${args.placeholder}
       readonly=${args.readonly}
       required=${args.required}

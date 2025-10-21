@@ -4,7 +4,7 @@ import { IcOptionSelectEventDetail } from "../ic-listbox/ic-listbox.types";
 import { addFormResetListener, getFilteredMenuOptions, hasValidationStatus, removeFormResetListener, renderHiddenInput } from "../../utils/helpers";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
-import { getAriaActivedescendant, getDeduplicatedOptions, getFlattenedOptions, getSortedOptions, getValueFromActivedescendantIndex } from "../../utils/combobox-helpers";
+import { getAriaActivedescendant, getDeduplicatedOptions, getFlattenedOptions, getMenuOptions, getSortedOptions, getValueFromActivedescendantIndex } from "../../utils/combobox-helpers";
 import { IcComboboxAction } from "./ic-combobox.types";
 
 let inputIds = 0;
@@ -475,23 +475,10 @@ export class Combobox {
             : ""
     };
 
-    private getMenuOptions = (): IcMenuOption[] => {
-        switch (this.loadingStatus) {
-            case IcComboboxLoadingStatus.Loading:
-                return [{ label: this.loadingLabel, value: "", loading: true }];
-            case IcComboboxLoadingStatus.TimedOut:
-                return [{ label: this.loadingErrorLabel, value: "", timedOut: true },]
-            case IcComboboxLoadingStatus.Loaded:
-                return this.isEmptyOptions
-                    ? [{ label: this.emptyOptionListText, value: "" }]
-                    : this.filteredOptions;
-        };
-    };
-
     private clearUserInput = () => {
         const inputEl = this.el.shadowRoot?.querySelector<HTMLInputElement>(`#${this.inputId}`);
-            if (inputEl) inputEl.value = "";
-            this.filteredOptions = this.processedOptions;
+        if (inputEl) inputEl.value = "";
+        this.filteredOptions = this.processedOptions;
     }
 
     render() {
@@ -499,12 +486,17 @@ export class Combobox {
             ariaActivedescendant,
             activedescendantIndex,
             disabled,
+            emptyOptionListText,
+            filteredOptions,
             fullWidth,
             helperText,
             hideLabel,
             inputId,
+            isEmptyOptions,
             label,
             listboxId,
+            loadingErrorLabel,
+            loadingLabel,
             loadingStatus,
             name,
             open,
@@ -614,7 +606,7 @@ export class Combobox {
                         activedescendantIndex={loadingStatus === IcComboboxLoadingStatus.Loaded ? activedescendantIndex : null}
                         listboxId={listboxId}
                         open={open}
-                        options={this.getMenuOptions()}
+                        options={getMenuOptions(filteredOptions, loadingStatus, isEmptyOptions, loadingLabel, loadingErrorLabel, emptyOptionListText)}
                         value={value}
                         onMenuOptionSelect={this.handleOptionClick}
                     />
