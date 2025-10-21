@@ -140,6 +140,7 @@ export class Breadcrumb {
           "ic-breadcrumb-back": showBackIcon,
           "ic-breadcrumb-monochrome": monochrome,
           [`ic-theme-${theme}`]: theme !== "inherit",
+          [`ic-breadcrumb-aria-current-page`]: current,
         }}
         aria-current={current && "page"}
         role="listitem"

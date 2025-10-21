@@ -12,6 +12,7 @@ import {
   getBrandForegroundAppearance,
   isPropDefined,
   slotHasContent,
+  isEmptyString,
 } from "../../utils/helpers";
 
 import {
@@ -170,6 +171,8 @@ export class Divider {
           [`ic-divider-${orientation}`]: true,
           [`ic-divider-${weight}`]: true,
           [`ic-divider-${borderStyle}`]: true,
+          [`ic-divider-label-${labelPlacement}`]:
+            slotHasContent(this.el, "label") || !isEmptyString(label),
         }}
         {...((orientation === "vertical" ||
           (!!renderLabel() && !!isPropDefined(labelPlacement))) && {

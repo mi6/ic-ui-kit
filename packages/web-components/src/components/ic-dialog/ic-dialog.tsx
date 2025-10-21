@@ -604,7 +604,8 @@ export class Dialog {
   };
 
   render() {
-    const { dialogRendered, disableHeightConstraint, fadeIn, theme } = this;
+    const { dialogRendered, disableHeightConstraint, fadeIn, theme, size } =
+      this;
 
     return (
       <Host
@@ -613,6 +614,7 @@ export class Dialog {
           "ic-dialog-fade-in": fadeIn,
           "disable-height-constraint": !!disableHeightConstraint,
           [`ic-theme-${theme}`]: theme !== "inherit",
+          [`ic-dialog-size-${size}`]: size != undefined,
         }}
       >
         {disableHeightConstraint ? (

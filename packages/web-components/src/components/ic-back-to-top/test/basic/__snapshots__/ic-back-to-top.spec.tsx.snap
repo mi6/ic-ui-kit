@@ -55,7 +55,7 @@ exports[`ic-back-to-top should render when target starts with #: should render w
 `;
 
 exports[`ic-back-to-top should render with an icon only: should render with an icon only 1`] = `
-<ic-back-to-top class="ic-back-to-top-right" target="topEl" variant="icon">
+<ic-back-to-top class="ic-back-to-top-right ic-back-to-top-variant-icon" target="topEl" variant="icon">
   <template shadowrootmode="open">
     <ic-button class="ic-button-size-large ic-button-variant-icon-secondary icon-only" exportparts="button">
       <template shadowrootmode="open">

@@ -91,7 +91,7 @@
 }
 
 /* required for Gatsby as prop does not seem to work when set to false */
-:host([showdefaulticon="false"]) .icon-neutral {
+:host(.ic-alert-no-default-icon) .icon-neutral {
   visibility: hidden;
   width: 0;
   margin-left: 0.625rem;
@@ -105,23 +105,23 @@
   fill: var(--ic-alert-icon-neutral);
 }
 
-:host([variant="info"]) .alert-icon svg {
+:host(.ic-alert-variant-info) .alert-icon svg {
   fill: var(--ic-alert-icon-info);
 }
 
-:host([variant="warning"]) .alert-icon svg {
+:host(.ic-alert-variant-warning) .alert-icon svg {
   fill: var(--ic-alert-icon-warning);
 }
 
-:host([variant="error"]) .alert-icon svg {
+:host(.ic-alert-variant-error) .alert-icon svg {
   fill: var(--ic-alert-icon-error);
 }
 
-:host([variant="success"]) .alert-icon svg {
+:host(.ic-alert-variant-success) .alert-icon svg {
   fill: var(--ic-alert-icon-success);
 }
 
-:host([variant="ai"]) .alert-icon svg {
+:host(.ic-alert-variant-ai) .alert-icon svg {
   fill: var(--ic-alert-icon-ai);
 }
 

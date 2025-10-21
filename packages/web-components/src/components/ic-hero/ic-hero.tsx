@@ -150,6 +150,7 @@ export class Hero {
       foregroundColor,
       backgroundImage,
       scrollFactor,
+      contentAligned,
     } = this;
 
     let style = {};
@@ -170,6 +171,8 @@ export class Hero {
           ["has-right-content"]: this.rightContent,
           ["ic-hero-small"]: size === "small",
           ["secondary-heading"]: !!secondaryHeading,
+          [`ic-hero-content-aligned-${contentAligned}`]:
+            contentAligned !== undefined,
         }}
         style={style}
       >

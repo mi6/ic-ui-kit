@@ -88,28 +88,28 @@
   margin-left: var(--ic-space-md);
 }
 
-:host([variant="neutral"]) .toast-icon svg,
+:host(.ic-toast-variant-neutral) .toast-icon svg,
 ::slotted(svg) {
   fill: var(--ic-toast-icon-neutral);
 }
 
-:host([variant="info"]) .toast-icon svg {
+:host(.ic-toast-variant-info) .toast-icon svg {
   fill: var(--ic-toast-icon-info);
 }
 
-:host([variant="warning"]) .toast-icon svg {
+:host(.ic-toast-variant-warning) .toast-icon svg {
   fill: var(--ic-toast-icon-warning);
 }
 
-:host([variant="error"]) .toast-icon svg {
+:host(.ic-toast-variant-error) .toast-icon svg {
   fill: var(--ic-toast-icon-error);
 }
 
-:host([variant="success"]) .toast-icon svg {
+:host(.ic-toast-variant-success) .toast-icon svg {
   fill: var(--ic-toast-icon-success);
 }
 
-:host([variant="ai"]) .toast-icon svg {
+:host(.ic-toast-variant-ai) .toast-icon svg {
   fill: var(--ic-toast-icon-ai);
 }
 

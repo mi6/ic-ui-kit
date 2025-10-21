@@ -7,7 +7,7 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
       <span>
         <span>
           <span role="menu">
-            <ic-menu-item class="ic-popover-submenu-back-button" id="ic-popover-submenu-back-button-1" variant="default">
+            <ic-menu-item class="ic-menu-item-variant-default ic-popover-submenu-back-button" id="ic-popover-submenu-back-button-1" variant="default">
               <template shadowrootmode="open">
                 <ic-button aria-disabled="false" aria-haspopup="menu" aria-label="Go back to parent menu" fullwidth="" role="menuitem" variant="tertiary">
                   <div class="focus-border">
@@ -37,7 +37,7 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
       </span>
     </div>
   </template>
-  <ic-menu-item label="Button 1" variant="default">
+  <ic-menu-item class="ic-menu-item-variant-default" label="Button 1" variant="default">
     <template shadowrootmode="open">
       <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">
@@ -52,7 +52,7 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
       </ic-button>
     </template>
   </ic-menu-item>
-  <ic-menu-item label="Button 2" variant="default">
+  <ic-menu-item class="ic-menu-item-variant-default" label="Button 2" variant="default">
     <template shadowrootmode="open">
       <ic-button aria-disabled="false" aria-label="Button 2" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">
@@ -81,7 +81,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
       </span>
     </div>
   </template>
-  <ic-menu-item label="Button 1" variant="default">
+  <ic-menu-item class="ic-menu-item-variant-default" label="Button 1" variant="default">
     <template shadowrootmode="open">
       <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">
@@ -105,7 +105,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
         <slot></slot>
       </span>
     </template>
-    <ic-menu-item label="Group button 1" variant="destructive">
+    <ic-menu-item class="ic-menu-item-variant-destructive" label="Group button 1" variant="destructive">
       <template shadowrootmode="open">
         <ic-button aria-disabled="false" aria-label="Group button 1, destructive, Button group menu group" fullwidth="" role="menuitem" variant="tertiary">
           <div class="focus-border">
@@ -120,7 +120,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
         </ic-button>
       </template>
     </ic-menu-item>
-    <ic-menu-item label="Group button 2" variant="default">
+    <ic-menu-item class="ic-menu-item-variant-default" label="Group button 2" variant="default">
       <template shadowrootmode="open">
         <ic-button aria-disabled="false" aria-label="Group button 2, Button group menu group" fullwidth="" role="menuitem" variant="tertiary">
           <div class="focus-border">
@@ -140,7 +140,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
 `;
 
 exports[`ic-popover-menu should render on a dialog 1`] = `
-<ic-dialog class="ic-dialog-hidden">
+<ic-dialog class="ic-dialog-hidden ic-dialog-size-small">
   <template shadowrootmode="open">
     <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div class="heading-area">
@@ -186,7 +186,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
         </span>
       </div>
     </template>
-    <ic-menu-item label="Button 1" variant="default">
+    <ic-menu-item class="ic-menu-item-variant-default" label="Button 1" variant="default">
       <template shadowrootmode="open">
         <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
           <div class="focus-border">
@@ -201,7 +201,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
         </ic-button>
       </template>
     </ic-menu-item>
-    <ic-menu-item label="Button 2" variant="default">
+    <ic-menu-item class="ic-menu-item-variant-default" label="Button 2" variant="default">
       <template shadowrootmode="open">
         <ic-button aria-disabled="false" aria-label="Button 2" fullwidth="" role="menuitem" variant="tertiary">
           <div class="focus-border">
@@ -231,7 +231,7 @@ exports[`ic-popover-menu should render when anchor starts with #: should render 
       </span>
     </div>
   </template>
-  <ic-menu-item label="Button 1" variant="default">
+  <ic-menu-item class="ic-menu-item-variant-default" label="Button 1" variant="default">
     <template shadowrootmode="open">
       <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">
@@ -260,7 +260,7 @@ exports[`ic-popover-menu should render with anchor: should render with anchor 1`
       </span>
     </div>
   </template>
-  <ic-menu-item label="Button 1" variant="default">
+  <ic-menu-item class="ic-menu-item-variant-default" label="Button 1" variant="default">
     <template shadowrootmode="open">
       <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
         <div class="focus-border">

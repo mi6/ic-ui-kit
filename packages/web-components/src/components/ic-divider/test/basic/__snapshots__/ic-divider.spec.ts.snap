@@ -22,7 +22,7 @@ exports[`ic-divider should render 1`] = `
 `;
 
 exports[`ic-divider should render a label with the h4 typography variant when weight is set to very-thick and a label is provided 1`] = `
-<ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-solid ic-divider-very-thick" label="Test label" role="separator" weight="very-thick">
+<ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-label-center ic-divider-solid ic-divider-very-thick" label="Test label" role="separator" weight="very-thick">
   <!---->
   <ic-typography class="ic-divider-label ic-typography-h4">
     <template shadowrootmode="open">
@@ -36,7 +36,7 @@ exports[`ic-divider should render a label with the h4 typography variant when we
 `;
 
 exports[`ic-divider should render a label with the label typography variant when weight is not set to thick or very-thick and a label is provided 1`] = `
-<ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-medium ic-divider-solid" label="Test label" role="separator" weight="medium">
+<ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-label-center ic-divider-medium ic-divider-solid" label="Test label" role="separator" weight="medium">
   <!---->
   <ic-typography class="ic-divider-label ic-typography-label">
     <template shadowrootmode="open">
@@ -50,7 +50,7 @@ exports[`ic-divider should render a label with the label typography variant when
 `;
 
 exports[`ic-divider should render a label with the subtitle-large typography variant when weight is set to thick and a label is provided 1`] = `
-<ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-solid ic-divider-thick" label="Test label" role="separator" weight="thick">
+<ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-label-center ic-divider-solid ic-divider-thick" label="Test label" role="separator" weight="thick">
   <!---->
   <ic-typography class="ic-divider-label ic-typography-subtitle-large">
     <template shadowrootmode="open">
@@ -64,7 +64,7 @@ exports[`ic-divider should render a label with the subtitle-large typography var
 `;
 
 exports[`ic-divider should render with a slotted label 1`] = `
-<ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-solid ic-divider-thin" label-placement="left" role="separator">
+<ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-label-left ic-divider-solid ic-divider-thin" label-placement="left" role="separator">
   <!---->
   <div class="ic-divider-label-container">
     <ic-typography slot="label" variant="label">

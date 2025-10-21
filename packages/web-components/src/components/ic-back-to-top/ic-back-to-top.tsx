@@ -197,6 +197,7 @@ export class BackToTop {
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
           [`ic-back-to-top-${this.position}`]: true,
+          [`ic-back-to-top-variant-icon`]: variant === "icon",
         }}
       >
         <ic-button

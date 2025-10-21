@@ -63,7 +63,7 @@ ic-button {
   z-index: var(--ic-z-index-back-to-top);
 }
 
-:host([variant="icon"]) ic-button::part(button) {
+:host(.ic-back-to-top-variant-icon) ic-button::part(button) {
   margin: 0;
 }
 

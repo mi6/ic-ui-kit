@@ -415,7 +415,7 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </template>
     </ic-breadcrumb>
-    <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+    <ic-breadcrumb aria-current="page" class="ic-breadcrumb-aria-current-page" current="true" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
       <template shadowrootmode="open">
         <div class="breadcrumb">
           <span aria-hidden="true" class="chevron">

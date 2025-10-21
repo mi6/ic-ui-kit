@@ -84,14 +84,14 @@ ic-typography.heading-bottom-spacing {
   margin-top: var(--ic-space-xxs);
 }
 
-:host([content-aligned="left"]) .left-container,
-:host([content-aligned="left"]) .interaction-container {
+:host(.ic-hero-content-aligned-left) .left-container,
+:host(.ic-hero-content-aligned-left) .interaction-container {
   justify-content: flex-start;
   text-align: left;
 }
 
-:host([content-aligned="center"]) .left-container,
-:host([content-aligned="center"]) .interaction-container {
+:host(.ic-hero-content-aligned-center) .left-container,
+:host(.ic-hero-content-aligned-center) .interaction-container {
   justify-content: center;
   text-align: center;
 }
