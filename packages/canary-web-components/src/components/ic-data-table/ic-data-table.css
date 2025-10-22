@@ -74,11 +74,11 @@ table {
 }
 
 :host(.ic-data-table-embedded) .table-row-container {
-  border: var(--ic-space-1px) solid var(--ic-data-table-border);
+  border: var(--ic-table-embedded-border);
 }
 
 .column-header-inner-container {
-  padding: var(--ic-space-xs);
+  padding: var(--ic-table-cell-padding);
   box-sizing: border-box;
 }
 
@@ -160,20 +160,20 @@ table {
 
 .table-density-dense .column-header-inner-container,
 td.table-density-dense {
-  padding: var(--ic-space-xxs) var(--ic-space-xs) !important;
+  padding: var(--ic-table-cell-padding-dense) !important;
 }
 
 .text-dense {
-  font-size: var(--ic-font-size-label);
+  font-size: var(--ic-table-font-size-dense);
 }
 
 .table-density-spacious .column-header-inner-container,
 td.table-density-spacious {
-  padding: 0.625rem var(--ic-space-xs) !important;
+  padding: var(--ic-table-cell-padding-spacious) !important;
 }
 
 .text-spacious {
-  font-size: 1.125rem;
+  font-size: var(--ic-table-font-size-spacious);
 }
 
 .column-header-text {
@@ -190,10 +190,10 @@ td.table-density-spacious {
 .row-header,
 .column-header {
   text-align: left;
-  padding: var(--ic-space-xs);
+  padding: var(--ic-table-cell-padding);
   background-color: var(--ic-data-table-header-background);
-  border-right: var(--ic-space-1px) solid var(--ic-data-table-header-keyline);
-  border-bottom: var(--ic-space-1px) solid var(--ic-data-table-header-keyline);
+  border-right: var(--ic-table-heading-border);
+  border-bottom: var(--ic-table-heading-border);
   color: var(--ic-data-table-header-text);
 }
 
@@ -209,7 +209,7 @@ td.table-density-spacious {
 }
 
 .scrollable .column-header:last-child {
-  border-right: var(--ic-space-1px) solid var(--ic-data-table-header-keyline) !important;
+  border-right: var(--ic-table-heading-border) !important;
 }
 
 :host(.ic-data-table-embedded) tr:last-child .table-cell,
@@ -255,8 +255,8 @@ td.table-density-spacious {
 }
 
 .table-cell {
-  padding: var(--ic-space-xs);
-  border-bottom: solid var(--ic-data-table-cell-keyline) var(--ic-space-1px);
+  padding: var(--ic-table-cell-padding);
+  border-bottom: var(--ic-table-cell-border);
   overflow: hidden;
   box-sizing: border-box;
   max-width: var(--column-max-width);
@@ -329,7 +329,7 @@ td.table-density-spacious {
 
 .updating-state {
   padding: 0;
-  border-bottom: var(--ic-space-1px) solid var(--ic-data-table-header-keyline);
+  border-bottom: var(--ic-table-heading-border);
 }
 
 .updating-state-headers {
