@@ -35,21 +35,21 @@ export const Default = {
 };
 
 /**
- * Retrieving the time input value via `icChange` returns the time as a Date object.
+ * Retrieving the time input value via `icTimeChange` returns the time as a Date object.
  *
  * The event returns the Date object once hour, minute and second have been entered.
  */
-export const IcChangeEvent = {
+export const IcTimeChangeEvent = {
   render: () => html`<ic-time-input
       label="What time would you like to collect your coffee?"
     ></ic-time-input>
     <script>
       var timeInput = document.querySelector("ic-time-input");
-      timeInput.addEventListener("icChange", function (event) {
+      timeInput.addEventListener("icTimeChange", function (event) {
         console.log(event.detail.value, event.detail.utcValue);
       });
     </script>`,
-  name: "icChange event",
+  name: "icTimeChange event",
 };
 
 /**
@@ -300,20 +300,20 @@ export const AriaLiveBehaviour = {
 };
 
 /**
- * The `IcChange` event is emitted by the time input every time an input field is changed.
+ * The `IcTimeChange` event is emitted by the time input every time an input field is changed.
  */
-export const IcChangeEmitTimePartChanges = {
+export const IcTimeChangeEmitTimePartChanges = {
   render: () => html`<ic-time-input
       emit-time-part-change="true"
       label="What time would you like to collect your coffee?"
     ></ic-time-input>
     <script>
       var timeInput = document.querySelector("ic-time-input");
-      timeInput.addEventListener("icChange", function (event) {
-        console.log("icChange", event.detail);
+      timeInput.addEventListener("icTimeChange", function (event) {
+        console.log("icTimeChange", event.detail);
       });
     </script>`,
-  name: "IcChange with emitTimePartChange",
+  name: "IcTimeChange with emitTimePartChange",
 };
 
 /**
@@ -326,6 +326,33 @@ export const TimePeriod = {
   name: "Time period",
 };
 
+export const TimePeriodAMPMToggle = {
+  render: () => html`
+    <ic-time-input
+      label="12-hour time"
+      time-period="12"
+      show-am-pm-toggle="true"
+    ></ic-time-input>
+  `,
+  name: "Time period - with AM/PM toggle",
+};
+
+export const IcTimeChangeTimeParts12Hour = {
+  render: () => html`<ic-time-input
+      emit-time-part-change="true"
+      label="What time would you like to collect your coffee?"
+      time-period="12"
+      show-am-pm-toggle="true"
+    ></ic-time-input>
+    <script>
+      var timeInput = document.querySelector("ic-time-input");
+      timeInput.addEventListener("icTimeChange", function (event) {
+        console.log("icTimeChange", event.detail);
+      });
+    </script>`,
+  name: "IcTimeChange with emitTimePartChange - 12 hour",
+};
+
 /**
  * Demonstrates the time format HH:MM.
  */
@@ -335,6 +362,32 @@ export const HHMM = {
     time-format="HH:MM"
   ></ic-time-input>`,
   name: "Time format HH:MM",
+};
+
+/**
+ * Demonstrates the time format HH:MM:SS.SSS.
+ */
+export const Milliseconds = {
+  render: () => html`<ic-time-input
+    label="What time would you like to collect your coffee?"
+    time-format="HH:MM:SS.SSS"
+  ></ic-time-input>`,
+  name: "Time format HH:MM:SS.SSS",
+};
+
+export const IcTimeChangeTimePartsMilliseconds = {
+  render: () => html`<ic-time-input
+      emit-time-part-change="true"
+      label="What time would you like to collect your coffee?"
+      time-format="HH:MM:SS.SSS"
+    ></ic-time-input>
+    <script>
+      var timeInput = document.querySelector("ic-time-input");
+      timeInput.addEventListener("icTimeChange", function (event) {
+        console.log("icTimeChange", event.detail);
+      });
+    </script>`,
+  name: "IcTimeChange with emitTimePartChange - Milliseconds",
 };
 
 /**

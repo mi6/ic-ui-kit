@@ -25,22 +25,24 @@ exports[`ic-time-input component should handle default value 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-11-label ic-time-input-11-screen-reader-info  ic-time-input-11-selected-time-info ic-time-input-11-assistive-hint" id="ic-time-input-11" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="fit-to-value hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="01">
-            :
-            <input aria-label="minute" aria-required="false" class="fit-to-value minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
-            :
-            <input aria-label="second" aria-required="false" class="fit-to-value second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="20">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-11-label ic-time-input-11-screen-reader-info  ic-time-input-11-selected-time-info ic-time-input-11-assistive-hint" id="ic-time-input-11" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="fit-to-value hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="01">
+              :
+              <input aria-label="minute" aria-required="false" class="fit-to-value minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
+              :
+              <input aria-label="second" aria-required="false" class="fit-to-value second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="20">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-11-selected-time-info">
         <span role="status">
           Selected time: 01:01:20
@@ -49,7 +51,7 @@ exports[`ic-time-input component should handle default value 1`] = `
       <ic-input-validation arialivemode="polite" for="ic-time-input-11" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-11" type="hidden" value="2025-10-03T00:01:20.000Z">
+  <input class="ic-input" name="ic-time-input-11" type="hidden" value="2025-10-21T00:01:20.000Z">
 </ic-time-input>
 `;
 
@@ -78,22 +80,24 @@ exports[`ic-time-input component should handle single digit hour and minute 1`] 
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-12-label ic-time-input-12-screen-reader-info  ic-time-input-12-selected-time-info ic-time-input-12-assistive-hint" id="ic-time-input-12" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="fit-to-value hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="1">
-            :
-            <input aria-label="minute" aria-required="false" class="fit-to-value minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="1">
-            :
-            <input aria-label="second" aria-required="false" class="fit-to-value second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="20">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-12-label ic-time-input-12-screen-reader-info  ic-time-input-12-selected-time-info ic-time-input-12-assistive-hint" id="ic-time-input-12" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="fit-to-value hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="1">
+              :
+              <input aria-label="minute" aria-required="false" class="fit-to-value minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="1">
+              :
+              <input aria-label="second" aria-required="false" class="fit-to-value second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="20">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-12-selected-time-info">
         <span role="status">
           Selected time: 01:01:20
@@ -102,7 +106,7 @@ exports[`ic-time-input component should handle single digit hour and minute 1`] 
       <ic-input-validation arialivemode="polite" for="ic-time-input-12" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-12" type="hidden" value="2025-10-03T00:01:20.000Z">
+  <input class="ic-input" name="ic-time-input-12" type="hidden" value="2025-10-21T00:01:20.000Z">
 </ic-time-input>
 `;
 
@@ -131,22 +135,24 @@ exports[`ic-time-input component should remove handle disabled=false 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-15-label ic-time-input-15-screen-reader-info   ic-time-input-15-assistive-hint" id="ic-time-input-15" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-15-label ic-time-input-15-screen-reader-info   ic-time-input-15-assistive-hint" id="ic-time-input-15" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-15-selected-time-info">
         <span role="status"></span>
       </span>
@@ -182,22 +188,24 @@ exports[`ic-time-input component should render 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-0-label ic-time-input-0-screen-reader-info   ic-time-input-0-assistive-hint" id="ic-time-input-0" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-0-label ic-time-input-0-screen-reader-info   ic-time-input-0-assistive-hint" id="ic-time-input-0" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-0-selected-time-info">
         <span role="status"></span>
       </span>
@@ -233,22 +241,24 @@ exports[`ic-time-input component should render as disabled 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container disabled="" id="ic-time-input-2" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" disabled="" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" disabled="" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" disabled="" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container disabled="" id="ic-time-input-2" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" disabled="" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" disabled="" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" disabled="" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" disabled="" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" disabled="" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-2-selected-time-info">
         <span role="status"></span>
       </span>
@@ -287,22 +297,24 @@ exports[`ic-time-input component should render as required 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-1-label ic-time-input-1-screen-reader-info   ic-time-input-1-assistive-hint" id="ic-time-input-1" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="true" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="true" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="true" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-1-label ic-time-input-1-screen-reader-info   ic-time-input-1-assistive-hint" id="ic-time-input-1" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="true" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="true" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="true" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-1-selected-time-info">
         <span role="status"></span>
       </span>
@@ -338,22 +350,24 @@ exports[`ic-time-input component should render as required: required-prop-false 
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-1-label ic-time-input-1-screen-reader-info   ic-time-input-1-assistive-hint" id="ic-time-input-1" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-1-label ic-time-input-1-screen-reader-info   ic-time-input-1-assistive-hint" id="ic-time-input-1" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-1-selected-time-info">
         <span role="status"></span>
       </span>
@@ -389,42 +403,44 @@ exports[`ic-time-input component should render disabled, with clock button 1`] =
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container disabled="" id="ic-time-input-10" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="fit-to-value hour-input" disabled="" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="13">
-            :
-            <input aria-label="minute" aria-required="false" class="fit-to-value minute-input" disabled="" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="45">
-            :
-            <input aria-label="second" aria-required="false" class="fit-to-value second-input" disabled="" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="00">
-          </div>
-          <div class="action-buttons">
-            <ic-button class="clear-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
-              <template shadowrootmode="open">
-                <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" tabindex="0" type="button">
-                    <slot></slot>
-                  </button>
-                </ic-tooltip>
-              </template>
-              svg
-            </ic-button>
-            <div class="show-clock-button-wrapper">
-              <div class="divider medium"></div>
-              <ic-button class="clock-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clock-button">
+      <div>
+        <ic-input-component-container disabled="" id="ic-time-input-10" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="fit-to-value hour-input" disabled="" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="13">
+              :
+              <input aria-label="minute" aria-required="false" class="fit-to-value minute-input" disabled="" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="45">
+              :
+              <input aria-label="second" aria-required="false" class="fit-to-value second-input" disabled="" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="00">
+            </div>
+            <div class="action-buttons">
+              <ic-button class="clear-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
                 <template shadowrootmode="open">
-                  <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clock-button" label="Display clock" placement="bottom" silent="" target="ic-button-with-tooltip-clock-button">
-                    <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clock-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display clock" class="button" disabled="" part="button" tabindex="0" type="button">
+                  <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                    <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" tabindex="0" type="button">
                       <slot></slot>
                     </button>
                   </ic-tooltip>
                 </template>
                 svg
               </ic-button>
+              <div class="show-clock-button-wrapper">
+                <div class="divider medium"></div>
+                <ic-button class="clock-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clock-button">
+                  <template shadowrootmode="open">
+                    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clock-button" label="Display clock" placement="bottom" silent="" target="ic-button-with-tooltip-clock-button">
+                      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clock-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display clock" class="button" disabled="" part="button" tabindex="0" type="button">
+                        <slot></slot>
+                      </button>
+                    </ic-tooltip>
+                  </template>
+                  svg
+                </ic-button>
+              </div>
             </div>
           </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-10-selected-time-info">
         <span role="status">
           Selected time: 13:45:00
@@ -433,7 +449,7 @@ exports[`ic-time-input component should render disabled, with clock button 1`] =
       <ic-input-validation arialivemode="polite" for="ic-time-input-10" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" disabled="" name="ic-time-input-10" type="hidden" value="2025-10-03T12:45:00.000Z">
+  <input class="ic-input" disabled="" name="ic-time-input-10" type="hidden" value="2025-10-21T12:45:00.000Z">
 </ic-time-input>
 `;
 
@@ -462,22 +478,24 @@ exports[`ic-time-input component should render large 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-4-label ic-time-input-4-screen-reader-info   ic-time-input-4-assistive-hint" id="ic-time-input-4" role="group" size="large" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-4-label ic-time-input-4-screen-reader-info   ic-time-input-4-assistive-hint" id="ic-time-input-4" role="group" size="large" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="large" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="large" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-4-selected-time-info">
         <span role="status"></span>
       </span>
@@ -513,22 +531,24 @@ exports[`ic-time-input component should render small 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-3-label ic-time-input-3-screen-reader-info   ic-time-input-3-assistive-hint" id="ic-time-input-3" role="group" size="small" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-3-label ic-time-input-3-screen-reader-info   ic-time-input-3-assistive-hint" id="ic-time-input-3" role="group" size="small" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="small" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="small" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-3-selected-time-info">
         <span role="status"></span>
       </span>
@@ -564,22 +584,24 @@ exports[`ic-time-input component should render with custom helper text 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-5-label ic-time-input-5-screen-reader-info ic-time-input-5-helper-text  ic-time-input-5-assistive-hint" id="ic-time-input-5" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-5-label ic-time-input-5-screen-reader-info ic-time-input-5-helper-text  ic-time-input-5-assistive-hint" id="ic-time-input-5" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-5-selected-time-info">
         <span role="status"></span>
       </span>
@@ -615,22 +637,24 @@ exports[`ic-time-input component should render with custom validation status and
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-7-label ic-time-input-7-screen-reader-info ic-time-input-7-validation-text  ic-time-input-7-assistive-hint" id="ic-time-input-7" role="group" size="medium" validationstatus="error">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-7-label ic-time-input-7-screen-reader-info ic-time-input-7-validation-text  ic-time-input-7-assistive-hint" id="ic-time-input-7" role="group" size="medium" validationstatus="error">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-7-selected-time-info">
         <span role="status"></span>
       </span>
@@ -666,22 +690,24 @@ exports[`ic-time-input component should render with disabled times 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-14-label ic-time-input-14-screen-reader-info   ic-time-input-14-assistive-hint" id="ic-time-input-14" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-14-label ic-time-input-14-screen-reader-info   ic-time-input-14-assistive-hint" id="ic-time-input-14" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-14-selected-time-info">
         <span role="status"></span>
       </span>
@@ -713,22 +739,24 @@ Use format HH:MM:SS.
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-6-label ic-time-input-6-screen-reader-info   ic-time-input-6-assistive-hint" id="ic-time-input-6" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-6-label ic-time-input-6-screen-reader-info   ic-time-input-6-assistive-hint" id="ic-time-input-6" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-6-selected-time-info">
         <span role="status"></span>
       </span>
@@ -764,22 +792,24 @@ exports[`ic-time-input component should render with min/max times 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-13-label ic-time-input-13-screen-reader-info   ic-time-input-13-assistive-hint" id="ic-time-input-13" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-13-label ic-time-input-13-screen-reader-info   ic-time-input-13-assistive-hint" id="ic-time-input-13" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-13-selected-time-info">
         <span role="status"></span>
       </span>
@@ -815,42 +845,44 @@ exports[`ic-time-input component should render with open clock button 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-9-label ic-time-input-9-screen-reader-info  ic-time-input-9-selected-time-info ic-time-input-9-assistive-hint" id="ic-time-input-9" role="group" size="medium" validationstatus="">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="fit-to-value hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="13">
-            :
-            <input aria-label="minute" aria-required="false" class="fit-to-value minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="45">
-            :
-            <input aria-label="second" aria-required="false" class="fit-to-value second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="00">
-          </div>
-          <div class="action-buttons">
-            <ic-button class="clear-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
-              <template shadowrootmode="open">
-                <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" tabindex="0" type="button">
-                    <slot></slot>
-                  </button>
-                </ic-tooltip>
-              </template>
-              svg
-            </ic-button>
-            <div class="show-clock-button-wrapper">
-              <div class="divider medium"></div>
-              <ic-button class="clock-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clock-button">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-9-label ic-time-input-9-screen-reader-info  ic-time-input-9-selected-time-info ic-time-input-9-assistive-hint" id="ic-time-input-9" role="group" size="medium" validationstatus="">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="fit-to-value hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH" value="13">
+              :
+              <input aria-label="minute" aria-required="false" class="fit-to-value minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="45">
+              :
+              <input aria-label="second" aria-required="false" class="fit-to-value second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS" value="00">
+            </div>
+            <div class="action-buttons">
+              <ic-button class="clear-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
                 <template shadowrootmode="open">
-                  <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clock-button" label="Display clock" placement="bottom" silent="" target="ic-button-with-tooltip-clock-button">
-                    <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clock-button" aria-haspopup="dialog" aria-label="Display clock" class="button" part="button" tabindex="0" type="button">
+                  <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
+                    <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" tabindex="0" type="button">
                       <slot></slot>
                     </button>
                   </ic-tooltip>
                 </template>
                 svg
               </ic-button>
+              <div class="show-clock-button-wrapper">
+                <div class="divider medium"></div>
+                <ic-button class="clock-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clock-button">
+                  <template shadowrootmode="open">
+                    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clock-button" label="Display clock" placement="bottom" silent="" target="ic-button-with-tooltip-clock-button">
+                      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clock-button" aria-haspopup="dialog" aria-label="Display clock" class="button" part="button" tabindex="0" type="button">
+                        <slot></slot>
+                      </button>
+                    </ic-tooltip>
+                  </template>
+                  svg
+                </ic-button>
+              </div>
             </div>
           </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-9-selected-time-info">
         <span role="status">
           Selected time: 13:45:00
@@ -859,7 +891,7 @@ exports[`ic-time-input component should render with open clock button 1`] = `
       <ic-input-validation arialivemode="polite" for="ic-time-input-9" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-9" type="hidden" value="2025-10-03T12:45:00.000Z">
+  <input class="ic-input" name="ic-time-input-9" type="hidden" value="2025-10-21T12:45:00.000Z">
 </ic-time-input>
 `;
 
@@ -888,22 +920,24 @@ exports[`ic-time-input component should render with validation-aria-live 1`] = `
         Type or use the up and down arrow keys to change the values for the hour, minute, and second.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-time-input-8-label ic-time-input-8-screen-reader-info ic-time-input-8-validation-text  ic-time-input-8-assistive-hint" id="ic-time-input-8" role="group" size="medium" validationstatus="error">
-        <div class="input-container">
-          <div class="time-inputs">
-            <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
-            :
-            <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
-            :
-            <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+      <div>
+        <ic-input-component-container aria-labelledby="ic-time-input-8-label ic-time-input-8-screen-reader-info ic-time-input-8-validation-text  ic-time-input-8-assistive-hint" id="ic-time-input-8" role="group" size="medium" validationstatus="error">
+          <div class="input-container">
+            <div class="time-inputs">
+              <input aria-label="hour" aria-required="false" class="hour-input" id="hour-input" inputmode="number" pattern="[0-9]*" placeholder="HH">
+              :
+              <input aria-label="minute" aria-required="false" class="minute-input" id="minute-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
+              :
+              <input aria-label="second" aria-required="false" class="second-input" id="second-input" inputmode="number" pattern="[0-9]*" placeholder="SS">
+            </div>
+            <div class="action-buttons">
+              <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
+                svg
+              </ic-button>
+            </div>
           </div>
-          <div class="action-buttons">
-            <ic-button aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" theme="dark" variant="icon-tertiary">
-              svg
-            </ic-button>
-          </div>
-        </div>
-      </ic-input-component-container>
+        </ic-input-component-container>
+      </div>
       <span aria-live="polite" class="sr-only" id="ic-time-input-8-selected-time-info">
         <span role="status"></span>
       </span>
