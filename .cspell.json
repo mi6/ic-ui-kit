@@ -170,7 +170,8 @@
     "Nicht",
     "erforderlich",
     "wahlweise",
-    "abgeschlossen"
+    "abgeschlossen",
+    "AMPM"
   ],
   "dictionaries": [
     "npm",
