@@ -5559,7 +5559,7 @@
           "mutable": false,
           "attr": "emit-time-part-change",
           "reflectToAttr": false,
-          "docs": "If `true`, every individual input field completed will emit an icChange event.",
+          "docs": "If `true`, every individual input field completed will emit an icTimeChange event.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5836,6 +5836,33 @@
           "setter": false
         },
         {
+          "name": "showAmPmToggle",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "show-am-pm-toggle",
+          "reflectToAttr": false,
+          "docs": "If `true`, the time input will show an AM/PM toggle when in 12-hour time period.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "showClearButton",
           "type": "boolean | undefined",
           "complexType": {
@@ -5945,10 +5972,10 @@
         },
         {
           "name": "timeFormat",
-          "type": "\"HH:MM\" | \"HH:MM:SS\"",
+          "type": "\"HH:MM\" | \"HH:MM:SS\" | \"HH:MM:SS.SSS\"",
           "complexType": {
             "original": "IcTimeFormat",
-            "resolved": "\"HH:MM\" | \"HH:MM:SS\"",
+            "resolved": "\"HH:MM\" | \"HH:MM:SS\" | \"HH:MM:SS.SSS\"",
             "references": {
               "IcTimeFormat": {
                 "location": "import",
@@ -5970,6 +5997,10 @@
             },
             {
               "value": "HH:MM:SS",
+              "type": "string"
+            },
+            {
+              "value": "HH:MM:SS.SSS",
               "type": "string"
             }
           ],
@@ -6209,25 +6240,6 @@
           "docsTags": []
         },
         {
-          "event": "icChange",
-          "detail": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; }; }",
-          "bubbles": true,
-          "complexType": {
-            "original": "{\n    value: Date | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n    };\n  }",
-            "resolved": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; }; }",
-            "references": {
-              "Date": {
-                "location": "global",
-                "id": "global::Date"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the value has changed.",
-          "docsTags": []
-        },
-        {
           "event": "icFocus",
           "detail": "{ value: Date | null; }",
           "bubbles": true,
@@ -6244,6 +6256,25 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input gains focus.",
+          "docsTags": []
+        },
+        {
+          "event": "icTimeChange",
+          "detail": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; millisecond: string | null; period: string | null; }; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{\n    value: Date | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n      millisecond: string | null;\n      period: string | null;\n    };\n  }",
+            "resolved": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; millisecond: string | null; period: string | null; }; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
           "docsTags": []
         }
       ],
@@ -6262,6 +6293,8 @@
         "ic-input-label",
         "ic-input-component-container",
         "ic-button",
+        "ic-toggle-button-group",
+        "ic-toggle-button",
         "ic-input-validation"
       ],
       "dependencyGraph": {
@@ -6270,6 +6303,8 @@
           "ic-input-label",
           "ic-input-component-container",
           "ic-button",
+          "ic-toggle-button-group",
+          "ic-toggle-button",
           "ic-input-validation"
         ],
         "ic-input-label": [
@@ -6285,6 +6320,9 @@
         ],
         "ic-tooltip": [
           "ic-typography"
+        ],
+        "ic-toggle-button": [
+          "ic-button"
         ],
         "ic-input-validation": [
           "ic-typography"
@@ -7133,7 +7171,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcTimeFormat": {
-      "declaration": "export type IcTimeFormat = \"HH:MM\" | \"HH:MM:SS\";",
+      "declaration": "export type IcTimeFormat = \"HH:MM\" | \"HH:MM:SS\" | \"HH:MM:SS.SSS\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
