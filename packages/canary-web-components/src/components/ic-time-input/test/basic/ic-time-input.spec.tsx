@@ -12,6 +12,7 @@ const TIME_000000 = "00:00:00";
 const TIME_123456 = "12:34:56";
 const ZULU_TIME = new Date("2025-07-09T12:34:56Z").toISOString();
 const invalidTimeText = "Please enter a valid time.";
+const MILLISECOND_FORMAT = "HH:MM:SS.SSS";
 
 const ARIA_INVALID = "aria-invalid";
 
@@ -397,6 +398,36 @@ describe("ic-time-input component", () => {
     expect(spyAutocompleteInput).toHaveBeenCalled();
   });
 
+  it("should pad millisecond input to 3 digits on blur (length 1)", async () => {
+    const { componentInstance, millisecondInput } = await createTimeInputEnv(
+      MILLISECOND_FORMAT
+    );
+    millisecondInput.value = "5";
+    const spySetInputValue = jest.spyOn(componentInstance, "setInputValue");
+
+    componentInstance.handleBlur({
+      target: millisecondInput,
+    } as unknown as FocusEvent);
+
+    expect(millisecondInput.value).toBe("005");
+    expect(spySetInputValue).toHaveBeenCalledWith(millisecondInput);
+  });
+
+  it("should pad millisecond input to 3 digits on blur (length 2)", async () => {
+    const { componentInstance, millisecondInput } = await createTimeInputEnv(
+      MILLISECOND_FORMAT
+    );
+    millisecondInput.value = "12";
+    const spySetInputValue = jest.spyOn(componentInstance, "setInputValue");
+
+    componentInstance.handleBlur({
+      target: millisecondInput,
+    } as unknown as FocusEvent);
+
+    expect(millisecondInput.value).toBe("012");
+    expect(spySetInputValue).toHaveBeenCalledWith(millisecondInput);
+  });
+
   it("should set selectedTimeInfoEl with 13:30:45 as string if hour, minute and second is set", async () => {
     const { componentInstance } = await createTimeInputEnv();
 
@@ -419,6 +450,54 @@ describe("ic-time-input component", () => {
     );
   });
 
+  it("should set selectedTimeInfoEl with 13:30:45.123 as string if hour, minute, second and millisecond is set", async () => {
+    const { componentInstance } = await createTimeInputEnv(MILLISECOND_FORMAT);
+
+    componentInstance.hour = "13";
+    componentInstance.minute = "30";
+    componentInstance.second = "45";
+    componentInstance.millisecond = "123";
+    componentInstance.invalidTimeText = "";
+
+    const date = new Date();
+    date.setHours(+componentInstance.hour);
+    date.setMinutes(+componentInstance.minute);
+    date.setSeconds(+componentInstance.second);
+    date.setMilliseconds(+componentInstance.millisecond);
+
+    componentInstance.selectedTime = date;
+
+    componentInstance.handleTimeChange();
+
+    expect(componentInstance.selectedTimeInfoEl.textContent).toBe(
+      "Selected time: 13:30:45.123"
+    );
+  });
+
+  it("should set selectedTimeInfoEl with 15:30:45 as string if hour, minute, second and period is set", async () => {
+    const { componentInstance } = await createTimeInputEnv();
+    componentInstance.timePeriod = "12";
+    componentInstance.showAmPmToggle = true;
+    componentInstance.hour = "03";
+    componentInstance.minute = "30";
+    componentInstance.second = "45";
+    componentInstance.period = "PM";
+    componentInstance.invalidTimeText = "";
+
+    const date = new Date();
+    date.setHours(+componentInstance.hour);
+    date.setMinutes(+componentInstance.minute);
+    date.setSeconds(+componentInstance.second);
+
+    componentInstance.selectedTime = date;
+
+    componentInstance.handleTimeChange();
+
+    expect(componentInstance.selectedTimeInfoEl.textContent).toBe(
+      "Selected time: 15:30:45"
+    );
+  });
+
   it("should set value to null if hour, minute or second is not set", async () => {
     const { componentInstance } = await createTimeInputEnv();
 
@@ -431,6 +510,28 @@ describe("ic-time-input component", () => {
     date.setHours(+componentInstance.hour);
     date.setMinutes(+componentInstance.minute);
     date.setSeconds(+componentInstance.second);
+
+    componentInstance.selectedTime = date;
+
+    componentInstance.handleTimeChange();
+
+    expect(componentInstance.value).toBe(null);
+  });
+
+  it("should set value to null if hour, minute, second or millisecond is not set", async () => {
+    const { componentInstance } = await createTimeInputEnv(MILLISECOND_FORMAT);
+
+    componentInstance.hour = "";
+    componentInstance.minute = "";
+    componentInstance.second = "45";
+    componentInstance.millisecond = "";
+    componentInstance.invalidTimeText = "";
+
+    const date = new Date();
+    date.setHours(+componentInstance.hour);
+    date.setMinutes(+componentInstance.minute);
+    date.setSeconds(+componentInstance.second);
+    date.setMilliseconds(+componentInstance.millisecond);
 
     componentInstance.selectedTime = date;
 
@@ -575,6 +676,22 @@ describe("ic-time-input component", () => {
     expect(componentInstance.second).toBe("");
   });
 
+  it("should set inputs to an empty string if time is null but time was originally set", async () => {
+    const { componentInstance } = await createTimeInputEnv();
+
+    componentInstance.setTime(TIME_123456);
+
+    expect(componentInstance.hour).toBe("12");
+    expect(componentInstance.minute).toBe("34");
+    expect(componentInstance.second).toBe("56");
+
+    componentInstance.setTime(null);
+
+    expect(componentInstance.hour).toBe("");
+    expect(componentInstance.minute).toBe("");
+    expect(componentInstance.second).toBe("");
+  });
+
   it("should set hour to 00 if 0 has been entered as an input value", async () => {
     const { componentInstance, hourInput } = await createTimeInputEnv();
 
@@ -603,6 +720,16 @@ describe("ic-time-input component", () => {
     componentInstance.autocompleteInput(secondInput);
 
     expect(secondInput.value).toBe("00");
+  });
+
+  it("should set millisecond to 000 if 0 has been entered as an input value", async () => {
+    const { componentInstance, millisecondInput } = await createTimeInputEnv();
+
+    millisecondInput.value = "0";
+
+    componentInstance.autocompleteInput(millisecondInput);
+
+    expect(millisecondInput.value).toBe("000");
   });
 
   it("should call the setTime, setValidationMessage & handleTimeChange event handlers when handleFormReset is called", async () => {
@@ -644,6 +771,22 @@ describe("ic-time-input component", () => {
     expect(componentInstance.hour).toMatch("");
     expect(componentInstance.minute).toMatch("");
     expect(componentInstance.second).toMatch("");
+  });
+
+  it("should clear the inputs if time format is HH:MM:SS.SSS", async () => {
+    const { componentInstance } = await createTimeInputEnv(MILLISECOND_FORMAT);
+
+    componentInstance.hour = "13";
+    componentInstance.minute = "30";
+    componentInstance.second = "45";
+    componentInstance.millisecond = "123";
+
+    componentInstance.handleClear();
+
+    expect(componentInstance.hour).toMatch("");
+    expect(componentInstance.minute).toMatch("");
+    expect(componentInstance.second).toMatch("");
+    expect(componentInstance.millisecond).toMatch("");
   });
 
   it("should set helperText to default value if not set", async () => {
@@ -781,6 +924,26 @@ describe("ic-time-input component", () => {
     expect(componentInstance.isPastedStringTimeValid("13:30")).toBeTruthy();
   });
 
+  it("should return isPastedStringTimeValid as true if 13:30:45.123 is value and time format is HH:MM:SS.SSS", async () => {
+    const { componentInstance } = await createTimeInputEnv();
+
+    componentInstance.timeFormat = MILLISECOND_FORMAT;
+
+    expect(
+      componentInstance.isPastedStringTimeValid("13:30:45.123")
+    ).toBeTruthy();
+  });
+
+  it("should return isPastedStringTimeValid as true if 13:30:45.123Z is value and time format is HH:MM:SS.SSS", async () => {
+    const { componentInstance } = await createTimeInputEnv();
+
+    componentInstance.timeFormat = MILLISECOND_FORMAT;
+
+    expect(
+      componentInstance.isPastedStringTimeValid("13:30:45.123Z")
+    ).toBeTruthy();
+  });
+
   it("should parse time from string and return a valid Date object", async () => {
     const { componentInstance } = await createTimeInputEnv();
 
@@ -790,6 +953,18 @@ describe("ic-time-input component", () => {
     expect(time.getHours()).toBe(13);
     expect(time.getMinutes()).toBe(30);
     expect(time.getSeconds()).toBe(45);
+  });
+
+  it("should parse time from string and return a valid Date object with milliseconds", async () => {
+    const { componentInstance } = await createTimeInputEnv(MILLISECOND_FORMAT);
+
+    const time = componentInstance.parseTime("13:30:45.123");
+
+    expect(time).toBeInstanceOf(Date);
+    expect(time.getHours()).toBe(13);
+    expect(time.getMinutes()).toBe(30);
+    expect(time.getSeconds()).toBe(45);
+    expect(time.getMilliseconds()).toBe(123);
   });
 
   it("should parse time from Date and return the same Date object", async () => {
@@ -819,18 +994,23 @@ describe("ic-time-input component", () => {
     expect(spyMoveToNextInput).toHaveBeenCalledWith(minuteInput);
   });
 
-  it("should format time as HH:MM when isHHMMFormat is true, and HH:MM:SS otherwise", async () => {
+  it("should format time as HH:MM when isHHMMFormat is true, HH:MM:SS.SSS when isSSSFormat is true, and HH:MM:SS otherwise", async () => {
     const { componentInstance } = await createTimeInputEnv();
-    const date = new Date(2025, 6, 15, 9, 8, 7);
+    const date = new Date(2025, 6, 15, 9, 8, 7, 123);
 
     componentInstance.timeFormat = "HH:MM";
     expect(componentInstance.formatTime(date)).toMatch(/^\d{2}:\d{2}$/);
+
+    componentInstance.timeFormat = MILLISECOND_FORMAT;
+    expect(componentInstance.formatTime(date)).toMatch(
+      /^\d{2}:\d{2}:\d{2}\.\d{3}$/
+    );
 
     componentInstance.timeFormat = "HH:MM:SS";
     expect(componentInstance.formatTime(date)).toMatch(/^\d{2}:\d{2}:\d{2}$/);
   });
 
-  it("should call emitIcChange(null) in watchInputHandler when conditions are met", async () => {
+  it("should call emitIcTimeChange(null) in watchInputHandler when conditions are met", async () => {
     const { componentInstance } = await createTimeInputEnv();
     componentInstance.emitTimePartChange = true;
     componentInstance.externalSetTime = false;
@@ -839,20 +1019,73 @@ describe("ic-time-input component", () => {
     componentInstance.minute = "";
     componentInstance.second = "";
     componentInstance.selectedTime = null;
-    const spyEmitIcChange = jest.spyOn(componentInstance, "emitIcChange");
+    const spyEmitIcTimeChange = jest.spyOn(
+      componentInstance,
+      "emitIcTimeChange"
+    );
     componentInstance.watchInputHandler();
-    expect(spyEmitIcChange).toHaveBeenCalledWith(null);
+    expect(spyEmitIcTimeChange).toHaveBeenCalledWith(null);
   });
 
-  it("should call setTime and emitIcChange in triggerIcChange, and reset externalSetTime", async () => {
+  it("should call setTime and emitIcTimeChange in triggerIcTimeChange, and reset externalSetTime", async () => {
     const { componentInstance } = await createTimeInputEnv();
     const date = new Date(2025, 6, 15, 12, 34, 56);
     const spySetTime = jest.spyOn(componentInstance, "setTime");
-    const spyEmitIcChange = jest.spyOn(componentInstance, "emitIcChange");
+    const spyEmitIcTimeChange = jest.spyOn(
+      componentInstance,
+      "emitIcTimeChange"
+    );
     componentInstance.externalSetTime = false;
-    await componentInstance.triggerIcChange(date);
+    await componentInstance.triggerIcTimeChange(date);
     expect(spySetTime).toHaveBeenCalledWith(date);
-    expect(spyEmitIcChange).toHaveBeenCalledWith(date);
+    expect(spyEmitIcTimeChange).toHaveBeenCalledWith(date);
+    expect(componentInstance.externalSetTime).toBe(false);
+  });
+
+  it("should call setTime and emitIcTimeChange in triggerIcTimeChange, and reset externalSetTime with milliseconds", async () => {
+    const { componentInstance } = await createTimeInputEnv(MILLISECOND_FORMAT);
+    const date = new Date(2025, 6, 15, 12, 34, 56, 789);
+    const spySetTime = jest.spyOn(componentInstance, "setTime");
+    const spyEmitIcTimeChange = jest.spyOn(
+      componentInstance,
+      "emitIcTimeChange"
+    );
+    componentInstance.externalSetTime = false;
+    await componentInstance.triggerIcTimeChange(date);
+    expect(spySetTime).toHaveBeenCalledWith(date);
+    expect(spyEmitIcTimeChange).toHaveBeenCalledWith(date);
+    expect(componentInstance.externalSetTime).toBe(false);
+  });
+
+  it("should call setTime and emitIcTimeChange in triggerIcTimeChange, and reset externalSetTime with just hour and minute", async () => {
+    const { componentInstance } = await createTimeInputEnv("HH:MM");
+    const date = new Date(2025, 6, 15, 12, 34);
+    const spySetTime = jest.spyOn(componentInstance, "setTime");
+    const spyEmitIcTimeChange = jest.spyOn(
+      componentInstance,
+      "emitIcTimeChange"
+    );
+    componentInstance.externalSetTime = false;
+    await componentInstance.triggerIcTimeChange(date);
+    expect(spySetTime).toHaveBeenCalledWith(date);
+    expect(spyEmitIcTimeChange).toHaveBeenCalledWith(date);
+    expect(componentInstance.externalSetTime).toBe(false);
+  });
+
+  it("should call setTime and emitIcTimeChange in triggerIcTimeChange, and reset externalSetTime with time period", async () => {
+    const { componentInstance } = await createTimeInputEnv();
+    componentInstance.timePeriod = "12";
+    componentInstance.showAmPmToggle = true;
+    const date = new Date(2025, 6, 15, 12, 34, 56);
+    const spySetTime = jest.spyOn(componentInstance, "setTime");
+    const spyEmitIcTimeChange = jest.spyOn(
+      componentInstance,
+      "emitIcTimeChange"
+    );
+    componentInstance.externalSetTime = false;
+    await componentInstance.triggerIcTimeChange(date);
+    expect(spySetTime).toHaveBeenCalledWith(date);
+    expect(spyEmitIcTimeChange).toHaveBeenCalledWith(date);
     expect(componentInstance.externalSetTime).toBe(false);
   });
 
@@ -885,6 +1118,38 @@ describe("ic-time-input component", () => {
     );
   });
 
+  it("should set isValidTime to false and set validation message when selected time is before min time and time format is HH:MM:SS.SSS", async () => {
+    const { componentInstance } = await createTimeInputEnv(MILLISECOND_FORMAT);
+    componentInstance.min = "14:00:00";
+    componentInstance.hour = "12";
+    componentInstance.minute = "30";
+    componentInstance.second = "00";
+    componentInstance.millisecond = "123";
+
+    componentInstance.setValidationMessage();
+    expect(componentInstance.isValidTime).toBe(false);
+    expect(componentInstance.invalidTimeText).toBe(
+      "Please enter a time after 14:00:00.000."
+    );
+  });
+
+  it("should set isValidTime to false and set validation message when selected time is before min time and period is set", async () => {
+    const { componentInstance } = await createTimeInputEnv();
+    componentInstance.timePeriod = "12";
+    componentInstance.showAmPmToggle = true;
+    componentInstance.min = "14:00:00";
+    componentInstance.hour = "01";
+    componentInstance.minute = "30";
+    componentInstance.second = "00";
+    componentInstance.period = "PM";
+
+    componentInstance.setValidationMessage();
+    expect(componentInstance.isValidTime).toBe(false);
+    expect(componentInstance.invalidTimeText).toBe(
+      "Please enter a time after 14:00:00."
+    );
+  });
+
   it("should set isValidTime to false and set validation message when selected time is after max time", async () => {
     const { componentInstance } = await createTimeInputEnv();
     componentInstance.max = "14:00:00";
@@ -896,6 +1161,62 @@ describe("ic-time-input component", () => {
     expect(componentInstance.isValidTime).toBe(false);
     expect(componentInstance.invalidTimeText).toBe(
       "Please enter a time before 14:00:00."
+    );
+  });
+
+  it("should set isValidTime to false and set validation message when selected time is after max time and time format is HH:MM:SS.SSS", async () => {
+    const { componentInstance } = await createTimeInputEnv(MILLISECOND_FORMAT);
+    componentInstance.max = "14:00:00";
+    componentInstance.hour = "15";
+    componentInstance.minute = "30";
+    componentInstance.second = "00";
+    componentInstance.millisecond = "123";
+
+    componentInstance.setValidationMessage();
+    expect(componentInstance.isValidTime).toBe(false);
+    expect(componentInstance.invalidTimeText).toBe(
+      "Please enter a time before 14:00:00.000."
+    );
+  });
+
+  it("should set isValidTime to false and set validation message when selected time is after max time and period is set", async () => {
+    const { componentInstance } = await createTimeInputEnv();
+    componentInstance.timePeriod = "12";
+    componentInstance.showAmPmToggle = true;
+    componentInstance.max = "14:00:00";
+    componentInstance.hour = "03";
+    componentInstance.minute = "30";
+    componentInstance.second = "00";
+    componentInstance.period = "PM";
+
+    componentInstance.setValidationMessage();
+    expect(componentInstance.isValidTime).toBe(false);
+    expect(componentInstance.invalidTimeText).toBe(
+      "Please enter a time before 14:00:00."
+    );
+  });
+
+  it("should match disabled time with 12-hour input and AM/PM toggle", async () => {
+    const { componentInstance } = await createTimeInputEnv();
+    componentInstance.timePeriod = "12";
+    componentInstance.showAmPmToggle = true;
+    componentInstance.hour = "03";
+    componentInstance.minute = "30";
+    componentInstance.second = "45";
+    componentInstance.period = "PM";
+    componentInstance.disabledTimes = ["15:30:45"];
+
+    const date = new Date();
+    date.setHours(15);
+    date.setMinutes(30);
+    date.setSeconds(45);
+    componentInstance.selectedTime = date;
+
+    componentInstance.setValidationMessage();
+
+    expect(componentInstance.isValidTime).toBe(false);
+    expect(componentInstance.invalidTimeText).toBe(
+      componentInstance.invalidTimeMessage
     );
   });
 
@@ -1001,5 +1322,24 @@ describe("ic-time-input component", () => {
     componentInstance.handleClearBlur(ev);
     expect(componentInstance.clearButtonFocused).toBe(false);
     expect(componentInstance.removeLabelledBy).toBe(false);
+  });
+
+  it("should update period and set active toggle", async () => {
+    const page = await newSpecPage({
+      components: [TimeInput],
+      html: `<ic-time-input show-am-pm-toggle time-period="12"></ic-time-input>`,
+    });
+
+    const instance = page.rootInstance as any;
+
+    const selectedOption = { label: "PM" };
+    instance.periodToggleEl = { setActiveToggle: jest.fn() };
+
+    instance.handleAMPM(selectedOption);
+
+    expect(instance.period).toBe("PM");
+    expect(instance.periodToggleEl.setActiveToggle).toHaveBeenCalledWith(
+      selectedOption
+    );
   });
 });
