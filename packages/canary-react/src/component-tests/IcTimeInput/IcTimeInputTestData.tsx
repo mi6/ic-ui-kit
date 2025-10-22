@@ -2,89 +2,25 @@ import React, { useState } from "react";
 import { IcTimeInput } from "../../components";
 import { IcTypography, IcLink, IcButton } from "@ukic/react";
 
-export const DefaultTimeInput = () => {
-  return (
-    <IcTimeInput label="What time would you like to collect your coffee?" />
-  );
-};
-
-export const DarkThemeTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      theme="dark"
-    />
-  );
-};
-
-export const ValueTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      value="13:45:00"
-    />
-  );
-};
-
-export const DateObjectTimeInput = () => {
+export const DefaultTimeInput = (timeInputProps?: {
+  disabled?: boolean;
+  size?: string;
+  value?: string | Date;
+  hideLabel?: boolean;
+  hideHelperText?: boolean;
+  required?: boolean;
+  timeFormat?: string;
+  timePeriod?: string;
+  showAmPmToggle?: boolean;
+  disableTimes?: any[];
+  min?: string;
+  max?: string;
+  theme?: string;
+}) => {
   return (
     <IcTimeInput
       label="What time would you like to collect your coffee?"
-      value={new Date("2025-07-14T15:30:45")}
-    />
-  );
-};
-
-export const ZuluTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      value="15:30:45Z"
-    />
-  );
-};
-
-export const HideLabelTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      hideLabel
-    />
-  );
-};
-
-export const RequiredTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      required
-    />
-  );
-};
-
-export const DisabledTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      disabled
-    />
-  );
-};
-
-export const SmallTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      size="small"
-    />
-  );
-};
-
-export const LargeTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      size="large"
+      {...timeInputProps}
     />
   );
 };
@@ -106,15 +42,6 @@ export const CustomHelperTextTimeInput = () => {
         </IcTypography>
       </IcTimeInput>
     </>
-  );
-};
-
-export const HideHelperTextTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      hideHelperText
-    />
   );
 };
 
@@ -142,46 +69,9 @@ export const ValidationStatusTimeInput = () => {
   );
 };
 
-export const TimePeriodTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      timePeriod="12"
-    />
-  );
-};
-
-export const HHMMTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      timeFormat="HH:MM"
-    />
-  );
-};
-
-export const MinTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      min="08:00:00"
-    />
-  );
-};
-
-export const MaxTimeInput = () => {
-  return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
-      max="16:00:00"
-    />
-  );
-};
-
 export const DisableTimesTimeInput = () => {
   return (
-    <IcTimeInput
-      label="What time would you like to collect your coffee?"
+    <DefaultTimeInput
       disableTimes={[{ start: "08:00:00", end: "10:00:00" }, "13:20:00"]}
     />
   );
