@@ -1,0 +1,66 @@
+table.ic-table {
+  border-spacing: 0;
+}
+
+table.ic-table td,
+table.ic-table th {
+  padding: var(--ic-table-cell-padding);
+  line-height: var(--ic-table-text-line-height);
+}
+
+table.ic-table td {
+  border-bottom: var(--ic-table-cell-border);
+  padding: var(--ic-table-cell-padding);
+  line-height: var(--ic-table-text-line-height);
+}
+
+table.ic-table th {
+  text-align: left;
+  background-color: var(--ic-data-table-header-background);
+  padding: var(--ic-table-cell-padding);
+  line-height: var(--ic-table-text-line-height);
+  border-right: var(--ic-table-heading-border);
+  border-bottom: var(--ic-table-heading-border);
+  color: var(--ic-data-table-header-text);
+}
+
+table.ic-table th:last-child {
+  border-right: none;
+}
+
+table.ic-table tr {
+  color: var(--ic-color-text-primary);
+  background-color: var(--ic-data-table-cell-background);
+}
+
+table.ic-table tr:nth-child(even) {
+  background-color: var(--ic-data-table-cell-background-stripe);
+}
+
+table.ic-table tr:hover {
+  background-image: linear-gradient(
+    var(--ic-data-table-cell-background-hover) 0 0
+  );
+  background-color: var(--ic-data-table-cell-background) !important;
+}
+
+table.ic-table-embedded {
+  border: var(--ic-table-embedded-border);
+}
+
+table.ic-table-embedded tr:last-child td,
+table.ic-table-embedded tbody tr:last-child th {
+  border-bottom: none;
+}
+
+table.ic-table-dense th,
+table.ic-table-dense td {
+  font-size: var(--ic-table-font-size-dense);
+  padding: var(--ic-table-cell-padding-dense);
+}
+
+table.ic-table-spacious th,
+table.ic-table-spacious td {
+  font-size: var(--ic-table-font-size-spacious);
+  padding: var(--ic-table-cell-padding-spacious);
+}
