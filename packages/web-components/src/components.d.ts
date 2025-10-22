@@ -2579,6 +2579,7 @@ export namespace Components {
           * Sets whether single or multiple options can be toggled. If `multi`, then the `selectMethod` is always `manual`.
          */
         "selectType": IcSelectTypes;
+        "setActiveToggle": (toggle: HTMLIcToggleButtonElement) => Promise<void>;
         /**
           * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
          */

@@ -9,6 +9,7 @@ import {
   EventEmitter,
   State,
   Watch,
+  Method,
 } from "@stencil/core";
 import {
   IcSizes,
@@ -40,6 +41,7 @@ export class ToggleButtonGroup {
     key: null,
     shift: false,
   };
+  @State() externallySetActiveToggle: HTMLIcToggleButtonElement | null = null;
 
   /**
    * The accessible label of the toggle button group component to provide context for screen reader users.
@@ -202,6 +204,14 @@ export class ToggleButtonGroup {
     }
   }
 
+  /**
+   * @internal Used to enable other components to set the active toggle button when toggle button group is in a shadow dom.
+   */
+  @Method()
+  async setActiveToggle(toggle: HTMLIcToggleButtonElement): Promise<void> {
+    this.externallySetActiveToggle = toggle;
+  }
+
   componentWillLoad(): void {
     if (this.selectType === "multi") this.selectMethod = "manual";
     if (this.selectMethod === "auto") this.selectType === "single";
@@ -274,15 +284,32 @@ export class ToggleButtonGroup {
       return;
 
     const toggleButtonOptions = this.getAllToggleButtons();
-    const targetToggle =
-      toggleButtonOptions[
-        this.getNextItemToSelect(
-          toggleButtonOptions.indexOf(
-            toggleButtonOptions.filter((el) => el === document.activeElement)[0]
-          ),
-          key === "ArrowDown" || key === "ArrowRight"
-        )
-      ];
+    let targetToggle: HTMLIcToggleButtonElement;
+    if (this.externallySetActiveToggle) {
+      targetToggle =
+        toggleButtonOptions[
+          this.getNextItemToSelect(
+            toggleButtonOptions.indexOf(
+              toggleButtonOptions.filter(
+                (el) => el === this.externallySetActiveToggle
+              )[0]
+            ),
+            key === "ArrowDown" || key === "ArrowRight"
+          )
+        ];
+    } else {
+      targetToggle =
+        toggleButtonOptions[
+          this.getNextItemToSelect(
+            toggleButtonOptions.indexOf(
+              toggleButtonOptions.filter(
+                (el) => el === document.activeElement
+              )[0]
+            ),
+            key === "ArrowDown" || key === "ArrowRight"
+          )
+        ];
+    }
 
     if (this.selectMethod === "auto") {
       // trigger selectHandler when unable to add 'target'
