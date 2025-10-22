@@ -14,6 +14,7 @@ import {
   IcTypography,
   IcLink,
   IcSelect,
+  IcTheme,
 } from "@ukic/react";
 import { IcPaginationBarOptions } from "@ukic/canary-web-components/src/utils/types";
 import {
@@ -87,7 +88,9 @@ import {
   newData,
   singleColumnTruncationWidth,
   singleColumnWidth,
+  NativeTable,
 } from "./IcDataTableTestData";
+import "@ukic/web-components/dist/core/icds-table-style.css";
 
 const DATA_TABLE_SELECTOR = "ic-data-table";
 const DEFAULT_THRESHOLD = 0.022;
@@ -133,6 +136,24 @@ const LOADING_OVERLAY_SELECTOR = ".loading-overlay";
 const LOADING_INDICATOR_OUTER_SELECTOR = ".ic-loading-circular-outer";
 const ROW_CHECKBOX_SELECTOR = "tr ic-checkbox";
 const HEADER_CHECKBOX_SELECTOR = "th ic-checkbox";
+
+const setDatableTestViewport = (): void => {
+  cy.viewport(1024, 768);
+};
+
+const checkTableRowHoverState = (rowNum: number): void => {
+  // snapshot does not capture hover color for some reason,
+  // so additional check that hover state css is applied to the row
+  cy.get("table").find("tr").eq(1).realHover().wait(300);
+  cy.get("table")
+    .find("tr")
+    .eq(rowNum)
+    .should(HAVE_CSS, "background-image")
+    .and(
+      "eq",
+      "linear-gradient(rgba(23, 89, 188, 0.1) 0px, rgba(23, 89, 188, 0.1) 0px)"
+    );
+};
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
@@ -269,7 +290,7 @@ export const PaginationDataTable = (): ReactElement => {
 describe("IcDataTables", () => {
   beforeEach(() => {
     cy.injectAxe();
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
   });
 
   afterEach(() => {
@@ -1622,7 +1643,7 @@ describe("IcDataTables", () => {
 describe("IcDataTables with IcPaginationBar", () => {
   beforeEach(() => {
     cy.injectAxe();
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
   });
 
   afterEach(() => {
@@ -1847,7 +1868,7 @@ describe("IcDataTable with truncation", () => {
 
   beforeEach(() => {
     cy.injectAxe();
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
   });
 
   afterEach(() => {
@@ -3723,7 +3744,7 @@ describe("IcDataTable with truncation", () => {
 describe("IcDataTable table sizing and column width", () => {
   beforeEach(() => {
     cy.injectAxe();
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
   });
 
   afterEach(() => {
@@ -4408,7 +4429,7 @@ describe("IcDataTable table sizing and column width", () => {
 describe("IcDataTable table with descriptions", () => {
   beforeEach(() => {
     cy.injectAxe();
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
   });
 
   afterEach(() => {
@@ -4660,7 +4681,7 @@ describe("IcDataTable table with descriptions", () => {
 describe("IcDataTable row deletion", () => {
   beforeEach(() => {
     cy.injectAxe();
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
   });
 
   afterEach(() => {
@@ -4828,7 +4849,7 @@ describe("IcDataTable row deletion", () => {
 describe("IcDataTable row selection", () => {
   beforeEach(() => {
     cy.injectAxe();
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
   });
 
   afterEach(() => {
@@ -4975,7 +4996,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
   beforeEach(() => {
     cy.enableForcedColors();
     cy.wait(500);
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
     cy.wait(500);
   });
 
@@ -5303,7 +5324,7 @@ export const BasicDarkModeDataTable = (props?: any): ReactElement => (
 describe("Dark mode", () => {
   beforeEach(() => {
     cy.injectAxe();
-    cy.viewport(1024, 768);
+    setDatableTestViewport();
   });
 
   afterEach(() => {
@@ -5621,6 +5642,200 @@ describe("Dark mode", () => {
     cy.compareSnapshot({
       name: "/dark-mode-cell-descriptions-icons",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.163),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+});
+
+describe("Native tables styled like ic-data-table", () => {
+  beforeEach(() => {
+    setDatableTestViewport();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should render a native table", () => {
+    mount(
+      <div
+        style={{
+          padding: "0.5rem",
+        }}
+      >
+        <IcTheme theme="light">
+          <NativeTable />
+        </IcTheme>
+      </div>
+    );
+
+    checkTableRowHoverState(1);
+
+    cy.compareSnapshot({
+      name: "/native-table/light-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.014),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render a dense native table", () => {
+    mount(
+      <div
+        style={{
+          padding: "0.5rem",
+        }}
+      >
+        <IcTheme theme="light">
+          <NativeTable type="dense" />
+        </IcTheme>
+      </div>
+    );
+
+    cy.compareSnapshot({
+      name: "/native-table/dense-light-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render a spacious native table", () => {
+    mount(
+      <div
+        style={{
+          padding: "0.5rem",
+        }}
+      >
+        <IcTheme theme="light">
+          <NativeTable type="spacious" />
+        </IcTheme>
+      </div>
+    );
+
+    cy.compareSnapshot({
+      name: "/native-table/spacious-light-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render an embedded native table", () => {
+    mount(
+      <div
+        style={{
+          padding: "0.5rem",
+        }}
+      >
+        <IcTheme theme="light">
+          <NativeTable type="embedded" />
+        </IcTheme>
+      </div>
+    );
+
+    cy.compareSnapshot({
+      name: "/native-table/embedded-light-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.014),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render a native table in dark mode", () => {
+    mount(
+      <div
+        style={{
+          backgroundColor: "var(--ic-color-page-background-dark)",
+          padding: "0.5rem",
+        }}
+      >
+        <IcTheme theme="dark">
+          <NativeTable />
+        </IcTheme>
+      </div>
+    );
+
+    checkTableRowHoverState(1);
+
+    cy.compareSnapshot({
+      name: "/native-table/dark-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render a dense native table in dark mode", () => {
+    mount(
+      <div
+        style={{
+          backgroundColor: "var(--ic-color-page-background-dark)",
+          padding: "0.5rem",
+        }}
+      >
+        <IcTheme theme="dark">
+          <NativeTable type="dense" />
+        </IcTheme>
+      </div>
+    );
+
+    cy.compareSnapshot({
+      name: "/native-table/dense-dark-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render a spacious native table in dark mode", () => {
+    mount(
+      <div
+        style={{
+          backgroundColor: "var(--ic-color-page-background-dark)",
+          padding: "0.5rem",
+        }}
+      >
+        <IcTheme theme="dark">
+          <NativeTable type="spacious" />
+        </IcTheme>
+      </div>
+    );
+
+    cy.compareSnapshot({
+      name: "/native-table/spacious-dark-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render an embedded native table in dark mode", () => {
+    mount(
+      <div
+        style={{
+          backgroundColor: "var(--ic-color-page-background-dark)",
+          padding: "0.5rem",
+        }}
+      >
+        <IcTheme theme="dark">
+          <NativeTable type="embedded" />
+        </IcTheme>
+      </div>
+    );
+
+    cy.compareSnapshot({
+      name: "/native-table/embedded-dark-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
       cypressScreenshotOptions: {
         capture: "viewport",
       },

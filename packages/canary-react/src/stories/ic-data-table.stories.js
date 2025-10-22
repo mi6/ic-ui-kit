@@ -1037,6 +1037,86 @@ export const SelectRowsUsingCheckboxExample = {
   name: "Select rows with checkbox",
 };
 
+const TableContent = ({type}) => {
+  const strClass = "ic-table" + (type ? " ic-table-" + type : "");
+  return (
+    <table class={strClass}>
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Age</th>
+          <th>Job title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Joe</td>
+          <td>Ashford</td>
+          <td>30</td>
+          <td>Developer</td>
+        </tr>
+        <tr>
+          <td>Sarah</td>
+          <td>Smith</td>
+          <td>28</td>
+          <td>Senior Software Developer</td>
+        </tr>
+        <tr>
+          <td>Mark</td>
+          <td>Owens</td>
+          <td>45</td>
+          <td>Team Lead</td>
+        </tr>
+      </tbody>
+    </table>
+  )
+}
+
+/**
+ * A native HTML `<table>` element can easily be styled to look like an `ic-data-table`. Simply import `icds-table-style.css` from the `@ukic/web-components` package (`import "@ukic/web-components/dist/core/icds-table-style.css"`) and then add the `ic-table` class name to the `<table>` element.
+ *
+ * Additional styling can be applied using other class names on the `<table>` element
+ *
+ */
+export const StyledNativeTables = {
+  render: () => (
+    <div style={{color: "var(--ic-color-text-primary)"}}>
+      <h4>Styled native &lt;table&gt;</h4>
+      <br />
+      <code>&lt;table class="ic-table"&gt;</code>
+      <br />
+      <br />
+      <TableContent />
+      <br />
+      <br />
+      <h4>Dense native &lt;table&gt;</h4>
+      <br />
+      <code>&lt;table class="ic-table ic-table-dense"&gt;</code>
+      <br />
+      <br />
+      <TableContent type="dense"/>
+      <br />
+      <br />
+      <h4>Spacious native &lt;table&gt;</h4>
+      <br />
+      <code>&lt;table class="ic-table ic-table-spacious"&gt;</code>
+      <br />
+      <br />
+      <TableContent type="spacious"/>
+      <br />
+      <br />
+      <h4>Embedded native &lt;table&gt;</h4>
+      <br />
+      <code>&lt;table class="ic-table ic-table-embedded"&gt;</code>
+      <br />
+      <br />
+      <TableContent type="embedded"/>    
+    </div>
+  ),
+  name: "Styled native tables",
+};
+
 const defaultArgs = {
   caption: "Screen reader caption for data table",
   columnHeaderTruncation: true,
