@@ -1543,11 +1543,11 @@
         },
         {
           "event": "icSelectedRowChange",
-          "detail": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; }",
+          "detail": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; icRowId: string | null; selectedIcRowIds: string[]; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\n    row: IcDataTableDataType | null;\n    selectedRows: IcDataTableDataType[];\n  }",
-            "resolved": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; }",
+            "original": "{\n    row: IcDataTableDataType | null;\n    selectedRows: IcDataTableDataType[];\n    icRowId: string | null;\n    selectedIcRowIds: string[];\n  }",
+            "resolved": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; icRowId: string | null; selectedIcRowIds: string[]; }",
             "references": {
               "IcDataTableDataType": {
                 "location": "import",
