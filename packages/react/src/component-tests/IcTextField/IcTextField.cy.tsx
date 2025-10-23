@@ -129,6 +129,26 @@ describe("IcTextField end-to-end tests", () => {
     cy.get("@icChange").should(HAVE_BEEN_CALLED);
   });
 
+  it("should emit icKeydown event when a key has been pressed", () => {
+    mount(<TextFieldWithHelperTextPlaceholderIconRequired />);
+
+    cy.checkHydrated(IC_TEXTFIELD);
+
+    cy.get(IC_TEXTFIELD).invoke("on", "icKeydown", cy.stub().as("icKeydown"));
+
+    let testString = "Hello, World!";
+
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).type(testString + "{enter}");
+
+    cy.get("@icKeydown").should(HAVE_BEEN_CALLED);
+
+    cy.get("@icKeydown").then((stub) => {
+      const event = stub.getCall(testString.length).args[0];
+      expect(event.detail.cursorPosition).to.equal(testString.length);
+      expect(event.detail.event.code).to.equal("Enter");
+    });
+  });
+
   it("should show as required when prop set to true", () => {
     mount(<TextFieldWithHelperTextPlaceholderIconRequired />);
 
