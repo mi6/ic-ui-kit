@@ -27,6 +27,7 @@ import {
   removeDisabledFalse,
   checkSlotInChildMutations,
   isSlotUsed,
+  isMacDevice,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -845,8 +846,15 @@ export class Select {
     } else {
       if (!isArrowKey || this.noOptions === null) {
         if (event.key !== " " || this.pressedCharacters.length <= 0) {
-          // Keyboard events get passed onto ic-menu
-          this.menu?.handleKeyboardOpen(event);
+          // Keyboard events get passed onto ic-menu except in the case of ctrl-a on a searchable select
+          const isCtrlA =
+            event.key === "a" &&
+            ((isMacDevice() && event.metaKey) ||
+              (!isMacDevice() && event.ctrlKey));
+
+          if (!(this.searchable && isCtrlA)) {
+            this.menu?.handleKeyboardOpen(event);
+          }
         }
         if (!this.multiple) {
           this.handleCharacterKeyDown(event.key);
