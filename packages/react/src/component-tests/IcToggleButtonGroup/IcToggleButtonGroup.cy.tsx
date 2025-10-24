@@ -25,8 +25,15 @@ import {
   ToggleGroupSingle,
   ToggleGroupSmall,
   ToggleGroupHiddenOutline,
+  ToggleGroupControlledExample,
 } from "./IcToggleButtonGroupTestData";
-import { HAVE_ATTR, HAVE_FOCUS, NOT_HAVE_ATTR } from "../utils/constants";
+import {
+  HAVE_ATTR,
+  HAVE_CLASS,
+  NOT_HAVE_CLASS,
+  HAVE_FOCUS,
+  NOT_HAVE_ATTR,
+} from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.028;
@@ -101,6 +108,30 @@ describe("IcToggleButtonGroup", () => {
 
       getToggle(2).focus().realPress(["Shift", "Tab"]);
       cy.get(IC_TOGGLE_BUTTON_GROUP).should(HAVE_FOCUS);
+    });
+
+    it("should remain disabled alongside individual toggles being disabled when checked state is controlled", () => {
+      mount(<ToggleGroupControlledExample />);
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
+
+      const groupDisabledClass = "ic-toggle-button-group-disabled";
+      const disabledClass = "ic-toggle-button-disabled";
+      const checkedClass = "ic-toggle-button-checked";
+
+      cy.get(IC_TOGGLE_BUTTON_GROUP).should(HAVE_CLASS, groupDisabledClass);
+      getToggle(0).should(HAVE_CLASS, disabledClass);
+      getToggle(0).should(HAVE_CLASS, checkedClass);
+      getToggle(1).should(HAVE_CLASS, disabledClass);
+      getToggle(1).should(NOT_HAVE_CLASS, checkedClass);
+
+      cy.get("ic-button").click();
+      cy.wait(200);
+
+      cy.get(IC_TOGGLE_BUTTON_GROUP).should(HAVE_CLASS, groupDisabledClass);
+      getToggle(0).should(HAVE_CLASS, disabledClass);
+      getToggle(0).should(NOT_HAVE_CLASS, checkedClass);
+      getToggle(1).should(HAVE_CLASS, disabledClass);
+      getToggle(1).should(HAVE_CLASS, checkedClass);
     });
   });
 
