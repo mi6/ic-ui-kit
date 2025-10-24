@@ -35,14 +35,14 @@ import { IcThemeMode } from "../../utils/types";
 })
 export class Drawer {
   private DEFAULT_CLOSE_BUTTON_ARIA_LABEL = "Close drawer";
-  private DRAWER_TRANSITION_DURATION = 10000;
   private IC_ACCORDION = "IC-ACCORDION";
   private IC_ACCORDION_GROUP = "IC-ACCORDION-GROUP";
   private IC_TEXT_FIELD = "IC-TEXT-FIELD";
+  private TRANSITION_DURATION = 300;
 
   private focusedElementIndex = 0;
   private interactiveElementList: HTMLElement[];
-  private sourceElement: HTMLElement;
+  // private sourceElement: HTMLElement;
 
   @Element() el: HTMLIcDrawerElement;
 
@@ -92,9 +92,9 @@ export class Drawer {
   @Prop() position: IcPosition = "right"; // SHOULD THIS BE LEFT INSTEAD?
 
   /**
-   * If set to `true`, an X (close) button will be displayed in the drawer.
+   * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
    */
-  @Prop() showCloseButton: boolean = false;
+  @Prop() hideCloseButton: boolean = false;
 
   /**
    * The size of the expanded drawer.
@@ -130,37 +130,41 @@ export class Drawer {
           this.focusNextInteractiveElement(ev.shiftKey);
           break;
         case "Escape":
-          this.setDrawerExpanded(ev);
+          this.handleDrawerExpanded(false, ev);
           break;
       }
     }
   }
 
   @Watch("expanded")
-  watchDrawerExpansionHandler(): void {
-    this.icDrawerExpanded.emit({ expanded: this.expanded });
-    if (this.expanded) {
-      this.sourceElement = document.activeElement as HTMLElement;
-      this.getInteractiveElements();
-      if (this.interactiveElementList.length > 0) {
-        if (this.interactiveElementList[0].tagName === "IC-BUTTON") {
-          requestAnimationFrame(() => {
-            setTimeout(() => {
-              (
-                this.interactiveElementList[0] as HTMLIcButtonElement
-              ).setFocus();
-            }, this.DRAWER_TRANSITION_DURATION);
-          });
-        } else {
-          this.interactiveElementList[1].focus();
-        }
-      }
-    } else {
-      setTimeout(() => {
-        this.sourceElement?.focus();
-      }, this.DRAWER_TRANSITION_DURATION);
+  watchExpandedHandler(): void {
+    if (this.trigger === "controlled") {
+      this.handleDrawerExpanded(true);
     }
   }
+  // this.icDrawerExpanded.emit({ expanded: this.expanded });
+  // if (this.expanded) {
+  //   this.sourceElement = document.activeElement as HTMLElement;
+  //   this.getInteractiveElements();
+  //   if (this.interactiveElementList.length > 0) {
+  //     if (this.interactiveElementList[0].tagName === "IC-BUTTON") {
+  //       requestAnimationFrame(() => {
+  //         setTimeout(() => {
+  //           (
+  //             this.interactiveElementList[0] as HTMLIcButtonElement
+  //           ).setFocus();
+  //         }, this.TRANSITION_DURATION);
+  //       });
+  //     } else {
+  //       this.interactiveElementList[1].focus();
+  //     }
+  //   }
+  // } else {
+  //   setTimeout(() => {
+  //     this.sourceElement?.focus();
+  //   }, this.TRANSITION_DURATION);
+  // }
+  // }
 
   componentWillLoad(): void {
     if (this.el.parentElement && this.boundary === "parent") {
@@ -277,38 +281,49 @@ export class Drawer {
     }
   };
 
-  private setDrawerExpanded = (ev: Event): void => {
-    ev.stopPropagation();
-    this.expanded = !this.expanded;
+  private handleDrawerExpanded = (
+    externalTrigger: boolean,
+    ev?: Event
+    // controlled: boolean = false
+  ): void => {
+    console.log("handleDrawerExpanded called");
+    console.log(ev);
+    ev?.stopPropagation();
+
+    // Don't change `expanded` prop value if it has already been changed externally i.e. controlled
+    if (!externalTrigger) {
+      this.expanded = !this.expanded;
+    }
+
     if (this.expanded) {
       // MAKE SURE TO SORT FOR WHEN PREFERS-REDUCED-MOTION IS ON
-      this.el.classList.add("ic-drawer-expanding");
-      requestAnimationFrame(() => {
-        this.el.classList.remove("ic-drawer-expanding");
-      });
-
-      this.getInteractiveElements();
-      setTimeout(() => {
-        this.getFocusedElementIndex();
-      }, this.DRAWER_TRANSITION_DURATION); // CHANGE FOR WHEN PREFERS-REDUCED-MOTION IS ON
-      if (this.interactiveElementList.length > 0) {
-        if (this.interactiveElementList[0].tagName === "IC-BUTTON") {
-          (this.interactiveElementList[0] as HTMLIcButtonElement).setFocus();
-        } else {
-          this.interactiveElementList[1].focus();
-        }
-      }
+      // this.el.classList.add("ic-drawer-expanding");
+      // requestAnimationFrame(() => {
+      //   this.el.classList.remove("ic-drawer-expanding");
+      // });
+      // this.getInteractiveElements();
+      // setTimeout(() => {
+      //   this.getFocusedElementIndex();
+      // }, this.TRANSITION_DURATION); // CHANGE FOR WHEN PREFERS-REDUCED-MOTION IS ON
+      // if (this.interactiveElementList.length > 0) {
+      //   if (this.interactiveElementList[0].tagName === "IC-BUTTON") {
+      //     (this.interactiveElementList[0] as HTMLIcButtonElement).setFocus();
+      //   } else {
+      //     this.interactiveElementList[1].focus();
+      //   }
+      // }
     } else {
-      this.el.classList.add("ic-drawer-collapsing");
+      const collapsingClassName = "ic-drawer-collapsing";
+      this.el.classList.add(collapsingClassName);
       setTimeout(() => {
-        this.el.classList.remove("ic-drawer-collapsing");
-      }, this.DRAWER_TRANSITION_DURATION);
+        this.el.classList.remove(collapsingClassName);
+      }, this.TRANSITION_DURATION);
     }
   };
 
   private onBackdropClick = (ev: Event) => {
     if (this.closeOnBackdropClick) {
-      this.setDrawerExpanded(ev);
+      this.handleDrawerExpanded(false, ev);
     }
     ev.stopPropagation();
   };
@@ -321,7 +336,7 @@ export class Drawer {
       heading,
       message,
       position,
-      showCloseButton,
+      hideCloseButton,
       size,
       theme,
       trigger,
@@ -340,7 +355,7 @@ export class Drawer {
             : "Open drawer"
         }`}
         innerHTML={chevronIcon}
-        onClick={this.setDrawerExpanded}
+        onClick={(ev: Event) => this.handleDrawerExpanded(false, ev)}
         // tooltipPlacement={this.OPPOSITE_POSITION[position]}
       ></ic-button>
     );
@@ -356,10 +371,7 @@ export class Drawer {
         }}
         aria-expanded={expanded}
       >
-        <div
-          class={{ "ic-drawer-overlay": true }}
-          onClick={this.onBackdropClick}
-        ></div>
+        <div class="ic-drawer-overlay" onClick={this.onBackdropClick}></div>
         {/* <div class="drawer-panel-wrapper"> */}
         <div
           class={{
@@ -378,7 +390,9 @@ export class Drawer {
           {...(expanded && isSlotUsed(this.el, "heading")
             ? { "aria-label": this.ariaLabel }
             : {})}
-          onClick={!expanded ? this.setDrawerExpanded : undefined}
+          onClick={(ev) =>
+            !expanded ? this.handleDrawerExpanded(false, ev) : undefined
+          }
         >
           {trigger === "arrow" && chevronButton}
           <div class="inner-drawer-panel">
@@ -406,12 +420,12 @@ export class Drawer {
                   </ic-typography>
                 )}
               </div>
-              {showCloseButton && (
+              {!hideCloseButton && trigger === "controlled" && (
                 <ic-button
                   className="close-btn"
                   variant="icon-tertiary"
                   theme={theme}
-                  onClick={this.setDrawerExpanded}
+                  onClick={(ev: Event) => this.handleDrawerExpanded(false, ev)}
                   innerHTML={closeIcon}
                   aria-label={
                     isPropDefined(closeButtonAriaLabel)
@@ -449,13 +463,10 @@ export class Drawer {
                 </div>
               )}
               {/* {console.log(this.innerDrawerPanel)} */}
-              {isSlotUsed(this.el, "actions") && (
-                <div
-                  class={{
-                    "action-area": true,
-                    "main-content-overflow": true,
-                  }}
-                >
+              {(isSlotUsed(this.el, "actions") ||
+                position === "bottom" ||
+                position === "top") && (
+                <div class="action-area">
                   <slot name="actions" />
                 </div>
               )}
