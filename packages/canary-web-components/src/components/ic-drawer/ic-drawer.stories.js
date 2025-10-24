@@ -288,7 +288,6 @@ export const ManualTriggerLeft = {
       id="drawer-1"
       trigger="controlled"
       position="left"
-      hide-close-button="true"
       heading="Roasted coffee"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
@@ -311,7 +310,6 @@ export const ManualTriggerTop = {
       position="top"
       id="drawer-1"
       trigger="controlled"
-      hide-close-button="true"
       heading="Roasted coffee"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
@@ -335,7 +333,6 @@ export const ManualTriggerBottom = {
       id="drawer-1"
       trigger="controlled"
       heading="Roasted coffee"
-      hide-close-button="true"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
       <ic-button slot="actions">Add to order</ic-button>

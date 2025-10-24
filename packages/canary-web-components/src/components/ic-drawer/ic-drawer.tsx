@@ -35,13 +35,13 @@ import { IcThemeMode } from "../../utils/types";
 })
 export class Drawer {
   private DEFAULT_CLOSE_BUTTON_ARIA_LABEL = "Close drawer";
-  private IC_ACCORDION = "IC-ACCORDION";
-  private IC_ACCORDION_GROUP = "IC-ACCORDION-GROUP";
-  private IC_TEXT_FIELD = "IC-TEXT-FIELD";
+  // private IC_ACCORDION = "IC-ACCORDION";
+  // private IC_ACCORDION_GROUP = "IC-ACCORDION-GROUP";
+  // private IC_TEXT_FIELD = "IC-TEXT-FIELD";
   private TRANSITION_DURATION = 300;
 
-  private focusedElementIndex = 0;
-  private interactiveElementList: HTMLElement[];
+  // private focusedElementIndex = 0;
+  // private interactiveElementList: HTMLElement[];
   // private sourceElement: HTMLElement;
 
   @Element() el: HTMLIcDrawerElement;
@@ -127,7 +127,7 @@ export class Drawer {
       switch (ev.key) {
         case "Tab":
           ev.preventDefault();
-          this.focusNextInteractiveElement(ev.shiftKey);
+          // this.focusNextInteractiveElement(ev.shiftKey);
           break;
         case "Escape":
           this.handleDrawerExpanded(false, ev);
@@ -172,114 +172,114 @@ export class Drawer {
     }
   }
 
-  componentDidLoad(): void {
-    this.updateInteractiveElements();
-  }
+  // componentDidLoad(): void {
+  //   this.updateInteractiveElements();
+  // }
 
-  componentDidUpdate(): void {
-    this.updateInteractiveElements();
-  }
+  // componentDidUpdate(): void {
+  //   this.updateInteractiveElements();
+  // }
 
-  private getFocusedElementIndex = () => {
-    for (let i = 0; i < this.interactiveElementList.length; i++) {
-      if (
-        (this.interactiveElementList[i] as HTMLElement) ===
-        (this.el?.shadowRoot?.activeElement || document.activeElement)
-      ) {
-        this.focusedElementIndex = i;
-      }
-    }
-  };
+  // private getFocusedElementIndex = () => {
+  //   for (let i = 0; i < this.interactiveElementList.length; i++) {
+  //     if (
+  //       (this.interactiveElementList[i] as HTMLElement) ===
+  //       (this.el?.shadowRoot?.activeElement || document.activeElement)
+  //     ) {
+  //       this.focusedElementIndex = i;
+  //     }
+  //   }
+  // };
 
-  private getInteractiveElements = () => {
-    this.interactiveElementList = Array.from(
-      this.el.shadowRoot?.querySelectorAll("ic-button") ?? []
-    );
+  // private getInteractiveElements = () => {
+  //   this.interactiveElementList = Array.from(
+  //     this.el.shadowRoot?.querySelectorAll("ic-button") ?? []
+  //   );
 
-    const slottedInteractiveElements = Array.from(
-      this.el.querySelectorAll(
-        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
-          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group,
-          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
-          ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion`
-      )
-    );
+  //   const slottedInteractiveElements = Array.from(
+  //     this.el.querySelectorAll(
+  //       `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
+  //         ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group,
+  //         ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
+  //         ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion`
+  //     )
+  //   );
 
-    const messageArea = this.el.shadowRoot?.querySelector(
-      ".message-area"
-    ) as HTMLElement;
+  //   const messageArea = this.el.shadowRoot?.querySelector(
+  //     ".message-area"
+  //   ) as HTMLElement;
 
-    const isScrollable = (el: HTMLElement): boolean =>
-      el.scrollHeight > el.clientHeight;
+  //   const isScrollable = (el: HTMLElement): boolean =>
+  //     el.scrollHeight > el.clientHeight;
 
-    // Check if the message area is scrollable and include it as an interactive element
-    if (messageArea && isScrollable(messageArea)) {
-      this.interactiveElementList.push(messageArea);
-    }
+  //   // Check if the message area is scrollable and include it as an interactive element
+  //   if (messageArea && isScrollable(messageArea)) {
+  //     this.interactiveElementList.push(messageArea);
+  //   }
 
-    this.interactiveElementList = [
-      ...this.interactiveElementList,
-      ...(slottedInteractiveElements as HTMLElement[]),
-    ];
-  };
+  //   this.interactiveElementList = [
+  //     ...this.interactiveElementList,
+  //     ...(slottedInteractiveElements as HTMLElement[]),
+  //   ];
+  // };
 
-  private getNextFocusEl = (focusedElementIndex: number) =>
-    this.interactiveElementList[focusedElementIndex];
+  // private getNextFocusEl = (focusedElementIndex: number) =>
+  //   this.interactiveElementList[focusedElementIndex];
 
-  // When trigger is controlled, focus should be set to the first interactive element on drawer expansion
+  // // When trigger is controlled, focus should be set to the first interactive element on drawer expansion
 
-  private focusNextInteractiveElement = (shiftKey: boolean) => {
-    this.getFocusedElementIndex();
-    this.setFocusIndexBasedOnShiftKey(shiftKey);
-    this.loopNextFocusIndexIfLastElement();
+  // private focusNextInteractiveElement = (shiftKey: boolean) => {
+  //   this.getFocusedElementIndex();
+  //   this.setFocusIndexBasedOnShiftKey(shiftKey);
+  //   this.loopNextFocusIndexIfLastElement();
 
-    let nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
+  //   let nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
 
-    const isHidden =
-      getComputedStyle(nextFocusEl).visibility === "hidden" ||
-      (nextFocusEl.tagName === this.IC_ACCORDION_GROUP &&
-        nextFocusEl.hasAttribute("single-expansion"));
+  //   const isHidden =
+  //     getComputedStyle(nextFocusEl).visibility === "hidden" ||
+  //     (nextFocusEl.tagName === this.IC_ACCORDION_GROUP &&
+  //       nextFocusEl.hasAttribute("single-expansion"));
 
-    if (nextFocusEl.tagName === this.IC_TEXT_FIELD) {
-      (nextFocusEl as HTMLIcTextFieldElement).setFocus();
-    } else {
-      if (isHidden) {
-        this.setFocusIndexBasedOnShiftKey(shiftKey);
-        this.loopNextFocusIndexIfLastElement();
+  //   if (nextFocusEl.tagName === this.IC_TEXT_FIELD) {
+  //     (nextFocusEl as HTMLIcTextFieldElement).setFocus();
+  //   } else {
+  //     if (isHidden) {
+  //       this.setFocusIndexBasedOnShiftKey(shiftKey);
+  //       this.loopNextFocusIndexIfLastElement();
 
-        nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
-      }
-      if (nextFocusEl.tagName === this.IC_ACCORDION_GROUP) {
-        (nextFocusEl as HTMLIcAccordionGroupElement).setFocus();
-      } else if (nextFocusEl.tagName === this.IC_ACCORDION) {
-        (nextFocusEl as HTMLIcAccordionElement).setFocus();
-      } else {
-        (nextFocusEl as HTMLElement).focus();
-      }
-    }
-  };
+  //       nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
+  //     }
+  //     if (nextFocusEl.tagName === this.IC_ACCORDION_GROUP) {
+  //       (nextFocusEl as HTMLIcAccordionGroupElement).setFocus();
+  //     } else if (nextFocusEl.tagName === this.IC_ACCORDION) {
+  //       (nextFocusEl as HTMLIcAccordionElement).setFocus();
+  //     } else {
+  //       (nextFocusEl as HTMLElement).focus();
+  //     }
+  //   }
+  // };
 
-  private loopNextFocusIndexIfLastElement() {
-    if (this.focusedElementIndex > this.interactiveElementList.length - 1)
-      this.focusedElementIndex = 0;
-    else if (this.focusedElementIndex < 0) {
-      this.focusedElementIndex = this.interactiveElementList.length - 1;
-    }
-  }
+  // private loopNextFocusIndexIfLastElement() {
+  //   if (this.focusedElementIndex > this.interactiveElementList.length - 1)
+  //     this.focusedElementIndex = 0;
+  //   else if (this.focusedElementIndex < 0) {
+  //     this.focusedElementIndex = this.interactiveElementList.length - 1;
+  //   }
+  // }
 
-  private setFocusIndexBasedOnShiftKey(shiftKey: boolean) {
-    if (shiftKey) {
-      this.focusedElementIndex -= 1;
-    } else {
-      this.focusedElementIndex += 1;
-    }
-  }
+  // private setFocusIndexBasedOnShiftKey(shiftKey: boolean) {
+  //   if (shiftKey) {
+  //     this.focusedElementIndex -= 1;
+  //   } else {
+  //     this.focusedElementIndex += 1;
+  //   }
+  // }
 
-  private updateInteractiveElements = () => {
-    if (this.expanded) {
-      this.getInteractiveElements();
-    }
-  };
+  // private updateInteractiveElements = () => {
+  //   if (this.expanded) {
+  //     this.getInteractiveElements();
+  //   }
+  // };
 
   private handleDrawerExpanded = (
     externalTrigger: boolean,
@@ -356,28 +356,25 @@ export class Drawer {
         }`}
         innerHTML={chevronIcon}
         onClick={(ev: Event) => this.handleDrawerExpanded(false, ev)}
-        // tooltipPlacement={this.OPPOSITE_POSITION[position]}
       ></ic-button>
     );
 
     return (
       <Host
         class={{
-          collapsed: !expanded,
-          expanded: expanded,
-          "ic-boundary-parent": this.boundary === "parent",
-          [`ic-${position}-position`]: true,
+          "ic-drawer-collapsed": !expanded,
+          "ic-drawer-expanded": expanded,
+          "ic-drawer-boundary-parent": this.boundary === "parent",
+          [`ic-drawer-${position}-position`]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         aria-expanded={expanded}
       >
-        <div class="ic-drawer-overlay" onClick={this.onBackdropClick}></div>
-        {/* <div class="drawer-panel-wrapper"> */}
+        <div class="overlay" onClick={this.onBackdropClick}></div>
         <div
           class={{
-            "ic-drawer-panel": true,
-            "collapsed-drawer": !expanded,
-            "manual-control": trigger === "controlled",
+            controlled: trigger === "controlled",
+            "drawer-panel": true,
             [`${size}`]: true,
           }}
           {...(expanded && { role: "dialog" })}
@@ -401,10 +398,8 @@ export class Drawer {
               <div
                 class={{
                   ["heading-area"]: true,
-                  // ["no-arrow"]: trigger !== "arrow", (can't remember why I commented this out)
                 }}
               >
-                {/* {trigger === "arrow" && chevronButton} */}
                 {isSlotUsed(this.el, "heading-adornment") && (
                   <slot name="heading-adornment" />
                 )}
@@ -462,7 +457,6 @@ export class Drawer {
                   )}
                 </div>
               )}
-              {/* {console.log(this.innerDrawerPanel)} */}
               {(isSlotUsed(this.el, "actions") ||
                 position === "bottom" ||
                 position === "top") && (
@@ -473,7 +467,6 @@ export class Drawer {
             </div>
           </div>
         </div>
-        {/* </div> */}
       </Host>
     );
   }
