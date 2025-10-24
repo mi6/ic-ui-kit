@@ -149,7 +149,6 @@ export const LongContentLeft = {
 
     Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     position="left"
-    show-close-button="true"
   >
     <svg
       slot="heading-adornment"
@@ -169,6 +168,12 @@ export const LongContentTop = {
   render: () => html`<ic-drawer
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
     message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+
+    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+
+    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
 
     Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
 
@@ -193,6 +198,12 @@ export const LongContentBottom = {
   render: () => html`<ic-drawer
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
     message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+
+    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+
+    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
 
     Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
 
@@ -249,15 +260,11 @@ export const SlottedContent = {
 };
 
 export const ManualTriggerRight = {
-  render: () => html` <ic-button
-      id="button-1"
-      onclick="expandDrawer()"
-      style="margin: 16px;"
+  render: () => html` <ic-button onclick="expandDrawer()" style="margin: 16px;"
       >Open drawer</ic-button
     >
     <ic-drawer
       id="drawer-1"
-      show-close-button="true"
       trigger="controlled"
       heading="Roasted coffee"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
@@ -274,17 +281,14 @@ export const ManualTriggerRight = {
 };
 
 export const ManualTriggerLeft = {
-  render: () => html` <ic-button
-      id="button-1"
-      onclick="expandDrawer()"
-      style="margin: 16px;"
+  render: () => html` <ic-button onclick="expandDrawer()" style="margin: 16px;"
       >Open drawer</ic-button
     >
     <ic-drawer
-      position="left"
       id="drawer-1"
-      show-close-button="true"
       trigger="controlled"
+      position="left"
+      hide-close-button="true"
       heading="Roasted coffee"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
@@ -300,17 +304,14 @@ export const ManualTriggerLeft = {
 };
 
 export const ManualTriggerTop = {
-  render: () => html` <ic-button
-      id="button-1"
-      onclick="expandDrawer()"
-      style="margin: 16px;"
+  render: () => html` <ic-button onclick="expandDrawer()" style="margin: 16px;"
       >Open drawer</ic-button
     >
     <ic-drawer
       position="top"
       id="drawer-1"
-      show-close-button="true"
       trigger="controlled"
+      hide-close-button="true"
       heading="Roasted coffee"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
@@ -326,18 +327,15 @@ export const ManualTriggerTop = {
 };
 
 export const ManualTriggerBottom = {
-  render: () => html` <ic-button
-      id="button-1"
-      onclick="expandDrawer()"
-      style="margin: 16px;"
+  render: () => html` <ic-button onclick="expandDrawer()" style="margin: 16px;"
       >Open drawer</ic-button
     >
     <ic-drawer
       position="bottom"
       id="drawer-1"
-      show-close-button="true"
       trigger="controlled"
       heading="Roasted coffee"
+      hide-close-button="true"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
       <ic-button slot="actions">Add to order</ic-button>
@@ -352,15 +350,11 @@ export const ManualTriggerBottom = {
 };
 
 export const ManualTriggerLongContentRight = {
-  render: () => html` <ic-button
-      id="button-1"
-      onclick="expandDrawer()"
-      style="margin: 16px;"
+  render: () => html` <ic-button onclick="expandDrawer()" style="margin: 16px;"
       >Open drawer</ic-button
     >
     <ic-drawer
       id="drawer-1"
-      show-close-button="true"
       trigger="controlled"
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
       message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
@@ -390,15 +384,11 @@ export const ManualTriggerLongContentRight = {
 };
 
 export const ManualTriggerLongContentLeft = {
-  render: () => html` <ic-button
-      id="button-1"
-      onclick="expandDrawer()"
-      style="margin: 16px;"
+  render: () => html` <ic-button onclick="expandDrawer()" style="margin: 16px;"
       >Open drawer</ic-button
     >
     <ic-drawer
       id="drawer-1"
-      show-close-button="true"
       trigger="controlled"
       position="left"
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
@@ -429,15 +419,11 @@ export const ManualTriggerLongContentLeft = {
 };
 
 export const ManualTriggerLongContentTop = {
-  render: () => html` <ic-button
-      id="button-1"
-      onclick="expandDrawer()"
-      style="margin: 16px;"
+  render: () => html` <ic-button onclick="expandDrawer()" style="margin: 16px;"
       >Open drawer</ic-button
     >
     <ic-drawer
       id="drawer-1"
-      show-close-button="true"
       trigger="controlled"
       position="top"
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
@@ -468,15 +454,11 @@ export const ManualTriggerLongContentTop = {
 };
 
 export const ManualTriggerLongContentBottom = {
-  render: () => html` <ic-button
-      id="button-1"
-      onclick="expandDrawer()"
-      style="margin: 16px;"
+  render: () => html` <ic-button onclick="expandDrawer()" style="margin: 16px;"
       >Open drawer</ic-button
     >
     <ic-drawer
       id="drawer-1"
-      show-close-button="true"
       trigger="controlled"
       position="bottom"
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
@@ -509,7 +491,7 @@ export const ManualTriggerLongContentBottom = {
 export const ContainedWithinParent = {
   render: () =>
     html` <div>
-      <div style="display: flex; flex-direction: column; min-height: 100vh;">
+      <div style="display: flex; flex-direction: column;">
         <ic-top-navigation
           app-title="Déja-brew"
           status="alpha"
@@ -573,7 +555,7 @@ export const ContainedWithinParent = {
             ></ic-navigation-item>
           </ic-navigation-group>
         </ic-top-navigation>
-        <main style="height: 100vh; position: relative;">
+        <main style="min-height: 100vh; position: relative;">
           <ic-drawer
             heading="Roasted coffee"
             message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
@@ -634,6 +616,29 @@ export const ContainedWithinParent = {
                 <ic-button slot="actions">Add to order</ic-button>
               </ic-drawer>
             </div>
+            <br />
+            <div
+              style="width: 100%; height: 30rem; position: relative; border: 1px solid lightgrey;"
+            >
+              <ic-button onclick="expandDrawer()" style="margin: 16px;"
+                >Open drawer</ic-button
+              >
+              <ic-drawer
+                position="left"
+                id="drawer-1"
+                trigger="controlled"
+                boundary="parent"
+                heading="Roasted coffee"
+                message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+              >
+              </ic-drawer>
+              <script>
+                let icDrawer = document.querySelector("ic-drawer#drawer-1");
+                function expandDrawer() {
+                  icDrawer.expanded = !icDrawer.expanded;
+                }
+              </script>
+            </div>
           </ic-section-container>
         </main>
       </div>
@@ -645,6 +650,85 @@ export const ContainedWithinParent = {
       ></ic-footer>
     </div>`,
   name: "Contained within parent",
+};
+
+export const ContainedWithinParentManualTrigger = {
+  render: () => html`<div
+      style="display: flex; flex-direction: column; align-items: stretch; height: 100vh;"
+    >
+      <div style="display: flex;">
+        <ic-button onclick="expandRightDrawer()" style="margin: 16px;"
+          >Toggle right drawer</ic-button
+        >
+        <ic-button onclick="expandLeftDrawer()" style="margin: 16px;"
+          >Toggle left drawer</ic-button
+        >
+        <ic-button onclick="expandTopDrawer()" style="margin: 16px;"
+          >Toggle top drawer</ic-button
+        >
+        <ic-button onclick="expandBottomDrawer()" style="margin: 16px;"
+          >Toggle bottom drawer</ic-button
+        >
+      </div>
+      <div
+        style="position: relative; display: flex; border: 1px solid lightgrey; flex: 1; margin: 16px;"
+      >
+        <ic-drawer
+          id="drawer-right"
+          trigger="controlled"
+          heading="Roasted coffee"
+          boundary="parent"
+          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+        >
+        </ic-drawer>
+        <ic-drawer
+          position="left"
+          id="drawer-left"
+          trigger="controlled"
+          heading="Roasted coffee"
+          boundary="parent"
+          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+        >
+        </ic-drawer>
+        <ic-drawer
+          position="top"
+          id="drawer-top"
+          trigger="controlled"
+          heading="Roasted coffee"
+          boundary="parent"
+          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+        >
+        </ic-drawer>
+        <ic-drawer
+          position="bottom"
+          id="drawer-bottom"
+          trigger="controlled"
+          heading="Roasted coffee"
+          boundary="parent"
+          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+        >
+        </ic-drawer>
+      </div>
+    </div>
+    <script>
+      const icDrawerRight = document.querySelector("#drawer-right");
+      const icDrawerLeft = document.querySelector("#drawer-left");
+      const icDrawerTop = document.querySelector("#drawer-top");
+      const icDrawerBottom = document.querySelector("#drawer-bottom");
+      function expandRightDrawer() {
+        icDrawerRight.expanded = !icDrawerRight.expanded;
+      }
+      function expandLeftDrawer() {
+        icDrawerLeft.expanded = !icDrawerLeft.expanded;
+      }
+      function expandTopDrawer() {
+        icDrawerTop.expanded = !icDrawerTop.expanded;
+      }
+      function expandBottomDrawer() {
+        icDrawerBottom.expanded = !icDrawerBottom.expanded;
+      }
+    </script>`,
+  name: "Contained within parent manual trigger",
 };
 
 export const Playground = {
