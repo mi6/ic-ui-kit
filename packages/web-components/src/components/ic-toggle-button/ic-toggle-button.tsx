@@ -65,7 +65,7 @@ export class ToggleButton {
   @Prop({ mutable: true }) disabled = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
-    removeDisabledFalse(this.disabled, this.el);
+    this.syncPropsFromToggleButtonGroup();
   }
 
   /**
@@ -127,47 +127,7 @@ export class ToggleButton {
   }>;
 
   componentWillLoad(): void {
-    removeDisabledFalse(this.disabled, this.el);
-
-    if (!isSlottedInGroup(this.el)) return;
-
-    const parentAttributes = this.el.parentElement?.attributes;
-    if (!parentAttributes) return;
-
-    for (let i = 0; i < TRACKED_ATTRIBUTES.length; i++) {
-      const attribute = parentAttributes.getNamedItem(TRACKED_ATTRIBUTES[i]);
-      if (!attribute) continue;
-
-      switch (attribute.name) {
-        case TRACKED_ATTRIBUTES[0]:
-          this.loading = attribute.value !== "false";
-          break;
-        case TRACKED_ATTRIBUTES[1]:
-          this.disabled = attribute.value !== "false";
-          break;
-        case TRACKED_ATTRIBUTES[2]:
-          this.fullWidth = attribute.value !== "false";
-          break;
-        case TRACKED_ATTRIBUTES[3]:
-          this.iconPlacement = attribute.value as IcIconPlacementOptions;
-          break;
-        case TRACKED_ATTRIBUTES[4]:
-          this.variant = attribute.value as "default" | "icon";
-          break;
-        case TRACKED_ATTRIBUTES[5]:
-          this.size = attribute.value as IcSizes;
-          break;
-        case TRACKED_ATTRIBUTES[6]:
-          this.theme = attribute.value as IcThemeMode;
-          break;
-        case TRACKED_ATTRIBUTES[7]:
-          this.monochrome = attribute.value !== "false";
-          break;
-        case TRACKED_ATTRIBUTES[8]:
-          this.outline = attribute.value !== "false";
-          break;
-      }
-    }
+    this.syncPropsFromToggleButtonGroup();
   }
 
   componentDidLoad(): void {
@@ -189,6 +149,60 @@ export class ToggleButton {
     } else if (!this.loading) {
       this.checked = !this.checked;
     }
+  }
+
+  private syncPropsFromToggleButtonGroup(): void {
+    let groupDisabled = false;
+    if (isSlottedInGroup(this.el)) {
+      const parentAttributes = this.el.parentElement?.attributes;
+      if (parentAttributes) {
+        const groupDisabledAttr = parentAttributes.getNamedItem("disabled");
+        if (groupDisabledAttr && groupDisabledAttr.value !== "false") {
+          groupDisabled = true;
+        }
+        for (let i = 0; i < TRACKED_ATTRIBUTES.length; i++) {
+          const attribute = parentAttributes.getNamedItem(
+            TRACKED_ATTRIBUTES[i]
+          );
+          if (!attribute) continue;
+          switch (attribute.name) {
+            case TRACKED_ATTRIBUTES[0]:
+              this.loading = attribute.value !== "false";
+              break;
+            case TRACKED_ATTRIBUTES[1]:
+              this.disabled = groupDisabled
+                ? true
+                : attribute.value !== "false";
+              break;
+            case TRACKED_ATTRIBUTES[2]:
+              this.fullWidth = attribute.value !== "false";
+              break;
+            case TRACKED_ATTRIBUTES[3]:
+              this.iconPlacement = attribute.value as IcIconPlacementOptions;
+              break;
+            case TRACKED_ATTRIBUTES[4]:
+              this.variant = attribute.value as "default" | "icon";
+              break;
+            case TRACKED_ATTRIBUTES[5]:
+              this.size = attribute.value as IcSizes;
+              break;
+            case TRACKED_ATTRIBUTES[6]:
+              this.theme = attribute.value as IcThemeMode;
+              break;
+            case TRACKED_ATTRIBUTES[7]:
+              this.monochrome = attribute.value !== "false";
+              break;
+            case TRACKED_ATTRIBUTES[8]:
+              this.outline = attribute.value !== "false";
+              break;
+          }
+        }
+        if (groupDisabled) {
+          this.disabled = true;
+        }
+      }
+    }
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   private handleFocus = (ev: FocusEvent) => {

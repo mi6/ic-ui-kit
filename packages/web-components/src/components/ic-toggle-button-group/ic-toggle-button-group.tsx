@@ -241,8 +241,11 @@ export class ToggleButtonGroup {
   };
 
   private handleHostFocus = ({ target, relatedTarget }: FocusEvent) => {
-    if (this.loading || this.disabled) return;
-
+    if (this.disabled) {
+      (target as HTMLElement)?.blur();
+      return;
+    }
+    if (this.loading) return;
     const el = target as HTMLIcToggleButtonGroupElement | null;
     const relEl = relatedTarget as HTMLIcToggleButtonElement | null;
     const toggleButtons = Array.from(
@@ -337,7 +340,7 @@ export class ToggleButtonGroup {
       <Host
         role="group"
         aria-label={accessibleLabel}
-        tabindex={0}
+        tabindex={disabled ? -1 : 0}
         class={{
           "ic-toggle-button-group-disabled": disabled,
           "ic-toggle-button-group-full-width": fullWidth,
