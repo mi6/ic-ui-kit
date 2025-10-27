@@ -53,12 +53,10 @@
 :host(.ic-drawer-right-position) .drawer-panel,
 :host(.ic-drawer-left-position) .drawer-panel {
   height: 100%;
-  transition: width 300ms cubic-bezier(0.165, 0.84, 0.44, 1); /* USE TOKEN */
 }
 
 :host(.ic-drawer-top-position) .drawer-panel,
 :host(.ic-drawer-bottom-position) .drawer-panel {
-  transition: height 300ms cubic-bezier(0.165, 0.84, 0.44, 1); /* USE TOKEN */
   width: 100%;
   justify-content: center;
 }
@@ -68,9 +66,21 @@
   height: 100%;
 }
 
-.inner-drawer-panel,
-.overlay {
-  transition: opacity 300ms;
+@media (prefers-reduced-motion: no-preference) {
+  .inner-drawer-panel,
+  .overlay {
+    transition: opacity 300ms;
+  }
+
+  :host(.ic-drawer-right-position) .drawer-panel,
+  :host(.ic-drawer-left-position) .drawer-panel {
+    transition: width 300ms cubic-bezier(0.165, 0.84, 0.44, 1); /* USE TOKEN */
+  }
+
+  :host(.ic-drawer-top-position) .drawer-panel,
+  :host(.ic-drawer-bottom-position) .drawer-panel {
+    transition: height 300ms cubic-bezier(0.165, 0.84, 0.44, 1); /* USE TOKEN */
+  }
 }
 
 /* Collapsed state */
@@ -395,12 +405,6 @@
 :host(.ic-drawer-top-position.ic-drawer-collapsed) .chevron-btn svg,
 :host(.ic-drawer-bottom-position.ic-drawer-expanded) .chevron-btn svg {
   transform: rotate(90deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  /* :host(.ic-drawer-collapsed) .inner-drawer-panel {
-    display: none;
-  } */
 }
 
 /* High contrast mode */

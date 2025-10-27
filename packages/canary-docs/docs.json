@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\n\n\n",
+      "readme": "# ic-card-horizontal\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -3761,30 +3761,6 @@
       "usage": {},
       "props": [
         {
-          "name": "ariaLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "aria-label",
-          "reflectToAttr": false,
-          "docs": "The aria label applied to the drawer. This is required when the heading slot is used.",
-          "docsTags": [],
-          "default": "\"\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "boundary",
           "type": "\"parent\" | \"viewport\"",
           "complexType": {
@@ -3830,9 +3806,8 @@
           "mutable": false,
           "attr": "chevron-button-aria-label",
           "reflectToAttr": false,
-          "docs": "The aria label of the chevron button when trigger is set to \"arrow\". The default aria label is \"Open drawer\" / \"Close drawer\".",
+          "docs": "The aria-label of the chevron button (displayed when `trigger=\"arrow\"`). This will default to \"Open drawer\" / \"Close drawer\".",
           "docsTags": [],
-          "default": "\"\"",
           "values": [
             {
               "type": "string"
@@ -3848,24 +3823,26 @@
         },
         {
           "name": "closeButtonAriaLabel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
           "attr": "close-button-aria-label",
           "reflectToAttr": false,
-          "docs": "The aria label of the close button when the show-close-button attribute (web-components) / showCloseButton prop (React) is set to `true`. The default aria label is \"Open drawer\" / \"Close drawer\".",
+          "docs": "The aria-label of the close button (displayed when `trigger=\"controlled\"`). This will default to \"Close drawer\".",
           "docsTags": [],
-          "default": "\"Close drawer\"",
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false
@@ -3881,7 +3858,7 @@
           "mutable": false,
           "attr": "close-on-backdrop-click",
           "reflectToAttr": false,
-          "docs": "If set to `false`, the drawer will not close when the backdrop is clicked.",
+          "docs": "If `true`, the drawer will close when the backdrop is clicked.",
           "docsTags": [],
           "default": "true",
           "values": [
@@ -3908,7 +3885,7 @@
           "mutable": true,
           "attr": "expanded",
           "reflectToAttr": true,
-          "docs": "If set to `true`, the drawer will display in an expanded state.",
+          "docs": "If `true`, the drawer will display in an expanded state.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -3943,6 +3920,30 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "hideCloseButton",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-close-button",
+          "reflectToAttr": false,
+          "docs": "If set to `true`, the X (close) button which is displayed when `trigger` is set to \"controlled\" will be hidden.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4017,36 +4018,18 @@
           "setter": false
         },
         {
-          "name": "showCloseButton",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "show-close-button",
-          "reflectToAttr": false,
-          "docs": "If set to `true`, an X (close) button will be displayed in the drawer.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "size",
           "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
-            "original": "\"small\" | \"medium\" | \"large\"",
+            "original": "IcSizes",
             "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
-            "references": {}
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
           },
           "mutable": false,
           "attr": "size",
