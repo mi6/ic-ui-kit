@@ -541,33 +541,33 @@ export namespace Components {
     }
     interface IcDrawer {
         /**
-          * The aria label applied to the drawer. This is required when the heading slot is used.
-         */
-        "ariaLabel": string;
-        /**
           * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
          */
         "boundary": IcDrawerBoundary;
         /**
-          * The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".
+          * The aria-label of the chevron button (displayed when `trigger="arrow"`). This will default to "Open drawer" / "Close drawer".
          */
         "chevronButtonAriaLabel"?: string;
         /**
-          * The aria label of the close button when the show-close-button attribute (web-components) / showCloseButton prop (React) is set to `true`. The default aria label is "Open drawer" / "Close drawer".
+          * The aria-label of the close button (displayed when `trigger="controlled"`). This will default to "Close drawer".
          */
-        "closeButtonAriaLabel": string;
+        "closeButtonAriaLabel"?: string;
         /**
-          * If set to `false`, the drawer will not close when the backdrop is clicked.
+          * If `true`, the drawer will close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
         /**
-          * If set to `true`, the drawer will display in an expanded state.
+          * If `true`, the drawer will display in an expanded state.
          */
         "expanded": boolean;
         /**
           * The heading to render in the drawer.
          */
         "heading"?: string;
+        /**
+          * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
+         */
+        "hideCloseButton": boolean;
         /**
           * The main body text in the drawer.
          */
@@ -577,13 +577,9 @@ export namespace Components {
          */
         "position": IcPosition;
         /**
-          * If set to `true`, an X (close) button will be displayed in the drawer.
-         */
-        "showCloseButton": boolean;
-        /**
           * The size of the expanded drawer.
          */
-        "size"?: "small" | "medium" | "large";
+        "size"?: IcSizes;
         /**
           * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -1774,33 +1770,33 @@ declare namespace LocalJSX {
     }
     interface IcDrawer {
         /**
-          * The aria label applied to the drawer. This is required when the heading slot is used.
-         */
-        "ariaLabel"?: string;
-        /**
           * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
          */
         "boundary"?: IcDrawerBoundary;
         /**
-          * The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".
+          * The aria-label of the chevron button (displayed when `trigger="arrow"`). This will default to "Open drawer" / "Close drawer".
          */
         "chevronButtonAriaLabel"?: string;
         /**
-          * The aria label of the close button when the show-close-button attribute (web-components) / showCloseButton prop (React) is set to `true`. The default aria label is "Open drawer" / "Close drawer".
+          * The aria-label of the close button (displayed when `trigger="controlled"`). This will default to "Close drawer".
          */
         "closeButtonAriaLabel"?: string;
         /**
-          * If set to `false`, the drawer will not close when the backdrop is clicked.
+          * If `true`, the drawer will close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
         /**
-          * If set to `true`, the drawer will display in an expanded state.
+          * If `true`, the drawer will display in an expanded state.
          */
         "expanded"?: boolean;
         /**
           * The heading to render in the drawer.
          */
         "heading"?: string;
+        /**
+          * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
+         */
+        "hideCloseButton"?: boolean;
         /**
           * The main body text in the drawer.
          */
@@ -1814,13 +1810,9 @@ declare namespace LocalJSX {
          */
         "position"?: IcPosition;
         /**
-          * If set to `true`, an X (close) button will be displayed in the drawer.
-         */
-        "showCloseButton"?: boolean;
-        /**
           * The size of the expanded drawer.
          */
-        "size"?: "small" | "medium" | "large";
+        "size"?: IcSizes;
         /**
           * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
