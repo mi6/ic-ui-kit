@@ -12,11 +12,14 @@ import {
   url,
 } from "@angular-devkit/schematics";
 import { NodePackageInstallTask } from "@angular-devkit/schematics/tasks";
-import { getWorkspace } from "@schematics/angular/utility/workspace";
+import {
+  getWorkspace,
+  ProjectDefinition,
+} from "@schematics/angular/utility/workspace";
 
 import { addICDSModuleImportToNgModule } from "../utils/ast";
 
-import { addStyle, getDefaultAngularAppName } from "./../utils/config";
+import { addStyle, getDefaultAngularApp } from "./../utils/config";
 import { addPackageToPackageJson } from "./../utils/package";
 import { Schema as IonAddOptions } from "./schema";
 import { skipLibCheckTsConfig } from "../utils/tsconfig";
@@ -50,17 +53,17 @@ function addICDSAngularModuleToAppModule(projectSourceRoot: Path): Rule {
   };
 }
 
-function addICDSStyles(projectName: string, projectSourceRoot: Path): Rule {
+function addICDSStyles(project: ProjectDefinition, projectName: string): Rule {
   return (host: Tree) => {
     const icdsStyles = [
       "node_modules/@ukic/fonts/dist/fonts.css",
       "node_modules/@ukic/angular/css/core.css",
       "node_modules/@ukic/angular/css/normalize.css",
-      `${projectSourceRoot}/styles/icds/variables.css`,
+      `${project.sourceRoot}/styles/icds/variables.css`,
     ];
 
     icdsStyles.forEach((entry) => {
-      addStyle(host, projectName, entry);
+      addStyle(host, project, projectName, entry);
     });
     return host;
   };
@@ -75,17 +78,13 @@ function installNodeDeps() {
 export default function ngAdd(options: IonAddOptions): Rule {
   return async (host: Tree) => {
     const workspace = await getWorkspace(host);
-    if (!options.project) {
-      options.project = getDefaultAngularAppName(workspace);
-    }
-    const project = workspace.projects.get(options.project);
 
-    if (!project || project.extensions.projectType !== "application") {
-      throw new SchematicsException(
-        `ICDS Add requires a project type of "application".`
-      );
-    }
-    const sourcePath: Path = join(project.sourceRoot as Path);
+    const [projectName, config] = getDefaultAngularApp(
+      workspace,
+      options?.project
+    );
+
+    const sourcePath: Path = join(config.sourceRoot as Path);
     const rootTemplateSource = apply(url("./files/root"), [
       template({ ...options }),
       move(sourcePath),
@@ -94,7 +93,7 @@ export default function ngAdd(options: IonAddOptions): Rule {
       addICDSAngularToPackageJson(),
       addSkipLibCheckToTsConfigJson(),
       addICDSAngularModuleToAppModule(sourcePath),
-      addICDSStyles(options.project, sourcePath),
+      addICDSStyles(config, projectName),
       mergeWith(rootTemplateSource),
       installNodeDeps(),
     ]);
