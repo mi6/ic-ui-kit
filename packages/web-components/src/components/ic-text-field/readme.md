@@ -49,14 +49,14 @@
 
 ## Events
 
-| Event       | Description                                    | Type                                     |
-| ----------- | ---------------------------------------------- | ---------------------------------------- |
-| `icBlur`    | Emitted when input loses focus.                | `CustomEvent<IcValueEventDetail>`        |
-| `icChange`  | Emitted when the value has changed.            | `CustomEvent<IcValueEventDetail>`        |
-| `icFocus`   | Emitted when input gains focus.                | `CustomEvent<IcValueEventDetail>`        |
-| `icInput`   | Emitted when a keyboard input occurred.        | `CustomEvent<IcValueEventDetail>`        |
-| `icKeydown` | Emitted when a keydown event occurred.         | `CustomEvent<{ event: KeyboardEvent; }>` |
-| `icScroll`  | Emitted when the textarea variant is scrolled. | `CustomEvent<any>`                       |
+| Event       | Description                                    | Type                                         |
+| ----------- | ---------------------------------------------- | -------------------------------------------- |
+| `icBlur`    | Emitted when input loses focus.                | `CustomEvent<IcValueEventDetail>`            |
+| `icChange`  | Emitted when the value has changed.            | `CustomEvent<IcValueEventDetail>`            |
+| `icFocus`   | Emitted when input gains focus.                | `CustomEvent<IcValueEventDetail>`            |
+| `icInput`   | Emitted when a keyboard input occurred.        | `CustomEvent<IcValueEventDetail>`            |
+| `icKeydown` | Emitted when a keydown event occurred.         | `CustomEvent<IcTextFieldKeydownEventDetail>` |
+| `icScroll`  | Emitted when the textarea variant is scrolled. | `CustomEvent<any>`                           |
 
 
 ## Methods

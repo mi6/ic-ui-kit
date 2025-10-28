@@ -18,3 +18,9 @@ export type IcTextFieldInputModes =
   | "search";
 
 export type IcAriaAutocompleteTypes = "inline" | "list" | undefined;
+
+export interface IcTextFieldKeydownEventDetail {
+  event: KeyboardEvent;
+  cursorPosition: number;
+  selectionEnd: number;
+}

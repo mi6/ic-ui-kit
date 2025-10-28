@@ -20422,15 +20422,16 @@
         },
         {
           "event": "icKeydown",
-          "detail": "{ event: KeyboardEvent; }",
+          "detail": "IcTextFieldKeydownEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "{ event: KeyboardEvent }",
-            "resolved": "{ event: KeyboardEvent; }",
+            "original": "IcTextFieldKeydownEventDetail",
+            "resolved": "IcTextFieldKeydownEventDetail",
             "references": {
-              "KeyboardEvent": {
-                "location": "global",
-                "id": "global::KeyboardEvent"
+              "IcTextFieldKeydownEventDetail": {
+                "location": "import",
+                "path": "./ic-text-field.types",
+                "id": "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldKeydownEventDetail"
               }
             }
           },
@@ -23353,6 +23354,11 @@
       "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldKeydownEventDetail": {
+      "declaration": "export interface IcTextFieldKeydownEventDetail {\n  event: KeyboardEvent;\n  cursorPosition: number | null;\n  selectionEnd: number | null;\n}",
+      "docstring": "",
+      "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarSearchModes": {
       "declaration": "export type IcSearchBarSearchModes = \"navigation\" | \"query\";",

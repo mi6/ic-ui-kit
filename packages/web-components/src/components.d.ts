@@ -32,7 +32,7 @@ import { IcStepI18n, IcStepStatuses, IcStepTypes, IcStepVariants } from "./compo
 import { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
-import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
+import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldKeydownEventDetail, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
@@ -62,7 +62,7 @@ export { IcStepI18n, IcStepStatuses, IcStepTypes, IcStepVariants } from "./compo
 export { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 export { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
-export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
+export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldKeydownEventDetail, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export namespace Components {
@@ -3521,7 +3521,7 @@ declare global {
         "icChange": IcValueEventDetail;
         "icFocus": IcValueEventDetail;
         "icInput": IcValueEventDetail;
-        "icKeydown": { event: KeyboardEvent };
+        "icKeydown": IcTextFieldKeydownEventDetail;
         "icScroll": any;
     }
     interface HTMLIcTextFieldElement extends Components.IcTextField, HTMLStencilElement {
@@ -6136,7 +6136,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a keydown event occurred.
          */
-        "onIcKeydown"?: (event: IcTextFieldCustomEvent<{ event: KeyboardEvent }>) => void;
+        "onIcKeydown"?: (event: IcTextFieldCustomEvent<IcTextFieldKeydownEventDetail>) => void;
         /**
           * Emitted when the textarea variant is scrolled.
          */
