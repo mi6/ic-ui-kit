@@ -153,3 +153,39 @@ export const DataTableWithPopover = (): JSX.Element => {
     </IcDataTable>
   );
 };
+
+export const NativeTable = ({ type }: { type?: string }): JSX.Element => {
+  const strClass = "ic-table" + (type ? " ic-table-" + type : "");
+  return (
+    <table className={strClass}>
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Age</th>
+          <th>Job title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Joe</td>
+          <td>Ashford</td>
+          <td>30</td>
+          <td>Developer</td>
+        </tr>
+        <tr>
+          <td>Sarah</td>
+          <td>Smith</td>
+          <td>28</td>
+          <td>Senior Software Developer</td>
+        </tr>
+        <tr>
+          <td>Mark</td>
+          <td>Owens</td>
+          <td>45</td>
+          <td>Team Lead</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};

@@ -1,6 +1,7 @@
 import "@ukic/fonts/dist/fonts.css";
 import "../dist/core/core.css";
 import "../dist/core/normalize.css";
+import "@ukic/web-components/dist/core/icds-table-style.css";
 
 import { IcTheme } from "@ukic/react";
 import React from "react";
@@ -17,9 +18,9 @@ const preview = {
     },
     options: {
       storySort: {
-        method: 'configure',
+        method: "configure",
         includeNames: true,
-        order: ['*', ['*', ['Docs', 'Playground']]],
+        order: ["*", ["*", ["Docs", "Playground"]]],
       },
     },
     viewMode: "docs",
