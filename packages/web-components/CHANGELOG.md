@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.14.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.13.0...@ukic/web-components@3.14.0) (2025-10-29)
+
+### Bug Fixes
+
+- **web-components:** fix aria-describedby on ic-button ([517fe20](https://github.com/mi6/ic-ui-kit/commit/517fe2052578665b14d3a34c2e08d00e81bf6ae7))
+- **web-components:** fix ctrl-a not working on searchable select input ([730c7ec](https://github.com/mi6/ic-ui-kit/commit/730c7ec3e91f812d305d10fa376986b89b40032b)), closes [#3909](https://github.com/mi6/ic-ui-kit/issues/3909)
+- **web-components:** fix side nav rendering issue on extra small viewport ([8c3f9ae](https://github.com/mi6/ic-ui-kit/commit/8c3f9ae1e4bcaa257cc332ea2faea6dcdaea1ceb)), closes [#3946](https://github.com/mi6/ic-ui-kit/issues/3946)
+- **web-components:** fixes issue with no results styling not being removed ([0afa4bf](https://github.com/mi6/ic-ui-kit/commit/0afa4bf44eecbea3e35a15103e06a8551d111b2a))
+- **web-components:** fixes select loading error color in dark mode ([d315717](https://github.com/mi6/ic-ui-kit/commit/d315717012f6684fcb1368245e9d9733e5805f72))
+- **web-components:** update CSS selctors to use classname ([71f90d4](https://github.com/mi6/ic-ui-kit/commit/71f90d4c1dea9f12b2b42601028733c8486c35b9))
+- **web-components:** update toggle buttons to reflect toggle button group disabled state ([7492337](https://github.com/mi6/ic-ui-kit/commit/7492337890a3042996bd59d430fc8fa9a5216e95)), closes [#4031](https://github.com/mi6/ic-ui-kit/issues/4031)
+
+### Features
+
+- **web-components:** add cursor position to text field keydown event ([f08c880](https://github.com/mi6/ic-ui-kit/commit/f08c88085bb9facd2643296f5fc42fe8592a5282)), closes [#3888](https://github.com/mi6/ic-ui-kit/issues/3888)
+- **web-components:** adds optional css theme for native tables ([d65a1d2](https://github.com/mi6/ic-ui-kit/commit/d65a1d249277b9f31924c391a8c4f29b1352436a))
+
 # [3.13.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.9.0...@ukic/web-components@3.13.0) (2025-10-15)
 
 ### Bug Fixes

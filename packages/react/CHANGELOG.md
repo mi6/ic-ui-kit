@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.14.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.13.0...@ukic/react@3.14.0) (2025-10-29)
+
+### Bug Fixes
+
+- **react:** fixes issue with loading error colour ([00bbb57](https://github.com/mi6/ic-ui-kit/commit/00bbb5706f5b1ff2d6cfe024ce3c3a608a278274))
+- **react:** fixes issue with no results styling not being removed ([f3dae73](https://github.com/mi6/ic-ui-kit/commit/f3dae73bfcf201a01c6496583e1fddcdf3ca0df1))
+- **react:** update toggle buttons to reflect toggle button group disabled state ([938540a](https://github.com/mi6/ic-ui-kit/commit/938540a403ebd681715a87f2b0049b09d4a6a197))
+
+### Features
+
+- **react:** update Cypress visual regression test baseline images ([8e94d41](https://github.com/mi6/ic-ui-kit/commit/8e94d410a13310aa5ebccf946dd74b105e070edb))
+
 # [3.13.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.9.0...@ukic/react@3.13.0) (2025-10-15)
 
 ### Bug Fixes
