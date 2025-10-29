@@ -809,6 +809,8 @@ declare global {
         "icSelectedRowChange": {
     row: IcDataTableDataType | null;
     selectedRows: IcDataTableDataType[];
+    icRowId: string | null;
+    selectedIcRowIds: string[];
   };
         "icColumnsLoaded": void;
         "icDataLoaded": void;
@@ -1128,6 +1130,8 @@ declare namespace LocalJSX {
         "onIcSelectedRowChange"?: (event: IcDataTableCustomEvent<{
     row: IcDataTableDataType | null;
     selectedRows: IcDataTableDataType[];
+    icRowId: string | null;
+    selectedIcRowIds: string[];
   }>) => void;
         /**
           * Emitted when a column sort button is clicked.

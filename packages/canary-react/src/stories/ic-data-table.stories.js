@@ -484,6 +484,9 @@ export const LinksElementsInData = {
       columns={COLS_ELEMENTS}
       data={DATA_REACT_ELEMENTS}
       showPagination
+      rowSelection
+      onIcSelectedRowChange={(ev) => console.log(ev.detail)}
+      onIcSelectAllRows={(ev) => console.log(ev.detail)}
     >
       {DATA_REACT_ELEMENTS.map((_, index) => (
         <>

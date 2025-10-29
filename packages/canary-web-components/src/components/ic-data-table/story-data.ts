@@ -1715,6 +1715,14 @@ export const LinksHTMLElements = (): HTMLIcDataTableElement => {
     });
   });
 
+  dataTable.setAttribute("row-selection", "true");
+  dataTable.addEventListener("icSelectedRowChange", (event: CustomEvent) => {
+    console.log("Selected row changed", event.detail);
+  });
+  dataTable.addEventListener("icSelectAllRows", (event: CustomEvent) => {
+    console.log("Selected all rows", event.detail);
+  });
+
   return dataTable;
 };
 

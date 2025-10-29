@@ -113,6 +113,11 @@ export class DataTable {
   private CELL_TEXT_WRAPPER_STRING = ".cell-text-wrapper";
   private IC_TYPOGRAPHY_STRING = "ic-typography";
   private organisedData?: IcDataTableDataType[];
+  private rowIdCounter = 0;
+
+  private createRowId = () => {
+    return `row-${this.rowIdCounter++}`;
+  };
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -127,6 +132,8 @@ export class DataTable {
   @State() scrollOffset: number = 0;
 
   @State() selectedRows: IcDataTableDataType[] = [];
+
+  @State() selectedIcRowIds: string[] = [];
 
   @State() sortedColumn: string;
 
@@ -362,6 +369,8 @@ export class DataTable {
   @Event() icSelectedRowChange: EventEmitter<{
     row: IcDataTableDataType | null;
     selectedRows: IcDataTableDataType[];
+    icRowId: string | null;
+    selectedIcRowIds: string[];
   }>;
 
   /**
@@ -1706,24 +1715,37 @@ export class DataTable {
     );
 
   private onRowClick = (row: IcDataTableDataType) => {
-    const notCurrentlySelected = !this.selectedRows.includes(row);
+    const notCurrentlySelected = !this.selectedIcRowIds.includes(row.icRowId);
+
+    this.selectedIcRowIds = notCurrentlySelected
+      ? [...this.selectedIcRowIds, row.icRowId]
+      : this.selectedIcRowIds.filter(
+          (selectedRowId) => selectedRowId !== row.icRowId
+        );
 
     this.selectedRows = notCurrentlySelected
       ? [...this.selectedRows, row]
-      : this.selectedRows.filter((selectedRow) => selectedRow !== row);
+      : this.selectedRows.filter(
+          (selectedRow) => selectedRow.icRowId !== row.icRowId
+        );
 
     this.icSelectedRowChange.emit({
       row: notCurrentlySelected ? row : null,
       selectedRows: this.selectedRows,
+      icRowId: notCurrentlySelected ? row.icRowId : null,
+      selectedIcRowIds: this.selectedIcRowIds,
     });
   };
 
   private selectAllRows = () => {
     this.selectedRows =
       this.organisedData &&
-      this.selectedRows.length !== this.organisedData.length
+      this.selectedIcRowIds.length !== this.organisedData.length
         ? [...this.organisedData]
         : [];
+
+    this.selectedIcRowIds = this.selectedRows.map((row) => row.icRowId);
+
     this.icSelectAllRows.emit(this.selectedRows);
   };
 
@@ -1733,6 +1755,12 @@ export class DataTable {
       : this.data?.slice();
 
     const paginationOffset = this.showPagination ? this.fromRow : 0;
+
+    this.data?.forEach((row) => {
+      if (!("icRowId" in row)) {
+        row.icRowId = this.createRowId();
+      }
+    });
 
     /**
      * Ensures that createCells has a value in data to map over to actually render the slot.
@@ -1772,7 +1800,7 @@ export class DataTable {
       )
       .map((row, index) => {
         const isRowSelected =
-          this.rowSelection && this.selectedRows.includes(row);
+          this.rowSelection && this.selectedIcRowIds.includes(row.icRowId);
         const cellIndex = index + paginationOffset;
 
         return (

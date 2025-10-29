@@ -4886,6 +4886,7 @@ describe("IcDataTable row selection", () => {
       age: 45,
       jobTitle: "Team Lead",
       address: "12 Key Street, Town, Country, Postcode",
+      icRowId: "row-2",
     };
 
     cy.get(DATA_TABLE_SELECTOR).invoke(
@@ -4902,6 +4903,8 @@ describe("IcDataTable row selection", () => {
     cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, {
       row: EVENT_OBJECT,
       selectedRows: [EVENT_OBJECT],
+      icRowId: "row-2",
+      selectedIcRowIds: ["row-2"],
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ROW_CHECKBOX_SELECTOR).eq(3).click();
@@ -4910,6 +4913,8 @@ describe("IcDataTable row selection", () => {
     cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, {
       row: null,
       selectedRows: [],
+      icRowId: null,
+      selectedIcRowIds: [],
     });
   });
 
