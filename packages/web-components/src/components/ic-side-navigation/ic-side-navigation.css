@@ -666,7 +666,9 @@ slot[name="app-title"]::slotted(a) {
   .top-bar {
     height: var(--side-navigation-height);
   }
+}
 
+@media screen and (max-width: 319px) {
   .side-navigation {
     width: 100%;
   }

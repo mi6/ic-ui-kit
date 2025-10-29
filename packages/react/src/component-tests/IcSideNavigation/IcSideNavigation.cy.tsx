@@ -296,6 +296,33 @@ describe("IcSideNavigation", () => {
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
         });
       });
+
+      it("should render an extra small viewport IcSideNavigation - open", () => {
+        cy.viewport(375, 667);
+        mount(<BasicSideNav />);
+
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+        cy.checkA11yWithWait();
+        cy.compareSnapshot({
+          name: "/extra-small-viewport",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+        });
+      });
+
+      it("should render an extra small viewport IcSideNavigation - open", () => {
+        cy.viewport(375, 667);
+        mount(<BasicSideNav />);
+
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
+        cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
+
+        cy.checkA11yWithWait(undefined, 500);
+        cy.compareSnapshot({
+          name: "/extra-small-viewport-open",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
+        });
+      });
     });
   });
 
