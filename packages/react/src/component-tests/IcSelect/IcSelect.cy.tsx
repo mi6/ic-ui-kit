@@ -53,6 +53,7 @@ import {
   DarkThemeGroupDescription,
   DarkThemeReadonlyDisabled,
   DarkThemeValidation,
+  DarkThemeLoadingError,
   LoadingSelect,
   LoadingSelectNoTimeout,
   UncontrolledSelect,
@@ -1344,9 +1345,11 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.get("ic-button").click();
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, "ic-loading-indicator");
+    cy.findShadowEl(IC_SELECT, "ic-menu").should(HAVE_CLASS, "no-results");
     cy.get(IC_SELECT).invoke("prop", "options", coffeeOptions);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, DATA_LABEL_ESPRESSO).should(BE_VISIBLE);
+    cy.findShadowEl(IC_SELECT, "ic-menu").should(NOT_HAVE_CLASS, "no-results");
   });
 
   it("should display a retry button and a custom loading error when it times out and should not update the options", () => {
@@ -1360,6 +1363,10 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.get(IC_SELECT).shadow().find(RETRY_BUTTON).should(BE_VISIBLE);
     cy.get(IC_SELECT).shadow().find(IC_TYPOGRAPHY).contains("Loading Error");
+    cy.compareSnapshot({
+      name: "/loading-error-light-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+    });
   });
 
   it("should focus the retry button on tab and emit icBlur and close the menu when blurring", () => {
@@ -1831,6 +1838,23 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/dark-theme-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.081),
+    });
+  });
+
+  it("should display loading error in dark mode", () => {
+    mount(<DarkThemeLoadingError />);
+
+    cy.checkHydrated(IC_SELECT);
+    cy.get("ic-button").click();
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.get(IC_SELECT).shadow().find(IC_TYPOGRAPHY).contains(LOADING_MESSAGE);
+    cy.wait(300);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.get(IC_SELECT).shadow().find(RETRY_BUTTON).should(BE_VISIBLE);
+    cy.get(IC_SELECT).shadow().find(IC_TYPOGRAPHY).contains("Loading Error");
+    cy.compareSnapshot({
+      name: "/loading-error-dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
     });
   });
 });

@@ -9,7 +9,12 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import { IcBrand, IcBrandForeground, IcThemeMode } from "@ukic/web-components";
+import {
+  IcBrand,
+  IcBrandForeground,
+  IcCardDensity,
+  IcThemeMode,
+} from "../../utils/types";
 import {
   getBrandFromContext,
   isSlotUsed,
@@ -17,14 +22,17 @@ import {
   removeDisabledFalse,
   renderDynamicChildSlots,
 } from "../../utils/helpers";
-import { IcBrandForegroundEnum } from "../../utils/types";
-import { IcCardSizes } from "./ic-card-horizontal.types";
+import { IcBrandForegroundEnum, IcSizes } from "../../utils/types";
 
 /**
  * @slot heading - Content will be placed at the top of the horizontal card to the right of the icon.
  * @slot message - Content will be placed in the main body of the horizontal card.
- * @slot image - Content will be placed to the left of all other content.
+ * @slot subheading - Content will be placed below the card heading. Only for `density="spacious"`.
+ * @slot adornment - Content will be placed below the card subheading. Only for `density="spacious"`.
+ * @slot image-left - Content will be placed to the left of all other content.
+ * @slot image-right - Content will be placed to the right of all other content.
  * @slot icon - Content will be placed to the left of the horizontal card heading.
+ * @slot interaction-button - Content will be placed in the top right corner of the heading section.
  * @slot badge - Badge component overlaying the top right of the horizontal card.
  */
 @Component({
@@ -34,6 +42,9 @@ import { IcCardSizes } from "./ic-card-horizontal.types";
 })
 export class Card {
   private hostMutationObserver: MutationObserver | null = null;
+  private IMAGE_LEFT = "image-left";
+  private IMAGE_RIGHT = "image-right";
+  private INTERACTION_BUTTON = "interaction-button";
 
   @Element() el: HTMLIcCardHorizontalElement;
 
@@ -46,6 +57,11 @@ export class Card {
    * If `true`, the horizontal card will be a clickable variant, instead of static.
    */
   @Prop({ mutable: true }) clickable: boolean = false;
+
+  /**
+   * The padding of the horizontal card.
+   */
+  @Prop() density: IcCardDensity = "default";
 
   /**
    * If `true`, the horizontal card will be disabled if it is clickable.
@@ -89,7 +105,12 @@ export class Card {
   /**
    * The size of the horizontal card.
    */
-  @Prop() size: IcCardSizes = "medium";
+  @Prop() size: IcSizes = "medium";
+
+  /**
+   * The subheading for the card.
+   */
+  @Prop() subheading?: string;
 
   /**
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
@@ -131,7 +152,19 @@ export class Card {
     this.updateTheme();
 
     this.hostMutationObserver = new MutationObserver((mutationList) =>
-      renderDynamicChildSlots(mutationList, "image", this)
+      renderDynamicChildSlots(
+        mutationList,
+        [
+          "message",
+          "adornment",
+          this.IMAGE_LEFT,
+          this.IMAGE_RIGHT,
+          "icon",
+          this.INTERACTION_BUTTON,
+          "badge",
+        ],
+        this
+      )
     );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
@@ -187,6 +220,7 @@ export class Card {
     const {
       appearance,
       clickable,
+      density,
       disabled,
       heading,
       message,
@@ -198,6 +232,7 @@ export class Card {
       parentIsAnchorTag,
       isFocussed,
       size,
+      subheading,
       theme,
     } = this;
 
@@ -216,6 +251,9 @@ export class Card {
       target: target,
     };
 
+    const hasLeftImage = isSlotUsed(this.el, this.IMAGE_LEFT);
+    const hasRightImage = isSlotUsed(this.el, this.IMAGE_RIGHT);
+
     return (
       <Host class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}>
         <Component
@@ -227,33 +265,68 @@ export class Card {
             dark: appearance === IcBrandForegroundEnum.Dark,
             [`${size}`]: true,
             "with-icon": isSlotUsed(this.el, "icon"),
-            "with-image": isSlotUsed(this.el, "image"),
+            "with-image": hasLeftImage || hasRightImage,
+            spacious: density === "spacious",
           }}
           tabindex={clickable && !parentIsAnchorTag ? 0 : undefined}
           aria-disabled={disabled ? "true" : undefined}
           disabled={disabled ? true : undefined}
           {...attrs}
         >
-          {isSlotUsed(this.el, "image") && (
+          {hasLeftImage && (
             <div class="image">
-              <slot name="image"></slot>
+              <slot name="image-left"></slot>
             </div>
           )}
-          <div class="card-content">
+          <div
+            class={{
+              "card-content": true,
+              "left-image": hasLeftImage,
+              "right-image": hasRightImage,
+            }}
+          >
             <div class="card-header">
               {isSlotUsed(this.el, "icon") && (
                 <div class="icon">
                   <slot name="icon" />
                 </div>
               )}
-              <div class="card-title">
+              <div
+                class={{
+                  "card-title": true,
+                  "with-interaction-button": isSlotUsed(
+                    this.el,
+                    this.INTERACTION_BUTTON
+                  ),
+                }}
+              >
                 <slot name="heading">
                   <ic-typography variant="h4">
                     <p>{heading}</p>
                   </ic-typography>
                 </slot>
               </div>
+              {isSlotUsed(this.el, this.INTERACTION_BUTTON) && (
+                <div class="interaction-button">
+                  <slot name="interaction-button"></slot>
+                </div>
+              )}
             </div>
+            {density === "spacious" &&
+              (subheading || isSlotUsed(this.el, "subheading")) && (
+                <div class="subheading">
+                  <slot name="subheading">
+                    <ic-typography variant="subtitle-small">
+                      {subheading}
+                    </ic-typography>
+                  </slot>
+                </div>
+              )}
+            {density === "spacious" && isSlotUsed(this.el, "adornment") && (
+              <div class="adornment">
+                <slot name="adornment"></slot>
+              </div>
+            )}
             {(message || isSlotUsed(this.el, "message")) && (
               <div class="card-message">
                 {message && (
@@ -264,6 +337,11 @@ export class Card {
             )}
           </div>
           {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
+          {hasRightImage && (
+            <div class="image">
+              <slot name="image-right"></slot>
+            </div>
+          )}
         </Component>
       </Host>
     );

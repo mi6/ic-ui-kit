@@ -7,7 +7,7 @@ import { reactOutputTarget } from "@stencil/react-output-target";
 
 // If timestamp is undefined, it deletes timestamp from the json doc instead of empty string
 interface StencilOverride extends Omit<JsonDocs, "timestamp"> {
-  timestamp: string | undefined
+  timestamp: string | undefined;
 }
 
 export const config: Config = {
@@ -33,8 +33,12 @@ export const config: Config = {
         {
           src: "global/ag-theme-icds.css",
           dest: "ag-theme-icds.css",
-        }
-      ]
+        },
+        {
+          src: "global/icds-table-style.css",
+          dest: "icds-table-style.css",
+        },
+      ],
     },
     {
       type: "dist-custom-elements",
@@ -51,7 +55,7 @@ export const config: Config = {
       type: "docs-custom",
       generator: (docs: StencilOverride): void => {
         docs.timestamp = undefined;
-      }
+      },
     },
     {
       type: "docs-vscode",
@@ -68,22 +72,20 @@ export const config: Config = {
       "\\.svg": "<rootDir>/mocks/svgMock.ts",
     },
     coverageThreshold: {
-      './src/components/*/*.tsx': {
+      "./src/components/*/*.tsx": {
         branches: 80,
         functions: 80,
         lines: 80,
         statements: 80,
       },
-      './src/utils/*.ts': {
+      "./src/utils/*.ts": {
         branches: 80,
         functions: 80,
         lines: 80,
         statements: 80,
-      }
+      },
     },
-    setupFilesAfterEnv: [
-      "./src/testspec.setup.ts"
-    ]
+    setupFilesAfterEnv: ["./src/testspec.setup.ts"],
   },
   plugins: [
     inlineSvg(),

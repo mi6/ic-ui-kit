@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+import { html } from "lit-html";
 
 import {
   IcDataTableColumnObject,
@@ -1714,6 +1715,14 @@ export const LinksHTMLElements = (): HTMLIcDataTableElement => {
     });
   });
 
+  dataTable.setAttribute("row-selection", "true");
+  dataTable.addEventListener("icSelectedRowChange", (event: CustomEvent) => {
+    console.log("Selected row changed", event.detail);
+  });
+  dataTable.addEventListener("icSelectAllRows", (event: CustomEvent) => {
+    console.log("Selected all rows", event.detail);
+  });
+
   return dataTable;
 };
 
@@ -2330,4 +2339,78 @@ export const LongCellDescriptions = (): HTMLElement => {
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   wrapper.insertAdjacentElement("beforeend", dataTable);
   return wrapper;
+};
+
+const TableContent = (classToApply: string) => {
+  const strClass = "ic-table " + "ic-table-" + classToApply;
+  return html`<table class="${strClass}">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Age</th>
+        <th>Job title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Joe</td>
+        <td>Ashford</td>
+        <td>30</td>
+        <td>Developer</td>
+      </tr>
+      <tr>
+        <td>Sarah</td>
+        <td>Smith</td>
+        <td>28</td>
+        <td>Senior Software Developer</td>
+      </tr>
+      <tr>
+        <td>Mark</td>
+        <td>Owens</td>
+        <td>45</td>
+        <td>Team Lead</td>
+      </tr>
+    </tbody>
+  </table>`;
+};
+
+export const NativeTable = () => {
+  return html`<style>
+      .content {
+        color: var(--ic-color-text-primary);
+      }
+    </style>
+    <div class="content">
+      <h4>Styled native &lt;table&gt;</h4>
+      <br />
+      <code>&lt;table class="ic-table"&gt;</code>
+      <br />
+      <br />
+      ${TableContent("")}
+      <br />
+      <br />
+      <h4>Dense native &lt;table&gt;</h4>
+      <br />
+      <code>&lt;table class="ic-table ic-table-dense"&gt;</code>
+      <br />
+      <br />
+      ${TableContent("dense")}
+      <br />
+      <br />
+      <h4>Spacious native &lt;table&gt;</h4>
+      <br />
+      <code>&lt;table class="ic-table ic-table-spacious"&gt;</code>
+      <br />
+      <br />
+      ${TableContent("spacious")}
+      <br />
+      <br />
+      <h4>Embedded native &lt;table&gt;</h4>
+      <br />
+      <code>&lt;table class="ic-table ic-table-embedded"&gt;</code>
+      <br />
+      <br />
+      ${TableContent("embedded")}
+    </div>`;
 };

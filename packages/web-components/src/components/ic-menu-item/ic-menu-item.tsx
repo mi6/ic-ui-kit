@@ -218,6 +218,7 @@ export class MenuItem {
       <Host
         class={{
           ["ic-menu-item-disabled"]: !!this.disabled,
+          [`ic-menu-item-variant-${this.variant}`]: this.variant !== undefined,
         }}
       >
         <ic-button

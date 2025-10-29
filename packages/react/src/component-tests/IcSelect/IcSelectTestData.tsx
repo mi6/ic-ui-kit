@@ -643,3 +643,24 @@ export const DarkThemeSearchable = (): ReactElement => (
     />
   </div>
 );
+
+export const DarkThemeLoadingError = (): ReactElement => (
+  <div
+    style={{
+      backgroundColor: "var(--ic-color-page-background-dark)",
+      height: "100vh",
+      paddingLeft: "8px",
+    }}
+  >
+    <IcButton theme="dark" onClick={setLoading}>
+      Load
+    </IcButton>
+    <IcSelect
+      label="What is your favourite coffee?"
+      theme="dark"
+      timeout={200}
+      loadingErrorLabel="Loading Error"
+      options={[]}
+    />
+  </div>
+);

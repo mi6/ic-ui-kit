@@ -977,6 +977,28 @@ export const LoggingIcChange = {
   name: "Logging icChange",
 };
 
+export const LoggingIcKeydown = {
+  render: (args) =>
+    html`<script>
+        function handleIcChange(ev) {
+          console.log(ev.detail.value, "icChange");
+        }
+        document
+          .querySelector("ic-text-field")
+          .addEventListener(
+            "icKeydown",
+            ({ detail: { event, cursorPosition, selectionEnd } }) => {
+              console.log(
+                \`Key: \${event.code}, Cursor position: \${cursorPosition}, Selection end: \${selectionEnd}\`
+              );
+            }
+          );
+      </script>
+      <ic-text-field label="What is your favourite coffee?"> </ic-text-field>`,
+
+  name: "Logging icKeydown",
+};
+
 export const MaximumAndMinimumCharacters = {
   render: (args) =>
     html`<ic-text-field

@@ -51,4 +51,18 @@
   --ic-z-index-tooltip: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-classification-banner: calc(var(--ic-z-index-base-value) + 200);
   --ic-z-index-skip-link: calc(var(--ic-z-index-base-value) + 210);
+
+  /* table tokens */
+  --ic-table-cell-padding: var(--ic-space-xs);
+  --ic-table-cell-padding-dense: var(--ic-space-xxs) var(--ic-space-xs);
+  --ic-table-cell-padding-spacious: 0.625rem var(--ic-space-xs);
+  --ic-table-cell-border: var(--ic-space-1px) solid
+    var(--ic-data-table-cell-keyline);
+  --ic-table-embedded-border: var(--ic-space-1px) solid
+    var(--ic-data-table-border);
+  --ic-table-font-size-dense: var(--ic-font-size-label);
+  --ic-table-font-size-spacious: 1.125rem;
+  --ic-table-heading-border: var(--ic-space-1px) solid
+    var(--ic-data-table-header-keyline);
+  --ic-table-text-line-height: 1.5rem;
 }

@@ -40,6 +40,7 @@ import {
   Updating,
   UpdatingData,
   SelectWithCheckbox,
+  NativeTable,
 } from "./story-data";
 
 export default {
@@ -509,4 +510,15 @@ export const SelectRowsUsingCheckboxExample = {
 export const DevAreaExample = {
   render: () => DevArea(),
   name: "Dev area",
+};
+
+/**
+ * A native HTML `<table>` element can easily be styled to look like an `ic-data-table`. Simply import `icds-table-style.css` from the `@ukic/web-components` package (`import "@ukic/web-components/dist/core/icds-table-style.css"`) and then add the `ic-table` class name to the `<table>` element.
+ *
+ * Additional styling can be applied using other class names on the `<table>` element
+ *
+ */
+export const StyledNativeTables = {
+  render: () => NativeTable(),
+  name: "Styled native tables",
 };

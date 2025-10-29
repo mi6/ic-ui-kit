@@ -658,6 +658,19 @@ export const HiddenInput_ = {
   name: "Hidden input",
 };
 
+export const LoggingIcKeydown = {
+  render: () => (
+    <>
+      <IcTextField label="What is your favourite coffee?"
+        onIcKeydown={({ detail: { event, cursorPosition, selectionEnd } }) => {
+          console.log(`Key: ${event.code}, Cursor position: ${cursorPosition}, Selection end: ${selectionEnd}`);
+        }}
+      />
+    </>
+  ),
+  name: "Logging IcKeydown"
+}
+
 export const Playground = {
   render: (args) => (
     <div

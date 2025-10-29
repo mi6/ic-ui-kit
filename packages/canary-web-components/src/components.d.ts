@@ -5,18 +5,16 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-import { IcThemeMode } from "@ukic/web-components";
+import { IcAriaLive, IcCardDensity, IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-import { IcAriaLive, IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
+import { IcThemeMode as IcThemeMode1 } from "@ukic/web-components";
 import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
-export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-export { IcThemeMode } from "@ukic/web-components";
+export { IcAriaLive, IcCardDensity, IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-export { IcAriaLive, IcDateFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
+export { IcThemeMode as IcThemeMode1 } from "@ukic/web-components";
 export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export namespace Components {
@@ -25,6 +23,10 @@ export namespace Components {
           * If `true`, the horizontal card will be a clickable variant, instead of static.
          */
         "clickable": boolean;
+        /**
+          * The padding of the horizontal card.
+         */
+        "density": IcCardDensity;
         /**
           * If `true`, the horizontal card will be disabled if it is clickable.
          */
@@ -60,7 +62,11 @@ export namespace Components {
         /**
           * The size of the horizontal card.
          */
-        "size": IcCardSizes;
+        "size": IcSizes;
+        /**
+          * The subheading for the card.
+         */
+        "subheading"?: string;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -182,7 +188,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
@@ -327,7 +333,7 @@ export namespace Components {
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         "triggerIcChange": (d: Date | null) => Promise<void>;
         /**
           * The value of the `aria-live` attribute on the validation message.
@@ -454,7 +460,7 @@ export namespace Components {
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * The value of the `aria-live` attribute on the validation message.
          */
@@ -535,7 +541,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -573,7 +579,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the table of contents item label will be truncated.
          */
@@ -649,7 +655,7 @@ export namespace Components {
         /**
           * Sets the time picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * The format in which the time will be displayed.
          */
@@ -724,7 +730,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Sets the tree item id. Must be unique.
          */
@@ -747,7 +753,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * The content within the tree view tree items. This will take precedence over slotted content.
          */
@@ -803,6 +809,8 @@ declare global {
         "icSelectedRowChange": {
     row: IcDataTableDataType | null;
     selectedRows: IcDataTableDataType[];
+    icRowId: string | null;
+    selectedIcRowIds: string[];
   };
         "icColumnsLoaded": void;
         "icDataLoaded": void;
@@ -982,6 +990,10 @@ declare namespace LocalJSX {
          */
         "clickable"?: boolean;
         /**
+          * The padding of the horizontal card.
+         */
+        "density"?: IcCardDensity;
+        /**
           * If `true`, the horizontal card will be disabled if it is clickable.
          */
         "disabled"?: boolean;
@@ -1012,7 +1024,11 @@ declare namespace LocalJSX {
         /**
           * The size of the horizontal card.
          */
-        "size"?: IcCardSizes;
+        "size"?: IcSizes;
+        /**
+          * The subheading for the card.
+         */
+        "subheading"?: string;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -1114,6 +1130,8 @@ declare namespace LocalJSX {
         "onIcSelectedRowChange"?: (event: IcDataTableCustomEvent<{
     row: IcDataTableDataType | null;
     selectedRows: IcDataTableDataType[];
+    icRowId: string | null;
+    selectedIcRowIds: string[];
   }>) => void;
         /**
           * Emitted when a column sort button is clicked.
@@ -1157,7 +1175,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
@@ -1320,7 +1338,7 @@ declare namespace LocalJSX {
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * The value of the `aria-live` attribute on the validation message.
          */
@@ -1450,7 +1468,7 @@ declare namespace LocalJSX {
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * The value of the `aria-live` attribute on the validation message.
          */
@@ -1539,7 +1557,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -1577,7 +1595,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the table of contents item label will be truncated.
          */
@@ -1668,7 +1686,7 @@ declare namespace LocalJSX {
         /**
           * Sets the time picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * The format in which the time will be displayed.
          */
@@ -1749,7 +1767,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Sets the tree item id. Must be unique.
          */
@@ -1771,7 +1789,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * The content within the tree view tree items. This will take precedence over slotted content.
          */

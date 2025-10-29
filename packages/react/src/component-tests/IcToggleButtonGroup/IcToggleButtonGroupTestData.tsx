@@ -1,5 +1,9 @@
-import React, { ReactElement } from "react";
-import { IcToggleButton, IcToggleButtonGroup } from "../../components";
+import React, { ReactElement, useState } from "react";
+import {
+  IcToggleButton,
+  IcToggleButtonGroup,
+  IcButton,
+} from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const ReusableSlottedIcon = (): ReactElement => (
@@ -298,6 +302,32 @@ export const ToggleGroupHiddenOutline = (): ReactElement => {
         <IcToggleButton label="First toggle"></IcToggleButton>
         <IcToggleButton label="Second toggle" checked></IcToggleButton>
         <IcToggleButton label="Third toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+    </div>
+  );
+};
+
+export const ToggleGroupControlledExample = (): ReactElement => {
+  const [buttonState, setButtonState] = useState(true);
+  return (
+    <div>
+      <IcButton onClick={() => setButtonState(!buttonState)}> Button </IcButton>
+      <IcToggleButtonGroup
+        accessibleLabel="Alternatives to milk selection"
+        selectType="single"
+        selectMethod="manual"
+        disabled={true}
+      >
+        <IcToggleButton
+          label="Switch to almond milk"
+          disabled={false}
+          checked={buttonState === true}
+        />
+        <IcToggleButton
+          label="Switch to oat milk"
+          checked={buttonState === false}
+          disabled={false}
+        />
       </IcToggleButtonGroup>
     </div>
   );

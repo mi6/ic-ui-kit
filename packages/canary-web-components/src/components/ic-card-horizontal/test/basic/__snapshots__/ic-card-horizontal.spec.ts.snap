@@ -216,6 +216,38 @@ exports[`ic-card-horizontal should render small 1`] = `
 </ic-card-horizontal>
 `;
 
+exports[`ic-card-horizontal should render with a badge 1`] = `
+<ic-card-horizontal heading="Card" id="test-card" message="This is a card">
+  <template shadowrootmode="open">
+    <div class="card medium">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a card
+          </ic-typography>
+        </div>
+      </div>
+      <slot name="badge"></slot>
+    </div>
+  </template>
+  <ic-badge class="ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show ic-badge-text" role="status" slot="badge">
+    <template shadowrootmode="open"></template>
+    Badge
+  </ic-badge>
+</ic-card-horizontal>
+`;
+
 exports[`ic-card-horizontal should render with a link parent 1`] = `
 <ic-card-horizontal clickable="true" heading="Card" message="This is a clickable card">
   <template shadowrootmode="open">
@@ -281,6 +313,59 @@ exports[`ic-card-horizontal should render with a slotted heading and message 1`]
 </ic-card-horizontal>
 `;
 
+exports[`ic-card-horizontal should render with a slotted heading, subheading and message in spacious layout 1`] = `
+<ic-card-horizontal density="spacious" id="test-card">
+  <template shadowrootmode="open">
+    <div class="card medium spacious">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography class="ic-typography-h4">
+                <template shadowrootmode="open">
+                  <slot></slot>
+                </template>
+                <p></p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="subheading">
+          <slot name="subheading">
+            <ic-typography class="ic-typography-subtitle-small">
+              <template shadowrootmode="open">
+                <slot></slot>
+              </template>
+            </ic-typography>
+          </slot>
+        </div>
+        <div class="card-message">
+          <slot name="message"></slot>
+        </div>
+      </div>
+    </div>
+  </template>
+  <ic-typography class="ic-typography-body" slot="heading">
+    <template shadowrootmode="open">
+      <slot></slot>
+    </template>
+    Heading
+  </ic-typography>
+  <ic-typography class="ic-typography-body" slot="subheading">
+    <template shadowrootmode="open">
+      <slot></slot>
+    </template>
+    Subheading
+  </ic-typography>
+  <ic-typography class="ic-typography-body" slot="message">
+    <template shadowrootmode="open">
+      <slot></slot>
+    </template>
+    Message
+  </ic-typography>
+</ic-card-horizontal>
+`;
+
 exports[`ic-card-horizontal should render with an icon 1`] = `
 <ic-card-horizontal heading="Card" id="test-card" message="This is a card">
   <template shadowrootmode="open">
@@ -319,9 +404,9 @@ exports[`ic-card-horizontal should render with an image 1`] = `
   <template shadowrootmode="open">
     <div class="card medium with-image">
       <div class="image">
-        <slot name="image"></slot>
+        <slot name="image-left"></slot>
       </div>
-      <div class="card-content">
+      <div class="card-content left-image">
         <div class="card-header">
           <div class="card-title">
             <slot name="heading">
@@ -341,8 +426,150 @@ exports[`ic-card-horizontal should render with an image 1`] = `
       </div>
     </div>
   </template>
-  <div slot="image">
+  <div slot="image-left">
     Image placeholder
+  </div>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render with an image on the right 1`] = `
+<ic-card-horizontal heading="Card" id="test-card" message="This is a card">
+  <template shadowrootmode="open">
+    <div class="card medium with-image">
+      <div class="card-content right-image">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a card
+          </ic-typography>
+        </div>
+      </div>
+      <div class="image">
+        <slot name="image-right"></slot>
+      </div>
+    </div>
+  </template>
+  <div slot="image-right">
+    Image placeholder
+  </div>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render with an interaction button 1`] = `
+<ic-card-horizontal heading="Card" id="test-card" message="This is a card">
+  <template shadowrootmode="open">
+    <div class="card medium">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title with-interaction-button">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+          <div class="interaction-button">
+            <slot name="interaction-button"></slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </template>
+  <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" slot="interaction-button" variant="icon-tertiary">
+    <template shadowrootmode="open">
+      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-0" label="More information" placement="bottom" target="ic-button-with-tooltip-0">
+        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-0" class="button" part="button" tabindex="0" type="button">
+          <slot></slot>
+        </button>
+      </ic-tooltip>
+    </template>
+    <svg class="bi bi-three-dots-vertical" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
+    </svg>
+  </ic-button>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render with spacious layout 1`] = `
+<ic-card-horizontal density="spacious" heading="Card" message="This is a static card">
+  <template shadowrootmode="open">
+    <div class="card medium spacious">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render with spacious layout and a subheading and adornment 1`] = `
+<ic-card-horizontal density="spacious" heading="Card" message="This is a static card" subheading="This is a subheading">
+  <template shadowrootmode="open">
+    <div class="card medium spacious">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="subheading">
+          <slot name="subheading">
+            <ic-typography variant="subtitle-small">
+              This is a subheading
+            </ic-typography>
+          </slot>
+        </div>
+        <div class="adornment">
+          <slot name="adornment"></slot>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </template>
+  <div slot="adornment">
+    Adornment
   </div>
 </ic-card-horizontal>
 `;

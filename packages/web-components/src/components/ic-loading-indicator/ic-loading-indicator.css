@@ -28,20 +28,20 @@
   align-items: center;
 }
 
-:host([size="small"]) {
+:host(.ic-loading-indicator-size-small) {
   --circular-diameter: 2.5rem;
   --linear-line-height: var(--ic-space-xxs);
 }
 
-:host([size="medium"]) {
+:host(.ic-loading-indicator-size-medium) {
   --circular-diameter: 5rem;
 }
 
-:host([size="large"]) {
+:host(.ic-loading-indicator-size-large) {
   --circular-diameter: 7.5rem;
 }
 
-:host([size="icon"]) {
+:host(.ic-loading-indicator-size-icon) {
   display: inline-block;
 
   --margin: var(--ic-space-xxxs);

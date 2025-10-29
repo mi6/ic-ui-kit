@@ -161,7 +161,7 @@
 }
 
 @media (min-width: 800px) {
-  :host([size="large"]) .dialog:not(.disable-width-constraint) > .content-area {
+  .large:not(.disable-width-constraint) > .content-area {
     width: 75%;
   }
 }

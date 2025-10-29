@@ -725,3 +725,8 @@ export const getElementInheritedTheme = (el: HTMLElement): IcThemeMode => {
     ? "dark"
     : "light";
 };
+
+export const isSafari =
+  /safari/i.test(window.navigator.userAgent) &&
+  !/Edge/i.test(window.navigator.userAgent) &&
+  !/chrome/i.test(window.navigator.userAgent);

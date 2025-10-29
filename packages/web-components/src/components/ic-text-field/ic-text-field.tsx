@@ -43,6 +43,7 @@ import {
 import {
   IcAriaAutocompleteTypes,
   IcTextFieldInputModes,
+  IcTextFieldKeydownEventDetail,
   IcTextFieldTypes,
 } from "./ic-text-field.types";
 
@@ -367,7 +368,7 @@ export class TextField {
   /**
    * Emitted when a keydown event occurred.
    */
-  @Event() icKeydown: EventEmitter<{ event: KeyboardEvent }>;
+  @Event() icKeydown: EventEmitter<IcTextFieldKeydownEventDetail>;
 
   /**
    * Emitted when the textarea variant is scrolled.
@@ -442,7 +443,11 @@ export class TextField {
 
   @Listen("keydown", {})
   handleKeyDown(ev: KeyboardEvent): void {
-    this.icKeydown.emit({ event: ev });
+    this.icKeydown.emit({
+      event: ev,
+      cursorPosition: this.inputEl.selectionStart ?? 0,
+      selectionEnd: this.inputEl.selectionEnd ?? 0,
+    });
 
     if (!ev.ctrlKey && !IGNORED_KEYBOARD_CHARACTERS.includes(ev.key)) {
       this.maxCharactersWarning = this.maxCharactersReached;

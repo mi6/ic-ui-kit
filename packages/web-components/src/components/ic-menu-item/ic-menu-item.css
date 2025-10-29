@@ -40,7 +40,7 @@
   --ic-typography-color: var(--ic-popover-menu-item-label-disabled) !important;
 }
 
-:host([variant="destructive"]) ::part(button) {
+:host(.ic-menu-item-variant-destructive) ::part(button) {
   color: var(--ic-popover-menu-destructive-item-icon);
 
   --ic-typography-color: var(--ic-popover-menu-destructive-item-label);
@@ -67,8 +67,8 @@
   --ic-typography-color: orange !important;
 }
 
-:host([variant="destructive"]) ::part(button):focus-visible,
-:host([variant="destructive"]) ::part(button):focus {
+:host(.ic-menu-item-variant-destructive) ::part(button):focus-visible,
+:host(.ic-menu-item-variant-destructive) ::part(button):focus {
   background-color: var(--ic-popover-destructive-background-focus);
 }
 
@@ -95,7 +95,7 @@ ic-button:focus-within .menu-item-description {
   --ic-typography-color: var(--ic-popover-menu-item-label) !important;
 }
 
-:host([variant="destructive"]) ::part(button):active {
+:host(.ic-menu-item-variant-destructive) ::part(button):active {
   background-color: var(--ic-popover-background-pressed);
   color: var(--ic-popover-menu-destructive-item-label) !important;
 
@@ -130,7 +130,7 @@ ic-button:focus-within .menu-item-description {
   flex: min-content;
 }
 
-:host([variant="destructive"]) .menu-item-label {
+:host(.ic-menu-item-variant-destructive) .menu-item-label {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.025em;
@@ -148,7 +148,7 @@ ic-button:active .shortcut {
   --ic-typography-color: var(--ic-popover-menu-item-shortcut);
 }
 
-:host([variant="destructive"]) ic-button:active .menu-item-label {
+:host(.ic-menu-item-variant-destructive) ic-button:active .menu-item-label {
   --ic-typography-color: var(
     --ic-popover-menu-destructive-item-label
   ) !important;

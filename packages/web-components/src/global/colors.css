@@ -1088,7 +1088,7 @@
   --ic-atoms-status-icon-warning-light: var(--ic-status-warning-default);
   --ic-atoms-status-icon-warning-dark: var(--ic-status-warning-light);
   --ic-atoms-status-icon-error-light: var(--ic-status-error-default);
-  --ic-atoms-status-icon-error-dark: var(--ic-status-error-light);
+  --ic-atoms-status-icon-error-dark: var(--ic-status-error-default-dm);
   --ic-atoms-status-icon-neutral-light: var(--ic-status-unknown-default);
   --ic-atoms-status-icon-neutral-dark: var(--ic-status-unknown-light);
   --ic-atoms-status-icon-info-light: var(--ic-status-info-default);

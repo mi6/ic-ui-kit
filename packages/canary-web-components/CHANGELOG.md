@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.29](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.28...@ukic/canary-web-components@3.0.0-canary.29) (2025-10-29)
+
+### Bug Fixes
+
+- **canary-web-components:** fix select all in data table ([bc0c532](https://github.com/mi6/ic-ui-kit/commit/bc0c532ebe0a57258419d6af19d7fa8258815386))
+- **canary-web-components:** update css selector to use classname for canary component ([589b141](https://github.com/mi6/ic-ui-kit/commit/589b1411841bfc13105c264af76d8e3eda4fa9f8))
+
+### Features
+
+- **canary-web-components:** add density prop,interaction button and image right slot,and subheading ([2887e4a](https://github.com/mi6/ic-ui-kit/commit/2887e4ac0a96519890818aa2ef4819b8d14e0137)), closes [#3932](https://github.com/mi6/ic-ui-kit/issues/3932)
+- **canary-web-components:** adds optional css theme for native tables ([440fd32](https://github.com/mi6/ic-ui-kit/commit/440fd32e39a36ff9b2a226e34c7531fe904abdeb))
+
 # [3.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.24...@ukic/canary-web-components@3.0.0-canary.28) (2025-10-15)
 
 ### Bug Fixes

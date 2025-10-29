@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from 'react';
-import { IcToggleButton, IcToggleButtonGroup, IcTypography } from "../components";
+import React, { useState } from 'react';
+import { IcToggleButton, IcToggleButtonGroup, IcTypography, IcButton } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const defaultArgs = {
@@ -379,6 +379,37 @@ export const HideOutline = {
   ),
 
   name: "Hide outline",
+};
+
+const ControlledExample = () => {
+  const [buttonState, setButtonState] = useState(true);
+  return (
+    <div>
+      <IcButton onClick={() => setButtonState(!buttonState)}> Button </IcButton>
+      <IcToggleButtonGroup
+        accessibleLabel="Alternatives to milk selection"
+        selectType="single"
+        selectMethod="manual"
+        disabled={true}
+      >
+        <IcToggleButton
+          label="Switch to almond milk"
+          disabled={false}
+          checked={buttonState === true}
+        />
+        <IcToggleButton
+          label="Switch to oat milk"
+          checked={buttonState === false}
+          disabled={false}
+        />
+      </IcToggleButtonGroup>
+    </div>
+  );
+};
+
+export const Controlled = {
+  render: () => <ControlledExample />,
+  name: "Controlled",
 };
 
 export const Playground = {

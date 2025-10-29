@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.29](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.28...@ukic/canary-react@3.0.0-canary.29) (2025-10-29)
+
+### Bug Fixes
+
+- **canary-react:** ic-data-table test fix ([aae2412](https://github.com/mi6/ic-ui-kit/commit/aae24127cb373970efeabdc7c287d2d1270d034a))
+
+### Features
+
+- **canary-react:** add density prop,interaction button and image right slot,and subheading ([0d059a6](https://github.com/mi6/ic-ui-kit/commit/0d059a639dfc2c4d81ea63271eaed3d34ccca9bd))
+- **canary-react:** adds optional css theme for native tables ([061af18](https://github.com/mi6/ic-ui-kit/commit/061af18bf1f2acc227ab38e1683baaeb97e76a4c))
+
 # [3.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.24...@ukic/canary-react@3.0.0-canary.28) (2025-10-15)
 
 ### Bug Fixes
