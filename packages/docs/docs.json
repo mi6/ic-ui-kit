@@ -23356,7 +23356,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldKeydownEventDetail": {
-      "declaration": "export interface IcTextFieldKeydownEventDetail {\n  event: KeyboardEvent;\n  cursorPosition: number | null;\n  selectionEnd: number | null;\n}",
+      "declaration": "export interface IcTextFieldKeydownEventDetail {\n  event: KeyboardEvent;\n  cursorPosition: number;\n  selectionEnd: number;\n}",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
