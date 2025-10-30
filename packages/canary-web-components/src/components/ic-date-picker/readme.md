@@ -55,14 +55,6 @@
 | `"helper-text"` | Content is set as the helper text for the date picker. |
 
 
-## CSS Custom Properties
-
-| Name                       | Description              |
-| -------------------------- | ------------------------ |
-| `--ic-z-index-date-picker` | z-index of date picker.  |
-| `--input-width`            | Width of the input field |
-
-
 ## Dependencies
 
 ### Depends on
