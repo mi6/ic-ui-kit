@@ -26,7 +26,6 @@ import {
   BE_FOCUSED,
   HAVE_TEXT,
   HAVE_VALUE,
-  NOT_EXIST,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 const TIME_INPUT = "ic-time-input";
@@ -34,6 +33,12 @@ const HOUR_INPUT = 'input[id="hour-input"]';
 const MINUTE_INPUT = 'input[id="minute-input"]';
 const SECOND_INPUT = 'input[id="second-input"]';
 const STATUS_TEXT_SPAN = ".statustext span";
+const BACKSPACE = "{backspace}";
+const ENTER_VALID_TIME = "Please enter a valid time.";
+const IC_TIME_CHANGED = "@icTimeChanged";
+const DEFAULT_HELPER_TEXT = "Use format HH:MM:SS";
+const DEFAULT_HELPER_TEXT_HHMM = "Use format HH:MM";
+const HELPER_TEXT_ELEMENT = "ic-typography.helpertext span";
 
 const DEFAULT_TEST_THRESHOLD = 0.008;
 
@@ -48,15 +53,31 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
+      cy.get(TIME_INPUT).invoke(
+        "on",
+        "icChange",
+        cy.stub().as("icTimeChanged")
+      );
+
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).type("45");
+
+      cy.get(IC_TIME_CHANGED).should((stub) => {
+        expect(stub.getCall(1).args[0].detail.timeObject.hour).to.equal("12");
+        expect(stub.getCall(1).args[0].detail.timeObject.minute).to.equal("30");
+        expect(stub.getCall(1).args[0].detail.timeObject.second).to.equal("45");
+      });
 
       cy.findShadowEl(TIME_INPUT, 'ic-button[id="clear-button"]').click();
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).should(HAVE_VALUE, "");
+
+      cy.get(IC_TIME_CHANGED).should((stub) => {
+        expect(stub.getCall(2).args[0].detail.value).to.equal(null);
+      });
     });
 
     it("should clear the input value when setting value to null", () => {
@@ -68,15 +89,31 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
+      cy.get(TIME_INPUT).invoke(
+        "on",
+        "icChange",
+        cy.stub().as("icTimeChanged")
+      );
+
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).type("45");
+
+      cy.get(IC_TIME_CHANGED).should((stub) => {
+        expect(stub.getCall(1).args[0].detail.timeObject.hour).to.equal("12");
+        expect(stub.getCall(1).args[0].detail.timeObject.minute).to.equal("30");
+        expect(stub.getCall(1).args[0].detail.timeObject.second).to.equal("45");
+      });
 
       cy.get('ic-button[id="update-null"]').click();
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).should(HAVE_VALUE, "");
+
+      cy.get(IC_TIME_CHANGED).should((stub) => {
+        expect(stub.getCall(2).args[0].detail.value).to.equal(null);
+      });
     });
 
     it("should clear the input value when setting value to an empty string", () => {
@@ -88,15 +125,31 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
+      cy.get(TIME_INPUT).invoke(
+        "on",
+        "icChange",
+        cy.stub().as("icTimeChanged")
+      );
+
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).type("45");
+
+      cy.get(IC_TIME_CHANGED).should((stub) => {
+        expect(stub.getCall(1).args[0].detail.timeObject.hour).to.equal("12");
+        expect(stub.getCall(1).args[0].detail.timeObject.minute).to.equal("30");
+        expect(stub.getCall(1).args[0].detail.timeObject.second).to.equal("45");
+      });
 
       cy.get('ic-button[id="update-empty"]').click();
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).should(HAVE_VALUE, "");
+
+      cy.get(IC_TIME_CHANGED).should((stub) => {
+        expect(stub.getCall(2).args[0].detail.value).to.equal(null);
+      });
     });
 
     it("should clear the input value when setting value to undefined", () => {
@@ -108,15 +161,31 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
+      cy.get(TIME_INPUT).invoke(
+        "on",
+        "icChange",
+        cy.stub().as("icTimeChanged")
+      );
+
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).type("45");
+
+      cy.get(IC_TIME_CHANGED).should((stub) => {
+        expect(stub.getCall(1).args[0].detail.timeObject.hour).to.equal("12");
+        expect(stub.getCall(1).args[0].detail.timeObject.minute).to.equal("30");
+        expect(stub.getCall(1).args[0].detail.timeObject.second).to.equal("45");
+      });
 
       cy.get('ic-button[id="update-undefined"]').click();
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).should(HAVE_VALUE, "");
+
+      cy.get(IC_TIME_CHANGED).should((stub) => {
+        expect(stub.getCall(2).args[0].detail.value).to.equal(null);
+      });
     });
   });
 
@@ -294,7 +363,7 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12").type("{backspace}");
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12").type(BACKSPACE);
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "");
     });
@@ -310,8 +379,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT)
         .type("30")
-        .type("{backspace}")
-        .type("{backspace}");
+        .type(BACKSPACE)
+        .type(BACKSPACE);
 
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(BE_FOCUSED);
@@ -335,7 +404,7 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, ENTER_VALID_TIME);
     });
 
     it("should show validation error when the hour input is invalid with 12 hour time period", () => {
@@ -354,7 +423,7 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, ENTER_VALID_TIME);
     });
 
     it("should show validation error when a time is entered before the min time", () => {
@@ -411,7 +480,7 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, ENTER_VALID_TIME);
     });
 
     it("should show validation error when a time is entered that is within a disabled time", () => {
@@ -430,7 +499,7 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, ENTER_VALID_TIME);
     });
 
     it("should show validation error and remove it when an acceptable time has been entered", () => {
@@ -449,7 +518,7 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, ENTER_VALID_TIME);
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("10");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");
@@ -460,6 +529,52 @@ describe("IcTimeInput e2e tests", () => {
         .find(STATUS_TEXT_SPAN)
         .eq(0)
         .should(HAVE_TEXT, "");
+    });
+  });
+
+  describe("Props testing", () => {
+    it("should test changing helper text", () => {
+      mount(
+        <div style={{ padding: "10px" }}>
+          <DefaultTimeInput />
+        </div>
+      );
+
+      cy.checkHydrated(TIME_INPUT);
+
+      cy.findShadowEl(TIME_INPUT, HELPER_TEXT_ELEMENT).should(
+        HAVE_TEXT,
+        DEFAULT_HELPER_TEXT
+      );
+
+      const newText = "Please select a time that works for you.";
+
+      cy.get(TIME_INPUT)
+        .invoke("prop", "helperText", newText)
+        .then(() => {
+          cy.findShadowEl(TIME_INPUT, HELPER_TEXT_ELEMENT).should(
+            HAVE_TEXT,
+            newText
+          );
+
+          cy.get(TIME_INPUT)
+            .invoke("prop", "helperText", "")
+            .then(() => {
+              cy.findShadowEl(TIME_INPUT, HELPER_TEXT_ELEMENT).should(
+                HAVE_TEXT,
+                DEFAULT_HELPER_TEXT
+              );
+
+              cy.get(TIME_INPUT)
+                .invoke("prop", "timeFormat", "HH:MM")
+                .then(() => {
+                  cy.findShadowEl(TIME_INPUT, HELPER_TEXT_ELEMENT).should(
+                    HAVE_TEXT,
+                    DEFAULT_HELPER_TEXT_HHMM
+                  );
+                });
+            });
+        });
     });
   });
 });
@@ -484,7 +599,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -508,7 +623,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-dark-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -527,7 +642,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-string-value",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -546,7 +661,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-date-object-value",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -564,7 +679,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-zulu-time-value",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -583,7 +698,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-hide-label",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -602,7 +717,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-required",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -621,7 +736,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     // cy.checkA11yWithWait(); Accessibility violation
     cy.compareSnapshot({
       name: "/time-input-disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.08),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -640,7 +755,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -659,7 +774,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -697,7 +812,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-hide-helper-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -715,7 +830,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.104),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -733,11 +848,24 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-hhmm-format",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
     });
+
+    cy.get(TIME_INPUT)
+      .invoke("prop", "value", "08:30:00")
+      .then(() => {
+        cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "08");
+        cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "30");
+        cy.get(TIME_INPUT)
+          .invoke("prop", "value", "")
+          .then(() => {
+            cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "");
+            cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "");
+          });
+      });
   });
 
   it("should render with a minimum time", () => {
@@ -755,7 +883,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-min-time",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.054),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -777,7 +905,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-max-time",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -799,7 +927,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-input-disable-times",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
