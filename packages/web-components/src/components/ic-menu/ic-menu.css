@@ -173,7 +173,7 @@
   height: var(--ic-space-md);
   width: var(--ic-space-md);
   margin-top: var(--ic-space-xxs);
-  margin-right: var(--ic-space-xxxs);
+  margin-right: var(--ic-space-xxs);
 }
 
 .option-text-container {
