@@ -127,6 +127,11 @@ export class TimeInput {
    * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `timeFormat` value.
    */
   @Prop({ mutable: true }) helperText: string | null;
+  @Watch("helperText")
+  watchHelperTextHandler(useDefault = false): void {
+    if (isEmptyString(this.helperText) || useDefault === true)
+      this.helperText = this.defaultHelperText;
+  }
 
   /**
    * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
@@ -221,6 +226,12 @@ export class TimeInput {
    * The format in which the time will be displayed.
    */
   @Prop() timeFormat: IcTimeFormat = this.DEFAULT_TIME_FORMAT;
+  @Watch("timeFormat")
+  watchTimeFormatHandler(): void {
+    const oldDefaultHelperText = this.defaultHelperText;
+    this.defaultHelperText = `Use format ${this.timeFormat}`;
+    this.watchHelperTextHandler(this.helperText === oldDefaultHelperText);
+  }
 
   /**
    * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
@@ -279,9 +290,8 @@ export class TimeInput {
   }
 
   componentWillLoad(): void {
-    this.defaultHelperText = `Use format ${this.timeFormat}`;
-    if (isEmptyString(this.helperText))
-      this.helperText = this.defaultHelperText;
+    this.watchTimeFormatHandler();
+    this.watchHelperTextHandler();
     if (this.value) {
       this.externalSetTime = true;
       this.setTime(this.value);
@@ -322,8 +332,6 @@ export class TimeInput {
   }
 
   componentWillUpdate(): void {
-    if (isEmptyString(this.helperText))
-      this.helperText = this.defaultHelperText;
     if (!this.isTimeSetFromKeyboardEvent) this.setTime(this.value);
     this.setAriaInvalid(
       this.isValidHour,
@@ -700,7 +708,7 @@ export class TimeInput {
         !(this.selectedTime === null && this.previousSelectedTime === null) &&
         this.selectedTimeInfoEl
       ) {
-        this.setValueAndEmitChange(null);
+        this.setValueAndEmitChange(null, true);
         this.selectedTimeInfoEl.textContent = "";
       }
       this.previousSelectedTime = this.selectedTime;
@@ -710,8 +718,8 @@ export class TimeInput {
     }
   };
 
-  private setValueAndEmitChange = (value: Date | null) => {
-    if (this.value !== value) {
+  private setValueAndEmitChange = (value: Date | null, force = false) => {
+    if (this.value !== value || force) {
       this.emitIcChange(value);
       this.value = value;
     }
@@ -950,11 +958,9 @@ export class TimeInput {
     minute: string,
     second: string
   ) => {
-    if (this.hourInputEl && this.minuteInputEl && this.secondInputEl) {
-      this.hourInputEl.value = hour;
-      this.minuteInputEl.value = minute;
-      this.secondInputEl.value = second;
-    }
+    this.hourInputEl && (this.hourInputEl.value = hour);
+    this.minuteInputEl && (this.minuteInputEl.value = minute);
+    this.secondInputEl && (this.secondInputEl.value = second);
   };
 
   private removeAriaLabelledBy = () => {
