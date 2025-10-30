@@ -16,9 +16,14 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 
 import closeIcon from "../../assets/close-icon.svg";
 
-import { isSlotUsed } from "../../utils/helpers";
+import {
+  focusElement,
+  handleFocusTrapTabKeyPress,
+  isSlotUsed,
+  slottedInteractiveElements,
+} from "../../utils/helpers";
 import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./ic-drawer.types";
-import { IcFocusableComponents, IcSizes, IcThemeMode } from "../../utils/types";
+import { IcSizes, IcThemeMode } from "../../utils/types";
 
 /**
  * @slot heading - Content will be rendered in the title area, in place of the heading.
@@ -33,14 +38,8 @@ import { IcFocusableComponents, IcSizes, IcThemeMode } from "../../utils/types";
   shadow: true,
 })
 export class Drawer {
-  private DATA_GETS_FOCUS = "data-gets-focus";
   private DEFAULT_CLOSE_BUTTON_ARIA_LABEL = "Close drawer";
   private DEFAULT_OPEN_BUTTON_ARIA_LABEL = "Open drawer";
-  private IC_ACCORDION = "IC-ACCORDION";
-  private IC_ACCORDION_GROUP = "IC-ACCORDION-GROUP";
-  private IC_CHECKBOX = "IC-CHECKBOX";
-  private IC_SEARCH_BAR = "IC-SEARCH-BAR";
-  private IC_TEXT_FIELD = "IC-TEXT-FIELD";
   private TRANSITION_DURATION = 300;
 
   private focusedElementIndex = 0;
@@ -130,7 +129,13 @@ export class Drawer {
     if (this.expanded) {
       switch (ev.key) {
         case "Tab":
-          if (this.onTabKeyPress(ev.shiftKey)) {
+          const tabKeyPressResult = handleFocusTrapTabKeyPress(
+            this.focusedElementIndex,
+            this.interactiveElementList,
+            ev.shiftKey
+          );
+          this.focusedElementIndex = tabKeyPressResult.newFocusedElementIndex;
+          if (tabKeyPressResult.preventDefault) {
             ev.preventDefault();
           }
           break;
@@ -198,72 +203,72 @@ export class Drawer {
   //   }
   // };
 
-  private focusElement = (element: HTMLElement, shiftKey = false) => {
-    let nextFocusEl = element;
+  // private focusElement = (element: HTMLElement, shiftKey = false) => {
+  //   let nextFocusEl = element;
 
-    if (this.shouldSkipElement(element)) {
-      this.setFocusIndexBasedOnShiftKey(shiftKey);
-      this.loopNextFocusIndexIfLastElement();
+  //   if (this.shouldSkipElement(element)) {
+  //     this.setFocusIndexBasedOnShiftKey(shiftKey);
+  //     this.loopNextFocusIndexIfLastElement();
 
-      nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
-      this.focusElement(nextFocusEl, shiftKey);
-    } else {
-      switch (element.tagName) {
-        case this.IC_ACCORDION_GROUP:
-        case this.IC_ACCORDION:
-        case this.IC_SEARCH_BAR:
-        case this.IC_TEXT_FIELD:
-        case this.IC_CHECKBOX:
-          (element as IcFocusableComponents).setFocus();
-          break;
-        default:
-          (element as HTMLElement).focus();
-      }
-    }
-  };
+  //     nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
+  //     this.focusElement(nextFocusEl, shiftKey);
+  //   } else {
+  //     switch (element.tagName) {
+  //       case this.IC_ACCORDION_GROUP:
+  //       case this.IC_ACCORDION:
+  //       case this.IC_SEARCH_BAR:
+  //       case this.IC_TEXT_FIELD:
+  //       case this.IC_CHECKBOX:
+  //         (element as IcFocusableComponents).setFocus();
+  //         break;
+  //       default:
+  //         (element as HTMLElement).focus();
+  //     }
+  //   }
+  // };
 
-  private loopNextFocusIndexIfLastElement() {
-    if (this.focusedElementIndex > this.interactiveElementList.length - 1)
-      this.focusedElementIndex = 0;
-    else if (this.focusedElementIndex < 0) {
-      this.focusedElementIndex = this.interactiveElementList.length - 1;
-    }
-  }
+  // private loopNextFocusIndexIfLastElement() {
+  //   if (this.focusedElementIndex > this.interactiveElementList.length - 1)
+  //     this.focusedElementIndex = 0;
+  //   else if (this.focusedElementIndex < 0) {
+  //     this.focusedElementIndex = this.interactiveElementList.length - 1;
+  //   }
+  // }
 
-  private onTabKeyPress = (shiftKey: boolean): boolean => {
-    this.getFocusedElementIndex();
+  // private onTabKeyPress = (shiftKey: boolean): boolean => {
+  //   this.getFocusedElementIndex();
 
-    if (
-      this.interactiveElementList[this.focusedElementIndex].tagName ===
-      this.IC_SEARCH_BAR
-    ) {
-      return false;
-    }
+  //   if (
+  //     this.interactiveElementList[this.focusedElementIndex].tagName ===
+  //     this.IC_SEARCH_BAR
+  //   ) {
+  //     return false;
+  //   }
 
-    this.setFocusIndexBasedOnShiftKey(shiftKey);
-    this.loopNextFocusIndexIfLastElement();
+  //   this.setFocusIndexBasedOnShiftKey(shiftKey);
+  //   this.loopNextFocusIndexIfLastElement();
 
-    this.focusElement(this.getNextFocusEl(this.focusedElementIndex), shiftKey);
-    return true;
-  };
+  //   this.focusElement(this.getNextFocusEl(this.focusedElementIndex), shiftKey);
+  //   return true;
+  // };
 
-  private shouldSkipElement = (element: HTMLElement): boolean => {
-    const isHidden =
-      getComputedStyle(element).visibility === "hidden" ||
-      element.offsetHeight === 0 ||
-      element.hasAttribute("disabled") ||
-      (element.tagName === this.IC_ACCORDION_GROUP &&
-        element.hasAttribute("single-expansion"));
+  // private shouldSkipElement = (element: HTMLElement): boolean => {
+  //   const isHidden =
+  //     getComputedStyle(element).visibility === "hidden" ||
+  //     element.offsetHeight === 0 ||
+  //     element.hasAttribute("disabled") ||
+  //     (element.tagName === this.IC_ACCORDION_GROUP &&
+  //       element.hasAttribute("single-expansion"));
 
-    const radioEl = element.closest("ic-radio-option");
+  //   const radioEl = element.closest("ic-radio-option");
 
-    return (
-      isHidden ||
-      (element.getAttribute("type") === "radio" &&
-        !!radioEl &&
-        !(radioEl.hasAttribute("selected") || element.tabIndex === 0))
-    );
-  };
+  //   return (
+  //     isHidden ||
+  //     (element.getAttribute("type") === "radio" &&
+  //       !!radioEl &&
+  //       !(radioEl.hasAttribute("selected") || element.tabIndex === 0))
+  //   );
+  // };
 
   // private getNextFocusEl = (focusedElementIndex: number) =>
   //   this.interactiveElementList[focusedElementIndex];
@@ -336,7 +341,14 @@ export class Drawer {
 
     if (this.expanded) {
       setTimeout(() => {
-        this.setInitialFocus();
+        if (this.trigger === "controlled") {
+          this.sourceElement = document.activeElement as HTMLElement;
+        }
+        this.focusedElementIndex = focusElement(
+          this.interactiveElementList[this.focusedElementIndex],
+          this.focusedElementIndex,
+          this.interactiveElementList
+        );
       }, this.TRANSITION_DURATION);
 
       // this.sourceElement = document.activeElement as HTMLElement;
@@ -375,51 +387,32 @@ export class Drawer {
     ev.stopPropagation();
   };
 
-  private getFocusedElementIndex = () => {
-    for (let i = 0; i < this.interactiveElementList.length; i++) {
-      if (
-        (this.interactiveElementList[i] as HTMLElement) ===
-        (this.el.shadowRoot?.activeElement || document.activeElement)
-      ) {
-        this.focusedElementIndex = i;
-      }
-    }
-  };
+  // private getFocusedElementIndex = () => {
+  //   for (let i = 0; i < this.interactiveElementList.length; i++) {
+  //     if (
+  //       (this.interactiveElementList[i] as HTMLElement) ===
+  //       (this.el.shadowRoot?.activeElement || document.activeElement)
+  //     ) {
+  //       this.focusedElementIndex = i;
+  //     }
+  //   }
+  // };
 
-  private getNextFocusEl = (focusedElementIndex: number) =>
-    this.interactiveElementList[focusedElementIndex];
+  // private getNextFocusEl = (focusedElementIndex: number) =>
+  //   this.interactiveElementList[focusedElementIndex];
 
-  private setFocusIndexBasedOnShiftKey(shiftKey: boolean) {
-    if (shiftKey) {
-      this.focusedElementIndex -= 1;
-    } else {
-      this.focusedElementIndex += 1;
-    }
-  }
-
-  private setInitialFocus = () => {
-    if (this.trigger === "controlled") {
-      this.sourceElement = document.activeElement as HTMLElement;
-    }
-    this.focusedElementIndex = this.interactiveElementList
-      ? this.interactiveElementList.findIndex((element) =>
-          element.hasAttribute(this.DATA_GETS_FOCUS)
-        )
-      : 0;
-    this.focusElement(this.interactiveElementList[this.focusedElementIndex]);
-  };
+  // private setFocusIndexBasedOnShiftKey(shiftKey: boolean) {
+  //   if (shiftKey) {
+  //     this.focusedElementIndex -= 1;
+  //   } else {
+  //     this.focusedElementIndex += 1;
+  //   }
+  // }
 
   private setInteractiveElements = () => {
     // Set first interactive element as the chevron or close button
     this.interactiveElementList = Array.from(
       this.el.shadowRoot?.querySelectorAll("ic-button") || []
-    );
-
-    const slottedInteractiveElements = Array.from(
-      this.el.querySelectorAll(
-        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
-          ic-accordion, ic-accordion-group, ic-action-chip, ic-back-to-top, ic-breadcrumb, ic-button, ic-checkbox, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, ic-navigation-item, ic-radio-option, ic-search-bar, ic-select, ic-switch, ic-tab-group, ic-text-field, ic-toggle-button-group, ic-date-input, ic-date-picker, ic-time-input`
-      )
     );
 
     const messageArea = this.el.shadowRoot?.querySelector(
@@ -434,10 +427,8 @@ export class Drawer {
 
     this.interactiveElementList = [
       ...this.interactiveElementList,
-      ...(slottedInteractiveElements as HTMLElement[]),
+      ...slottedInteractiveElements(this.el),
     ];
-
-    this.interactiveElementList[0].setAttribute(this.DATA_GETS_FOCUS, "");
   };
 
   render() {
