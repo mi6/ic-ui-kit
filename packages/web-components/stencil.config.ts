@@ -99,14 +99,14 @@ export const config: Config = {
     angularOutputTarget({
       componentCorePackage,
       outputType: "component",
-      directivesProxyFile: "../angular/src/directives/proxies.ts",
-      directivesArrayFile: "../angular/src/directives/proxies-list.ts",
+      directivesProxyFile: "../angular-community-supported/src/directives/proxies.ts",
+      directivesArrayFile: "../angular-community-supported/src/directives/proxies-list.ts",
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
     angularOutputTarget({
       componentCorePackage,
       outputType: "standalone",
-      directivesProxyFile: "../angular/standalone/src/directives/proxies.ts",
+      directivesProxyFile: "../angular-community-supported/standalone/src/directives/proxies.ts",
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
     {

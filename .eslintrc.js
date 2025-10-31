@@ -70,6 +70,7 @@ module.exports = {
         "package-lock.json",
         "packages/docs/docs.json",
         "packages/canary-docs/docs.json",
+        "packages/angular-community-supported/package.json",
         "audit-ci.json",
       ],
       rules: {

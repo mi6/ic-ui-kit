@@ -26,7 +26,7 @@ import { skipLibCheckTsConfig } from "../utils/tsconfig";
 
 function addICDSAngularToPackageJson(): Rule {
   return (host: Tree) => {
-    addPackageToPackageJson(host, "dependencies", "@ukic/angular", "latest");
+    addPackageToPackageJson(host, "dependencies", "@ukic/angular-community-supported", "latest");
     return host;
   };
 }
@@ -57,8 +57,8 @@ function addICDSStyles(project: ProjectDefinition, projectName: string): Rule {
   return (host: Tree) => {
     const icdsStyles = [
       "node_modules/@ukic/fonts/dist/fonts.css",
-      "node_modules/@ukic/angular/css/core.css",
-      "node_modules/@ukic/angular/css/normalize.css",
+      "node_modules/@ukic/angular-community-supported/dist/css/core.css",
+      "node_modules/@ukic/angular-community-supported/dist/css/normalize.css",
       `${project.sourceRoot}/styles/icds/variables.css`,
     ];
 

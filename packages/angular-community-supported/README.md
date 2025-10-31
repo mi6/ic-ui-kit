@@ -5,11 +5,42 @@
 
 The [Intelligence Community Design System](https://design.sis.gov.uk) helps the United Kingdom's Intelligence Community (MI6, GCHQ, MI5, and partners) to quickly build powerful capabilities that are accessible and easy to use.
 
-This is a joint project led by [MI6](https://www.sis.gov.uk), working with [GCHQ](https://www.gchq.gov.uk) and [MI5](https://www.mi5.gov.uk).
+This is a joint project led by [MI6](https://www.sis.gov.uk), working with [GCHQ](https://www.gchq.gov.uk), [MI5](https://www.mi5.gov.uk) and [HMGCC](https://www.hmgcc.gov.uk) (our national security partner).
+
+<div style="border: 1px red solid; border-radius: 3px; background-color: red; color: white; padding:8px">
+
+### Support Info
+**This Angular-native package is not maintained or supported by the core ICDS team and is entirely community-developed**
+
+</div>
+
+### Choice of approach
+
+Angular can support the use of non-native custom components for building apps as well as the standard importing of native Angular-based component libraries.
+The ICDS component suite has been configured to provide wrapped versions of each component that can be used as if they were native components for ease,
+but as the core components are written as standards-compliant web components, developers are free to use the original suite in their Angular apps instead.
+
+The native component wrappers have been created as this will allow Angular developers a better way to interface with the UI Kit however and so this is the recommended approach.
+A list of the benefits of using the native components can be found [on Stencil's docs](https://stenciljs.com/docs/angular), 
+but to summarise here: they remove any idosyncrasies that might arise from having components that Angular needs to handle differently; therefore the components will now behave just the same as the rest of the app.
+
+If you do want to use the vanilla web components instead you can do so by following the Getting Started guide for vanilla components here and also including `CUSTOM_ELEMENTS_SCHEMA` in the `schemas` key of either the
+Module or the Component declaration of any components that use the ICDS components.
+
+### Versioning and Deprecations
+
+#### Version Compatibility
+
+This package will be kept up to date with the latest version of the ICDS web-components and we shall aim to ensure that it is tested against modern versions of angular going forward (v20+).
+If this becomes impractical or there is a breaking change that creates version specific dependencies then this section of the readme will get updated with the relevant versioning.
+
+#### Deprecation Policy
+
+As requested by the ICDS team, if this package does not receive any updates within 12 months then it shall be considered deprecated.
 
 ## Installing
 
-> Last tested with Angular 20.3.0
+> Last tested with Angular 20.3.0 & 21.0.0
 
 To install the components you have a two different methods. Either using the ng add command to streamline the process or a manual install:
 
@@ -70,6 +101,8 @@ Due to a conflicting issue with typescript you need to add `skipLibCheck: true` 
 ## Using the components in your app
 
 To use the ICDS components in angular your usage will vary based on if you are using a standalone project or using NgModules.
+
+> **NOTE:** There is currently no Angular-specific per-component documentation (this page is it) though using the the web components reference in combination with intellisense should work well.
 
 ### NgModule application
 
@@ -173,15 +206,16 @@ ng add @ukic/angular
 
 You'll now be able to add icds components to a vanilla Angular app setup [as above](#Using-the-components-in-your-app).
 
-> NOTE: Once changes have been made and packaged as per step 1, the test app will need to have the @ukic packages updated/re-installed to pick up the latest changes.
+> **NOTE:** Once changes have been made and packaged as per step 1, the test app will need to have the @ukic packages updated/re-installed to pick up the latest changes.
 
 ### Previewing changes
 Potentially when trying to serve the new app and load it in a browser for preview Vite will block access and return an error along the lines of "`<hostname>` is not a permitted origin".
+This will certainly be common in cloud IDE environments such as Codespaces, GitPod or Cloud9 etc.
 
 This can be resolved by adding the following to the `projects.architect.serve` block of the app's angular.json:
 ```json
 "options": {
-  "allowedHosts": ["0a299867d52e4df19aec765b281c7e9a.vfs.cloud9.eu-west-2.amazonaws.com"],
+  "allowedHosts": ["<hostname>"],
 },
 ```
 

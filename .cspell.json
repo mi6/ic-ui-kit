@@ -174,7 +174,8 @@
     "packagr",
     "ngFactory",
     "ngSummary",
-    "codegen"
+    "codegen",
+    "idosyncrasies",
     "boissons",
     "limonade",
     "chocolat",

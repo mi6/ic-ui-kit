@@ -129,9 +129,9 @@ Pull requests must have the approval of 2 reviewers before they can be merged in
 
 Pull requests must also ensure they tick off everything on the checklist. For more information on some of the checklist points, please read the available [checklist guide](CHECKLIST.md).
 
-### React
+### React & Angular
 
-Stencil provides [plugins](https://stenciljs.com/docs/overview), which outputs wrapped framework agnostic components. During the build stage, React components are dynamically generated and are accessible from the React package.
+Stencil provides [plugins](https://stenciljs.com/docs/overview), which outputs wrapped framework agnostic components. During the build stage, Native components for React and Angular are dynamically generated and are accessible from their respective packages.
 
 ## Coding standards and practices
 
