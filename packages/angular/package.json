@@ -1,6 +1,6 @@
 {
   "name": "@ukic/angular",
-  "version": "0.0.1",
+  "version": "3.13.0",
   "description": "Angular specific wrappers for @ukic/web-components",
   "license": "MIT",
   "author": "mi6",
@@ -22,8 +22,6 @@
     "clean-generated": "node ./scripts/clean-generated.js",
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
-    "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
-    "lint:fix": "echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css --fix && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src --fix",
     "sync": "./scripts/sync.sh",
     "tsc": "tsc -p .",
     "validate": "npm i && npm run lint && npm run test && npm run build",

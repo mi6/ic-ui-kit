@@ -7,6 +7,8 @@ cd packages/web-components
 npm i --package-lock-only
 cd ../react
 npm i --package-lock-only
+cd ../angular
+npm i --package-lock-only
 cd ../..
 npm run audit
 
