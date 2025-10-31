@@ -2,31 +2,17 @@ import React from "react";
 import { mount } from "cypress/react";
 import {
   DefaultTimeInput,
-  DarkThemeTimeInput,
-  ValueTimeInput,
-  DateObjectTimeInput,
-  ZuluTimeInput,
-  HideLabelTimeInput,
-  RequiredTimeInput,
-  DisabledTimeInput,
-  SmallTimeInput,
-  LargeTimeInput,
   CustomHelperTextTimeInput,
-  HideHelperTextTimeInput,
   ValidationStatusTimeInput,
-  TimePeriodTimeInput,
-  HHMMTimeInput,
-  MinTimeInput,
-  MaxTimeInput,
   DisableTimesTimeInput,
   ClearingValueTimeInput,
 } from "./IcTimeInputTestData";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import {
   BE_FOCUSED,
+  HAVE_CLASS,
   HAVE_TEXT,
   HAVE_VALUE,
-  NOT_EXIST,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 const TIME_INPUT = "ic-time-input";
@@ -34,17 +20,20 @@ const HOUR_INPUT = 'input[id="hour-input"]';
 const MINUTE_INPUT = 'input[id="minute-input"]';
 const SECOND_INPUT = 'input[id="second-input"]';
 const STATUS_TEXT_SPAN = ".statustext span";
+const AM_PM_TOGGLE = "ic-toggle-button-group.am-pm-toggle";
+const BACKSPACE = "{backspace}";
+const INVALID_TIME_TEXT = "Please enter a valid time.";
 
 const DEFAULT_TEST_THRESHOLD = 0.008;
+
+const paddedMount = (component: any) => {
+  return mount(<div style={{ padding: "10px" }}>{component}</div>);
+};
 
 describe("IcTimeInput e2e tests", () => {
   describe("Clear the input", () => {
     it("should clear the input value when the clear button is clicked", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <ClearingValueTimeInput />
-        </div>
-      );
+      paddedMount(<ClearingValueTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -60,11 +49,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should clear the input value when setting value to null", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <ClearingValueTimeInput />
-        </div>
-      );
+      paddedMount(<ClearingValueTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -80,11 +65,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should clear the input value when setting value to an empty string", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <ClearingValueTimeInput />
-        </div>
-      );
+      paddedMount(<ClearingValueTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -100,11 +81,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should clear the input value when setting value to undefined", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <ClearingValueTimeInput />
-        </div>
-      );
+      paddedMount(<ClearingValueTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -122,11 +99,7 @@ describe("IcTimeInput e2e tests", () => {
 
   describe("ArrowUp and ArrowDown keys", () => {
     it("should increment the hour when ArrowUp is pressed on the hour input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -136,11 +109,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should increment the hour to 00 when ArrowUp is pressed on the hour input, timePeriod is 24 and the hour input value is 23", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -152,11 +121,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should increment the hour to 01 when ArrowUp is pressed on the hour input, timePeriod is 12 and the hour input value is 12", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <TimePeriodTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput timePeriod="12" />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -168,11 +133,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should decrement the hour when ArrowDown is pressed on the hour input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -182,11 +143,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should decrement the hour to 12 when ArrowDown is pressed on the hour input and timePeriod is 12", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <TimePeriodTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput timePeriod="12" />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -198,11 +155,7 @@ describe("IcTimeInput e2e tests", () => {
 
   describe("ArrowLeft and ArrowRight keys", () => {
     it("should focus the minute input when ArrowRight is pressed on the hour input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -212,11 +165,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should focus the second input when ArrowRight is pressed on the minute input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -226,11 +175,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should focus the hour input when ArrowLeft is pressed on the minute input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -240,11 +185,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should focus the minute input when ArrowLeft is pressed on the second input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -252,15 +193,34 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(BE_FOCUSED);
     });
+
+    it("should select the PM toggle when ArrowRight is pressed on AM toggle, and focus the AM toggle when ArrowLeft is pressed", () => {
+      paddedMount(<DefaultTimeInput timePeriod="12" showAmPmToggle />);
+
+      cy.checkHydrated(TIME_INPUT);
+
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
+        .click()
+        .realPress(["ArrowRight"]);
+
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
+        .find("ic-toggle-button")
+        .eq(1)
+        .should(HAVE_CLASS, "ic-toggle-button-checked")
+        .focus();
+
+      cy.realPress(["ArrowLeft"]);
+
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
+        .find("ic-toggle-button")
+        .eq(0)
+        .should(HAVE_CLASS, "ic-toggle-button-checked");
+    });
   });
 
   describe("Tab and backspace keys", () => {
     it("should focus the minute input when Tab is pressed on the hour input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -270,11 +230,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should focus the minute input when Shift + Tab is pressed on the second input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
@@ -285,33 +241,51 @@ describe("IcTimeInput e2e tests", () => {
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(BE_FOCUSED);
     });
 
-    it("should clear the hour input when backspace is pressed on the hour input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+    /* Commented out due to Cypress focus issues (https://github.com/mi6/ic-ui-kit/issues/1463) */
+    // it("should focus the AM/PM toggle when Tab is pressed on the second input with timePeriod 12 and showAmPmToggle true", () => {
+    //   paddedMount(<DefaultTimeInput timePeriod="12" showAmPmToggle />);
+
+    //   cy.checkHydrated(TIME_INPUT);
+
+    //   cy.findShadowEl(TIME_INPUT, SECOND_INPUT).click().realPress("Tab");
+
+    //   cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
+    //     .find("ic-toggle-button")
+    //     .eq(0)
+    //     .should(HAVE_FOCUS);
+    // });
+
+    it("should focus the second input when Shift + Tab is pressed on the AM/PM toggle with timePeriod 12 and showAmPmToggle true", () => {
+      paddedMount(<DefaultTimeInput timePeriod="12" showAmPmToggle />);
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12").type("{backspace}");
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
+        .click()
+        .realPress(["Shift", "Tab"]);
+
+      cy.findShadowEl(TIME_INPUT, SECOND_INPUT).should(BE_FOCUSED);
+    });
+
+    it("should clear the hour input when backspace is pressed on the hour input", () => {
+      paddedMount(<DefaultTimeInput />);
+
+      cy.checkHydrated(TIME_INPUT);
+
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12").type(BACKSPACE);
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "");
     });
 
     it("should clear the minute input and focus the hour input when backspace is pressed on the minute input", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
 
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT)
         .type("30")
-        .type("{backspace}")
-        .type("{backspace}");
+        .type(BACKSPACE)
+        .type(BACKSPACE);
 
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(BE_FOCUSED);
@@ -320,11 +294,7 @@ describe("IcTimeInput e2e tests", () => {
 
   describe("Validation", () => {
     it("should show validation error when the hour input is invalid", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DefaultTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("25");
@@ -335,15 +305,11 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, INVALID_TIME_TEXT);
     });
 
     it("should show validation error when the hour input is invalid with 12 hour time period", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <TimePeriodTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput timePeriod="12" />);
 
       cy.checkHydrated(TIME_INPUT);
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("13");
@@ -354,15 +320,11 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, INVALID_TIME_TEXT);
     });
 
     it("should show validation error when a time is entered before the min time", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <MinTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput min="08:00:00" />);
 
       cy.checkHydrated(TIME_INPUT);
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("02");
@@ -377,11 +339,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should show validation error when a time is entered after the max time", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <MaxTimeInput />
-        </div>
-      );
+      paddedMount(<DefaultTimeInput max="16:00:00" />);
 
       cy.checkHydrated(TIME_INPUT);
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("21");
@@ -396,11 +354,7 @@ describe("IcTimeInput e2e tests", () => {
     });
 
     it("should show validation error when a time is entered that is a disabled time", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DisableTimesTimeInput />
-        </div>
-      );
+      paddedMount(<DisableTimesTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("13");
@@ -411,15 +365,11 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, INVALID_TIME_TEXT);
     });
 
     it("should show validation error when a time is entered that is within a disabled time", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DisableTimesTimeInput />
-        </div>
-      );
+      paddedMount(<DisableTimesTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("09");
@@ -430,15 +380,11 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, INVALID_TIME_TEXT);
     });
 
     it("should show validation error and remove it when an acceptable time has been entered", () => {
-      mount(
-        <div style={{ padding: "10px" }}>
-          <DisableTimesTimeInput />
-        </div>
-      );
+      paddedMount(<DisableTimesTimeInput />);
 
       cy.checkHydrated(TIME_INPUT);
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("09");
@@ -449,7 +395,7 @@ describe("IcTimeInput e2e tests", () => {
         .shadow()
         .find(STATUS_TEXT_SPAN)
         .eq(0)
-        .should(HAVE_TEXT, "Please enter a valid time.");
+        .should(HAVE_TEXT, INVALID_TIME_TEXT);
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("10");
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");
@@ -473,11 +419,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <DefaultTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -499,7 +441,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
           backgroundColor: "var(--ic-color-page-background-dark)",
         }}
       >
-        <DarkThemeTimeInput />
+        <DefaultTimeInput theme="dark" />
       </div>
     );
 
@@ -516,11 +458,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with a default value - string", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <ValueTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput value="13:45:00" />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -535,11 +473,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with a default value - date object", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <DateObjectTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput value={new Date("2025-07-14T15:30:45")} />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -554,11 +488,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with a default value - Zulu time", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <ZuluTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput value="15:30:45Z" />);
 
     cy.checkHydrated(TIME_INPUT);
     cy.checkA11yWithWait();
@@ -572,11 +502,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with the label hidden", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <HideLabelTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput hideLabel />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -591,11 +517,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render as required", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <RequiredTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput required />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -610,11 +532,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render as disabled", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <DisabledTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput disabled />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -629,11 +547,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render as small", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <SmallTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput size="small" />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -648,11 +562,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render as large", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <LargeTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput size="large" />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -667,11 +577,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with custom helper text", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <CustomHelperTextTimeInput />
-      </div>
-    );
+    paddedMount(<CustomHelperTextTimeInput />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -686,11 +592,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with helper text hidden", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <HideHelperTextTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput hideHelperText />);
 
     cy.checkHydrated(TIME_INPUT);
 
@@ -705,11 +607,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with validation", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <ValidationStatusTimeInput />
-      </div>
-    );
+    paddedMount(<ValidationStatusTimeInput />);
 
     cy.checkHydrated(TIME_INPUT);
     cy.checkA11yWithWait();
@@ -723,11 +621,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with a HH:MM time format", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <HHMMTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput timeFormat="HH:MM" />);
 
     cy.checkHydrated(TIME_INPUT);
     cy.checkA11yWithWait();
@@ -740,12 +634,36 @@ describe("IcTimeInput visual regression and a11y tests", () => {
     });
   });
 
+  it("should render with a HH:MM:SS.SSS time format", () => {
+    paddedMount(<DefaultTimeInput timeFormat="HH:MM:SS.SSS" />);
+
+    cy.checkHydrated(TIME_INPUT);
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/time-input-milliseconds-format",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with a 12 hour time period and an AM/PM toggle", () => {
+    paddedMount(<DefaultTimeInput timePeriod="12" showAmPmToggle />);
+
+    cy.checkHydrated(TIME_INPUT);
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/time-input-12-hour-period",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should render with a minimum time", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <MinTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput min="08:00:00" />);
 
     cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("01");
     cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("01");
@@ -763,11 +681,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with a maximum time", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <MaxTimeInput />
-      </div>
-    );
+    paddedMount(<DefaultTimeInput max="16:00:00" />);
 
     cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("17");
     cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("01");
@@ -785,11 +699,7 @@ describe("IcTimeInput visual regression and a11y tests", () => {
   });
 
   it("should render with disabled times", () => {
-    mount(
-      <div style={{ padding: "10px" }}>
-        <DisableTimesTimeInput />
-      </div>
-    );
+    paddedMount(<DisableTimesTimeInput />);
 
     cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("09");
     cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");

@@ -47,6 +47,7 @@ let inputIds = 0;
 })
 export class TimeInput {
   private DEFAULT_TIME_FORMAT: IcTimeFormat = "HH:MM:SS";
+  private TOGGLE_BUTTON_SELECTOR = "ic-toggle-button";
   private ARIA_INVALID = "aria-invalid";
   private ARIA_LABEL = "aria-label";
   private ARIA_LABELLED_BY = "aria-labelledby";
@@ -54,6 +55,8 @@ export class TimeInput {
   private hourInputEl?: HTMLInputElement;
   private minuteInputEl?: HTMLInputElement;
   private secondInputEl?: HTMLInputElement;
+  private millisecondInputEl?: HTMLInputElement;
+  private periodToggleEl?: HTMLIcToggleButtonGroupElement;
   private defaultHelperText: string;
   private EVENT_OBJECT_STRING = "[object Event]";
   private FIT_TO_VALUE = "fit-to-value";
@@ -63,12 +66,14 @@ export class TimeInput {
   private isValidHour: boolean = true;
   private isValidMinute: boolean = true;
   private isValidSecond: boolean = true;
+  private isValidMillisecond: boolean = true;
   private isValidTime: boolean = true;
   private isTimeSetFromKeyboardEvent: boolean = false;
   private preventAutoFormatting: boolean;
   private preventHourInput: boolean;
   private preventMinuteInput: boolean;
   private preventSecondInput: boolean;
+  private preventMillisecondInput: boolean;
   private previousSelectedTime: Date | null = null;
   private selectedTime: Date | null = null;
   private selectedTimeInfoEl?: HTMLSpanElement;
@@ -78,6 +83,7 @@ export class TimeInput {
   private clearInput: boolean = false;
   private maxTime: Date | null = null;
   private minTime: Date | null = null;
+  private pastedValue: boolean = false;
 
   @Element() el: HTMLIcTimeInputElement;
 
@@ -88,21 +94,31 @@ export class TimeInput {
   @State() hour: string = "";
   @State() minute: string = "";
   @State() second: string = "";
+  @State() millisecond: string = "";
+  @State() period: string = "";
 
   @Watch("hour")
   @Watch("minute")
   @Watch("second")
+  @Watch("millisecond")
+  @Watch("period")
   watchInputHandler(): void {
     if (
       this.emitTimePartChange &&
       !this.externalSetTime &&
       !this.clearInput &&
-      !(this.hour && this.minute && this.second) &&
+      !(
+        this.hour &&
+        this.minute &&
+        this.second &&
+        (this.isSSSFormat() ? this.millisecond : true)
+      ) &&
       this.selectedTime === null
     ) {
-      this.emitIcChange(this.selectedTime);
+      this.emitIcTimeChange(this.selectedTime);
     }
   }
+  private isSSSFormat = () => this.timeFormat === "HH:MM:SS.SSS";
 
   /**
    * If `true`, the disabled state will be set.
@@ -119,7 +135,7 @@ export class TimeInput {
   @Prop() disableTimes: IcDisableTimeSelection[] = [];
 
   /**
-   * If `true`, every individual input field completed will emit an icChange event.
+   * If `true`, every individual input field completed will emit an icTimeChange event.
    */
   @Prop() emitTimePartChange?: boolean = false;
 
@@ -198,6 +214,11 @@ export class TimeInput {
   }
 
   /**
+   * If `true`, the time input will show an AM/PM toggle when in 12-hour time period.
+   */
+  @Prop({ mutable: true }) showAmPmToggle?: boolean = false;
+
+  /**
    * If `true`, a button which clears the time input when clicked will be displayed.
    */
   @Prop() showClearButton?: boolean = true;
@@ -260,12 +281,14 @@ export class TimeInput {
   /**
    * Emitted when the value has changed.
    */
-  @Event() icChange: EventEmitter<{
+  @Event() icTimeChange: EventEmitter<{
     value: Date | null;
     timeObject: {
       hour: string | null;
       minute: string | null;
       second: string | null;
+      millisecond: string | null;
+      period: string | null;
     };
   }>;
 
@@ -308,7 +331,8 @@ export class TimeInput {
     this.setAriaInvalid(
       this.isValidHour,
       this.isValidMinute,
-      this.isValidSecond
+      this.isValidSecond,
+      this.isSSSFormat() && this.isValidMillisecond
     );
     if (this.value) {
       this.notifyScreenReaderSelectedTime();
@@ -328,7 +352,8 @@ export class TimeInput {
     this.setAriaInvalid(
       this.isValidHour,
       this.isValidMinute,
-      this.isValidSecond
+      this.isValidSecond,
+      this.isSSSFormat() && this.isValidMillisecond
     );
     this.handleTimeChange(false);
     this.isTimeSetFromKeyboardEvent = false;
@@ -352,13 +377,13 @@ export class TimeInput {
   }
 
   /**
-   * @internal Used to enable other components to invoke an IcChange event from the input.
+   * @internal Used to enable other components to invoke an icTimeChange event from the input.
    */
   @Method()
-  async triggerIcChange(t: Date | null): Promise<void> {
+  async triggerIcTimeChange(t: Date | null): Promise<void> {
     this.externalSetTime = true;
     this.setTime(t);
-    this.emitIcChange(t);
+    this.emitIcTimeChange(t);
     this.externalSetTime = false;
   }
 
@@ -376,10 +401,15 @@ export class TimeInput {
   private parseTime = (value: string | Date): Date | null => {
     if (!value) return null;
     if (value instanceof Date) return value;
-    const parts = value.split(":");
+    const parts = value.split(/[:.]/);
     if (parts.length >= 2) {
       const d = new Date();
-      d.setHours(+parts[0], +parts[1], parts[2] ? +parts[2] : 0, 0);
+      d.setHours(
+        +parts[0],
+        +parts[1],
+        parts[2] ? +parts[2] : 0,
+        parts[3] ? +parts[3] : 0
+      );
       return d;
     }
     return null;
@@ -413,8 +443,19 @@ export class TimeInput {
       } else {
         this.isValidSecond = true;
       }
+      if (this.isSSSFormat()) {
+        if (!isEmptyString(this.millisecond)) {
+          this.isValidMillisecond =
+            +this.millisecond >= 0 && +this.millisecond <= 999;
+        } else {
+          this.isValidMillisecond = true;
+        }
+      } else {
+        this.isValidMillisecond = true;
+      }
     } else {
       this.isValidSecond = true;
+      this.isValidMillisecond = true;
     }
   };
 
@@ -426,6 +467,8 @@ export class TimeInput {
       this.minute = newValue;
     } else if (input === this.secondInputEl && !this.isHHMMFormat()) {
       this.second = newValue;
+    } else if (this.isSSSFormat() && input === this.millisecondInputEl) {
+      this.millisecond = newValue;
     }
     this.setValidationMessage();
   };
@@ -437,6 +480,8 @@ export class TimeInput {
       this.preventMinuteInput = isPrevented;
     } else if (input === this.secondInputEl) {
       this.preventSecondInput = isPrevented;
+    } else if (this.isSSSFormat() && input === this.millisecondInputEl) {
+      this.preventMillisecondInput = isPrevented;
     }
   };
 
@@ -449,18 +494,31 @@ export class TimeInput {
     if (
       !isEmptyString(this.hour) &&
       !isEmptyString(this.minute) &&
-      (this.isHHMMFormat() || !isEmptyString(this.second))
+      (this.isHHMMFormat() || !isEmptyString(this.second)) &&
+      (!this.isSSSFormat() || !isEmptyString(this.millisecond))
     ) {
       this.selectedTime = this.convertToTime(
         this.hour,
         this.minute,
-        this.isHHMMFormat() ? "00" : this.second
+        this.isHHMMFormat() ? "00" : this.second,
+        this.isSSSFormat() ? this.millisecond : "000"
       );
+      let inputHour = +this.hour;
+      if (
+        this.timePeriod === "12" &&
+        this.showAmPmToggle &&
+        !this.pastedValue
+      ) {
+        inputHour = this.convertTo24Hour(inputHour);
+      }
       this.isValidTime =
         !!this.selectedTime &&
-        this.selectedTime.getHours() == +this.hour &&
+        this.selectedTime.getHours() == inputHour &&
         this.selectedTime.getMinutes() == +this.minute &&
-        (this.isHHMMFormat() || this.selectedTime.getSeconds() == +this.second);
+        (this.isHHMMFormat() ||
+          this.selectedTime.getSeconds() == +this.second) &&
+        (!this.isSSSFormat() ||
+          this.selectedTime.getMilliseconds() == +this.millisecond);
 
       if (
         this.selectedTime &&
@@ -482,9 +540,15 @@ export class TimeInput {
             return false;
           }
           const parsed = this.parseTime(t as string | Date);
+          if (!parsed) return false;
+          let selectedHour = this.selectedTime!.getHours();
+          let parsedHour = parsed.getHours();
+          if (this.timePeriod === "12" && this.showAmPmToggle) {
+            selectedHour = this.convertTo24Hour(selectedHour);
+            parsedHour = this.convertTo24Hour(parsedHour);
+          }
           return (
-            parsed &&
-            parsed.getHours() === this.selectedTime!.getHours() &&
+            parsedHour === selectedHour &&
             parsed.getMinutes() === this.selectedTime!.getMinutes() &&
             parsed.getSeconds() === this.selectedTime!.getSeconds()
           );
@@ -525,6 +589,7 @@ export class TimeInput {
         this.isValidHour &&
         this.isValidMinute &&
         this.isValidSecond &&
+        this.isValidMillisecond &&
         this.isValidTime
       )
     ) {
@@ -538,13 +603,32 @@ export class TimeInput {
     const hh = time.getHours().toString().padStart(2, "0");
     const mm = time.getMinutes().toString().padStart(2, "0");
     const ss = time.getSeconds().toString().padStart(2, "0");
+    const sss = time.getMilliseconds().toString().padStart(3, "0");
+    if (this.isSSSFormat()) {
+      return `${hh}:${mm}:${ss}.${sss}`;
+    }
     return this.isHHMMFormat() ? `${hh}:${mm}` : `${hh}:${mm}:${ss}`;
   };
 
   private handleInput = (event: Event) => {
     const inputEvent = event as InputEvent;
     const input = event.target as HTMLInputElement;
-    if (input !== this.hourInputEl) {
+    if (input === this.millisecondInputEl && this.isSSSFormat()) {
+      this.setInputValue(input);
+      this.setPreventInput(input, false);
+      this.setFitToValueStyling(input);
+      if (input.value.length === 3) {
+        this.moveToNextInput(input);
+        this.setPreventInput(input, true);
+      } else {
+        this.setPreventInput(input, false);
+      }
+      if (input.value.length === 0) {
+        this.setInputValue(input, true);
+        this.setValidationMessage();
+      }
+      this.notifyScreenReader(input);
+    } else if (input !== this.hourInputEl) {
       if (
         inputEvent.inputType !== "deleteContentBackward" &&
         !this.preventAutoFormatting
@@ -578,6 +662,12 @@ export class TimeInput {
       if (input.value.length !== 2) {
         this.setPreventInput(input, false);
       }
+      this.setFitToValueStyling(input);
+      if (input.value.length === 0) {
+        this.setInputValue(input, true);
+        this.setValidationMessage();
+      }
+      this.notifyScreenReader(input);
     } else {
       if (input.value.length === 2) {
         this.setInputValue(input);
@@ -591,18 +681,30 @@ export class TimeInput {
         this.setInputValue(input, true);
         this.setPreventInput(input, false);
       }
+      this.setFitToValueStyling(input);
+      if (input.value.length === 0) {
+        this.setInputValue(input, true);
+        this.setValidationMessage();
+      }
+      this.notifyScreenReader(input);
     }
-    this.setFitToValueStyling(input);
-    if (input.value.length === 0) {
-      this.setInputValue(input, true);
-      this.setValidationMessage();
-    }
-    this.notifyScreenReader(input);
   };
 
   private handleKeyDown = (event: KeyboardEvent, isInputPrevented: boolean) => {
+    const navKeys =
+      /arrowup|arrowdown|arrowleft|arrowright|shift|tab|backspace|delete/i;
     const input = event.target as HTMLInputElement;
     const eventKey = event.key?.toLowerCase();
+    if (
+      !/-?\d*\.?\d+(e[-+]?\d+)?|[:]|[.]/i.test(eventKey) &&
+      !navKeys.test(eventKey) &&
+      !(
+        (event.ctrlKey || event.metaKey) &&
+        (eventKey === "v" || eventKey === "c")
+      )
+    ) {
+      event.preventDefault();
+    }
     const regex =
       /-?\d*\.?\d+(e[-+]?\d+)?|[:]|arrowup|arrowdown|arrowleft|arrowright|shift|tab|backspace|delete/;
     if (
@@ -648,9 +750,18 @@ export class TimeInput {
   };
 
   private handleBlur = (event: FocusEvent) => {
-    const input = event.target;
-    if (input) {
-      this.autocompleteInput(input as HTMLInputElement);
+    const input = event.target as HTMLInputElement;
+    if (input === this.millisecondInputEl && this.isSSSFormat()) {
+      if (input.value.length === 1) {
+        input.value = `00${input.value}`;
+        this.setInputValue(input);
+      } else if (input.value.length === 2) {
+        input.value = `0${input.value}`;
+        this.setInputValue(input);
+      }
+      this.setFitToValueStyling(input);
+    } else if (input) {
+      this.autocompleteInput(input);
     }
   };
 
@@ -712,19 +823,65 @@ export class TimeInput {
 
   private setValueAndEmitChange = (value: Date | null) => {
     if (this.value !== value) {
-      this.emitIcChange(value);
+      this.emitIcTimeChange(value);
       this.value = value;
     }
   };
 
-  private emitIcChange = (t: Date | null) => {
-    this.selectedTime = t;
-    this.icChange.emit({
-      value: t,
+  private convertTo24Hour = (hour: number) => {
+    let date24hours = hour;
+    if (this.period === "PM" && hour < 12) date24hours = hour + 12;
+    if (this.period === "AM" && hour === 12) date24hours = 0;
+
+    return date24hours;
+  };
+
+  private emitIcTimeChange = (t: Date | null) => {
+    const hour = parseInt(this.hour);
+    const minute = parseInt(this.minute);
+    const second = parseInt(this.second);
+    const millisecond = parseInt(this.millisecond);
+    const period = this.period;
+
+    let allSelected = false;
+    if (this.isSSSFormat()) {
+      allSelected =
+        this.hour !== "" &&
+        this.minute !== "" &&
+        this.second !== "" &&
+        this.millisecond !== "";
+    } else if (this.timeFormat === this.DEFAULT_TIME_FORMAT) {
+      allSelected =
+        this.hour !== "" && this.minute !== "" && this.second !== "";
+    } else if (this.timeFormat === "HH:MM") {
+      allSelected = this.hour !== "" && this.minute !== "";
+    }
+
+    let time = t;
+    let date24hours = hour;
+    if (
+      hour != null &&
+      period &&
+      this.timePeriod === "12" &&
+      this.showAmPmToggle
+    ) {
+      date24hours = this.convertTo24Hour(hour);
+      time = new Date();
+      time.setHours(date24hours ?? 0);
+      time.setMinutes(minute ?? 0);
+      time.setSeconds(second ?? 0);
+      this.isSSSFormat() && time.setMilliseconds(millisecond ?? 0);
+    }
+
+    this.selectedTime = time;
+    this.icTimeChange.emit({
+      value: allSelected ? time : null,
       timeObject: {
         hour: this.hour === "" ? null : this.hour,
         minute: this.minute === "" ? null : this.minute,
         second: this.second === "" ? null : this.second,
+        millisecond: this.millisecond === "" ? null : this.millisecond,
+        period: this.period === "" ? null : this.period,
       },
     });
   };
@@ -734,6 +891,7 @@ export class TimeInput {
       if (this.hour) this.hour = "";
       if (this.minute) this.minute = "";
       if (this.second) this.second = "";
+      if (this.millisecond) this.millisecond = "";
       this.inputsInOrder.forEach((input) => {
         input.classList.remove(this.FIT_TO_VALUE);
         this.setPreventInput(input, false);
@@ -749,15 +907,19 @@ export class TimeInput {
           this.minute = zuluMatch[2];
           this.second = zuluMatch[3];
         } else {
-          const parts = time.split(":");
+          const parts = time.split(/[:.]/);
           this.hour = parts[0] || "";
           this.minute = parts[1] || "";
           this.second = parts[2] || "";
+          this.millisecond = parts[3] || "";
         }
       } else if (time instanceof Date) {
         this.hour = time.getHours().toString().padStart(2, "0");
         this.minute = time.getMinutes().toString().padStart(2, "0");
         this.second = time.getSeconds().toString().padStart(2, "0");
+        if (this.isSSSFormat()) {
+          this.millisecond = time.getMilliseconds().toString().padStart(3, "0");
+        }
       }
     }
     this.setValidationMessage();
@@ -766,7 +928,8 @@ export class TimeInput {
   private setAriaInvalid = (
     validHour: boolean,
     validMinute: boolean,
-    validSecond: boolean
+    validSecond: boolean,
+    validMillisecond?: boolean
   ) => {
     if (this.inputsInOrder.length) {
       this.inputsInOrder.forEach((input) => {
@@ -781,7 +944,10 @@ export class TimeInput {
       if (!validSecond) {
         this.secondInputEl?.setAttribute(this.ARIA_INVALID, "true");
       }
-      if (!(validHour && validMinute && validSecond)) {
+      if (!validMillisecond) {
+        this.millisecondInputEl?.setAttribute(this.ARIA_INVALID, "true");
+      }
+      if (!(validHour && validMinute && validSecond && validMillisecond)) {
         this.inputsInOrder.forEach((input) => {
           input.setAttribute(this.ARIA_INVALID, "true");
         });
@@ -800,9 +966,22 @@ export class TimeInput {
     if (!this.isHHMMFormat() && this.secondInputEl) {
       this.secondInputEl.value = "";
     }
+    if (this.isSSSFormat() && this.millisecondInputEl) {
+      this.millisecondInputEl.value = "";
+    }
     this.hour = "";
     this.minute = "";
     this.second = "";
+    this.millisecond = "";
+    this.period = "";
+    if (this.showAmPmToggle) {
+      this.periodToggleEl
+        ?.querySelectorAll(this.TOGGLE_BUTTON_SELECTOR)
+        .forEach((btn) => {
+          const toggleBtn = btn as HTMLIcToggleButtonElement;
+          toggleBtn.checked = false;
+        });
+    }
     this.handleTimeChange(true);
     this.inputsInOrder.forEach((input) => {
       input.classList.remove(this.FIT_TO_VALUE);
@@ -819,25 +998,29 @@ export class TimeInput {
 
   private notifyScreenReaderSelectedTime = () => {
     if (this.selectedTime && this.selectedTimeInfoEl) {
+      let hours = this.selectedTime.getHours();
+      if (this.timePeriod === "12" && this.showAmPmToggle) {
+        hours = this.convertTo24Hour(hours);
+      }
+      const hoursStr = hours.toString().padStart(2, "0");
+      const minutesStr = this.selectedTime
+        .getMinutes()
+        .toString()
+        .padStart(2, "0");
+      const secondsStr = this.selectedTime
+        .getSeconds()
+        .toString()
+        .padStart(2, "0");
+      const msStr = this.selectedTime
+        .getMilliseconds()
+        .toString()
+        .padStart(3, "0");
       if (this.isHHMMFormat()) {
-        this.selectedTimeInfoEl.textContent = `Selected time: ${this.selectedTime
-          .getHours()
-          .toString()
-          .padStart(2, "0")}:${this.selectedTime
-          .getMinutes()
-          .toString()
-          .padStart(2, "0")}`;
+        this.selectedTimeInfoEl.textContent = `Selected time: ${hoursStr}:${minutesStr}`;
+      } else if (!this.isSSSFormat()) {
+        this.selectedTimeInfoEl.textContent = `Selected time: ${hoursStr}:${minutesStr}:${secondsStr}`;
       } else {
-        this.selectedTimeInfoEl.textContent = `Selected time: ${this.selectedTime
-          .getHours()
-          .toString()
-          .padStart(2, "0")}:${this.selectedTime
-          .getMinutes()
-          .toString()
-          .padStart(2, "0")}:${this.selectedTime
-          .getSeconds()
-          .toString()
-          .padStart(2, "0")}`;
+        this.selectedTimeInfoEl.textContent = `Selected time: ${hoursStr}:${minutesStr}:${secondsStr}.${msStr}`;
       }
     }
   };
@@ -857,7 +1040,9 @@ export class TimeInput {
 
   private handleHostFocus = () => {
     if (
-      this.el.shadowRoot?.activeElement?.id.match(/(hour|minute|second)-input$/)
+      this.el.shadowRoot?.activeElement?.id.match(
+        /(hour|minute|second|millisecond)-input$/
+      )
     ) {
       this.removeLabelledBy = false;
     } else {
@@ -922,15 +1107,21 @@ export class TimeInput {
   private convertToTime = (
     hour: string,
     minute: string,
-    second: string
+    second: string,
+    millisecond: string | null = null
   ): Date | null => {
     if (
       !isEmptyString(hour) &&
       !isEmptyString(minute) &&
-      (this.isHHMMFormat() || !isEmptyString(second))
+      (this.isHHMMFormat() || !isEmptyString(second)) &&
+      (!this.isSSSFormat() ||
+        (millisecond !== null && !isEmptyString(millisecond)))
     ) {
       const d = new Date();
       d.setHours(+hour, +minute, this.isHHMMFormat() ? 0 : +second, 0);
+      if (this.isSSSFormat() && millisecond !== null) {
+        d.setMilliseconds(+millisecond);
+      }
       return d;
     } else {
       return null;
@@ -994,10 +1185,10 @@ export class TimeInput {
   };
 
   private getInputsInOrder = () => {
-    const timeParts = this.timeFormat.split(":");
+    const timeParts = this.timeFormat.split(/[:.]/);
     return timeParts.map((part: string) => {
-      switch (part.substring(0, 1)) {
-        case "H":
+      switch (part) {
+        case "HH":
           return (
             <input
               class="hour-input"
@@ -1015,7 +1206,7 @@ export class TimeInput {
               }
             ></input>
           );
-        case "M":
+        case "MM":
           return (
             <input
               id="minute-input"
@@ -1033,7 +1224,7 @@ export class TimeInput {
               }
             ></input>
           );
-        case "S":
+        case "SS":
           if (!this.isHHMMFormat()) {
             return (
               <input
@@ -1053,6 +1244,27 @@ export class TimeInput {
               ></input>
             );
           }
+          break;
+        case "SSS":
+          if (this.isSSSFormat()) {
+            return (
+              <input
+                id="millisecond-input"
+                class="millisecond-input"
+                ref={(el) => (this.millisecondInputEl = el)}
+                aria-label="millisecond"
+                placeholder="SSS"
+                disabled={this.disabled}
+                aria-required={`${this.required}`}
+                inputmode="number"
+                pattern="[0-9]*"
+                onPaste={this.handlePaste}
+                onKeyDown={(event) =>
+                  this.handleKeyDown(event, this.preventMillisecondInput)
+                }
+              ></input>
+            );
+          }
           return null;
         default:
           return null;
@@ -1061,6 +1273,9 @@ export class TimeInput {
   };
 
   private getDescOfInputsOrder = () => {
+    if (this.isSSSFormat()) {
+      return "hour, minute, second, and millisecond";
+    }
     return "hour, minute, and second";
   };
 
@@ -1086,6 +1301,7 @@ export class TimeInput {
 
   private handlePaste = (event: ClipboardEvent) => {
     event.preventDefault();
+    this.pastedValue = true;
     const pastedValue = event.clipboardData?.getData("Text") || "";
     const isValidTime = this.isPastedStringTimeValid(pastedValue);
     this.setPastedValueAndValidation(isValidTime, pastedValue, event);
@@ -1105,7 +1321,7 @@ export class TimeInput {
       this.removeLabelledBy = false;
       return;
     }
-    if (relatedTarget?.id.match(/(minute|second)-input$/)) {
+    if (relatedTarget?.id.match(/(minute|second|millisecond)-input$/)) {
       this.removeLabelledBy = false;
       return;
     }
@@ -1124,6 +1340,17 @@ export class TimeInput {
     if (this.isHHMMFormat()) {
       if (/^\d{2}:\d{2}$/.test(value)) {
         return value;
+      }
+    } else if (this.isSSSFormat()) {
+      if (/^\d{2}:\d{2}:\d{2}\.\d{1,3}$/.test(value)) {
+        return value;
+      }
+      if (/^\d{2}:\d{2}:\d{2}\.\d{1,3}Z$/.test(value)) {
+        return value.replace("Z", "");
+      }
+      const isoMatch = value.match(/T(\d{2}:\d{2}:\d{2}\.\d{1,3})/);
+      if (isoMatch) {
+        return isoMatch[1];
       }
     } else {
       if (/^\d{2}:\d{2}:\d{2}$/.test(value)) {
@@ -1146,16 +1373,78 @@ export class TimeInput {
     event: ClipboardEvent
   ) => {
     if (isValidTime) {
-      const timeParts = isValidTime.split(":");
+      const timeParts = isValidTime.split(/[:.]/);
       this.inputsInOrder.forEach((input, index) => {
         input.classList.add(this.FIT_TO_VALUE);
-        const timeValue = timeParts[index] || "";
-        input.value = timeValue.slice(0, 2);
+        let timeValue = timeParts[index] || "";
+        if (input === this.millisecondInputEl && this.isSSSFormat()) {
+          timeValue = timeValue.slice(0, 3);
+        } else {
+          timeValue = timeValue.slice(0, 2);
+        }
+        if (input === this.hourInputEl) {
+          let activeToggle: HTMLIcToggleButtonElement | undefined;
+          if (this.timePeriod === "12" && this.showAmPmToggle) {
+            if (parseInt(timeValue) > 12) {
+              timeValue = (parseInt(timeValue) - 12)
+                .toString()
+                .padStart(2, "0");
+              if (parseInt(timeValue) > 12) {
+                return;
+              } else {
+                this.period = "PM";
+                this.periodToggleEl
+                  ?.querySelectorAll(this.TOGGLE_BUTTON_SELECTOR)
+                  .forEach((btn) => {
+                    const toggleBtn = btn as HTMLIcToggleButtonElement;
+                    if (toggleBtn.label === "PM") {
+                      activeToggle = toggleBtn;
+                    } else {
+                      toggleBtn.checked = false;
+                    }
+                  });
+                if (activeToggle) {
+                  this.periodToggleEl?.setActiveToggle(activeToggle);
+                  activeToggle.checked = true;
+                }
+                this.invalidTimeText = "";
+                this.validationStatus = "";
+              }
+            } else {
+              if (parseInt(timeValue) === 0) {
+                timeValue = "12";
+              }
+              this.period = "AM";
+              this.periodToggleEl
+                ?.querySelectorAll(this.TOGGLE_BUTTON_SELECTOR)
+                .forEach((btn) => {
+                  const toggleBtn = btn as HTMLIcToggleButtonElement;
+                  if (toggleBtn.label === "AM") {
+                    activeToggle = toggleBtn;
+                  } else {
+                    toggleBtn.checked = false;
+                  }
+                });
+              if (activeToggle) {
+                this.periodToggleEl?.setActiveToggle(activeToggle);
+                activeToggle.checked = true;
+              }
+              this.invalidTimeText = "";
+              this.validationStatus = "";
+            }
+          }
+        }
+        input.value = timeValue;
         this.setInputValue(input);
         this.autocompleteInput(input);
       });
-      if (this.isHHMMFormat() && this.second !== "") {
+      if (
+        this.isHHMMFormat() &&
+        this.second !== "" &&
+        this.millisecond !== ""
+      ) {
         this.second = "";
+        this.millisecond = "";
       }
     } else {
       const pasted = pastedValue.trim();
@@ -1169,6 +1458,11 @@ export class TimeInput {
         this.validationStatus = IcInformationStatus.Error;
       }
     }
+  };
+
+  private handleAMPM = (selectedOption: HTMLIcToggleButtonElement) => {
+    this.period = selectedOption.label!;
+    this.periodToggleEl?.setActiveToggle(selectedOption);
   };
 
   render() {
@@ -1207,6 +1501,11 @@ export class TimeInput {
         isEmptyString(this.second)
       )
     );
+
+    if (this.showAmPmToggle && this.timePeriod !== "12") {
+      this.showAmPmToggle = false;
+    }
+
     return (
       <Host
         class={{
@@ -1239,71 +1538,116 @@ export class TimeInput {
             {assistiveHint}
           </span>
           <span id="live-region" aria-live="assertive" class="sr-only"></span>
-          <ic-input-component-container
-            id={inputId}
-            ref={(el: HTMLIcInputComponentContainerElement) =>
-              (this.inputCompContainerEl = el)
-            }
-            disabled={disabled}
-            validationStatus={validationStatus}
-            size={size}
-            role="group"
-            class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}
+          <div
+            class={{
+              "with-am-pm-toggle": this.showAmPmToggle === true,
+            }}
           >
-            <div class="input-container">
-              <div class="time-inputs">
-                {[
-                  this.getInputsInOrder()[0],
-                  ":",
-                  this.getInputsInOrder()[1],
-                  !this.isHHMMFormat()
-                    ? [":", this.getInputsInOrder()[2]]
-                    : null,
-                ]}
-              </div>
-              <div class="action-buttons">
-                {showClearButton && (
-                  <ic-button
-                    id="clear-button"
-                    aria-label="Clear input"
-                    class={{
-                      ["clear-button"]: true,
-                      ["hidden"]:
-                        isEmptyString(this.hour) &&
-                        isEmptyString(this.minute) &&
-                        isEmptyString(this.second),
-                    }}
-                    disabled={this.disabled}
-                    innerHTML={Clear}
-                    onClick={this.handleClear}
-                    onFocus={this.handleClearFocus}
-                    onBlur={this.handleClearBlur}
-                    variant="icon-tertiary"
-                    theme={this.clearButtonFocused ? "light" : "dark"}
-                    size={size}
-                  ></ic-button>
-                )}
-                {showClockButton && (
-                  <div class="show-clock-button-wrapper">
-                    <div class={{ divider: showDivider, [size]: true }}></div>
+            <ic-input-component-container
+              id={inputId}
+              ref={(el: HTMLIcInputComponentContainerElement) =>
+                (this.inputCompContainerEl = el)
+              }
+              disabled={disabled}
+              validationStatus={validationStatus}
+              size={size}
+              role="group"
+              class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}
+            >
+              <div class="input-container">
+                <div class="time-inputs">
+                  {[
+                    this.getInputsInOrder()[0],
+                    ":",
+                    this.getInputsInOrder()[1],
+                    !this.isHHMMFormat()
+                      ? [":", this.getInputsInOrder()[2]]
+                      : null,
+                    this.isSSSFormat()
+                      ? [".", this.getInputsInOrder()[3]]
+                      : null,
+                  ]}
+                </div>
+                <div class="action-buttons">
+                  {showClearButton && (
                     <ic-button
-                      id="clock-button"
-                      aria-label="Display clock"
-                      aria-haspopup="dialog"
-                      class="clock-button"
+                      id="clear-button"
+                      aria-label="Clear input"
+                      class={{
+                        ["clear-button"]: true,
+                        ["hidden"]:
+                          isEmptyString(this.hour) &&
+                          isEmptyString(this.minute) &&
+                          isEmptyString(this.second),
+                      }}
                       disabled={this.disabled}
-                      innerHTML={Clock}
+                      innerHTML={Clear}
+                      onClick={this.handleClear}
+                      onFocus={this.handleClearFocus}
+                      onBlur={this.handleClearBlur}
                       variant="icon-tertiary"
+                      theme={this.clearButtonFocused ? "light" : "dark"}
                       size={size}
-                      onFocus={this.handleClockFocus}
-                      onBlur={this.handleClockBlur}
-                      theme={this.clockFocused ? "light" : "dark"}
                     ></ic-button>
-                  </div>
-                )}
+                  )}
+                  {showClockButton && (
+                    <div class="show-clock-button-wrapper">
+                      <div class={{ divider: showDivider, [size]: true }}></div>
+                      <ic-button
+                        id="clock-button"
+                        aria-label="Display clock"
+                        aria-haspopup="dialog"
+                        class="clock-button"
+                        disabled={this.disabled}
+                        innerHTML={Clock}
+                        variant="icon-tertiary"
+                        size={size}
+                        onFocus={this.handleClockFocus}
+                        onBlur={this.handleClockBlur}
+                        theme={this.clockFocused ? "light" : "dark"}
+                      ></ic-button>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </ic-input-component-container>
+            </ic-input-component-container>
+            {this.showAmPmToggle && (
+              <ic-toggle-button-group
+                select-type="single"
+                accessible-label="AM PM Toggle"
+                outline={false}
+                ref={(el: HTMLIcToggleButtonGroupElement) =>
+                  (this.periodToggleEl = el)
+                }
+                disabled={disabled}
+                class="am-pm-toggle"
+                select-method="auto"
+                onIcChange={(e: any) =>
+                  this.handleAMPM(e.detail.selectedOption)
+                }
+                onKeyDown={(e: KeyboardEvent) => {
+                  if (e.key === "Tab" && e.shiftKey) {
+                    e.preventDefault();
+                    if (this.inputsInOrder && this.inputsInOrder.length > 0) {
+                      const lastInput = this.inputsInOrder[
+                        this.inputsInOrder.length - 1
+                      ] as HTMLElement;
+                      lastInput?.focus();
+                    }
+                  }
+                }}
+              >
+                <ic-toggle-button
+                  label="AM"
+                  disabled={disabled}
+                ></ic-toggle-button>
+                <ic-toggle-button
+                  label="PM"
+                  disabled={disabled}
+                ></ic-toggle-button>
+              </ic-toggle-button-group>
+            )}
+          </div>
           <span id={this.selectedTimeInfoId} class="sr-only" aria-live="polite">
             <span
               ref={(el) => (this.selectedTimeInfoEl = el)}
