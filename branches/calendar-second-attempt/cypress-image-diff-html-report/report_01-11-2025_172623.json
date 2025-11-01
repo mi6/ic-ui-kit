@@ -1,7 +1,7 @@
 {
   "total": 277,
-  "totalPassed": 273,
-  "totalFailed": 4,
+  "totalPassed": 275,
+  "totalFailed": 2,
   "totalSuites": 10,
   "suites": [
     {
@@ -55,7 +55,7 @@
         {
           "status": "fail",
           "name": "IcCalendar.cy.tsx/default-year-view",
-          "percentage": 0.026939084723024382,
+          "percentage": 0.027202941017470887,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
           "specFilename": "IcCalendar.cy.tsx",
@@ -64,14 +64,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-year-view.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCalendar.cy.tsx/default-year-view-dark-mode",
-          "percentage": 0.023482516292522217,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
           "specFilename": "IcCalendar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-year-view-dark-mode.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCalendar.cy.tsx/default-year-view-dark-mode.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-year-view-dark-mode.png"
         },
         {
@@ -229,14 +229,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/min-max-month-view.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCalendar.cy.tsx/min-max-year-view",
-          "percentage": 0.020354009783964296,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
           "specFilename": "IcCalendar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/min-max-year-view.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCalendar.cy.tsx/min-max-year-view.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/min-max-year-view.png"
         },
         {
@@ -3112,9 +3112,9 @@
       ]
     }
   ],
-  "startedAt": "2025-10-31T17:54:18.212Z",
-  "endedAt": "2025-10-31T18:03:08.097Z",
-  "duration": 505956,
+  "startedAt": "2025-11-01T17:26:23.175Z",
+  "endedAt": "2025-11-01T17:35:02.348Z",
+  "duration": 496158,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
