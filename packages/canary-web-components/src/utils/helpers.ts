@@ -753,6 +753,8 @@ export const renderDynamicChildSlots = (
 /**
  * Focuses the provided element, or the next focusable element if it should be skipped. Used for focus trapping.
  * @param element - element to focus
+ * @param focusedElementIndex - current focused element index
+ * @param interactiveElementList - list of interactive elements
  * @param shiftKey - whether the shift key is pressed
  */
 export const focusElement = (
@@ -770,10 +772,10 @@ export const focusElement = (
       shiftKey
     );
     newFocusedElementIndex = getLoopedNextFocusIndexIfLastElement(
-      focusedElementIndex,
+      newFocusedElementIndex,
       interactiveElementList
     );
-    nextFocusEl = interactiveElementList[focusedElementIndex];
+    nextFocusEl = interactiveElementList[newFocusedElementIndex];
     return focusElement(
       nextFocusEl,
       newFocusedElementIndex,
@@ -792,6 +794,7 @@ export const focusElement = (
       default:
         (element as HTMLElement).focus();
     }
+    console.log(element);
     return newFocusedElementIndex;
   }
 };
@@ -840,26 +843,27 @@ export const getLoopedNextFocusIndexIfLastElement = (
 
 /**
  * Handles the tab key press for focus trapping. Used for focus trapping.
- * @param focusedElementIndex - current focused element index
+ * @param el - host element of the component
+ * @param interactiveElementList - list of interactive elements
  * @param shiftKey - whether the shift key is pressed
  */
 export function handleFocusTrapTabKeyPress(
-  focusedElementIndex: number,
+  el: HTMLElement,
   interactiveElementList: HTMLElement[],
   shiftKey: boolean
 ): { preventDefault: boolean; newFocusedElementIndex: number } {
-  // Check if the currently focused element is a search bar
-  if (
-    interactiveElementList[focusedElementIndex] &&
-    interactiveElementList[focusedElementIndex].tagName === IC_SEARCH_BAR
-  ) {
+  const focusedElementIndex = getFocusedElementIndex(
+    el,
+    interactiveElementList
+  );
+
+  if (interactiveElementList[focusedElementIndex].tagName === IC_SEARCH_BAR) {
     return {
       preventDefault: false,
       newFocusedElementIndex: focusedElementIndex,
     };
   }
 
-  // Update index based on shift key
   let newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
     focusedElementIndex,
     shiftKey

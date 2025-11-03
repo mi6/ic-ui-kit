@@ -278,14 +278,53 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100%;
-  padding: var(--ic-space-md);
+  justify-content: space-between;
+  padding: var(--ic-space-md) var(--ic-space-xs);
 }
 
 .message-area {
-  overflow-y: auto;
   flex: 1 1 0;
+  padding: 0 var(--ic-space-xs);
+  position: relative;
+  overflow-y: auto;
+  transition: border-radius var(--ic-easing-transition-fast),
+    box-shadow var(--ic-easing-transition-fast);
+}
+
+.message-area.scrollable:focus-visible {
+  border-radius: var(--ic-border-radius);
+  box-shadow: var(--ic-border-focus);
+  outline: none;
+}
+
+.message-area-shadow-top,
+.message-area-shadow-bottom {
+  box-shadow: none;
+  height: var(--ic-space-xs);
+  position: sticky;
+  transition: var(--ic-easing-transition-slow);
+  width: 100%;
+}
+
+.message-area-shadow-top {
+  margin-bottom: calc(var(--ic-space-xs) * -1);
+  top: 0;
+}
+
+.message-area-shadow-bottom {
+  bottom: 0;
+  margin-top: calc(var(--ic-space-xs) * -1);
+}
+
+.message-area-shadow-bottom.show {
+  box-shadow: inset 0 calc(var(--ic-space-xs) * -1) var(--ic-space-xs)
+    calc(var(--ic-space-xs) * -1) var(--ic-state-layer-darken-20);
+}
+
+.message-area-shadow-top.show {
+  box-shadow: inset 0 var(--ic-space-xs) var(--ic-space-xs)
+    calc(var(--ic-space-xs) * -1) var(--ic-state-layer-darken-20);
 }
 
 /* :host .message-area .body-text { */ /* COMMENTED OUT TEMPORARILY */
