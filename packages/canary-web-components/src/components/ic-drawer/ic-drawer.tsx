@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   Listen,
+  State,
   Watch,
 } from "@stencil/core";
 
@@ -44,10 +45,14 @@ export class Drawer {
 
   private focusedElementIndex = 0;
   private interactiveElementList: HTMLElement[];
-  private isScrollable: boolean;
+  private messageAreaEl?: HTMLDivElement;
+  private messageAreaShadowBottomEl?: HTMLDivElement;
+  private messageAreaShadowTopEl?: HTMLDivElement;
   private sourceElement: HTMLElement;
 
   @Element() el: HTMLIcDrawerElement;
+
+  @State() isScrollable: boolean;
 
   // /**
   //  * The aria label applied to the drawer. This is required when the heading slot is used.
@@ -129,13 +134,14 @@ export class Drawer {
     if (this.expanded) {
       switch (ev.key) {
         case "Tab":
-          const tabKeyPressResult = handleFocusTrapTabKeyPress(
-            this.focusedElementIndex,
+          const tabKeyPressHandlerResult = handleFocusTrapTabKeyPress(
+            this.el,
             this.interactiveElementList,
             ev.shiftKey
           );
-          this.focusedElementIndex = tabKeyPressResult.newFocusedElementIndex;
-          if (tabKeyPressResult.preventDefault) {
+          this.focusedElementIndex =
+            tabKeyPressHandlerResult.newFocusedElementIndex;
+          if (tabKeyPressHandlerResult.preventDefault) {
             ev.preventDefault();
           }
           break;
@@ -185,7 +191,7 @@ export class Drawer {
   }
 
   componentDidLoad(): void {
-    this.setInteractiveElements();
+    this.handleMessageAreaScroll();
   }
 
   // componentDidUpdate(): void {
@@ -341,6 +347,7 @@ export class Drawer {
 
     if (this.expanded) {
       setTimeout(() => {
+        this.setInteractiveElements();
         if (this.trigger === "controlled") {
           this.sourceElement = document.activeElement as HTMLElement;
         }
@@ -377,6 +384,26 @@ export class Drawer {
         this.el.classList.remove(collapsingClassName);
         this.sourceElement?.focus();
       }, this.TRANSITION_DURATION);
+    }
+  };
+
+  // Show and hide shadows at top and bottom of message area to indicate scrollability
+  private handleMessageAreaScroll = () => {
+    if (
+      this.messageAreaEl &&
+      this.messageAreaShadowTopEl &&
+      this.messageAreaShadowBottomEl
+    ) {
+      this.messageAreaShadowTopEl.classList.toggle(
+        "show",
+        this.messageAreaEl.scrollTop > 0
+      );
+
+      this.messageAreaShadowBottomEl.classList.toggle(
+        "show",
+        this.messageAreaEl.scrollHeight - this.messageAreaEl.scrollTop >
+          this.messageAreaEl.clientHeight + 1
+      );
     }
   };
 
@@ -527,12 +554,19 @@ export class Drawer {
               {/* IS THIS CONDITION NEEDED OR SHOULD THE MESSAGE AREA ALWAYS BE HERE? */}
               {(isSlotUsed(this.el, "message") || !!message) && (
                 <div
+                  ref={(el) => (this.messageAreaEl = el)}
                   class={{
-                    ["message-area"]: true,
-                    // ["message-area-padding"]: isSlotUsed(this.el, "message"),
+                    scrollable: this.isScrollable,
+                    "message-area": true,
                   }}
-                  tabindex={this.isScrollable ? "0" : "-1"}
+                  // ["message-area-padding"]: isSlotUsed(this.el, "message"),
+                  tabindex={this.isScrollable ? 0 : -1}
+                  onScroll={() => this.handleMessageAreaScroll()}
                 >
+                  <div
+                    ref={(el) => (this.messageAreaShadowTopEl = el)}
+                    class="message-area-shadow-top"
+                  ></div>
                   {isSlotUsed(this.el, "message") ? (
                     <slot name="message" />
                   ) : (
@@ -548,6 +582,11 @@ export class Drawer {
                       <p>{message}</p>
                     </ic-typography>
                   )}
+
+                  <div
+                    ref={(el) => (this.messageAreaShadowBottomEl = el)}
+                    class="message-area-shadow-bottom"
+                  ></div>
                 </div>
               )}
               {(isSlotUsed(this.el, "actions") ||

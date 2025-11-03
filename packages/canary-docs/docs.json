@@ -1107,7 +1107,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--card-horizontal-width",
+          "annotation": "prop",
+          "docs": "Width of the horizontal card"
+        }
+      ],
       "slots": [
         {
           "name": "adornment",
@@ -4972,7 +4978,23 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-drawer-height",
+          "annotation": "prop",
+          "docs": "the width of the expanded top or bottom drawer."
+        },
+        {
+          "name": "--ic-drawer-width",
+          "annotation": "prop",
+          "docs": "the width of the expanded left or right drawer."
+        },
+        {
+          "name": "--ic-z-index-drawer",
+          "annotation": "prop",
+          "docs": "z-index of drawer."
+        }
+      ],
       "slots": [
         {
           "name": "actions",
@@ -7471,7 +7493,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--tree-view-width",
+          "annotation": "prop",
+          "docs": "Width of the tree view"
+        }
+      ],
       "slots": [
         {
           "name": "heading",

@@ -378,14 +378,10 @@ export const ManualTriggerLongContentRight = {
       >Open drawer</ic-button
     >
     <ic-drawer
+      hide-close-button="true"
       id="drawer-1"
       trigger="controlled"
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
-      message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     >
       <svg
         slot="heading-adornment"
@@ -396,6 +392,165 @@ export const ManualTriggerLongContentRight = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <div slot="message">
+      <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+        <ic-tooltip
+          label="This is a description of the button"
+          target="test-button"
+        >
+          <ic-button
+            id="test-button"
+          >
+            Button with tooltip
+          </ic-button>
+        </ic-tooltip>
+        <ic-button
+          variant="icon-primary"
+          aria-label="This is a description of the button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-button>
+        <ic-accordion heading="This is an accordion">
+          <ic-checkbox label="Agree" value="confirm" additional-field-display="static">
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            />
+          </ic-checkbox>
+          <ic-radio-group label="This is a label" name="1">
+          <ic-radio-option
+            value="valueName1"
+            label="Unselected / Default"
+            additional-field-display="dynamic"
+          >
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            >
+            </ic-text-field>
+          </ic-radio-option>
+          <ic-radio-option
+            value="valueName2"
+            label="Selected / Default"
+            additional-field-display="static"
+            selected
+          >
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            >
+            </ic-text-field>
+          </ic-radio-option>
+          <ic-radio-option
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-radio-option>
+        </ic-radio-group>
+      </ic-accordion>
+      <ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
+      <ic-text-field label="What is your favourite coffee?"></ic-text-field>
+      <ic-select
+        id="sel1"
+        label="What is your favourite coffee?"
+        placeholder="Placeholder goes here"
+      ></ic-select>
+      <ic-button id="button-1" onclick="buttonClick()">Show popover</ic-button>
+      <div>
+        <ic-popover-menu anchor="button-1" aria-label="popover">
+          <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
+          <ic-menu-group label="View">
+            <ic-menu-item
+              label="Zoom in"
+              keyboard-shortcut-label="Cmd+"
+            ></ic-menu-item>
+          </ic-menu-group>
+          <ic-menu-item
+            label="Actions"
+            submenu-trigger-for="abc"
+          ></ic-menu-item>
+        </ic-popover-menu>
+        <ic-popover-menu submenu-id="abc">
+          <ic-menu-item
+            label="Find"
+            submenu-trigger-for="abc123"
+          ></ic-menu-item>
+        </ic-popover-menu>
+        <ic-popover-menu submenu-id="abc123">
+          <ic-menu-item
+            disabled="true"
+            label="Search the web"
+            description="This will search the web to find the thing you are looking for."
+          ></ic-menu-item>
+          <ic-menu-item label="Find icons">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-menu-item>
+        </ic-popover-menu>
+      </div>
+      <ic-checkbox-group
+        label="confirm"
+        hide-label
+        name="confirm-checkbox"
+      >
+        <ic-checkbox label="Agree" value="confirm" id="focus" additional-field-display="static">
+        <ic-text-field
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+          /></ic-checkbox>
+        <ic-checkbox additional-field-display="dynamic" value="disagree" label="Disagree">
+          <ic-text-field
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+          />
+        </ic-checkbox>
+        <ic-checkbox label="Disabled" value="disabled" disabled>
+      </ic-checkbox-group>
+      <ic-chip label="Default" dismissible="true">
+        <svg
+          slot="icon"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
+          />
+        </svg>
+      </ic-chip>
+      <ic-switch label="Switch label"></ic-switch>
+    </div>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -760,32 +915,6 @@ export const ContainedWithinParentManualTrigger = {
         .addEventListener("icDrawerExpanded", handleIcDrawerExpanded);
     </script>`,
   name: "Contained within parent manual trigger",
-};
-
-export const WithInteractiveElements = {
-  render: () => html`<ic-drawer heading="Roasted coffee">
-    <svg
-      slot="heading-adornment"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-      />
-    </svg>
-    <div
-      slot="message"
-      style="display: flex; flex-direction: column; gap: 16px;"
-    >
-      Contrary to popular belief, light roast coffee has more caffeine than dark
-      roast coffee. The longer coffee is roasted, the more caffeine is lost
-      through the cooking of the bean. Light roast coffee is a light brown
-      colour and has no oil on the surface of the beans, and these coffees
-      typically have a crisp acidity, a mellow body, and bright flavours.
-      <input type="text" placeholder="Native input" />
-    </div>
-  </ic-drawer>`,
-  name: "With interactive elements",
 };
 
 export const Playground = {
