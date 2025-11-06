@@ -33,10 +33,9 @@ const defaultArgs = {
 export const RightPosition = {
   render: () => html`<ic-drawer
       heading="Roasted coffee"
-      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
       position="right"
       chevron-button-aria-label="Show details"
-      close-on-backdrop-click="false"
+      size="large"
     >
       <svg
         slot="heading-adornment"
@@ -47,6 +46,16 @@ export const RightPosition = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <ic-typography>
+        <p>
+          Contrary to popular belief, light roast coffee has more caffeine than
+          dark roast coffee. The longer coffee is roasted, the more caffeine is
+          lost through the cooking of the bean. Light roast coffee is a light
+          brown colour and has no oil on the surface of the beans, and these
+          coffees typically have a crisp acidity, a mellow body, and bright
+          flavours.
+        </p>
+      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -73,9 +82,9 @@ export const LeftPosition = {
   render: () =>
     html`<ic-drawer
       heading="Roasted coffee"
-      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
       position="left"
       close-on-backdrop-click="false"
+      size="large"
     >
       <svg
         style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
@@ -87,6 +96,16 @@ export const LeftPosition = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <ic-typography>
+        <p>
+          Contrary to popular belief, light roast coffee has more caffeine than
+          dark roast coffee. The longer coffee is roasted, the more caffeine is
+          lost through the cooking of the bean. Light roast coffee is a light
+          brown colour and has no oil on the surface of the beans, and these
+          coffees typically have a crisp acidity, a mellow body, and bright
+          flavours.
+        </p>
+      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>`,
   name: "Left position",
@@ -94,11 +113,7 @@ export const LeftPosition = {
 
 export const TopPosition = {
   render: () =>
-    html`<ic-drawer
-      heading="Roasted coffee"
-      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
-      position="top"
-    >
+    html`<ic-drawer heading="Roasted coffee" position="top" size="large">
       <svg
         style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
         slot="heading-adornment"
@@ -109,6 +124,16 @@ export const TopPosition = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <ic-typography>
+        <p>
+          Contrary to popular belief, light roast coffee has more caffeine than
+          dark roast coffee. The longer coffee is roasted, the more caffeine is
+          lost through the cooking of the bean. Light roast coffee is a light
+          brown colour and has no oil on the surface of the beans, and these
+          coffees typically have a crisp acidity, a mellow body, and bright
+          flavours.
+        </p>
+      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>`,
   name: "Top position",
@@ -116,11 +141,7 @@ export const TopPosition = {
 
 export const BottomPosition = {
   render: () =>
-    html`<ic-drawer
-      heading="Roasted coffee"
-      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
-      position="bottom"
-    >
+    html`<ic-drawer heading="Roasted coffee" position="bottom" size="large">
       <svg
         style="width: var(--ic-space-lg); height: var(--ic-space-lg);"
         slot="heading-adornment"
@@ -131,6 +152,16 @@ export const BottomPosition = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <ic-typography>
+        <p>
+          Contrary to popular belief, light roast coffee has more caffeine than
+          dark roast coffee. The longer coffee is roasted, the more caffeine is
+          lost through the cooking of the bean. Light roast coffee is a light
+          brown colour and has no oil on the surface of the beans, and these
+          coffees typically have a crisp acidity, a mellow body, and bright
+          flavours.
+        </p>
+      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>`,
   name: "Bottom position",
@@ -139,11 +170,6 @@ export const BottomPosition = {
 export const LongContentRight = {
   render: () => html`<ic-drawer
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-    message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     position="right"
   >
     <svg
@@ -155,6 +181,39 @@ export const LongContentRight = {
         d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
       />
     </svg>
+    <ic-typography>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper
+        arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant
+        morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus
+        condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod
+        id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis.
+        Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique
+        justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est
+        nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+        Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent
+        efficitur turpis nec lacus convallis, quis feugiat lectus tempor.
+        Curabitur condimentum, justo et blandit sagittis, dui odio euismod
+        lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor
+        vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam
+        libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper,
+        tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget
+        placerat metus, non maximus mauris. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+        vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+        finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+        nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+        eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+        Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+        justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus
+        sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare
+        sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat
+        volutpat. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed
+        mauris sed, venenatis euismod turpis.
+      </p>
+    </ic-typography>
     <ic-button slot="actions">Add to order</ic-button>
   </ic-drawer>`,
   name: "Long content right",
@@ -163,11 +222,6 @@ export const LongContentRight = {
 export const LongContentLeft = {
   render: () => html`<ic-drawer
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-    message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     position="left"
   >
     <svg
@@ -179,6 +233,39 @@ export const LongContentLeft = {
         d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
       />
     </svg>
+    <ic-typography>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper
+        arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant
+        morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus
+        condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod
+        id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis.
+        Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique
+        justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est
+        nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+        Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent
+        efficitur turpis nec lacus convallis, quis feugiat lectus tempor.
+        Curabitur condimentum, justo et blandit sagittis, dui odio euismod
+        lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor
+        vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam
+        libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper,
+        tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget
+        placerat metus, non maximus mauris. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+        vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+        finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+        nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+        eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+        Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+        justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus
+        sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare
+        sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat
+        volutpat. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed
+        mauris sed, venenatis euismod turpis.
+      </p>
+    </ic-typography>
     <ic-button slot="actions">Add to order</ic-button>
   </ic-drawer>`,
   name: "Long content left",
@@ -187,17 +274,7 @@ export const LongContentLeft = {
 export const LongContentTop = {
   render: () => html`<ic-drawer
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-    message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis.
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
+    content=""
     position="top"
   >
     <svg
@@ -209,6 +286,68 @@ export const LongContentTop = {
         d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
       />
     </svg>
+    <ic-typography
+      ><p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper
+        arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant
+        morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus
+        condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod
+        id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis.
+        Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique
+        justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est
+        nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+        Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent
+        efficitur turpis nec lacus convallis, quis feugiat lectus tempor.
+        Curabitur condimentum, justo et blandit sagittis, dui odio euismod
+        lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor
+        vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam
+        libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper,
+        tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget
+        placerat metus, non maximus mauris. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+        vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+        finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+        nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+        eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+        Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+        justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus
+        sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare
+        sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat
+        volutpat. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed
+        mauris sed, venenatis euismod turpis. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare
+        nunc faucibus nec. Pellentesque habitant morbi tristique senectus et
+        netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit
+        amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum
+        euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor.
+        Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi
+        nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel
+        rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris
+        nec turpis hendrerit, tempus nibh eget, commodo quam. Duis rhoncus
+        eleifend turpis, id efficitur magna tempor quis. Praesent efficitur
+        turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur
+        condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan
+        maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar
+        vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae
+        ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc
+        maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat
+        metus, non maximus mauris. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+        vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+        finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+        nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+        eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+        Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+        justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus
+        sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare
+        sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat
+        volutpat. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed
+        mauris sed, venenatis euismod turpis.
+      </p></ic-typography
+    >
     <ic-button slot="actions">Add to order</ic-button>
   </ic-drawer>`,
   name: "Long content top",
@@ -217,17 +356,6 @@ export const LongContentTop = {
 export const LongContentBottom = {
   render: () => html`<ic-drawer
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-    message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis.
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     position="bottom"
   >
     <svg
@@ -239,6 +367,68 @@ export const LongContentBottom = {
         d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
       />
     </svg>
+    <ic-typography
+      ><p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper
+        arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant
+        morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus
+        condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod
+        id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis.
+        Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique
+        justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est
+        nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
+        Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent
+        efficitur turpis nec lacus convallis, quis feugiat lectus tempor.
+        Curabitur condimentum, justo et blandit sagittis, dui odio euismod
+        lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor
+        vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam
+        libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper,
+        tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget
+        placerat metus, non maximus mauris. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+        vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+        finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+        nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+        eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+        Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+        justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus
+        sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare
+        sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat
+        volutpat. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed
+        mauris sed, venenatis euismod turpis. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare
+        nunc faucibus nec. Pellentesque habitant morbi tristique senectus et
+        netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit
+        amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum
+        euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor.
+        Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi
+        nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel
+        rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris
+        nec turpis hendrerit, tempus nibh eget, commodo quam. Duis rhoncus
+        eleifend turpis, id efficitur magna tempor quis. Praesent efficitur
+        turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur
+        condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan
+        maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar
+        vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae
+        ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc
+        maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat
+        metus, non maximus mauris. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+        vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+        finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+        nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+        eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+        Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+        justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus
+        sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare
+        sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat
+        volutpat. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed
+        mauris sed, venenatis euismod turpis.
+      </p></ic-typography
+    >
     <ic-button slot="actions">Add to order</ic-button>
   </ic-drawer>`,
   name: "Long content bottom",
@@ -258,7 +448,7 @@ export const SlottedContent = {
     <ic-typography slot="heading" variant="h4"
       ><h4>Roasted coffee</h4></ic-typography
     >
-    <ic-typography slot="message">
+    <ic-typography>
       <p>
         Contrary to popular belief, light roast coffee has more caffeine than
         dark roast coffee. The longer coffee is roasted, the more caffeine is
@@ -288,8 +478,17 @@ export const ManualTriggerRight = {
       trigger="controlled"
       close-button-aria-label="Hide details"
       heading="Roasted coffee"
-      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
+      <ic-typography>
+        <p>
+          Contrary to popular belief, light roast coffee has more caffeine than
+          dark roast coffee. The longer coffee is roasted, the more caffeine is
+          lost through the cooking of the bean. Light roast coffee is a light
+          brown colour and has no oil on the surface of the beans, and these
+          coffees typically have a crisp acidity, a mellow body, and bright
+          flavours.
+        </p>
+      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -316,8 +515,17 @@ export const ManualTriggerLeft = {
       trigger="controlled"
       position="left"
       heading="Roasted coffee"
-      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
+      <ic-typography>
+        <p>
+          Contrary to popular belief, light roast coffee has more caffeine than
+          dark roast coffee. The longer coffee is roasted, the more caffeine is
+          lost through the cooking of the bean. Light roast coffee is a light
+          brown colour and has no oil on the surface of the beans, and these
+          coffees typically have a crisp acidity, a mellow body, and bright
+          flavours.
+        </p>
+      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -338,8 +546,17 @@ export const ManualTriggerTop = {
       id="drawer-1"
       trigger="controlled"
       heading="Roasted coffee"
-      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
+      <ic-typography>
+        <p>
+          Contrary to popular belief, light roast coffee has more caffeine than
+          dark roast coffee. The longer coffee is roasted, the more caffeine is
+          lost through the cooking of the bean. Light roast coffee is a light
+          brown colour and has no oil on the surface of the beans, and these
+          coffees typically have a crisp acidity, a mellow body, and bright
+          flavours.
+        </p>
+      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -360,8 +577,17 @@ export const ManualTriggerBottom = {
       id="drawer-1"
       trigger="controlled"
       heading="Roasted coffee"
-      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
+      <ic-typography>
+        <p>
+          Contrary to popular belief, light roast coffee has more caffeine than
+          dark roast coffee. The longer coffee is roasted, the more caffeine is
+          lost through the cooking of the bean. Light roast coffee is a light
+          brown colour and has no oil on the surface of the beans, and these
+          coffees typically have a crisp acidity, a mellow body, and bright
+          flavours.
+        </p>
+      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -392,24 +618,20 @@ export const ManualTriggerLongContentRight = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
-      <div slot="message">
+      <div>
       <ic-typography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
         </ic-typography>
-        <ic-tooltip
-          label="This is a description of the button"
-          target="test-button"
-        >
-          <ic-button
-            id="test-button"
-          >
+        <ic-tooltip label="This is a description of the button">
+          <ic-button>
             Button with tooltip
           </ic-button>
         </ic-tooltip>
         <ic-button
           variant="icon-primary"
           aria-label="This is a description of the button"
+          tooltip-placement="top"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -571,11 +793,6 @@ export const ManualTriggerLongContentLeft = {
       trigger="controlled"
       position="left"
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
-      message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     >
       <svg
         slot="heading-adornment"
@@ -586,6 +803,40 @@ export const ManualTriggerLongContentLeft = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <ic-typography
+        ><p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper
+          arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant
+          morbi tristique senectus et netus et malesuada fames ac turpis
+          egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin
+          eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat
+          at euismod id, placerat vel dolor. Morbi sodales nisl in libero
+          viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec
+          sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus
+          vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis
+          hendrerit, tempus nibh eget, commodo quam. Duis rhoncus eleifend
+          turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec
+          lacus convallis, quis feugiat lectus tempor. Curabitur condimentum,
+          justo et blandit sagittis, dui odio euismod lorem, accumsan maximus
+          sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar
+          vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae
+          ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc
+          maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat
+          metus, non maximus mauris. Class aptent taciti sociosqu ad litora
+          torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+          vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+          finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+          nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+          eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+          Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+          justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus
+          cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt
+          ornare sed nec lorem. Sed congue justo id ligula luctus sodales.
+          Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus
+          et netus et malesuada fames ac turpis egestas. Aenean ante lorem,
+          porttitor sed mauris sed, venenatis euismod turpis.
+        </p></ic-typography
+      >
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -606,11 +857,6 @@ export const ManualTriggerLongContentTop = {
       trigger="controlled"
       position="top"
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
-      message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     >
       <svg
         slot="heading-adornment"
@@ -621,6 +867,40 @@ export const ManualTriggerLongContentTop = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <ic-typography
+        ><p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper
+          arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant
+          morbi tristique senectus et netus et malesuada fames ac turpis
+          egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin
+          eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat
+          at euismod id, placerat vel dolor. Morbi sodales nisl in libero
+          viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec
+          sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus
+          vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis
+          hendrerit, tempus nibh eget, commodo quam. Duis rhoncus eleifend
+          turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec
+          lacus convallis, quis feugiat lectus tempor. Curabitur condimentum,
+          justo et blandit sagittis, dui odio euismod lorem, accumsan maximus
+          sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar
+          vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae
+          ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc
+          maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat
+          metus, non maximus mauris. Class aptent taciti sociosqu ad litora
+          torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+          vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+          finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+          nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+          eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+          Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+          justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus
+          cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt
+          ornare sed nec lorem. Sed congue justo id ligula luctus sodales.
+          Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus
+          et netus et malesuada fames ac turpis egestas. Aenean ante lorem,
+          porttitor sed mauris sed, venenatis euismod turpis.
+        </p></ic-typography
+      >
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -641,11 +921,6 @@ export const ManualTriggerLongContentBottom = {
       trigger="controlled"
       position="bottom"
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec"
-      message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat at euismod id, placerat vel dolor. Morbi sodales nisl in libero viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis hendrerit, tempus nibh eget, commodo quam.
-
-    Duis rhoncus eleifend turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec lacus convallis, quis feugiat lectus tempor. Curabitur condimentum, justo et blandit sagittis, dui odio euismod lorem, accumsan maximus sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat metus, non maximus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus, finibus in ultricies at, feugiat eget est. Pellentesque vitae neque nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
-
-    Integer sit amet pharetra neque, at posuere magna. Vestibulum erat justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt ornare sed nec lorem. Sed congue justo id ligula luctus sodales. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ante lorem, porttitor sed mauris sed, venenatis euismod turpis."
     >
       <svg
         slot="heading-adornment"
@@ -656,6 +931,40 @@ export const ManualTriggerLongContentBottom = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <ic-typography
+        ><p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper
+          arcu tortor, sit amet ornare nunc faucibus nec. Pellentesque habitant
+          morbi tristique senectus et netus et malesuada fames ac turpis
+          egestas. Cras ullamcorper tortor sit amet urna dapibus laoreet. Proin
+          eu tellus condimentum felis dictum euismod. Cras velit nunc, feugiat
+          at euismod id, placerat vel dolor. Morbi sodales nisl in libero
+          viverra convallis. Vestibulum sit amet nisi nunc. Phasellus nec
+          sodales nisl. Nam tristique justo mauris, vel rhoncus odio dapibus
+          vel. Aenean efficitur cursus est nec ornare. Mauris nec turpis
+          hendrerit, tempus nibh eget, commodo quam. Duis rhoncus eleifend
+          turpis, id efficitur magna tempor quis. Praesent efficitur turpis nec
+          lacus convallis, quis feugiat lectus tempor. Curabitur condimentum,
+          justo et blandit sagittis, dui odio euismod lorem, accumsan maximus
+          sem erat gravida justo. Aliquam venenatis, dolor vel pulvinar
+          vehicula, dui nulla gravida nisl, sit amet consequat quam libero vitae
+          ex. Nulla porttitor, nunc tristique tristique ullamcorper, tellus nunc
+          maximus libero, eget pharetra diam dolor ut metus. Sed eget placerat
+          metus, non maximus mauris. Class aptent taciti sociosqu ad litora
+          torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+          vulputate nulla sit amet ipsum aliquet malesuada. Sed sapien lacus,
+          finibus in ultricies at, feugiat eget est. Pellentesque vitae neque
+          nulla. Maecenas vulputate libero sit amet ex facilisis auctor. Etiam
+          eget nisl eu magna accumsan suscipit. Maecenas nec sollicitudin erat.
+          Integer sit amet pharetra neque, at posuere magna. Vestibulum erat
+          justo, scelerisque sit amet orci in, porta dapibus lorem. Vivamus
+          cursus sem quis viverra consequat. Donec in tellus eget nisl tincidunt
+          ornare sed nec lorem. Sed congue justo id ligula luctus sodales.
+          Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus
+          et netus et malesuada fames ac turpis egestas. Aenean ante lorem,
+          porttitor sed mauris sed, venenatis euismod turpis.
+        </p></ic-typography
+      >
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -737,7 +1046,6 @@ export const ContainedWithinParent = {
         <main style="min-height: 100vh; position: relative;">
           <ic-drawer
             heading="Roasted coffee"
-            message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
             position="right"
             boundary="parent"
             style="--ic-z-index-drawer: 211;"
@@ -752,6 +1060,16 @@ export const ContainedWithinParent = {
                 d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
               />
             </svg>
+            <ic-typography>
+              <p>
+                Contrary to popular belief, light roast coffee has more caffeine
+                than dark roast coffee. The longer coffee is roasted, the more
+                caffeine is lost through the cooking of the bean. Light roast
+                coffee is a light brown colour and has no oil on the surface of
+                the beans, and these coffees typically have a crisp acidity, a
+                mellow body, and bright flavours.
+              </p>
+            </ic-typography>
             <ic-button slot="actions">Add to order</ic-button>
           </ic-drawer>
           <ic-section-container aligned="center">
@@ -778,7 +1096,6 @@ export const ContainedWithinParent = {
             >
               <ic-drawer
                 heading="Roasted coffee"
-                message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
                 position="left"
                 boundary="parent"
               >
@@ -792,6 +1109,17 @@ export const ContainedWithinParent = {
                     d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
                   />
                 </svg>
+                <ic-typography>
+                  <p>
+                    Contrary to popular belief, light roast coffee has more
+                    caffeine than dark roast coffee. The longer coffee is
+                    roasted, the more caffeine is lost through the cooking of
+                    the bean. Light roast coffee is a light brown colour and has
+                    no oil on the surface of the beans, and these coffees
+                    typically have a crisp acidity, a mellow body, and bright
+                    flavours.
+                  </p>
+                </ic-typography>
                 <ic-button slot="actions">Add to order</ic-button>
               </ic-drawer>
             </div>
@@ -808,8 +1136,18 @@ export const ContainedWithinParent = {
                 trigger="controlled"
                 boundary="parent"
                 heading="Roasted coffee"
-                message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
               >
+                <ic-typography>
+                  <p>
+                    Contrary to popular belief, light roast coffee has more
+                    caffeine than dark roast coffee. The longer coffee is
+                    roasted, the more caffeine is lost through the cooking of
+                    the bean. Light roast coffee is a light brown colour and has
+                    no oil on the surface of the beans, and these coffees
+                    typically have a crisp acidity, a mellow body, and bright
+                    flavours.
+                  </p>
+                </ic-typography>
               </ic-drawer>
               <script>
                 let icDrawer = document.querySelector("ic-drawer#drawer-1");
@@ -857,8 +1195,17 @@ export const ContainedWithinParentManualTrigger = {
           trigger="controlled"
           heading="Roasted coffee"
           boundary="parent"
-          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
         >
+          <ic-typography>
+            <p>
+              Contrary to popular belief, light roast coffee has more caffeine
+              than dark roast coffee. The longer coffee is roasted, the more
+              caffeine is lost through the cooking of the bean. Light roast
+              coffee is a light brown colour and has no oil on the surface of
+              the beans, and these coffees typically have a crisp acidity, a
+              mellow body, and bright flavours.
+            </p>
+          </ic-typography>
         </ic-drawer>
         <ic-drawer
           position="left"
@@ -866,8 +1213,17 @@ export const ContainedWithinParentManualTrigger = {
           trigger="controlled"
           heading="Roasted coffee"
           boundary="parent"
-          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
         >
+          <ic-typography>
+            <p>
+              Contrary to popular belief, light roast coffee has more caffeine
+              than dark roast coffee. The longer coffee is roasted, the more
+              caffeine is lost through the cooking of the bean. Light roast
+              coffee is a light brown colour and has no oil on the surface of
+              the beans, and these coffees typically have a crisp acidity, a
+              mellow body, and bright flavours.
+            </p>
+          </ic-typography>
         </ic-drawer>
         <ic-drawer
           position="top"
@@ -875,8 +1231,17 @@ export const ContainedWithinParentManualTrigger = {
           trigger="controlled"
           heading="Roasted coffee"
           boundary="parent"
-          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
         >
+          <ic-typography>
+            <p>
+              Contrary to popular belief, light roast coffee has more caffeine
+              than dark roast coffee. The longer coffee is roasted, the more
+              caffeine is lost through the cooking of the bean. Light roast
+              coffee is a light brown colour and has no oil on the surface of
+              the beans, and these coffees typically have a crisp acidity, a
+              mellow body, and bright flavours.
+            </p>
+          </ic-typography>
         </ic-drawer>
         <ic-drawer
           position="bottom"
@@ -884,8 +1249,16 @@ export const ContainedWithinParentManualTrigger = {
           trigger="controlled"
           heading="Roasted coffee"
           boundary="parent"
-          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
-        >
+          ><ic-typography>
+            <p>
+              Contrary to popular belief, light roast coffee has more caffeine
+              than dark roast coffee. The longer coffee is roasted, the more
+              caffeine is lost through the cooking of the bean. Light roast
+              coffee is a light brown colour and has no oil on the surface of
+              the beans, and these coffees typically have a crisp acidity, a
+              mellow body, and bright flavours.
+            </p>
+          </ic-typography>
         </ic-drawer>
       </div>
     </div>
@@ -917,6 +1290,7 @@ export const ContainedWithinParentManualTrigger = {
   name: "Contained within parent manual trigger",
 };
 
+// SORT OUT SLOTTED CONTENT
 export const Playground = {
   render: (args) => html`<div style="display:flex;">
       <ic-side-navigation app-title="Déja-brew" version="v0.0.7" status="BETA">
@@ -1134,7 +1508,7 @@ export const Playground = {
                   </svg>
                   <div
                     style="display: flex; gap: var(--ic-space-xs); padding: var(--ic-space-xs)"
-                    slot="message"
+                    slot="content"
                   >
                     <ic-button variant="secondary" onclick="expandDrawer()"
                       >Learn more</ic-button
@@ -1230,7 +1604,7 @@ export const Playground = {
             close-on-backdrop-click=${args.closeOnBackdropClick}
             expanded=${args.expanded}
             heading=${args.heading}
-            message=${args.message}
+            content=${args.message}
             position=${args.position}
             size=${args.size}
             show-close-button=${args.showCloseButton}

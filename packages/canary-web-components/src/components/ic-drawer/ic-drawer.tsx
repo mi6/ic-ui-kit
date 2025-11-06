@@ -29,7 +29,6 @@ import { IcSizes, IcThemeMode } from "../../utils/types";
 /**
  * @slot heading - Content will be rendered in the title area, in place of the heading.
  * @slot heading-adornment - Content will be rendered in the title area, to the left of the heading.
- * @slot message - Content will be rendered below the title area, in place of the message.
  * @slot actions - Content will be rendered in the action area, adjacent to the title area.
  */
 
@@ -43,12 +42,13 @@ export class Drawer {
   private DEFAULT_OPEN_BUTTON_ARIA_LABEL = "Open drawer";
   private TRANSITION_DURATION = 300;
 
+  private chevronButton?: HTMLIcButtonElement;
+  private contentAreaEl?: HTMLDivElement;
+  private contentAreaShadowBottomEl?: HTMLDivElement;
+  private contentAreaShadowTopEl?: HTMLDivElement;
   private focusedElementIndex = 0;
   private interactiveElementList: HTMLElement[];
-  private messageAreaEl?: HTMLDivElement;
-  private messageAreaShadowBottomEl?: HTMLDivElement;
-  private messageAreaShadowTopEl?: HTMLDivElement;
-  private sourceElement: HTMLElement;
+  private sourceElement?: HTMLElement;
 
   @Element() el: HTMLIcDrawerElement;
 
@@ -90,11 +90,6 @@ export class Drawer {
   @Prop() heading?: string;
 
   /**
-   * The main body text in the drawer.
-   */
-  @Prop() message?: string;
-
-  /**
    * The position of the drawer.
    */
   @Prop() position: IcPosition = "right";
@@ -118,11 +113,6 @@ export class Drawer {
    * The method in which the drawer is expanded.
    */
   @Prop() trigger: "arrow" | "controlled" = "arrow";
-
-  /**
-   * The variant of the drawer. TODO - figure out how this works
-   */
-  @Prop() variant: "temporary" | "persistent" = "temporary";
 
   /**
    * Emitted when the drawer is collapsed and expanded.
@@ -191,7 +181,7 @@ export class Drawer {
   }
 
   componentDidLoad(): void {
-    this.handleMessageAreaScroll();
+    this.handleContentAreaScroll();
   }
 
   // componentDidUpdate(): void {
@@ -382,32 +372,37 @@ export class Drawer {
       this.el.classList.add(collapsingClassName);
       setTimeout(() => {
         this.el.classList.remove(collapsingClassName);
-        this.sourceElement?.focus();
+        if (this.trigger === "controlled") {
+          this.sourceElement?.focus();
+        } else {
+          this.chevronButton?.setFocus();
+        }
       }, this.TRANSITION_DURATION);
+      this.focusedElementIndex = 0; // Reset to first element for when drawer is reopened
     }
   };
 
-  // Show and hide shadows at top and bottom of message area to indicate scrollability
-  private handleMessageAreaScroll = () => {
+  // Show and hide shadows at top and bottom of content area to indicate scrollability
+  private handleContentAreaScroll = () => {
     if (
-      this.messageAreaEl &&
-      this.messageAreaShadowTopEl &&
-      this.messageAreaShadowBottomEl
+      this.contentAreaEl &&
+      this.contentAreaShadowTopEl &&
+      this.contentAreaShadowBottomEl
     ) {
-      this.messageAreaShadowTopEl.classList.toggle(
+      this.contentAreaShadowTopEl.classList.toggle(
         "show",
-        this.messageAreaEl.scrollTop > 0
+        this.contentAreaEl.scrollTop > 0
       );
 
-      this.messageAreaShadowBottomEl.classList.toggle(
+      this.contentAreaShadowBottomEl.classList.toggle(
         "show",
-        this.messageAreaEl.scrollHeight - this.messageAreaEl.scrollTop >
-          this.messageAreaEl.clientHeight + 1
+        this.contentAreaEl.scrollHeight - this.contentAreaEl.scrollTop >
+          this.contentAreaEl.clientHeight + 1
       );
     }
   };
 
-  private onBackdropClick = (ev: Event) => {
+  private handleBackdropClick = (ev: Event) => {
     if (this.closeOnBackdropClick) {
       this.handleDrawerExpanded(false, ev);
     }
@@ -442,14 +437,15 @@ export class Drawer {
       this.el.shadowRoot?.querySelectorAll("ic-button") || []
     );
 
-    const messageArea = this.el.shadowRoot?.querySelector(
-      ".message-area"
+    const contentArea = this.el.shadowRoot?.querySelector(
+      ".content-area"
     ) as HTMLElement;
-    this.isScrollable = messageArea.scrollHeight > messageArea.clientHeight;
+    this.isScrollable = contentArea.scrollHeight > contentArea.clientHeight;
 
-    // Include message area as an interactive element if it is scrollable
-    if (messageArea && this.isScrollable) {
-      this.interactiveElementList.push(messageArea);
+    // Include content area as an interactive element if it is scrollable
+    if (contentArea && this.isScrollable) {
+      contentArea.tabIndex = 0;
+      this.interactiveElementList.push(contentArea);
     }
 
     this.interactiveElementList = [
@@ -465,7 +461,6 @@ export class Drawer {
       closeButtonAriaLabel,
       expanded,
       heading,
-      message,
       position,
       hideCloseButton,
       size,
@@ -475,6 +470,7 @@ export class Drawer {
 
     const chevronButton = (
       <ic-button
+        ref={(el: HTMLIcButtonElement) => (this.chevronButton = el)}
         class="chevron-btn"
         theme={theme}
         variant="icon-tertiary"
@@ -492,15 +488,15 @@ export class Drawer {
     return (
       <Host
         class={{
+          "ic-drawer-boundary-parent": boundary === "parent",
           "ic-drawer-collapsed": !expanded,
           "ic-drawer-expanded": expanded,
-          "ic-drawer-boundary-parent": boundary === "parent",
           [`ic-drawer-${position}-position`]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         aria-expanded={expanded}
       >
-        <div class="overlay" onClick={this.onBackdropClick}></div>
+        <div class="overlay" onClick={this.handleBackdropClick}></div>
         <div
           class={{
             controlled: trigger === "controlled",
@@ -551,44 +547,24 @@ export class Drawer {
               )}
             </div>
             <div class="main-content">
-              {/* IS THIS CONDITION NEEDED OR SHOULD THE MESSAGE AREA ALWAYS BE HERE? */}
-              {(isSlotUsed(this.el, "message") || !!message) && (
+              <div
+                ref={(el) => (this.contentAreaEl = el)}
+                class={{
+                  scrollable: this.isScrollable,
+                  "content-area": true,
+                }}
+                onScroll={this.handleContentAreaScroll}
+              >
                 <div
-                  ref={(el) => (this.messageAreaEl = el)}
-                  class={{
-                    scrollable: this.isScrollable,
-                    "message-area": true,
-                  }}
-                  // ["message-area-padding"]: isSlotUsed(this.el, "message"),
-                  tabindex={this.isScrollable ? 0 : -1}
-                  onScroll={() => this.handleMessageAreaScroll()}
-                >
-                  <div
-                    ref={(el) => (this.messageAreaShadowTopEl = el)}
-                    class="message-area-shadow-top"
-                  ></div>
-                  {isSlotUsed(this.el, "message") ? (
-                    <slot name="message" />
-                  ) : (
-                    <ic-typography
-                      class={{
-                        ["body-text"]: true,
-                        // ["message-area-padding"]: !isSlotUsed(
-                        //   this.el,
-                        //   "message"
-                        // ),
-                      }}
-                    >
-                      <p>{message}</p>
-                    </ic-typography>
-                  )}
-
-                  <div
-                    ref={(el) => (this.messageAreaShadowBottomEl = el)}
-                    class="message-area-shadow-bottom"
-                  ></div>
-                </div>
-              )}
+                  ref={(el) => (this.contentAreaShadowTopEl = el)}
+                  class="content-area-shadow-top"
+                ></div>
+                <slot />
+                <div
+                  ref={(el) => (this.contentAreaShadowBottomEl = el)}
+                  class="content-area-shadow-bottom"
+                ></div>
+              </div>
               {(isSlotUsed(this.el, "actions") ||
                 position === "bottom" ||
                 position === "top") && (

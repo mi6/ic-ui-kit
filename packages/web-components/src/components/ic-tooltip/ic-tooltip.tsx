@@ -21,7 +21,7 @@ import { IcThemeMode } from "../../utils/types";
 export class Tooltip {
   private arrow: HTMLDivElement;
   private delayedHideEvents = ["mouseleave"];
-  private dialogContentArea: HTMLDivElement | null;
+  private containerContentArea: HTMLDivElement | null;
   private instantHideEvents = ["focusout"];
   private mouseOverTool: boolean = false;
   private persistTooltip = false;
@@ -123,14 +123,19 @@ export class Tooltip {
   componentDidLoad(): void {
     this.manageEventListeners("add");
 
-    let dialog: HTMLIcDialogElement | null;
+    // Display tooltips correctly within drawer and dialog components
+    let container: HTMLElement | null;
+
     if ((this.el.getRootNode() as ShadowRoot).host) {
-      dialog = (this.el.getRootNode() as ShadowRoot).host.closest("ic-dialog");
+      container = (this.el.getRootNode() as ShadowRoot).host.closest(
+        "ic-dialog, ic-drawer"
+      );
     } else {
-      dialog = this.el.closest("ic-dialog");
+      container = this.el.closest("ic-dialog, ic-drawer");
     }
-    this.dialogContentArea =
-      dialog?.shadowRoot?.querySelector(".content-area") ?? null;
+    console.log(this.label);
+    this.containerContentArea =
+      container?.shadowRoot?.querySelector(".content-area") ?? null;
 
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -172,8 +177,8 @@ export class Tooltip {
     if (this.label) {
       this.toolTip.setAttribute("data-show", "");
 
-      if (this.dialogContentArea) {
-        this.el.classList.add("ic-tooltip-on-dialog");
+      if (this.containerContentArea) {
+        this.el.classList.add("ic-tooltip-in-container");
       }
 
       this.popperInstance = createPopper(this.el, this.toolTip, {
@@ -196,19 +201,19 @@ export class Tooltip {
             name: "eventListeners",
             options: { scroll: false, resize: false },
           },
-          ...(this.dialogContentArea
+          ...(this.containerContentArea
             ? [
                 {
                   name: "preventOverflow",
                   options: {
-                    boundary: this.dialogContentArea,
+                    boundary: this.containerContentArea,
                     padding: 8,
                   },
                 },
                 {
                   name: "flip",
                   options: {
-                    boundary: this.dialogContentArea,
+                    boundary: this.containerContentArea,
                   },
                 },
               ]

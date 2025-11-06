@@ -3,16 +3,20 @@
 /**
   @prop --ic-z-index-drawer: z-index of drawer.
   @prop --ic-drawer-width: the width of the expanded left or right drawer.
-  @prop --ic-drawer-height: the width of the expanded top or bottom drawer.
+  @prop --ic-drawer-height: the height of the expanded top or bottom drawer.
 */
 
 :host {
+  position: fixed;
   z-index: var(--ic-z-index-drawer);
+
+  --drawer-size-small: calc(var(--ic-space-sm) * 25);
+  --drawer-size-medium: calc(var(--ic-space-xs) * 56.25);
+  --drawer-size-large: calc(var(--ic-space-xs) * 75);
 }
 
 :host,
 .drawer-panel {
-  position: fixed;
   display: flex;
 }
 
@@ -23,6 +27,7 @@
 .drawer-panel {
   background-color: var(--ic-drawer-background);
   box-shadow: var(--ic-drawer-drop-shadow);
+  z-index: calc(var(--ic-z-index-drawer) + 1);
 }
 
 :host(.ic-drawer-boundary-parent),
@@ -33,21 +38,29 @@
 :host(.ic-drawer-right-position) .drawer-panel {
   border-radius: var(--ic-border-radius) 0 0 var(--ic-border-radius);
   justify-content: flex-start;
+  margin-left: calc(
+    var(--ic-space-xxs) * -1
+  ); /* Needed so border-radius is visible over overlay */
 }
 
 :host(.ic-drawer-left-position) .drawer-panel {
   border-radius: 0 var(--ic-border-radius) var(--ic-border-radius) 0;
   justify-content: flex-end;
+  margin-right: calc(
+    var(--ic-space-xxs) * -1
+  ); /* Needed so overlay is visible in space left by border-radius */
 }
 
 :host(.ic-drawer-top-position) .drawer-panel {
-  border-radius: 0 0 var(--ic-border-radius) var(--ic-border-radius);
   align-items: flex-end;
+  border-radius: 0 0 var(--ic-border-radius) var(--ic-border-radius);
+  margin-bottom: calc(var(--ic-space-xxs) * -1);
 }
 
 :host(.ic-drawer-bottom-position) .drawer-panel {
-  border-radius: var(--ic-border-radius) var(--ic-border-radius) 0 0;
   align-items: flex-start;
+  border-radius: var(--ic-border-radius) var(--ic-border-radius) 0 0;
+  margin-top: calc(var(--ic-space-xxs) * -1);
 }
 
 :host(.ic-drawer-right-position) .drawer-panel,
@@ -151,44 +164,64 @@
 
 /* Sizing */
 
-:host(.ic-drawer-left-position) .drawer-panel.medium .inner-drawer-panel,
-:host(.ic-drawer-right-position) .drawer-panel.medium .inner-drawer-panel {
-  min-width: var(--ic-drawer-width, calc(var(--ic-space-xs) * 56.25));
-}
-
-:host(.ic-drawer-top-position) .drawer-panel.medium .inner-drawer-panel,
-:host(.ic-drawer-bottom-position) .drawer-panel.medium .inner-drawer-panel {
-  min-height: var(--ic-drawer-height, calc(var(--ic-space-xs) * 56.25));
-}
-
 :host(.ic-drawer-right-position.ic-drawer-expanded) .drawer-panel.small,
 :host(.ic-drawer-left-position.ic-drawer-expanded) .drawer-panel.small {
-  width: var(--ic-drawer-width, calc(var(--ic-space-sm) * 25));
-}
-
-:host(.ic-drawer-right-position.ic-drawer-expanded) .drawer-panel.medium,
-:host(.ic-drawer-left-position.ic-drawer-expanded) .drawer-panel.medium {
-  width: var(--ic-drawer-width, calc(var(--ic-space-xs) * 56.25));
-}
-
-:host(.ic-drawer-right-position.ic-drawer-expanded) .drawer-panel.large,
-:host(.ic-drawer-left-position.ic-drawer-expanded) .drawer-panel.large {
-  width: var(--ic-drawer-width, calc(var(--ic-space-sm) * 50));
+  width: var(--ic-drawer-width, var(--drawer-size-small));
 }
 
 :host(.ic-drawer-top-position.ic-drawer-expanded) .drawer-panel.small,
 :host(.ic-drawer-bottom-position.ic-drawer-expanded) .drawer-panel.small {
-  height: var(--ic-drawer-height, calc(var(--ic-space-sm) * 25));
+  height: var(--ic-drawer-height, var(--drawer-size-small));
+}
+
+:host(.ic-drawer-right-position.ic-drawer-expanded) .drawer-panel.medium,
+:host(.ic-drawer-left-position.ic-drawer-expanded) .drawer-panel.medium {
+  width: var(--ic-drawer-width, var(--drawer-size-medium));
 }
 
 :host(.ic-drawer-top-position.ic-drawer-expanded) .drawer-panel.medium,
 :host(.ic-drawer-bottom-position.ic-drawer-expanded) .drawer-panel.medium {
-  height: var(--ic-drawer-height, calc(var(--ic-space-xs) * 56.25));
+  height: var(--ic-drawer-height, var(--drawer-size-medium));
+}
+
+:host(.ic-drawer-right-position.ic-drawer-expanded) .drawer-panel.large,
+:host(.ic-drawer-left-position.ic-drawer-expanded) .drawer-panel.large {
+  width: var(--ic-drawer-width, var(--drawer-size-large));
 }
 
 :host(.ic-drawer-top-position.ic-drawer-expanded) .drawer-panel.large,
 :host(.ic-drawer-bottom-position.ic-drawer-expanded) .drawer-panel.large {
-  height: var(--ic-drawer-height, calc(var(--ic-space-sm) * 50));
+  height: var(--ic-drawer-height, var(--drawer-size-large));
+}
+
+:host(.ic-drawer-right-position) .drawer-panel.small .inner-drawer-panel,
+:host(.ic-drawer-left-position) .drawer-panel.small .inner-drawer-panel {
+  min-width: var(--ic-drawer-width, var(--drawer-size-small));
+}
+
+:host(.ic-drawer-top-position) .drawer-panel.small .inner-drawer-panel,
+:host(.ic-drawer-bottom-position) .drawer-panel.small .inner-drawer-panel {
+  min-height: var(--ic-drawer-height, var(--drawer-size-small));
+}
+
+:host(.ic-drawer-right-position) .drawer-panel.medium .inner-drawer-panel,
+:host(.ic-drawer-left-position) .drawer-panel.medium .inner-drawer-panel {
+  min-width: var(--ic-drawer-width, var(--drawer-size-medium));
+}
+
+:host(.ic-drawer-top-position) .drawer-panel.medium .inner-drawer-panel,
+:host(.ic-drawer-bottom-position) .drawer-panel.medium .inner-drawer-panel {
+  min-height: var(--ic-drawer-height, var(--drawer-size-medium));
+}
+
+:host(.ic-drawer-right-position) .drawer-panel.large .inner-drawer-panel,
+:host(.ic-drawer-left-position) .drawer-panel.large .inner-drawer-panel {
+  min-width: var(--ic-drawer-width, var(--drawer-size-large));
+}
+
+:host(.ic-drawer-top-position) .drawer-panel.large .inner-drawer-panel,
+:host(.ic-drawer-bottom-position) .drawer-panel.large .inner-drawer-panel {
+  min-height: var(--ic-drawer-height, var(--drawer-size-large));
 }
 
 /* Positioning */
@@ -225,6 +258,18 @@
   bottom: 0;
 }
 
+:host(.ic-drawer-left-position) {
+  flex-direction: row-reverse;
+}
+
+:host(.ic-drawer-top-position) {
+  flex-direction: column-reverse;
+}
+
+:host(.ic-drawer-bottom-position) {
+  flex-direction: column;
+}
+
 /* Header */
 
 .drawer-header {
@@ -257,6 +302,11 @@
   padding-right: var(--ic-space-xs);
 }
 
+.drawer-header ic-typography,
+.drawer-header ::slotted(ic-typography) {
+  --ic-typography-color: var(--ic-drawer-text);
+}
+
 .heading-area {
   display: flex;
   gap: var(--ic-space-xs);
@@ -267,6 +317,7 @@
 }
 
 ::slotted([slot="heading-adornment"]) {
+  fill: var(--ic-drawer-text);
   height: var(--ic-space-lg);
   min-width: var(--ic-space-lg);
   padding: var(--ic-space-xxs) var(--ic-space-xxs) 0 0;
@@ -280,26 +331,31 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
-  padding: var(--ic-space-md) var(--ic-space-xs);
+  padding: var(--ic-space-md);
 }
 
-.message-area {
+.content-area {
   flex: 1 1 0;
-  padding: 0 var(--ic-space-xs);
-  position: relative;
+  margin: 0 calc(var(--ic-space-xs) * -1);
   overflow-y: auto;
+  padding: 0 var(--ic-space-xs);
   transition: border-radius var(--ic-easing-transition-fast),
     box-shadow var(--ic-easing-transition-fast);
 }
 
-.message-area.scrollable:focus-visible {
+.content-area.scrollable:focus {
   border-radius: var(--ic-border-radius);
   box-shadow: var(--ic-border-focus);
   outline: none;
 }
 
-.message-area-shadow-top,
-.message-area-shadow-bottom {
+.content-area ic-typography,
+.content-area ::slotted(ic-typography) {
+  --ic-typography-color: var(--ic-drawer-text);
+}
+
+.content-area-shadow-top,
+.content-area-shadow-bottom {
   box-shadow: none;
   height: var(--ic-space-xs);
   position: sticky;
@@ -307,27 +363,27 @@
   width: 100%;
 }
 
-.message-area-shadow-top {
+.content-area-shadow-top {
   margin-bottom: calc(var(--ic-space-xs) * -1);
   top: 0;
 }
 
-.message-area-shadow-bottom {
+.content-area-shadow-bottom {
   bottom: 0;
   margin-top: calc(var(--ic-space-xs) * -1);
 }
 
-.message-area-shadow-bottom.show {
+.content-area-shadow-bottom.show {
   box-shadow: inset 0 calc(var(--ic-space-xs) * -1) var(--ic-space-xs)
     calc(var(--ic-space-xs) * -1) var(--ic-state-layer-darken-20);
 }
 
-.message-area-shadow-top.show {
+.content-area-shadow-top.show {
   box-shadow: inset 0 var(--ic-space-xs) var(--ic-space-xs)
     calc(var(--ic-space-xs) * -1) var(--ic-state-layer-darken-20);
 }
 
-/* :host .message-area .body-text { */ /* COMMENTED OUT TEMPORARILY */
+/* :host .content-area .body-text { */ /* COMMENTED OUT TEMPORARILY */
 /* height: 100%; */
 
 /* overflow-y: auto; */
@@ -366,10 +422,6 @@
   white-space: break-spaces;
 } */
 
-:host ::slotted(*) {
-  fill: currentcolor;
-}
-
 /* Actions */
 
 :host .action-area {
@@ -391,23 +443,11 @@
   background-color: var(--ic-drawer-background);
   box-sizing: border-box;
   position: absolute;
-  z-index: calc(var(--ic-z-index-drawer) + 1);
+  z-index: calc(var(--ic-z-index-drawer) + 2);
 }
 
 :host .chevron-btn::part(button) {
   padding: var(--ic-space-xxs);
-}
-
-:host(.ic-drawer-left-position) .chevron-btn {
-  left: 0;
-}
-
-:host(.ic-drawer-right-position) .chevron-btn {
-  right: 0;
-}
-
-:host(.ic-drawer-bottom-position) .chevron-btn {
-  align-self: flex-end;
 }
 
 :host(.ic-drawer-left-position) .chevron-btn,
@@ -418,6 +458,20 @@
 :host(.ic-drawer-top-position) .chevron-btn,
 :host(.ic-drawer-bottom-position) .chevron-btn {
   padding: calc(var(--ic-space-xs) + var(--ic-space-1px)) var(--ic-space-xs);
+}
+
+:host(.ic-drawer-left-position) .chevron-btn {
+  border-top-right-radius: var(--ic-border-radius);
+  left: 0;
+}
+
+:host(.ic-drawer-right-position) .chevron-btn {
+  border-top-left-radius: var(--ic-border-radius);
+  right: 0;
+}
+
+:host(.ic-drawer-bottom-position) .chevron-btn {
+  align-self: flex-end;
 }
 
 :host(.ic-drawer-collapsed.ic-drawer-top-position) .chevron-btn,

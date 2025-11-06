@@ -496,10 +496,6 @@ export namespace Components {
          */
         "hideCloseButton": boolean;
         /**
-          * The main body text in the drawer.
-         */
-        "message"?: string;
-        /**
           * The position of the drawer.
          */
         "position": IcPosition;
@@ -515,10 +511,6 @@ export namespace Components {
           * The method in which the drawer is expanded.
          */
         "trigger": "arrow" | "controlled";
-        /**
-          * The variant of the drawer. TODO - figure out how this works
-         */
-        "variant": "temporary" | "persistent";
     }
     interface IcPaginationBar {
         /**
@@ -1515,10 +1507,6 @@ declare namespace LocalJSX {
          */
         "hideCloseButton"?: boolean;
         /**
-          * The main body text in the drawer.
-         */
-        "message"?: string;
-        /**
           * Emitted when the drawer is collapsed and expanded.
          */
         "onIcDrawerExpanded"?: (event: IcDrawerCustomEvent<IcDrawerExpandedDetail>) => void;
@@ -1538,10 +1526,6 @@ declare namespace LocalJSX {
           * The method in which the drawer is expanded.
          */
         "trigger"?: "arrow" | "controlled";
-        /**
-          * The variant of the drawer. TODO - figure out how this works
-         */
-        "variant"?: "temporary" | "persistent";
     }
     interface IcPaginationBar {
         /**

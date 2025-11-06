@@ -428,13 +428,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--card-horizontal-width",
-          "annotation": "prop",
-          "docs": "Width of the horizontal card"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "badge",
@@ -3677,18 +3671,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-date-picker",
-          "annotation": "prop",
-          "docs": "z-index of date picker."
-        },
-        {
-          "name": "--input-width",
-          "annotation": "prop",
-          "docs": "Width of the input field"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "helper-text",
@@ -3748,10 +3731,6 @@
         {
           "name": "slot",
           "text": "heading-adornment - Content will be rendered in the title area, to the left of the heading."
-        },
-        {
-          "name": "slot",
-          "text": "message - Content will be rendered below the title area, in place of the message."
         },
         {
           "name": "slot",
@@ -3949,32 +3928,6 @@
           "setter": false
         },
         {
-          "name": "message",
-          "type": "string | undefined",
-          "complexType": {
-            "original": "string",
-            "resolved": "string | undefined",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "message",
-          "reflectToAttr": false,
-          "docs": "The main body text in the drawer.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "undefined"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "position",
           "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
           "complexType": {
@@ -4129,35 +4082,6 @@
           "required": false,
           "getter": false,
           "setter": false
-        },
-        {
-          "name": "variant",
-          "type": "\"persistent\" | \"temporary\"",
-          "complexType": {
-            "original": "\"temporary\" | \"persistent\"",
-            "resolved": "\"persistent\" | \"temporary\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "The variant of the drawer. TODO - figure out how this works",
-          "docsTags": [],
-          "default": "\"temporary\"",
-          "values": [
-            {
-              "value": "persistent",
-              "type": "string"
-            },
-            {
-              "value": "temporary",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "getter": false,
-          "setter": false
         }
       ],
       "methods": [],
@@ -4191,23 +4115,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-drawer-height",
-          "annotation": "prop",
-          "docs": "the width of the expanded top or bottom drawer."
-        },
-        {
-          "name": "--ic-drawer-width",
-          "annotation": "prop",
-          "docs": "the width of the expanded left or right drawer."
-        },
-        {
-          "name": "--ic-z-index-drawer",
-          "annotation": "prop",
-          "docs": "z-index of drawer."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "actions",
@@ -4220,10 +4128,6 @@
         {
           "name": "heading-adornment",
           "docs": "Content will be rendered in the title area, to the left of the heading."
-        },
-        {
-          "name": "message",
-          "docs": "Content will be rendered below the title area, in place of the message."
         }
       ],
       "parts": [],
@@ -6334,13 +6238,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--tree-view-width",
-          "annotation": "prop",
-          "docs": "Width of the tree view"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "heading",
