@@ -428,7 +428,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--card-horizontal-width",
+          "annotation": "prop",
+          "docs": "Width of the horizontal card"
+        }
+      ],
       "slots": [
         {
           "name": "badge",
@@ -3671,7 +3677,18 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-date-picker",
+          "annotation": "prop",
+          "docs": "z-index of date picker."
+        },
+        {
+          "name": "--input-width",
+          "annotation": "prop",
+          "docs": "Width of the input field"
+        }
+      ],
       "slots": [
         {
           "name": "helper-text",
@@ -6238,7 +6255,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--tree-view-width",
+          "annotation": "prop",
+          "docs": "Width of the tree view"
+        }
+      ],
       "slots": [
         {
           "name": "heading",

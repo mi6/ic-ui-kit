@@ -133,7 +133,6 @@ export class Tooltip {
     } else {
       container = this.el.closest("ic-dialog, ic-drawer");
     }
-    console.log(this.label);
     this.containerContentArea =
       container?.shadowRoot?.querySelector(".content-area") ?? null;
 
