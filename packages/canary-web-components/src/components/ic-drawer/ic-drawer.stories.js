@@ -135,6 +135,7 @@ export const TopPosition = {
         </p>
       </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
+      <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>`,
   name: "Top position",
 };
@@ -215,7 +216,7 @@ export const LongContentRight = {
       </p>
     </ic-typography>
     <ic-button slot="actions">Add to order</ic-button>
-  </ic-drawer>`,
+  </ic-drawer> `,
   name: "Long content right",
 };
 
@@ -478,6 +479,7 @@ export const ManualTriggerRight = {
       trigger="controlled"
       close-button-aria-label="Hide details"
       heading="Roasted coffee"
+      hide-close-button="true"
     >
       <ic-typography>
         <p>
@@ -489,7 +491,6 @@ export const ManualTriggerRight = {
           flavours.
         </p>
       </ic-typography>
-      <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
       let icDrawer = document.querySelector("ic-drawer#drawer-1");
@@ -779,6 +780,19 @@ export const ManualTriggerLongContentRight = {
       let icDrawer = document.querySelector("ic-drawer#drawer-1");
       function expandDrawer() {
         icDrawer.expanded = !icDrawer.expanded;
+      }
+      var select1 = document.querySelector("#sel1");
+      select1.options = [
+        { label: "Cappuccino", value: "Cap" },
+        { label: "Latte", value: "Lat" },
+        { label: "Americano", value: "Ame" },
+      ];
+      select1.addEventListener("icChange", function (event) {
+        console.log(event.detail.value);
+      });
+      var icPopover = document.querySelector("ic-popover-menu");
+      function buttonClick() {
+        icPopover.open = true;
       }
     </script>`,
   name: "Manual trigger long content right",

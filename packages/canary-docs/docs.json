@@ -1107,7 +1107,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--card-horizontal-width",
+          "annotation": "prop",
+          "docs": "Width of the horizontal card"
+        }
+      ],
       "slots": [
         {
           "name": "adornment",
@@ -7408,7 +7414,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--tree-view-width",
+          "annotation": "prop",
+          "docs": "Width of the tree view"
+        }
+      ],
       "slots": [
         {
           "name": "heading",

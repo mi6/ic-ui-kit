@@ -52,6 +52,13 @@ Type: `Promise<void>`
 | `"subheading"`         | Content will be placed below the card heading. Only for `density="spacious"`.      |
 
 
+## CSS Custom Properties
+
+| Name                      | Description                  |
+| ------------------------- | ---------------------------- |
+| `--card-horizontal-width` | Width of the horizontal card |
+
+
 ## Dependencies
 
 ### Depends on
