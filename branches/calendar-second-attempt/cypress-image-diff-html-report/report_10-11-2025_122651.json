@@ -1,7 +1,7 @@
 {
   "total": 277,
-  "totalPassed": 275,
-  "totalFailed": 2,
+  "totalPassed": 277,
+  "totalFailed": 0,
   "totalSuites": 10,
   "suites": [
     {
@@ -53,14 +53,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-month-view-dark-mode.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCalendar.cy.tsx/default-year-view",
-          "percentage": 0.027202941017470887,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
           "specFilename": "IcCalendar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-year-view.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCalendar.cy.tsx/default-year-view.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-year-view.png"
         },
         {
@@ -142,14 +142,14 @@
         },
         {
           "status": "pass",
-          "name": "IcCalendar.cy.tsx/goto-today-hidden",
+          "name": "IcCalendar.cy.tsx/go-to-today-hidden",
           "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
           "specFilename": "IcCalendar.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/goto-today-hidden.png",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/go-to-today-hidden.png",
           "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/goto-today-hidden.png"
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/go-to-today-hidden.png"
         },
         {
           "status": "pass",
@@ -196,14 +196,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/days-outside-month-hidden.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCalendar.cy.tsx/start-of-week",
-          "percentage": 0.041161702033391596,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
           "specFilename": "IcCalendar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/start-of-week.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCalendar.cy.tsx/start-of-week.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/start-of-week.png"
         },
         {
@@ -2262,14 +2262,14 @@
         },
         {
           "status": "pass",
-          "name": "IcDatePicker.cy.tsx/goto-today-hidden",
+          "name": "IcDatePicker.cy.tsx/go-to-today-hidden",
           "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/goto-today-hidden.png",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/go-to-today-hidden.png",
           "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/goto-today-hidden.png"
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/go-to-today-hidden.png"
         },
         {
           "status": "pass",
@@ -3112,9 +3112,9 @@
       ]
     }
   ],
-  "startedAt": "2025-11-05T16:00:44.852Z",
-  "endedAt": "2025-11-05T16:09:31.519Z",
-  "duration": 502814,
+  "startedAt": "2025-11-10T12:26:51.237Z",
+  "endedAt": "2025-11-10T12:36:22.135Z",
+  "duration": 546720,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
