@@ -1,26 +1,29 @@
 import { EventEmitter, forceUpdate } from "@stencil/core";
 import {
+  IcBrandForeground,
+  IcBrandForegroundEnum,
+  IcBrandForegroundNoDefault,
   IcCallbackFunctionNoReturn,
+  IcFocusableComponents,
   IcInformationStatusOrEmpty,
+  IcMenuOption,
   IcNavParentDetails,
   IcPropObject,
   IcSearchMatchPositions,
   IcColorRGBA,
   IcDeviceSizes,
   IcColor,
-  IcBrandForegroundNoDefault,
   IcThemeMode,
 } from "./types";
-
 import {
-  IcMenuOption,
-  IcBrandForeground,
-  IcBrandForegroundEnum,
-} from "../utils/types";
-import {
+  IC_ACCORDION,
+  IC_ACCORDION_GROUP,
   IC_BLOCK_COLOR_COMPONENTS,
   IC_BLOCK_COLOR_EXCEPTIONS,
+  IC_CHECKBOX,
   IC_FIXED_COLOR_COMPONENTS,
+  IC_SEARCH_BAR,
+  IC_TEXT_FIELD,
 } from "./constants";
 
 const DARK_MODE_THRESHOLD = 133.3505;
@@ -725,3 +728,169 @@ export const getElementInheritedTheme = (el: HTMLElement): IcThemeMode => {
     ? "dark"
     : "light";
 };
+
+/**
+ * Focuses the provided element, or the next focusable element if it should be skipped. Used for focus trapping.
+ * @param element - element to focus
+ * @param focusedElementIndex - current focused element index
+ * @param interactiveElementList - list of interactive elements
+ * @param shiftKey - whether the shift key is pressed
+ */
+export const focusElement = (
+  element: HTMLElement,
+  focusedElementIndex: number,
+  interactiveElementList: HTMLElement[],
+  shiftKey = false
+): number => {
+  let newFocusedElementIndex = focusedElementIndex;
+  let nextFocusEl = element;
+
+  if (shouldSkipElement(element)) {
+    newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
+      newFocusedElementIndex,
+      shiftKey
+    );
+    newFocusedElementIndex = getLoopedNextFocusIndexIfLastElement(
+      newFocusedElementIndex,
+      interactiveElementList
+    );
+    nextFocusEl = interactiveElementList[newFocusedElementIndex];
+    return focusElement(
+      nextFocusEl,
+      newFocusedElementIndex,
+      interactiveElementList,
+      shiftKey
+    );
+  } else {
+    switch (element.tagName) {
+      case IC_ACCORDION_GROUP:
+      case IC_ACCORDION:
+      case IC_SEARCH_BAR:
+      case IC_TEXT_FIELD:
+      case IC_CHECKBOX:
+        (element as IcFocusableComponents).setFocus();
+        break;
+      default:
+        (element as HTMLElement).focus();
+    }
+    return newFocusedElementIndex;
+  }
+};
+
+export const getFocusedElementIndex = (
+  el: HTMLElement,
+  interactiveElementList: HTMLElement[]
+) => {
+  for (let i = 0; i < interactiveElementList.length; i++) {
+    if (
+      (interactiveElementList[i] as HTMLElement) ===
+      (el.shadowRoot?.activeElement || document.activeElement)
+    ) {
+      return i;
+    }
+  }
+  return 0; // Fallback to first element if none found
+};
+
+/**
+ * Gets the next focusable element index based on whether the shift key is pressed. Used for focus trapping.
+ * @param focusedElementIndex - current focused element index
+ * @param shiftKey - whether the shift key is pressed
+ */
+export const getFocusIndexBasedOnShiftKey = (
+  focusedElementIndex: number,
+  shiftKey: boolean
+) => (shiftKey ? (focusedElementIndex -= 1) : (focusedElementIndex += 1));
+
+/**
+ * Gets the next focusable element index, looping back to the start or end if necessary. Used for focus trapping.
+ * @param focusedElementIndex - current focused element index
+ * @param interactiveElementList - list of interactive elements
+ */
+export const getLoopedNextFocusIndexIfLastElement = (
+  focusedElementIndex: number,
+  interactiveElementList: HTMLElement[]
+): number => {
+  if (focusedElementIndex > interactiveElementList.length - 1) {
+    return 0;
+  } else if (focusedElementIndex < 0) {
+    return interactiveElementList.length - 1;
+  }
+  return focusedElementIndex;
+};
+
+/**
+ * Handles the tab key press for focus trapping. Used for focus trapping.
+ * @param el - host element of the component
+ * @param interactiveElementList - list of interactive elements
+ * @param shiftKey - whether the shift key is pressed
+ */
+export function handleFocusTrapTabKeyPress(
+  el: HTMLElement,
+  interactiveElementList: HTMLElement[],
+  shiftKey: boolean
+): { preventDefault: boolean; newFocusedElementIndex: number } {
+  const focusedElementIndex = getFocusedElementIndex(
+    el,
+    interactiveElementList
+  );
+
+  if (interactiveElementList[focusedElementIndex].tagName === IC_SEARCH_BAR) {
+    return {
+      preventDefault: false,
+      newFocusedElementIndex: focusedElementIndex,
+    };
+  }
+
+  let newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
+    focusedElementIndex,
+    shiftKey
+  );
+  newFocusedElementIndex = getLoopedNextFocusIndexIfLastElement(
+    newFocusedElementIndex,
+    interactiveElementList
+  );
+
+  newFocusedElementIndex = focusElement(
+    interactiveElementList[newFocusedElementIndex],
+    newFocusedElementIndex,
+    interactiveElementList,
+    shiftKey
+  );
+
+  return { preventDefault: true, newFocusedElementIndex };
+}
+
+/**
+ * Determines whether an element should be skipped when focusing interactive elements. Used for focus trapping.
+ * @param element - element to check
+ */
+export const shouldSkipElement = (element: HTMLElement): boolean => {
+  const isHidden =
+    getComputedStyle(element).visibility === "hidden" ||
+    element.offsetHeight === 0 ||
+    element.hasAttribute("disabled") ||
+    (element.tagName === IC_ACCORDION_GROUP &&
+      element.hasAttribute("single-expansion"));
+
+  const radioEl = element.closest("ic-radio-option");
+
+  return (
+    isHidden ||
+    (element.getAttribute("type") === "radio" &&
+      !!radioEl &&
+      !(radioEl.hasAttribute("selected") || element.tabIndex === 0))
+  );
+};
+
+/**
+ * Gets all interactive elements slotted within a component. Used for focus trapping.
+ * @param el - host element of the component
+ */
+export const slottedInteractiveElements = (el: HTMLElement): HTMLElement[] =>
+  Array.from(
+    el.querySelectorAll(
+      `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
+          ic-accordion, ic-accordion-group, ic-action-chip, ic-back-to-top, ic-breadcrumb, ic-button, ic-checkbox, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, ic-navigation-item, ic-radio-option, ic-search-bar, ic-select, ic-switch, ic-tab-group, ic-text-field, ic-toggle-button-group, ic-date-input, ic-date-picker, ic-time-input`
+    )
+  );

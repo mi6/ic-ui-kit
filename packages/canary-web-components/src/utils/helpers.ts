@@ -794,7 +794,6 @@ export const focusElement = (
       default:
         (element as HTMLElement).focus();
     }
-    console.log(element);
     return newFocusedElementIndex;
   }
 };

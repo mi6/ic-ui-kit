@@ -57,10 +57,10 @@ export class Drawer {
 
   @State() isScrollable: boolean;
 
-  // /**
-  //  * The aria label applied to the drawer. This is required when the heading slot is used.
-  //  */
-  // @Prop() ariaLabel: string = "";
+  /**
+   * The aria label applied to the drawer. This is required when the heading slot is used.
+   */
+  @Prop() ariaLabel: string = "";
 
   /**
    * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
@@ -80,7 +80,7 @@ export class Drawer {
   /**
    * If `true`, the drawer will close when the backdrop is clicked.
    */
-  @Prop() closeOnBackdropClick?: boolean = true;
+  @Prop() closeOnBackdropClick: boolean = true;
 
   /**
    * If `true`, the drawer will display in an expanded state.
@@ -105,12 +105,12 @@ export class Drawer {
   /**
    * The size of the expanded drawer.
    */
-  @Prop() size?: IcSizes = "medium";
+  @Prop() size: IcSizes = "medium";
 
   /**
    * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop() theme: IcThemeMode = "inherit";
 
   /**
    * The method in which the drawer is expanded.
@@ -163,13 +163,6 @@ export class Drawer {
   componentDidLoad(): void {
     this.handleContentAreaScroll();
 
-    // const contentSlot = this.contentAreaEl?.querySelector("slot");
-    // if (contentSlot) {
-    //   contentSlot.addEventListener("slotchange", () => {
-    //     this.handleContentAreaScroll();
-    //   });
-    // }
-
     if (this.position === "top" || this.position === "bottom") {
       this.resizeObserver = new ResizeObserver(() => {
         this.updateActionAreaMargin();
@@ -189,16 +182,57 @@ export class Drawer {
       class="chevron-btn"
       theme={this.theme}
       variant="icon-tertiary"
+      innerHTML={chevronIcon}
+      aria-controls="drawer-panel"
+      aria-expanded={this.expanded ? "true" : "false"}
       aria-label={
         this.chevronButtonAriaLabel ||
         (this.expanded
           ? this.DEFAULT_CLOSE_BUTTON_ARIA_LABEL
           : this.DEFAULT_OPEN_BUTTON_ARIA_LABEL)
       }
-      innerHTML={chevronIcon}
       onClick={(ev: Event) => this.handleDrawerExpanded(false, ev)}
     ></ic-button>
   );
+
+  // Moves action area to above the chevron button
+  // if drawer width is too narrow to display to the right of it
+  // (For top and bottom drawer position)
+  private updateActionAreaMargin = () => {
+    if (isSlotUsed(this.el, "actions") && this.actionAreaEl) {
+      const drawerWidth = this.el.getBoundingClientRect().width;
+      const actionAreaWidth = this.actionAreaEl?.getBoundingClientRect().width;
+      const threshold = drawerWidth / 2 - 48;
+
+      if (actionAreaWidth > threshold) {
+        this.actionAreaEl.classList.add("with-margin");
+      } else {
+        this.actionAreaEl.classList.remove("with-margin");
+      }
+    }
+  };
+
+  private handleBackdropClick = (ev: Event) => {
+    if (this.closeOnBackdropClick) {
+      this.handleDrawerExpanded(false, ev);
+    }
+    ev.stopPropagation();
+  };
+
+  private getAriaAttributes = () => {
+    if (!this.expanded) return {};
+    if (isSlotUsed(this.el, "heading")) {
+      return {
+        "aria-label": this.ariaLabel,
+      };
+    }
+    return {
+      // "aria-labelledby": !isEmptyString(this.ariaLabel)
+      //   ? this.ariaLabel // NEEDS FIXING
+      //   : "drawer-heading",
+      "aria-labelledby": "drawer-heading",
+    };
+  };
 
   private setInteractiveElements = () => {
     // Set first interactive element as the chevron or close button
@@ -229,30 +263,6 @@ export class Drawer {
     }
   };
 
-  // Moves action area to above the chevron button
-  // if drawer width is too narrow to display to the right of it
-  // (For top and bottom drawer position)
-  private updateActionAreaMargin = () => {
-    if (isSlotUsed(this.el, "actions") && this.actionAreaEl) {
-      const drawerWidth = this.el.getBoundingClientRect().width;
-      const actionAreaWidth = this.actionAreaEl?.getBoundingClientRect().width;
-      const threshold = drawerWidth / 2 - 48;
-
-      if (actionAreaWidth > threshold) {
-        this.actionAreaEl.classList.add("with-margin");
-      } else {
-        this.actionAreaEl.classList.remove("with-margin");
-      }
-    }
-  };
-
-  private handleBackdropClick = (ev: Event) => {
-    if (this.closeOnBackdropClick) {
-      this.handleDrawerExpanded(false, ev);
-    }
-    ev.stopPropagation();
-  };
-
   // Show and hide shadows at top and bottom of content area to indicate scrollability
   private handleContentAreaScroll = () => {
     if (
@@ -265,10 +275,6 @@ export class Drawer {
         this.contentAreaEl.scrollTop > 0
       );
 
-      console.log(
-        this.contentAreaEl.scrollHeight - this.contentAreaEl.scrollTop >
-          this.contentAreaEl.clientHeight + 1
-      );
       this.contentAreaShadowBottomEl.classList.toggle(
         "show",
         this.contentAreaEl.scrollHeight - this.contentAreaEl.scrollTop >
@@ -289,13 +295,10 @@ export class Drawer {
     }
 
     if (this.expanded) {
-      const expandingClassName = "ic-drawer-expanding";
-      this.el.classList.add(expandingClassName);
-      setTimeout(() => {
-        this.el.classList.remove(expandingClassName);
+      this.chevronButton?.shadowRoot?.querySelector("button")?.blur();
 
+      setTimeout(() => {
         this.setInteractiveElements();
-        console.log(this.interactiveElementList);
 
         if (this.trigger === "controlled") {
           this.sourceElement = document.activeElement as HTMLElement;
@@ -346,7 +349,6 @@ export class Drawer {
           [`ic-drawer-${position}-position`]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
-        aria-expanded={expanded}
       >
         <div class="overlay" onClick={this.handleBackdropClick}></div>
         <div
@@ -356,20 +358,13 @@ export class Drawer {
             "drawer-panel": true,
             [`${size}`]: true,
           }}
-          {...(expanded && { role: "dialog" })}
-          // {...(expanded && !isSlotUsed(this.el, "heading")
-          //   ? {
-          //       "aria-labelledby":
-          //         this.ariaLabel !== "" ? this.ariaLabel : "ic-drawer-heading",
-          //     }
-          //   : {})}
-          // {...(expanded && isSlotUsed(this.el, "heading")
-          //   ? { "aria-label": this.ariaLabel }
-          //   : {})} SORT THIS OUT
-          tabindex={-1}
+          id="drawer-panel"
+          // tabindex={-1}
+          {...(expanded ? { role: "dialog" } : {})}
           onClick={(ev) =>
             !expanded ? this.handleDrawerExpanded(false, ev) : undefined
           }
+          {...this.getAriaAttributes()}
         >
           {trigger === "arrow" && this.renderChevronButton()}
           <div class="inner-drawer-panel">
@@ -382,7 +377,7 @@ export class Drawer {
                 {isSlotUsed(this.el, "heading") ? (
                   <slot name="heading" />
                 ) : (
-                  <ic-typography id="ic-drawer-heading" variant="h4">
+                  <ic-typography id="drawer-heading" variant="h4">
                     <h4>{heading}</h4>
                   </ic-typography>
                 )}

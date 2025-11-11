@@ -468,6 +468,10 @@ export namespace Components {
     }
     interface IcDrawer {
         /**
+          * The aria label applied to the drawer. This is required when the heading slot is used.
+         */
+        "ariaLabel": string;
+        /**
           * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
          */
         "boundary": IcDrawerBoundary;
@@ -482,7 +486,7 @@ export namespace Components {
         /**
           * If `true`, the drawer will close when the backdrop is clicked.
          */
-        "closeOnBackdropClick"?: boolean;
+        "closeOnBackdropClick": boolean;
         /**
           * If `true`, the drawer will display in an expanded state.
          */
@@ -502,11 +506,11 @@ export namespace Components {
         /**
           * The size of the expanded drawer.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme": IcThemeMode1;
         /**
           * The method in which the drawer is expanded.
          */
@@ -1478,6 +1482,10 @@ declare namespace LocalJSX {
         "value"?: string | Date | null | undefined;
     }
     interface IcDrawer {
+        /**
+          * The aria label applied to the drawer. This is required when the heading slot is used.
+         */
+        "ariaLabel"?: string;
         /**
           * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
          */
