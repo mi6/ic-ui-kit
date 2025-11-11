@@ -583,14 +583,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/default.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcBackToTop.cy.tsx/position-left",
-          "percentage": 0,
+          "percentage": 0.0515363949069005,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/position-left.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcBackToTop.cy.tsx/position-left.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/position-left.png"
         },
         {
@@ -616,14 +616,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/icon.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBackToTop.cy.tsx/dark-theme",
-          "percentage": 0.042426406871192854,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/dark-theme.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBackToTop.cy.tsx/dark-theme.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/dark-theme.png"
         },
         {
@@ -9988,9 +9988,9 @@
       ]
     }
   ],
-  "startedAt": "2025-10-31T14:02:04.201Z",
-  "endedAt": "2025-10-31T14:20:10.175Z",
-  "duration": 991732,
+  "startedAt": "2025-11-11T09:31:34.914Z",
+  "endedAt": "2025-11-11T09:50:15.832Z",
+  "duration": 1016953,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
