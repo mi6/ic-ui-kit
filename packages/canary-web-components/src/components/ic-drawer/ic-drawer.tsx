@@ -23,7 +23,6 @@ import {
   isSlotUsed,
   refreshInteractiveElementsOnSlotChange,
   removeInteractiveElementSlotChangeListener,
-  renderDynamicChildSlots,
   slottedInteractiveElements,
 } from "../../utils/helpers";
 import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./ic-drawer.types";
@@ -53,6 +52,7 @@ export class Drawer {
   private contentAreaShadowTopEl?: HTMLDivElement;
   private contentAreaSlot?: HTMLSlotElement | null;
   private drawerPanelEl?: HTMLDivElement;
+  private focusAttemptCount = 0;
   private focusedElementIndex = 0;
   private hostMutationObserver: MutationObserver | null = null;
   private interactiveElementList: HTMLElement[] = [];
@@ -143,9 +143,12 @@ export class Drawer {
         case "Tab":
           const tabKeyPressHandlerResult = handleFocusTrapTabKeyPress(
             this.el,
+            this.focusAttemptCount,
             this.interactiveElementList,
             ev.shiftKey
           );
+          this.focusAttemptCount =
+            tabKeyPressHandlerResult.newFocusAttemptCount;
           this.focusedElementIndex =
             tabKeyPressHandlerResult.newFocusedElementIndex;
           if (tabKeyPressHandlerResult.preventDefault) {
@@ -186,7 +189,7 @@ export class Drawer {
     removeInteractiveElementSlotChangeListener(
       this.contentAreaSlot,
       this.contentAreaMutationObserver,
-      this.setInteractiveElements
+      this.getInteractiveElements
     );
 
     this.hostMutationObserver?.disconnect();
@@ -229,6 +232,15 @@ export class Drawer {
     }
   };
 
+  private updateDynamicSlots = () => {
+    // console.log("update");
+    // this.isActionsSlotUsed = isSlotUsed(this.el, "actions");
+    // this.isHeadingSlotUsed = isSlotUsed(this.el, "heading");
+    // this.isMessageSlotUsed = Array.from(this.el.children).some(
+    //   (child) => !child.hasAttribute("slot")
+    // );
+  };
+
   private getAriaAttributes = () => {
     if (!this.expanded) return {};
     if (isSlotUsed(this.el, "heading")) {
@@ -244,34 +256,7 @@ export class Drawer {
     };
   };
 
-  private setContentAreaMutationObserver = () => {
-    const { contentAreaSlot, contentAreaMutationObserver } =
-      refreshInteractiveElementsOnSlotChange(
-        this.el.shadowRoot?.querySelector("#drawer-content") || null,
-        this.setInteractiveElements
-      );
-    this.contentAreaSlot = contentAreaSlot;
-    this.contentAreaMutationObserver = contentAreaMutationObserver;
-  };
-
-  private setHostMutationObserver = () => {
-    this.hostMutationObserver = new MutationObserver((mutationList) => {
-      // Update state variables to re-run logic displaying slots in render function
-      // this.isActionsSlotUsed = isSlotUsed(this.el, "actions");
-      // this.isHeadingSlotUsed = isSlotUsed(this.el, "heading");
-      // this.isMessageSlotUsed = Array.from(this.el.children).some(
-      //   (child) => !child.hasAttribute("slot")
-      // );
-      console.log("update");
-      renderDynamicChildSlots(mutationList, "actions", this);
-    });
-
-    this.hostMutationObserver.observe(this.el, {
-      childList: true,
-    });
-  };
-
-  private setInteractiveElements = () => {
+  private getInteractiveElements = () => {
     // Set first interactive element as the chevron or close button
     this.interactiveElementList = Array.from(
       this.el.shadowRoot?.querySelectorAll("ic-button") || []
@@ -298,6 +283,27 @@ export class Drawer {
     if (this.interactiveElementList.length === 0 && this.drawerPanelEl) {
       this.interactiveElementList = [this.drawerPanelEl];
     }
+  };
+
+  private setContentAreaMutationObserver = () => {
+    const { contentAreaSlot, contentAreaMutationObserver } =
+      refreshInteractiveElementsOnSlotChange(
+        this.el.shadowRoot?.querySelector("#drawer-content") || null,
+        this.getInteractiveElements
+      );
+    this.contentAreaSlot = contentAreaSlot;
+    this.contentAreaMutationObserver = contentAreaMutationObserver;
+  };
+
+  private setHostMutationObserver = () => {
+    this.hostMutationObserver = new MutationObserver(() => {
+      console.log("update");
+      this.updateDynamicSlots();
+    });
+
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
   };
 
   private setResizeObserver = () => {
@@ -352,18 +358,20 @@ export class Drawer {
       this.chevronButton?.shadowRoot?.querySelector("button")?.blur();
 
       setTimeout(() => {
-        this.setInteractiveElements();
+        this.getInteractiveElements();
 
         if (this.trigger === "controlled") {
           this.sourceElement = document.activeElement as HTMLElement;
         }
 
         if (this.interactiveElementList.length > 0) {
-          this.focusedElementIndex = focusElement(
-            this.interactiveElementList[this.focusedElementIndex],
+          const newFocusedElementIndex = focusElement(
             this.focusedElementIndex,
             this.interactiveElementList
           );
+          if (newFocusedElementIndex) {
+            this.focusedElementIndex = newFocusedElementIndex;
+          }
         }
       }, this.TRANSITION_DURATION);
     } else {
@@ -425,10 +433,8 @@ export class Drawer {
             {/* <a id="drawer-content"></a> CHECK THIS WORKS */}
             <div class="drawer-header">
               <div class="heading-area">
-                {/* {isSlotUsed(this.el, "heading-adornment") && ( */}
                 <slot name="heading-adornment" />
-                {/* )} */}
-                {this.isHeadingSlotUsed ? (
+                {isSlotUsed(this.el, "heading") ? (
                   <slot name="heading" />
                 ) : (
                   <ic-typography id="drawer-heading" variant="h4">
@@ -462,7 +468,9 @@ export class Drawer {
                   ref={(el) => (this.contentAreaShadowTopEl = el)}
                   class="content-area-shadow-top"
                 ></div>
-                {this.isMessageSlotUsed ? (
+                {Array.from(this.el.children).some(
+                  (child) => !child.hasAttribute("slot")
+                ) ? (
                   <div id="drawer-content">
                     <slot />
                   </div>
