@@ -16,10 +16,12 @@ import closeIcon from "../../assets/close-icon.svg";
 import {
   isSlotUsed,
   checkResizeObserver,
+  focusElement,
+  handleFocusTrapTabKeyPress,
   onComponentRequiredPropUndefined,
   getSlotElements,
 } from "../../utils/helpers";
-import { IcFocusableComponents, IcThemeMode } from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 
 /**
  * @slot dialog-controls - Content will be place at the bottom of the dialog.
@@ -41,11 +43,6 @@ export class Dialog {
   private dialogEl?: HTMLDialogElement;
   private dialogHeight: number = 0;
   private focusedElementIndex = 0;
-  private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
-  private IC_ACCORDION: string = "IC-ACCORDION";
-  private IC_ACCORDION_GROUP: string = "IC-ACCORDION-GROUP";
-  private IC_CHECKBOX = "IC-CHECKBOX";
-  private IC_SEARCH_BAR: string = "IC-SEARCH-BAR";
   private interactiveElementList: HTMLElement[];
   private resizeObserver: ResizeObserver | null = null;
   private resizeTimeout: number;
@@ -189,7 +186,14 @@ export class Dialog {
     if (this.dialogRendered) {
       switch (ev.key) {
         case "Tab":
-          if (this.onTabKeyPress(ev.shiftKey)) {
+          const tabKeyPressHandlerResult = handleFocusTrapTabKeyPress(
+            this.el,
+            this.interactiveElementList,
+            ev.shiftKey
+          );
+          this.focusedElementIndex =
+            tabKeyPressHandlerResult.newFocusedElementIndex;
+          if (tabKeyPressHandlerResult.preventDefault) {
             ev.preventDefault();
           }
           break;
@@ -338,18 +342,10 @@ export class Dialog {
           element.hasAttribute(this.DATA_GETS_FOCUS)
         )
       : 0;
-    this.focusElement(this.interactiveElementList[this.focusedElementIndex]);
-  };
-
-  private getFocusedElementIndex = () => {
-    for (let i = 0; i < this.interactiveElementList.length; i++) {
-      if (
-        (this.interactiveElementList[i] as HTMLElement) ===
-        (this.el.shadowRoot?.activeElement || document.activeElement)
-      ) {
-        this.focusedElementIndex = i;
-      }
-    }
+    this.focusedElementIndex = focusElement(
+      this.focusedElementIndex,
+      this.interactiveElementList
+    );
   };
 
   private closeIconClick = () => {
@@ -385,84 +381,6 @@ export class Dialog {
       );
     }
   };
-
-  private getNextFocusEl = (focusedElementIndex: number) =>
-    this.interactiveElementList[focusedElementIndex];
-
-  private onTabKeyPress = (shiftKey: boolean): boolean => {
-    this.getFocusedElementIndex();
-
-    if (
-      this.interactiveElementList[this.focusedElementIndex].tagName ===
-      this.IC_SEARCH_BAR
-    ) {
-      return false;
-    }
-
-    this.setFocusIndexBasedOnShiftKey(shiftKey);
-    this.loopNextFocusIndexIfLastElement();
-
-    this.focusElement(this.getNextFocusEl(this.focusedElementIndex), shiftKey);
-    return true;
-  };
-
-  private shouldSkipElement = (element: HTMLElement): boolean => {
-    const isHidden =
-      getComputedStyle(element).visibility === "hidden" ||
-      element.offsetHeight === 0 ||
-      element.hasAttribute("disabled") ||
-      (element.tagName === this.IC_ACCORDION_GROUP &&
-        element.hasAttribute("single-expansion"));
-
-    const radioEl = element.closest("ic-radio-option");
-
-    return (
-      isHidden ||
-      (element.getAttribute("type") === "radio" &&
-        !!radioEl &&
-        !(radioEl.hasAttribute("selected") || element.tabIndex === 0))
-    );
-  };
-
-  private focusElement = (element: HTMLElement, shiftKey = false) => {
-    let nextFocusEl = element;
-
-    if (this.shouldSkipElement(element)) {
-      this.setFocusIndexBasedOnShiftKey(shiftKey);
-      this.loopNextFocusIndexIfLastElement();
-
-      nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
-      this.focusElement(nextFocusEl, shiftKey);
-    } else {
-      switch (element.tagName) {
-        case this.IC_ACCORDION_GROUP:
-        case this.IC_ACCORDION:
-        case this.IC_SEARCH_BAR:
-        case this.IC_TEXT_FIELD:
-        case this.IC_CHECKBOX:
-          (element as IcFocusableComponents).setFocus();
-          break;
-        default:
-          (element as HTMLElement).focus();
-      }
-    }
-  };
-
-  private loopNextFocusIndexIfLastElement() {
-    if (this.focusedElementIndex > this.interactiveElementList.length - 1)
-      this.focusedElementIndex = 0;
-    else if (this.focusedElementIndex < 0) {
-      this.focusedElementIndex = this.interactiveElementList.length - 1;
-    }
-  }
-
-  private setFocusIndexBasedOnShiftKey(shiftKey: boolean) {
-    if (shiftKey) {
-      this.focusedElementIndex -= 1;
-    } else {
-      this.focusedElementIndex += 1;
-    }
-  }
 
   private renderDialog = () => {
     const {

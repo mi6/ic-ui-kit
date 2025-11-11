@@ -306,7 +306,6 @@ export class Drawer {
 
         if (this.interactiveElementList.length > 0) {
           this.focusedElementIndex = focusElement(
-            this.interactiveElementList[this.focusedElementIndex],
             this.focusedElementIndex,
             this.interactiveElementList
           );

@@ -758,13 +758,12 @@ export const renderDynamicChildSlots = (
  * @param shiftKey - whether the shift key is pressed
  */
 export const focusElement = (
-  element: HTMLElement,
   focusedElementIndex: number,
   interactiveElementList: HTMLElement[],
   shiftKey = false
 ): number => {
+  let element = interactiveElementList[focusedElementIndex];
   let newFocusedElementIndex = focusedElementIndex;
-  let nextFocusEl = element;
 
   if (shouldSkipElement(element)) {
     newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
@@ -775,9 +774,7 @@ export const focusElement = (
       newFocusedElementIndex,
       interactiveElementList
     );
-    nextFocusEl = interactiveElementList[newFocusedElementIndex];
     return focusElement(
-      nextFocusEl,
       newFocusedElementIndex,
       interactiveElementList,
       shiftKey
@@ -873,7 +870,6 @@ export function handleFocusTrapTabKeyPress(
   );
 
   newFocusedElementIndex = focusElement(
-    interactiveElementList[newFocusedElementIndex],
     newFocusedElementIndex,
     interactiveElementList,
     shiftKey
