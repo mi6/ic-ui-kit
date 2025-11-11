@@ -743,13 +743,17 @@ export const isSafari =
  * @param shiftKey - whether the shift key is pressed
  */
 export const focusElement = (
-  element: HTMLElement,
   focusedElementIndex: number,
   interactiveElementList: HTMLElement[],
   shiftKey = false
-): number => {
+): number | undefined => {
+  let element = interactiveElementList[focusedElementIndex];
+
+  if (!element) {
+    return;
+  }
+
   let newFocusedElementIndex = focusedElementIndex;
-  let nextFocusEl = element;
 
   if (shouldSkipElement(element)) {
     newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
@@ -760,9 +764,7 @@ export const focusElement = (
       newFocusedElementIndex,
       interactiveElementList
     );
-    nextFocusEl = interactiveElementList[newFocusedElementIndex];
     return focusElement(
-      nextFocusEl,
       newFocusedElementIndex,
       interactiveElementList,
       shiftKey
@@ -778,12 +780,17 @@ export const focusElement = (
         (element as IcFocusableComponents).setFocus();
         break;
       default:
-        (element as HTMLElement).focus();
+        element.focus();
     }
     return newFocusedElementIndex;
   }
 };
 
+/**
+ * Gets the index of the currently focused element. Used for focus trapping.
+ * @param el - host element of the component
+ * @param interactiveElementList - list of interactive elements
+ */
 export const getFocusedElementIndex = (
   el: HTMLElement,
   interactiveElementList: HTMLElement[]
@@ -834,18 +841,26 @@ export const getLoopedNextFocusIndexIfLastElement = (
  */
 export function handleFocusTrapTabKeyPress(
   el: HTMLElement,
+  focusAttemptCount: number,
   interactiveElementList: HTMLElement[],
   shiftKey: boolean
-): { preventDefault: boolean; newFocusedElementIndex: number } {
+): {
+  newFocusAttemptCount: number;
+  newFocusedElementIndex: number;
+  preventDefault: boolean;
+} {
+  let newFocusAttemptCount = focusAttemptCount;
+
   const focusedElementIndex = getFocusedElementIndex(
     el,
     interactiveElementList
   );
 
-  if (interactiveElementList[focusedElementIndex].tagName === IC_SEARCH_BAR) {
+  if (interactiveElementList[focusedElementIndex]?.tagName === IC_SEARCH_BAR) {
     return {
-      preventDefault: false,
+      newFocusAttemptCount,
       newFocusedElementIndex: focusedElementIndex,
+      preventDefault: false,
     };
   }
 
@@ -858,14 +873,17 @@ export function handleFocusTrapTabKeyPress(
     interactiveElementList
   );
 
-  newFocusedElementIndex = focusElement(
-    interactiveElementList[newFocusedElementIndex],
+  newFocusAttemptCount = 0;
+  const focusElementResult = focusElement(
     newFocusedElementIndex,
     interactiveElementList,
     shiftKey
   );
+  if (focusElementResult) {
+    newFocusedElementIndex = focusElementResult;
+  }
 
-  return { preventDefault: true, newFocusedElementIndex };
+  return { newFocusAttemptCount, newFocusedElementIndex, preventDefault: true };
 }
 
 /**
@@ -873,6 +891,10 @@ export function handleFocusTrapTabKeyPress(
  * @param element - element to check
  */
 export const shouldSkipElement = (element: HTMLElement): boolean => {
+  if (!element) {
+    return true;
+  }
+
   const isHidden =
     getComputedStyle(element).visibility === "hidden" ||
     element.offsetHeight === 0 ||

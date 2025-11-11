@@ -450,7 +450,6 @@ export const Small = {
 
 export const Large = {
   render: (args) => html`<ic-drawer
-      id="drawer-right-slotted-content"
       heading="Roasted coffee"
       message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
       size="large"

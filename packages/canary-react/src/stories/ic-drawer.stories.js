@@ -84,7 +84,8 @@ const ShowHideContent = () => {
       <IcTypography>
         Demonstrates changes to slotted elements happening after first load.
         <br />
-        The button which is a child of an existing slotted element will update after a 2s delay.
+        The button which is a child of an already rendered slotted
+        <code>${`<div>`}</code> will show / hide after a 2s delay.
       </IcTypography>
       <br />
       <IcButton onClick={() => handleShow(true)}>Show</IcButton>
