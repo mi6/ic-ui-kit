@@ -512,8 +512,8 @@
   width: var(--ic-space-lg) !important;
 }
 
-:host(.ic-drawer-right-position.ic-drawer-expanded) .chevron-btn svg,
-:host(.ic-drawer-left-position.ic-drawer-collapsed) .chevron-btn svg {
+:host(.ic-drawer-right-position.ic-drawer-collapsed) .chevron-btn svg,
+:host(.ic-drawer-left-position.ic-drawer-expanded) .chevron-btn svg {
   transform: rotate(180deg);
 }
 

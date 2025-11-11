@@ -4544,6 +4544,30 @@
       "usage": {},
       "props": [
         {
+          "name": "ariaLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "aria-label",
+          "reflectToAttr": false,
+          "docs": "The aria label applied to the drawer. This is required when the heading slot is used.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "boundary",
           "type": "\"parent\" | \"viewport\"",
           "complexType": {
@@ -4632,10 +4656,10 @@
         },
         {
           "name": "closeOnBackdropClick",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -4647,12 +4671,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4776,10 +4797,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\" | undefined",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4806,22 +4827,19 @@
             {
               "value": "small",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -4848,12 +4866,9 @@
             {
               "value": "light",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4919,7 +4934,23 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-drawer-height",
+          "annotation": "prop",
+          "docs": "the height of the expanded top or bottom drawer."
+        },
+        {
+          "name": "--ic-drawer-width",
+          "annotation": "prop",
+          "docs": "the width of the expanded left or right drawer."
+        },
+        {
+          "name": "--ic-z-index-drawer",
+          "annotation": "prop",
+          "docs": "z-index of drawer."
+        }
+      ],
       "slots": [
         {
           "name": "actions",
