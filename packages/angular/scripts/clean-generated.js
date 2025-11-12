@@ -1,5 +1,4 @@
 const path = require('path');
-// const cwd = process.cwd();
 
 const { glob } = require('glob');
 const fs = require('fs-extra');
@@ -13,9 +12,7 @@ const testGeneratedFiles = path.join(distDir, 'test');
 function doGlob(globString) {
   return new Promise((resolve, reject) => {
     glob(globString, (err, matches) => {
-      if (err) {
-        return reject(err);
-      }
+      if (err) return reject(err);
       resolve(matches);
     })
   });
