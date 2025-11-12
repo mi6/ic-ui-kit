@@ -15,4 +15,7 @@ module.exports = {
       [...(await getPackages(ctx)), "release", "root"],
     ],
   },
+  ignores: [
+    (commit) => commit.includes("chore(release)"),
+  ],
 };
