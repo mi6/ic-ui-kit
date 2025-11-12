@@ -455,6 +455,37 @@ exports[`ic-text-field should render with warning validation: renders-with-warni
 </ic-text-field>
 `;
 
+exports[`ic-text-field should render with aria-describedby set to the correct order: renders-with-validation-aria-live 1`] = `
+<ic-text-field helper-text="Test helper text" label="Test label" max-characters="2" validation-status="error" validation-text="Test error" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-23" helpertext="Test helper text" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="error">
+        <input aria-describedby="ic-text-field-input-23-helper-text ic-text-field-input-23-validation-text ic-text-field-input-23-char-count-desc" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-23" inputmode="text" name="ic-text-field-input-23" placeholder="" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-23" message="Test error" status="error">
+        <div slot="validation-message-adornment">
+          <ic-typography class="char-count-text" variant="caption">
+            <span class="char-count">
+              0/2
+            </span>
+          </ic-typography>
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-23-remaining-char-count-desc">
+            2 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-23-char-count-desc">
+            Field can contain a maximum of 2 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-23" type="hidden" value="">
+</ic-text-field>
+`;
+
 exports[`ic-text-field should render: renders 1`] = `
 <ic-text-field label="Test label" rows="1" value="">
   <template shadowrootmode="open">
@@ -476,16 +507,16 @@ exports[`should render with max validation and a custom validation message: rend
 <ic-text-field inputmode="numeric" label="Test label" max="1" max-message="Custom message" type="number" value="2">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-31" helpertext="" label="Test label">
+      <ic-input-label for="ic-text-field-input-32" helpertext="" label="Test label">
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-31-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-31" inputmode="numeric" max="1" name="ic-text-field-input-31" placeholder="" type="number" value="2">
+        <input aria-describedby="ic-text-field-input-32-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-32" inputmode="numeric" max="1" name="ic-text-field-input-32" placeholder="" type="number" value="2">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-31" message="Custom message" status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-32" message="Custom message" status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-31" type="hidden" value="2">
+  <input class="ic-input" name="ic-text-field-input-32" type="hidden" value="2">
 </ic-text-field>
 `;
 
@@ -493,16 +524,16 @@ exports[`should render with min validation and a custom validation message: rend
 <ic-text-field inputmode="numeric" label="Test label" min="1" min-message="Custom message" type="number" value="0">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-30" helpertext="" label="Test label">
+      <ic-input-label for="ic-text-field-input-31" helpertext="" label="Test label">
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-30-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-30" inputmode="numeric" min="1" name="ic-text-field-input-30" placeholder="" type="number" value="0">
+        <input aria-describedby="ic-text-field-input-31-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-31" inputmode="numeric" min="1" name="ic-text-field-input-31" placeholder="" type="number" value="0">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-30" message="Custom message" status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-31" message="Custom message" status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-30" type="hidden" value="0">
+  <input class="ic-input" name="ic-text-field-input-31" type="hidden" value="0">
 </ic-text-field>
 `;
 
@@ -510,16 +541,16 @@ exports[`should render with min/max and max validation: renders-with-max 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="4" min="1" rows="1" type="number" value="6">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-28" helpertext="" label="Test label">
+      <ic-input-label for="ic-text-field-input-29" helpertext="" label="Test label">
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-28-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-28" inputmode="numeric" max="4" min="1" name="ic-text-field-input-28" placeholder="" type="number" value="6">
+        <input aria-describedby="ic-text-field-input-29-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-29" inputmode="numeric" max="4" min="1" name="ic-text-field-input-29" placeholder="" type="number" value="6">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-28" message="Maximum value of 4 exceeded" status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-29" message="Maximum value of 4 exceeded" status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-28" type="hidden" value="6">
+  <input class="ic-input" name="ic-text-field-input-29" type="hidden" value="6">
 </ic-text-field>
 `;
 
@@ -527,15 +558,15 @@ exports[`should render with min/max and min validation: renders-with-min 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="4" min="1" rows="1" type="number" value="0">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-29" helpertext="" label="Test label">
+      <ic-input-label for="ic-text-field-input-30" helpertext="" label="Test label">
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-29-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-29" inputmode="numeric" max="4" min="1" name="ic-text-field-input-29" placeholder="" type="number" value="0">
+        <input aria-describedby="ic-text-field-input-30-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-30" inputmode="numeric" max="4" min="1" name="ic-text-field-input-30" placeholder="" type="number" value="0">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-29" message="Minimum value of 1 not met" status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-30" message="Minimum value of 1 not met" status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-29" type="hidden" value="0">
+  <input class="ic-input" name="ic-text-field-input-30" type="hidden" value="0">
 </ic-text-field>
 `;

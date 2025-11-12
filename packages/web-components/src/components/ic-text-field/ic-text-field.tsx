@@ -672,14 +672,14 @@ export class TextField {
       charsRemaining === 1 ? "" : "s"
     } remaining.`;
 
-    const describedBy = `${hiddenCharCountDescId} ${
-      numChars > 0 ? remainingCharCountDescId : ""
-    } ${getInputDescribedByText(
+    const describedBy = `${getInputDescribedByText(
       this.el,
       inputId,
       helperText !== "",
       showStatusText
-    )}`.trim();
+    )} ${hiddenCharCountDescId} ${
+      numChars > 0 ? remainingCharCountDescId : ""
+    }`.trim();
 
     const disabledText = disabledMode && !readonly;
     const showLeftIcon =

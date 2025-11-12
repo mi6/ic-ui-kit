@@ -242,6 +242,16 @@ describe("ic-text-field", () => {
     expect(page.root).toMatchSnapshot("renders-with-validation-aria-live");
   });
 
+  it("should render with aria-describedby set to the correct order", async () => {
+    // Should match visual reading order, i.e., helper text, validation message, and then max characters info
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field label="Test label" max-characters="2" validation-status="error" validation-text="Test error" helper-text="Test helper text"></ic-text-field>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-validation-aria-live");
+  });
+
   it("should blur", async () => {
     const page = await newSpecPage({
       components: [TextField],
