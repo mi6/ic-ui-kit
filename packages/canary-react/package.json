@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "version": "3.0.0-canary.29",
+  "version": "3.0.0-canary.30",
   "description": "React-wrapped web components compiled using StencilJS",
   "scripts": {
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
@@ -38,7 +38,7 @@
     "email": "icds@gchq.gov.uk"
   },
   "dependencies": {
-    "@ukic/canary-web-components": "^3.0.0-canary.29",
+    "@ukic/canary-web-components": "^3.0.0-canary.30",
     "@ukic/react": "^3.14.0",
     "@ukic/web-components": "^3.14.0"
   },

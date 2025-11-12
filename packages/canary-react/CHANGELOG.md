@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.30](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.29...@ukic/canary-react@3.0.0-canary.30) (2025-11-12)
+
+### Bug Fixes
+
+- **canary-react:** fixes issue setting value with hh:mm time format ([20a2239](https://github.com/mi6/ic-ui-kit/commit/20a2239635cb6a9ea7951c87104f51a0e652f9ee))
+
 # [3.0.0-canary.29](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.28...@ukic/canary-react@3.0.0-canary.29) (2025-10-29)
 
 ### Bug Fixes

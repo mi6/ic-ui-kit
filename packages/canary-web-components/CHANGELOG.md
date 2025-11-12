@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.30](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.29...@ukic/canary-web-components@3.0.0-canary.30) (2025-11-12)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes issue setting value with hh:mm time format ([397cfcc](https://github.com/mi6/ic-ui-kit/commit/397cfccb0940cb39c3677e56c1c2eb25634a48b1))
+
 # [3.0.0-canary.29](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.28...@ukic/canary-web-components@3.0.0-canary.29) (2025-10-29)
 
 ### Bug Fixes
