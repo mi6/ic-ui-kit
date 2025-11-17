@@ -10,6 +10,7 @@ import {
   IcRadioOption,
   IcSearchBar,
   IcSelect,
+  IcStatusTag,
   IcTextField,
   IcTypography,
 } from "../components";
@@ -651,6 +652,28 @@ export const ConditionalStatic = {
   ),
 
   name: "Conditional static",
+};
+
+export const SlottedLabel = {
+  render: () => (
+    <IcCheckboxGroup label="Choose Your Coffee" name="1">
+      <IcCheckbox value="valueName1" label="Americano">
+      </IcCheckbox>
+      <IcCheckbox value="valueName2" checked>
+        <span slot="label">
+          Coffee <IcStatusTag label="hot" status="warning"/>
+        </span>
+      </IcCheckbox>
+      <IcCheckbox value="valueName3">
+        <span slot="label"><b>Slot Coffee</b></span>
+      </IcCheckbox>
+      <IcCheckbox value="valueName4" disabled>
+        <span slot="label"><b>Out of stock</b> Coffee</span>
+      </IcCheckbox>
+    </IcCheckboxGroup>
+  ),
+
+  name: "Slotted label",
 };
 
 export const HelperText = {
