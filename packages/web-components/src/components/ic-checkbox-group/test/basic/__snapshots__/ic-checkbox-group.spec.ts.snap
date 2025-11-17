@@ -589,6 +589,76 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
 </ic-checkbox-group>
 `;
 
+exports[`ic-checkbox-group should render with slotted checkbox label: renders-with-slotted-label 1`] = `
+<ic-checkbox-group class="ic-checkbox-group-medium" label="test checkbox group">
+  <template shadowrootmode="open">
+    <fieldset aria-labelledby="">
+      <legend>
+        <ic-input-label helpertext="" label="test checkbox group">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
+      <div class="checkboxes-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
+  </template>
+  <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="Americano" value="valueName1">
+    <template shadowrootmode="open">
+      <div class="container">
+        <input class="checkbox" id="ic-checkbox-Americano-test-checkbox-group" role="checkbox" type="checkbox" value="valueName1">
+        <ic-typography class="checkbox-label" variant="body">
+          <label htmlfor="ic-checkbox-Americano-test-checkbox-group">
+            Americano
+          </label>
+        </ic-typography>
+      </div>
+      <span class="sr-only" id="ic-checkbox-Americano-test-checkbox-group-additional-field-description" role="alert"></span>
+    </template>
+  </ic-checkbox>
+  <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" value="valueName2">
+    <template shadowrootmode="open">
+      <div class="container">
+        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title>
+            checkmark icon
+          </title>
+          <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"></path>
+        </svg>
+        <input aria-label="Coffee" checked="" class="checkbox checked" id="ic-checkbox-Coffee-test-checkbox-group" role="checkbox" type="checkbox" value="valueName2">
+        <slot name="label"></slot>
+      </div>
+      <span class="sr-only" id="ic-checkbox-Coffee-test-checkbox-group-additional-field-description" role="alert"></span>
+    </template>
+    <span for="ic-checkbox-Coffee-test-checkbox-group" slot="label">
+      Coffee
+      <ic-status-tag label="hot" status="warning"></ic-status-tag>
+    </span>
+  </ic-checkbox>
+  <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" value="valueName3">
+    <template shadowrootmode="open">
+      <div class="container">
+        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title>
+            checkmark icon
+          </title>
+          <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"></path>
+        </svg>
+        <input aria-label="Slot Coffee" checked="" class="checkbox checked" id="ic-checkbox-Slot-Coffee-test-checkbox-group" role="checkbox" type="checkbox" value="valueName3">
+        <slot name="label"></slot>
+      </div>
+      <span class="sr-only" id="ic-checkbox-Slot-Coffee-test-checkbox-group-additional-field-description" role="alert"></span>
+    </template>
+    <span for="ic-checkbox-Slot-Coffee-test-checkbox-group" slot="label">
+      <b>
+        Slot Coffee
+      </b>
+    </span>
+  </ic-checkbox>
+</ic-checkbox-group>
+`;
+
 exports[`ic-checkbox-group should render with validation status: renders-with-validation 1`] = `
 <ic-checkbox-group class="ic-checkbox-group-medium" hide-label="" label="test label" name="test" validation-status="error" validation-text="error message">
   <template shadowrootmode="open">

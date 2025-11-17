@@ -315,6 +315,29 @@ export const ConditionalStatic = {
   name: "Conditional static",
 };
 
+export const SlottedLabel = {
+  render: (args) => html`
+    <ic-checkbox-group label="Pick your coffee" name="group1">
+      <ic-checkbox value="valueName1" label="Americano"></ic-checkbox>
+      <ic-checkbox value="valueName2" checked>
+        <span slot="label">
+          Coffee <ic-status-tag label="hot" status="warning"></ic-status-tag>
+        </span>
+      </ic-checkbox>
+      <ic-checkbox value="valueName3" checked>
+        <span slot="label">
+          <b>Slot Coffee</b>
+        </span>
+      </ic-checkbox>
+      <ic-checkbox value="valueName4" disabled>
+        <span slot="label"> <b>OUT OF STOCK</b> Big Coffee </span>
+      </ic-checkbox>
+    </ic-checkbox-group>
+  `,
+
+  name: "Slotted label",
+};
+
 export const HelperText = {
   render: (args) => html`
     <ic-checkbox-group

@@ -27,6 +27,7 @@ import {
 
 /**
  * @slot additional-field - Content to be displayed alongside a checkbox.
+ * @slot label - Label for the checkbox.
  */
 @Component({
   tag: "ic-checkbox",
@@ -39,6 +40,7 @@ import {
 export class Checkbox {
   private additionalFieldContainer?: HTMLDivElement;
   private checkboxEl?: HTMLInputElement;
+  private labelSlot: HTMLElement | null;
 
   @Element() el: HTMLIcCheckboxElement;
 
@@ -146,10 +148,14 @@ export class Checkbox {
   }
 
   componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Checkbox"
-    );
+    if (this.hasLabelSlot()) {
+      this.arrangeLabel();
+    } else {
+      onComponentRequiredPropUndefined(
+        [{ prop: this.label, propName: "label" }],
+        "Checkbox"
+      );
+    }
   }
 
   componentDidRender(): void {
@@ -178,6 +184,25 @@ export class Checkbox {
     this.checkboxEl?.focus();
   }
 
+  private getCheckboxGroupId() {
+    return `ic-checkbox-${this.label}-${this.groupLabel}`.replace(/ /g, "-");
+  }
+
+  private hasLabelSlot() {
+    this.labelSlot = this.el.querySelector('[slot="label"]');
+    return !!this.labelSlot;
+  }
+
+  private arrangeLabel() {
+    if (this.labelSlot) {
+      this.label = this.labelSlot.textContent?.trim() || "";
+      this.labelSlot.setAttribute("for", this.getCheckboxGroupId());
+      if (this.disabled) {
+        this.labelSlot.setAttribute("aria-disabled", "true");
+      }
+    }
+  }
+
   private handleClick = () => {
     this.checked = !this.checked;
     this.displayIndeterminate =
@@ -198,7 +223,6 @@ export class Checkbox {
       dynamicText,
       el,
       form,
-      groupLabel,
       handleClick,
       hideLabel,
       label,
@@ -208,13 +232,22 @@ export class Checkbox {
       value,
     } = this;
 
-    const id = `ic-checkbox-${label}-${groupLabel}`.replace(/ /g, "-");
+    const inputId = this.getCheckboxGroupId();
 
     const isDynamicAdditionalField = additionalFieldDisplay === "dynamic";
 
     checked
       ? renderHiddenInput(el, value, name, disabled)
       : removeHiddenInput(el);
+
+    const LabelContent = () =>
+      this.hasLabelSlot() ? (
+        <slot name="label"></slot>
+      ) : (
+        <ic-typography class="checkbox-label" variant="body">
+          <label htmlFor={inputId}>{label}</label>
+        </ic-typography>
+      );
 
     return (
       <Host
@@ -251,23 +284,19 @@ export class Checkbox {
             ref={(el) => (this.checkboxEl = el)}
             type="checkbox"
             name={name}
-            id={id}
+            id={inputId}
             value={value}
             disabled={disabled}
             checked={checked}
             indeterminate={displayIndeterminate}
             onClick={handleClick}
             form={form}
-            aria-label={hideLabel ? label : undefined}
+            aria-label={hideLabel || this.hasLabelSlot() ? label : undefined}
           ></input>
-          {!hideLabel && (
-            <ic-typography class="checkbox-label" variant="body">
-              <label htmlFor={id}>{label}</label>
-            </ic-typography>
-          )}
+          {!hideLabel && <LabelContent />}
         </div>
         <span
-          id={`${id}-additional-field-description`}
+          id={`${inputId}-additional-field-description`}
           role="alert"
           class="sr-only"
         >
