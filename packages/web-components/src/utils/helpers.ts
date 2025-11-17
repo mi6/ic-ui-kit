@@ -726,6 +726,20 @@ export const getElementInheritedTheme = (el: HTMLElement): IcThemeMode => {
     : "light";
 };
 
+/**
+ * Apply a set of CSS styles to an element
+ * @param element HTML or SVG element to be augmented
+ * @param styles object containing string key: value pairs of css attributes and values
+ */
+export const setStyles = (
+  element: HTMLElement | SVGElement,
+  styles: { [key: string]: string }
+) => {
+  Object.entries(styles).forEach(([key, value]) => {
+    element.style.setProperty(key, value);
+  });
+};
+
 export const isSafari =
   /safari/i.test(window.navigator.userAgent) &&
   !/Edge/i.test(window.navigator.userAgent) &&

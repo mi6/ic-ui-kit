@@ -21,6 +21,7 @@ import {
   isSlotUsed,
   removeDisabledFalse,
   renderFileHiddenInput,
+  setStyles,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import { IcButtonTypes, IcButtonVariants } from "./ic-button.types";
@@ -499,15 +500,6 @@ export class Button {
   private isIconVariant = () => this.variant.startsWith("icon");
 
   private arrangeRouterItem = () => {
-    const setStyles = (
-      element: HTMLElement | SVGElement,
-      styles: { [key: string]: string }
-    ) => {
-      Object.entries(styles).forEach(([key, value]) => {
-        element.style.setProperty(key, value);
-      });
-    };
-
     if (this.routerSlot) {
       const icTypography = document.createElement("ic-typography");
 
