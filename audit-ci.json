@@ -111,6 +111,13 @@
         "notes": "issue in tar-fs in puppeteer used in cypress - no current fix",
         "expiry": "27 November 2025"
       }
+    },
+    {
+      "GHSA-mh29-5h37-fv8m": {
+        "active": true,
+        "notes": "issue in 'js-yaml' package - running audit fix in each package does not fix the issue",
+        "expiry": "27 November 2025"
+      }
     }
   ]
 }
