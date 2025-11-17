@@ -4383,7 +4383,7 @@
         {
           "status": "fail",
           "name": "IcNavigationMenu.cy.tsx/with-expandable-nav-groups-top-nav",
-          "percentage": 0.12700931359841586,
+          "percentage": 0.1395574188216024,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcNavigationMenu/IcNavigationMenu.cy.tsx",
           "specFilename": "IcNavigationMenu.cy.tsx",
@@ -9988,9 +9988,9 @@
       ]
     }
   ],
-  "startedAt": "2025-11-14T14:33:54.191Z",
-  "endedAt": "2025-11-14T14:54:09.480Z",
-  "duration": 1112886,
+  "startedAt": "2025-11-17T11:24:31.776Z",
+  "endedAt": "2025-11-17T11:47:28.651Z",
+  "duration": 1266716,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
