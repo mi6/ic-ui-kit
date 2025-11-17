@@ -190,6 +190,27 @@ describe("ic-checkbox-group", () => {
     });
   });
 
+  it("should render with slotted checkbox label", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `<ic-checkbox-group label="test checkbox group">
+        <ic-checkbox value="valueName1" label="Americano"></ic-checkbox>
+        <ic-checkbox value="valueName2" checked>
+          <span slot="label">
+            Coffee <ic-status-tag label="hot" status="warning"></ic-status-tag>
+          </span>
+        </ic-checkbox>
+        <ic-checkbox value="valueName3" checked>
+          <span slot="label">
+            <b>Slot Coffee</b>
+          </span>
+        </ic-checkbox>
+      </ic-checkbox-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-slotted-label");
+  });
+
   it("should set disabled attribute to false on static additional field when checked", async () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox, TextField],
