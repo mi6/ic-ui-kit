@@ -50,6 +50,7 @@ Type: `Promise<void>`
 | Slot                 | Description                                   |
 | -------------------- | --------------------------------------------- |
 | `"additional-field"` | Content to be displayed alongside a checkbox. |
+| `"label"`            | Label for the checkbox.                       |
 
 
 ## Dependencies
