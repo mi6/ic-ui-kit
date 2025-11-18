@@ -1,7 +1,7 @@
 {
   "total": 883,
-  "totalPassed": 874,
-  "totalFailed": 9,
+  "totalPassed": 878,
+  "totalFailed": 5,
   "totalSuites": 45,
   "suites": [
     {
@@ -8383,14 +8383,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx/default.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx/neutral",
-          "percentage": 0.13994284547628721,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx/neutral.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx/neutral.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx/neutral.png"
         },
         {
@@ -8405,25 +8405,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx/success.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx/warning",
-          "percentage": 0.1150651989091402,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx/warning.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx/warning.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx/warning.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx/info",
-          "percentage": 0.11560276813294741,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx/info.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx/info.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx/info.png"
         },
         {
@@ -8438,14 +8438,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx/error.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx/ai",
-          "percentage": 0.14153444810363305,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx/ai.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx/ai.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx/ai.png"
         },
         {
@@ -8506,7 +8506,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/custom-aria-label",
-          "percentage": 0.15198684153570666,
+          "percentage": 0.11366617790706257,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -9988,9 +9988,9 @@
       ]
     }
   ],
-  "startedAt": "2025-11-05T13:41:22.555Z",
-  "endedAt": "2025-11-05T14:01:42.648Z",
-  "duration": 1117243,
+  "startedAt": "2025-11-18T09:47:34.884Z",
+  "endedAt": "2025-11-18T10:07:05.073Z",
+  "duration": 1067072,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
