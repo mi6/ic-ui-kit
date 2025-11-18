@@ -118,6 +118,13 @@
         "notes": "issue in 'js-yaml' package - running audit fix in each package does not fix the issue",
         "expiry": "27 November 2025"
       }
+    },
+    {
+      "GHSA-5j98-mcp5-4vw2": {
+        "active": true,
+        "notes": "issue in 'glob' package used by multiple packages (all on different versions) - need to wait for those to upgrade",
+        "expiry": "27 November 2025"
+      }
     }
   ]
 }
