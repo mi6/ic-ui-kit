@@ -343,7 +343,7 @@ export class Toast {
         role={isManual ? "dialog" : "alert"}
         aria-live={isManual ? null : "polite"}
       >
-        <div class={{["container"]: true, [`container-${variant}`]: true,}}>
+        <div class={{ ["container"]: true, [`container-${variant}`]: true }}>
           {variant && visible && (
             <div class="toast-icon-container">
               <div
