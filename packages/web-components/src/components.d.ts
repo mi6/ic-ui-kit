@@ -952,6 +952,10 @@ export namespace Components {
           * The description for the hero.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
     }
     interface IcHorizontalScroll {
         /**
@@ -4624,6 +4628,10 @@ declare namespace LocalJSX {
           * The description for the hero.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcHorizontalScroll {
         /**
