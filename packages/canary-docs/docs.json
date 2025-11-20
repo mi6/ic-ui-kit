@@ -548,13 +548,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-card-horizontal": [
-          "ic-typography"
-        ]
+        "ic-card-horizontal": ["ic-typography"]
       }
     },
     {
@@ -1650,23 +1646,11 @@
           "ic-empty-state",
           "ic-pagination-bar"
         ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-checkbox": [
-          "ic-typography"
-        ],
-        "ic-empty-state": [
-          "ic-typography"
-        ],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-checkbox": ["ic-typography"],
+        "ic-empty-state": ["ic-typography"],
         "ic-pagination-bar": [
           "ic-typography",
           "ic-select",
@@ -1684,24 +1668,11 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-pagination-item": ["ic-typography"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -1889,15 +1860,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-select"
-      ],
+      "dependencies": ["ic-typography", "ic-select"],
       "dependencyGraph": {
-        "ic-data-table-title-bar": [
-          "ic-typography",
-          "ic-select"
-        ],
+        "ic-data-table-title-bar": ["ic-typography", "ic-select"],
         "ic-select": [
           "ic-input-container",
           "ic-input-label",
@@ -1907,28 +1872,12 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -2806,9 +2755,7 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-date-picker"
-      ],
+      "dependents": ["ic-date-picker"],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -2824,26 +2771,12 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-date-picker": [
-          "ic-date-input"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-date-picker": ["ic-date-input"]
       }
     },
     {
@@ -3864,28 +3797,12 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-button",
-        "ic-date-input",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-button", "ic-date-input", "ic-typography"],
       "dependencyGraph": {
-        "ic-date-picker": [
-          "ic-button",
-          "ic-date-input",
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
+        "ic-date-picker": ["ic-button", "ic-date-input", "ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
         "ic-date-input": [
           "ic-input-container",
           "ic-input-label",
@@ -3893,12 +3810,8 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -4465,9 +4378,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-data-table"
-      ],
+      "dependents": ["ic-data-table"],
       "dependencies": [
         "ic-typography",
         "ic-select",
@@ -4494,35 +4405,14 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-pagination-item": ["ic-typography"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -4530,9 +4420,7 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-data-table": [
-          "ic-pagination-bar"
-        ]
+        "ic-data-table": ["ic-pagination-bar"]
       }
     },
     {
@@ -4791,20 +4679,14 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-tooltip",
-        "ic-section-container",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-tooltip", "ic-section-container", "ic-typography"],
       "dependencyGraph": {
         "ic-table-of-contents": [
           "ic-tooltip",
           "ic-section-container",
           "ic-typography"
         ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -4885,7 +4767,7 @@
           "mutable": false,
           "attr": "emit-time-part-change",
           "reflectToAttr": false,
-          "docs": "If `true`, every individual input field completed will emit an icChange event.",
+          "docs": "If `true`, every individual input field completed will emit an icTimeChange event.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5162,6 +5044,33 @@
           "setter": false
         },
         {
+          "name": "showAmPmToggle",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "show-am-pm-toggle",
+          "reflectToAttr": false,
+          "docs": "If `true`, the time input will show an AM/PM toggle when in 12-hour time period.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "showClearButton",
           "type": "boolean | undefined",
           "complexType": {
@@ -5271,10 +5180,10 @@
         },
         {
           "name": "timeFormat",
-          "type": "\"HH:MM\" | \"HH:MM:SS\"",
+          "type": "\"HH:MM\" | \"HH:MM:SS\" | \"HH:MM:SS.SSS\"",
           "complexType": {
             "original": "IcTimeFormat",
-            "resolved": "\"HH:MM\" | \"HH:MM:SS\"",
+            "resolved": "\"HH:MM\" | \"HH:MM:SS\" | \"HH:MM:SS.SSS\"",
             "references": {
               "IcTimeFormat": {
                 "location": "import",
@@ -5296,6 +5205,10 @@
             },
             {
               "value": "HH:MM:SS",
+              "type": "string"
+            },
+            {
+              "value": "HH:MM:SS.SSS",
               "type": "string"
             }
           ],
@@ -5534,25 +5447,6 @@
           "docsTags": []
         },
         {
-          "event": "icChange",
-          "detail": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; }; }",
-          "bubbles": true,
-          "complexType": {
-            "original": "{\n    value: Date | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n    };\n  }",
-            "resolved": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; }; }",
-            "references": {
-              "Date": {
-                "location": "global",
-                "id": "global::Date"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the value has changed.",
-          "docsTags": []
-        },
-        {
           "event": "icFocus",
           "detail": "{ value: Date | null; }",
           "bubbles": true,
@@ -5569,6 +5463,25 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input gains focus.",
+          "docsTags": []
+        },
+        {
+          "event": "icTimeChange",
+          "detail": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; millisecond: string | null; period: string | null; }; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{\n    value: Date | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n      millisecond: string | null;\n      period: string | null;\n    };\n  }",
+            "resolved": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; millisecond: string | null; period: string | null; }; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
           "docsTags": []
         }
       ],
@@ -5587,6 +5500,8 @@
         "ic-input-label",
         "ic-input-component-container",
         "ic-button",
+        "ic-toggle-button-group",
+        "ic-toggle-button",
         "ic-input-validation"
       ],
       "dependencyGraph": {
@@ -5595,25 +5510,16 @@
           "ic-input-label",
           "ic-input-component-container",
           "ic-button",
+          "ic-toggle-button-group",
+          "ic-toggle-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-toggle-button": ["ic-button"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -6075,18 +5981,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-tooltip"
-      ],
+      "dependencies": ["ic-typography", "ic-tooltip"],
       "dependencyGraph": {
-        "ic-tree-item": [
-          "ic-typography",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-tree-item": ["ic-typography", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -6321,18 +6219,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-tooltip",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-tooltip", "ic-typography"],
       "dependencyGraph": {
-        "ic-tree-view": [
-          "ic-tooltip",
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-tree-view": ["ic-tooltip", "ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     }
   ],
@@ -6458,7 +6348,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcTimeFormat": {
-      "declaration": "export type IcTimeFormat = \"HH:MM\" | \"HH:MM:SS\";",
+      "declaration": "export type IcTimeFormat = \"HH:MM\" | \"HH:MM:SS\" | \"HH:MM:SS.SSS\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
