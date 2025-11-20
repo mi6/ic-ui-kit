@@ -76,6 +76,7 @@ function main() {
     "web-components": "packages/web-components/",
     "docs": "packages/docs/",
     "react": "packages/react/",
+    "angular": "packages/angular",
     "canary-web-components": "packages/canary-web-components/",
     "canary-docs": "packages/canary-docs/",
     "canary-react": "packages/canary-react/",
