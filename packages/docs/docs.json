@@ -4143,6 +4143,10 @@
         {
           "name": "slot",
           "text": "additional-field - Content to be displayed alongside a checkbox."
+        },
+        {
+          "name": "slot",
+          "text": "label - Label for the checkbox."
         }
       ],
       "usage": {},
@@ -4578,6 +4582,10 @@
         {
           "name": "additional-field",
           "docs": "Content to be displayed alongside a checkbox."
+        },
+        {
+          "name": "label",
+          "docs": "Label for the checkbox."
         }
       ],
       "parts": [],
