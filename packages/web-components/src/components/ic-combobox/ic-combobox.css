@@ -71,12 +71,12 @@ ic-input-component-container.menu-open {
 }
 
 .listbox-option:hover {
-    background-color: var(--ic-popover-background-hover);
+  background-color: var(--ic-popover-background-hover);
 }
 
 .listbox-option:focus,
 .listbox-option:focus-visible {
-    background-color: var(--ic-popover-background-focus);;
+  background-color: var(--ic-popover-background-focus);
 }
 
 .select-container {

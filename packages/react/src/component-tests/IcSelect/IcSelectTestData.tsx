@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 
 import React, { ReactElement, useState, useRef } from "react";
-import { IcButton, IcSelect } from "../../components";
+import { IcButton, IcSelectNew } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 export const coffeeOptions = [
@@ -244,14 +244,14 @@ export const searchableGroupCoffeeOption = [
 ];
 
 const setLoading = () => {
-  const select = document.querySelector("ic-select");
+  const select = document.querySelector("ic-select-new");
   if (select) select.loading = true;
 };
 
 export const LoadingSelect = (): ReactElement => (
   <>
     <IcButton onClick={setLoading}>Load</IcButton>
-    <IcSelect
+    <IcSelectNew
       label="What is your favourite coffee?"
       timeout={500}
       loadingErrorLabel="Loading Error"
@@ -264,14 +264,14 @@ export const LoadingSelect = (): ReactElement => (
 export const LoadingSelectNoTimeout = (): ReactElement => (
   <>
     <IcButton onClick={setLoading}>Load</IcButton>
-    <IcSelect label="What is your favourite coffee?" options={[]} />
+    <IcSelectNew label="What is your favourite coffee?" options={[]} />
   </>
 );
 
 export const LoadingSelectSearchable = (): ReactElement => (
   <>
     <IcButton onClick={setLoading}>Load</IcButton>
-    <IcSelect
+    <IcSelectNew
       label="What is your favourite coffee?"
       timeout={500}
       loadingErrorLabel="Loading Error"
@@ -285,7 +285,7 @@ export const LoadingSelectSearchable = (): ReactElement => (
 export const LoadingSelectSearchableNoTimeout = (): ReactElement => (
   <>
     <IcButton onClick={setLoading}>Load</IcButton>
-    <IcSelect
+    <IcSelectNew
       label="What is your favourite coffee?"
       options={[]}
       searchable
@@ -301,7 +301,7 @@ export const ControlledSelect = () => {
   };
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      <IcSelect placeholder="Controlled" label="Controlled" options={options} />
+      <IcSelectNew placeholder="Controlled" label="Controlled" options={options} />
       <IcButton id="update-opt" onClick={() => handleChange()}>
         Update options
       </IcButton>
@@ -316,7 +316,7 @@ export const ControlledSearchableSelect = () => {
   };
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      <IcSelect
+      <IcSelectNew
         placeholder="Controlled"
         label="Controlled"
         options={options}
@@ -336,7 +336,7 @@ export const UncontrolledSelect = () => {
   };
   return (
     <>
-      <IcSelect
+      <IcSelectNew
         ref={selectEl}
         placeholder="Uncontrolled"
         label="Uncontrolled"
@@ -354,7 +354,7 @@ export const UncontrolledSearchableSelect = () => {
   };
   return (
     <>
-      <IcSelect
+      <IcSelectNew
         ref={selectEl}
         searchable
         placeholder="Uncontrolled"
@@ -369,7 +369,7 @@ export const UncontrolledSearchableSelect = () => {
 export const MultiSelectDefault = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptions}
         multiple
@@ -381,7 +381,7 @@ export const MultiSelectDefault = () => {
 export const MultiSelectDefaultValue = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptions}
         value={["doubleespresso", "flatwhite", "mocha"]}
@@ -394,7 +394,7 @@ export const MultiSelectDefaultValue = () => {
 export const MultiSelectWithDescriptions = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptionsDescriptions}
         multiple
@@ -406,7 +406,7 @@ export const MultiSelectWithDescriptions = () => {
 export const MultiSelectSmall = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptions}
         size="small"
@@ -419,7 +419,7 @@ export const MultiSelectSmall = () => {
 export const MultiSelectLarge = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptions}
         size="large"
@@ -432,7 +432,7 @@ export const MultiSelectLarge = () => {
 export const MultiSelectDisabledOptions = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeDisabledOption}
         multiple
@@ -444,7 +444,7 @@ export const MultiSelectDisabledOptions = () => {
 export const MultiSelectReadOnly = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptions}
         value={["doubleespresso", "flatwhite", "mocha"]}
@@ -458,7 +458,7 @@ export const MultiSelectReadOnly = () => {
 export const MultiSelectGroups = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={groupCoffeeOption}
         multiple
@@ -470,7 +470,7 @@ export const MultiSelectGroups = () => {
 export const MultiSelectWithAllValues = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptions}
         value={[
@@ -490,7 +490,7 @@ export const MultiSelectWithAllValues = () => {
 export const MultiSelectWithClearButton = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptions}
         multiple
@@ -504,7 +504,7 @@ export const MultiSelectWithClearButton = () => {
 export const NotMultiSelect = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSelect
+      <IcSelectNew
         label="What are your favourite types of coffee?"
         options={coffeeOptions}
         multiple={false}
@@ -521,7 +521,7 @@ export const DarkTheme = (): ReactElement => (
       paddingLeft: "8px",
     }}
   >
-    <IcSelect
+    <IcSelectNew
       label="What are your favourite types of coffee?"
       helperText="Select one option from the list"
       theme="dark"
@@ -540,13 +540,13 @@ export const DarkTheme = (): ReactElement => (
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
       </SlottedSVG>
-    </IcSelect>
+    </IcSelectNew>
   </div>
 );
 
 export const DarkThemeGroupDescription = (): ReactElement => (
   <div style={{ backgroundColor: "var(--ic-color-page-background-dark)" }}>
-    <IcSelect
+    <IcSelectNew
       label="What are your favourite types of coffee?"
       theme="dark"
       options={groupAndDescriptionCoffeeOption}
@@ -562,12 +562,12 @@ export const DarkThemeReadonlyDisabled = (): ReactElement => (
       paddingLeft: "8px",
     }}
   >
-    <IcSelect
+    <IcSelectNew
       label="What are your favourite types of coffee?"
       theme="dark"
       disabled
     />
-    <IcSelect
+    <IcSelectNew
       label="What are your favourite types of coffee?"
       theme="dark"
       value="espresso"
@@ -585,21 +585,21 @@ export const DarkThemeValidation = (): ReactElement => (
       paddingLeft: "8px",
     }}
   >
-    <IcSelect
+    <IcSelectNew
       label="What is your favourite coffee?"
       validationStatus="success"
       validationText="Coffee available"
       theme="dark"
       options={coffeeOptions}
     />
-    <IcSelect
+    <IcSelectNew
       label="What is your favourite coffee?"
       validationStatus="warning"
       validationText="Only a few left"
       theme="dark"
       options={coffeeOptions}
     />
-    <IcSelect
+    <IcSelectNew
       label="What is your favourite coffee?"
       validationStatus="error"
       validationText="Coffee unavailable"
@@ -617,7 +617,7 @@ export const DarkThemeMulti = (): ReactElement => (
       paddingLeft: "8px",
     }}
   >
-    <IcSelect
+    <IcSelectNew
       label="What are your favourite types of coffee?"
       options={coffeeOptions}
       multiple
@@ -635,7 +635,7 @@ export const DarkThemeSearchable = (): ReactElement => (
       paddingLeft: "8px",
     }}
   >
-    <IcSelect
+    <IcSelectNew
       label="What is your favourite coffee?"
       options={searchableCoffeeOption}
       theme="dark"
@@ -655,7 +655,7 @@ export const DarkThemeLoadingError = (): ReactElement => (
     <IcButton theme="dark" onClick={setLoading}>
       Load
     </IcButton>
-    <IcSelect
+    <IcSelectNew
       label="What is your favourite coffee?"
       theme="dark"
       timeout={200}

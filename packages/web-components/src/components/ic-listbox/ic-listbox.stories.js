@@ -27,21 +27,33 @@ export default {
 export const Default = {
   render: () =>
     html`
-        <script>
-            var button = document.querySelector("ic-button");
-            var listbox = document.querySelector("ic-listbox");
-            listbox.options =  [
-            { label: "Cappuccino", value: "cappuccino", description: "Coffee frothed up with pressurised steam" },
-            { label: "Americano", value: "americano", description: "Espresso coffee diluted with hot water" },
-            { label: "Mocha", value: "mocha", description: "Coffee with chocolate" },
-            ];
-            listbox.anchorEl = button;
-            function handleClick() {
-                listbox.open = true;
-            }
-        </script>
-        <ic-button onclick="handleClick()">Open listbox</ic-button>
-        <ic-listbox open="false"></ic-listbox>
+      <script>
+        var button = document.querySelector("ic-button");
+        var listbox = document.querySelector("ic-listbox");
+        listbox.options = [
+          {
+            label: "Cappuccino",
+            value: "cappuccino",
+            description: "Coffee frothed up with pressurised steam",
+          },
+          {
+            label: "Americano",
+            value: "americano",
+            description: "Espresso coffee diluted with hot water",
+          },
+          {
+            label: "Mocha",
+            value: "mocha",
+            description: "Coffee with chocolate",
+          },
+        ];
+        listbox.anchorEl = button;
+        function handleClick() {
+          listbox.open = true;
+        }
+      </script>
+      <ic-button onclick="handleClick()">Open listbox</ic-button>
+      <ic-listbox open="false"></ic-listbox>
     `,
   name: "Default",
 };

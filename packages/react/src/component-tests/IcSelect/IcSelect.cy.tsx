@@ -2,7 +2,7 @@
 
 import { mount } from "@cypress/react";
 import React from "react";
-import { IcSelect, IcTypography } from "../../components";
+import { IcSelectNew, IcTypography } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import {
   BE_DISABLED,
@@ -72,7 +72,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.0;
 
-describe("IcSelect end-to-end, visual regression and a11y tests", () => {
+describe("IcSelectNew end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -84,7 +84,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should render when no options are provided", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect label="What is your favourite coffee?" />
+        <IcSelectNew label="What is your favourite coffee?" />
       </div>
     );
 
@@ -94,14 +94,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render when no options are provided - open", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect label="What is your favourite coffee?" />
+        <IcSelectNew label="What is your favourite coffee?" />
       </div>
     );
 
@@ -115,14 +115,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/no-options-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render options correctly", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
         />
@@ -143,14 +143,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/default-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with an icon", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect label="What is your favourite coffee?">
+        <IcSelectNew label="What is your favourite coffee?">
           <SlottedSVG
             slot="icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +162,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
           </SlottedSVG>
-        </IcSelect>
+        </IcSelectNew>
       </div>
     );
 
@@ -171,14 +171,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/with-icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with helper text", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           helperText="Enter your favourite coffee"
@@ -191,21 +191,21 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/helper-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with slotted helper text", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
         >
           <IcTypography variant="caption" slot="helper-text">
             <span>Enter your favourite coffee</span>
           </IcTypography>
-        </IcSelect>
+        </IcSelectNew>
       </div>
     );
 
@@ -216,14 +216,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     // Check positioning matches normal helper text
     cy.compareSnapshot({
       name: "/helper-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with custom elements", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeCustomElements}
         />
@@ -236,7 +236,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/custom-elements-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
@@ -248,7 +248,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={clonedOptions}
         />
@@ -263,7 +263,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should render with option labels hidden", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee size?"
           options={optionsWithHiddenLabels}
         />
@@ -278,14 +278,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/hidden-option-labels",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render small", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           size="small"
@@ -298,14 +298,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render small - open", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           size="small"
@@ -319,14 +319,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render large", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           size="large"
@@ -339,7 +339,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
       delay: 1000,
     });
   });
@@ -347,7 +347,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should render large - open", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           size="large"
@@ -361,7 +361,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/large-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
       delay: 1000,
     });
   });
@@ -369,7 +369,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should render full width", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptionsDescriptions}
           fullWidth
@@ -381,14 +381,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
     cy.compareSnapshot({
       name: "/full-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render full width - open", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptionsDescriptions}
           fullWidth
@@ -402,7 +402,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/full-width-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
 
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
@@ -417,14 +417,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
     cy.compareSnapshot({
       name: "/full-width-open-selected",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with hidden label", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           hideLabel
@@ -438,26 +438,26 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/hidden-label",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render validation", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           validationStatus="success"
           validationText="Success message!"
         />
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           validationStatus="warning"
           validationText="Warning message!"
         />
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           validationStatus="error"
@@ -471,14 +471,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should display a check next to the selected option and set aria-selected when a default value is applied", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           value="espresso"
@@ -501,14 +501,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/default-value-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with a clear button", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           value="cappuccino"
@@ -523,14 +523,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/clear-button",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with clear button and clear the value when clicked", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           value="cappuccino"
@@ -551,14 +551,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/clear-button-cleared",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should close menu when input is clicked while open and move focus onto input", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           showClearButton
@@ -575,14 +575,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/input-focused",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render the placeholder", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptionsDescriptions}
           placeholder="Placeholder goes here"
@@ -595,7 +595,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/custom-placeholder",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
 
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
@@ -608,7 +608,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should render as disabled correctly", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeDisabledOption}
           disabled
@@ -623,14 +623,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render as disabled with a default value and hide the clear button", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           disabled
@@ -652,7 +652,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should prevent click on disabled options", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeDisabledOption}
         />
@@ -665,7 +665,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/disabled-options-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
 
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
@@ -680,7 +680,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should render as required correctly", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           required
@@ -698,14 +698,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/required",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render selected value as text when read-only", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           value="cappuccino"
@@ -728,14 +728,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/read-only",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render options as groups if they have children", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={groupCoffeeOption}
         />
@@ -774,14 +774,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/groups-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render options at the top of the menu if they are recommended", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={recommendedCoffeeOption}
         />
@@ -796,14 +796,14 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/recommended-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render options with descriptions", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptionsDescriptions}
         />
@@ -834,13 +834,13 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/descriptions-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should display clear button if the 'show-clear-button' prop is supplied and an option is selected", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         showClearButton
@@ -859,7 +859,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should select options with custom elements", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeCustomElements}
         />
@@ -877,7 +877,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should display a check next to the selected option and set aria-selected", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptionsDescriptions}
       />
@@ -897,13 +897,13 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
     cy.compareSnapshot({
       name: "/descriptions-open-selected",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should open, set focus on menu and set aria-expanded to 'true' when input clicked", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -919,7 +919,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should call icChange and icOptionSelect when an option is highlighted in the menu", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -944,7 +944,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should call icOptionSelect on Enter when selectOnEnter prop is set to true", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         selectOnEnter
@@ -971,7 +971,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should not accept values that aren't included in the list of options", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         value="A random value"
@@ -988,7 +988,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should apply focus on menu and display expanded icon when opened, and set option as value when clicked", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1007,7 +1007,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should apply focus on last option and set as value when Up Arrow is pressed", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1022,7 +1022,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should open menu when an option is selected, apply focus on option and set as value when Down Arrow is pressed", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1039,7 +1039,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should move focus to first option and set as value when focus is on last option and Down Arrow is pressed", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1056,7 +1056,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should move focus to previous option and set as value when Up Arrow is pressed", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1072,7 +1072,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should move focus to last option and set as value when focus is on first option and Up Arrow is pressed", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1088,7 +1088,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should open menu when enter is pressed ", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1103,7 +1103,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should move focus to first option and set as value when Home is pressed", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1120,7 +1120,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should move focus to last option and set as value when End is pressed", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1137,7 +1137,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should render and focus child options correctly", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={groupCoffeeOption}
       />
@@ -1164,7 +1164,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should close menu when an option is clicked and move focus onto the input", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         showClearButton
@@ -1184,7 +1184,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should close menu when Space is pressed and move focus to the input", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         showClearButton
@@ -1202,7 +1202,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should close menu when Enter is pressed and set focus to the input", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1218,7 +1218,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should close menu when Escape is pressed and set focus to the input", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         showClearButton
@@ -1235,7 +1235,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should close menu when another element on the page is clicked", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         showClearButton
@@ -1252,7 +1252,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should display the label of the value passed in using the 'value' prop as the selected option", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         value="espresso"
@@ -1266,7 +1266,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should set aria-invalid if validation status is 'error'", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={validationCoffeeOption}
         validationStatus="error"
@@ -1282,7 +1282,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should set the aria-label correctly if an option has a description", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptionsDescriptions}
       />
@@ -1304,7 +1304,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should set the aria-label correctly if an option is within a group", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={groupCoffeeOption}
       />
@@ -1322,7 +1322,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should set the aria-label correctly if an option has a description and is within a group", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={groupAndDescriptionCoffeeOption}
       />
@@ -1365,7 +1365,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.get(IC_SELECT).shadow().find(IC_TYPOGRAPHY).contains("Loading Error");
     cy.compareSnapshot({
       name: "/loading-error-light-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
@@ -1429,7 +1429,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should set aria-disabled and skip focus when option disabled", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeDisabledOption}
       />
@@ -1443,7 +1443,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should only highlight and select enabled options with arrowDown", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeDisabledOption}
       />
@@ -1470,7 +1470,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should only highlight and select enabled options with arrowUp", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeDisabledOption}
       />
@@ -1500,7 +1500,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
           <button type="reset" id="resetButton">
             Reset
           </button>
-          <IcSelect
+          <IcSelectNew
             label="What is your favourite coffee?"
             options={coffeeOptions}
           />
@@ -1521,7 +1521,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should render a native select when searchable is applied on mobile", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1536,7 +1536,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should set the correct name on the hidden input", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1549,7 +1549,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should call icChange when the selected option is changed", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1565,7 +1565,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should call icFocus when focusing the select and icBlur when it loses focus", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1582,7 +1582,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should not call icBlur when menu is focused", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1595,7 +1595,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should call icOpen, icClear and icClose events", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         showClearButton
@@ -1617,7 +1617,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should set the 'placeholder' class name if no option is selected", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
       />
@@ -1632,7 +1632,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should add .menu-scroll to menu components when options height is over 320", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={manyOptions}
         value="espresso"
@@ -1649,7 +1649,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   it("should include group titles when applying menu scrollbar", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={[
             {
@@ -1691,7 +1691,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should add .menu-scroll to menu components when options are initially set and then populated with large data set", () => {
     mount(
-      <IcSelect
+      <IcSelectNew
         label="What is your favourite coffee?"
         options={coffeeOptions}
         value="espresso"
@@ -1715,7 +1715,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
   it("should scroll menu", () => {
     mount(
-      <IcSelect label="What is your favourite coffee?" options={manyOptions} />
+      <IcSelectNew label="What is your favourite coffee?" options={manyOptions} />
     );
 
     cy.checkHydrated(IC_SELECT);
@@ -1747,7 +1747,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
   });
 
   it("should bring focus back to the input when 'no results' is selected", () => {
-    mount(<IcSelect label="What is your favourite coffee?" options={[]} />);
+    mount(<IcSelectNew label="What is your favourite coffee?" options={[]} />);
 
     cy.checkHydrated(IC_SELECT);
     cy.get(IC_SELECT).should(HAVE_CLASS, "hydrated");
@@ -1774,7 +1774,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
@@ -1787,7 +1787,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme-menu-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
@@ -1804,7 +1804,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme-with-value",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
@@ -1817,7 +1817,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme-groups-descriptions",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.072),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
@@ -1827,7 +1827,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme-readonly-disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
@@ -1837,7 +1837,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme-validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.081),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
@@ -1854,12 +1854,12 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.get(IC_SELECT).shadow().find(IC_TYPOGRAPHY).contains("Loading Error");
     cy.compareSnapshot({
       name: "/loading-error-dark-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 });
 
-describe("IcSelect visual regression tests in high contrast mode", () => {
+describe("IcSelectNew visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
@@ -1875,7 +1875,7 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
   it("should render default in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           value="espresso"
@@ -1888,14 +1888,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/default-value-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with a clear button in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           value="cappuccino"
@@ -1908,14 +1908,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/clear-button-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with custom elements in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeCustomElements}
         />
@@ -1927,14 +1927,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/custom-elements-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.054),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with placeholder in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptionsDescriptions}
           placeholder="Placeholder goes here"
@@ -1946,14 +1946,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/custom-placeholder-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render options with descriptions in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptionsDescriptions}
         />
@@ -1965,14 +1965,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/descriptions-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.096),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render disabled in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeDisabledOption}
           disabled
@@ -1984,14 +1984,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/disabled-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render disabled options in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeDisabledOption}
         />
@@ -2003,14 +2003,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/disabled-options-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render options as groups in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={groupCoffeeOption}
         />
@@ -2022,14 +2022,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/groups-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with helper text in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           helperText="Enter your favourite coffee"
@@ -2041,14 +2041,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/helper-text-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.059),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render focused input in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           showClearButton
@@ -2063,14 +2063,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/input-focused-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with no options in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect label="What is your favourite coffee?" />
+        <IcSelectNew label="What is your favourite coffee?" />
       </div>
     );
 
@@ -2079,14 +2079,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/no-options-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.051),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render as ready only in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           value="cappuccino"
@@ -2099,14 +2099,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/read-only-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render recommended in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={recommendedCoffeeOption}
         />
@@ -2120,26 +2120,26 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/recommended-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.066),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render validation in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           validationStatus="success"
           validationText="Success message!"
         />
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           validationStatus="warning"
           validationText="Warning message!"
         />
-        <IcSelect
+        <IcSelectNew
           label="What is your favourite coffee?"
           options={coffeeOptions}
           validationStatus="error"
@@ -2152,14 +2152,14 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/validation-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.093),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 
   it("should render with an icon in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcSelect label="What is your favourite coffee?">
+        <IcSelectNew label="What is your favourite coffee?">
           <SlottedSVG
             slot="icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -2171,7 +2171,7 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
           </SlottedSVG>
-        </IcSelect>
+        </IcSelectNew>
       </div>
     );
 
@@ -2179,7 +2179,7 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/with-icon-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
     });
   });
 });

@@ -5,6 +5,7 @@
  * @prop --menu-width: Width of the dropdown menu
  * @prop --ic-z-index-menu: z-index of select menu
  */
+
 :host {
   display: block;
   position: relative;
@@ -52,31 +53,55 @@ ic-input-component-container.menu-open {
   --border-color: var(--ic-select-field-border-pressed);
 }
 
-.listbox {
-  text-decoration: none;
-  list-style-type: none;
-  border-radius: 1px;
-  background-color: var(
-    --menu-bg-color,
-    var(--ic-menu-list-option-background-color)
-  );
-  visibility: hidden;
-  max-height: 0;
-  overflow-y: hidden;
-}
-
-.listbox-open {
+ic-input-validation .status-icon,
+ic-input-validation .statustext {
   visibility: visible;
-  max-height: calc(var(--ic-space-xl) * 10 + var(--ic-space-xxxs));
 }
 
-.listbox-option:hover {
-    background-color: var(--ic-popover-background-hover);
+ic-input-validation.menu-open .status-icon,
+ic-input-validation.menu-open .statustext {
+  visibility: hidden;
+  transition: visibility 0s;
 }
 
-.listbox-option:focus,
-.listbox-option:focus-visible {
-    background-color: var(--ic-popover-background-focus);;
+ic-input-label {
+  margin-bottom: var(--ic-space-xs);
+}
+
+select {
+  border: 0;
+  border-radius: var(--ic-border-radius);
+  background-color: var(--ic-select-field-background);
+  color: var(--ic-select-content-text);
+  line-height: 1.5rem;
+  letter-spacing: 0.005rem;
+  width: 100%;
+  height: 100%;
+  padding-left: 0.375rem;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 0.375rem center;
+  background-image: var(--ic-select-mobile-dropdown-icon);
+  caret-color: var(--ic-select-input-field-text-cursor);
+}
+
+select option,
+.select-option-selected {
+  color: var(--ic-select-list-option-text);
+}
+
+select:disabled {
+  color: var(--ic-select-content-text-disabled);
+  background-image: var(--ic-select-mobile-dropdown-icon-disabled);
+}
+
+select:focus {
+  border: 0;
+  outline: 0;
+}
+
+select:not([disabled]) {
+  cursor: pointer;
 }
 
 .select-container {
@@ -86,11 +111,12 @@ ic-input-component-container.menu-open {
   position: relative;
 }
 
-.select-button {
+.select-input {
   width: 100%;
   height: 100%;
   padding: 0 0.375rem;
   display: flex;
+  cursor: pointer;
   align-items: center;
   justify-content: space-between;
   background: none;
@@ -99,16 +125,20 @@ ic-input-component-container.menu-open {
   color: var(--ic-select-content-text);
 }
 
-.select-button:not([disabled]) {
-  cursor: pointer;
-}
-
-.select-button:focus {
+.select-input:focus {
   outline: none;
 }
 
-.placeholder {
-  color: var(--ic-select-content-placeholder-text);
+.select-input[disabled] {
+  pointer-events: none;
+}
+
+:host(.ic-select-searchable) .select-input {
+  cursor: auto;
+}
+
+.select-input.with-clear-button {
+  padding-right: 0;
 }
 
 .value-text {
@@ -120,9 +150,147 @@ ic-input-component-container.menu-open {
   margin-bottom: 0 !important;
 }
 
+.value-text.with-clear-button {
+  padding-right: calc(var(--ic-space-xl) + var(--ic-space-xs));
+}
+
+.searchable-select-container {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.expand-icon {
+  height: var(--ic-space-lg);
+  padding-left: var(--ic-space-xxs);
+  color: var(--ic-select-expand-icon-color);
+}
+
+.expand-icon > svg {
+  display: inline-block;
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
+}
+
+:host(.ic-select-disabled) .expand-icon,
+:host(.ic-select-disabled) .expand-icon > svg > path {
+  color: var(--ic-select-disabled-expand-icon-color);
+}
+
+:host(.ic-select-searchable) .expand-icon {
+  padding-left: 0;
+  height: 2.25rem;
+}
+
+:host(.ic-select-searchable) .expand-icon > svg {
+  height: 2.25rem;
+  padding: 0 calc(var(--ic-space-xxxs) + var(--ic-space-xxs)) 0
+    var(--ic-space-xxs);
+}
+
+:host(.ic-select-searchable:not(.ic-select-disabled)) .expand-icon > svg {
+  cursor: pointer;
+}
+
+.expand-icon-open {
+  color: var(--ic-select-expand-icon-color);
+}
+
+.expand-icon-open,
+:host(.ic-select-searchable) .expand-icon-open {
+  transform: rotateX(180deg);
+}
+
+.placeholder {
+  color: var(--ic-select-content-placeholder-text);
+}
+
 :host(.ic-select-disabled) .value-text,
-:host(.ic-select-disabled) .select-button,
+:host(.ic-select-disabled) .select-input,
 :host(.ic-select-disabled) .placeholder,
-:host(.ic-select-disabled.ic-select-searchable) .select-button::placeholder {
+:host(.ic-select-disabled.ic-select-searchable) .select-input::placeholder {
   color: var(--ic-select-content-text-disabled);
+}
+
+.select-input-end {
+  display: flex;
+  align-items: center;
+}
+
+.clear-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.divider {
+  width: var(--ic-space-1px);
+  background-color: var(--ic-select-content-divider);
+  margin: var(--ic-space-xxs) 0;
+  border-radius: var(--ic-space-1px);
+  height: var(--ic-space-lg);
+}
+
+:host(.ic-select-small) .divider {
+  height: var(--ic-space-md);
+}
+
+:host(.ic-select-large) .divider {
+  height: var(--ic-space-xl);
+}
+
+.clear-button {
+  color: var(--ic-select-clear-button);
+  position: absolute;
+  right: calc(var(--ic-space-xl) + var(--ic-space-xxs) - var(--ic-space-1px));
+  border-radius: var(--ic-border-radius);
+  transition: box-shadow var(--ic-easing-transition),
+    border-radius var(--ic-easing-transition);
+}
+
+.clear-button:focus,
+.clear-button:active {
+  background-color: var(--ic-color-focus-inner);
+  box-shadow: inset 0 0 0 0.125rem var(--ic-color-focus-outer);
+  border-radius: 0.25rem;
+}
+
+.clear-button:focus,
+.clear-button:active * {
+  fill: var(--ic-atoms-input-clear-button-focus);
+}
+
+.clear-button.searchable {
+  position: static;
+}
+
+.searchable-select-results-status,
+.multi-select-selected-count {
+  border: 0;
+  clip: rect(0, 0, 0, 0, 0);
+  height: var(--ic-space-1px);
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: var(--ic-space-1px);
+}
+
+::slotted([slot="icon"]) {
+  fill: var(--ic-select-content-placeholder-text);
+}
+
+.has-value ::slotted([slot="icon"]) {
+  fill: var(--ic-select-content-text);
+}
+
+.readonly ::slotted([slot="icon"]) {
+  padding: 0.375rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (forced-colors: active) {
+  .has-value ::slotted([slot="icon"]) {
+    fill: currentcolor;
+  }
 }

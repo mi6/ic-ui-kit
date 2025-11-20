@@ -4,7 +4,7 @@
  * @prop --ic-z-index-menu: z-index of menu
  */
 
- @media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   :host(.ic-listbox-open) .listbox {
     transition: max-height var(--ic-transition-duration-slow);
   }

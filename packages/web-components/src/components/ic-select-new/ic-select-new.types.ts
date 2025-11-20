@@ -1,15 +1,7 @@
-export enum IcSelectAction {
-    OpenListbox,
-    CloseListbox,
-    ToggleSelected,
-    ToggleSelectAll,
-    SelectAndCloseListbox,
-    FirstOption,
-    LastOption,
-    NextOption,
-    PrevOption,
-    PageUpOption,
-    PageDownOption,
-    MatchingOption,
-    ClearAndCloseListbox,
-};
+import { IcMenuOption } from "../../utils/types";
+
+export interface IcSelectOption extends Omit<IcMenuOption, "children"> {
+  children?: IcSelectOption[];
+  value?: string;
+  label?: string;
+}

@@ -237,7 +237,7 @@ export type IcAriaLive = "polite" | "assertive" | "off";
 export type IcValidationAriaLive = "default" | "polite" | "assertive" | "off";
 
 export enum IcComboboxLoadingStatus {
-    Loading,
-    Loaded,
-    TimedOut,
+  Loading,
+  Loaded,
+  TimedOut,
 }

@@ -30,10 +30,22 @@ export const Default = {
     html`
       <script>
         var combobox = document.querySelector("ic-combobox");
-        combobox.options =  [
-          { label: "Cappuccino", value: "cappuccino", description: "Coffee frothed up with pressurised steam" },
-          { label: "Americano", value: "americano", description: "Espresso coffee diluted with hot water" },
-          { label: "Mocha", value: "mocha", description: "Coffee with chocolate" },
+        combobox.options = [
+          {
+            label: "Cappuccino",
+            value: "cappuccino",
+            description: "Coffee frothed up with pressurised steam",
+          },
+          {
+            label: "Americano",
+            value: "americano",
+            description: "Espresso coffee diluted with hot water",
+          },
+          {
+            label: "Mocha",
+            value: "mocha",
+            description: "Coffee with chocolate",
+          },
           { label: "Cortado", value: "cortado" },
           { label: "Flat white", value: "flat", recommended: true },
           { label: "Latte", value: "latte" },
@@ -50,10 +62,23 @@ export const Recommended = {
     html`
       <script>
         var combobox = document.querySelector("ic-combobox");
-        combobox.options =  [
-          { label: "Cappuccino", value: "cappuccino", description: "Coffee frothed up with pressurised steam" },
-          { label: "Americano", value: "americano", description: "Espresso coffee diluted with hot water", recommended: true },
-          { label: "Mocha", value: "mocha", description: "Coffee with chocolate" },
+        combobox.options = [
+          {
+            label: "Cappuccino",
+            value: "cappuccino",
+            description: "Coffee frothed up with pressurised steam",
+          },
+          {
+            label: "Americano",
+            value: "americano",
+            description: "Espresso coffee diluted with hot water",
+            recommended: true,
+          },
+          {
+            label: "Mocha",
+            value: "mocha",
+            description: "Coffee with chocolate",
+          },
           { label: "Cortado", value: "cortado" },
           { label: "Flat white", value: "flat", recommended: true },
           { label: "Latte", value: "latte" },
@@ -185,8 +210,16 @@ export const GroupedOptions = {
           },
         ];
       </script>
-      <ic-combobox id="combo-0" label="Includes group titles in search" include-group-titles-in-search="true"></ic-combobox>
-      <ic-combobox id="combo-1" label="Doesn't include group titles in search" include-group-titles-in-search="false"></ic-combobox>
+      <ic-combobox
+        id="combo-0"
+        label="Includes group titles in search"
+        include-group-titles-in-search="true"
+      ></ic-combobox>
+      <ic-combobox
+        id="combo-1"
+        label="Doesn't include group titles in search"
+        include-group-titles-in-search="false"
+      ></ic-combobox>
     `,
 
   name: "Grouped options",
@@ -211,7 +244,7 @@ export const GroupedOptionsRecommended = {
             children: [
               { label: "Filter", value: "Fil" },
               { label: "Latte", value: "Lat" },
-              { label: "Americano", value: "Ame"},
+              { label: "Americano", value: "Ame" },
             ],
           },
         ];
@@ -222,7 +255,7 @@ export const GroupedOptionsRecommended = {
             children: [
               { label: "Filter", value: "Fil" },
               { label: "Latte", value: "Lat" },
-              { label: "Americano", value: "Ame"},
+              { label: "Americano", value: "Ame" },
             ],
           },
           {
@@ -231,7 +264,7 @@ export const GroupedOptionsRecommended = {
             children: [
               { label: "Cappuccino", value: "Cap" },
               { label: "Flat white", value: "Fla" },
-              { label: "Macchiato", value: "Mac"},
+              { label: "Macchiato", value: "Mac" },
             ],
           },
         ];
@@ -305,100 +338,101 @@ export const Validation = {
 
 export const Playground = {
   render: (args) =>
-    html` <ic-combobox
-      id="combobox-playground"
-      disabled=${args.disabled}
-      full-width=${args["full-width"]}
-      helper-text=${args["helper-text"]}
-      hide-label=${args["hide-label"]}
-      loading=${args.loading}
-      loading-label=${args["loading-label"]}
-      label=${args.label}
-      placeholder=${args.placeholder}
-      readonly=${args.readonly}
-      required=${args.required}
-      searchable=${args.searchable}
-      show-clear-button=${args["show-clear-button"]}
-      size=${args.size}
-      validation-status=${args.validationStatus === "no status"
-        ? ""
-        : args.validationStatus}
-      validation-text=${args["validation-text"]}
-      theme=${args.theme}
-      timeout=${args.timeout}
-    >
-      ${args.showIcon &&
-      html` <svg
-        slot="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        fill="#000000"
+    html`
+      <ic-combobox
+        id="combobox-playground"
+        disabled=${args.disabled}
+        full-width=${args["full-width"]}
+        helper-text=${args["helper-text"]}
+        hide-label=${args["hide-label"]}
+        loading=${args.loading}
+        loading-label=${args["loading-label"]}
+        label=${args.label}
+        placeholder=${args.placeholder}
+        readonly=${args.readonly}
+        required=${args.required}
+        searchable=${args.searchable}
+        show-clear-button=${args["show-clear-button"]}
+        size=${args.size}
+        validation-status=${args.validationStatus === "no status"
+          ? ""
+          : args.validationStatus}
+        validation-text=${args["validation-text"]}
+        theme=${args.theme}
+        timeout=${args.timeout}
       >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path
-          d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"
-        />
-      </svg>`}
-    </ic-combobox>
-    <script>
-      var combobox = document.querySelector("#combobox-playground");
-      combobox.options = [
-        {
-          label: "Cappuccino",
-          value: "Cap",
-          description:
-            "An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture",
-        },
-        {
-          label: "Boring",
-          children: [
-            {
-              label: "Latte",
-              value: "Lat",
-              description: "A milkier coffee than a cappuccino",
-            },
-            {
-              label: "Filter",
-              value: "Fil",
-              description: "Coffee filtered using paper or a mesh",
-            },
-          ],
-        },
-        {
-          label: "Fancy",
-          children: [
-            {
-              label: "Flat white",
-              value: "Fla",
-              description:
-                "Coffee without froth made with espresso and hot steamed milk",
-            },
-            {
-              label: "Macchiato",
-              value: "Mac",
-              description:
-                "Espresso coffee with a dash of frothy steamed milk",
-            },
-          ],
-        },
-        {
-          label: "Americano",
-          value: "Ame",
-          description: "Espresso coffee diluted with hot water",
-        },
-        {
-          label: "Mocha",
-          value: "Moc",
-          description: "A mixture of coffee and chocolate",
-        },
-      ];
-      combobox.addEventListener("icChange", function (event) {
-        console.log("icChange: " + event.detail.value);
-      });
-    </script>
-  `,
+        ${args.showIcon &&
+        html` <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>`}
+      </ic-combobox>
+      <script>
+        var combobox = document.querySelector("#combobox-playground");
+        combobox.options = [
+          {
+            label: "Cappuccino",
+            value: "Cap",
+            description:
+              "An espresso-based drink traditionally composed of equal parts espresso, steamed milk, and milk foam, creating a balanced flavor and velvety texture",
+          },
+          {
+            label: "Boring",
+            children: [
+              {
+                label: "Latte",
+                value: "Lat",
+                description: "A milkier coffee than a cappuccino",
+              },
+              {
+                label: "Filter",
+                value: "Fil",
+                description: "Coffee filtered using paper or a mesh",
+              },
+            ],
+          },
+          {
+            label: "Fancy",
+            children: [
+              {
+                label: "Flat white",
+                value: "Fla",
+                description:
+                  "Coffee without froth made with espresso and hot steamed milk",
+              },
+              {
+                label: "Macchiato",
+                value: "Mac",
+                description:
+                  "Espresso coffee with a dash of frothy steamed milk",
+              },
+            ],
+          },
+          {
+            label: "Americano",
+            value: "Ame",
+            description: "Espresso coffee diluted with hot water",
+          },
+          {
+            label: "Mocha",
+            value: "Moc",
+            description: "A mixture of coffee and chocolate",
+          },
+        ];
+        combobox.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+      </script>
+    `,
 
   name: "Playground",
   args: defaultArgs,

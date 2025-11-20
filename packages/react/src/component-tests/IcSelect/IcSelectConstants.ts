@@ -1,4 +1,4 @@
-export const IC_SELECT = "ic-select";
+export const IC_SELECT = "ic-select-new";
 export const IC_INPUT_CONTAINER = "ic-input-component-container";
 export const IC_MENU_LI = "ic-menu ul li";
 export const IC_MENU_UL = "ic-menu ul";
