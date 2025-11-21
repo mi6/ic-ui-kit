@@ -170,7 +170,13 @@
     "Nicht",
     "erforderlich",
     "wahlweise",
-    "abgeschlossen"
+    "abgeschlossen",
+    "boissons",
+    "limonade",
+    "chocolat",
+    "chaud",
+    "boisson",
+    "préférée"
   ],
   "dictionaries": [
     "npm",
