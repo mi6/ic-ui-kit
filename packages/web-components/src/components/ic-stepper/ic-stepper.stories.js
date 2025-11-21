@@ -254,12 +254,22 @@ export const CustomCompactStepper = {
 
 export const Internationalisation = {
   render: () =>
-    html`<ic-stepper variant="compact" id="standard-compact-stepper">
-        <ic-step heading="Aktualisierung"></ic-step>
-        <ic-step id="read-step" heading="Lesen" type="current"></ic-step>
-        <ic-step heading="Aktualisierung" status="optional"></ic-step>
-        <ic-step heading="Löschen" status="required"></ic-step>
-      </ic-stepper>
+    html`<span lang="de">
+        <ic-stepper variant="compact" id="standard-compact-stepper">
+          <ic-step heading="Aktualisierung"></ic-step>
+          <ic-step id="read-step" heading="Lesen" type="current"></ic-step>
+          <ic-step heading="Aktualisierung" status="optional"></ic-step>
+          <ic-step heading="Löschen" status="required"></ic-step>
+        </ic-stepper>
+      </span>
+      <p>
+        This stepper uses the icI18n prop to customise text elements within the
+        stepper.
+      </p>
+      <p>
+        It is also wrapped in a <code>&lt;span lang="de"&gt;</code> to change
+        the language for assistive technology
+      </p>
       <ic-button
         class="back-btn-compact-stepper"
         style="margin-right: var(--ic-space-lg)"

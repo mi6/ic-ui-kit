@@ -821,9 +821,18 @@ export const EmittingIcOptionSelectOnEnter = {
   name: "Emitting icOptionSelect on enter",
 };
 
-export const CustomPropsOnLiElements = {
+export const Internationalisation = {
   render: () =>
-    html`<ic-select
+    html` <p>
+        The first select is wrapped in a <code>&lt;span lang="fr"&gt;</code> to
+        change the language. All options will read in french, which can be
+        tested using a screen reader.
+      </p>
+      <span lang="fr">
+        <ic-select id="select-lang" label="Boisson Préférée"></ic-select>
+      </span>
+      <hr />
+      <ic-select
         id="select-custom-li-props"
         label="What is your favourite coffee?"
       ></ic-select>
@@ -834,8 +843,15 @@ export const CustomPropsOnLiElements = {
         reader.
       </p>
       <script>
-        var select = document.querySelector("#select-custom-li-props");
-        select.options = [
+        var select1 = document.querySelector("#select-lang");
+        select1.options = [
+          { label: "Chocolat Chaud", value: "choc" },
+          { label: "Jus", value: "jus" },
+          { label: "Limonade", value: "lim" },
+        ];
+        var select2 = document.querySelector("#select-custom-li-props");
+        select2.options = [
+          { label: "Flat White", value: "Fla", htmlProps: { lang: "en-GB" } },
           { label: "Cappuccino", value: "Cap", htmlProps: { lang: "it" } },
           { label: "Latte", value: "Lat", htmlProps: { lang: "it" } },
           { label: "Americano", value: "Ame", htmlProps: { lang: "it" } },
@@ -845,7 +861,7 @@ export const CustomPropsOnLiElements = {
         });
       </script>`,
 
-  name: "Custom props on <li>s",
+  name: "Internationalisation (+ options with htmlProps)",
 };
 
 const inlineRadioSelector = "inline-radio";
