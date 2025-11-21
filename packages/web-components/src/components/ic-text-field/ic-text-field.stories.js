@@ -1033,6 +1033,20 @@ export const MaximumAndMinimumCharacters = {
   name: "Maximum and minimum characters",
 };
 
+export const Internationalisation = {
+  render: (args) =>
+    html`<span lang="fr">
+      <ic-text-field
+        label="Boisson préférée"
+        placeholder="Boisson"
+        helper-text="This textfield will read in french to assistive technologies"
+      >
+      </ic-text-field>
+    </span>`,
+
+  name: "Internationalisation",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {
