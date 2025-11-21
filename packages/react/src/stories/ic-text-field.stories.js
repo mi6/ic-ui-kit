@@ -671,6 +671,20 @@ export const LoggingIcKeydown = {
   name: "Logging IcKeydown"
 }
 
+export const Internationalisation = {
+   render: () => (
+    <span lang="fr">
+      <IcTextField
+        label="Boisson préférée"
+        placeholder="Boisson"
+        helper-text="This textfield will read in french to assistive technologies"
+      >
+      </IcTextField>
+    </span>
+  ),
+  name: "Internationalisation",
+};
+
 export const Playground = {
   render: (args) => (
     <div
