@@ -98,6 +98,7 @@ const defaultArgs = {
   subheading:
     "Hero description. This is a Hero component, it should be used as a page heading.",
   showSecondary: false,
+  theme: "inherit",
 };
 
 export default {
@@ -117,6 +118,7 @@ export const Playground = {
       secondarySubheading={args.secondarySubheading}
       size={args.size}
       subheading={args.subheading}
+      theme={args.theme}
     >
       <IcButton variant="primary" slot="interaction">
         Button
@@ -131,6 +133,13 @@ export const Playground = {
           slot="secondary"
         />
       )}
+      <IcTextField
+        label="What is your favourite coffee?" 
+        placeholder="Please enter…" 
+        helperText="Such as Arabica, Robusta or Liberica"
+        onIcChange={(ev) => console.log(ev.detail.value)}
+        slot="interaction"
+      />
     </IcHero>
   ),
 
@@ -163,6 +172,13 @@ export const Playground = {
 
       control: {
         type: "select",
+      },
+    },
+    theme: {
+      options: ["inherit", "light", "dark"],
+
+      control: {
+        type: "inline-radio",
       },
     },
   },
