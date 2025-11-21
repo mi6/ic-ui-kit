@@ -116,6 +116,24 @@ export const Uncontrolled = () => {
   );
 };
 
+export const SlottedLabel = () => {
+  return (
+    <IcCheckboxGroup label="Slot Coffee" name="checkbox-group-slot">
+      <IcCheckbox value="not-slot" label="Regular Coffee" />
+      <IcCheckbox value="slot">
+        <span slot="label">Coffee like it's slot</span>
+      </IcCheckbox>
+      <IcCheckbox value="slot">
+        <span slot="label">
+          <p>
+            Two Slot <b>Espresso</b>
+          </p>
+        </span>
+      </IcCheckbox>
+    </IcCheckboxGroup>
+  );
+};
+
 export const DynamicLoading = (): ReactElement => {
   const [checkOptions, setCheckOptions] = useState<
     { label: string; value: string }[]
