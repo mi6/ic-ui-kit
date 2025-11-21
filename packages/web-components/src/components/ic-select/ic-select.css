@@ -25,7 +25,7 @@
   --border-color-warning: var(--ic-select-field-border-warning);
   --border-color-warning-hover: var(--ic-select-field-border-warning-hover);
   --border-color-warning-pressed: var(--ic-select-field-border-warning-pressed);
-  --ic-input-label-text-color: var(--ic-select-field-labe);
+  --ic-input-label-text-color: var(--ic-select-field-label);
   --ic-input-label-helper-text-color: var(
     --ic-select-input-field-label-subtitle
   );
