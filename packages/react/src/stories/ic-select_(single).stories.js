@@ -31,6 +31,12 @@ const options = [
   { label: "Americano", value: "Ame" },
 ];
 
+const optionsInFrench = [
+  { label: "Chocolat Chaud", value: "choc" },
+  { label: "Jus", value: "jus" },
+  { label: "Limonade", value: "lim" },
+];
+
 const optionsWithCustomElements = [
   {
     label: "Cappuccino",
@@ -158,6 +164,7 @@ const manyOptions = [
 ];
 
 const optionsWithLangProps = [
+  { label: "Flat White", value: "Fla", htmlProps: { lang: "en-GB" } },
   { label: "Cappuccino", value: "Cap", htmlProps: { lang: "it" } },
   { label: "Latte", value: "Lat", htmlProps: { lang: "it" } },
   { label: "Americano", value: "Ame", htmlProps: { lang: "it" } },
@@ -687,26 +694,34 @@ export const Uncontrolled_ = {
   name: "Uncontrolled",
 };
 
-export const CustomPropsOnLiElements = {
+export const Internationalisation = {
   render: () => {
     return (
       <>
+      <p>The first select is wrapped in a <code>&lt;span lang="fr"&gt;</code> to change the language. All options will read in french, which can be tested using a screen
+        reader.</p>
+      <span lang="fr">
+      <IcSelect
+        label="Boisson Préférée"
+        options={optionsInFrench}
+      />
+      </span>
+      <hr/>
       <IcSelect
         label="What is your favourite coffee?"
         options={optionsWithLangProps}
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       />
       <br />
       <p>
-        <code>lang="it"</code> has been set on each
-        {" "}<code>&lt;li&gt;</code> element. This can be tested using a screen
+        <code>lang="it"</code> has been set on some of the
+        {" "}<code>&lt;li&gt;</code> elements. This can be tested using a screen
         reader.
       </p>
       </>
     );
   },
 
-  name: "Custom props on <li>s",
+  name: "Internationalisation (+ options with htmlProps)",
 };
 
 export const Playground = {
