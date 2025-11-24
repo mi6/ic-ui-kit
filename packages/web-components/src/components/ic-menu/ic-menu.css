@@ -299,3 +299,11 @@
     --ic-typography-color: GrayText;
   }
 }
+
+/* Breakpoint value chosen as it's a small amount bigger than the menu's default width */
+@media screen AND (max-width: 22rem) {
+  :host {
+    max-width: var(--menu-width, var(--input-width, 20rem));
+    width: 100%;
+  }
+}
