@@ -1,6 +1,6 @@
 {
-  "total": 883,
-  "totalPassed": 883,
+  "total": 884,
+  "totalPassed": 884,
   "totalFailed": 0,
   "totalSuites": 45,
   "suites": [
@@ -2129,6 +2129,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/helper.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/helper.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCheckbox.cy.tsx/label-slot",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
+          "specFilename": "IcCheckbox.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/label-slot.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/label-slot.png"
         },
         {
           "status": "pass",
@@ -7358,100 +7369,6 @@
       ]
     },
     {
-      "name": "IcStatusTag.cy.tsx",
-      "path": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-      "tests": [
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx/neutral",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/neutral.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/neutral.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx/success",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/success.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/success.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx/warning",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/warning.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/warning.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx/danger",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/danger.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/danger.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx/small",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/small.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/small.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx/large",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/large.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/large.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx/sentence-case",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/sentence-case.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/sentence-case.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx/high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/high-contrast.png"
-        }
-      ]
-    },
-    {
       "name": "IcSkipLink.cy.tsx",
       "path": "src/component-tests/IcSkipLink/IcSkipLink.cy.tsx",
       "tests": [
@@ -7542,6 +7459,100 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSkipLink.cy.tsx/custom-label-hc.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSkipLink.cy.tsx/custom-label-hc.png"
+        }
+      ]
+    },
+    {
+      "name": "IcStatusTag.cy.tsx",
+      "path": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx/neutral",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/neutral.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/neutral.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx/success",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/success.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/success.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx/warning",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/warning.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/warning.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx/danger",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/danger.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/danger.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx/small",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/small.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/small.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx/large",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/large.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/large.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx/sentence-case",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/sentence-case.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/sentence-case.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx/high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/high-contrast.png"
         }
       ]
     },
@@ -9988,9 +9999,9 @@
       ]
     }
   ],
-  "startedAt": "2025-11-24T13:20:33.030Z",
-  "endedAt": "2025-11-24T13:40:30.767Z",
-  "duration": 1092614,
+  "startedAt": "2025-11-24T15:06:52.586Z",
+  "endedAt": "2025-11-24T15:25:18.985Z",
+  "duration": 1010004,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
