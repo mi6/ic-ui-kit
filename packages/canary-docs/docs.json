@@ -3926,7 +3926,7 @@
           "mutable": false,
           "attr": "heading",
           "reflectToAttr": false,
-          "docs": "The heading to render in the drawer.",
+          "docs": "The heading of the drawer. This is required, unless a slotted heading is used.",
           "docsTags": [],
           "values": [
             {
@@ -3961,6 +3961,32 @@
             }
           ],
           "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "message",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "The body content of the drawer.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false

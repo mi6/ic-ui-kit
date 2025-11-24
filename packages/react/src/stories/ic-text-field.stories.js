@@ -19,18 +19,31 @@ const SlottedIcon = () => (
 );
 
 const ControlledExample = () => {
-  const [value, setValue] = useState("");
-  const handleChange = (event) => {
-    console.log(event.detail.value);
-    setValue(event.detail.value);
+  let loadingText = useRef(null);
+
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    loadingText.current.textContent = 'Submission in progress';
+    setLoading(true);
+    setTimeout(() => {
+      loadingText.current.textContent = '\u200B';
+      setLoading(false);
+    }, 2000);
   };
+
   return (
-    <IcTextField
-      placeholder="Controlled"
-      label="Controlled"
-      value={value}
-      onIcChange={handleChange}
-    />
+    <div style={{ margin: '16px' }}>
+      <IcButton onClick={() => handleClick()} loading={loading}>
+        Submit
+      </IcButton>
+      <div
+        ref={(el) => (loadingText.current = el)}
+        aria-live="polite"
+        role="status"
+        style={{ position: 'absolute', left: '-9999px' }}
+      ></div>
+    </div>
   );
 };
 

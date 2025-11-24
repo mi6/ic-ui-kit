@@ -492,13 +492,17 @@ export namespace Components {
          */
         "expanded": boolean;
         /**
-          * The heading to render in the drawer.
+          * The heading of the drawer. This is required, unless a slotted heading is used.
          */
         "heading"?: string;
         /**
           * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
          */
         "hideCloseButton": boolean;
+        /**
+          * The body content of the drawer.
+         */
+        "message"?: string;
         /**
           * The position of the drawer.
          */
@@ -1507,13 +1511,17 @@ declare namespace LocalJSX {
          */
         "expanded"?: boolean;
         /**
-          * The heading to render in the drawer.
+          * The heading of the drawer. This is required, unless a slotted heading is used.
          */
         "heading"?: string;
         /**
           * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
          */
         "hideCloseButton"?: boolean;
+        /**
+          * The body content of the drawer.
+         */
+        "message"?: string;
         /**
           * Emitted when the drawer is collapsed and expanded.
          */

@@ -88,9 +88,14 @@ export class Drawer {
   @Prop({ reflect: true, mutable: true }) expanded: boolean = false;
 
   /**
-   * The heading to render in the drawer.
+   * The heading of the drawer. This is required, unless a slotted heading is used.
    */
   @Prop() heading?: string;
+
+  /**
+   * The body content of the drawer.
+   */
+  @Prop() message?: string;
 
   /**
    * The position of the drawer.
@@ -407,7 +412,13 @@ export class Drawer {
                   ref={(el) => (this.contentAreaShadowTopEl = el)}
                   class="content-area-shadow-top"
                 ></div>
-                <slot />
+                {this.message ? (
+                  <ic-typography>
+                    <p>{this.message}</p>
+                  </ic-typography>
+                ) : (
+                  <slot />
+                )}
                 <div
                   ref={(el) => (this.contentAreaShadowBottomEl = el)}
                   class="content-area-shadow-bottom"

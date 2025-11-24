@@ -12,223 +12,11 @@ export default {
   },
 };
 
-const defaultArgs = {
-  actionsSlot: true,
-  headingSlot: false,
-  headingAdornmentSlot: true,
-  ariaLabel: "",
-  boundary: "viewport",
-  chevronButtonAriaLabel: "",
-  closeButtonAriaLabel: "",
-  closeOnBackdropClick: true,
-  expanded: false,
-
-  //   chevronButtonAriaLabel: "",
-  //   closeButtonAriaLabel: "Close drawer",
-  //   closeOnBackdropClick: true,
-  //   expanded: false,
-  //   heading: "Heading",
-  //   message: `Lorem ipsum odor amet, consectetuer adipiscing elit. Netus condimentum posuere velit egestas senectus viverra. Nascetur diam curabitur semper sodales sapien sit mi. Ultrices potenti eget netus et cras quis; convallis phasellus. Posuere magnis sapien ipsum risus maecenas molestie dictum. Penatibus quis platea vel ipsum habitasse inceptos. Litora leo efficitur duis sociosqu litora ex. Tellus interdum neque sapien finibus felis iaculis euismod. Hendrerit dignissim diam adipiscing nam rutrum nascetur amet.
-
-  //   Placerat blandit nullam netus mattis vulputate torquent. Adipiscing augue sociosqu nibh parturient conubia cras ridiculus. Quis mi posuere laoreet montes sapien turpis fermentum lobortis. Adipiscing cubilia varius dictum suscipit lobortis. Metus tincidunt quis orci suspendisse scelerisque magna turpis. Pellentesque finibus dis pretium; nisl tincidunt ante et. Nibh curae turpis; duis torquent ornare ante morbi magna gravida? Ut est primis purus tincidunt cubilia interdum; natoque adipiscing. Semper adipiscing cubilia donec velit donec phasellus phasellus vivamus.`,
-  //   position: "right",
-  //   showCloseButton: true,
-  //   size: "medium",
-  //   trigger: "arrow",
-};
-
 export const RightPosition = {
-  render: (args) => html`<ic-drawer heading="Roasted coffee">
-    <svg
-      slot="heading-adornment"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+  render: (args) => html`<ic-drawer
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
     >
-      <path
-        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-      />
-    </svg>
-    <ic-typography>
-      <p>
-        Contrary to popular belief, light roast coffee has more caffeine than
-        dark roast coffee. The longer coffee is roasted, the more caffeine is
-        lost through the cooking of the bean. Light roast coffee is a light
-        brown colour and has no oil on the surface of the beans, and these
-        coffees typically have a crisp acidity, a mellow body, and bright
-        flavours.
-      </p>
-    </ic-typography>
-    <ic-button slot="actions">Add to order</ic-button>
-  </ic-drawer>`,
-  name: "Right position",
-};
-
-export const LeftPosition = {
-  render: (args) => html`<ic-drawer heading="Roasted coffee" position="left">
-    <svg
-      slot="heading-adornment"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-      />
-    </svg>
-    <ic-typography>
-      <p>
-        Contrary to popular belief, light roast coffee has more caffeine than
-        dark roast coffee. The longer coffee is roasted, the more caffeine is
-        lost through the cooking of the bean. Light roast coffee is a light
-        brown colour and has no oil on the surface of the beans, and these
-        coffees typically have a crisp acidity, a mellow body, and bright
-        flavours.
-      </p>
-    </ic-typography>
-    <ic-button slot="actions">Add to order</ic-button>
-  </ic-drawer>`,
-  name: "Left position",
-};
-
-export const TopPosition = {
-  render: (args) => html`<ic-drawer heading="Roasted coffee" position="top">
-    <svg
-      slot="heading-adornment"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-      />
-    </svg>
-    <ic-typography>
-      <p>
-        Contrary to popular belief, light roast coffee has more caffeine than
-        dark roast coffee. The longer coffee is roasted, the more caffeine is
-        lost through the cooking of the bean. Light roast coffee is a light
-        brown colour and has no oil on the surface of the beans, and these
-        coffees typically have a crisp acidity, a mellow body, and bright
-        flavours.
-      </p>
-    </ic-typography>
-    <ic-button slot="actions">Add to order</ic-button>
-  </ic-drawer>`,
-  name: "Top position",
-};
-
-export const BottomPosition = {
-  render: (args) => html`<ic-drawer heading="Roasted coffee" position="bottom">
-    <svg
-      slot="heading-adornment"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-      />
-    </svg>
-    <ic-typography>
-      <p>
-        Contrary to popular belief, light roast coffee has more caffeine than
-        dark roast coffee. The longer coffee is roasted, the more caffeine is
-        lost through the cooking of the bean. Light roast coffee is a light
-        brown colour and has no oil on the surface of the beans, and these
-        coffees typically have a crisp acidity, a mellow body, and bright
-        flavours.
-      </p>
-    </ic-typography>
-    <ic-button slot="actions">Add to order</ic-button>
-  </ic-drawer>`,
-  name: "Bottom position",
-};
-
-export const Expanded = {
-  render: (args) => html`<ic-drawer heading="Roasted coffee" expanded="true">
-    <svg
-      slot="heading-adornment"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-      />
-    </svg>
-    <ic-typography>
-      <p>
-        Contrary to popular belief, light roast coffee has more caffeine than
-        dark roast coffee. The longer coffee is roasted, the more caffeine is
-        lost through the cooking of the bean. Light roast coffee is a light
-        brown colour and has no oil on the surface of the beans, and these
-        coffees typically have a crisp acidity, a mellow body, and bright
-        flavours.
-      </p>
-    </ic-typography>
-    <ic-button slot="actions">Add to order</ic-button>
-  </ic-drawer>`,
-  name: "Expanded",
-};
-
-export const ContainedWithinParent = {
-  render: () => html`<div style="display: flex; height: 100vh;">
-      <div
-        style="position: relative; display: flex; border: 1px solid lightgrey; flex: 1; margin: 32px;"
-      >
-        <ic-drawer
-          id="drawer-right-contained"
-          heading="Roasted coffee"
-          boundary="parent"
-        >
-          <svg
-            slot="heading-adornment"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-            />
-          </svg>
-          <ic-typography>
-            <p>
-              Contrary to popular belief, light roast coffee has more caffeine
-              than dark roast coffee. The longer coffee is roasted, the more
-              caffeine is lost through the cooking of the bean. Light roast
-              coffee is a light brown colour and has no oil on the surface of
-              the beans, and these coffees typically have a crisp acidity, a
-              mellow body, and bright flavours.
-            </p>
-          </ic-typography>
-          <ic-button slot="actions">Add to order</ic-button>
-        </ic-drawer>
-      </div>
-    </div>
-    <script>
-      function expandDrawer(drawerId) {
-        const drawer = document.querySelector(
-          "ic-drawer#drawer-right-contained"
-        );
-        drawer.expanded = !drawer.expanded;
-      }
-
-      function handleDrawerExpanded(ev) {
-        console.log(ev.detail);
-      }
-
-      document
-        .querySelector("ic-drawer#drawer-right-contained")
-        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
-    </script>`,
-  name: "Contained within parent",
-};
-
-export const ManualTrigger = {
-  render: () => html`<div style="margin: 16px; display: flex; gap: 16px;">
-      <ic-button onclick="expandDrawer('right')">Toggle right drawer</ic-button>
-      <ic-button onclick="expandDrawer('left')">Toggle left drawer</ic-button>
-      <ic-button onclick="expandDrawer('top')">Toggle top drawer</ic-button>
-      <ic-button onclick="expandDrawer('bottom')"
-        >Toggle bottom drawer</ic-button
-      >
-    </div>
-    <ic-drawer id="drawer-right" trigger="controlled" heading="Roasted coffee">
       <svg
         slot="heading-adornment"
         xmlns="http://www.w3.org/2000/svg"
@@ -238,22 +26,24 @@ export const ManualTrigger = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
-      <ic-typography>
-        <p>
-          Contrary to popular belief, light roast coffee has more caffeine than
-          dark roast coffee. The longer coffee is roasted, the more caffeine is
-          lost through the cooking of the bean. Light roast coffee is a light
-          brown colour and has no oil on the surface of the beans, and these
-          coffees typically have a crisp acidity, a mellow body, and bright
-          flavours.
-        </p>
-      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
-    <ic-drawer
-      id="drawer-left"
-      trigger="controlled"
+    <script>
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
+  name: "Right position",
+};
+
+export const LeftPosition = {
+  render: (args) => html`<ic-drawer
       heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
       position="left"
     >
       <svg
@@ -265,22 +55,24 @@ export const ManualTrigger = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
-      <ic-typography>
-        <p>
-          Contrary to popular belief, light roast coffee has more caffeine than
-          dark roast coffee. The longer coffee is roasted, the more caffeine is
-          lost through the cooking of the bean. Light roast coffee is a light
-          brown colour and has no oil on the surface of the beans, and these
-          coffees typically have a crisp acidity, a mellow body, and bright
-          flavours.
-        </p>
-      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
-    <ic-drawer
-      id="drawer-top"
-      trigger="controlled"
+    <script>
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
+  name: "Left position",
+};
+
+export const TopPosition = {
+  render: (args) => html`<ic-drawer
       heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
       position="top"
     >
       <svg
@@ -292,22 +84,24 @@ export const ManualTrigger = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
-      <ic-typography>
-        <p>
-          Contrary to popular belief, light roast coffee has more caffeine than
-          dark roast coffee. The longer coffee is roasted, the more caffeine is
-          lost through the cooking of the bean. Light roast coffee is a light
-          brown colour and has no oil on the surface of the beans, and these
-          coffees typically have a crisp acidity, a mellow body, and bright
-          flavours.
-        </p>
-      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
-    <ic-drawer
-      id="drawer-bottom"
-      trigger="controlled"
+    <script>
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
+  name: "Top position",
+};
+
+export const BottomPosition = {
+  render: (args) => html`<ic-drawer
       heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
       position="bottom"
     >
       <svg
@@ -319,23 +113,165 @@ export const ManualTrigger = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
-      <ic-typography>
-        <p>
-          Contrary to popular belief, light roast coffee has more caffeine than
-          dark roast coffee. The longer coffee is roasted, the more caffeine is
-          lost through the cooking of the bean. Light roast coffee is a light
-          brown colour and has no oil on the surface of the beans, and these
-          coffees typically have a crisp acidity, a mellow body, and bright
-          flavours.
-        </p>
-      </ic-typography>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
-      function expandDrawer(drawerId) {
-        const drawer = document.querySelector(
-          \`ic-drawer#drawer-\${drawerId}\`
-        );
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
+  name: "Bottom position",
+};
+
+export const Expanded = {
+  render: (args) => html`<ic-drawer
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      expanded="true"
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
+  name: "Expanded",
+};
+
+export const ContainedWithinParent = {
+  render: () => html`<div
+      style="position: relative; display: flex; border: 1px solid lightgrey; flex: 1; margin: 32px; height: calc(100vh - 64px);"
+    >
+      <ic-drawer
+        heading="Roasted coffee"
+        message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+        boundary="parent"
+      >
+        <svg
+          slot="heading-adornment"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+          />
+        </svg>
+        <ic-button slot="actions">Add to order</ic-button>
+      </ic-drawer>
+    </div>
+    <script>
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
+  name: "Contained within parent",
+};
+
+export const ManualTrigger = {
+  render: () => html`<div style="margin: 16px; display: flex; gap: 16px;">
+      <ic-button onclick="toggleDrawer('right')">Toggle right drawer</ic-button>
+      <ic-button onclick="toggleDrawer('left')">Toggle left drawer</ic-button>
+      <ic-button onclick="toggleDrawer('top')">Toggle top drawer</ic-button>
+      <ic-button onclick="toggleDrawer('bottom')"
+        >Toggle bottom drawer</ic-button
+      >
+    </div>
+    <ic-drawer
+      id="drawer-right"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      trigger="controlled"
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <ic-drawer
+      id="drawer-left"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      position="left"
+      trigger="controlled"
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <ic-drawer
+      id="drawer-top"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      position="top"
+      trigger="controlled"
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <ic-drawer
+      id="drawer-bottom"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      position="bottom"
+      trigger="controlled"
+    >
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      function toggleDrawer(drawerId) {
+        const drawer = document.querySelector(\`#drawer-\${drawerId}\`);
         drawer.expanded = !drawer.expanded;
       }
 
@@ -343,8 +279,7 @@ export const ManualTrigger = {
         console.log(ev.detail);
       }
 
-      ["right", "left", "top", "bottom"].forEach((id) => {
-        const drawer = document.querySelector(\`ic-drawer#drawer-\${id}\`);
+      document.querySelectorAll("ic-drawer").forEach((drawer) => {
         drawer.addEventListener("icDrawerExpanded", handleDrawerExpanded);
       });
     </script>`,
@@ -356,12 +291,12 @@ export const ManualTriggerContainedWithinParent = {
       style="display: flex; flex-direction: column; height: 100vh;"
     >
       <div style="margin: 32px 32px 0 32px; display: flex; gap: 16px;">
-        <ic-button onclick="expandDrawer('right')"
+        <ic-button onclick="toggleDrawer('right')"
           >Toggle right drawer</ic-button
         >
-        <ic-button onclick="expandDrawer('left')">Toggle left drawer</ic-button>
-        <ic-button onclick="expandDrawer('top')">Toggle top drawer</ic-button>
-        <ic-button onclick="expandDrawer('bottom')"
+        <ic-button onclick="toggleDrawer('left')">Toggle left drawer</ic-button>
+        <ic-button onclick="toggleDrawer('top')">Toggle top drawer</ic-button>
+        <ic-button onclick="toggleDrawer('bottom')"
           >Toggle bottom drawer</ic-button
         >
       </div>
@@ -370,8 +305,9 @@ export const ManualTriggerContainedWithinParent = {
       >
         <ic-drawer
           id="drawer-right-contained"
-          trigger="controlled"
           heading="Roasted coffee"
+          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+          trigger="controlled"
           boundary="parent"
         >
           <svg
@@ -383,23 +319,14 @@ export const ManualTriggerContainedWithinParent = {
               d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
             />
           </svg>
-          <ic-typography>
-            <p>
-              Contrary to popular belief, light roast coffee has more caffeine
-              than dark roast coffee. The longer coffee is roasted, the more
-              caffeine is lost through the cooking of the bean. Light roast
-              coffee is a light brown colour and has no oil on the surface of
-              the beans, and these coffees typically have a crisp acidity, a
-              mellow body, and bright flavours.
-            </p>
-          </ic-typography>
           <ic-button slot="actions">Add to order</ic-button>
         </ic-drawer>
         <ic-drawer
-          position="left"
           id="drawer-left-contained"
-          trigger="controlled"
           heading="Roasted coffee"
+          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+          position="left"
+          trigger="controlled"
           boundary="parent"
         >
           <svg
@@ -411,23 +338,14 @@ export const ManualTriggerContainedWithinParent = {
               d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
             />
           </svg>
-          <ic-typography>
-            <p>
-              Contrary to popular belief, light roast coffee has more caffeine
-              than dark roast coffee. The longer coffee is roasted, the more
-              caffeine is lost through the cooking of the bean. Light roast
-              coffee is a light brown colour and has no oil on the surface of
-              the beans, and these coffees typically have a crisp acidity, a
-              mellow body, and bright flavours.
-            </p>
-          </ic-typography>
           <ic-button slot="actions">Add to order</ic-button>
         </ic-drawer>
         <ic-drawer
-          position="top"
           id="drawer-top-contained"
-          trigger="controlled"
           heading="Roasted coffee"
+          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+          position="top"
+          trigger="controlled"
           boundary="parent"
         >
           <svg
@@ -439,23 +357,14 @@ export const ManualTriggerContainedWithinParent = {
               d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
             />
           </svg>
-          <ic-typography>
-            <p>
-              Contrary to popular belief, light roast coffee has more caffeine
-              than dark roast coffee. The longer coffee is roasted, the more
-              caffeine is lost through the cooking of the bean. Light roast
-              coffee is a light brown colour and has no oil on the surface of
-              the beans, and these coffees typically have a crisp acidity, a
-              mellow body, and bright flavours.
-            </p>
-          </ic-typography>
           <ic-button slot="actions">Add to order</ic-button>
         </ic-drawer>
         <ic-drawer
-          position="bottom"
           id="drawer-bottom-contained"
-          trigger="controlled"
           heading="Roasted coffee"
+          message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+          position="bottom"
+          trigger="controlled"
           boundary="parent"
         >
           <svg
@@ -467,24 +376,14 @@ export const ManualTriggerContainedWithinParent = {
               d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
             />
           </svg>
-          <ic-typography>
-            <p>
-              Contrary to popular belief, light roast coffee has more caffeine
-              than dark roast coffee. The longer coffee is roasted, the more
-              caffeine is lost through the cooking of the bean. Light roast
-              coffee is a light brown colour and has no oil on the surface of
-              the beans, and these coffees typically have a crisp acidity, a
-              mellow body, and bright flavours.
-            </p>
-          </ic-typography>
           <ic-button slot="actions">Add to order</ic-button>
         </ic-drawer>
       </div>
     </div>
     <script>
-      function expandDrawer(drawerId) {
+      function toggleDrawer(drawerId) {
         const drawer = document.querySelector(
-          \`ic-drawer#drawer-\${drawerId}-contained\`
+          \`#drawer-\${drawerId}-contained\`
         );
         drawer.expanded = !drawer.expanded;
       }
@@ -493,10 +392,7 @@ export const ManualTriggerContainedWithinParent = {
         console.log(ev.detail);
       }
 
-      ["right", "left", "top", "bottom"].forEach((id) => {
-        const drawer = document.querySelector(
-          \`ic-drawer#drawer-\${id}-contained\`
-        );
+      document.querySelectorAll("ic-drawer").forEach((drawer) => {
         drawer.addEventListener("icDrawerExpanded", handleDrawerExpanded);
       });
     </script>`,
@@ -504,58 +400,61 @@ export const ManualTriggerContainedWithinParent = {
 };
 
 export const Small = {
-  render: (args) => html`<ic-drawer heading="Roasted coffee" size="small">
-    <svg
-      slot="heading-adornment"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+  render: (args) => html`<ic-drawer
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      size="small"
     >
-      <path
-        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-      />
-    </svg>
-    <ic-typography>
-      <p>
-        Contrary to popular belief, light roast coffee has more caffeine than
-        dark roast coffee. The longer coffee is roasted, the more caffeine is
-        lost through the cooking of the bean. Light roast coffee is a light
-        brown colour and has no oil on the surface of the beans, and these
-        coffees typically have a crisp acidity, a mellow body, and bright
-        flavours.
-      </p>
-    </ic-typography>
-    <ic-button slot="actions">Add to order</ic-button>
-  </ic-drawer>`,
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
   name: "Small",
 };
 
 export const Large = {
   render: (args) => html`<ic-drawer
-    id="drawer-right-slotted-content"
-    heading="Roasted coffee"
-    size="large"
-  >
-    <svg
-      slot="heading-adornment"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      id="drawer-right-slotted-content"
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      size="large"
     >
-      <path
-        d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
-      />
-    </svg>
-    <ic-typography>
-      <p>
-        Contrary to popular belief, light roast coffee has more caffeine than
-        dark roast coffee. The longer coffee is roasted, the more caffeine is
-        lost through the cooking of the bean. Light roast coffee is a light
-        brown colour and has no oil on the surface of the beans, and these
-        coffees typically have a crisp acidity, a mellow body, and bright
-        flavours.
-      </p>
-    </ic-typography>
-    <ic-button slot="actions">Add to order</ic-button>
-  </ic-drawer>`,
+      <svg
+        slot="heading-adornment"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+        />
+      </svg>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
   name: "Large",
 };
 
@@ -575,8 +474,10 @@ export const SlottedContent = {
     </ic-typography>
     <div>
       <ic-typography>
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
+        </p>
         </ic-typography>
         <br />
         <ic-tooltip label="This is a description of the button">
@@ -745,12 +646,20 @@ export const SlottedContent = {
     <ic-button slot="actions">Add to order</ic-button>
   </ic-drawer>
   <script>
-      function expandDrawer() {
+      function toggleDrawer() {
         const drawer = document.querySelector(
-          "ic-drawer#drawer-right-slotted-content"
+          "#drawer-right-slotted-content"
         );
         icDrawer.expanded = !icDrawer.expanded;
       }
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+
       var select1 = document.querySelector("#sel1");
       select1.options = [
         { label: "Cappuccino", value: "Cap" },
@@ -760,6 +669,7 @@ export const SlottedContent = {
       select1.addEventListener("icChange", function (event) {
         console.log(event.detail.value);
       });
+
       var icPopover = document.querySelector("ic-popover-menu");
       function buttonClick() {
         icPopover.open = true;
