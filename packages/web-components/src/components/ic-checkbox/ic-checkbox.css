@@ -123,8 +123,6 @@
 }
 
 .checkbox-label {
-  color: var(--ic-checkbox-text);
-
   --ic-typography-color: var(--ic-checkbox-text);
 }
 
@@ -133,9 +131,18 @@
   display: inline-block;
 }
 
+::slotted([slot="label"]) {
+  padding-left: var(--ic-space-sm) !important;
+  color: var(--ic-checkbox-text);
+}
+
 :host(.ic-checkbox-disabled) .checkbox-label {
   color: var(--ic-checkbox-text-disabled);
+  --ic-typography-color: var(--ic-checkbox-text-disabled);
+}
 
+:host(.ic-checkbox-disabled) ::slotted([slot="label"]) {
+  color: var(--ic-checkbox-text-disabled);
   --ic-typography-color: var(--ic-checkbox-text-disabled);
 }
 
