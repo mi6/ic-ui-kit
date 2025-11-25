@@ -12,7 +12,9 @@ import {
   isDayFirstFormat,
   isMonthFirstFormat,
   addSixWeeks,
+  dateIsToday,
 } from "../../../../utils/date-helpers";
+import * as dateHelpers from "../../../../utils/date-helpers";
 
 describe("ic-date-picker-date-helpers", () => {
   describe("isDayFirstFormat", () => {
@@ -134,6 +136,23 @@ describe("ic-date-picker-date-helpers", () => {
     });
     it("should test isDateOrEpoch with epoch", () => {
       expect(isDateOrEpoch(new Date(500000000000))).toBe(true);
+    });
+  });
+
+  describe("dateIsToday", () => {
+    const dateMatchesSpy = jest.spyOn(dateHelpers, "dateMatches");
+
+    it("should test dateIsToday with matching dates", () => {
+      expect(dateIsToday(new Date())).toBe(true);
+      expect(dateMatchesSpy).toHaveBeenCalled();
+      dateMatchesSpy.mockClear();
+    });
+    it("should test dateIsToday with different dates", () => {
+      expect(dateIsToday(new Date(2023, 0, 1))).toBe(false);
+      expect(dateMatchesSpy).toHaveBeenCalledWith(
+        new Date(2023, 0, 1),
+        new Date()
+      );
     });
   });
 });
