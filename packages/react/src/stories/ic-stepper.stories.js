@@ -215,12 +215,16 @@ export const CompactStepper = {
 export const Internationalisation = {
   render: () => (
     <>
+    <span lang="de">
       <IcStepper variant="compact" id="standard-compact-stepper" icI18n={ICI18N}>
-      <IcStep heading="Create" />
-      <IcStep heading="Read" type="current" />
-      <IcStep heading="Update" status="optional" />
-      <IcStep heading="Delete" status="required" />
-    </IcStepper>
+        <IcStep heading="Aktualisierung" />
+        <IcStep heading="Lesen" type="current" />
+        <IcStep heading="Aktualisierung" status="optional" />
+        <IcStep heading="Löschen" status="required" />
+      </IcStepper>
+    </span>
+    <p>This stepper uses the icI18n prop to customise text elements within the stepper.</p>
+    <p>It is also wrapped in a <code>&lt;span lang="de"&gt;</code> to change the language for assistive technology</p>
     <CompactButtons/>
     </>
   ),

@@ -758,6 +758,38 @@ export const DynamicLoading = {
   name: "Dynamic loading",
 };
 
+export const Internationalisation = {
+  render: () => (
+    <>
+      <p>Each checkbox in this group is set to a different language by being wrapped in a <code>&lt;span lang=""&gt;</code></p>
+      <IcCheckboxGroup
+        label="International Coffee"
+        name="1"
+      >
+        <span lang="fr">
+          <IcCheckbox value="valueName1" label="Cafe au lait" />
+        </span>
+        <span lang="it">
+          <IcCheckbox value="valueName2" label="Americano" checked />
+        </span>
+        <IcCheckbox value="valueName3" label="Flat White" />
+      </IcCheckboxGroup>
+      <span lang="fr">
+      <IcCheckboxGroup
+        label="Boissons"
+        name="2"
+      >
+          <IcCheckbox value="valueName1" label="Limonade" />
+          <IcCheckbox value="valueName2" label="Chocolat Chaud" checked />
+          <IcCheckbox value="valueName3" label="Jus" />
+      </IcCheckboxGroup>
+      </span>
+    </>
+  ),
+
+  name: "Internationalisation",
+};
+
 export const Playground = {
   render: (args) => {
     const [{ checked }, updateArgs] = useArgs();
