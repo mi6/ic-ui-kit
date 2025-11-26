@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.30...@ukic/canary-react@3.0.0-canary.31) (2025-11-26)
+
+### Features
+
+- **canary-react:** update IcDatePicker tests following the creation of standalone IcCalendar ([f65e805](https://github.com/mi6/ic-ui-kit/commit/f65e80584d660a53170f048d226800af5ee9b83d)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
+
 # [3.0.0-canary.30](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.29...@ukic/canary-react@3.0.0-canary.30) (2025-11-12)
 
 ### Bug Fixes
