@@ -23,6 +23,7 @@ import {
   Required,
   ThemeDark,
   HelperTextSlot,
+  SlottedLabel,
 } from "./IcCheckboxTestData";
 import { IcCheckbox, IcCheckboxGroup } from "../../components";
 import {
@@ -541,6 +542,20 @@ describe("IcCheckbox visual regression and a11y tests", () => {
     // Check positioning matches normal helper text
     cy.compareSnapshot({
       name: "/helper",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+    });
+  });
+
+  it("should render slotted label", () => {
+    mount(<SlottedLabel />);
+
+    cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    // Check positioning matches normal label
+    cy.compareSnapshot({
+      name: "/label-slot",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });

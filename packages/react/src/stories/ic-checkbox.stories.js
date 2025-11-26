@@ -10,6 +10,7 @@ import {
   IcRadioOption,
   IcSearchBar,
   IcSelect,
+  IcStatusTag,
   IcTextField,
   IcTypography,
 } from "../components";
@@ -653,6 +654,28 @@ export const ConditionalStatic = {
   name: "Conditional static",
 };
 
+export const SlottedLabel = {
+  render: () => (
+    <IcCheckboxGroup label="Choose Your Coffee" name="1">
+      <IcCheckbox value="valueName1" label="Americano">
+      </IcCheckbox>
+      <IcCheckbox value="valueName2" checked>
+        <span slot="label">
+          Coffee <IcStatusTag label="hot" status="warning"/>
+        </span>
+      </IcCheckbox>
+      <IcCheckbox value="valueName3">
+        <span slot="label"><b>Slot Coffee</b></span>
+      </IcCheckbox>
+      <IcCheckbox value="valueName4" disabled>
+        <span slot="label"><b>Out of stock</b> Coffee</span>
+      </IcCheckbox>
+    </IcCheckboxGroup>
+  ),
+
+  name: "Slotted label",
+};
+
 export const HelperText = {
   render: () => (
     <>
@@ -733,6 +756,38 @@ export const Uncontrolled_ = {
 export const DynamicLoading = {
   render: () => <CheckOptionsDynamic />,
   name: "Dynamic loading",
+};
+
+export const Internationalisation = {
+  render: () => (
+    <>
+      <p>Each checkbox in this group is set to a different language by being wrapped in a <code>&lt;span lang=""&gt;</code></p>
+      <IcCheckboxGroup
+        label="International Coffee"
+        name="1"
+      >
+        <span lang="fr">
+          <IcCheckbox value="valueName1" label="Cafe au lait" />
+        </span>
+        <span lang="it">
+          <IcCheckbox value="valueName2" label="Americano" checked />
+        </span>
+        <IcCheckbox value="valueName3" label="Flat White" />
+      </IcCheckboxGroup>
+      <span lang="fr">
+      <IcCheckboxGroup
+        label="Boissons"
+        name="2"
+      >
+          <IcCheckbox value="valueName1" label="Limonade" />
+          <IcCheckbox value="valueName2" label="Chocolat Chaud" checked />
+          <IcCheckbox value="valueName3" label="Jus" />
+      </IcCheckboxGroup>
+      </span>
+    </>
+  ),
+
+  name: "Internationalisation",
 };
 
 export const Playground = {

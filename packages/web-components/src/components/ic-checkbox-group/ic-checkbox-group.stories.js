@@ -315,6 +315,29 @@ export const ConditionalStatic = {
   name: "Conditional static",
 };
 
+export const SlottedLabel = {
+  render: (args) => html`
+    <ic-checkbox-group label="Pick your coffee" name="group1">
+      <ic-checkbox value="valueName1" label="Americano"></ic-checkbox>
+      <ic-checkbox value="valueName2" checked>
+        <span slot="label">
+          Coffee <ic-status-tag label="hot" status="warning"></ic-status-tag>
+        </span>
+      </ic-checkbox>
+      <ic-checkbox value="valueName3" checked>
+        <span slot="label">
+          <b>Slot Coffee</b>
+        </span>
+      </ic-checkbox>
+      <ic-checkbox value="valueName4" disabled>
+        <span slot="label"> <b>OUT OF STOCK</b> Big Coffee </span>
+      </ic-checkbox>
+    </ic-checkbox-group>
+  `,
+
+  name: "Slotted label",
+};
+
 export const HelperText = {
   render: (args) => html`
     <ic-checkbox-group
@@ -797,6 +820,35 @@ export const RTL = {
   `,
 
   name: "RTL",
+};
+
+export const Internationalisation = {
+  render: (args) => html`
+      <p>Each checkbox in this group is set to a different language by being wrapped in a <code>&lt;span lang=""&gt;</code></p>
+      <ic-checkbox-group
+        label="International Coffee"
+      >
+        <span lang="fr">
+          <ic-checkbox value="valueName1" label="Cafe au lait"></ic-checkbox>
+        </span>
+        <span lang="it">
+          <ic-checkbox value="valueName2" label="Americano" checked></ic-checkbox>
+        </span>
+        <ic-checkbox value="valueName3" label="Flat White"></ic-checkbox>
+      </ic-checkbox-group>
+      <p>This whole checkbox group has been wrapped in a <code>&lt;span lang="fr"&gt;</code> and will read in French</p>
+      <span lang="fr">
+      <ic-checkbox-group
+        label="Boissons"
+      >
+          <ic-checkbox value="valueName1" label="Limonade"></ic-checkbox>
+          <ic-checkbox value="valueName2" label="Chocolat Chaud" checked></ic-checkbox>
+          <ic-checkbox value="valueName3" label="Jus"></ic-checkbox>
+      </ic-checkbox-group>
+      </span>
+    </>
+ `,
+  name: "Internationalisation",
 };
 
 const inlineRadioSelector = "inline-radio";

@@ -19,6 +19,7 @@ const defaultArgs = {
   subheading:
     "Hero description. This is a Hero component, it should be used as a page heading.",
   showSecondary: false,
+  theme: "inherit",
 };
 
 export const Playground = {
@@ -32,6 +33,7 @@ export const Playground = {
     secondary-subheading=${args.secondarySubheading}
     size=${args.size}
     subheading=${args.subheading}
+    theme=${args.theme}
   >
     <ic-button variant="primary" slot="interaction"> Button </ic-button>
     <ic-button variant="secondary" slot="interaction"> Button </ic-button>
@@ -43,6 +45,12 @@ export const Playground = {
         slot="secondary"
       />
     `}
+    <ic-text-field
+      slot="interaction"
+      label="Input"
+      helper-text="This is an input"
+      placeholder="Please enter…"
+    />
   </ic-hero>`,
 
   args: defaultArgs,
@@ -74,6 +82,13 @@ export const Playground = {
 
       control: {
         type: "select",
+      },
+    },
+    theme: {
+      options: ["inherit", "light", "dark"],
+
+      control: {
+        type: "inline-radio",
       },
     },
   },

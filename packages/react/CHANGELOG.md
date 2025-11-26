@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.15.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.14.0...@ukic/react@3.15.0) (2025-11-26)
+
+### Bug Fixes
+
+- **react:** update to storybook for ic-hero text fix ([e22798d](https://github.com/mi6/ic-ui-kit/commit/e22798dfeb52203ce64ff9a12ddb40984dc03c2d))
+
+### Features
+
+- **react:** add react Internationalisation code examples ([964b84c](https://github.com/mi6/ic-ui-kit/commit/964b84c544e04ffb15242349d2ab9ab8147c5b14))
+
 # [3.14.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.13.0...@ukic/react@3.14.0) (2025-10-29)
 
 ### Bug Fixes

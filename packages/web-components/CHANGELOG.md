@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.15.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.14.0...@ukic/web-components@3.15.0) (2025-11-26)
+
+### Bug Fixes
+
+- **web-components:** fix aria-describedby on text field not matching visual order of info ([282503d](https://github.com/mi6/ic-ui-kit/commit/282503db6a06e0b2cd8cabad7ef43eb5b261c8be))
+- **web-components:** fix to label and helper text colour in ic-hero ([a1da960](https://github.com/mi6/ic-ui-kit/commit/a1da960c99cb55a100c82d9c590359d20a75cd85))
+
+### Features
+
+- **web-components:** add custom CSS tokens and z-index token for new calendar component ([56c2ffd](https://github.com/mi6/ic-ui-kit/commit/56c2ffd408f88e960976dc20a994dad772a2b805)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
+- **web-components:** add Internationalisation storybooks to web-components ([03d4230](https://github.com/mi6/ic-ui-kit/commit/03d4230cf75c35ef7b73b57d489b55cbf4738481))
+- **web-components:** add label slot to ic-checkbox ([ed5e1ac](https://github.com/mi6/ic-ui-kit/commit/ed5e1ac06fb802df8f9bda4d42e32b5048ce742b))
+
 # [3.14.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.13.0...@ukic/web-components@3.14.0) (2025-10-29)
 
 ### Bug Fixes

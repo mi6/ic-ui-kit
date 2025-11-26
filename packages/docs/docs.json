@@ -4143,6 +4143,10 @@
         {
           "name": "slot",
           "text": "additional-field - Content to be displayed alongside a checkbox."
+        },
+        {
+          "name": "slot",
+          "text": "label - Label for the checkbox."
         }
       ],
       "usage": {},
@@ -4578,6 +4582,10 @@
         {
           "name": "additional-field",
           "docs": "Content to be displayed alongside a checkbox."
+        },
+        {
+          "name": "label",
+          "docs": "Label for the checkbox."
         }
       ],
       "parts": [],
@@ -7925,6 +7933,45 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false

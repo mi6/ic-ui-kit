@@ -13,6 +13,7 @@ import {
   IcBrand,
   IcBrandForeground,
   IcBrandForegroundEnum,
+  IcThemeMode,
 } from "../../utils/types";
 import {
   slotHasContent,
@@ -93,6 +94,11 @@ export class Hero {
    */
   @Prop() subheading?: string;
 
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme: IcThemeMode = "inherit";
+
   disconnectedCallback(): void {
     this.hostMutationObserver?.disconnect();
   }
@@ -151,6 +157,7 @@ export class Hero {
       backgroundImage,
       scrollFactor,
       contentAligned,
+      theme,
     } = this;
 
     let style = {};
@@ -173,6 +180,7 @@ export class Hero {
           ["secondary-heading"]: !!secondaryHeading,
           [`ic-hero-content-aligned-${contentAligned}`]:
             contentAligned !== undefined,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         style={style}
       >
