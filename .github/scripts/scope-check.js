@@ -47,7 +47,7 @@ function validateScope(commitMessage, changedFiles, scopeToPathMap) {
   const scope = scopeMatch[1];
   const allowedPrefix = scopeToPathMap[scope];
 
-  if (!allowedPrefix && scope !== "root") {
+  if (!allowedPrefix && scope !== "root" && !commitMessage.includes("chore(release)")) {
     console.error(`❌ Scope "${scope}" is not defined in your scope-path mapping.`);
     process.exit(1);
   }
