@@ -145,6 +145,18 @@
   transform: rotate(-90deg);
 }
 
+#nav-group-title {
+  text-wrap: nowrap;
+}
+
+:host(.in-side-menu) #nav-group-title {
+  text-wrap: wrap;
+}
+
+:host(.ic-navigation-group-side-nav) #nav-group-title {
+  text-wrap: wrap;
+}
+
 :host(.ic-navigation-group-expanded) .grouped-links-wrapper {
   height: var(--navigation-child-items-height, auto) !important;
   transition: var(--ic-easing-transition-slow);
