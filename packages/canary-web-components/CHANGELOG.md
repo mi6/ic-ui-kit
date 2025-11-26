@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.30...@ukic/canary-web-components@3.0.0-canary.31) (2025-11-26)
+
+### Features
+
+- **canary-web-components:** refactor calendar in ic-date-picker into a standalone component ([8e7b8f7](https://github.com/mi6/ic-ui-kit/commit/8e7b8f7311e28517d0ca216475c2e939219e5385)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
+
 # [3.0.0-canary.30](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.29...@ukic/canary-web-components@3.0.0-canary.30) (2025-11-12)
 
 ### Bug Fixes
