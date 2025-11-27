@@ -10,7 +10,9 @@ import {
   HAVE_CLASS,
   HAVE_LENGTH,
   HAVE_TEXT,
+  NOT_BE_VISIBLE,
   NOT_EXIST,
+  CONTAIN_TEXT,
 } from "@ukic/react/src/component-tests/utils/constants";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import {
@@ -22,7 +24,10 @@ const PAGINATION_BAR = "ic-pagination-bar";
 const PAGINATION = "ic-pagination";
 const PAGINATION_ITEM = "ic-pagination-item";
 const TYPOGRAPHY = "ic-typography";
+const FIRST_PAGE_BUTTON_SELECTOR = "#first-page-button";
 const LAST_PAGE_BUTTON_SELECTOR = "#last-page-button";
+const NEXT_PAGE_BUTTON_SELECTOR = "#next-page-button";
+const PREVIOUS_PAGE_BUTTON_SELECTOR = "#previous-page-button";
 const OPTION_LI_SELECTOR = "li[role='option']";
 const PAGE_PAGINATION_LABEL_SELECTOR = ".page-pagination-label";
 const NAVIGATION_PAGINATION_ITEM_SELECTOR =
@@ -30,6 +35,7 @@ const NAVIGATION_PAGINATION_ITEM_SELECTOR =
 const ARIA_CURRENT = "aria-current";
 const ITEM_PAGINATION_LABEL_SELECTOR = ".item-pagination-label";
 const TEXT_FIELD = "ic-text-field";
+const SELECT_INPUT_SELECTOR = ".select-input";
 
 const DEFAULT_TEST_THRESHOLD = 0.022;
 
@@ -45,7 +51,7 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("#next-page-button")
+      .find(NEXT_PAGE_BUTTON_SELECTOR)
       .click();
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
@@ -76,7 +82,7 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("#next-page-button")
+      .find(NEXT_PAGE_BUTTON_SELECTOR)
       .shadow()
       .find("button")
       .should(BE_DISABLED);
@@ -101,7 +107,7 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("#previous-page-button")
+      .find(PREVIOUS_PAGE_BUTTON_SELECTOR)
       .click();
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
@@ -113,19 +119,19 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("#first-page-button")
+      .find(FIRST_PAGE_BUTTON_SELECTOR)
       .click();
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("#previous-page-button")
+      .find(PREVIOUS_PAGE_BUTTON_SELECTOR)
       .shadow()
       .find("button")
       .should(BE_DISABLED);
 
     cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("#first-page-button")
+      .find(FIRST_PAGE_BUTTON_SELECTOR)
       .shadow()
       .find("button")
       .should(BE_DISABLED);
@@ -418,41 +424,41 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.checkHydrated(PAGINATION_BAR);
 
-    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+    cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("#next-page-button")
+      .find(NEXT_PAGE_BUTTON_SELECTOR)
       .click();
 
-    cy.findShadowEl(
-      PAGINATION_BAR,
-      "ic-typography.item-pagination-label"
-    ).should(HAVE_TEXT, "11 - 20 of 100 items");
+    cy.findShadowEl(PAGINATION_BAR, ITEM_PAGINATION_LABEL_SELECTOR).should(
+      HAVE_TEXT,
+      "11 - 20 of 100 items"
+    );
 
-    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+    cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("ic-pagination-item")
+      .find(PAGINATION_ITEM)
       .shadow()
-      .find("ic-typography")
+      .find(TYPOGRAPHY)
       .should(HAVE_TEXT, "Page 2");
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find("li[role='option']")
+      .find(OPTION_LI_SELECTOR)
       .eq(1)
       .click();
 
-    cy.findShadowEl(
-      PAGINATION_BAR,
-      "ic-typography.item-pagination-label"
-    ).should(HAVE_TEXT, "1 - 20 of 100 items");
+    cy.findShadowEl(PAGINATION_BAR, ITEM_PAGINATION_LABEL_SELECTOR).should(
+      HAVE_TEXT,
+      "1 - 20 of 100 items"
+    );
 
-    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+    cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("ic-pagination-item")
+      .find(PAGINATION_ITEM)
       .shadow()
-      .find("ic-typography")
+      .find(TYPOGRAPHY)
       .should(HAVE_TEXT, "Page 1");
   });
 
@@ -461,41 +467,41 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.checkHydrated(PAGINATION_BAR);
 
-    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+    cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("#next-page-button")
+      .find(NEXT_PAGE_BUTTON_SELECTOR)
       .click();
 
-    cy.findShadowEl(
-      PAGINATION_BAR,
-      "ic-typography.item-pagination-label"
-    ).should(HAVE_TEXT, "11 - 20 of 100 items");
+    cy.findShadowEl(PAGINATION_BAR, ITEM_PAGINATION_LABEL_SELECTOR).should(
+      HAVE_TEXT,
+      "11 - 20 of 100 items"
+    );
 
-    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+    cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("ic-pagination-item")
+      .find(PAGINATION_ITEM)
       .shadow()
-      .find("ic-typography")
+      .find(TYPOGRAPHY)
       .should(HAVE_TEXT, "Page 2");
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find("li[role='option']")
+      .find(OPTION_LI_SELECTOR)
       .eq(1)
       .click();
 
-    cy.findShadowEl(
-      PAGINATION_BAR,
-      "ic-typography.item-pagination-label"
-    ).should(HAVE_TEXT, "21 - 40 of 100 items");
+    cy.findShadowEl(PAGINATION_BAR, ITEM_PAGINATION_LABEL_SELECTOR).should(
+      HAVE_TEXT,
+      "21 - 40 of 100 items"
+    );
 
-    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+    cy.findShadowEl(PAGINATION_BAR, PAGINATION)
       .shadow()
-      .find("ic-pagination-item")
+      .find(PAGINATION_ITEM)
       .shadow()
-      .find("ic-typography")
+      .find(TYPOGRAPHY)
       .should(HAVE_TEXT, "Page 2");
   });
 
@@ -529,6 +535,31 @@ describe("IcPaginationBar end-to-end tests", () => {
     cy.checkHydrated(PAGINATION_BAR);
 
     cy.findShadowEl(PAGINATION_BAR, ITEM_PAGINATION_LABEL_SELECTOR).should(
+      NOT_EXIST
+    );
+  });
+
+  it("should hide the current page label when hideCurrentPage is true", () => {
+    mount(<PaginationBarItemsPerPage hideCurrentPage />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, PAGINATION)
+      .shadow()
+      .find("ic-pagination-item.hide-current-page")
+      .should(NOT_BE_VISIBLE);
+  });
+
+  it("should hide the first and last page buttons when hideFirstAndLastPageButton is true", () => {
+    mount(<PaginationBarItemsPerPage hideFirstAndLastPageButton />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, FIRST_PAGE_BUTTON_SELECTOR).should(
+      NOT_EXIST
+    );
+
+    cy.findShadowEl(PAGINATION_BAR, LAST_PAGE_BUTTON_SELECTOR).should(
       NOT_EXIST
     );
   });
@@ -570,10 +601,10 @@ describe("IcPaginationBar end-to-end tests", () => {
       PAGINATION_BAR,
       "ic-typography.items-per-page-control-label"
     ).should(HAVE_TEXT, "Rows per screen");
-    cy.findShadowEl(
-      PAGINATION_BAR,
-      "ic-typography.item-pagination-label"
-    ).should(HAVE_TEXT, "1 - 10 of 100 rows");
+    cy.findShadowEl(PAGINATION_BAR, ITEM_PAGINATION_LABEL_SELECTOR).should(
+      HAVE_TEXT,
+      "1 - 10 of 100 rows"
+    );
   });
 
   it("should stay set to All when manually setting the totalItems to 5 and then 30 after initially setting to All", () => {
@@ -582,12 +613,12 @@ describe("IcPaginationBar end-to-end tests", () => {
     cy.checkHydrated(PAGINATION_BAR);
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
+      .find(SELECT_INPUT_SELECTOR)
       .click();
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find("li[role='option']")
+      .find(OPTION_LI_SELECTOR)
       .last()
       .click();
 
@@ -595,15 +626,15 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
-      .should("contain.text", "All");
+      .find(SELECT_INPUT_SELECTOR)
+      .should(CONTAIN_TEXT, "All");
 
     cy.get(".set-30").click();
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
-      .should("contain.text", "All");
+      .find(SELECT_INPUT_SELECTOR)
+      .should(CONTAIN_TEXT, "All");
   });
 
   it("should set items per page to 20 when manually setting totalItems to 5 and then 30 after initially setting to 20", () => {
@@ -612,7 +643,7 @@ describe("IcPaginationBar end-to-end tests", () => {
     cy.checkHydrated(PAGINATION_BAR);
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
+      .find(SELECT_INPUT_SELECTOR)
       .click();
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
@@ -624,15 +655,15 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
-      .should("contain.text", "All");
+      .find(SELECT_INPUT_SELECTOR)
+      .should(CONTAIN_TEXT, "All");
 
     cy.get(".set-30").click();
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
-      .should("contain.text", "20");
+      .find(SELECT_INPUT_SELECTOR)
+      .should(CONTAIN_TEXT, "20");
   });
   it("should set items per page dropdown to 50 if totalItems is 50 and selectedItemsPerPage is 100", () => {
     mount(
@@ -647,8 +678,8 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
-      .should("contain.text", "50");
+      .find(SELECT_INPUT_SELECTOR)
+      .should(CONTAIN_TEXT, "50");
   });
   it("should set items per page dropdown to All if totalItems is updated from 100 to 0", () => {
     mount(<IcPaginationBar totalItems={100} showItemsPerPageControl />);
@@ -661,8 +692,8 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
-      .should("contain.text", "All");
+      .find(SELECT_INPUT_SELECTOR)
+      .should(CONTAIN_TEXT, "All");
   });
   it("should set items per page dropdown to 100 if selectedItemsPerPage is 100, totalItems is initially set to 30 and then updated to 200", () => {
     mount(
@@ -681,8 +712,8 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
-      .should("contain.text", "100");
+      .find(SELECT_INPUT_SELECTOR)
+      .should(CONTAIN_TEXT, "100");
   });
   it("should set the items per page dropdown to All if selectedItemsPerPage is 100, totalItems is initially set to 211 and then updated to 30", () => {
     mount(
@@ -701,8 +732,8 @@ describe("IcPaginationBar end-to-end tests", () => {
 
     cy.findShadowEl(PAGINATION_BAR, "ic-select")
       .shadow()
-      .find(".select-input")
-      .should("contain.text", "All");
+      .find(SELECT_INPUT_SELECTOR)
+      .should(CONTAIN_TEXT, "All");
   });
 });
 
