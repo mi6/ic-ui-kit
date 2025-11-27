@@ -1,6 +1,6 @@
 {
-  "total": 883,
-  "totalPassed": 872,
+  "total": 884,
+  "totalPassed": 873,
   "totalFailed": 11,
   "totalSuites": 45,
   "suites": [
@@ -2129,6 +2129,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/helper.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/helper.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCheckbox.cy.tsx/label-slot",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
+          "specFilename": "IcCheckbox.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/label-slot.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/label-slot.png"
         },
         {
           "status": "pass",
@@ -8440,7 +8451,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/ai",
-          "percentage": 0.14152031656267589,
+          "percentage": 0.11672189169131898,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -9988,9 +9999,9 @@
       ]
     }
   ],
-  "startedAt": "2025-11-20T09:20:46.468Z",
-  "endedAt": "2025-11-20T09:41:30.609Z",
-  "duration": 1139383,
+  "startedAt": "2025-11-27T14:54:07.314Z",
+  "endedAt": "2025-11-27T15:14:45.782Z",
+  "duration": 1135605,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
