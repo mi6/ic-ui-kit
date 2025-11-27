@@ -254,6 +254,8 @@ export class DataTable {
   @Prop() paginationBarOptions: IcPaginationBarOptions = {
     alignment: "right",
     hideAllFromItemsPerPage: false,
+    hideCurrentPage: false,
+    hideFirstAndLastPageButton: false,
     hideRangeLabel: false,
     itemLabel: "Item",
     itemsPerPageOptions: [
@@ -2478,6 +2480,10 @@ export class DataTable {
                   alignment={paginationBarOptions.alignment}
                   hideAllFromItemsPerPage={
                     paginationBarOptions.hideAllFromItemsPerPage
+                  }
+                  hideCurrentPage={paginationBarOptions.hideCurrentPage}
+                  hideFirstAndLastPageButton={
+                    paginationBarOptions.hideFirstAndLastPageButton
                   }
                   hideRangeLabel={paginationBarOptions.hideRangeLabel}
                   itemLabel={paginationBarOptions.itemLabel}
