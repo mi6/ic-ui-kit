@@ -163,6 +163,24 @@ describe("ic-pagination-bar", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with current page label hidden", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination],
+      html: `<ic-pagination-bar total-items="100" hide-current-page="true"></ic-pagination-bar>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with goto first and last page buttons hidden", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination],
+      html: `<ic-pagination-bar total-items="100" hide-first-and-last-page-button="true"></ic-pagination-bar>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should allow more than a maximum of 4 custom items per page options", async () => {
     const page = await newSpecPage({
       components: [PaginationBar],

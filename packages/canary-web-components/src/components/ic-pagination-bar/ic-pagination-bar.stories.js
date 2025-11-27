@@ -253,3 +253,33 @@ export const SetCurrentPageToInvalidValue = {
   </div>`,
   name: "Set the current page to an invalid value",
 };
+
+/**
+ * The buttons to go to the first and last pages can be hidden by setting the `hide-first-and-last-page-button` prop to `true`.
+ */
+export const HideFirstAndLastPageButtons = {
+  render: () => html`<div style="height:150px">
+    <ic-pagination-bar
+      total-items="100"
+      show-items-per-page-control="true"
+      show-go-to-page-control="true"
+      hide-first-and-last-page-button="true"
+    ></ic-pagination-bar>
+  </div>`,
+  name: "Hide first and last page buttons",
+};
+
+/**
+ * When using the `simple` pagination type, the current page label can be hidden by setting the `hide-current-page` prop to `true`.
+ */
+export const HideCurrentPage = {
+  render: () => html`<div style="height:150px">
+    <ic-pagination-bar
+      total-items="100"
+      show-items-per-page-control="true"
+      show-go-to-page-control="true"
+      hide-current-page="true"
+    ></ic-pagination-bar>
+  </div>`,
+  name: "Hide current page label",
+};
