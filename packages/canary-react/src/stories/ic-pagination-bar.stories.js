@@ -335,9 +335,53 @@ export const SetCurrentPageToInvalidValue = {
   name: "Set the current page to an invalid value",
 };
 
+/**
+ * The buttons to go to the first and last pages can be hidden by setting the `hideFirstAndLastPageButton` prop to `true`.
+ */
+export const HideFirstAndLastPageButtons = {
+  render: () => (
+    <div
+      style={{
+        height: "150px",
+      }}
+    >
+      <IcPaginationBar
+        totalItems="100"
+        showItemsPerPageControl
+        showGoToPageControl
+        hideFirstAndLastPageButton
+      />
+    </div>
+  ),
+  name: "Hide first and last page buttons",
+};
+
+/**
+ * When using the `simple` pagination type, the current page label can be hidden by setting the `hideCurrentPage` prop to `true`.
+ */
+export const HideCurrentPage = {
+  render: () => (
+    <div
+      style={{
+        height: "150px",
+      }}
+    >
+      <IcPaginationBar
+        totalItems="100"
+        showItemsPerPageControl
+        showGoToPageControl
+        hideCurrentPage
+      />
+    </div>
+  ),
+  name: "Hide current page label",
+};
+
 const defaultArgs = {
   alignment: "right",
   currentPage: 1,
+  hideCurrentPage: false,
+  hideFirstAndLastPageButton: false,
   hideRangeLabel: false,
   itemLabel: "Item",
   itemsPerPageOptions: [
@@ -372,6 +416,8 @@ export const Playground = {
       <IcPaginationBar
         alignment={args.alignment}
         currentPage={args.currentPage}
+        hideCurrentPage={args.hideCurrentPage}
+        hideFirstAndLastPageButton={args.hideFirstAndLastPageButton}
         hideRangeLabel={args.hideRangeLabel}
         itemLabel={args.itemLabel}
         itemsPerPageOptions={args.itemsPerPageOptions}

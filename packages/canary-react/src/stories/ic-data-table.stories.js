@@ -1158,6 +1158,8 @@ const defaultArgs = {
   paginationItemLabel: "Item",
   paginationPageLabel: "Page",
   paginationHideRangeLabel: false,
+  paginationHideCurrentPage: false,
+  paginationHideFirstAndLastPageButton: false,
   rowSelection: false,
   showPagination: true,
   sortable: false,
@@ -1222,6 +1224,8 @@ export const Playground = {
         pageLabel:args.paginationPageLabel,
         itemLabel:args.paginationItemLabel,
         hideRangeLabel:args.paginationHideRangeLabel,
+        hideCurrentPage:args.paginationHideCurrentPage,
+        hideFirstAndLastPageButton:args.paginationHideFirstAndLastPageButton
       }}
       rowSelection={args.rowSelection}
       showPagination={args.showPagination}
