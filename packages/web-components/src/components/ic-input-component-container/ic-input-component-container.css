@@ -32,6 +32,7 @@ ic-input-component-container {
 
 ic-input-component-container.ic-input-component-container-full-width {
   width: 100%;
+  max-width: none;
 }
 
 ic-input-component-container.ic-input-component-container-disabled,
@@ -199,5 +200,12 @@ ic-input-component-container:focus {
   ic-input-component-container.ic-input-component-container-disabled,
   ic-input-component-container.ic-input-component-container-disabled:hover {
     border: var(--ic-border-width) dashed GrayText;
+  }
+}
+
+@media (max-width: 370px) {
+  ic-input-component-container {
+    width: auto;
+    max-width: var(--input-width, 20rem);
   }
 }
