@@ -17,7 +17,7 @@ exports[`ic-radio-group should not have a validation status if disabled: no-vali
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" selected="" value="test">
     <!---->
-    <div class="container disabled">
+    <div class="disabled radio-option-container">
       <div>
         <input checked="" disabled="" id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -47,7 +47,7 @@ exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -77,7 +77,7 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -107,7 +107,7 @@ exports[`ic-radio-group should render radio group disabled: disabled-removed 1`]
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input id="ic-radio-option-test label-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -139,7 +139,7 @@ exports[`ic-radio-group should render radio group disabled: renders-disabled 1`]
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" group-label="test group" label="test label" value="test">
     <!---->
-    <div class="container disabled">
+    <div class="disabled radio-option-container">
       <div>
         <input disabled="" id="ic-radio-option-test label-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -171,7 +171,7 @@ exports[`ic-radio-group should render radio option disabled: disabled-removed 1`
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input id="ic-radio-option-test label-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -203,7 +203,7 @@ exports[`ic-radio-group should render radio option disabled: renders-option-disa
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" disabled="" group-label="test group" label="test label" value="test">
     <!---->
-    <div class="container disabled">
+    <div class="disabled radio-option-container">
       <div>
         <input disabled="" id="ic-radio-option-test label-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -235,7 +235,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
   </template>
   <ic-radio-option additional-field-display="dynamic" group-label="test group" label="test label" selected="" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input checked="" id="ic-radio-option-test label-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -254,7 +254,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
             This selection requires additional answers
           </p>
         </ic-typography>
-        <div>
+        <div class="additional-field-wrapper-dynamic">
           <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field" value="">
             <template shadowrootmode="open">
               <ic-input-container>
@@ -292,7 +292,7 @@ exports[`ic-radio-group should render with selected option: renders-with-selecte
   </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input checked="" id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -322,7 +322,7 @@ exports[`ic-radio-group should render with selected static additional field: ren
   </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" selected="" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input checked="" id="ic-radio-option-test label-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -335,7 +335,7 @@ exports[`ic-radio-group should render with selected static additional field: ren
     </div>
     <div class="dynamic-container">
       <div>
-        <div class="additional-field-wrapper">
+        <div class="additional-field-wrapper-static">
           <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field" value="">
             <template shadowrootmode="open">
               <ic-input-container>
@@ -373,7 +373,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
   </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" disabled="" group-label="test group" label="test label" value="test">
     <!---->
-    <div class="container disabled">
+    <div class="disabled radio-option-container">
       <div>
         <input disabled="" id="ic-radio-option-test label-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -386,7 +386,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
     </div>
     <div class="dynamic-container">
       <div>
-        <div class="additional-field-wrapper">
+        <div class="additional-field-wrapper-static">
           <ic-text-field class="ic-text-field-disabled" disabled="" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
             <template shadowrootmode="open">
               <ic-input-container disabled="">
@@ -424,7 +424,7 @@ exports[`ic-radio-group should render with validation status: renders-with-valid
   </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input checked="" id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -454,7 +454,7 @@ exports[`ic-radio-group should render with validation-aria-live: renders-with-va
   </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input checked="" id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -484,7 +484,7 @@ exports[`ic-radio-group should render: renders 1`] = `
   </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
-    <div class="container">
+    <div class="radio-option-container">
       <div>
         <input id="ic-radio-option-test-test label" name="test" tabindex="0" type="radio" value="test">
         <span class="checkmark"></span>
@@ -500,7 +500,7 @@ exports[`ic-radio-group should render: renders 1`] = `
 exports[`ic-radio-group should test radio option as submit on form 1`] = `
 <ic-radio-option additional-field-display="static" form="new-form" id="ic-radio-option" label="IC Radio Test" selected="" value="test-value">
   <!---->
-  <div class="container">
+  <div class="radio-option-container">
     <div>
       <input checked="" form="new-form" id="ic-radio-option-IC Radio Test-undefined" tabindex="0" type="radio" value="test-value">
       <span class="checkmark"></span>

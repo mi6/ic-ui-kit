@@ -11,11 +11,11 @@
   --ic-input-validation-error: var(--ic-radio-button-state-icon-error);
 }
 
-ic-input-label.error {
+:host ic-input-label.error {
   --ic-input-label-text-color: var(--ic-radio-button-input-field-label-error);
 }
 
-ic-input-label.disabled {
+:host ic-input-label.disabled {
   --ic-input-label-text-color: var(
     --ic-radio-button-input-field-label-disabled
   );
@@ -24,7 +24,7 @@ ic-input-label.disabled {
   );
 }
 
-ic-input-validation.show-validation {
+:host ic-input-validation.show-validation {
   margin-top: var(--ic-space-sm);
 }
 
@@ -32,8 +32,8 @@ ic-input-validation.show-validation {
   margin-top: calc(var(--ic-space-sm) / 2);
 }
 
-ic-input-label:not(.with-helper) .ic-typography-label,
-ic-input-label .helpertext {
+:host ic-input-label:not(.with-helper) .ic-typography-label,
+:host ic-input-label .helpertext {
   margin-bottom: var(--ic-space-sm);
 }
 
@@ -44,7 +44,7 @@ ic-input-label .helpertext {
   margin-bottom: calc(var(--ic-space-sm) / 2);
 }
 
-ic-input-label .helpertext {
+:host ic-input-label .helpertext {
   display: block;
 }
 

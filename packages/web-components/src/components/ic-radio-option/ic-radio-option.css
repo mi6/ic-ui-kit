@@ -1,33 +1,32 @@
 @import "../../global/normalize.css";
 
-ic-radio-option {
+:host {
   display: flex;
   flex-direction: column;
   width: fit-content;
 }
 
-.additional-field-wrapper [slot="additional-field"] {
+:host .additional-field-wrapper-static::slotted([slot="additional-field"]) {
   margin-top: calc(var(--ic-space-sm) / 2);
   margin-left: var(--ic-space-xl);
 }
 
 /* The label turns grey when disabled  */
-ic-radio-option.ic-radio-option-disabled,
-ic-radio-option.ic-radio-option-disabled .radio-label {
+:host(.ic-radio-option-disabled),
+:host(.ic-radio-option-disabled) .radio-label {
   --ic-typography-color: var(--ic-radio-button-text-option-disabled);
 }
 
 /* Focus states */
-
-.container input:focus + span.checkmark,
-.container:hover input:focus + span.checkmark,
-.container:active input:focus + span.checkmark,
-:host(:focus) .container input:checked + span.checkmark {
+:host .radio-option-container input:focus + span.checkmark,
+:host .radio-option-container:hover input:focus + span.checkmark,
+:host .radio-option-container:active input:focus + span.checkmark,
+:host(:focus) .radio-option-container input:checked + span.checkmark {
   box-shadow: var(--ic-border-focus);
 }
 
 /* The container */
-.container {
+:host .radio-option-container {
   display: grid;
   grid-template-columns: min-content auto;
   position: relative;
@@ -36,17 +35,17 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   margin: var(--ic-space-xxs) 0 var(--ic-space-xxs) var(--ic-space-xxs);
 }
 
-.ic-radio-group-small .container {
+:host(.ic-radio-option-small) .radio-option-container {
   margin: 0 0 0 var(--ic-space-xxs);
 }
 
-.container.disabled,
-.container.disabled input:disabled {
+:host .radio-option-container.disabled,
+:host .radio-option-container.disabled input:disabled {
   cursor: default;
 }
 
 /* Hide the browser's default radio button */
-.container input {
+:host .radio-option-container input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -59,13 +58,13 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   border: none;
 }
 
-.ic-radio-group-small .container input {
+:host(.ic-radio-option-small) .radio-option-container input {
   height: var(--ic-space-md);
   width: var(--ic-space-md);
 }
 
 /* Create a custom radio button */
-.checkmark {
+:host .checkmark {
   display: block;
   position: relative;
   top: 0;
@@ -79,84 +78,90 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   box-sizing: border-box;
 }
 
-.ic-radio-group-small .checkmark {
+:host(.ic-radio-option-small) .checkmark {
   height: var(--ic-space-md);
   width: var(--ic-space-md);
 }
 
 /* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark::after {
+:host .radio-option-container input:checked ~ .checkmark::after {
   display: inline-block;
 }
 
 /* On mouse-over, add a light blue background color */
-.container:hover input ~ .checkmark {
+:host .radio-option-container:hover input ~ .checkmark {
   box-shadow: 0 0 0 0.25rem var(--ic-radio-button-active-hover);
   border: var(--ic-border-width) solid var(--ic-radio-button-default-hover);
 }
 
-.container:hover input:checked ~ .checkmark {
+:host .radio-option-container:hover input:checked ~ .checkmark {
   box-shadow: 0 0 0 0.25rem var(--ic-radio-button-active-hover);
   border: 0.125rem solid var(--ic-radio-button-default-hover);
 }
 
-.container:hover:not(.disabled) input:checked ~ .checkmark::after {
+:host
+  .radio-option-container:hover:not(.disabled)
+  input:checked
+  ~ .checkmark::after {
   background-color: var(--ic-radio-button-default-hover);
 }
 
 /* When pressed, adds the active colours */
-.container:active input ~ .checkmark {
+:host .radio-option-container:active input ~ .checkmark {
   box-shadow: 0 0 0 0.25rem var(--ic-radio-button-active-pressed);
   border: var(--ic-border-width) solid var(--ic-radio-button-default-pressed);
 }
 
 /* When pressed, adds the active colours */
-.container:active input:checked ~ .checkmark {
+:host .radio-option-container:active input:checked ~ .checkmark {
   border: 0.125rem solid var(--ic-radio-button-default-pressed);
   box-shadow: 0 0 0 0.25rem var(--ic-radio-button-active-pressed);
 }
 
-.ic-radio-group-small .container input:checked ~ .checkmark {
+:host(.ic-radio-option-small)
+  .radio-option-container
+  input:checked
+  ~ .checkmark {
   border-width: var(--ic-space-1px);
 }
 
 /* When pressed and selected, adds the active colours */
-.container:active input:checked ~ .checkmark::after {
+:host .radio-option-container:active input:checked ~ .checkmark::after {
   background-color: var(--ic-radio-button-default-pressed);
 }
 
 /* When the radio button is checked */
-.container input:checked ~ .checkmark {
+:host .radio-option-container input:checked ~ .checkmark {
   border: 0.125rem solid var(--ic-radio-button-default-active);
 }
 
 /* When the radio button is checked and disabled */
-.container input:checked:disabled ~ .checkmark {
+:host .radio-option-container input:checked:disabled ~ .checkmark {
   border: 0.125rem solid var(--ic-radio-button-border-disabled);
 }
 
 /* When the radio button is disabled */
-.container input:disabled ~ .checkmark {
+:host .radio-option-container input:disabled ~ .checkmark {
   border: var(--ic-border-width) dashed var(--ic-radio-button-border-disabled);
 }
 
 /* When the radio button is disabled */
-.container input:disabled ~ .checkmark::after {
+:host .radio-option-container input:disabled ~ .checkmark::after {
   background: var(--ic-radio-button-disabled);
 }
 
 /* On mouse-over inactive */
-.container:hover input:disabled ~ .checkmark {
+:host .radio-option-container:hover input:disabled ~ .checkmark {
   box-shadow: none;
   border: 0.125rem solid none;
 }
 
-.container:active input:disabled ~ .checkmark::after {
+:host .radio-option-container:active input:disabled ~ .checkmark::after {
   background-color: var(--ic-radio-button-disabled);
 }
 
 /* Style the indicator (dot/circle) */
-.container .checkmark::after {
+:host .radio-option-container .checkmark::after {
   content: "";
   position: absolute;
   display: none;
@@ -168,7 +173,7 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   background: var(--ic-radio-button-default-active);
 }
 
-.ic-radio-group-small .container .checkmark::after {
+:host(.ic-radio-option-small) .radio-option-container .checkmark::after {
   top: 50%;
   left: 50%;
   width: 0.625rem;
@@ -178,22 +183,22 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   transform: translate(-50%, -50%);
 }
 
-.radio-label {
+:host .radio-label {
   margin-left: var(--ic-space-md);
 
   --ic-typography-color: var(--ic-radio-button-text-option);
 }
 
-.ic-radio-group-small .radio-label {
+:host(.ic-radio-option-small) .radio-label {
   margin-left: var(--ic-space-xs);
 }
 
-.additional-field-wrapper {
+:host .additional-field-wrapper-static {
   margin-left: var(--ic-space-xs);
 }
 
 /* The line */
-.branch-corner {
+:host .branch-corner {
   color: var(--ic-radio-button-required-bar);
   height: var(--ic-space-md);
   width: var(--ic-space-xl);
@@ -204,22 +209,22 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
 }
 
 /* The dynamic container */
-.dynamic-container {
+:host .dynamic-container {
   display: flex;
   position: relative;
   margin: var(--ic-space-xxs) 0 var(--ic-space-xxs) var(--ic-space-md);
   gap: var(--ic-space-xs);
 }
 
-.ic-radio-group-small .dynamic-container {
+:host(.ic-radio-option-small) .dynamic-container {
   margin-left: 12px;
 }
 
-.dynamic-container.hidden {
+:host .dynamic-container.hidden {
   display: none;
 }
 
-.dynamic-text {
+:host .dynamic-text {
   color: var(--ic-radio-button-required-text);
 
   --ic-typography-color: var(--ic-radio-button-required-text);
@@ -230,7 +235,8 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
 }
 
 @media (max-width: 576px) {
-  ic-text-field {
+  :host .additional-field-wrapper-dynamic::slotted(ic-text-field),
+  :host .additional-field-wrapper-static::slotted(ic-text-field) {
     --input-width: 100%;
   }
 }
@@ -238,43 +244,43 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
 @media (forced-colors: active) {
   /* Styles here only apply to Forced Colors Mode */
 
-  .container input:checked ~ .checkmark,
-  .container:active input:checked ~ .checkmark {
+  :host .radio-option-container input:checked ~ .checkmark,
+  :host .radio-option-container:active input:checked ~ .checkmark {
     border-color: Highlight;
   }
 
-  .container input:checked ~ .checkmark::after,
-  .container:active input:checked ~ .checkmark::after {
+  :host .radio-option-container input:checked ~ .checkmark::after,
+  :host .radio-option-container:active input:checked ~ .checkmark::after {
     background-color: Highlight;
   }
 
-  .container input:disabled ~ .checkmark,
-  .container input:checked:disabled ~ .checkmark {
+  :host .radio-option-container input:disabled ~ .checkmark,
+  :host .radio-option-container input:checked:disabled ~ .checkmark {
     border-color: GrayText;
   }
 
-  .container input:disabled ~ .checkmark::after,
-  .container:active input:disabled ~ .checkmark::after {
+  :host .radio-option-container input:disabled ~ .checkmark::after,
+  :host .radio-option-container:active input:disabled ~ .checkmark::after {
     background-color: GrayText;
   }
 }
 
 /* Right to left */
-input[type="radio"]:dir(rtl) {
+:host input[type="radio"]:dir(rtl) {
   right: 0;
 }
 
-.radio-label:dir(rtl) {
+:host .radio-label:dir(rtl) {
   padding-right: var(--ic-space-sm);
   padding-left: 0;
 }
 
-.branch-corner:dir(rtl) {
+:host .branch-corner:dir(rtl) {
   border-radius: 0 0 0.188rem;
   border-right: 0.125rem solid var(--ic-action-default);
   border-left: none;
 }
 
-.dynamic-container:dir(rtl) {
+:host .dynamic-container:dir(rtl) {
   margin: var(--ic-space-xxxs) var(--ic-space-sm) var(--ic-space-xxs) 0;
 }
