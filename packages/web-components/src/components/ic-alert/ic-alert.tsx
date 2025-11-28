@@ -56,6 +56,11 @@ export class Alert {
   @Prop() dismissible: boolean = false;
 
   /**
+   * The text in the dismiss button tooltip and aria label. Makes the user aware of the action resulting from clicking the 'Dismiss alert' button.
+   */
+  @Prop() dismissLabel?: string = "Dismiss";
+
+  /**
    * The optional title to display at the start of the alert.
    */
   @Prop() heading: string = "";
@@ -176,6 +181,7 @@ export class Alert {
       theme,
       alertTitleWrap,
       dismissAction,
+      dismissLabel,
     } = this;
 
     const Icon = () => {
@@ -253,7 +259,7 @@ export class Alert {
                   onClick={dismissAction}
                   variant="icon-tertiary"
                   theme="dark"
-                  title="Dismiss"
+                  aria-label={dismissLabel}
                 ></ic-button>
               )}
             </div>

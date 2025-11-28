@@ -2,6 +2,7 @@ import { html } from "lit-html";
 
 const defaultArgs = {
   dismissible: false,
+  dismissLabel: "Dismiss",
   heading: "Heading",
   message: "Message",
   titleAbove: false,
@@ -225,6 +226,7 @@ export const Playground = {
   render: (args) =>
     html`<ic-alert
       dismissible=${args.dismissible}
+      dismiss-label=${args.dismissLabel}
       variant=${args.variant}
       heading=${args.heading}
       message=${args.message}

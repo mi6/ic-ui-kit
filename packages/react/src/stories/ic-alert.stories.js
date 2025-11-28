@@ -5,6 +5,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const defaultArgs = {
   dismissible: false,
+  dismissLabel: "Dismiss",
   heading: "Heading",
   message: "Message",
   titleAbove: false,
@@ -210,6 +211,7 @@ export const Playground = {
   render: (args) => (
     <IcAlert
       dismissible={args.dismissible}
+      dismissLabel={args.dismissLabel}
       variant={args.variant}
       heading={args.heading}
       message={args.message}

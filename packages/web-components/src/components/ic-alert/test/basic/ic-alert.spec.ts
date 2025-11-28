@@ -46,7 +46,7 @@ describe("ic-alert component", () => {
   it("should render with a dismiss icon when the prop is applied", async () => {
     const page = await newSpecPage({
       components: [Alert],
-      html: `<ic-alert message="This is dismissible" dismissible=true></ic-alert>`,
+      html: `<ic-alert message="This is dismissible" dismissible=true dismissLabel="Dismiss"></ic-alert>`,
     });
 
     expect(page.root).toMatchSnapshot();
