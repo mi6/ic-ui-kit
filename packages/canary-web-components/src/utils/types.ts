@@ -236,6 +236,8 @@ export type IcThemeSettings = "dark" | "light" | "system";
 export interface IcPaginationBarOptions {
   alignment?: IcPaginationAlignmentOptions;
   hideAllFromItemsPerPage?: boolean;
+  hideCurrentPage?: boolean;
+  hideFirstAndLastPageButton?: boolean;
   hideRangeLabel?: boolean;
   itemLabel?: string;
   itemsPerPageOptions?: { label: string; value: string }[];
