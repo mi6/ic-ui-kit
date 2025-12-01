@@ -1,9 +1,290 @@
 {
-  "total": 272,
-  "totalPassed": 271,
-  "totalFailed": 1,
-  "totalSuites": 10,
+  "total": 292,
+  "totalPassed": 292,
+  "totalFailed": 0,
+  "totalSuites": 11,
   "suites": [
+    {
+      "name": "IcCalendar.cy.tsx",
+      "path": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/default",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/default-dark-mode",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-dark-mode.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-dark-mode.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/default-month-view",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-month-view.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-month-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/default-month-view-dark-mode",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-month-view-dark-mode.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-month-view-dark-mode.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/default-year-view",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-year-view.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-year-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/default-year-view-dark-mode",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-year-view-dark-mode.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-year-view-dark-mode.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/small",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/small.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/small.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/small-month-view",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/small-month-view.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/small-month-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/small-year-view",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/small-year-view.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/small-year-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/large",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/large.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/large.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/large-month-view",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/large-month-view.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/large-month-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/large-year-view",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/large-year-view.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/large-year-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/go-to-today-hidden",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/go-to-today-hidden.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/go-to-today-hidden.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/clear-hidden",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/clear-hidden.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/clear-hidden.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/open-at-date",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/open-at-date.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/open-at-date.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/disable-weekends",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/disable-weekends.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/disable-weekends.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/days-outside-month-hidden",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/days-outside-month-hidden.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/days-outside-month-hidden.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/start-of-week",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/start-of-week.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/start-of-week.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/min-max",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/min-max.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/min-max.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/min-max-month-view",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/min-max-month-view.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/min-max-month-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/min-max-year-view",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/min-max-year-view.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/min-max-year-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/default-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/default-month-view-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/default-month-view-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/default-month-view-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/disable-weekends-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/disable-weekends-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/disable-weekends-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCalendar.cy.tsx/min-max-month-view-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCalendar/IcCalendar.cy.tsx",
+          "specFilename": "IcCalendar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCalendar.cy.tsx/min-max-month-view-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCalendar.cy.tsx/min-max-month-view-high-contrast.png"
+        }
+      ]
+    },
     {
       "name": "IcCardHorizontal.cy.tsx",
       "path": "src/component-tests/IcCardHorizontal/IcCardHorizontal.cy.tsx",
@@ -1981,14 +2262,14 @@
         },
         {
           "status": "pass",
-          "name": "IcDatePicker.cy.tsx/goto-today-hidden",
+          "name": "IcDatePicker.cy.tsx/go-to-today-hidden",
           "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/goto-today-hidden.png",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/go-to-today-hidden.png",
           "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/goto-today-hidden.png"
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/go-to-today-hidden.png"
         },
         {
           "status": "pass",
@@ -2047,17 +2328,6 @@
         },
         {
           "status": "pass",
-          "name": "IcDatePicker.cy.tsx/disabled",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
-          "specFilename": "IcDatePicker.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/disabled.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/disabled.png"
-        },
-        {
-          "status": "pass",
           "name": "IcDatePicker.cy.tsx/disable-weekends",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2077,50 +2347,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/days-outside-month-hidden.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/days-outside-month-hidden.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcDatePicker.cy.tsx/start-of-week",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
-          "specFilename": "IcDatePicker.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/start-of-week.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/start-of-week.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcDatePicker.cy.tsx/min-max",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
-          "specFilename": "IcDatePicker.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/min-max.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/min-max.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcDatePicker.cy.tsx/min-max-month-view",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
-          "specFilename": "IcDatePicker.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/min-max-month-view.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/min-max-month-view.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcDatePicker.cy.tsx/min-max-year-view",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
-          "specFilename": "IcDatePicker.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/min-max-year-view.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/min-max-year-view.png"
         },
         {
           "status": "pass",
@@ -2752,14 +2978,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-disable-times.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTimeSelector.cy.tsx/time-selector-column-focus",
-          "percentage": 0.00447213595499958,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
           "specFilename": "IcTimeSelector.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-column-focus.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTimeSelector.cy.tsx/time-selector-column-focus.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-column-focus.png"
         },
         {
@@ -3057,9 +3283,9 @@
       ]
     }
   ],
-  "startedAt": "2025-11-13T14:31:59.440Z",
-  "endedAt": "2025-11-13T14:39:56.781Z",
-  "duration": 452911,
+  "startedAt": "2025-12-01T12:44:47.901Z",
+  "endedAt": "2025-12-01T12:54:26.755Z",
+  "duration": 551575,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
