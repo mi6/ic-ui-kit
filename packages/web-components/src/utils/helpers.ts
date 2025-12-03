@@ -23,6 +23,7 @@ import {
   IC_CHECKBOX,
   IC_FIXED_COLOR_COMPONENTS,
   IC_SEARCH_BAR,
+  IC_TAB_CONTEXT,
   IC_TEXT_FIELD,
 } from "./constants";
 
@@ -768,11 +769,12 @@ export const focusElement = (
     );
   } else {
     switch (element.tagName) {
-      case IC_ACCORDION_GROUP:
       case IC_ACCORDION:
-      case IC_SEARCH_BAR:
-      case IC_TEXT_FIELD:
+      case IC_ACCORDION_GROUP:
       case IC_CHECKBOX:
+      case IC_SEARCH_BAR:
+      case IC_TAB_CONTEXT:
+      case IC_TEXT_FIELD:
         (element as IcFocusableComponents).setFocus();
         break;
       default:
@@ -896,6 +898,6 @@ export const slottedInteractiveElements = (el: HTMLElement): HTMLElement[] =>
   Array.from(
     el.querySelectorAll(
       `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
-          ic-accordion, ic-accordion-group, ic-action-chip, ic-back-to-top, ic-breadcrumb, ic-button, ic-checkbox, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, ic-navigation-item, ic-radio-option, ic-search-bar, ic-select, ic-switch, ic-tab-group, ic-text-field, ic-toggle-button-group, ic-date-input, ic-date-picker, ic-time-input`
+          ic-accordion, ic-accordion-group, ic-action-chip, ic-back-to-top, ic-breadcrumb, ic-button, ic-checkbox, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, ic-navigation-item, ic-radio-option, ic-search-bar, ic-select, ic-switch, ic-tab-context, ic-text-field, ic-toggle-button-group, ic-date-input, ic-date-picker, ic-time-input`
     )
   );

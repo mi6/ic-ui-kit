@@ -27,6 +27,7 @@ import {
   IC_BLOCK_COLOR_COMPONENTS,
   IC_BLOCK_COLOR_EXCEPTIONS,
   IC_FIXED_COLOR_COMPONENTS,
+  IC_TAB_CONTEXT,
 } from "./constants"; // Using @ukic/web-components/dist/types/utils/constants does not work so duplicated constants into canary package
 import { IcBrandForegroundEnum, IcFocusableComponents } from "./types"; // Using @ukic/web-components/dist/types/utils/types does not work so duplicated constants into canary package
 
@@ -784,16 +785,18 @@ export const focusElement = (
     );
   } else {
     switch (element.tagName) {
-      case IC_ACCORDION_GROUP:
       case IC_ACCORDION:
-      case IC_SEARCH_BAR:
-      case IC_TEXT_FIELD:
+      case IC_ACCORDION_GROUP:
       case IC_CHECKBOX:
+      case IC_SEARCH_BAR:
+      case IC_TAB_CONTEXT:
+      case IC_TEXT_FIELD:
         (element as IcFocusableComponents).setFocus();
         break;
       default:
         (element as HTMLElement).focus();
     }
+    console.log(newFocusedElementIndex);
     return newFocusedElementIndex;
   }
 };
@@ -846,11 +849,11 @@ export const getLoopedNextFocusIndexIfLastElement = (
  * @param interactiveElementList - list of interactive elements
  * @param shiftKey - whether the shift key is pressed
  */
-export function handleFocusTrapTabKeyPress(
+export const handleFocusTrapTabKeyPress = (
   el: HTMLElement,
   interactiveElementList: HTMLElement[],
   shiftKey: boolean
-): { preventDefault: boolean; newFocusedElementIndex: number } {
+): { preventDefault: boolean; newFocusedElementIndex: number } => {
   const focusedElementIndex = getFocusedElementIndex(
     el,
     interactiveElementList
@@ -880,7 +883,61 @@ export function handleFocusTrapTabKeyPress(
   );
 
   return { preventDefault: true, newFocusedElementIndex };
-}
+};
+
+/**
+ * Sets up listener and mutation observer to refresh interactive elements on slot changes. Used for focus trapping.
+ * @param contentWrapper - content wrapper element
+ * @param setInteractiveElements - function to set interactive elements
+ */
+export const refreshInteractiveElementsOnSlotChange = (
+  contentWrapper: HTMLElement | null,
+  setInteractiveElements: () => void
+): {
+  contentAreaSlot: HTMLSlotElement | null;
+  contentAreaMutationObserver: MutationObserver | null;
+} => {
+  let contentAreaSlot: HTMLSlotElement | null = null;
+  let contentAreaMutationObserver: MutationObserver | null = null;
+
+  if (contentWrapper) {
+    contentAreaSlot = contentWrapper.querySelector("slot");
+
+    // Detect changes to slotted elements
+    contentAreaSlot?.addEventListener("slotchange", setInteractiveElements);
+
+    contentAreaMutationObserver = new MutationObserver(() => {
+      setInteractiveElements();
+    });
+
+    // Detect changes to children of slotted elements
+    getSlotElements(contentWrapper)?.forEach((el) => {
+      contentAreaMutationObserver?.observe(el, {
+        childList: true,
+        subtree: true,
+      });
+    });
+  }
+
+  return { contentAreaSlot, contentAreaMutationObserver };
+};
+
+/**
+ * Removes listener and disconnects mutation observer for slot changes. Used for focus trapping.
+ * @param contentAreaSlotMutationObserver - mutation observer for content area slot
+ * @param contentAreaSlot - content area slot element
+ * @param setInteractiveElements - function to set interactive elements
+ */
+export const removeInteractiveElementSlotChangeListener = (
+  contentAreaSlot: HTMLSlotElement | null | undefined,
+  contentAreaSlotMutationObserver: MutationObserver | null,
+  setInteractiveElements: () => void
+) => {
+  if (contentAreaSlot) {
+    contentAreaSlot.removeEventListener("slotchange", setInteractiveElements);
+    contentAreaSlotMutationObserver?.disconnect();
+  }
+};
 
 /**
  * Determines whether an element should be skipped when focusing interactive elements. Used for focus trapping.
@@ -912,6 +969,8 @@ export const slottedInteractiveElements = (el: HTMLElement): HTMLElement[] =>
   Array.from(
     el.querySelectorAll(
       `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
-          ic-accordion, ic-accordion-group, ic-action-chip, ic-back-to-top, ic-breadcrumb, ic-button, ic-checkbox, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, ic-navigation-item, ic-radio-option, ic-search-bar, ic-select, ic-switch, ic-tab-group, ic-text-field, ic-toggle-button-group, ic-date-input, ic-date-picker, ic-time-input`
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-context,
+          ic-back-to-top, ic-breadcrumb, ic-action-chip, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
+          ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker, ic-time-input`
     )
   );

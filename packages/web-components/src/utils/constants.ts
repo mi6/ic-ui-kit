@@ -144,4 +144,5 @@ export const IC_ACCORDION = "IC-ACCORDION";
 export const IC_ACCORDION_GROUP = "IC-ACCORDION-GROUP";
 export const IC_CHECKBOX = "IC-CHECKBOX";
 export const IC_SEARCH_BAR = "IC-SEARCH-BAR";
+export const IC_TAB_CONTEXT = "IC-TAB-CONTEXT";
 export const IC_TEXT_FIELD = "IC-TEXT-FIELD";

@@ -120,9 +120,10 @@ export class Alert {
   componentDidLoad(): void {
     if (Number(this.titleEl?.clientHeight) > 24) this.alertTitleWrap = true;
 
-    this.hostMutationObserver = new MutationObserver((mutationList) =>
-      renderDynamicChildSlots(mutationList, "action", this)
-    );
+    this.hostMutationObserver = new MutationObserver((mutationList) => {
+      console.log("update");
+      renderDynamicChildSlots(mutationList, "action", this);
+    });
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });

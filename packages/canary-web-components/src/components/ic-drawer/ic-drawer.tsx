@@ -21,6 +21,9 @@ import {
   focusElement,
   handleFocusTrapTabKeyPress,
   isSlotUsed,
+  refreshInteractiveElementsOnSlotChange,
+  removeInteractiveElementSlotChangeListener,
+  renderDynamicChildSlots,
   slottedInteractiveElements,
 } from "../../utils/helpers";
 import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./ic-drawer.types";
@@ -45,16 +48,22 @@ export class Drawer {
   private actionAreaEl?: HTMLDivElement;
   private chevronButton?: HTMLIcButtonElement;
   private contentAreaEl?: HTMLDivElement;
+  private contentAreaMutationObserver: MutationObserver | null = null;
   private contentAreaShadowBottomEl?: HTMLDivElement;
   private contentAreaShadowTopEl?: HTMLDivElement;
+  private contentAreaSlot?: HTMLSlotElement | null;
   private drawerPanelEl?: HTMLDivElement;
   private focusedElementIndex = 0;
-  private interactiveElementList: HTMLElement[];
+  private hostMutationObserver: MutationObserver | null = null;
+  private interactiveElementList: HTMLElement[] = [];
   private resizeObserver?: ResizeObserver;
   private sourceElement?: HTMLElement;
 
   @Element() el: HTMLIcDrawerElement;
 
+  @State() isActionsSlotUsed = false;
+  @State() isHeadingSlotUsed = false;
+  @State() isMessageSlotUsed = false;
   @State() isScrollable: boolean;
 
   /**
@@ -166,18 +175,21 @@ export class Drawer {
   }
 
   componentDidLoad(): void {
-    this.handleContentAreaScroll();
+    this.setContentAreaMutationObserver();
+    this.setHostMutationObserver();
+    this.setResizeObserver();
 
-    if (this.position === "top" || this.position === "bottom") {
-      this.resizeObserver = new ResizeObserver(() => {
-        this.updateActionAreaMargin();
-      });
-      this.resizeObserver.observe(this.el);
-      this.updateActionAreaMargin();
-    }
+    this.handleContentAreaScroll();
   }
 
   disconnectedCallback(): void {
+    removeInteractiveElementSlotChangeListener(
+      this.contentAreaSlot,
+      this.contentAreaMutationObserver,
+      this.setInteractiveElements
+    );
+
+    this.hostMutationObserver?.disconnect();
     this.resizeObserver?.disconnect();
   }
 
@@ -217,13 +229,6 @@ export class Drawer {
     }
   };
 
-  private handleBackdropClick = (ev: Event) => {
-    if (this.closeOnBackdropClick) {
-      this.handleDrawerExpanded(false, ev);
-    }
-    ev.stopPropagation();
-  };
-
   private getAriaAttributes = () => {
     if (!this.expanded) return {};
     if (isSlotUsed(this.el, "heading")) {
@@ -237,6 +242,33 @@ export class Drawer {
       //   : "drawer-heading",
       "aria-labelledby": "drawer-heading",
     };
+  };
+
+  private setContentAreaMutationObserver = () => {
+    const { contentAreaSlot, contentAreaMutationObserver } =
+      refreshInteractiveElementsOnSlotChange(
+        this.el.shadowRoot?.querySelector("#drawer-content") || null,
+        this.setInteractiveElements
+      );
+    this.contentAreaSlot = contentAreaSlot;
+    this.contentAreaMutationObserver = contentAreaMutationObserver;
+  };
+
+  private setHostMutationObserver = () => {
+    this.hostMutationObserver = new MutationObserver((mutationList) => {
+      // Update state variables to re-run logic displaying slots in render function
+      // this.isActionsSlotUsed = isSlotUsed(this.el, "actions");
+      // this.isHeadingSlotUsed = isSlotUsed(this.el, "heading");
+      // this.isMessageSlotUsed = Array.from(this.el.children).some(
+      //   (child) => !child.hasAttribute("slot")
+      // );
+      console.log("update");
+      renderDynamicChildSlots(mutationList, "actions", this);
+    });
+
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
   };
 
   private setInteractiveElements = () => {
@@ -266,6 +298,23 @@ export class Drawer {
     if (this.interactiveElementList.length === 0 && this.drawerPanelEl) {
       this.interactiveElementList = [this.drawerPanelEl];
     }
+  };
+
+  private setResizeObserver = () => {
+    if (this.position === "top" || this.position === "bottom") {
+      this.resizeObserver = new ResizeObserver(() => {
+        this.updateActionAreaMargin();
+      });
+      this.resizeObserver.observe(this.el);
+      this.updateActionAreaMargin();
+    }
+  };
+
+  private handleBackdropClick = (ev: Event) => {
+    if (this.closeOnBackdropClick) {
+      this.handleDrawerExpanded(false, ev);
+    }
+    ev.stopPropagation();
   };
 
   // Show and hide shadows at top and bottom of content area to indicate scrollability
@@ -364,22 +413,22 @@ export class Drawer {
             [`${size}`]: true,
           }}
           id="drawer-panel"
-          // tabindex={-1}
+          tabindex={-1} // Needed to set focus on whole drawer panel when there are no focusable elements
           {...(expanded ? { role: "dialog" } : {})}
+          {...this.getAriaAttributes()}
           onClick={(ev) =>
             !expanded ? this.handleDrawerExpanded(false, ev) : undefined
           }
-          {...this.getAriaAttributes()}
         >
           {trigger === "arrow" && this.renderChevronButton()}
           <div class="inner-drawer-panel">
-            <a id="drawer-content"></a> {/* CHECK THIS WORKS */}
+            {/* <a id="drawer-content"></a> CHECK THIS WORKS */}
             <div class="drawer-header">
               <div class="heading-area">
-                {isSlotUsed(this.el, "heading-adornment") && (
-                  <slot name="heading-adornment" />
-                )}
-                {isSlotUsed(this.el, "heading") ? (
+                {/* {isSlotUsed(this.el, "heading-adornment") && ( */}
+                <slot name="heading-adornment" />
+                {/* )} */}
+                {this.isHeadingSlotUsed ? (
                   <slot name="heading" />
                 ) : (
                   <ic-typography id="drawer-heading" variant="h4">
@@ -413,12 +462,14 @@ export class Drawer {
                   ref={(el) => (this.contentAreaShadowTopEl = el)}
                   class="content-area-shadow-top"
                 ></div>
-                {this.message ? (
+                {this.isMessageSlotUsed ? (
+                  <div id="drawer-content">
+                    <slot />
+                  </div>
+                ) : (
                   <ic-typography>
                     <p>{this.message}</p>
                   </ic-typography>
-                ) : (
-                  <slot />
                 )}
                 <div
                   ref={(el) => (this.contentAreaShadowBottomEl = el)}
