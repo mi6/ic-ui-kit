@@ -997,6 +997,7 @@ export const DisableWidthConstraint = {
 };
 
 export const ShowHideInteractiveElements = {
+  // Delay with second button prevents false positive by ensuring the two slot updates happen at separate times
   render: () => html`
     <script>
       function showShowHideContentDialog() {

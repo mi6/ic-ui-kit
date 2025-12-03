@@ -2540,10 +2540,8 @@ ic-theme,
     --ic-drawer-background: var(--ic-color-background-primary);
     --ic-drawer-chevron: var(--ic-action-default);
     --ic-drawer-divider-color: var(--ic-atoms-option-bar-divider);
-    --ic-drawer-drop-shadow: var(--ic-elevation-overlay-inverted);
-    --ic-drawer-overlay: var(
-      --ic-architectural-black-state-layer-10
-    ); /* SHOULD THIS BE WHITE? */
+    --ic-drawer-drop-shadow: var(--ic-elevation-overlay);
+    --ic-drawer-overlay: var(--ic-architectural-black-state-layer-10);
     --ic-drawer-text: var(--ic-color-text-primary);
 
     /* Empty state */
@@ -4200,10 +4198,8 @@ ic-theme,
   --ic-drawer-background: var(--ic-color-background-primary);
   --ic-drawer-chevron: var(--ic-action-default);
   --ic-drawer-divider-color: var(--ic-atoms-option-bar-divider);
-  --ic-drawer-drop-shadow: var(--ic-elevation-overlay-inverted);
-  --ic-drawer-overlay: var(
-    --ic-architectural-black-state-layer-10
-  ); /* SHOULD THIS BE WHITE? */
+  --ic-drawer-drop-shadow: var(--ic-elevation-overlay);
+  --ic-drawer-overlay: var(--ic-architectural-black-state-layer-10);
   --ic-drawer-text: var(--ic-color-text-primary);
 
   /* Empty state */

@@ -12,6 +12,27 @@ export default {
   },
 };
 
+const defaultArgs = {
+  ariaLabel: "",
+  boundary: "viewport",
+  chevronButtonAriaLabel: "",
+  closeButtonAriaLabel: "",
+  closeOnBackdropClick: true,
+  expanded: false,
+  heading: "Roasted coffee",
+  hideCloseButton: false,
+  message:
+    "Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours.",
+  position: "right",
+  size: "medium",
+  theme: "inherit",
+  trigger: "arrow",
+  actionsSlot: true,
+  headingAdornmentSlot: true,
+  headingSlot: false,
+  messageSlot: false,
+};
+
 export const RightPosition = {
   render: (args) => html`<ic-drawer
       heading="Roasted coffee"
@@ -26,7 +47,6 @@ export const RightPosition = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
-      <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
       function handleDrawerExpanded(ev) {
@@ -623,6 +643,7 @@ export const SlottedContent = {
         <ic-checkbox label="Disabled" value="disabled" disabled>
       </ic-checkbox-group>
       <br />
+      <ic-action-chip label="Default"></ic-action-chip>
       <ic-chip label="Default" dismissible="true">
         <svg
           slot="icon"
@@ -641,6 +662,17 @@ export const SlottedContent = {
       <br />
       <ic-switch label="Switch label"></ic-switch>
       <br />
+      <br />
+      <ic-tab-context>
+        <ic-tab-group label="Example tab group">
+          <ic-tab>Ingredients</ic-tab>
+          <ic-tab>Method</ic-tab>
+          <ic-tab>History</ic-tab>
+        </ic-tab-group>
+        <ic-tab-panel>Tab One - Ingredients</ic-tab-panel>
+        <ic-tab-panel>Tab Two - Method</ic-tab-panel>
+        <ic-tab-panel>Tab Three - History</ic-tab-panel>
+      </ic-tab-context>
       <br />
     </div>
     <ic-button slot="actions">Add to order</ic-button>
@@ -677,3 +709,59 @@ export const SlottedContent = {
     </script>`,
   name: "Slotted content",
 };
+
+export const ShowHideInteractiveElements = {
+  // Delay with second button prevents false positive by ensuring the two slot updates happen at separate times
+  render: (args) => html`<script>
+      var btnShow = document.querySelector(".show");
+      btnShow.addEventListener("click", () => {
+        var el = document.createElement("ic-button");
+        el.id = "slotted-btn";
+        el.innerText = "Slotted element";
+        var childEl = document.createElement("ic-button");
+        childEl.id = "slotted-child-btn";
+        childEl.innerText = "Child of slotted element";
+        var base = document.querySelector("#base");
+        base.after(el);
+        setTimeout(() => base.appendChild(childEl), 2000);
+      });
+      var btnHide = document.querySelector(".hide");
+      btnHide.addEventListener("click", () => {
+        if (document.querySelector("#slotted-btn")) {
+          var btn = document.querySelector("#slotted-btn");
+          btn.remove();
+        }
+        if (document.querySelector("#slotted-child-btn")) {
+          var btn = document.querySelector("#slotted-child-btn");
+          setTimeout(() => btn.remove(), 2000);
+        }
+      });
+    </script>
+    <ic-drawer heading="Roasted coffee">
+      <ic-typography>
+        Demonstrates changes to slotted elements happening after first load.
+        <br />
+        The button which is a child of an already rendered slotted
+        <code>${`<div>`}</code> will show / hide after a 2s delay.
+      </ic-typography>
+      <br />
+      <ic-button class="show">Show</ic-button>
+      <ic-button class="hide">Hide</ic-button>
+      <br />
+      <br />
+      <div id="base"></div>
+      <ic-button slot="actions">Add to order</ic-button>
+    </ic-drawer>
+    <script>
+      function handleDrawerExpanded(ev) {
+        console.log(ev.detail);
+      }
+
+      document
+        .querySelector("ic-drawer")
+        .addEventListener("icDrawerExpanded", handleDrawerExpanded);
+    </script>`,
+  name: "Show / hide interactive elements",
+};
+
+// PLAYGROUND

@@ -2220,6 +2220,10 @@ export namespace Components {
           * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
+        /**
+          * Sets focus on the tab context.
+         */
+        "setFocus": () => Promise<void>;
         "tabRemovedHandler": (hadFocus?: boolean) => Promise<void>;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.

@@ -23,6 +23,19 @@
 | `icTabSelect` | Emitted when a user selects a tab. | `CustomEvent<IcTabSelectEventDetail>` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the tab context.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 

@@ -1,16 +1,35 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IcDrawer } from "../components";
 import readme from "../../../canary-web-components/src/components/ic-drawer/readme.md";
-import { mdiCoffee } from "@mdi/js";
+import { mdiCoffee, mdiRefresh } from "@mdi/js";
 import {
+  IcAccordion,
+  IcActionChip,
   IcButton,
+  IcCheckbox,
+  IcCheckboxGroup,
+  IcChip,
   IcFooter,
-  IcSideNavigation,
+  IcMenuGroup,
+  IcMenuItem,
   IcNavigationItem,
   IcPageHeader,
-  SlottedSVG,
+  IcPopoverMenu,
+  IcRadioGroup,
+  IcRadioOption,
+  IcSearchBar,
   IcSectionContainer,
+  IcSelect,
+  IcSideNavigation,
+  IcSwitch,
+  IcTab,
+  IcTabContext,
+  IcTabGroup,
+  IcTabPanel,
+  IcTextField,
+  IcTooltip,
   IcTypography,
+  SlottedSVG,
 } from "@ukic/react";
 
 export default {
@@ -23,6 +42,12 @@ export default {
     layout: "fullscreen",
   },
 }
+
+const selectOptions = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+];
 
 const defaultArgs = {
   ariaLabel: "",
@@ -38,10 +63,48 @@ const defaultArgs = {
   size: "medium",
   theme: "inherit",
   trigger: "arrow",
-  actionsSlot: true,
+  actionsSlot: false,
   headingAdornmentSlot: true,
   headingSlot: false,
   messageSlot: false,
+};
+
+const ShowHideContent = () => {
+  const [showEl1, setShowEl1] = useState(false);
+  const [showEl2, setShowEl2] = useState(false);
+  const handleShow = (show) => {
+    // Delay prevents false positive by ensuring the two slot updates happen at separate times
+    setTimeout(() => {
+      setShowEl1(show);
+    }, 2000);
+    setShowEl2(show);
+  };
+  return (
+    <>
+      <IcTypography>
+        Demonstrates changes to slotted elements happening after first load.
+        <br />
+        The button which is a child of an existing slotted element will update after a 2s delay.
+      </IcTypography>
+      <br />
+      <IcButton onClick={() => handleShow(true)}>Show</IcButton>
+      <IcButton onClick={() => handleShow(false)}>Hide</IcButton>
+      <div>
+        {showEl1 && (
+          <IcButton>Child of slotted element</IcButton>
+        )}
+      </div>
+      {showEl2 && (
+        <>
+          <IcButton>Slotted element</IcButton>
+          <IcTypography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </IcTypography>
+        </>
+      )}
+    </>
+  );
 };
 
 export const RightPosition = {
@@ -262,9 +325,9 @@ export const ManualTriggerContainedWithinParent = {
           onIcDrawerExpanded={ev => console.log(ev.detail)}
         >
           <SlottedSVG
-              path={mdiCoffee}
-              slot="heading-adornment"
-              viewBox="0 0 24 24"
+            path={mdiCoffee}
+            slot="heading-adornment"
+            viewBox="0 0 24 24"
           />
           <IcButton slot="actions">Add to order</IcButton>
         </IcDrawer>
@@ -323,8 +386,277 @@ export const ManualTriggerContainedWithinParent = {
   name: "Manual trigger - contained within parent",
 };
 
+export const Small = {
+  render: () => <IcDrawer
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      size="small"
+      onIcDrawerExpanded={ev => console.log(ev.detail)}
+    >
+      <SlottedSVG
+          path={mdiCoffee}
+          slot="heading-adornment"
+          viewBox="0 0 24 24"
+      />
+      <IcButton slot="actions">Add to order</IcButton>
+    </IcDrawer>,
+  name: "Small",
+};
+
+export const Large = {
+  render: () => <IcDrawer
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      size="large"
+      onIcDrawerExpanded={ev => console.log(ev.detail)}
+    >
+      <SlottedSVG
+          path={mdiCoffee}
+          slot="heading-adornment"
+          viewBox="0 0 24 24"
+      />
+      <IcButton slot="actions">Add to order</IcButton>
+    </IcDrawer>,
+  name: "Large",
+};
+
+export const SlottedContent = {
+  render: () => {
+    const [popoverOpen, setPopoverOpen] = useState(false);
+    const showPopover = () => setPopoverOpen(true);
+    const handlePopoverClosed = () => setPopoverOpen(false);
+
+    return(
+    <IcDrawer onIcDrawerExpanded={ev => console.log(ev.detail)}>
+      <SlottedSVG
+          path={mdiCoffee}
+          slot="heading-adornment"
+          viewBox="0 0 24 24"
+      />
+      <IcTypography slot="heading" variant="h4">
+        <h4>Roasted coffee</h4>
+      </IcTypography>
+      <div>
+        <IcTypography>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </IcTypography>
+        <br />
+        <IcTooltip label="This is a description of the button">
+          <IcButton>
+            Button with tooltip
+          </IcButton>
+        </IcTooltip>
+        <IcButton
+          variant="icon-primary"
+          aria-label="This is a description of the button"
+          tooltip-placement="top"
+        >
+          <SlottedSVG
+            path={mdiRefresh}
+            viewBox="0 0 24 24"
+          />
+        </IcButton>
+        <br />
+        <br />
+        <IcAccordion heading="This is an accordion">
+          <IcCheckbox label="Agree" value="confirm" additionalFieldDisplay="static">
+            <IcTextField
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            />
+          </IcCheckbox>
+          <br />
+          <IcRadioGroup label="This is a label" name="1">
+            <IcRadioOption
+              value="valueName1"
+              label="Unselected / Default"
+              additionalFieldDisplay="dynamic"
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              />
+            </IcRadioOption>
+            <IcRadioOption
+              value="valueName2"
+              label="Selected / Default"
+              additionalFieldDisplay="static"
+              selected
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              />
+            </IcRadioOption>
+            <IcRadioOption
+              value="valueName3"
+              label="Unselected / Disabled"
+              disabled
+            />
+          </IcRadioGroup>
+        </IcAccordion>
+        <br />
+        <IcSearchBar label="What is your favourite coffee?" />
+        <br />
+        <IcTextField label="What is your favourite coffee?" />
+        <br />
+        <IcSelect
+          id="sel1"
+          label="What is your favourite coffee?"
+          placeholder="Placeholder goes here"
+          options={selectOptions}
+        />
+      <br />
+      <IcButton id="button-1" onClick={showPopover}>
+        Show popover
+      </IcButton>
+      <div>
+        <IcPopoverMenu anchor="button-1" aria-label="popover" open={popoverOpen} onIcPopoverClosed={handlePopoverClosed}>
+          <IcMenuItem label="Copy code" disabled />
+          <IcMenuGroup label="View">
+            <IcMenuItem
+              label="Zoom in"
+              keyboardShortcutLabel="Cmd+"
+            />
+          </IcMenuGroup>
+          <IcMenuItem
+            label="Actions"
+            submenuTriggerFor="abc"
+          />
+        </IcPopoverMenu>
+        <IcPopoverMenu submenuId="abc">
+          <IcMenuItem
+            label="Find"
+            submenuTriggerFor="abc123"
+          />
+        </IcPopoverMenu>
+        <IcPopoverMenu submenuId="abc123">
+          <IcMenuItem
+            disabled
+            label="Search the web"
+            description="This will search the web to find the thing you are looking for."
+          />
+          <IcMenuItem label="Find icons">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </IcMenuItem>
+        </IcPopoverMenu>
+        </div>
+        <br />
+        <IcCheckboxGroup
+          hideLabel
+          label="confirm"
+          name="confirm-checkbox"
+        >
+          <IcCheckbox label="Confirm" value="confirm" additionalFieldDisplay="static">
+            <IcTextField
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            />
+          </IcCheckbox>
+          <IcCheckbox additionalFieldDisplay="dynamic" value="disagree" label="Disagree">
+            <IcTextField
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            />
+          </IcCheckbox>
+          <IcCheckbox label="Disabled" value="disabled" disabled></IcCheckbox>
+        </IcCheckboxGroup>
+        <br />
+        <IcActionChip label="Default"></IcActionChip>
+        <IcChip label="Default" dismissible="true">
+          <SlottedSVG
+            slot="icon"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
+            />
+          </SlottedSVG>
+        </IcChip>
+        <br />
+        <br />
+        <IcSwitch label="Switch label" />
+        <br />
+        <br />
+        <IcTabContext
+          onIcTabSelect={(ev) =>
+            console.log({
+              tabIndex: ev.detail.tabIndex,
+              tabLabel: ev.detail.tabLabel,
+            })
+          }
+        >
+          <IcTabGroup label="Example tab group">
+            <IcTab>Ingredients</IcTab>
+            <IcTab>Method</IcTab>
+            <IcTab>History</IcTab>
+          </IcTabGroup>
+          <IcTabPanel>Tab One - Ingredients</IcTabPanel>
+          <IcTabPanel>Tab Two - Method</IcTabPanel>
+          <IcTabPanel>Tab Three - History</IcTabPanel>
+        </IcTabContext>
+        <br />
+      </div>
+      <IcButton slot="actions">Add to order</IcButton>
+    </IcDrawer>
+  )},
+  name: "Slotted content",
+};
+
+export const ShowHideInteractiveElements = {
+  render: () => <IcDrawer
+      heading="Roasted coffee"
+      message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
+      onIcDrawerExpanded={ev => console.log(ev.detail)}
+    >
+      <SlottedSVG
+          path={mdiCoffee}
+          slot="heading-adornment"
+          viewBox="0 0 24 24"
+      />
+      <ShowHideContent />
+      <IcButton slot="actions">Add to order</IcButton>
+    </IcDrawer>,
+  name: "Show / hide interactive elements",
+}
+
 export const Playground = {
   render: (args) => {
+    const [drawerExpanded, setDrawerExpanded] = useState(args.expanded);
+
+    useEffect(() => {
+      setDrawerExpanded(args.expanded);
+    }, [args.expanded]);
+
+    // const drawerRef = useRef(null);
+    // const toggleDrawer = () => {
+    //   if (drawerRef.current) {
+    //     drawerRef.current.expanded = !drawerRef.current.expanded;
+    //   };
+    // };
 
   // const useStyles = createUseStyles({
   //     contentDivContainer: {
@@ -398,6 +730,10 @@ export const Playground = {
                     Donec viverra enim sed nibh placerat venenatis. Ut volutpat dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet tempus consequat. In a nulla mollis, fringilla metus vitae, facilisis lorem. Ut eu turpis a magna sodales suscipit. Curabitur et turpis nec nisi mollis consectetur. Quisque consequat libero non laoreet vestibulum. Aliquam non diam faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros. Phasellus euismod vestibulum nulla sit amet ultricies. Pellentesque luctus purus ut elit placerat ultricies. Sed a gravida nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam porttitor a mi pharetra lobortis. Curabitur dapibus id purus sed feugiat.
                   </p>
                 </IcTypography>
+                <br />
+                {args.trigger === 'controlled' && (
+                  <IcButton variant="secondary" onClick={() => setDrawerExpanded(!drawerExpanded)}>Learn more about roasted coffee</IcButton>
+                )}
               </div>
             </IcSectionContainer>
             <IcDrawer
@@ -407,22 +743,40 @@ export const Playground = {
               chevronButtonAriaLabel={args.chevronButtonAriaLabel}
               closeButtonAriaLabel={args.closeButtonAriaLabel}
               closeOnBackdropClick={args.closeOnBackdropClick}
-              expanded={args.expanded}
+              expanded={drawerExpanded}
               heading={args.heading}
+              hideCloseButton={args.hideCloseButton}
               message={args.message}
               position={args.position}
               size={args.size}
-              showCloseButton={args.showCloseButton}
               theme={args.theme}
               trigger={args.trigger}
-              onIcDrawerExpanded={ev => console.log(ev.detail)}
+              onIcDrawerExpanded={ev => setDrawerExpanded(ev.detail.expanded)}
             >
-              <SlottedSVG
+              {args.headingAdornmentSlot && (
+                <SlottedSVG
                   path={mdiCoffee}
                   slot="heading-adornment"
                   viewBox="0 0 24 24"
-              />
-              <IcButton slot="actions">Add to order</IcButton>
+                />
+              )}
+              {args.headingSlot && (
+                <IcTypography slot="heading" variant="h4">
+                  <h4>(Slotted) Roasted coffee</h4>
+                </IcTypography>
+              )}
+              {args.messageSlot && (
+                <IcTypography>
+                  <p>
+                    (Slotted)
+                    <br />
+                    Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours.
+                  </p>
+                </IcTypography>
+              )}
+              {args.actionsSlot && (
+                <IcButton slot="actions">Add to order</IcButton>
+              )}
             </IcDrawer>
             </div>
           </main>
@@ -466,12 +820,6 @@ export const Playground = {
       options: ["arrow", "controlled"],
       control: {
         type: "inline-radio",
-      },
-    },
-    actionsSlot: {
-      mapping: {
-        true: "actions",
-        false: "",
       },
     },
   }

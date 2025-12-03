@@ -315,6 +315,7 @@ export class Dialog {
       });
 
       // Detect changes to children of slotted elements
+      console.log(getSlotElements(contentWrapper));
       getSlotElements(contentWrapper)?.forEach((el) => {
         this.contentAreaMutationObserver?.observe(el, {
           childList: true,
@@ -353,6 +354,7 @@ export class Dialog {
   };
 
   private getInteractiveElements = () => {
+    console.log("getting interactive elements");
     this.interactiveElementList = Array.from(
       this.el.shadowRoot?.querySelectorAll("ic-button") || []
     );
