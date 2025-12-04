@@ -48,7 +48,7 @@ const IC_BUTTON = "ic-button";
 const BUTTON = "button";
 const INPUT = "input";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
-const CONTAINER_CLASS = ".container";
+const CONTAINER_CLASS = ".radio-option-container";
 const CONSOLE_LOG_SPY_ALIAS = "@spyWinConsoleLog";
 const DEFAULT_TEST_THRESHOLD = 0.006;
 
