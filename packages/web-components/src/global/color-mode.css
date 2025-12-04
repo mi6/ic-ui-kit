@@ -1379,6 +1379,27 @@ ic-theme,
   );
 
   /* Time picker */
+  --ic-time-picker-time-text-default: var(--ic-color-text-primary);
+  --ic-time-picker-time-text-disabled: var(--ic-color-text-disabled-mid);
+  --ic-time-picker-time-text-selected: var(--ic-color-text-inverted);
+  --ic-time-picker-time-bg-hover: var(--ic-state-layers-action-bg-hover);
+  --ic-time-picker-time-bg-pressed: var(--ic-state-layers-action-bg-pressed);
+  --ic-time-picker-time-bg-selected: var(--ic-color-background-active);
+  --ic-time-picker-time-active-bg-hover: var(
+    --ic-color-background-active-hover-light
+  );
+  --ic-time-picker-time-active-bg-pressed: var(
+    --ic-color-background-active-pressed-light
+  );
+  --ic-time-picker-colon-default: var(--ic-color-text-primary);
+  --ic-time-picker-colon-bg-selected: var(--ic-action-default);
+  --ic-time-picker-colon-selected: var(--ic-color-text-inverted);
+  --ic-time-picker-hh-label: var(--ic-color-text-secondary);
+  --ic-time-picker-selection-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-time-picker-header-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-time-picker-lower-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-time-picker-time-selector-bg: var(--ic-color-background-primary);
+  --ic-time-picker-time-selector-border: var(--ic-state-layer-neutral-dark);
   --ic-time-picker-field-background: var(--ic-atoms-input-field-background);
   --ic-time-picker-time-field-border-default: var(
     --ic-color-border-neutral-grey-dark
@@ -1419,8 +1440,6 @@ ic-theme,
   --ic-time-picker-subtitle-disabled: var(
     --ic-atoms-input-field-label-subtitle-disabled
   );
-  --ic-time-picker-time-text-default: var(--ic-color-text-primary);
-  --ic-time-picker-time-text-disabled: var(--ic-color-text-disabled-mid);
   --ic-time-picker-field-placeholder-text: var(
     --ic-atoms-input-text-field-content-placeholder
   );
@@ -3074,6 +3093,33 @@ ic-theme,
     );
 
     /* Time picker */
+    --ic-time-picker-time-text-default: var(--ic-color-text-primary);
+    --ic-time-picker-time-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-time-picker-time-text-selected: var(--ic-color-text-inverted);
+    --ic-time-picker-time-bg-hover: var(
+      --ic-state-layers-action-bg-light-hover
+    );
+    --ic-time-picker-time-bg-pressed: var(
+      --ic-state-layers-action-bg-light-pressed
+    );
+    --ic-time-picker-time-bg-selected: var(--ic-color-background-active);
+    --ic-time-picker-time-active-bg-hover: var(
+      --ic-color-background-active-hover-dark
+    );
+    --ic-time-picker-time-active-bg-pressed: var(
+      --ic-color-background-active-pressed-dark
+    );
+    --ic-time-picker-colon-default: var(--ic-color-text-primary);
+    --ic-time-picker-colon-bg-selected: var(--ic-action-default);
+    --ic-time-picker-colon-selected: var(--ic-color-text-inverted);
+    --ic-time-picker-hh-label: var(--ic-color-text-secondary);
+    --ic-time-picker-selection-border: var(--ic-color-border-neutral-grey-dark);
+    --ic-time-picker-header-border: var(--ic-color-border-neutral-grey-dark);
+    --ic-time-picker-lower-border: var(--ic-color-border-neutral-grey-dark);
+    --ic-time-picker-time-selector-bg: var(
+      --ic-color-background-elevation-level-2
+    );
+    --ic-time-picker-time-selector-border: var(--ic-state-layer-neutral-dark);
     --ic-time-picker-field-background: var(--ic-atoms-input-field-background);
     --ic-time-picker-time-field-border-default: var(
       --ic-color-border-neutral-default-dark
@@ -3122,8 +3168,6 @@ ic-theme,
     --ic-time-picker-subtitle-disabled: var(
       --ic-atoms-input-field-label-subtitle-disabled
     );
-    --ic-time-picker-time-text-default: var(--ic-color-text-primary);
-    --ic-time-picker-time-text-disabled: var(--ic-color-text-disabled-dark);
     --ic-time-picker-field-placeholder-text: var(
       --ic-atoms-input-text-field-content-placeholder
     );
@@ -4710,6 +4754,31 @@ ic-theme,
   );
 
   /* Time picker */
+  --ic-time-picker-time-text-default: var(--ic-color-text-primary);
+  --ic-time-picker-time-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-time-picker-time-text-selected: var(--ic-color-text-inverted);
+  --ic-time-picker-time-bg-hover: var(--ic-state-layers-action-bg-light-hover);
+  --ic-time-picker-time-bg-pressed: var(
+    --ic-state-layers-action-bg-light-pressed
+  );
+  --ic-time-picker-time-bg-selected: var(--ic-color-background-active);
+  --ic-time-picker-time-active-bg-hover: var(
+    --ic-color-background-active-hover-dark
+  );
+  --ic-time-picker-time-active-bg-pressed: var(
+    --ic-color-background-active-pressed-dark
+  );
+  --ic-time-picker-colon-default: var(--ic-color-text-primary);
+  --ic-time-picker-colon-bg-selected: var(--ic-action-default);
+  --ic-time-picker-colon-selected: var(--ic-color-text-inverted);
+  --ic-time-picker-hh-label: var(--ic-color-text-secondary);
+  --ic-time-picker-selection-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-time-picker-header-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-time-picker-lower-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-time-picker-time-selector-bg: var(
+    --ic-color-background-elevation-level-2
+  );
+  --ic-time-picker-time-selector-border: var(--ic-state-layer-neutral-dark);
   --ic-time-picker-field-background: var(--ic-atoms-input-field-background);
   --ic-time-picker-time-field-border-default: var(
     --ic-color-border-neutral-default-dark
@@ -4752,8 +4821,6 @@ ic-theme,
   --ic-time-picker-subtitle-disabled: var(
     --ic-atoms-input-field-label-subtitle-disabled
   );
-  --ic-time-picker-time-text-default: var(--ic-color-text-primary);
-  --ic-time-picker-time-text-disabled: var(--ic-color-text-disabled-dark);
   --ic-time-picker-field-placeholder-text: var(
     --ic-atoms-input-text-field-content-placeholder
   );
