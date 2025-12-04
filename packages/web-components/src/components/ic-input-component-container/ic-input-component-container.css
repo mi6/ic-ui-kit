@@ -22,7 +22,7 @@ ic-input-component-container {
   transition: var(--ic-easing-transition-slow);
   height: 2.5rem;
   min-height: 2.5rem;
-  width: var(--input-width, 20rem);
+  max-width: var(--input-width, 20rem);
   padding: var(--ic-space-1px);
   background-color: var(--input-bg-color, var(--ic-color-background-primary));
   box-sizing: border-box;
@@ -32,6 +32,7 @@ ic-input-component-container {
 
 ic-input-component-container.ic-input-component-container-full-width {
   width: 100%;
+  max-width: none;
 }
 
 ic-input-component-container.ic-input-component-container-disabled,

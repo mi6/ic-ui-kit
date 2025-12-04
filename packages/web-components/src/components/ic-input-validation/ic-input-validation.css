@@ -1,5 +1,5 @@
 ic-input-validation {
-  width: var(--input-width, 20rem);
+  max-width: var(--input-width, 20rem);
   display: flex;
 }
 
@@ -9,6 +9,7 @@ ic-input-validation.ic-input-validation-with-status {
 
 ic-input-validation.ic-input-validation-full-width {
   width: 100%;
+  max-width: none;
 }
 
 ic-input-validation span.status-icon {
