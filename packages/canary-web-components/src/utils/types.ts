@@ -257,7 +257,7 @@ export type IcDateFormat = "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD";
 
 export type IcDateValueFormat = string | Date | null | undefined;
 
-export type IcTimeFormat = "HH:MM" | "HH:MM:SS";
+export type IcTimeFormat = "HH:MM" | "HH:MM:SS" | "HH:MM:SS.SSS";
 
 export type IcDisableTimeSelection =
   | string
