@@ -19,7 +19,11 @@ import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
-import { IcActivationTypes, IcStatusVariants } from "../../utils/types";
+import {
+  IcActivationTypes,
+  IcStatusVariants,
+  IcThemeMode,
+} from "../../utils/types";
 import { ActionAreaElementTypes } from "./ic-toast.types";
 
 const AUTO_DISMISS_TIMER_REFRESH_RATE_MS = 1000;
@@ -48,6 +52,11 @@ export class Toast {
   @State() isManual: boolean;
   @State() timerProgress = 100;
   @State() visible = false;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme: IcThemeMode = "inherit";
 
   /**
    * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)
@@ -330,10 +339,12 @@ export class Toast {
       visible,
       isManual,
       dismissButtonAriaLabel,
+      theme,
     } = this;
     return (
       <Host
         class={{
+          [`ic-theme-${theme}`]: theme !== "inherit",
           ["ic-toast-hidden"]: !visible,
           [`ic-toast-variant-${variant}`]: variant !== undefined,
         }}
@@ -343,7 +354,12 @@ export class Toast {
         role={isManual ? "dialog" : "alert"}
         aria-live={isManual ? null : "polite"}
       >
-        <div class="container">
+        <div
+          class={{
+            ["container"]: true,
+            [`container-${variant}`]: variant !== undefined,
+          }}
+        >
           {variant && visible && (
             <div class="toast-icon-container">
               <div

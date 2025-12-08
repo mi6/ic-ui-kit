@@ -22,7 +22,7 @@ exports[`ic-toast component should render a loading indicator instead of a dismi
 exports[`ic-toast component should render a variant icon and banner when a variant is supplied 1`] = `
 <ic-toast aria-description="Heading" aria-label="Success" class="ic-toast-variant-success" heading="Heading" role="dialog" tabindex="0" variant="success">
   <template shadowrootmode="open">
-    <div class="container">
+    <div class="container container-success">
       <div class="toast-icon-container">
         <div class="divider divider-success"></div>
         <span class="toast-icon">

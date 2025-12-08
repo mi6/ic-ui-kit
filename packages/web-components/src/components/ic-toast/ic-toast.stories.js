@@ -10,6 +10,7 @@ const defaultArgs = {
   variant: "neutral",
   actionSlot: "action",
   neutralIconSlot: "neutral-icon",
+  theme: "inherit",
 };
 
 export default {
@@ -317,6 +318,8 @@ export const ExampleOnPage = {
   name: "Example on page",
 };
 
+const inlineRadioSelector = "inline-radio";
+
 export const Playground = {
   render: (args) =>
     html`<button onclick="func()">Display toast</button>
@@ -337,6 +340,7 @@ export const Playground = {
           auto-dismiss-timeout=${args.autoDismissTimeout}
           neutral-icon-aria-label=${args.neutralIconAriaLabel}
           dismiss-button-aria-label=${args.dismissButtonAriaLabel}
+          theme=${args.theme}
         >
           <ic-button slot=${args.actionSlot} appearance="light"
             >Click me</ic-button
@@ -363,7 +367,7 @@ export const Playground = {
       options: ["manual", "automatic"],
 
       control: {
-        type: "inline-radio",
+        type: inlineRadioSelector,
       },
     },
 
@@ -371,7 +375,7 @@ export const Playground = {
       options: ["neutral", "info", "warning", "error", "success", "ai", ""],
 
       control: {
-        type: "inline-radio",
+        type: inlineRadioSelector,
       },
     },
 
@@ -388,6 +392,14 @@ export const Playground = {
 
       control: {
         type: "select",
+      },
+    },
+
+    theme: {
+      options: ["inherit", "light", "dark"],
+
+      control: {
+        type: inlineRadioSelector,
       },
     },
   },
