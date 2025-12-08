@@ -5,7 +5,7 @@ exports[`ic-toast-region component should render 1`] = `
   <!---->
   <ic-toast aria-label="Heading" class="ic-toast-hidden" heading="Heading" role="dialog" tabindex="0">
     <template shadowrootmode="open">
-      <div class="container">
+      <div class="container container-undefined">
         <div class="toast-content">
           <div class="toast-text">
             <ic-typography class="toast-heading" variant="subtitle-large"></ic-typography>

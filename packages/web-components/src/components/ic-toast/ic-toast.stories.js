@@ -10,6 +10,7 @@ const defaultArgs = {
   variant: "neutral",
   actionSlot: "action",
   neutralIconSlot: "neutral-icon",
+  theme: "inherit",
 };
 
 export default {
@@ -337,6 +338,7 @@ export const Playground = {
           auto-dismiss-timeout=${args.autoDismissTimeout}
           neutral-icon-aria-label=${args.neutralIconAriaLabel}
           dismiss-button-aria-label=${args.dismissButtonAriaLabel}
+          theme=${args.theme}
         >
           <ic-button slot=${args.actionSlot} appearance="light"
             >Click me</ic-button
@@ -388,6 +390,14 @@ export const Playground = {
 
       control: {
         type: "select",
+      },
+    },
+
+    theme: {
+      options: ["inherit", "light", "dark"],
+
+      control: {
+        type: "inline-radio",
       },
     },
   },

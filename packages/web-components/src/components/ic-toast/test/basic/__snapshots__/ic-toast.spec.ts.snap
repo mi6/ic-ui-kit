@@ -3,7 +3,7 @@
 exports[`ic-toast component should render a loading indicator instead of a dismiss button when dismissMode is automatic 1`] = `
 <ic-toast aria-live="polite" dismiss-mode="automatic" heading="Heading" role="alert" tabindex="0">
   <template shadowrootmode="open">
-    <div class="container">
+    <div class="container container-undefined">
       <div class="toast-content">
         <div class="toast-text">
           <ic-typography class="toast-heading" variant="subtitle-large">
@@ -22,7 +22,7 @@ exports[`ic-toast component should render a loading indicator instead of a dismi
 exports[`ic-toast component should render a variant icon and banner when a variant is supplied 1`] = `
 <ic-toast aria-description="Heading" aria-label="Success" class="ic-toast-variant-success" heading="Heading" role="dialog" tabindex="0" variant="success">
   <template shadowrootmode="open">
-    <div class="container">
+    <div class="container container-success">
       <div class="toast-icon-container">
         <div class="divider divider-success"></div>
         <span class="toast-icon">
@@ -49,7 +49,7 @@ exports[`ic-toast component should render a variant icon and banner when a varia
 exports[`ic-toast component should render when a heading and message is supplied 1`] = `
 <ic-toast aria-description="toast message" aria-label="Heading" heading="Heading" message="toast message" role="dialog" tabindex="0">
   <template shadowrootmode="open">
-    <div class="container">
+    <div class="container container-undefined">
       <div class="toast-content">
         <div class="toast-text">
           <ic-typography class="toast-heading" variant="subtitle-large">
@@ -75,7 +75,7 @@ exports[`ic-toast component should render when a heading and message is supplied
 exports[`ic-toast component should render when heading is supplied 1`] = `
 <ic-toast aria-label="Heading" heading="Heading" role="dialog" tabindex="0">
   <template shadowrootmode="open">
-    <div class="container">
+    <div class="container container-undefined">
       <div class="toast-content">
         <div class="toast-text">
           <ic-typography class="toast-heading" variant="subtitle-large">

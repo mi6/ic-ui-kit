@@ -2470,6 +2470,10 @@ export namespace Components {
          */
         "setVisible": () => Promise<HTMLElement | null>;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
+        /**
           * The variant of the toast being rendered
          */
         "variant"?: IcStatusVariants;
@@ -6253,6 +6257,10 @@ declare namespace LocalJSX {
           * Is emitted when the user dismisses the toast
          */
         "onIcDismiss"?: (event: IcToastCustomEvent<void>) => void;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the toast being rendered
          */
