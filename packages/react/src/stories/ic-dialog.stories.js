@@ -115,7 +115,7 @@ const ShowHideContent = () => {
         Demonstrates changes to slotted elements happening after first load.
         <br />
         The button which is a child of an already rendered slotted
-        <code>${`<div>`}</code> will show / hide after a 2s delay.
+        {" "}<code>{`<div>`}</code> will show / hide after a 2s delay.
       </IcTypography>
       <br />
       <IcButton onClick={() => handleShow(true)}>Show</IcButton>
@@ -444,7 +444,7 @@ export const SlottedTabs = {
           <IcTabPanel>Tab One - Ingredients</IcTabPanel>
           <IcTabPanel>Tab Two - Method</IcTabPanel>
           <IcTabPanel>Tab Three - History</IcTabPanel>
-        </IcTabContext>       
+        </IcTabContext>
         </div>
       </IcDialog>
     </>

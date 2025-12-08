@@ -22,7 +22,7 @@ const defaultArgs = {
   heading: "Roasted coffee",
   hideCloseButton: false,
   message:
-    "Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pharetra tortor, sed lacinia lectus. Aliquam elementum risus ipsum, sit amet tincidunt elit pharetra quis. Morbi maximus dolor sit amet nulla feugiat, sed congue ligula dignissim. Nullam ac augue nec erat suscipit scelerisque. Aliquam at tellus fringilla, faucibus est posuere, convallis magna. Integer vel ornare lectus. Vestibulum convallis mauris vel quam vehicula maximus. Fusce et consequat lacus, non auctor tellus. In ut lacus aliquet, accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam non lectus mauris. In eu libero ut augue viverra accumsan. Praesent non felis tortor. Nullam rutrum odio justo, bibendum pulvinar leo dictum a. Donec sodales sagittis ultricies. Duis posuere a mauris vitae auctor. Pellentesque porta, massa ac pellentesque feugiat, diam mauris commodo neque, quis gravida risus est sit amet lacus. Fusce rhoncus leo nec lobortis mattis. Donec risus leo, eleifend efficitur purus ac, sollicitudin dictum neque. Suspendisse potenti. Etiam mattis felis nisi, non laoreet ipsum sollicitudin at. Quisque metus nibh, imperdiet nec euismod a, convallis et sem. Maecenas cursus porttitor fringilla. Ut gravida ante at orci sagittis tincidunt. Integer porta nisl nisi, in vehicula felis aliquet sit amet. Praesent eleifend libero in vulputate convallis. Aenean aliquet ante a venenatis convallis. Donec quis felis semper, imperdiet tellus eu, imperdiet nisi. Sed aliquet felis nec tellus aliquet, et sodales sem varius. Etiam justo mauris, dapibus a ornare id, volutpat sit amet orci. Nam eu condimentum tortor, rhoncus fermentum nunc. Duis mollis justo a tortor tempus dictum. Quisque vulputate, risus non tempor varius, eros velit rutrum dui, non gravida elit erat eget ex. Ut cursus congue enim eget eleifend. Nullam iaculis neque non ligula aliquam, vitae rutrum arcu ultrices. Etiam porttitor condimentum dolor, ut luctus risus condimentum sit amet. Duis faucibus commodo leo nec bibendum. Nam faucibus, lectus vitae pulvinar ullamcorper, risus orci tempus sapien, varius pulvinar nulla odio eget ipsum. Mauris vestibulum sem vitae lectus feugiat, in tincidunt neque fringilla. Fusce lacus eros, elementum sit amet sapien et, congue venenatis metus. Nullam mauris velit, pharetra et ligula faucibus, pulvinar luctus nisl. Etiam ante odio, fermentum ac accumsan eget, luctus a libero. Phasellus maximus risus ac viverra scelerisque.",
   position: "right",
   size: "medium",
   theme: "inherit",
@@ -477,6 +477,251 @@ export const Large = {
   name: "Large",
 };
 
+// export const LongContent = {
+//   render: (args) => html`<div style="margin: 16px; display: flex; gap: 16px;">
+//       <ic-button onclick="toggleDrawer('right')">Toggle right drawer</ic-button>
+//       <ic-button onclick="toggleDrawer('left')">Toggle left drawer</ic-button>
+//       <ic-button onclick="toggleDrawer('top')">Toggle top drawer</ic-button>
+//       <ic-button onclick="toggleDrawer('bottom')"
+//         >Toggle bottom drawer</ic-button
+//       >
+//     </div>
+//     <ic-drawer
+//       id="drawer-right"
+//       heading="Roasted coffee"
+//       message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+//         et odio metus. Quisque pharetra at elit et bibendum. Vivamus
+//         pellentesque lacus vel facilisis tincidunt. Aliquam erat
+//         volutpat. Pellentesque mi ligula, aliquet eget lacinia
+//         dignissim, euismod non sapien. Fusce ac lorem eget nisi
+//         tincidunt imperdiet. Sed sed ipsum pellentesque, feugiat ligula
+//         ut, placerat nisl. Nulla gravida faucibus elit ut laoreet. Nam
+//         sagittis lacinia eros a aliquet. Cras in massa condimentum,
+//         auctor turpis vestibulum, imperdiet libero. Integer arcu purus,
+//         ultricies sit amet felis vel, ullamcorper semper lectus. Proin
+//         ultrices tortor sed velit mattis facilisis. Integer rutrum nec
+//         nulla at fringilla. Duis a nibh ut tellus venenatis tincidunt a
+//         vel quam. Donec viverra enim sed nibh placerat venenatis. Ut volutpat
+//         dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet
+//         tempus consequat. In a nulla mollis, fringilla metus vitae,
+//         facilisis lorem. Ut eu turpis a magna sodales suscipit.
+//         Curabitur et turpis nec nisi mollis consectetur. Quisque
+//         consequat libero non laoreet vestibulum. Aliquam non diam
+//         faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros.
+//         Phasellus euismod vestibulum nulla sit amet ultricies.
+//         Pellentesque luctus purus ut elit placerat ultricies. Sed a
+//         gravida nulla. Vestibulum ante ipsum primis in faucibus orci
+//         luctus et ultrices posuere cubilia curae; Nullam porttitor a mi
+//         pharetra lobortis. Curabitur dapibus id purus sed feugiat.
+//         Fusce et consequat lacus, non auctor tellus. In ut lacus aliquet,
+//         accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam non
+//         lectus mauris. In eu libero ut augue viverra accumsan. Praesent non
+//         felis tortor. Nullam rutrum odio justo, bibendum pulvinar leo dictum a.
+//         Donec sodales sagittis ultricies. Duis posuere a mauris vitae auctor.
+//         Pellentesque porta, massa ac pellentesque feugiat, diam mauris commodo
+//         neque, quis gravida risus est sit amet lacus. Fusce rhoncus leo nec
+//         lobortis mattis. Donec risus leo, eleifend efficitur purus ac,
+//         sollicitudin dictum neque.
+//         "
+//       trigger="controlled"
+//     >
+//       <svg
+//         slot="heading-adornment"
+//         xmlns="http://www.w3.org/2000/svg"
+//         viewBox="0 0 24 24"
+//       >
+//         <path
+//           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+//         />
+//       </svg>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions">Add to order</ic-button>
+//     </ic-drawer>
+//     <ic-drawer
+//       id="drawer-left"
+//       heading="Roasted coffee"
+//       message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+//         et odio metus. Quisque pharetra at elit et bibendum. Vivamus
+//         pellentesque lacus vel facilisis tincidunt. Aliquam erat
+//         volutpat. Pellentesque mi ligula, aliquet eget lacinia
+//         dignissim, euismod non sapien. Fusce ac lorem eget nisi
+//         tincidunt imperdiet. Sed sed ipsum pellentesque, feugiat ligula
+//         ut, placerat nisl. Nulla gravida faucibus elit ut laoreet. Nam
+//         sagittis lacinia eros a aliquet. Cras in massa condimentum,
+//         auctor turpis vestibulum, imperdiet libero. Integer arcu purus,
+//         ultricies sit amet felis vel, ullamcorper semper lectus. Proin
+//         ultrices tortor sed velit mattis facilisis. Integer rutrum nec
+//         nulla at fringilla. Duis a nibh ut tellus venenatis tincidunt a
+//         vel quam. Donec viverra enim sed nibh placerat venenatis. Ut volutpat
+//         dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet
+//         tempus consequat. In a nulla mollis, fringilla metus vitae,
+//         facilisis lorem. Ut eu turpis a magna sodales suscipit.
+//         Curabitur et turpis nec nisi mollis consectetur. Quisque
+//         consequat libero non laoreet vestibulum. Aliquam non diam
+//         faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros.
+//         Phasellus euismod vestibulum nulla sit amet ultricies.
+//         Pellentesque luctus purus ut elit placerat ultricies. Sed a
+//         gravida nulla. Vestibulum ante ipsum primis in faucibus orci
+//         luctus et ultrices posuere cubilia curae; Nullam porttitor a mi
+//         pharetra lobortis. Curabitur dapibus id purus sed feugiat.
+//         Fusce et consequat lacus, non auctor tellus. In ut lacus aliquet,
+//         accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam non
+//         lectus mauris. In eu libero ut augue viverra accumsan. Praesent non
+//         felis tortor. Nullam rutrum odio justo, bibendum pulvinar leo dictum a.
+//         Donec sodales sagittis ultricies. Duis posuere a mauris vitae auctor.
+//         Pellentesque porta, massa ac pellentesque feugiat, diam mauris commodo
+//         neque, quis gravida risus est sit amet lacus. Fusce rhoncus leo nec
+//         lobortis mattis. Donec risus leo, eleifend efficitur purus ac,
+//         sollicitudin dictum neque.
+//         "
+//       position="left"
+//       trigger="controlled"
+//     >
+//       <svg
+//         slot="heading-adornment"
+//         xmlns="http://www.w3.org/2000/svg"
+//         viewBox="0 0 24 24"
+//       >
+//         <path
+//           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+//         />
+//       </svg>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions">Add to order</ic-button>
+//     </ic-drawer>
+//     <ic-drawer
+//       id="drawer-top"
+//       heading="Roasted coffee"
+//       message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+//         et odio metus. Quisque pharetra at elit et bibendum. Vivamus
+//         pellentesque lacus vel facilisis tincidunt. Aliquam erat
+//         volutpat. Pellentesque mi ligula, aliquet eget lacinia
+//         dignissim, euismod non sapien. Fusce ac lorem eget nisi
+//         tincidunt imperdiet. Sed sed ipsum pellentesque, feugiat ligula
+//         ut, placerat nisl. Nulla gravida faucibus elit ut laoreet. Nam
+//         sagittis lacinia eros a aliquet. Cras in massa condimentum,
+//         auctor turpis vestibulum, imperdiet libero. Integer arcu purus,
+//         ultricies sit amet felis vel, ullamcorper semper lectus. Proin
+//         ultrices tortor sed velit mattis facilisis. Integer rutrum nec
+//         nulla at fringilla. Duis a nibh ut tellus venenatis tincidunt a
+//         vel quam. Donec viverra enim sed nibh placerat venenatis. Ut volutpat
+//         dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet
+//         tempus consequat. In a nulla mollis, fringilla metus vitae,
+//         facilisis lorem. Ut eu turpis a magna sodales suscipit.
+//         Curabitur et turpis nec nisi mollis consectetur. Quisque
+//         consequat libero non laoreet vestibulum. Aliquam non diam
+//         faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros.
+//         Phasellus euismod vestibulum nulla sit amet ultricies.
+//         Pellentesque luctus purus ut elit placerat ultricies. Sed a
+//         gravida nulla. Vestibulum ante ipsum primis in faucibus orci
+//         luctus et ultrices posuere cubilia curae; Nullam porttitor a mi
+//         pharetra lobortis. Curabitur dapibus id purus sed feugiat.
+//         Fusce et consequat lacus, non auctor tellus. In ut lacus aliquet,
+//         accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam non
+//         lectus mauris. In eu libero ut augue viverra accumsan. Praesent non
+//         felis tortor. Nullam rutrum odio justo, bibendum pulvinar leo dictum a.
+//         Donec sodales sagittis ultricies. Duis posuere a mauris vitae auctor.
+//         Pellentesque porta, massa ac pellentesque feugiat, diam mauris commodo
+//         neque, quis gravida risus est sit amet lacus. Fusce rhoncus leo nec
+//         lobortis mattis. Donec risus leo, eleifend efficitur purus ac,
+//         sollicitudin dictum neque.
+//         "
+//       position="top"
+//       trigger="controlled"
+//     >
+//       <svg
+//         slot="heading-adornment"
+//         xmlns="http://www.w3.org/2000/svg"
+//         viewBox="0 0 24 24"
+//       >
+//         <path
+//           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+//         />
+//       </svg>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions">Add to order</ic-button>
+//     </ic-drawer>
+//     <ic-drawer
+//       id="drawer-bottom"
+//       heading="Roasted coffee"
+//       message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+//         et odio metus. Quisque pharetra at elit et bibendum. Vivamus
+//         pellentesque lacus vel facilisis tincidunt. Aliquam erat
+//         volutpat. Pellentesque mi ligula, aliquet eget lacinia
+//         dignissim, euismod non sapien. Fusce ac lorem eget nisi
+//         tincidunt imperdiet. Sed sed ipsum pellentesque, feugiat ligula
+//         ut, placerat nisl. Nulla gravida faucibus elit ut laoreet. Nam
+//         sagittis lacinia eros a aliquet. Cras in massa condimentum,
+//         auctor turpis vestibulum, imperdiet libero. Integer arcu purus,
+//         ultricies sit amet felis vel, ullamcorper semper lectus. Proin
+//         ultrices tortor sed velit mattis facilisis. Integer rutrum nec
+//         nulla at fringilla. Duis a nibh ut tellus venenatis tincidunt a
+//         vel quam. Donec viverra enim sed nibh placerat venenatis. Ut volutpat
+//         dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet
+//         tempus consequat. In a nulla mollis, fringilla metus vitae,
+//         facilisis lorem. Ut eu turpis a magna sodales suscipit.
+//         Curabitur et turpis nec nisi mollis consectetur. Quisque
+//         consequat libero non laoreet vestibulum. Aliquam non diam
+//         faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros.
+//         Phasellus euismod vestibulum nulla sit amet ultricies.
+//         Pellentesque luctus purus ut elit placerat ultricies. Sed a
+//         gravida nulla. Vestibulum ante ipsum primis in faucibus orci
+//         luctus et ultrices posuere cubilia curae; Nullam porttitor a mi
+//         pharetra lobortis. Curabitur dapibus id purus sed feugiat.
+//         Fusce et consequat lacus, non auctor tellus. In ut lacus aliquet,
+//         accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam non
+//         lectus mauris. In eu libero ut augue viverra accumsan. Praesent non
+//         felis tortor. Nullam rutrum odio justo, bibendum pulvinar leo dictum a.
+//         Donec sodales sagittis ultricies. Duis posuere a mauris vitae auctor.
+//         Pellentesque porta, massa ac pellentesque feugiat, diam mauris commodo
+//         neque, quis gravida risus est sit amet lacus. Fusce rhoncus leo nec
+//         lobortis mattis. Donec risus leo, eleifend efficitur purus ac,
+//         sollicitudin dictum neque.
+//         "
+//       position="bottom"
+//       trigger="controlled"
+//     >
+//       <svg
+//         slot="heading-adornment"
+//         xmlns="http://www.w3.org/2000/svg"
+//         viewBox="0 0 24 24"
+//       >
+//         <path
+//           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+//         />
+//       </svg>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions" variant="secondary">Add to order</ic-button>
+//       <ic-button slot="actions">Add to order</ic-button>
+//     </ic-drawer>
+//     <script>
+//       function toggleDrawer(drawerId) {
+//         const drawer = document.querySelector(\`#drawer-\${drawerId}\`);
+//         drawer.expanded = !drawer.expanded;
+//       }
+
+//       function handleDrawerExpanded(ev) {
+//         console.log(ev.detail);
+//       }
+
+//       document.querySelectorAll("ic-drawer").forEach((drawer) => {
+//         drawer.addEventListener("icDrawerExpanded", handleDrawerExpanded);
+//       });
+//     </script>`,
+//   name: "Long content",
+// };
+
 export const SlottedContent = {
   render: (args) => html`<ic-drawer>
     <svg
@@ -491,7 +736,7 @@ export const SlottedContent = {
     <ic-typography slot="heading" variant="h4">
       <h4>Roasted coffee</h4>
     </ic-typography>
-    <div>
+    <div slot="message">
       <ic-typography>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -717,6 +962,7 @@ export const ShowHideInteractiveElements = {
         var el = document.createElement("ic-button");
         el.id = "slotted-btn";
         el.innerText = "Slotted element";
+        el.setAttribute("slot", "message");
         var childEl = document.createElement("ic-button");
         childEl.id = "slotted-child-btn";
         childEl.innerText = "Child of slotted element";
@@ -737,18 +983,20 @@ export const ShowHideInteractiveElements = {
       });
     </script>
     <ic-drawer heading="Roasted coffee">
-      <ic-typography>
-        Demonstrates changes to slotted elements happening after first load.
+      <div slot="message">
+        <ic-typography>
+          Demonstrates changes to slotted elements happening after first load.
+          <br />
+          The button which is a child of an already rendered slotted
+          <code>${`<div>`}</code> will show / hide after a 2s delay.
+        </ic-typography>
         <br />
-        The button which is a child of an already rendered slotted
-        <code>${`<div>`}</code> will show / hide after a 2s delay.
-      </ic-typography>
-      <br />
-      <ic-button class="show">Show</ic-button>
-      <ic-button class="hide">Hide</ic-button>
-      <br />
-      <br />
-      <div id="base"></div>
+        <ic-button class="show">Show</ic-button>
+        <ic-button class="hide">Hide</ic-button>
+        <br />
+        <br />
+      </div>
+      <div id="base" slot="message"></div>
       <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
@@ -763,4 +1011,345 @@ export const ShowHideInteractiveElements = {
   name: "Show / hide interactive elements",
 };
 
-// PLAYGROUND
+// SORT OUT EXPANDED PROP
+export const Playground = {
+  render: (args) => html`<div style="display: flex; height: 100%">
+    <ic-side-navigation app-title="Déja-brew" status="alpha" version="v0.0.7">
+      <svg
+        slot="app-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        width="24"
+        viewBox="0 0 24 24"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+        />
+      </svg>
+      <ic-navigation-item slot="primary-navigation" href="/" label="Home">
+        <svg
+          slot="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+            fill="currentColor"
+          />
+        </svg>
+      </ic-navigation-item>
+    </ic-side-navigation>
+    <div style="display: flex; flex-direction: column; flex-grow: 1">
+      <main
+        id="main"
+        style="display: flex; flex-direction: column; min-height: 100vh"
+      >
+        <ic-page-header
+          heading="Latte recipe"
+          subheading="A latte is a popular Italian coffee, made with espresso, steamed milk and a thin layer of foam."
+          aligned="center"
+        ></ic-page-header>
+        <div style="display: flex; flex: 1; position: relative">
+          <ic-section-container aligned="center">
+            <ic-typography>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                et odio metus. Quisque pharetra at elit et bibendum. Vivamus
+                pellentesque lacus vel facilisis tincidunt. Aliquam erat
+                volutpat. Pellentesque mi ligula, aliquet eget lacinia
+                dignissim, euismod non sapien. Fusce ac lorem eget nisi
+                tincidunt imperdiet. Sed sed ipsum pellentesque, feugiat ligula
+                ut, placerat nisl. Nulla gravida faucibus elit ut laoreet. Nam
+                sagittis lacinia eros a aliquet. Cras in massa condimentum,
+                auctor turpis vestibulum, imperdiet libero. Integer arcu purus,
+                ultricies sit amet felis vel, ullamcorper semper lectus. Proin
+                ultrices tortor sed velit mattis facilisis. Integer rutrum nec
+                nulla at fringilla. Duis a nibh ut tellus venenatis tincidunt a
+                vel quam.
+                <br />
+                <br />
+                Donec viverra enim sed nibh placerat venenatis. Ut volutpat
+                dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet
+                tempus consequat. In a nulla mollis, fringilla metus vitae,
+                facilisis lorem. Ut eu turpis a magna sodales suscipit.
+                Curabitur et turpis nec nisi mollis consectetur. Quisque
+                consequat libero non laoreet vestibulum. Aliquam non diam
+                faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros.
+                Phasellus euismod vestibulum nulla sit amet ultricies.
+                Pellentesque luctus purus ut elit placerat ultricies. Sed a
+                gravida nulla. Vestibulum ante ipsum primis in faucibus orci
+                luctus et ultrices posuere cubilia curae; Nullam porttitor a mi
+                pharetra lobortis. Curabitur dapibus id purus sed feugiat.
+              </p>
+            </ic-typography>
+            <br />
+            ${args.trigger === "controlled"
+              ? html`<ic-button variant="secondary" onclick="toggleDrawer()"
+                  >Learn more about roasted coffee</ic-button
+                >`
+              : ""}
+          </ic-section-container>
+          <ic-drawer
+            aria-label=${args.ariaLabel}
+            boundary=${args.boundary}
+            chevron-button-aria-label=${args.chevronButtonAriaLabel}
+            close-button-aria-label=${args.closeButtonAriaLabel}
+            close-on-backdrop-click=${args.closeOnBackdropClick}
+            heading=${args.heading}
+            hide-close-button=${args.hideCloseButton}
+            message=${args.message}
+            position=${args.position}
+            size=${args.size}
+            theme=${args.theme}
+            trigger=${args.trigger}
+          >
+            ${args.headingAdornmentSlot
+              ? html`<svg
+                  slot="heading-adornment"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
+                  />
+                </svg>`
+              : ""}
+            ${args.headingSlot
+              ? html`<ic-typography slot="heading" variant="h4">
+                  <h4>(Slotted) Roasted coffee</h4>
+                </ic-typography>`
+              : ""}
+            ${args.messageSlot
+              ? html`<ic-typography slot="message">
+                  <p>
+                    (Slotted)
+                    <br />
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pharetra tortor, sed lacinia lectus. Aliquam elementum risus ipsum, sit amet tincidunt elit pharetra quis. Morbi maximus dolor sit amet nulla feugiat, sed congue ligula dignissim. Nullam ac augue nec erat suscipit scelerisque. Aliquam at tellus fringilla, faucibus est posuere, convallis magna. Integer vel ornare lectus. Vestibulum convallis mauris vel quam vehicula maximus. Fusce et consequat lacus, non auctor tellus. In ut lacus aliquet, accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam non lectus mauris. In eu libero ut augue viverra accumsan. Praesent non felis tortor. Nullam rutrum odio justo, bibendum pulvinar leo dictum a. Donec sodales sagittis ultricies. Duis posuere a mauris vitae auctor. Pellentesque porta, massa ac pellentesque feugiat, diam mauris commodo neque, quis gravida risus est sit amet lacus. Fusce rhoncus leo nec lobortis mattis. Donec risus leo, eleifend efficitur purus ac, sollicitudin dictum neque. Suspendisse potenti. Etiam mattis felis nisi, non laoreet ipsum sollicitudin at. Quisque metus nibh, imperdiet nec euismod a, convallis et sem. Maecenas cursus porttitor fringilla. Ut gravida ante at orci sagittis tincidunt. Integer porta nisl nisi, in vehicula felis aliquet sit amet. Praesent eleifend libero in vulputate convallis. Aenean aliquet ante a venenatis convallis. Donec quis felis semper, imperdiet tellus eu, imperdiet nisi. Sed aliquet felis nec tellus aliquet, et sodales sem varius. Etiam justo mauris, dapibus a ornare id, volutpat sit amet orci. Nam eu condimentum tortor, rhoncus fermentum nunc. Duis mollis justo a tortor tempus dictum. Quisque vulputate, risus non tempor varius, eros velit rutrum dui, non gravida elit erat eget ex. Ut cursus congue enim eget eleifend. Nullam iaculis neque non ligula aliquam, vitae rutrum arcu ultrices. Etiam porttitor condimentum dolor, ut luctus risus condimentum sit amet. Duis faucibus commodo leo nec bibendum. Nam faucibus, lectus vitae pulvinar ullamcorper, risus orci tempus sapien, varius pulvinar nulla odio eget ipsum. Mauris vestibulum sem vitae lectus feugiat, in tincidunt neque fringilla. Fusce lacus eros, elementum sit amet sapien et, congue venenatis metus. Nullam mauris velit, pharetra et ligula faucibus, pulvinar luctus nisl. Etiam ante odio, fermentum ac accumsan eget, luctus a libero. Phasellus maximus risus ac viverra scelerisque.
+                  </p>
+                </ic-typography>`
+              : ""}
+            ${args.actionsSlot
+              ? html`<ic-button slot="actions" variant="secondary"
+                    >Learn even more</ic-button
+                  >
+                  <ic-button slot="actions" variant="secondary"
+                    >Add to favourites</ic-button
+                  >
+                  <ic-button slot="actions">Add to order</ic-button>`
+              : ""}
+          </ic-drawer>
+        </div>
+      </main>
+      <ic-footer
+        aligned="center"
+        caption="This information is exempt under the Freedom of Information Act 2000 (FOIA) and may be exempt under other UK information legislation."
+        description="This pattern was built using the Intelligence Community Design System (ICDS)."
+      ></ic-footer>
+    </div>
+    <script>
+      function toggleDrawer(drawerId) {
+        const drawer = document.querySelector("ic-drawer");
+        drawer.expanded = !drawer.expanded;
+      }
+    </script>
+  </div>`,
+  name: "Playground",
+  args: defaultArgs,
+  argTypes: {
+    boundary: {
+      options: ["viewport", "parent"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    position: {
+      options: ["top", "bottom", "left", "right"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    size: {
+      options: ["small", "medium", "large"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    theme: {
+      options: ["inherit", "light", "dark"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    trigger: {
+      options: ["arrow", "controlled"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+  },
+};
+
+// export const Playground = {
+//   render: (args) => {
+//     const [drawerExpanded, setDrawerExpanded] = useState(args.expanded);
+
+//     // Prevents Storybook-only issue where drawer would close when slotted elements are updated
+//     useEffect(() => {
+//       setDrawerExpanded(args.expanded);
+//     }, [args.expanded]);
+
+//     return (
+//       <div style={{ display: "flex", height: "100%" }}>
+//         <IcSideNavigation
+//           appTitle="Déja-brew"
+//           status="alpha"
+//           version="v0.0.7"
+//         >
+//           <SlottedSVG
+//             slot="app-icon"
+//             xmlns="http://www.w3.org/2000/svg"
+//             height={24}
+//             viewBox="0 0 24 24"
+//             width={24}
+//             fill="#000000"
+//           >
+//             <path d="M0 0h24v24H0V0z" fill="none" />
+//             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+//           </SlottedSVG>
+//           <IcNavigationItem slot="primary-navigation" href="/" label="Home">
+//             <SlottedSVG
+//               slot="icon"
+//               width={24}
+//               height={24}
+//               viewBox="0 0 24 24"
+//               fill="none"
+//               xmlns="http://www.w3.org/2000/svg"
+//             >
+//               <path
+//                 d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+//                 fill="currentColor"
+//               />
+//             </SlottedSVG>
+//           </IcNavigationItem>
+//         </IcSideNavigation>
+//         <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+//           <main id="main" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+//             <IcPageHeader
+//               heading="Latte recipe"
+//               subheading="A latte is a popular Italian coffee, made with espresso, steamed milk and a thin layer of foam."
+//               aligned="center"
+//             />
+//             <div style={{ display: "flex", flex: 1, position: "relative" }}>
+//             <IcSectionContainer aligned="center">
+//               <div className={{
+//                 border: "var(--ic-border-width) dashed var(--ic-architectural-400)",
+//                 padding: "var(--ic-space-md)",
+//                 height: "800px",
+//               }}>
+//                 <IcTypography>
+//                   <p>
+//                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et odio metus. Quisque pharetra at elit et bibendum. Vivamus pellentesque lacus vel facilisis tincidunt. Aliquam erat volutpat. Pellentesque mi ligula, aliquet eget lacinia dignissim, euismod non sapien. Fusce ac lorem eget nisi tincidunt imperdiet. Sed sed ipsum pellentesque, feugiat ligula ut, placerat nisl. Nulla gravida faucibus elit ut laoreet. Nam sagittis lacinia eros a aliquet. Cras in massa condimentum, auctor turpis vestibulum, imperdiet libero. Integer arcu purus, ultricies sit amet felis vel, ullamcorper semper lectus. Proin ultrices tortor sed velit mattis facilisis. Integer rutrum nec nulla at fringilla. Duis a nibh ut tellus venenatis tincidunt a vel quam.
+//                     <br />
+//                     <br />
+//                     Donec viverra enim sed nibh placerat venenatis. Ut volutpat dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet tempus consequat. In a nulla mollis, fringilla metus vitae, facilisis lorem. Ut eu turpis a magna sodales suscipit. Curabitur et turpis nec nisi mollis consectetur. Quisque consequat libero non laoreet vestibulum. Aliquam non diam faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros. Phasellus euismod vestibulum nulla sit amet ultricies. Pellentesque luctus purus ut elit placerat ultricies. Sed a gravida nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam porttitor a mi pharetra lobortis. Curabitur dapibus id purus sed feugiat.
+//                   </p>
+//                 </IcTypography>
+//                 <br />
+//                 {args.trigger === 'controlled' && (
+//                   <IcButton variant="secondary" onClick={() => setDrawerExpanded(!drawerExpanded)}>Learn more about roasted coffee</IcButton>
+//                 )}
+//               </div>
+//             </IcSectionContainer>
+//             <IcDrawer
+//               // ref={drawerRef}
+//               ariaLabel={args.ariaLabel}
+//               boundary={args.boundary}
+//               chevronButtonAriaLabel={args.chevronButtonAriaLabel}
+//               closeButtonAriaLabel={args.closeButtonAriaLabel}
+//               closeOnBackdropClick={args.closeOnBackdropClick}
+//               expanded={drawerExpanded}
+//               heading={args.heading}
+//               hideCloseButton={args.hideCloseButton}
+//               message={args.message}
+//               position={args.position}
+//               size={args.size}
+//               theme={args.theme}
+//               trigger={args.trigger}
+//               onIcDrawerExpanded={ev => setDrawerExpanded(ev.detail.expanded)}
+//             >
+//               {args.headingAdornmentSlot && (
+//                 <SlottedSVG
+//                   path={mdiCoffee}
+//                   slot="heading-adornment"
+//                   viewBox="0 0 24 24"
+//                 />
+//               )}
+//               {args.headingSlot && (
+//                 <IcTypography slot="heading" variant="h4">
+//                   <h4>(Slotted) Roasted coffee</h4>
+//                 </IcTypography>
+//               )}
+//               {args.messageSlot && (
+//                 <IcTypography>
+//                   <p>
+//                     (Slotted)
+//                     <br />
+//                     Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours.
+//                   </p>
+//                 </IcTypography>
+//               )}
+//               {args.actionsSlot && (
+//                 <IcButton slot="actions">Add to order</IcButton>
+//               )}
+//             </IcDrawer>
+//             </div>
+//           </main>
+//           <IcFooter
+//             aligned="center"
+//             caption="This information is exempt under the Freedom of Information Act 2000 (FOIA) and may be exempt under other UK information legislation."
+//             description="This pattern was built using the Intelligence Community Design System (ICDS)."
+//           />
+//         </div>
+//       </div>
+//     )
+//   },
+//   name: "Playground",
+//   args: defaultArgs,
+//   argTypes: {
+//     boundary: {
+//       options: ["viewport", "parent"],
+//       control: {
+//         type: "inline-radio",
+//       },
+//     },
+//     position: {
+//       options: ["top", "bottom", "left", "right"],
+//       control: {
+//         type: "inline-radio",
+//       },
+//     },
+//     size: {
+//       options: ["small", "medium", "large"],
+//       control: {
+//         type: "inline-radio",
+//       },
+//     },
+//     theme: {
+//       options: ["inherit", "light", "dark"],
+//       control: {
+//         type: "inline-radio"
+//       },
+//     },
+//     trigger: {
+//       options: ["arrow", "controlled"],
+//       control: {
+//         type: "inline-radio",
+//       },
+//     },
+//   }
+// }

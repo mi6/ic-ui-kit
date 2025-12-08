@@ -5,13 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
+import { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
+import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
-export { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
+export { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
+export { IcDrawerBoundary, IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -587,7 +589,7 @@ export namespace Components {
         /**
           * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme": IcThemeMode1;
+        "theme": IcThemeMode;
         /**
           * The method in which the drawer is expanded.
          */
@@ -1820,7 +1822,7 @@ declare namespace LocalJSX {
         /**
           * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * The method in which the drawer is expanded.
          */

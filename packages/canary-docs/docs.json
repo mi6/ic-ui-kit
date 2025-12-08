@@ -7600,6 +7600,21 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerBoundary": {
+      "declaration": "export type IcDrawerBoundary = \"viewport\" | \"parent\";",
+      "docstring": "",
+      "path": "src/components/ic-drawer/ic-drawer.types.tsx"
+    },
+    "src/utils/types.ts::IcPosition": {
+      "declaration": "export type IcPosition = \"top\" | \"right\" | \"bottom\" | \"left\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerExpandedDetail": {
+      "declaration": "export interface IcDrawerExpandedDetail {\n  expanded: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-drawer/ic-drawer.types.tsx"
+    },
     "src/utils/types.ts::IcPositionTopOrRight": {
       "declaration": "export type IcPositionTopOrRight = \"top\" | \"right\";",
       "docstring": "",

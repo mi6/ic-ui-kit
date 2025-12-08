@@ -23,6 +23,7 @@ import {
   isSlotUsed,
   refreshInteractiveElementsOnSlotChange,
   removeInteractiveElementSlotChangeListener,
+  renderDynamicChildSlots,
   slottedInteractiveElements,
 } from "../../utils/helpers";
 import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./ic-drawer.types";
@@ -56,14 +57,12 @@ export class Drawer {
   private focusedElementIndex = 0;
   private hostMutationObserver: MutationObserver | null = null;
   private interactiveElementList: HTMLElement[] = [];
-  private resizeObserver?: ResizeObserver;
+  private marginResizeObserver?: ResizeObserver;
+  private scrollResizeObserver?: ResizeObserver;
   private sourceElement?: HTMLElement;
 
   @Element() el: HTMLIcDrawerElement;
 
-  @State() isActionsSlotUsed = false;
-  @State() isHeadingSlotUsed = false;
-  @State() isMessageSlotUsed = false;
   @State() isScrollable: boolean;
 
   /**
@@ -110,6 +109,10 @@ export class Drawer {
    * The position of the drawer.
    */
   @Prop() position: IcPosition = "right";
+  @Watch("position")
+  watchPositionHandler(): void {
+    this.setMarginResizeObserver();
+  }
 
   /**
    * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
@@ -180,9 +183,8 @@ export class Drawer {
   componentDidLoad(): void {
     this.setContentAreaMutationObserver();
     this.setHostMutationObserver();
-    this.setResizeObserver();
-
-    this.handleContentAreaScroll();
+    this.setMarginResizeObserver();
+    this.setScrollResizeObserver();
   }
 
   disconnectedCallback(): void {
@@ -193,7 +195,8 @@ export class Drawer {
     );
 
     this.hostMutationObserver?.disconnect();
-    this.resizeObserver?.disconnect();
+    this.marginResizeObserver?.disconnect();
+    this.scrollResizeObserver?.disconnect();
   }
 
   private renderChevronButton = () => (
@@ -230,15 +233,6 @@ export class Drawer {
         this.actionAreaEl.classList.remove("with-margin");
       }
     }
-  };
-
-  private updateDynamicSlots = () => {
-    // console.log("update");
-    // this.isActionsSlotUsed = isSlotUsed(this.el, "actions");
-    // this.isHeadingSlotUsed = isSlotUsed(this.el, "heading");
-    // this.isMessageSlotUsed = Array.from(this.el.children).some(
-    //   (child) => !child.hasAttribute("slot")
-    // );
   };
 
   private getAriaAttributes = () => {
@@ -296,24 +290,38 @@ export class Drawer {
   };
 
   private setHostMutationObserver = () => {
-    this.hostMutationObserver = new MutationObserver(() => {
-      console.log("update");
-      this.updateDynamicSlots();
-    });
-
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, "actions", this)
+    );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
   };
 
-  private setResizeObserver = () => {
+  private setMarginResizeObserver = () => {
+    // Stops resize observer running when position is changed to left or right
+    if (this.marginResizeObserver) {
+      this.marginResizeObserver.disconnect();
+      this.marginResizeObserver = undefined;
+    }
+
     if (this.position === "top" || this.position === "bottom") {
-      this.resizeObserver = new ResizeObserver(() => {
+      this.marginResizeObserver = new ResizeObserver(() => {
         this.updateActionAreaMargin();
       });
-      this.resizeObserver.observe(this.el);
+      this.marginResizeObserver.observe(this.el);
       this.updateActionAreaMargin();
     }
+  };
+
+  private setScrollResizeObserver = () => {
+    this.scrollResizeObserver = new ResizeObserver(() => {
+      this.handleContentAreaScroll();
+    });
+    if (this.contentAreaEl) {
+      this.scrollResizeObserver.observe(this.contentAreaEl);
+    }
+    this.handleContentAreaScroll();
   };
 
   private handleBackdropClick = (ev: Event) => {
@@ -434,13 +442,11 @@ export class Drawer {
             <div class="drawer-header">
               <div class="heading-area">
                 <slot name="heading-adornment" />
-                {isSlotUsed(this.el, "heading") ? (
-                  <slot name="heading" />
-                ) : (
+                <slot name="heading">
                   <ic-typography id="drawer-heading" variant="h4">
                     <h4>{heading}</h4>
                   </ic-typography>
-                )}
+                </slot>
               </div>
               {!hideCloseButton && trigger === "controlled" && (
                 <ic-button
@@ -468,17 +474,13 @@ export class Drawer {
                   ref={(el) => (this.contentAreaShadowTopEl = el)}
                   class="content-area-shadow-top"
                 ></div>
-                {Array.from(this.el.children).some(
-                  (child) => !child.hasAttribute("slot")
-                ) ? (
-                  <div id="drawer-content">
-                    <slot />
-                  </div>
-                ) : (
-                  <ic-typography>
-                    <p>{this.message}</p>
-                  </ic-typography>
-                )}
+                <div id="drawer-content">
+                  <slot name="message">
+                    <ic-typography>
+                      <p>{this.message}</p>
+                    </ic-typography>
+                  </slot>
+                </div>
                 <div
                   ref={(el) => (this.contentAreaShadowBottomEl = el)}
                   class="content-area-shadow-bottom"
