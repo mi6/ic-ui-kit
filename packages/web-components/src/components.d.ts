@@ -1504,6 +1504,10 @@ export namespace Components {
     }
     interface IcPagination {
         /**
+          * The accessible label of the pagination component to provide context for screen reader users.
+         */
+        "accessibleLabel"?: string;
+        /**
           * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
         "adjacentPageCount"?: number;
@@ -5184,6 +5188,10 @@ declare namespace LocalJSX {
         "theme"?: IcThemeMode;
     }
     interface IcPagination {
+        /**
+          * The accessible label of the pagination component to provide context for screen reader users.
+         */
+        "accessibleLabel"?: string;
         /**
           * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */

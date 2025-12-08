@@ -35,6 +35,11 @@ export class Pagination {
   @State() startItems: number[] = [];
 
   /**
+   * The accessible label of the pagination component to provide context for screen reader users.
+   */
+  @Prop() accessibleLabel?: string = "Pagination Navigation";
+
+  /**
    * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
    */
   @Prop({ mutable: true }) adjacentPageCount?: number = 1;
@@ -453,7 +458,7 @@ export class Pagination {
               ["disabled"]: !!disabled,
             }}
             role="navigation"
-            aria-label="Pagination Navigation"
+            aria-label={this.accessibleLabel}
           >
             {hideFirstAndLastPageButton ? null : this.firstButton()}
             {this.previousButton()}
@@ -476,7 +481,7 @@ export class Pagination {
               ["disabled"]: !!disabled,
             }}
             role="navigation"
-            aria-label="Pagination Navigation"
+            aria-label={this.accessibleLabel}
           >
             {hideFirstAndLastPageButton ? null : this.firstButton()}
             {this.previousButton()}
