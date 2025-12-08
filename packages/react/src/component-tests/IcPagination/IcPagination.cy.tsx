@@ -782,6 +782,27 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
       expect(stub.getCall(2).args[0].detail.value).to.equal(13);
     });
   });
+
+  it("should have no accessibility violations with more than one pagination component on the page", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcPagination
+          pages={10}
+          currentPage={2}
+          accessibleLabel="First pagination"
+        />
+        <IcPagination
+          pages={20}
+          currentPage={2}
+          type="complex"
+          accessibleLabel="Second pagination"
+        />
+      </div>
+    );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
+    cy.checkA11yWithWait();
+  });
 });
 
 describe("IcPagination visual regression tests in high contrast mode", () => {
