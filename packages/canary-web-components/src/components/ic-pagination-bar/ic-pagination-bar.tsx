@@ -75,6 +75,11 @@ export class PaginationBar {
   @State() upperBound: number;
 
   /**
+   * The accessible label passed down to the pagination component to provide context for screen reader users.
+   */
+  @Prop() accessibleLabel?: string = "Pagination Navigation";
+
+  /**
    * Sets the alignment of the items in the pagination bar.
    */
   @Prop() alignment?: IcPaginationAlignmentOptions = "right";
@@ -535,6 +540,7 @@ export class PaginationBar {
 
   render() {
     const {
+      accessibleLabel,
       alignment,
       displayedItemsPerPageOptions,
       PAGE_INPUT_FIELD_ID,
@@ -632,6 +638,7 @@ export class PaginationBar {
           >
             <div class="pagination-holder">
               <ic-pagination
+                accessibleLabel={accessibleLabel}
                 type={type}
                 pages={totalPages}
                 label={pageLabel}
