@@ -18,7 +18,7 @@ export default {
 };
 
 export const Default = {
-  render: (args) =>
+  render: () =>
     html`<button onclick="func()">Display toast</button>
       <script>
         var toastRegion = document.querySelector("ic-toast-region");
@@ -35,7 +35,7 @@ export const Default = {
 };
 
 export const WithVariant = {
-  render: (args) =>
+  render: () =>
     html`<button onclick="func()">Display toast</button>
       <script>
         var toastRegion = document.querySelector("ic-toast-region");
@@ -57,7 +57,7 @@ export const WithVariant = {
 };
 
 export const MultilineMessage = {
-  render: (args) =>
+  render: () =>
     html`<button onclick="func()">Display toast</button>
       <script>
         var toastRegion = document.querySelector("ic-toast-region");
@@ -78,7 +78,7 @@ export const MultilineMessage = {
 };
 
 export const SlottedActionElements = {
-  render: (args) =>
+  render: () =>
     html`<button onclick="func()">Display toast 1</button>
       <button onclick="func2()">Display toast 2</button>
       <script>
@@ -115,7 +115,7 @@ export const SlottedActionElements = {
 };
 
 export const AutoDismiss = {
-  render: (args) =>
+  render: () =>
     html`<button onclick="func()">Display toast 1</button>
       <button onclick="func2()">Display toast 2</button>
       <script>
@@ -152,7 +152,7 @@ export const AutoDismiss = {
 };
 
 export const CustomNeutralIconAndDismissAriaLabel = {
-  render: (args) =>
+  render: () =>
     html`<button onclick="func()">Display toast</button>
       <script>
         var toastRegion = document.querySelector("ic-toast-region");
@@ -188,7 +188,7 @@ export const CustomNeutralIconAndDismissAriaLabel = {
 };
 
 export const ExampleOnPage = {
-  render: (args) =>
+  render: () =>
     html` <script>
         var toastRegion = document.querySelector("ic-toast-region");
         function func() {

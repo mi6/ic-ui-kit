@@ -19,7 +19,7 @@ export default {
 };
 
 export const Default = {
-  render: (args) => html`
+  render: () => html`
     <ic-button id="button-1" onclick="buttonClick()"
       >Show/Hide popover</ic-button
     >
@@ -91,7 +91,7 @@ export const Default = {
 };
 
 export const MaxHeight = {
-  render: (args) => html`
+  render: () => html`
     <style>
       ic-popover-menu {
         --max-height: 100px;
@@ -158,7 +158,7 @@ export const MaxHeight = {
 };
 
 export const LeftPlacement = {
-  render: (args) => html`
+  render: () => html`
     <div style="margin-left: 1000px">
       <ic-button id="button-1" onclick="buttonClick()"
         >Show/Hide popover</ic-button
@@ -228,7 +228,7 @@ export const LeftPlacement = {
 };
 
 export const TopPlacement = {
-  render: (args) => html`
+  render: () => html`
     <div style="margin-top: 540px">
       <ic-button id="button-1" onclick="buttonClick()"
         >Show/Hide popover</ic-button
@@ -298,7 +298,7 @@ export const TopPlacement = {
 };
 
 export const MultiplePopoversOnPage = {
-  render: (args) =>
+  render: () =>
     html` <ic-link href="/">Link1</ic-link>
       <ic-button id="button-1" onclick="buttonClick(1)"
         >Show/Hide popover</ic-button
@@ -429,7 +429,7 @@ export const MultiplePopoversOnPage = {
 };
 
 export const AutoOpening = {
-  render: (args) => html`
+  render: () => html`
     <ic-button id="button-1" onclick="buttonClick()"
       >Show/Hide popover</ic-button
     >
@@ -498,7 +498,7 @@ export const AutoOpening = {
 };
 
 export const PositioningStrategy = {
-  render: (args) => html`
+  render: () => html`
     <script>
       var icPopovers = document.querySelectorAll("ic-popover-menu");
       var icParentPopover = icPopovers[0];
