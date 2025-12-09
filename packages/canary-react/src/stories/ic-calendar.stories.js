@@ -44,6 +44,28 @@ export const Default = {
 };
 
 /**
+ * Set the size of the calendar by using the `size` prop. This prop takes the values `small`, `medium` (default) or `large`. Depending on the chosen size, the prop will apply styling to increase or decrease the amount of spacing within the component.
+ */
+export const Sizes = {
+  render: () =>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--ic-space-md)" }}>
+      <IcCalendar
+        id="small-size-calendar"
+        size="small"
+      />
+      <IcCalendar
+        id="medium-size-calendar"
+        size="medium"
+      />
+      <IcCalendar
+        id="large-size-calendar"
+        size="large"
+      />
+    </div>,
+  name: "Sizes",
+};
+
+/**
  * The `value` prop sets the selected date in the calendar. The value can be in any format supported by the `date-format` prop, in ISO 8601 date string format (yyyy-mm-dd) or as a JavaScript Date object.
  */
 export const Value = {
