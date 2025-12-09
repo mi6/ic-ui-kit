@@ -9,17 +9,20 @@
 }
 
 :host(.ic-date-picker-calendar) .calendar-container {
+  position: absolute;
+  min-width: 19rem;
+  max-width: 23.5rem;
+  width: var(--input-width);
+  margin-top: var(--ic-space-xxxs);
+  animation: fade-in-calendar var(--ic-transition-duration-slow);
   box-shadow: var(--ic-calendar-elevation);
 }
 
 :host .calendar-container {
-  min-width: 19rem;
-  max-width: 23.5rem;
-  width: var(--input-width);
   display: flex;
   flex-direction: column;
   gap: var(--ic-space-xs);
-  position: absolute;
+  width: fit-content;
   border: var(--ic-border-default);
   border-color: var(--ic-calendar-border);
   border-radius: var(--ic-border-radius);
@@ -27,9 +30,7 @@
   background-color: var(--ic-calendar-bg);
   z-index: var(--ic-z-index-calendar);
   box-sizing: border-box;
-  margin-top: var(--ic-space-xxxs);
   padding: var(--ic-space-xs);
-  animation: fade-in-calendar var(--ic-transition-duration-slow);
 }
 
 :host(.ic-calendar-small) .calendar-container {
