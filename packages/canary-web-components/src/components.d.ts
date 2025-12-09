@@ -541,6 +541,10 @@ export namespace Components {
     }
     interface IcPaginationBar {
         /**
+          * The accessible label passed down to the pagination component to provide context for screen reader users.
+         */
+        "accessibleLabel"?: string;
+        /**
           * Sets the alignment of the items in the pagination bar.
          */
         "alignment"?: IcPaginationAlignmentOptions;
@@ -1693,6 +1697,10 @@ declare namespace LocalJSX {
         "value"?: IcDateValueFormat;
     }
     interface IcPaginationBar {
+        /**
+          * The accessible label passed down to the pagination component to provide context for screen reader users.
+         */
+        "accessibleLabel"?: string;
         /**
           * Sets the alignment of the items in the pagination bar.
          */
