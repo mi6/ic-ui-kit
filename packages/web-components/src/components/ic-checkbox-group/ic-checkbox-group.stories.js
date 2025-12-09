@@ -29,7 +29,7 @@ export default {
 };
 
 export const Default = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group label="This is a label" name="group1">
       <ic-checkbox
         value="valueName1"
@@ -52,7 +52,7 @@ export const Default = {
 };
 
 export const Required = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group label="This is a label" required name="group1">
       <ic-checkbox
         value="valueName1"
@@ -75,7 +75,7 @@ export const Required = {
 };
 
 export const Disabled = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group label="This is a label" name="group1" Disabled>
       <ic-checkbox
         value="valueName1"
@@ -105,7 +105,7 @@ export const Disabled = {
 };
 
 export const Sizes = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group
       size="large"
       label="These are checkboxes with the 'size' attribute set on them individually"
@@ -195,7 +195,7 @@ export const Sizes = {
 };
 
 export const HiddenGroupLabel = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group label="This is a label" hide-label name="group1">
       <ic-checkbox
         value="valueName1"
@@ -218,7 +218,7 @@ export const HiddenGroupLabel = {
 };
 
 export const HiddenCheckboxLabel = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group label="This is a label" name="group1">
       <ic-checkbox
         value="valueName1"
@@ -244,7 +244,7 @@ export const HiddenCheckboxLabel = {
 };
 
 export const ConditionalDynamic = {
-  render: (args) => html`
+  render: () => html`
     <script>
       function handleIcChange(ev) {
         console.log(
@@ -300,7 +300,7 @@ export const ConditionalDynamic = {
 };
 
 export const ConditionalStatic = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group label="This is a label" name="group1">
       <ic-checkbox value="valueName1" label="option1">
         <ic-text-field
@@ -316,7 +316,7 @@ export const ConditionalStatic = {
 };
 
 export const SlottedLabel = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group label="Pick your coffee" name="group1">
       <ic-checkbox value="valueName1" label="Americano"></ic-checkbox>
       <ic-checkbox value="valueName2" checked>
@@ -339,7 +339,7 @@ export const SlottedLabel = {
 };
 
 export const HelperText = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group
       label="Coffee extras"
       name="group1"
@@ -371,7 +371,7 @@ export const HelperText = {
 };
 
 export const Validation = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group
       label="This is a label"
       name="group1"
@@ -399,7 +399,7 @@ export const Validation = {
 };
 
 export const AriaLiveBehaviour = {
-  render: (args) =>
+  render: () =>
     html`<ic-checkbox-group
         id="field-1"
         label="This is a label"
@@ -552,7 +552,7 @@ export const AriaLiveBehaviour = {
 };
 
 export const Form = {
-  render: (args) => html`
+  render: () => html`
     <form>
       <ic-checkbox-group label="This is a label" name="group1">
         <ic-checkbox
@@ -596,7 +596,7 @@ export const Form = {
 };
 
 export const Indeterminate = {
-  render: (args) => html`
+  render: () => html`
     <script>
       var indeterminate = true;
       var nativeIndeterminate = true;
@@ -697,7 +697,7 @@ export const Indeterminate = {
 };
 
 export const IndeterminateWithChildren = {
-  render: (args) => html`
+  render: () => html`
     <script>
       var drinksCheckbox = document.querySelector("#drinks-checkbox");
       var teaCheckbox = document.querySelector("#tea-checkbox");
@@ -761,7 +761,7 @@ export const IndeterminateWithChildren = {
 };
 
 export const TextFieldValueChange = {
-  render: (args) => html`
+  render: () => html`
     <script>
       var textOutputEl = document.querySelector("#value-text");
       function handleIcChange(ev) {
@@ -796,7 +796,7 @@ export const TextFieldValueChange = {
 };
 
 export const RTL = {
-  render: (args) => html`
+  render: () => html`
     <ic-checkbox-group label="This is a label" name="group1" dir="rtl">
       <ic-checkbox
         value="valueName1"
@@ -823,7 +823,7 @@ export const RTL = {
 };
 
 export const Internationalisation = {
-  render: (args) => html`
+  render: () => html`
       <p>Each checkbox in this group is set to a different language by being wrapped in a <code>&lt;span lang=""&gt;</code></p>
       <ic-checkbox-group
         label="International Coffee"

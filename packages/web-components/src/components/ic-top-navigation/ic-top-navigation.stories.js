@@ -21,7 +21,7 @@ export default {
 };
 
 export const AppIconAndTitle = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation app-title="Application Name">
       <svg
         slot="app-icon"
@@ -46,7 +46,7 @@ export const AppIconAndTitle = {
 };
 
 export const SlottedTitleLink = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation>
       <a slot="app-title" href="/">Application Name</a>
       <a slot="short-app-title" href="/">App name</a>
@@ -74,7 +74,7 @@ export const SlottedTitleLink = {
 };
 
 export const StatusAndVersion = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application Name"
       status="alpha"
@@ -103,7 +103,7 @@ export const StatusAndVersion = {
 };
 
 export const WithSearch = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
         app-title="Application Name"
         status="alpha"
@@ -148,7 +148,7 @@ export const WithSearch = {
 };
 
 export const WithIcons = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application Name"
       status="alpha"
@@ -257,7 +257,7 @@ export const WithIcons = {
 };
 
 export const LongAppTitle = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application with a long name"
       status="alpha-beta-gamma-delta-epsilon"
@@ -310,7 +310,7 @@ export const LongAppTitle = {
 };
 
 export const WithNavigation = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application Name"
       status="alpha"
@@ -390,7 +390,7 @@ export const WithNavigation = {
 };
 
 export const UsingUnnamedSlots = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application Name"
       status="alpha"
@@ -428,7 +428,7 @@ export const UsingUnnamedSlots = {
 };
 
 export const WithGroupedNavigation = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application Name"
       status="alpha"
@@ -520,7 +520,7 @@ export const WithGroupedNavigation = {
 };
 
 export const ContentCenterAligned = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application Name"
       status="alpha"
@@ -600,7 +600,7 @@ export const ContentCenterAligned = {
 };
 
 export const ContentLeftAligned = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application Name"
       status="alpha"
@@ -680,7 +680,7 @@ export const ContentLeftAligned = {
 };
 
 export const Brand = {
-  render: (args) =>
+  render: () =>
     html`<ic-theme brand-color="rgb(27, 60, 121)" id="brand-story-ic-theme">
       <ic-top-navigation
         app-title="Application Name"
@@ -806,7 +806,7 @@ export const Brand = {
 };
 
 export const LongSingleWordAppTitle = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Applicationwithareallyreallylongsinglewordname"
       status="alpha"
@@ -859,7 +859,7 @@ export const LongSingleWordAppTitle = {
 };
 
 export const ShortTitle = {
-  render: (args) =>
+  render: () =>
     html`<ic-top-navigation
       app-title="Application Name"
       short-app-title="App Name"
@@ -887,7 +887,7 @@ export const ShortTitle = {
 };
 
 export const TopNavResizedEvent = {
-  render: (args) =>
+  render: () =>
     html`<script>
         var topNav = document.querySelector("ic-top-navigation");
         topNav.addEventListener("icTopNavResized", function (event) {

@@ -15,7 +15,7 @@ export default {
 };
 
 export const Default = {
-  render: (args) =>
+  render: () =>
     html`<ic-tooltip
         label="This is a description of the button"
         id="ic-tooltip-1"
@@ -32,7 +32,7 @@ export const Default = {
 };
 
 export const UsingExternalMethod = {
-  render: (args) =>
+  render: () =>
     html`<script>
         let display = true;
         document
@@ -58,7 +58,7 @@ export const UsingExternalMethod = {
 };
 
 export const DisabledHover = {
-  render: (args) =>
+  render: () =>
     html`<ic-tooltip
       label="This shows 'Code' has been copied"
       id="ic-tooltip-test-button-disable-hover"
@@ -76,7 +76,7 @@ export const DisabledHover = {
 };
 
 export const TopPlacements = {
-  render: (args) =>
+  render: () =>
     html` <div style="margin: 40px">
       <ic-tooltip
         placement="top-start"
@@ -109,7 +109,7 @@ export const TopPlacements = {
 };
 
 export const BottomPlacements = {
-  render: (args) =>
+  render: () =>
     html` <div style="margin: 40px">
       <ic-tooltip
         placement="bottom-start"
@@ -142,7 +142,7 @@ export const BottomPlacements = {
 };
 
 export const RightPlacements = {
-  render: (args) =>
+  render: () =>
     html` <div style="margin: 40px">
       <ic-tooltip
         placement="right-start"
@@ -175,7 +175,7 @@ export const RightPlacements = {
 };
 
 export const LeftPlacements = {
-  render: (args) =>
+  render: () =>
     html` <div style="margin-left: 400px">
       <ic-tooltip
         placement="left-start"
@@ -208,7 +208,7 @@ export const LeftPlacements = {
 };
 
 export const Truncation = {
-  render: (args) =>
+  render: () =>
     html`<ic-tooltip
       label="This is a body of text that is truncated to three lines within a tooltip. It has been truncated based on the max-lines property. The number of lines in the text is clamped to the number passed through the max-lines property."
       max-lines="3"
@@ -223,7 +223,7 @@ export const Truncation = {
 };
 
 export const DarkBackground = {
-  render: (args) =>
+  render: () =>
     html`<div style="height: 100px;background-color:#333333;">
       <ic-tooltip
         label="This is a description of the button"
@@ -237,7 +237,7 @@ export const DarkBackground = {
 };
 
 export const ChangingLabel = {
-  render: (args) =>
+  render: () =>
     html`<script>
         var icButton = document.querySelector("#testbutton");
         function handleClick() {
@@ -270,7 +270,7 @@ export const ChangingLabel = {
 };
 
 export const PositioningStrategy = {
-  render: (args) =>
+  render: () =>
     html` <script>
         var switchEl = document.querySelector("ic-switch");
         var tooltipEl = document.querySelector("ic-tooltip");

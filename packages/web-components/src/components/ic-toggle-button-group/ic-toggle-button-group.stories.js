@@ -32,7 +32,7 @@ export default {
 };
 
 export const SelectType = {
-  render: (args) => html`
+  render: () => html`
     <ic-typography>Single and manual</ic-typography>
     <ic-toggle-button-group
       select-type="single"
@@ -68,7 +68,7 @@ export const SelectType = {
 };
 
 export const Sizes = {
-  render: (args) => html`
+  render: () => html`
     <ic-typography>Default</ic-typography>
     <ic-toggle-button-group
       label="Label for single and manual"
@@ -139,7 +139,7 @@ export const Sizes = {
 };
 
 export const Monochrome = {
-  render: (args) =>
+  render: () =>
     html`<ic-toggle-button-group
       monochrome="true"
       accessible-label="Single and manual select toggle group"
@@ -153,7 +153,7 @@ export const Monochrome = {
 };
 
 export const Disabled = {
-  render: (args) =>
+  render: () =>
     html`<ic-typography>Disabled</ic-typography>
       <ic-toggle-button-group
         disabled="true"
@@ -168,7 +168,7 @@ export const Disabled = {
 };
 
 export const Loading = {
-  render: (args) =>
+  render: () =>
     html`<ic-toggle-button-group
         loading="true"
         accessible-label="Single and manual select toggle group"
@@ -192,7 +192,7 @@ export const Loading = {
 };
 
 export const WithIcons = {
-  render: (args) =>
+  render: () =>
     html`<ic-typography>Icon only</ic-typography>
       <ic-toggle-button-group
         variant="icon"
@@ -379,7 +379,7 @@ export const WithIcons = {
 };
 
 export const HideOutline = {
-  render: (args) =>
+  render: () =>
     html`<ic-toggle-button-group
       select-type="single"
       accessible-label="Hide outline toggle group"
