@@ -378,6 +378,7 @@ export const HideCurrentPage = {
 };
 
 const defaultArgs = {
+  accessibleLabel: "Pagination Navigation",
   alignment: "right",
   currentPage: 1,
   hideCurrentPage: false,
@@ -414,6 +415,7 @@ export const Playground = {
     };
     return (
       <IcPaginationBar
+        accessibleLabel={args.accessibleLabel}
         alignment={args.alignment}
         currentPage={args.currentPage}
         hideCurrentPage={args.hideCurrentPage}

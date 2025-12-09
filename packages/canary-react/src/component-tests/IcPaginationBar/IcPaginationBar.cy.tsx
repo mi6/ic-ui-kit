@@ -915,6 +915,21 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
+
+  it("should have no accessibility violations with more than one pagination bar on the page", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <PaginationBarItemsPerPage accessibleLabel="First pagination" />
+        <PaginationBarItemsPerPage
+          type="complex"
+          accessibleLabel="Second pagination"
+        />
+      </div>
+    );
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.checkA11yWithWait();
+  });
 });
 
 describe("IcPaginationBar visual regression tests in high contrast mode", () => {
