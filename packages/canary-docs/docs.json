@@ -4531,6 +4531,33 @@
       "usage": {},
       "props": [
         {
+          "name": "accessibleLabel",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accessible-label",
+          "reflectToAttr": false,
+          "docs": "The accessible label passed down to the pagination component to provide context for screen reader users.",
+          "docsTags": [],
+          "default": "\"Pagination Navigation\"",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "alignment",
           "type": "\"left\" | \"right\" | \"space-between\" | undefined",
           "complexType": {
