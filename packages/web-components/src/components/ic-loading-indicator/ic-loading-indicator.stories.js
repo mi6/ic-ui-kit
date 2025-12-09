@@ -35,13 +35,13 @@ export default {
 };
 
 export const CircularIndeterminate = {
-  render: (args) =>
+  render: () =>
     html`<ic-loading-indicator label="Loading..."></ic-loading-indicator>`,
   name: "Circular (indeterminate)",
 };
 
 export const CircularDeterminate = {
-  render: (args) =>
+  render: () =>
     html`<ic-loading-indicator
       progress="30"
       min="0"
@@ -53,7 +53,7 @@ export const CircularDeterminate = {
 };
 
 export const CircularLongLabel = {
-  render: (args) =>
+  render: () =>
     html`<ic-loading-indicator
       label="This is a label for a loading indicator that is indeterminate and should wrap onto more than one line when it gets too long"
     ></ic-loading-indicator>`,
@@ -62,7 +62,7 @@ export const CircularLongLabel = {
 };
 
 export const CircularVariantsIndeterminate = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: grid; gap: 50px;">
       <ic-loading-indicator label="Small" size="small"></ic-loading-indicator>
       <ic-loading-indicator label="Default"></ic-loading-indicator>
@@ -73,7 +73,7 @@ export const CircularVariantsIndeterminate = {
 };
 
 export const CircularVariantsDeterminate = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: grid; gap: 50px;">
       <ic-loading-indicator
         progress="30"
@@ -101,13 +101,12 @@ export const CircularVariantsDeterminate = {
 };
 
 export const Icon = {
-  render: (args) =>
-    html`<ic-loading-indicator size="icon"></ic-loading-indicator>`,
+  render: () => html`<ic-loading-indicator size="icon"></ic-loading-indicator>`,
   name: "Icon",
 };
 
 export const LinearIndeterminate = {
-  render: (args) =>
+  render: () =>
     html`<ic-loading-indicator
       label="Loading..."
       type="linear"
@@ -117,7 +116,7 @@ export const LinearIndeterminate = {
 };
 
 export const LinearDeterminate = {
-  render: (args) =>
+  render: () =>
     html`<ic-loading-indicator
       progress="30"
       min="0"
@@ -130,7 +129,7 @@ export const LinearDeterminate = {
 };
 
 export const LinearLongLabel = {
-  render: (args) =>
+  render: () =>
     html`<ic-loading-indicator
       type="linear"
       label="This is a label for a loading indicator that is indeterminate and should wrap onto more than one line when it gets too long"
@@ -140,7 +139,7 @@ export const LinearLongLabel = {
 };
 
 export const LinearVariantsIndeterminate = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: grid; gap: 50px;">
       <ic-loading-indicator
         label="Small"
@@ -168,7 +167,7 @@ export const LinearVariantsIndeterminate = {
 };
 
 export const LinearVariantsDeterminate = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: grid; gap: 50px;">
       <ic-loading-indicator
         progress="30"
@@ -208,7 +207,7 @@ export const LinearVariantsDeterminate = {
 };
 
 export const CircularDarkMode = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: grid; gap: 50px;">
       <ic-loading-indicator
         label="Small"
@@ -233,7 +232,7 @@ export const CircularDarkMode = {
 };
 
 export const IconDarkMode = {
-  render: (args) =>
+  render: () =>
     html`<ic-loading-indicator
       size="icon"
       theme="dark"
@@ -249,7 +248,7 @@ export const IconDarkMode = {
 };
 
 export const LinearDarkMode = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: grid; gap: 50px;">
       <ic-loading-indicator
         label="Default"
@@ -306,7 +305,7 @@ export const LinearDarkMode = {
 };
 
 export const Monochrome = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: grid; gap: 50px;">
       <ic-loading-indicator
         label="Light"
@@ -351,7 +350,7 @@ export const Monochrome = {
 };
 
 export const NoLabel = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: grid; gap: 50px;">
       <ic-loading-indicator description="Loading"></ic-loading-indicator
       ><ic-loading-indicator
@@ -377,7 +376,7 @@ export const NoLabel = {
 };
 
 export const ChangingLabel = {
-  render: (args) =>
+  render: () =>
     html`<ic-loading-indicator label-duration="4000"></ic-loading-indicator>
       <script>
         document.querySelector("ic-loading-indicator").label = [

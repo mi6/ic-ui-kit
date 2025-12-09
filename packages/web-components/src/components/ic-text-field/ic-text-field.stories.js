@@ -41,7 +41,7 @@ const defaultArgs = {
 };
 
 export const Default = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field label="What is your favourite coffee?"> </ic-text-field>
       <ic-text-field rows="6" label="What is your favourite coffee?">
       </ic-text-field>`,
@@ -50,7 +50,7 @@ export const Default = {
 };
 
 export const Autofocus = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field autofocus label="What is your favourite coffee?">
     </ic-text-field>`,
 
@@ -58,7 +58,7 @@ export const Autofocus = {
 };
 
 export const PlaceholderAndRequired = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         label="What is your favourite coffee?"
         required
@@ -77,7 +77,7 @@ export const PlaceholderAndRequired = {
 };
 
 export const HelperText = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         label="What is your favourite coffee?"
         required
@@ -109,7 +109,7 @@ export const HelperText = {
 };
 
 export const WithIcon = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         label="What is your favourite coffee?"
         required
@@ -156,7 +156,7 @@ export const WithIcon = {
 };
 
 export const WithValue = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         value="Arabica"
         label="What is your favourite coffee?"
@@ -205,7 +205,7 @@ export const WithValue = {
 };
 
 export const CustomWidth = {
-  render: (args) =>
+  render: () =>
     html`<style>
         ic-text-field {
           --input-width: 400px;
@@ -264,7 +264,7 @@ export const CustomWidth = {
 };
 
 export const FullWidth = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: flex">
         <ic-text-field
           full-width="true"
@@ -322,7 +322,7 @@ export const FullWidth = {
 };
 
 export const Disabled = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         value="Arabica"
         label="What is your favourite coffee?"
@@ -416,7 +416,7 @@ export const Disabled = {
 };
 
 export const ReadOnly = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         value="Arabica"
         max-characters="25"
@@ -486,7 +486,7 @@ export const ReadOnly = {
 };
 
 export const Validation = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         validation-status="success"
         validation-text="Good choice!"
@@ -802,7 +802,7 @@ export const Validation = {
 };
 
 export const AriaLiveBehaviour = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         id="field-1"
         label="What is your favourite coffee?"
@@ -886,7 +886,7 @@ export const AriaLiveBehaviour = {
 };
 
 export const TextAreaWithResize = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
       rows="6"
       value="Arabica"
@@ -915,7 +915,7 @@ export const TextAreaWithResize = {
 };
 
 export const Form = {
-  render: (args) => html`
+  render: () => html`
     <form>
       <ic-text-field label="What is your favourite coffee?"></ic-text-field>
       <br />
@@ -937,7 +937,7 @@ export const Form = {
 };
 
 export const MinAndMax = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         inputmode="numeric"
         label="How many coffees do you want?"
@@ -963,7 +963,7 @@ export const MinAndMax = {
 };
 
 export const LoggingIcChange = {
-  render: (args) =>
+  render: () =>
     html`<script>
         function handleIcChange(ev) {
           console.log(ev.detail.value, "icChange");
@@ -978,7 +978,7 @@ export const LoggingIcChange = {
 };
 
 export const LoggingIcKeydown = {
-  render: (args) =>
+  render: () =>
     html`<script>
         function handleIcChange(ev) {
           console.log(ev.detail.value, "icChange");
@@ -1000,7 +1000,7 @@ export const LoggingIcKeydown = {
 };
 
 export const MaximumAndMinimumCharacters = {
-  render: (args) =>
+  render: () =>
     html`<ic-text-field
         max-characters="2"
         label="What is your favourite coffee?"
@@ -1034,7 +1034,7 @@ export const MaximumAndMinimumCharacters = {
 };
 
 export const Internationalisation = {
-  render: (args) =>
+  render: () =>
     html`<span lang="fr">
       <ic-text-field
         label="Boisson préférée"
