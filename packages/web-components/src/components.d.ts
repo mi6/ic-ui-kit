@@ -875,6 +875,10 @@ export namespace Components {
          */
         "copyright"?: boolean;
         /**
+          * The text displayed for the copyright notice if `copyright` is `true`.
+         */
+        "copyrightText"?: string;
+        /**
           * The description displayed at the top of the footer.
          */
         "description"?: string;
@@ -4549,6 +4553,10 @@ declare namespace LocalJSX {
           * If `true`, the footer will display the crown copyright at the bottom.
          */
         "copyright"?: boolean;
+        /**
+          * The text displayed for the copyright notice if `copyright` is `true`.
+         */
+        "copyrightText"?: string;
         /**
           * The description displayed at the top of the footer.
          */
