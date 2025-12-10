@@ -12,11 +12,12 @@ import {
 } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
-export const Default = () => {
+export const Default = (props) => {
   return (
     <IcFooter
       description="The UK Intelligence Community Design System (ICDS) is a joint project by MI6, GCHQ, MI5, and partners."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
+      {...props}
     >
       <IcFooterLink slot="link" href="/">
         Accessibility
