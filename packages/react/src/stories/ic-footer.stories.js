@@ -20,6 +20,7 @@ const defaultArgs = {
   caption:
     "All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence.",
   copyright: true,
+  copyrightText: "© Crown Copyright",
   description:
     "The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch.",
   groupLinks: true,
@@ -78,6 +79,7 @@ export const Playground = {
       copyright={args.copyright}
       description={args.description}
       groupLinks={args.groupLinks}
+      copyrightText={args.copyrightText}
     >
       <IcFooterLinkGroup slot="link" label="Links 1">
         <IcFooterLink href="/">Get Started</IcFooterLink>
@@ -644,4 +646,49 @@ export const SlottedDescriptionAndCaption = {
   ),
 
   name: "Slotted description and caption",
+};
+
+export const CustomCopyright = {
+  render: () => (
+    <IcFooter
+      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, \nplease get in touch."
+      caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
+      copyrightText="© 2025 Coffeehouse Inc. All rights reserved."
+    >
+      <IcFooterLink slot="link" href="/">
+        Get Started
+      </IcFooterLink>
+      <IcFooterLink slot="link" href="/">
+        Accessibility
+      </IcFooterLink>
+      <IcFooterLink slot="link" href="/">
+        Styles
+      </IcFooterLink>
+      <IcFooterLink slot="link" href="/" target="_blank">
+        Components
+      </IcFooterLink>
+      <IcFooterLink slot="link" href="/">
+        Patterns
+      </IcFooterLink>
+      <IcFooterLink slot="link" href="/">
+        Design toolkit
+      </IcFooterLink>
+      <div
+        slot="logo"
+        style={{
+          width: "100px",
+          height: "100px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "var(--ic-brand-color-primary)",
+          color: "var(--ic-brand-text-color)",
+        }}
+      >
+        Logo
+      </div>
+    </IcFooter>
+  ),
+
+  name: "Custom copyright text",
 };
