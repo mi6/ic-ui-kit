@@ -69,6 +69,11 @@ export class Footer {
   @Prop() copyright?: boolean = true;
 
   /**
+   * The text displayed for the copyright notice if `copyright` is `true`.
+   */
+  @Prop() copyrightText?: string = "© Crown Copyright";
+
+  /**
    * The description displayed at the top of the footer.
    */
   @Prop() description?: string;
@@ -151,6 +156,7 @@ export class Footer {
       aligned,
       caption,
       copyright,
+      copyrightText,
       description,
       deviceSize,
       el,
@@ -245,7 +251,7 @@ export class Footer {
                             : "label-uppercase"
                         }
                       >
-                        &copy; Crown Copyright
+                        {copyrightText}
                       </ic-typography>
                     </div>
                   )}
