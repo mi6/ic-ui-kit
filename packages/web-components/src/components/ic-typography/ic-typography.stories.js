@@ -16,7 +16,7 @@ export default {
 };
 
 export const Default = {
-  render: (args) => html`<ic-typography>I am typography</ic-typography>`,
+  render: () => html`<ic-typography>I am typography</ic-typography>`,
   name: "Default",
 };
 
