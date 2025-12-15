@@ -8,6 +8,22 @@ exports[`ic-skeleton should render circular variant 1`] = `
 </ic-skeleton>
 `;
 
+exports[`ic-skeleton should render circular variant with height 1`] = `
+<ic-skeleton aria-disabled="true" class="ic-skeleton-circle skeleton" height="150px" variant="circle" style="height: 150px; width: 150px;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</ic-skeleton>
+`;
+
+exports[`ic-skeleton should render circular variant with width 1`] = `
+<ic-skeleton aria-disabled="true" class="ic-skeleton-circle skeleton" variant="circle" width="150px" style="height: 150px; width: 150px;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</ic-skeleton>
+`;
+
 exports[`ic-skeleton should render text variant 1`] = `
 <ic-skeleton aria-disabled="true" class="skeleton" variant="text">
   <template shadowrootmode="open">
@@ -37,6 +53,14 @@ exports[`ic-skeleton should render with supplied height 1`] = `
 
 exports[`ic-skeleton should render with supplied height and width 1`] = `
 <ic-skeleton aria-disabled="true" class="skeleton" style="height: 100px; width: 300px;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</ic-skeleton>
+`;
+
+exports[`ic-skeleton should render with supplied height and width in props 1`] = `
+<ic-skeleton aria-disabled="true" class="skeleton" height="100px" width="300px" style="height: 100px; width: 300px;">
   <template shadowrootmode="open">
     <slot></slot>
   </template>

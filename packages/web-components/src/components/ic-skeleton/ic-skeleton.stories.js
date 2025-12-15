@@ -3,6 +3,8 @@ import { html } from "lit-html";
 const defaultArgs = {
   theme: "inherit",
   variant: "rectangle",
+  height: "93px",
+  width: "260px",
 };
 
 export default {
@@ -113,9 +115,8 @@ export const Playground = {
       <ic-skeleton
         theme=${args.theme}
         variant=${args.variant}
-        style="height: ${args.variant == "circle"
-          ? "20px"
-          : ""};width:${args.variant == "circle" ? "20px" : ""};"
+        height=${args.height}
+        width=${args.width}
       ></ic-skeleton>
     </div>`,
 

@@ -8,6 +8,12 @@ const DEFAULT_HEIGHTS = {
   rectangle: "93px",
 };
 
+const DEFAULT_WIDTHS = {
+  text: "260px",
+  circle: "25px",
+  rectangle: "260px",
+};
+
 @Component({
   tag: "ic-skeleton",
   styleUrl: "ic-skeleton.css",
@@ -26,13 +32,34 @@ export class Skeleton {
    */
   @Prop() variant?: IcSkeletonVariants = "rectangle";
 
+  /**
+   * Height of the skeleton. Accepts any valid CSS length (e.g. "24px", "2rem", "100%").
+   */
+  @Prop() height?: string;
+
+  /**
+   * Width of the skeleton. Accepts any valid CSS length (e.g. "24px", "2rem", "100%").
+   */
+  @Prop() width?: string;
+
   render() {
-    const { variant, theme, el } = this;
+    const { variant = "rectangle", theme, el } = this;
+
+    let height = this.height;
+    let width = this.width;
+
+    if (variant === "circle") {
+      if (height && !width) {
+        width = height;
+      } else if (width && !height) {
+        height = width;
+      }
+    }
 
     const style = !el.firstElementChild
       ? {
-          height: el.style.height || DEFAULT_HEIGHTS[variant!],
-          width: el.style.width || (variant === "circle" ? "25px" : "260px"),
+          height: el.style.height || height || DEFAULT_HEIGHTS[variant!],
+          width: el.style.width || width || DEFAULT_WIDTHS[variant!],
         }
       : undefined;
 
