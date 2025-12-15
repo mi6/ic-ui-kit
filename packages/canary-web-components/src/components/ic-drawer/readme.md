@@ -40,6 +40,15 @@
 | `"heading-adornment"` | Content will be rendered in the title area, to the left of the heading.  |
 
 
+## CSS Custom Properties
+
+| Name                  | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| `--ic-drawer-height`  | the height of the expanded top or bottom drawer. |
+| `--ic-drawer-width`   | the width of the expanded left or right drawer.  |
+| `--ic-z-index-drawer` | z-index of drawer.                               |
+
+
 ## Dependencies
 
 ### Depends on

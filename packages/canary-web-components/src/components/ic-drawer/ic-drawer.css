@@ -45,6 +45,7 @@
 .drawer-panel {
   background-color: var(--ic-drawer-background);
   box-shadow: var(--ic-drawer-drop-shadow);
+  /* max-width: 100%; */
   z-index: calc(var(--ic-z-index-drawer) + 1);
 }
 
@@ -87,6 +88,10 @@
   align-items: flex-start;
   border-radius: var(--ic-border-radius) var(--ic-border-radius) 0 0;
 }
+
+/* :host(.ic-drawer-right-position.ic-drawer-boundary-parent) .drawer-panel {
+  max-width: 100%;
+} */
 
 .inner-drawer-panel {
   flex-flow: column;
@@ -446,9 +451,8 @@
 
 :host .action-area {
   align-self: flex-end;
-  /* container-type: inline-size; */
   display: flex;
-  flex-wrap: wrap; /* SOME OF THESE NEED MOVING TO WRAPPER */
+  flex-wrap: wrap;
   gap: var(--ic-space-md);
   justify-content: flex-end;
   margin-top: var(--ic-space-md);
@@ -456,12 +460,14 @@
 }
 
 :host .action-area.with-margin {
-  margin-bottom: calc(var(--ic-space-xl) + var(--ic-space-xs));
+  margin-bottom: calc(
+    var(--ic-space-xl) + var(--ic-space-xs) + var(--ic-space-xxxs)
+  );
 }
 
 :host(.ic-drawer-bottom-position) .action-area,
 :host(.ic-drawer-top-position) .action-area {
-  min-height: var(--ic-space-xl);
+  min-height: var(--ic-space-lg);
 }
 
 /* Chevron button */

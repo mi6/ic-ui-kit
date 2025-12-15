@@ -368,7 +368,7 @@ export const ManualTriggerContainedWithinParent = {
           id="drawer-bottom"
           heading="Roasted coffee"
           message="Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours."
-          position="top"
+          position="bottom"
           trigger="controlled"
           boundary="parent"
           onIcDrawerExpanded={ev => console.log(ev.detail)}
@@ -737,11 +737,17 @@ export const Playground = {
                 </IcTypography>
               )}
               {args.messageSlot && (
-                <IcTypography>
+                <IcTypography slot="message">
                   <p>
                     (Slotted)
                     <br />
-                    Contrary to popular belief, light roast coffee has more caffeine than dark roast coffee. The longer coffee is roasted, the more caffeine is lost through the cooking of the bean. Light roast coffee is a light brown colour and has no oil on the surface of the beans, and these coffees typically have a crisp acidity, a mellow body, and bright flavours.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pharetra tortor, sed lacinia lectus. Aliquam elementum risus ipsum, sit amet tincidunt elit pharetra quis.
+                      <br />
+                      <br />
+                      <IcButton>Lorem ipsum</IcButton>
+                      <br />
+                      <br />
+                      Morbi maximus dolor sit amet nulla feugiat, sed congue ligula dignissim. Nullam ac augue nec erat suscipit scelerisque. Aliquam at tellus fringilla, faucibus est posuere, convallis magna. Integer vel ornare lectus. Vestibulum convallis mauris vel quam vehicula maximus. Fusce et consequat lacus, non auctor tellus. In ut lacus aliquet, accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam non lectus mauris. In eu libero ut augue viverra accumsan. Praesent non felis tortor. Nullam rutrum odio justo, bibendum pulvinar leo dictum a. Donec sodales sagittis ultricies. Duis posuere a mauris vitae auctor. Pellentesque porta, massa ac pellentesque feugiat, diam mauris commodo neque, quis gravida risus est sit amet lacus. Fusce rhoncus leo nec lobortis mattis. Donec risus leo, eleifend efficitur purus ac, sollicitudin dictum neque. Suspendisse potenti. Etiam mattis felis nisi, non laoreet ipsum sollicitudin at. Quisque metus nibh, imperdiet nec euismod a, convallis et sem. Maecenas cursus porttitor fringilla. Ut gravida ante at orci sagittis tincidunt. Integer porta nisl nisi, in vehicula felis aliquet sit amet. Praesent eleifend libero in vulputate convallis. Aenean aliquet ante a venenatis convallis. Donec quis felis semper, imperdiet tellus eu, imperdiet nisi. Sed aliquet felis nec tellus aliquet, et sodales sem varius. Etiam justo mauris, dapibus a ornare id, volutpat sit amet orci. Nam eu condimentum tortor, rhoncus fermentum nunc. Duis mollis justo a tortor tempus dictum. Quisque vulputate, risus non tempor varius, eros velit rutrum dui, non gravida elit erat eget ex. Ut cursus congue enim eget eleifend. Nullam iaculis neque non ligula aliquam, vitae rutrum arcu ultrices. Etiam porttitor condimentum dolor, ut luctus risus condimentum sit amet. Duis faucibus commodo leo nec bibendum. Nam faucibus, lectus vitae pulvinar ullamcorper, risus orci tempus sapien, varius pulvinar nulla odio eget ipsum. Mauris vestibulum sem vitae lectus feugiat, in tincidunt neque fringilla. Fusce lacus eros, elementum sit amet sapien et, congue venenatis metus. Nullam mauris velit, pharetra et ligula faucibus, pulvinar luctus nisl. Etiam ante odio, fermentum ac accumsan eget, luctus a libero. Phasellus maximus risus ac viverra scelerisque.
                   </p>
                 </IcTypography>
               )}

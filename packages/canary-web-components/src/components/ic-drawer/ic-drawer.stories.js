@@ -47,6 +47,7 @@ export const RightPosition = {
           d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"
         />
       </svg>
+      <ic-button slot="actions">Add to order</ic-button>
     </ic-drawer>
     <script>
       function handleDrawerExpanded(ev) {
@@ -1100,6 +1101,7 @@ export const Playground = {
             chevron-button-aria-label=${args.chevronButtonAriaLabel}
             close-button-aria-label=${args.closeButtonAriaLabel}
             close-on-backdrop-click=${args.closeOnBackdropClick}
+            expanded=${args.expanded}
             heading=${args.heading}
             hide-close-button=${args.hideCloseButton}
             message=${args.message}
@@ -1129,7 +1131,55 @@ export const Playground = {
                   <p>
                     (Slotted)
                     <br />
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pharetra tortor, sed lacinia lectus. Aliquam elementum risus ipsum, sit amet tincidunt elit pharetra quis. Morbi maximus dolor sit amet nulla feugiat, sed congue ligula dignissim. Nullam ac augue nec erat suscipit scelerisque. Aliquam at tellus fringilla, faucibus est posuere, convallis magna. Integer vel ornare lectus. Vestibulum convallis mauris vel quam vehicula maximus. Fusce et consequat lacus, non auctor tellus. In ut lacus aliquet, accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam non lectus mauris. In eu libero ut augue viverra accumsan. Praesent non felis tortor. Nullam rutrum odio justo, bibendum pulvinar leo dictum a. Donec sodales sagittis ultricies. Duis posuere a mauris vitae auctor. Pellentesque porta, massa ac pellentesque feugiat, diam mauris commodo neque, quis gravida risus est sit amet lacus. Fusce rhoncus leo nec lobortis mattis. Donec risus leo, eleifend efficitur purus ac, sollicitudin dictum neque. Suspendisse potenti. Etiam mattis felis nisi, non laoreet ipsum sollicitudin at. Quisque metus nibh, imperdiet nec euismod a, convallis et sem. Maecenas cursus porttitor fringilla. Ut gravida ante at orci sagittis tincidunt. Integer porta nisl nisi, in vehicula felis aliquet sit amet. Praesent eleifend libero in vulputate convallis. Aenean aliquet ante a venenatis convallis. Donec quis felis semper, imperdiet tellus eu, imperdiet nisi. Sed aliquet felis nec tellus aliquet, et sodales sem varius. Etiam justo mauris, dapibus a ornare id, volutpat sit amet orci. Nam eu condimentum tortor, rhoncus fermentum nunc. Duis mollis justo a tortor tempus dictum. Quisque vulputate, risus non tempor varius, eros velit rutrum dui, non gravida elit erat eget ex. Ut cursus congue enim eget eleifend. Nullam iaculis neque non ligula aliquam, vitae rutrum arcu ultrices. Etiam porttitor condimentum dolor, ut luctus risus condimentum sit amet. Duis faucibus commodo leo nec bibendum. Nam faucibus, lectus vitae pulvinar ullamcorper, risus orci tempus sapien, varius pulvinar nulla odio eget ipsum. Mauris vestibulum sem vitae lectus feugiat, in tincidunt neque fringilla. Fusce lacus eros, elementum sit amet sapien et, congue venenatis metus. Nullam mauris velit, pharetra et ligula faucibus, pulvinar luctus nisl. Etiam ante odio, fermentum ac accumsan eget, luctus a libero. Phasellus maximus risus ac viverra scelerisque.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aliquam ut pharetra tortor, sed lacinia lectus. Aliquam
+                    elementum risus ipsum, sit amet tincidunt elit pharetra
+                    quis.
+                    <br />
+                    <br />
+                    <ic-button>Lorem ipsum</ic-button>
+                    <br />
+                    <br />
+                    Morbi maximus dolor sit amet nulla feugiat, sed congue
+                    ligula dignissim. Nullam ac augue nec erat suscipit
+                    scelerisque. Aliquam at tellus fringilla, faucibus est
+                    posuere, convallis magna. Integer vel ornare lectus.
+                    Vestibulum convallis mauris vel quam vehicula maximus. Fusce
+                    et consequat lacus, non auctor tellus. In ut lacus aliquet,
+                    accumsan tellus a, volutpat ante. Aliquam erat volutpat. Nam
+                    non lectus mauris. In eu libero ut augue viverra accumsan.
+                    Praesent non felis tortor. Nullam rutrum odio justo,
+                    bibendum pulvinar leo dictum a. Donec sodales sagittis
+                    ultricies. Duis posuere a mauris vitae auctor. Pellentesque
+                    porta, massa ac pellentesque feugiat, diam mauris commodo
+                    neque, quis gravida risus est sit amet lacus. Fusce rhoncus
+                    leo nec lobortis mattis. Donec risus leo, eleifend efficitur
+                    purus ac, sollicitudin dictum neque. Suspendisse potenti.
+                    Etiam mattis felis nisi, non laoreet ipsum sollicitudin at.
+                    Quisque metus nibh, imperdiet nec euismod a, convallis et
+                    sem. Maecenas cursus porttitor fringilla. Ut gravida ante at
+                    orci sagittis tincidunt. Integer porta nisl nisi, in
+                    vehicula felis aliquet sit amet. Praesent eleifend libero in
+                    vulputate convallis. Aenean aliquet ante a venenatis
+                    convallis. Donec quis felis semper, imperdiet tellus eu,
+                    imperdiet nisi. Sed aliquet felis nec tellus aliquet, et
+                    sodales sem varius. Etiam justo mauris, dapibus a ornare id,
+                    volutpat sit amet orci. Nam eu condimentum tortor, rhoncus
+                    fermentum nunc. Duis mollis justo a tortor tempus dictum.
+                    Quisque vulputate, risus non tempor varius, eros velit
+                    rutrum dui, non gravida elit erat eget ex. Ut cursus congue
+                    enim eget eleifend. Nullam iaculis neque non ligula aliquam,
+                    vitae rutrum arcu ultrices. Etiam porttitor condimentum
+                    dolor, ut luctus risus condimentum sit amet. Duis faucibus
+                    commodo leo nec bibendum. Nam faucibus, lectus vitae
+                    pulvinar ullamcorper, risus orci tempus sapien, varius
+                    pulvinar nulla odio eget ipsum. Mauris vestibulum sem vitae
+                    lectus feugiat, in tincidunt neque fringilla. Fusce lacus
+                    eros, elementum sit amet sapien et, congue venenatis metus.
+                    Nullam mauris velit, pharetra et ligula faucibus, pulvinar
+                    luctus nisl. Etiam ante odio, fermentum ac accumsan eget,
+                    luctus a libero. Phasellus maximus risus ac viverra
+                    scelerisque.
                   </p>
                 </ic-typography>`
               : ""}

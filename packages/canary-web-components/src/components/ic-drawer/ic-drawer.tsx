@@ -94,6 +94,14 @@ export class Drawer {
    * If `true`, the drawer will display in an expanded state.
    */
   @Prop({ reflect: true, mutable: true }) expanded: boolean = false;
+  @Watch("expanded")
+  watchExpandedHandler(): void {
+    this.icDrawerExpanded.emit({ expanded: this.expanded });
+
+    // if (this.trigger === "controlled") {
+    this.handleDrawerExpanded(true);
+    // }
+  }
 
   /**
    * The heading of the drawer. This is required, unless a slotted heading is used.
@@ -165,15 +173,6 @@ export class Drawer {
     }
   }
 
-  @Watch("expanded")
-  watchExpandedHandler(): void {
-    this.icDrawerExpanded.emit({ expanded: this.expanded });
-
-    if (this.trigger === "controlled") {
-      this.handleDrawerExpanded(true);
-    }
-  }
-
   componentWillLoad(): void {
     if (this.el.parentElement && this.boundary === "parent") {
       this.el.parentElement.style.overflow = "hidden";
@@ -181,6 +180,10 @@ export class Drawer {
   }
 
   componentDidLoad(): void {
+    if (this.expanded) {
+      this.handleDrawerExpanded(true);
+    }
+
     this.setContentAreaMutationObserver();
     this.setHostMutationObserver();
     this.setMarginResizeObserver();
