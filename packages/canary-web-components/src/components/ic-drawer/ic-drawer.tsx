@@ -229,19 +229,29 @@ export class Drawer {
     ></ic-button>
   );
 
+  private preventActionAreaChevronOverlap = () =>
+    (this.position === "top" || this.position === "bottom") &&
+    this.trigger === "arrow";
+
   // Moves action area to above the chevron button
   // if drawer width is too narrow to display to the right of it
   // (For top and bottom drawer position)
   private updateActionAreaMargin = () => {
-    if (isSlotUsed(this.el, "actions") && this.actionAreaEl) {
-      const drawerWidth = this.el.getBoundingClientRect().width;
-      const actionAreaWidth = this.actionAreaEl?.getBoundingClientRect().width;
-      const threshold = drawerWidth / 2 - 48;
+    if (this.actionAreaEl) {
+      this.actionAreaEl.classList.remove("with-margin");
 
-      if (actionAreaWidth > threshold) {
-        this.actionAreaEl.classList.add("with-margin");
-      } else {
-        this.actionAreaEl.classList.remove("with-margin");
+      if (
+        this.preventActionAreaChevronOverlap() &&
+        isSlotUsed(this.el, "actions")
+      ) {
+        const drawerWidth = this.el.getBoundingClientRect().width;
+        const actionAreaWidth =
+          this.actionAreaEl?.getBoundingClientRect().width;
+        const threshold = drawerWidth / 2 - 48;
+
+        if (actionAreaWidth > threshold) {
+          this.actionAreaEl.classList.add("with-margin");
+        }
       }
     }
   };
@@ -347,16 +357,13 @@ export class Drawer {
       this.marginResizeObserver = undefined;
     }
 
-    if (
-      (this.position === "top" || this.position === "bottom") &&
-      this.trigger === "arrow"
-    ) {
+    if (this.preventActionAreaChevronOverlap()) {
       this.marginResizeObserver = new ResizeObserver(() => {
         this.updateActionAreaMargin();
       });
       this.marginResizeObserver.observe(this.el);
-      this.updateActionAreaMargin();
     }
+    this.updateActionAreaMargin();
   };
 
   private setParentElResizeObserver = () => {
