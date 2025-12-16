@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.31...@ukic/canary-web-components@3.0.0-canary.32) (2025-12-16)
+
+### Features
+
+- **canary-web-components:** adds ability to hide pagination bar elements ([a2992c4](https://github.com/mi6/ic-ui-kit/commit/a2992c4e876b3dc68ac359b72063eb9976c65894))
+
 # [3.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.30...@ukic/canary-web-components@3.0.0-canary.31) (2025-11-26)
 
 ### Features
