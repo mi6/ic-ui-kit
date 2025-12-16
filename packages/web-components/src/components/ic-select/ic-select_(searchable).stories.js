@@ -27,7 +27,7 @@ export default {
 };
 
 export const Default = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-default"
         label="What is your favourite coffee?"
@@ -65,7 +65,7 @@ export const Default = {
 };
 
 export const AsyncDefault = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-async"
         label="What is your favourite coffee?"
@@ -95,7 +95,7 @@ export const AsyncDefault = {
 };
 
 export const DefaultValue = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-default-value"
         label="What is your favourite coffee?"
@@ -122,7 +122,7 @@ export const DefaultValue = {
 };
 
 export const FilterByStartOfOptions = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-filter-start"
         label="What is your favourite coffee?"
@@ -149,7 +149,7 @@ export const FilterByStartOfOptions = {
 };
 
 export const WithDescriptions = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-descriptions"
         label="What is your favourite coffee?"
@@ -205,7 +205,7 @@ export const WithDescriptions = {
 };
 
 export const WithDescriptionsIncludedInSearch = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-descriptions-included"
         label="What is your favourite coffee?"
@@ -262,7 +262,7 @@ export const WithDescriptionsIncludedInSearch = {
 };
 
 export const HelperText = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         label="What is your favourite coffee?"
         searchable
@@ -297,7 +297,7 @@ export const HelperText = {
 };
 
 export const Sizes = {
-  render: () =>
+  render: (args) =>
     html`<div style="display: flex; flex-direction: column; gap: 16px;">
       <ic-select
         id="select-size-small"
@@ -367,7 +367,7 @@ export const Sizes = {
 };
 
 export const Disabled = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-disabled"
         label="What is your favourite coffee?"
@@ -394,7 +394,7 @@ export const Disabled = {
 };
 
 export const DisabledOptions = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-disabled-options"
         label="What is your favourite coffee?"
@@ -420,7 +420,7 @@ export const DisabledOptions = {
 };
 
 export const HiddenLabel = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-hidden-label"
         label="What is your favourite coffee?"
@@ -447,7 +447,7 @@ export const HiddenLabel = {
 };
 
 export const Required = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-required"
         label="What is your favourite coffee?"
@@ -474,7 +474,7 @@ export const Required = {
 };
 
 export const Groups = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-groups"
         label="What is your favourite coffee?"
@@ -507,7 +507,7 @@ export const Groups = {
 };
 
 export const GroupsGroupTitlesIncludedInSearch = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-groups-included"
         label="What is your favourite coffee?"
@@ -541,7 +541,7 @@ export const GroupsGroupTitlesIncludedInSearch = {
 };
 
 export const Recommended = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-recommended"
         label="What is your favourite coffee?"
@@ -567,7 +567,7 @@ export const Recommended = {
 };
 
 export const Validation = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-success"
         label="What is your favourite coffee?"
@@ -642,7 +642,7 @@ export const Validation = {
 };
 
 export const ScrollBehaviour = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-scroll"
         label="What is your favourite coffee?"
@@ -672,7 +672,7 @@ export const ScrollBehaviour = {
 };
 
 export const ExternalFiltering = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         label="What is your favourite coffee?"
         searchable
@@ -742,7 +742,7 @@ export const ExternalFiltering = {
 };
 
 export const InForm = {
-  render: () => html`
+  render: (args) => html`
     <form>
       <ic-select
         id="select-form"
@@ -775,7 +775,7 @@ export const InForm = {
 };
 
 export const UpdateInputValueFromExternalRequest = {
-  render: () =>
+  render: (args) =>
     html`<ic-section-container>
         <ic-select
           id="select-external-request"
@@ -811,7 +811,7 @@ export const UpdateInputValueFromExternalRequest = {
 };
 
 export const EmittingIcOptionSelectOnEnter = {
-  render: () =>
+  render: (args) =>
     html`<ic-select
         id="select-icoptionselect"
         label="What is your favourite coffee?"

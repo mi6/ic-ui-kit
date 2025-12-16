@@ -3,12 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.31...@ukic/canary-react@3.0.0-canary.32) (2025-12-16)
-
-### Features
-
-- **canary-react:** adds ability to hide pagination bar elements ([d0dc52c](https://github.com/mi6/ic-ui-kit/commit/d0dc52c6672b53ae64e4d6fb814a2c47238abe6a))
-
 # [3.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.30...@ukic/canary-react@3.0.0-canary.31) (2025-11-26)
 
 ### Features

@@ -29,7 +29,7 @@ export default {
 };
 
 export const Default = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group label="This is a label" name="1">
       <ic-radio-option
         value="valueName1"
@@ -52,7 +52,7 @@ export const Default = {
 };
 
 export const Horizontal = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group
       orientation="horizontal"
       label="This should be horizontal"
@@ -90,7 +90,7 @@ export const Horizontal = {
 };
 
 export const Required = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group label="This is a label" required name="1">
       <ic-radio-option
         value="valueName1"
@@ -113,7 +113,7 @@ export const Required = {
 };
 
 export const Disabled = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group label="This is a label" name="1">
       <ic-radio-option
         value="valueName1"
@@ -143,7 +143,7 @@ export const Disabled = {
 };
 
 export const ConditionalDynamic = {
-  render: () => html`
+  render: (args) => html`
     <script>
       function handleIcChange(ev) {
         console.log(ev.detail.selectedOption);
@@ -214,7 +214,7 @@ export const ConditionalDynamic = {
 };
 
 export const ConditionalStatic = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group label=" Conditional static" name="1">
       <ic-radio-option value="valueName1" label="option1">
         <ic-text-field
@@ -248,7 +248,7 @@ export const ConditionalStatic = {
 };
 
 export const HelperText = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group
       label="Pick Your Coffee"
       name="1"
@@ -292,7 +292,7 @@ export const HelperText = {
 };
 
 export const Small = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group label="This is a label" name="1" size="small">
       <ic-radio-option
         value="valueName1"
@@ -315,7 +315,7 @@ export const Small = {
 };
 
 export const Validation = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group
       label="This is a label"
       name="1"
@@ -343,7 +343,7 @@ export const Validation = {
 };
 
 export const AriaLiveBehaviour = {
-  render: () =>
+  render: (args) =>
     html`<ic-radio-group
         id="field-1"
         label="This is a label"
@@ -496,7 +496,7 @@ export const AriaLiveBehaviour = {
 };
 
 export const Form = {
-  render: () => html`
+  render: (args) => html`
     <form>
       <ic-radio-group label="This is a label" name="1">
         <ic-radio-option
@@ -528,7 +528,7 @@ export const Form = {
 };
 
 export const RTL = {
-  render: () => html`
+  render: (args) => html`
     <ic-radio-group label="This is a label" name="group1" dir="rtl">
       <ic-radio-option value="valueName1" label="Default"></ic-radio-option>
       <ic-radio-option

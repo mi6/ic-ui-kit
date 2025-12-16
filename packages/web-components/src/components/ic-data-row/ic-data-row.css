@@ -16,7 +16,6 @@
   min-width: 0;
 
   --ic-typography-color: var(--ic-data-list-text-cell);
-
   color: var(--ic-data-list-text-cell);
 }
 
@@ -26,7 +25,6 @@
   margin-right: var(--ic-space-md);
 
   --ic-typography-color: var(--ic-data-list-text-label);
-
   color: var(--ic-data-list-text-label);
 }
 

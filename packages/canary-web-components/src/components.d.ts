@@ -553,14 +553,6 @@ export namespace Components {
          */
         "hideAllFromItemsPerPage"?: boolean;
         /**
-          * If `true`, the current page of the simple pagination will not be displayed.
-         */
-        "hideCurrentPage"?: boolean;
-        /**
-          * If `true`, the first and last page buttons will not be displayed.
-         */
-        "hideFirstAndLastPageButton"?: boolean;
-        /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
         "hideRangeLabel"?: boolean;
@@ -1705,14 +1697,6 @@ declare namespace LocalJSX {
           * If `true`, the 'All' option will be hidden from the 'items per page' select input.
          */
         "hideAllFromItemsPerPage"?: boolean;
-        /**
-          * If `true`, the current page of the simple pagination will not be displayed.
-         */
-        "hideCurrentPage"?: boolean;
-        /**
-          * If `true`, the first and last page buttons will not be displayed.
-         */
-        "hideFirstAndLastPageButton"?: boolean;
         /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */

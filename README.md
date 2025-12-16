@@ -151,7 +151,6 @@ We have a couple of resources to help you with contributing.
 - Make sure to also read our [coding standards and technical instructions](CONTRIBUTING.md).
 - [IC Design System guidance site repository](https://github.com/mi6/ic-design-system) contains the code and content for the Design System guidance site.
 - [IC UI Kit repository](https://github.com/mi6/ic-ui-kit) contains the code and content for the web components.
-- Look for the label [`good first issue`](https://github.com/mi6/ic-ui-kit/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
 
 ### Security
 

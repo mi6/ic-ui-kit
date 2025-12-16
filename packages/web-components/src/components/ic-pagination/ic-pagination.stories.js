@@ -21,7 +21,7 @@ export default {
 };
 
 export const Simple = {
-  render: () => html`
+  render: (args) => html`
     <p>Default appearance</p>
     <ic-pagination pages="15"></ic-pagination>
     <br />
@@ -45,7 +45,7 @@ export const Simple = {
 };
 
 export const Complex = {
-  render: () => html`
+  render: (args) => html`
     <p>Default appearance</p>
     <ic-pagination pages="15" type="complex"></ic-pagination>
     <br />
@@ -67,7 +67,7 @@ export const Complex = {
 };
 
 export const ComplexAdjacentBoundaryItemsSet = {
-  render: () => html`
+  render: (args) => html`
   <p style={{ padding: 10 }}>Adjacent: 0, Boundary: 0</p>
       <ic-pagination
         pages="15"

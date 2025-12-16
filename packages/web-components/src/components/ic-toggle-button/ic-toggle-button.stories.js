@@ -50,7 +50,7 @@ const defaultIconArgs = {
 };
 
 export const Default = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button label="Toggle"></ic-toggle-button>
       <script>
         var toggle = document.querySelector("ic-toggle-button");
@@ -63,13 +63,13 @@ export const Default = {
 };
 
 export const Checked = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button label="Toggle" checked="true"></ic-toggle-button>`,
   name: "Checked",
 };
 
 export const Disabled = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button label="Toggle" disabled="true"></ic-toggle-button>
       <ic-toggle-button
         label="Toggle"
@@ -81,7 +81,7 @@ export const Disabled = {
 };
 
 export const WithIcon = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button label="Toggle">
       <svg
         slot="icon"
@@ -102,7 +102,7 @@ export const WithIcon = {
 };
 
 export const Sizes = {
-  render: () =>
+  render: (args) =>
     html`<div style="padding: 6px">
         <ic-toggle-button label="Toggle" size="small"></ic-toggle-button>
       </div>
@@ -117,7 +117,7 @@ export const Sizes = {
 };
 
 export const WithBadge = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button label="Toggle">
         <ic-badge label="1" slot="badge" variant="success"></ic-badge>
       </ic-toggle-button>
@@ -129,7 +129,7 @@ export const WithBadge = {
 };
 
 export const Monochrome = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button
       label="Toggle"
       monochrome="true"
@@ -139,7 +139,7 @@ export const Monochrome = {
 };
 
 export const FullWidth = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button
       label="Toggle"
       full-width="true"
@@ -149,7 +149,7 @@ export const FullWidth = {
 };
 
 export const Loading = {
-  render: () =>
+  render: (args) =>
     html`<div style="padding: 6px">
         <ic-toggle-button label="Toggle" loading="true"></ic-toggle-button>
         <ic-toggle-button
@@ -252,7 +252,7 @@ export const Loading = {
 };
 
 export const IconOnly = {
-  render: () =>
+  render: (args) =>
     html`<div style="padding:6px 10px; width:fit-content">
         <ic-toggle-button
           variant="icon"
@@ -367,7 +367,7 @@ export const IconOnly = {
 };
 
 export const IconRight = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button label="Toggle" icon-placement="right">
       <svg
         slot="icon"
@@ -388,7 +388,7 @@ export const IconRight = {
 };
 
 export const IconTop = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button label="Toggle" icon-placement="top">
       <svg
         slot="icon"
@@ -409,7 +409,7 @@ export const IconTop = {
 };
 
 export const TooltipPlacement = {
-  render: () =>
+  render: (args) =>
     html`<div style="padding:100px 10px; width:fit-content">
       <ic-toggle-button
         variant="icon"
@@ -471,7 +471,7 @@ export const TooltipPlacement = {
 };
 
 export const HideOutline = {
-  render: () =>
+  render: (args) =>
     html`<ic-toggle-button label="Toggle" outline="false"></ic-toggle-button>`,
 
   name: "Hide outline",
