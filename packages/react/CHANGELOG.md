@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.16.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.15.0...@ukic/react@3.16.0) (2025-12-16)
+
+### Bug Fixes
+
+- **react:** update IcRadio Cypress tests following change to container class name ([2ab6e43](https://github.com/mi6/ic-ui-kit/commit/2ab6e432af3456b865e126756435c8eceba9a6b3)), closes [#4068](https://github.com/mi6/ic-ui-kit/issues/4068)
+
+### Features
+
+- **react:** add copyrightText prop to footer to change content of copyright ([58e5bbf](https://github.com/mi6/ic-ui-kit/commit/58e5bbf8a7b88e260115d26fd3dc6df1e793921e))
+
 # [3.15.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.14.0...@ukic/react@3.15.0) (2025-11-26)
 
 ### Bug Fixes
