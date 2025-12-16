@@ -87,6 +87,7 @@ ic-typography.heading-bottom-spacing {
   --ic-select-field-label: var(--ic-brand-text-color);
   --ic-switch-label: var(--ic-brand-text-color);
   --ic-text-field-label: var(--ic-brand-text-color);
+
   --ic-date-input-subtitle: var(--ic-brand-text-color);
   --ic-time-picker-subtitle: var(--ic-brand-text-color);
   --ic-checkbox-group-subtitle: var(--ic-brand-text-color);
@@ -95,6 +96,7 @@ ic-typography.heading-bottom-spacing {
   --ic-select-input-field-label-subtitle: var(--ic-brand-text-color);
   --ic-switch-subtitle: var(--ic-brand-text-color);
   --ic-text-field-subtitle: var(--ic-brand-text-color);
+
   --ic-checkbox-text: var(--ic-brand-text-color);
   --ic-radio-button-text-option: var(--ic-brand-text-color);
 }

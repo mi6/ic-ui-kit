@@ -138,13 +138,11 @@
 
 :host(.ic-checkbox-disabled) .checkbox-label {
   color: var(--ic-checkbox-text-disabled);
-
   --ic-typography-color: var(--ic-checkbox-text-disabled);
 }
 
 :host(.ic-checkbox-disabled) ::slotted([slot="label"]) {
   color: var(--ic-checkbox-text-disabled);
-
   --ic-typography-color: var(--ic-checkbox-text-disabled);
 }
 

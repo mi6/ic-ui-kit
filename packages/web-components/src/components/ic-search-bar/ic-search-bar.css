@@ -201,11 +201,3 @@ input[type="search"].truncate-value {
     fill: GrayText;
   }
 }
-
-/* Breakpoint value chosen as it's a small amount bigger than the search bar's default width */
-@media screen AND (max-width: 22rem) {
-  .menu-container {
-    max-width: var(--menu-width, var(--input-width, 20rem));
-    width: 100%;
-  }
-}

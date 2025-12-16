@@ -272,21 +272,6 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
     });
   });
 
-  it("should render a footer with custom copyright text", () => {
-    mount(
-      <Default copyrightText="© 2025 Coffeehouse Inc. All rights reserved." />
-    );
-    cy.viewport(1024, 750);
-
-    cy.checkHydrated(FOOTER_SELECTOR);
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "/custom-copyright-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
-    });
-  });
-
   it("should render with classification banner", () => {
     mount(<WithClassificationBanner />);
 

@@ -158,44 +158,6 @@ exports[`ic-footer should render with classification banner: footer-classificati
 </ic-footer>
 `;
 
-exports[`ic-footer should render with custom copyright text when the copyright-text prop is set 1`] = `
-<ic-footer caption="Made by ICDS" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" copyright-text="© 2025 Coffeehouse Inc. All rights reserved." description="This is a footer">
-  <template shadowrootmode="open">
-    <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description">
-                This is a footer
-              </slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
-      <div class="footer-compliance">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-compliance-inner">
-            <div class="footer-caption">
-              <ic-typography variant="body">
-                <slot name="caption">
-                  Made by ICDS
-                </slot>
-              </ic-typography>
-            </div>
-            <div class="footer-copyright">
-              <ic-typography variant="label-uppercase">
-                © 2025 Coffeehouse Inc. All rights reserved.
-              </ic-typography>
-            </div>
-          </div>
-        </ic-section-container>
-      </div>
-    </footer>
-  </template>
-</ic-footer>
-`;
-
 exports[`ic-footer should render with link groups 1`] = `
 <ic-footer caption="Made by ICDS" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
   <template shadowrootmode="open">

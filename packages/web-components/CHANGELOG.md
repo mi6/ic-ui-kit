@@ -3,19 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.16.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.15.0...@ukic/web-components@3.16.0) (2025-12-16)
-
-### Bug Fixes
-
-- **web-components:** add dark mode to ic-toast and implement border design ([c92ab5a](https://github.com/mi6/ic-ui-kit/commit/c92ab5af9f497e7d707a5d85ecbaf9097ef54859))
-- **web-components:** fix top navigation group labels overflowing ([53f4dc2](https://github.com/mi6/ic-ui-kit/commit/53f4dc280713422f466ef0b86f8cf12249846358)), closes [#3696](https://github.com/mi6/ic-ui-kit/issues/3696)
-- **web-components:** improve ic-input reflow behaviour ([e1a67e7](https://github.com/mi6/ic-ui-kit/commit/e1a67e729415dcf3cdd1ebf953cf2073f3e87a1a))
-- **web-components:** scope class names and styling of ic-radio-option to prevent CSS leakage ([24a2b08](https://github.com/mi6/ic-ui-kit/commit/24a2b08c848cc4d2878e6666b632fd9247fa636c)), closes [#4068](https://github.com/mi6/ic-ui-kit/issues/4068)
-
-### Features
-
-- **web-components:** add copyright-text prop to footer to change the content of the copyright ([94eb44d](https://github.com/mi6/ic-ui-kit/commit/94eb44d6da077dd16920a9a41a83f8f1006b8451)), closes [#4048](https://github.com/mi6/ic-ui-kit/issues/4048)
-
 # [3.15.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.14.0...@ukic/web-components@3.15.0) (2025-11-26)
 
 ### Bug Fixes

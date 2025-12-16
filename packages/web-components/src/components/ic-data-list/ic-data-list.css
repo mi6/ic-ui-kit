@@ -10,7 +10,6 @@
 
 .heading {
   --ic-typography-color: var(--ic-data-list-text-heading);
-
   color: var(--ic-data-list-text-heading);
 }
 

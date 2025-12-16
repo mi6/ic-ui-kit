@@ -32,7 +32,6 @@ ic-input-component-container {
 
 ic-input-component-container.ic-input-component-container-full-width {
   width: 100%;
-  max-width: none;
 }
 
 ic-input-component-container.ic-input-component-container-disabled,
@@ -200,13 +199,5 @@ ic-input-component-container:focus {
   ic-input-component-container.ic-input-component-container-disabled,
   ic-input-component-container.ic-input-component-container-disabled:hover {
     border: var(--ic-border-width) dashed GrayText;
-  }
-}
-
-/* Breakpoint value chosen as it's a small amount bigger than the input's default width */
-@media screen AND (max-width: 22rem) {
-  ic-input-component-container {
-    max-width: var(--input-width, 20rem);
-    width: 100%;
   }
 }

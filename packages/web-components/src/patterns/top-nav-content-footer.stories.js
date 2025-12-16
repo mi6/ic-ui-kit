@@ -5,7 +5,7 @@ export default {
 };
 
 export const SingleColumnWithTopNavigationAndFooter = {
-  render: () =>
+  render: (args) =>
     html`<div>
       <div style="display: flex; flex-direction: column; min-height: 100vh;">
         <ic-top-navigation

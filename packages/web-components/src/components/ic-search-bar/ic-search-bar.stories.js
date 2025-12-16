@@ -27,7 +27,7 @@ export default {
 };
 
 export const Default = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar label="What is your favourite coffee?">
     </ic-search-bar>`,
 
@@ -35,7 +35,7 @@ export const Default = {
 };
 
 export const Basic = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
       <script>
         document.querySelector("ic-search-bar").options = [
@@ -54,7 +54,7 @@ export const Basic = {
 };
 
 export const WithCustomLabelAndValueFields = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         label-field="urn"
@@ -77,7 +77,7 @@ export const WithCustomLabelAndValueFields = {
 };
 
 export const WithOptions = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         value="Flat White"
@@ -103,7 +103,7 @@ export const WithOptions = {
 };
 
 export const WithOptionsNoFiltering = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         disable-auto-filtering
@@ -125,7 +125,7 @@ export const WithOptionsNoFiltering = {
 };
 
 export const InAForm = {
-  render: () =>
+  render: (args) =>
     html` <form>
       <ic-search-bar
         name="search-01"
@@ -137,7 +137,7 @@ export const InAForm = {
 };
 
 export const HelperText = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         helper-text="Some helper text"
@@ -168,7 +168,7 @@ export const HelperText = {
 };
 
 export const Small = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
       label="What is your favourite coffee?"
       size="small"
@@ -178,7 +178,7 @@ export const Small = {
 };
 
 export const HiddenLabel = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
       label="What is your favourite coffee?"
       hide-label
@@ -188,7 +188,7 @@ export const HiddenLabel = {
 };
 
 export const Disabled = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
       label="What is your favourite coffee?"
       disabled
@@ -198,7 +198,7 @@ export const Disabled = {
 };
 
 export const FullWidth = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         full-width
@@ -224,7 +224,7 @@ export const FullWidth = {
 };
 
 export const ExternalFiltering = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="Search for coffee"
         placeholder="Type to search"
@@ -288,7 +288,7 @@ export const ExternalFiltering = {
 };
 
 export const ExternalFilteringWithLoading = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="Search for coffee"
         placeholder="Type to search"
@@ -356,7 +356,7 @@ export const ExternalFilteringWithLoading = {
 };
 
 export const ExternalFilteringWithCustomLoadingMessages = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="Search for coffee"
         placeholder="Type to search"
@@ -426,7 +426,7 @@ export const ExternalFilteringWithCustomLoadingMessages = {
 };
 
 export const QuerySearchMode = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         search-mode="query"
@@ -447,7 +447,7 @@ export const QuerySearchMode = {
 };
 
 export const EmptyOptionListText = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         empty-option-list-text="There's nothing here"
@@ -468,7 +468,7 @@ export const EmptyOptionListText = {
 };
 
 export const CharactersUntilSuggestion = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         characters-until-suggestion="5"
@@ -489,7 +489,7 @@ export const CharactersUntilSuggestion = {
 };
 
 export const HintText = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar
         label="What is your favourite coffee?"
         assistive-hint-text="You can use up and down arrows to navigate the options when they are available, and press enter to select an option."
@@ -511,7 +511,7 @@ export const HintText = {
 };
 
 export const LongOptionLabels = {
-  render: () =>
+  render: (args) =>
     html` <ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
       <script>
         document.querySelector("ic-search-bar").options = [

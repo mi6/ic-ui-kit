@@ -875,10 +875,6 @@ export namespace Components {
          */
         "copyright"?: boolean;
         /**
-          * The text displayed for the copyright notice if `copyright` is `true`.
-         */
-        "copyrightText"?: string;
-        /**
           * The description displayed at the top of the footer.
          */
         "description"?: string;
@@ -2473,10 +2469,6 @@ export namespace Components {
           * @returns The element that previously had focus before the toast appeared
          */
         "setVisible": () => Promise<HTMLElement | null>;
-        /**
-          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
-         */
-        "theme": IcThemeMode;
         /**
           * The variant of the toast being rendered
          */
@@ -4558,10 +4550,6 @@ declare namespace LocalJSX {
          */
         "copyright"?: boolean;
         /**
-          * The text displayed for the copyright notice if `copyright` is `true`.
-         */
-        "copyrightText"?: string;
-        /**
           * The description displayed at the top of the footer.
          */
         "description"?: string;
@@ -6265,10 +6253,6 @@ declare namespace LocalJSX {
           * Is emitted when the user dismisses the toast
          */
         "onIcDismiss"?: (event: IcToastCustomEvent<void>) => void;
-        /**
-          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
-         */
-        "theme"?: IcThemeMode;
         /**
           * The variant of the toast being rendered
          */

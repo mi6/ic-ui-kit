@@ -11,7 +11,6 @@ const defaultArgs = {
   caption:
     "All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence.",
   copyright: true,
-  copyrightText: "© Crown Copyright",
   description:
     "The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch.",
   groupLinks: true,
@@ -23,7 +22,6 @@ export const Playground = {
     breakpoint=${args.breakpoint}
     caption=${args.caption}
     copyright=${args.copyright}
-    copyright-text=${args.copyrightText}
     description=${args.description}
     group-links=${args.groupLinks}
   >
@@ -455,33 +453,4 @@ export const SlottedDescriptionAndCaption = {
   `,
 
   name: "Slotted description and caption",
-};
-
-export const CustomCopyright = {
-  render: () => html`
-    <ic-footer
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
-          please get in touch."
-      caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
-      copyright-text="© 2025 Coffeehouse Inc. All rights reserved."
-    >
-      <ic-footer-link slot="link" href="/">Get Started</ic-footer-link>
-      <ic-footer-link slot="link" href="/">Accessibility</ic-footer-link>
-      <ic-footer-link slot="link" href="/">Styles</ic-footer-link>
-      <ic-footer-link slot="link" href="/" target="_blank"
-        >Components</ic-footer-link
-      >
-      <ic-footer-link slot="link" href="/">Patterns</ic-footer-link>
-      <ic-footer-link slot="link" href="/">Design toolkit</ic-footer-link>
-      <div
-        slot="logo"
-        style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-          background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
-      >
-        Logo
-      </div>
-    </ic-footer>
-  `,
-
-  name: "Custom copyright text",
 };

@@ -91,7 +91,7 @@
 :host .month-picker .month-picker-row,
 :host .year-picker .year-picker-row {
   display: inline-grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0px, 1fr));
   width: 100%;
   gap: var(--ic-space-xs);
 }
@@ -126,7 +126,6 @@
 
 :host .prev-decade.year-button svg {
   margin-right: calc(-1 * var(--ic-space-xs));
-
   --icon-width: var(--ic-space-md);
   --icon-height: var(--ic-space-md);
 }
@@ -154,7 +153,6 @@
 
 :host .next-decade.year-button svg {
   margin-left: calc(-1 * var(--ic-space-lg));
-
   --icon-width: var(--ic-space-md);
   --icon-height: var(--ic-space-md);
 }
@@ -264,9 +262,7 @@
   justify-content: center;
   align-items: center;
   color: var(--ic-typography-color, var(--ic-color-text-primary));
-
   --ic-typography-color: var(--ic-calendar-label);
-
   text-align: center;
   font: var(--ic-font-caption);
   letter-spacing: var(--ic-font-letter-spacing-0pt0025);

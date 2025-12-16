@@ -2436,7 +2436,7 @@ export const Tooltips = {
 };
 
 export const PositioningStrategy = {
-  render: () =>
+  render: (args) =>
     html` <script>
         var switchEl = document.querySelector("ic-switch");
         var buttonEl = document.querySelector("ic-button");
@@ -2677,7 +2677,7 @@ export const AriaDescribedby = {
 };
 
 export const FileUploadInAForm = {
-  render: () => html`
+  render: (args) => html`
     <form method="POST" action="someurl" enctype="multipart/form-data">
       <span id="selected-file">No File Selected</span>
       <div style="padding: 6px">
@@ -2719,7 +2719,7 @@ export const FileUploadInAForm = {
 };
 
 export const FileUpload = {
-  render: () => html`
+  render: (args) => html`
     <span id="selected-file">No File Selected</span>
     <div style="padding: 6px">
       <ic-button

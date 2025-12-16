@@ -33,7 +33,6 @@ const ADDITIONAL_FIELD = "additional-field";
  */
 @Component({
   tag: "ic-radio-option",
-  scoped: true,
   styleUrl: "ic-radio-option.css",
 })
 export class RadioOption {
@@ -273,12 +272,9 @@ export class RadioOption {
         class={{
           ["ic-radio-option-disabled"]: !!disabled,
           [`ic-theme-${theme}`]: theme !== "inherit",
-          ["ic-radio-option-small"]:
-            this.el.parentElement?.tagName === "IC-RADIO-GROUP" &&
-            this.el.parentElement?.className.includes("ic-radio-group-small"),
         }}
       >
-        <div class={{ "radio-option-container": true, disabled: !!disabled }}>
+        <div class={{ container: true, disabled: !!disabled }}>
           <div>
             <input
               tabindex={selected ? "0" : "-1"}
@@ -315,7 +311,8 @@ export class RadioOption {
               )}
               <div
                 class={{
-                  [`additional-field-wrapper-${additionalFieldDisplay}`]: true,
+                  "additional-field-wrapper":
+                    additionalFieldDisplay === "static",
                 }}
               >
                 <slot name={ADDITIONAL_FIELD}></slot>

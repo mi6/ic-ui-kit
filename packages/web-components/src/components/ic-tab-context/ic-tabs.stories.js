@@ -203,7 +203,7 @@ export const NestedTabs = {
 };
 
 export const IcTabSelectEvent = {
-  render: () =>
+  render: (args) =>
     html`<ic-tab-context>
         <ic-tab-group label="Example tab group">
           <ic-tab>One</ic-tab>

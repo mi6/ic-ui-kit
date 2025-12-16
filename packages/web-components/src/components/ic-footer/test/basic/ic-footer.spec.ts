@@ -63,15 +63,6 @@ describe("ic-footer", () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render with custom copyright text when the copyright-text prop is set", async () => {
-    const page = await newSpecPage({
-      components: [Footer],
-      html: `<ic-footer description="This is a footer" caption="Made by ICDS" copyright-text="© 2025 Coffeehouse Inc. All rights reserved."></ic-footer>`,
-    });
-
-    expect(page.root).toMatchSnapshot();
-  });
-
   it("should render without the compliance section when there is no logo, caption or copyright", async () => {
     const page = await newSpecPage({
       components: [Footer],

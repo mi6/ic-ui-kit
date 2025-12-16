@@ -1,6 +1,6 @@
 {
   "name": "@ukic/web-components",
-  "version": "3.16.0",
+  "version": "3.15.0",
   "description": "A web component UI library compiled with StencilJS",
   "author": "mi6",
   "bugs": {
@@ -40,8 +40,8 @@
     "build-storybook": "rimraf /storybook-static && storybook build",
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
-    "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/components/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
-    "lint:fix": "echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/components/**/*.css --fix && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src --fix",
+    "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
+    "lint:fix": "echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css --fix && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src --fix",
     "start": "npx http-server storybook-static -s",
     "kill": "kill-port 8080 --graceful",
     "audit": "echo 'Audit for: @ukic/web-components' & audit-ci -m --config ../../audit-ci.json"
