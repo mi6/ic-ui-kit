@@ -126,6 +126,16 @@ export class PaginationBar {
   @Prop() hideAllFromItemsPerPage?: boolean = false;
 
   /**
+   * If `true`, the current page of the simple pagination will not be displayed.
+   */
+  @Prop() hideCurrentPage?: boolean = false;
+
+  /**
+   * If `true`, the first and last page buttons will not be displayed.
+   */
+  @Prop() hideFirstAndLastPageButton?: boolean = false;
+
+  /**
    * The text which will be used in place of 'Item' on the pagination bar.
    */
   @Prop() itemLabel?: string = "Item";
@@ -544,6 +554,8 @@ export class PaginationBar {
       theme,
       monochrome,
       selectItemsPerPageOnEnter,
+      hideCurrentPage,
+      hideFirstAndLastPageButton,
     } = this;
 
     return (
@@ -627,6 +639,8 @@ export class PaginationBar {
                 currentPage={activePage}
                 theme={theme}
                 monochrome={monochrome}
+                hideCurrentPage={hideCurrentPage}
+                hideFirstAndLastPageButton={hideFirstAndLastPageButton}
               ></ic-pagination>
             </div>
             {showGoToPageControl && (
