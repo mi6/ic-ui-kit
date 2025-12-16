@@ -67,6 +67,8 @@ const defaultArgs = {
   headingAdornmentSlot: true,
   headingSlot: false,
   messageSlot: false,
+  "--ic-drawer-height": "",
+  "--ic-drawer-width": "",
 };
 
 const ShowHideContent = () => {
@@ -698,9 +700,6 @@ export const Playground = {
             <IcSectionContainer aligned="center"><IcTypography>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et odio metus. Quisque pharetra at elit et bibendum. Vivamus pellentesque lacus vel facilisis tincidunt. Aliquam erat volutpat. Pellentesque mi ligula, aliquet eget lacinia dignissim, euismod non sapien. Fusce ac lorem eget nisi tincidunt imperdiet. Sed sed ipsum pellentesque, feugiat ligula ut, placerat nisl. Nulla gravida faucibus elit ut laoreet. Nam sagittis lacinia eros a aliquet. Cras in massa condimentum, auctor turpis vestibulum, imperdiet libero. Integer arcu purus, ultricies sit amet felis vel, ullamcorper semper lectus. Proin ultrices tortor sed velit mattis facilisis. Integer rutrum nec nulla at fringilla. Duis a nibh ut tellus venenatis tincidunt a vel quam.
-                  <br />
-                  <br />
-                  Donec viverra enim sed nibh placerat venenatis. Ut volutpat dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet tempus consequat. In a nulla mollis, fringilla metus vitae, facilisis lorem. Ut eu turpis a magna sodales suscipit. Curabitur et turpis nec nisi mollis consectetur. Quisque consequat libero non laoreet vestibulum. Aliquam non diam faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros. Phasellus euismod vestibulum nulla sit amet ultricies. Pellentesque luctus purus ut elit placerat ultricies. Sed a gravida nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam porttitor a mi pharetra lobortis. Curabitur dapibus id purus sed feugiat.
                 </p>
               </IcTypography>
               <br />
@@ -723,6 +722,10 @@ export const Playground = {
               theme={args.theme}
               trigger={args.trigger}
               onIcDrawerExpanded={ev => setDrawerExpanded(ev.detail.expanded)}
+              style={{
+                "--ic-drawer-width": `${args["--ic-drawer-width"]}`,
+                "--ic-drawer-height": `${args["--ic-drawer-height"]}`
+              }}
             >
               {args.headingAdornmentSlot && (
                 <SlottedSVG

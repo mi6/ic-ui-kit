@@ -56,8 +56,10 @@ export class Drawer {
   private focusAttemptCount = 0;
   private focusedElementIndex = 0;
   private hostMutationObserver: MutationObserver | null = null;
+  private innerDrawerPanelEl?: HTMLDivElement;
   private interactiveElementList: HTMLElement[] = [];
   private marginResizeObserver?: ResizeObserver;
+  private parentElResizeObserver?: ResizeObserver;
   private scrollResizeObserver?: ResizeObserver;
   private sourceElement?: HTMLElement;
 
@@ -74,6 +76,10 @@ export class Drawer {
    * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
    */
   @Prop() boundary: IcDrawerBoundary = "viewport";
+  @Watch("boundary")
+  watchBoundaryHandler() {
+    this.setParentElResizeObserver();
+  }
 
   /**
    * The aria-label of the chevron button (displayed when `trigger="arrow"`). This will default to "Open drawer" / "Close drawer".
@@ -97,10 +103,7 @@ export class Drawer {
   @Watch("expanded")
   watchExpandedHandler(): void {
     this.icDrawerExpanded.emit({ expanded: this.expanded });
-
-    // if (this.trigger === "controlled") {
     this.handleDrawerExpanded(true);
-    // }
   }
 
   /**
@@ -141,6 +144,10 @@ export class Drawer {
    * The method in which the drawer is expanded.
    */
   @Prop() trigger: "arrow" | "controlled" = "arrow";
+  @Watch("trigger")
+  watchTriggerHandler(): void {
+    this.setMarginResizeObserver();
+  }
 
   /**
    * Emitted when the drawer is collapsed and expanded.
@@ -187,6 +194,7 @@ export class Drawer {
     this.setContentAreaMutationObserver();
     this.setHostMutationObserver();
     this.setMarginResizeObserver();
+    this.setParentElResizeObserver();
     this.setScrollResizeObserver();
   }
 
@@ -301,19 +309,70 @@ export class Drawer {
     });
   };
 
+  // Set inner drawer panel size to make sliding animation to work correctly when boundary is "parent"
+  private setInnerDrawerPanelSize = () => {
+    const isRightOrLeftPosition =
+      this.position === "right" || this.position === "left";
+
+    const drawerSizeRem = parseFloat(
+      getComputedStyle(this.el)
+        .getPropertyValue(
+          isRightOrLeftPosition ? "--ic-drawer-width" : "--ic-drawer-height"
+        )
+        .trim()
+    );
+    const drawerSizePx =
+      drawerSizeRem *
+      parseFloat(getComputedStyle(document.documentElement).fontSize); // Convert REM to PX for following calculations
+
+    const parentElRect = this.el.parentElement?.getBoundingClientRect();
+    const parentElSize = parentElRect
+      ? isRightOrLeftPosition
+        ? parentElRect.width
+        : parentElRect.height
+      : 0;
+
+    if (this.innerDrawerPanelEl) {
+      const minSize = Math.min(parentElSize, drawerSizePx); // Set width / height to default, or width / height of parent el if it's smaller
+      const sizeProperty = isRightOrLeftPosition ? "minWidth" : "minHeight";
+      this.innerDrawerPanelEl.style[sizeProperty] = `${minSize}px`;
+    }
+  };
+
   private setMarginResizeObserver = () => {
-    // Stops resize observer running when position is changed to left or right
+    // Stops resize observer running - for when position is changed to left or right
+    // or when trigger is "controlled"
     if (this.marginResizeObserver) {
       this.marginResizeObserver.disconnect();
       this.marginResizeObserver = undefined;
     }
 
-    if (this.position === "top" || this.position === "bottom") {
+    if (
+      (this.position === "top" || this.position === "bottom") &&
+      this.trigger === "arrow"
+    ) {
       this.marginResizeObserver = new ResizeObserver(() => {
         this.updateActionAreaMargin();
       });
       this.marginResizeObserver.observe(this.el);
       this.updateActionAreaMargin();
+    }
+  };
+
+  private setParentElResizeObserver = () => {
+    if (this.parentElResizeObserver) {
+      this.parentElResizeObserver.disconnect();
+      this.parentElResizeObserver = undefined;
+    }
+
+    if (this.boundary === "parent") {
+      this.parentElResizeObserver = new ResizeObserver(() => {
+        this.setInnerDrawerPanelSize();
+      });
+      if (this.el.parentElement) {
+        this.parentElResizeObserver.observe(this.el.parentElement);
+      }
+      this.setInnerDrawerPanelSize();
     }
   };
 
@@ -419,7 +478,8 @@ export class Drawer {
           "ic-drawer-boundary-parent": boundary === "parent",
           "ic-drawer-collapsed": !expanded,
           "ic-drawer-expanded": expanded,
-          [`ic-drawer-${position}-position`]: true,
+          [`ic-drawer-${position}`]: true,
+          [`ic-drawer-${size}`]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
@@ -440,7 +500,10 @@ export class Drawer {
           }
         >
           {trigger === "arrow" && this.renderChevronButton()}
-          <div class="inner-drawer-panel">
+          <div
+            ref={(el) => (this.innerDrawerPanelEl = el)}
+            class="inner-drawer-panel"
+          >
             {/* <a id="drawer-content"></a> CHECK THIS WORKS */}
             <div class="drawer-header">
               <div class="heading-area">

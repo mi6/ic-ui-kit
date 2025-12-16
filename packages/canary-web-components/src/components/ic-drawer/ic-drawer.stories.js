@@ -31,6 +31,8 @@ const defaultArgs = {
   headingAdornmentSlot: true,
   headingSlot: false,
   messageSlot: false,
+  "--ic-drawer-height": "",
+  "--ic-drawer-width": "",
 };
 
 export const RightPosition = {
@@ -1072,20 +1074,6 @@ export const Playground = {
                 ultrices tortor sed velit mattis facilisis. Integer rutrum nec
                 nulla at fringilla. Duis a nibh ut tellus venenatis tincidunt a
                 vel quam.
-                <br />
-                <br />
-                Donec viverra enim sed nibh placerat venenatis. Ut volutpat
-                dapibus cursus. Sed in sodales mi. Maecenas viverra ex sit amet
-                tempus consequat. In a nulla mollis, fringilla metus vitae,
-                facilisis lorem. Ut eu turpis a magna sodales suscipit.
-                Curabitur et turpis nec nisi mollis consectetur. Quisque
-                consequat libero non laoreet vestibulum. Aliquam non diam
-                faucibus, aliquet augue sed, suscipit orci. Nunc in tempor eros.
-                Phasellus euismod vestibulum nulla sit amet ultricies.
-                Pellentesque luctus purus ut elit placerat ultricies. Sed a
-                gravida nulla. Vestibulum ante ipsum primis in faucibus orci
-                luctus et ultrices posuere cubilia curae; Nullam porttitor a mi
-                pharetra lobortis. Curabitur dapibus id purus sed feugiat.
               </p>
             </ic-typography>
             <br />
@@ -1109,6 +1097,13 @@ export const Playground = {
             size=${args.size}
             theme=${args.theme}
             trigger=${args.trigger}
+            style="
+            ${args["--ic-drawer-width"] !== ""
+              ? `--ic-drawer-width: ${args["--ic-drawer-width"]};`
+              : ""}
+            ${args["--ic-drawer-height"] !== ""
+              ? `--ic-drawer-height: ${args["--ic-drawer-height"]};`
+              : ""}"
           >
             ${args.headingAdornmentSlot
               ? html`<svg
