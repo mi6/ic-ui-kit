@@ -159,6 +159,14 @@ describe("ic-pagination simple appearance component", () => {
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
   });
+  it("should set the simple pagination aria label when accessible-label prop is provided", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=10 accessible-label="Custom Pagination Label"></ic-pagination>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
 });
 describe("ic-pagination complex type", () => {
   it("should render as complex type", async () => {
@@ -470,6 +478,14 @@ describe("ic-pagination complex type", () => {
     expect(page.rootInstance.startItems).toEqual([1]);
     expect(page.rootInstance.endItems).toEqual([15]);
     expect(page.rootInstance.midItems).toEqual([2, 3, 4, 5]);
+  });
+  it("should set the complex pagination aria label when accessible-label prop is provided", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=10 type="complex" accessible-label="Custom Pagination Label"></ic-pagination>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
   });
 });
 describe("ic-pagination appearance tests", () => {

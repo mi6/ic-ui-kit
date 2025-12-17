@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 
 const defaultArgs = {
+  accessibleLabel: "Pagination Navigation",
   adjacentPageCount: 1,
   boundaryPageCount: 1,
   currentPage: 1,
@@ -126,6 +127,7 @@ export const ComplexAdjacentBoundaryItemsSet = {
 export const Playground = {
   render: (args) =>
     html`<ic-pagination
+      accessible-label=${args.accessibleLabel}
       adjacent-page-count=${args.adjacentPageCount}
       boundary-page-count=${args.boundaryPageCount}
       current-page=${args.currentPage}

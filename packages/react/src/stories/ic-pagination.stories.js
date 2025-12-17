@@ -4,16 +4,17 @@ import React from 'react';
 import { IcPagination } from "../components";
 
 const defaultArgs = {
-  pages: 15,
-  paginationType: "simple",
-  hideCurrentPage: false,
-  hideFirstAndLastPageButton: false,
-  defaultPage: 1,
-  disabled: false,
-  label: "",
-  monochrome: false,
+  accessibleLabel: "Pagination Navigation",
   adjacentPageCount: 1,
   boundaryPageCount: 1,
+  defaultPage: 1,
+  disabled: false,
+  hideCurrentPage: false,
+  hideFirstAndLastPageButton: false,
+  label: "",
+  monochrome: false,
+  pages: 15,
+  paginationType: "simple",
   theme: "inherit",
 };
 
@@ -170,6 +171,7 @@ export const ComplexAdjacentBoundaryItemsSet = {
 export const Playground = {
   render: (args) => (
     <IcPagination
+      accessibleLabel={args.accessibleLabel}
       pages={args.pages}
       type={args.paginationType}
       adjacentPageCount={args.adjacentPageCount}

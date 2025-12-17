@@ -534,6 +534,37 @@ exports[`ic-pagination complex type should render in complex type with 1 adjacen
 </ic-pagination>
 `;
 
+exports[`ic-pagination complex type should set the complex pagination aria label when accessible-label prop is provided 1`] = `
+<ic-pagination accessible-label="Custom Pagination Label" pages="10" type="complex">
+  <template shadowrootmode="open">
+    <nav aria-label="Custom Pagination Label" role="navigation">
+      <ic-button aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" theme="inherit" variant="icon-tertiary">
+        svg
+      </ic-button>
+      <ic-button aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" theme="inherit" variant="icon-tertiary">
+        svg
+      </ic-button>
+      <ic-pagination-item id="pagination-item-1" page="1" selected="" theme="inherit" type="page"></ic-pagination-item>
+      <ic-pagination-item id="pagination-item-2" page="2" theme="inherit" type="page"></ic-pagination-item>
+      <ic-pagination-item id="pagination-item-3" page="3" theme="inherit" type="page"></ic-pagination-item>
+      <ic-pagination-item id="pagination-item-4" page="4" theme="inherit" type="page"></ic-pagination-item>
+      <ic-pagination-item id="pagination-item-5" page="5" theme="inherit" type="page"></ic-pagination-item>
+      <ic-pagination-item id="end-ellipsis" theme="inherit" type="ellipsis"></ic-pagination-item>
+      <ic-pagination-item id="pagination-item-10" page="10" theme="inherit" type="page"></ic-pagination-item>
+      <ic-button aria-label="Go to next page" class="next-previous page-button" id="next-page-button" theme="inherit" variant="icon-tertiary">
+        svg
+      </ic-button>
+      <ic-button aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" theme="inherit" variant="icon-tertiary">
+        svg
+      </ic-button>
+    </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
+  </template>
+</ic-pagination>
+`;
+
 exports[`ic-pagination simple appearance component should render all pages when total pages less than min width based on boundary-page-count and adjacent-page-count: pages less than adjacent-page-count + boundary-page-count 1`] = `
 <ic-pagination adjacent-page-count="2" boundary-page-count="2" pages="11" type="complex">
   <template shadowrootmode="open">
@@ -734,6 +765,28 @@ exports[`ic-pagination simple appearance component should render without current
         svg
       </ic-button>
       <ic-pagination-item class="hide-current-page" label="Page" page="1" theme="inherit" type="simple-current"></ic-pagination-item>
+      <ic-button aria-label="Go to next page" class="next-previous page-button" id="next-page-button" theme="inherit" variant="icon-tertiary">
+        svg
+      </ic-button>
+      <ic-button aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" theme="inherit" variant="icon-tertiary">
+        svg
+      </ic-button>
+    </nav>
+  </template>
+</ic-pagination>
+`;
+
+exports[`ic-pagination simple appearance component should set the simple pagination aria label when accessible-label prop is provided 1`] = `
+<ic-pagination accessible-label="Custom Pagination Label" pages="10">
+  <template shadowrootmode="open">
+    <nav aria-label="Custom Pagination Label" role="navigation">
+      <ic-button aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" theme="inherit" variant="icon-tertiary">
+        svg
+      </ic-button>
+      <ic-button aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" theme="inherit" variant="icon-tertiary">
+        svg
+      </ic-button>
+      <ic-pagination-item label="Page" page="1" theme="inherit" type="simple-current"></ic-pagination-item>
       <ic-button aria-label="Go to next page" class="next-previous page-button" id="next-page-button" theme="inherit" variant="icon-tertiary">
         svg
       </ic-button>
