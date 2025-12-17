@@ -1,29 +1,29 @@
 {
   "name": "@ukic/codemod",
   "version": "1.2.8",
+  "private": false,
   "description": "Codemod tool to help assist users upgrading from v2 to v3 of the UKIC design system",
-  "bin": "./codemod.js",
+  "license": "MIT",
   "author": "mi6",
   "type": "module",
+  "bin": "./codemod.js",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "example:cli": "node --no-warnings ./codemod.js --dir src"
+    "example:cli": "node --no-warnings ./codemod.js --dir src",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "yargs": "^17.7.2"
   },
-  "license": "MIT",
-  "private": false,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "devDependencies": {
     "@babel/cli": "^7.27.0",
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "babel-jest": "^29.7.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
