@@ -664,7 +664,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * If `true`, every individual input field completed will emit an icChange event.
+          * If `true`, every individual input field completed will emit an icTimeChange event.
          */
         "emitTimePartChange"?: boolean;
         /**
@@ -713,6 +713,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * If `true`, the time input will show an AM/PM toggle when in 12-hour time period.
+         */
+        "showAmPmToggle"?: boolean;
+        /**
           * If `true`, a button which clears the time input when clicked will be displayed.
          */
         "showClearButton"?: boolean;
@@ -733,7 +737,7 @@ export namespace Components {
           * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
          */
         "timePeriod": "12" | "24";
-        "triggerIcChange": (t: Date | null) => Promise<void>;
+        "triggerIcTimeChange": (t: Date | null) => Promise<void>;
         /**
           * The value of the `aria-live` attribute on the validation message.
          */
@@ -1029,12 +1033,14 @@ declare global {
     interface HTMLIcTimeInputElementEventMap {
         "clockButtonClicked": { value: Date | null };
         "icBlur": { value: Date | null };
-        "icChange": {
+        "icTimeChange": {
     value: Date | null;
     timeObject: {
       hour: string | null;
       minute: string | null;
       second: string | null;
+      millisecond: string | null;
+      period: string | null;
     };
   };
         "icFocus": { value: Date | null };
@@ -1825,7 +1831,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * If `true`, every individual input field completed will emit an icChange event.
+          * If `true`, every individual input field completed will emit an icTimeChange event.
          */
         "emitTimePartChange"?: boolean;
         /**
@@ -1870,24 +1876,30 @@ declare namespace LocalJSX {
          */
         "onIcBlur"?: (event: IcTimeInputCustomEvent<{ value: Date | null }>) => void;
         /**
+          * Emitted when the input gains focus.
+         */
+        "onIcFocus"?: (event: IcTimeInputCustomEvent<{ value: Date | null }>) => void;
+        /**
           * Emitted when the value has changed.
          */
-        "onIcChange"?: (event: IcTimeInputCustomEvent<{
+        "onIcTimeChange"?: (event: IcTimeInputCustomEvent<{
     value: Date | null;
     timeObject: {
       hour: string | null;
       minute: string | null;
       second: string | null;
+      millisecond: string | null;
+      period: string | null;
     };
   }>) => void;
-        /**
-          * Emitted when the input gains focus.
-         */
-        "onIcFocus"?: (event: IcTimeInputCustomEvent<{ value: Date | null }>) => void;
         /**
           * If `true`, the input will require a value.
          */
         "required"?: boolean;
+        /**
+          * If `true`, the time input will show an AM/PM toggle when in 12-hour time period.
+         */
+        "showAmPmToggle"?: boolean;
         /**
           * If `true`, a button which clears the time input when clicked will be displayed.
          */

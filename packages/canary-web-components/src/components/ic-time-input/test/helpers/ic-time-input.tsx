@@ -21,6 +21,7 @@ interface TimeInputType {
   hourInput: HTMLInputElement;
   minuteInput: HTMLInputElement;
   secondInput: HTMLInputElement;
+  millisecondInput: HTMLInputElement;
 }
 
 export const createTimeInput = (format = "HH:MM:SS"): Promise<SpecPage> =>
@@ -60,6 +61,10 @@ export const createTimeInputEnv = async (
     component.shadowRoot!.querySelector<HTMLInputElement>(".minute-input")!;
   const secondInput =
     component.shadowRoot!.querySelector<HTMLInputElement>(".second-input")!;
+  const millisecondInput =
+    component.shadowRoot!.querySelector<HTMLInputElement>(
+      ".millisecond-input"
+    )!;
 
   const mockSelect = jest.fn();
 
@@ -74,5 +79,6 @@ export const createTimeInputEnv = async (
     hourInput,
     minuteInput,
     secondInput,
+    millisecondInput,
   };
 };

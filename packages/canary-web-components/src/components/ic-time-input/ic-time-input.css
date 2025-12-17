@@ -42,6 +42,19 @@
   );
 }
 
+.with-am-pm-toggle {
+  display: flex;
+  flex-direction: row;
+}
+
+.am-pm-toggle ::part(button) {
+  min-width: fit-content;
+}
+
+.am-pm-toggle {
+  margin-left: var(--ic-space-xs);
+}
+
 input {
   border: 0;
   height: 100%;
@@ -89,9 +102,13 @@ ic-input-component-container .focus-indicator {
   width: 1.813rem;
 }
 
-.second-input,
-.second-input.fit-to-value {
-  width: 2.313rem;
+.second-input {
+  width: 1.18rem;
+}
+
+.millisecond-input,
+.millisecond-input.fit-to-value {
+  width: 1.75rem;
 }
 
 .fit-to-value {
