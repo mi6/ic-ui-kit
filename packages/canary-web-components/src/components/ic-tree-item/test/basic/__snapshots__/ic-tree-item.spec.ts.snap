@@ -12,6 +12,18 @@ exports[`ic-tree-item component should render 1`] = `
 </ic-tree-item>
 `;
 
+exports[`ic-tree-item component should render as an anchor when href is set and not disabled 1`] = `
+<ic-tree-item href="/test" id="ic-tree-item-11" label="Link Item">
+  <template shadowrootmode="open">
+    <a aria-disabled="false" aria-live="polite" class="tree-item-content" href="/test" hreflang="" tabindex="0">
+      <ic-typography class="tree-item-label">
+        Link Item
+      </ic-typography>
+    </a>
+  </template>
+</ic-tree-item>
+`;
+
 exports[`ic-tree-item component should render custom ids 1`] = `
 <ic-tree-item id="item-1" label="Item 1" tree-item-id="item-1">
   <template shadowrootmode="open">

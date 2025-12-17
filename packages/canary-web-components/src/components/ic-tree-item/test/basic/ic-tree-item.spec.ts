@@ -102,6 +102,15 @@ describe("ic-tree-item component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render as an anchor when href is set and not disabled", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Link Item" href="/test" ></ic-tree-item>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should select tree item on Enter", async () => {
     const page = await newSpecPage({
       components: [TreeItem],
@@ -111,6 +120,21 @@ describe("ic-tree-item component", () => {
     expect(page.rootInstance.selected).toBe(false);
 
     const event = new KeyboardEvent("keydown", { key: "Enter" });
+
+    await page.rootInstance.handleKeyDown(event);
+
+    expect(page.rootInstance.selected).toBe(true);
+  });
+
+  it("should select tree item on Space", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1"></ic-tree-item>`,
+    });
+
+    expect(page.rootInstance.selected).toBe(false);
+
+    const event = new KeyboardEvent("keydown", { key: " " });
 
     await page.rootInstance.handleKeyDown(event);
 
@@ -257,5 +281,112 @@ describe("ic-tree-item component", () => {
     await page.waitForChanges();
 
     expect(eventSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it("should call focus on treeItemElement when setFocus is called", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1"></ic-tree-item>`,
+    });
+
+    const focusSpy = jest.fn();
+    page.rootInstance.treeItemElement = { focus: focusSpy } as any;
+    page.rootInstance.routerSlot = null;
+
+    await page.rootInstance.setFocus();
+    expect(focusSpy).toHaveBeenCalled();
+  });
+
+  it("should call focus on routerSlot when setFocus is called and router slot exists", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1"><a slot="router-item" href="/">Link</a></ic-tree-item>`,
+    });
+
+    const routerSlot = document.createElement("a");
+    routerSlot.focus = jest.fn();
+    page.rootInstance.routerSlot = routerSlot;
+    page.rootInstance.treeItemElement = null;
+
+    jest.spyOn(page.rootInstance, "hasRouterSlot").mockReturnValue(true);
+
+    await page.rootInstance.setFocus();
+    expect(routerSlot.focus).toHaveBeenCalled();
+  });
+
+  it("should call handleDisplayTooltip when onFocus and onBlur are triggered", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1"></ic-tree-item>`,
+    });
+
+    const spy = jest.spyOn(page.rootInstance, "handleDisplayTooltip");
+
+    const treeItemContent =
+      page.root!.shadowRoot!.querySelector(".tree-item-content");
+    expect(treeItemContent).toBeTruthy();
+
+    treeItemContent!.dispatchEvent(new FocusEvent("focus"));
+    expect(spy).toHaveBeenCalledWith(true);
+
+    treeItemContent!.dispatchEvent(new FocusEvent("blur"));
+    expect(spy).toHaveBeenCalledWith(false);
+  });
+
+  it("should display tooltip on focus and blur", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1"></ic-tree-item>`,
+    });
+
+    const labelEl = document.createElement("div");
+    labelEl.className = "tree-item-label";
+    const displayTooltipSpy = jest.fn();
+    labelEl.closest = jest.fn(() => ({ displayTooltip: displayTooltipSpy }));
+
+    if (page.root && page.root.shadowRoot) {
+      page.root.shadowRoot.querySelector = jest.fn((selector) => {
+        if (selector === ".tree-item-label") return labelEl;
+        return null;
+      });
+    }
+
+    await page.rootInstance.handleDisplayTooltip(true);
+    expect(displayTooltipSpy).toHaveBeenCalledWith(true);
+
+    await page.rootInstance.handleDisplayTooltip(false);
+    expect(displayTooltipSpy).toHaveBeenCalledWith(false);
+  });
+
+  it("should not create new typography if truncateTreeItemLabel is called with no slotted content", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="No router slot"></ic-tree-item>`,
+    });
+    const treeItem = page.rootInstance.el;
+
+    expect(() =>
+      page.rootInstance.truncateTreeItemLabel(treeItem)
+    ).not.toThrow();
+    expect(treeItem.querySelector("ic-typography")).toBeNull();
+  });
+
+  it("should create typography and replace firstChild if slotted content exists", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item><a slot="router-item">Test Label</a></ic-tree-item>`,
+    });
+    const treeItem = page.rootInstance.el;
+    const slottedContent = treeItem.querySelector('[slot="router-item"]');
+
+    expect(slottedContent.querySelector(".tree-item-label")).toBeNull();
+
+    page.rootInstance.truncateTreeItemLabel(treeItem);
+    const typographyEl = slottedContent.querySelector(
+      "ic-typography.tree-item-label"
+    );
+    expect(typographyEl).not.toBeNull();
+    expect(slottedContent.firstChild).toBe(typographyEl);
+    expect(typographyEl.textContent).toContain("Test Label");
   });
 });
