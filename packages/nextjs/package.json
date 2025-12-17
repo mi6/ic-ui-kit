@@ -1,36 +1,37 @@
 {
   "name": "@ukic/nextjs",
+  "version": "3.2.14",
+  "private": true,
+  "description": "React-wrapped web components served on a nextjs storybook",
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit/issues",
+    "email": "icds@gchq.gov.uk"
+  },
+  "repository": {
+    "url": "git+https://github.com/mi6/ic-ui-kit.git",
+    "directory": "packages/nextjs"
+  },
+  "license": "MIT",
+  "author": "mi6",
   "sideEffects": [
     "*.css"
   ],
-  "version": "3.2.14",
-  "description": "React-wrapped web components served on a nextjs storybook",
-  "author": "mi6",
-  "private": true,
-  "scripts": {
-    "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
-    "storybook": "storybook dev -p 6010",
-    "build-storybook": "rimraf ./storybook-static && storybook build -s public",
-    "clean": "rimraf dist",
-    "compile": "npm run tsc",
-    "tsc": "tsc -p .",
-    "rollup": "rollup -c",
-    "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
-    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css"
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/"
   ],
-  "repository": {
-    "url": "git+https://github.com/mi6/ic-ui-kit.git",
-    "directory": "packages/nextjs"
-  },
-  "bugs": {
-    "url": "https://github.com/mi6/ic-ui-kit/issues",
-    "email": "icds@gchq.gov.uk"
+  "scripts": {
+    "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
+    "build-storybook": "rimraf ./storybook-static && storybook build -s public",
+    "clean": "rimraf dist",
+    "compile": "npm run tsc",
+    "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
+    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css",
+    "rollup": "rollup -c",
+    "storybook": "storybook dev -p 6010",
+    "tsc": "tsc -p ."
   },
   "dependencies": {
     "@storybook/addon-a11y": "^8.6.9",
@@ -68,6 +69,5 @@
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
   },
-  "license": "MIT",
   "packageManager": "^npm@10.9.2"
 }
