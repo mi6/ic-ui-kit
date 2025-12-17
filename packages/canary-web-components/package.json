@@ -2,52 +2,46 @@
   "name": "@ukic/canary-web-components",
   "version": "3.0.0-canary.32",
   "description": "A web component UI library compiled with StencilJS",
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit/issues",
+    "email": "icds@gchq.gov.uk"
+  },
+  "repository": {
+    "url": "git+https://github.com/mi6/ic-ui-kit.git",
+    "directory": "packages/canary-web-components"
+  },
+  "license": "MIT",
   "main": "./dist/index.cjs.js",
-  "module": "./dist/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/interface.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
   "unpkg": "dist/core/core.esm.js",
+  "module": "./dist/index.js",
+  "types": "dist/types/interface.d.ts",
   "files": [
     "dist/",
     "loader/",
     "hydrate/"
   ],
-  "repository": {
-    "url": "git+https://github.com/mi6/ic-ui-kit.git",
-    "directory": "packages/canary-web-components"
-  },
-  "bugs": {
-    "url": "https://github.com/mi6/ic-ui-kit/issues",
-    "email": "icds@gchq.gov.uk"
-  },
   "scripts": {
+    "audit": "echo 'Audit for: @ukic/canary-web-components' && audit-ci -m --config ../../audit-ci.json",
     "build": "stencil build",
     "build:watch": "npm run build -- --watch",
-    "test": "stencil test --spec --passWithNoTests",
-    "test:watch": "stencil test --spec --watchAll",
-    "test-a11y": "jest",
-    "create-component": "stencil generate",
-    "storybook": "npm-run-all --parallel build:watch start-storybook",
-    "start-storybook": "storybook dev -p 6008",
     "build-storybook": "rimraf /storybook-static && storybook build",
-    "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
-    "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
+    "create-component": "stencil generate",
+    "kill": "kill-port 8080 --graceful",
     "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/components/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
     "lint:fix": "echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/components/**/*.css --fix && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src --fix",
+    "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
+    "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
     "start": "npx http-server storybook-static -s",
-    "kill": "kill-port 8080 --graceful",
-    "audit": "echo 'Audit for: @ukic/canary-web-components' && audit-ci -m --config ../../audit-ci.json"
+    "start-storybook": "storybook dev -p 6008",
+    "storybook": "npm-run-all --parallel build:watch start-storybook",
+    "test": "stencil test --spec --passWithNoTests",
+    "test:watch": "stencil test --spec --watchAll",
+    "test-a11y": "jest"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@stencil/core": "^4.26.0",
     "@ukic/web-components": "^3.16.0"
-  },
-  "peerDependencies": {
-    "@ukic/fonts": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -88,6 +82,12 @@
     "ts-jest": "^26.5.6",
     "webpack": "^5.76.0"
   },
-  "license": "MIT",
-  "packageManager": "^npm@10.9.2"
+  "peerDependencies": {
+    "@ukic/fonts": "^3.1.0"
+  },
+  "packageManager": "^npm@10.9.2",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs"
 }
