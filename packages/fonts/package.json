@@ -2,21 +2,21 @@
   "name": "@ukic/fonts",
   "version": "3.2.6",
   "description": "Typography assets for @ukic components",
-  "scripts": {
-    "build": "rimraf ./dist && webpack --config .webpack/webpack.config.js",
-    "audit": "echo 'Audit for: @ukic/fonts' && audit-ci -m --config ../../audit-ci.json"
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit/issues",
+    "email": "icds@gchq.gov.uk"
+  },
+  "repository": {
+    "url": "git+https://github.com/mi6/ic-ui-kit.git",
+    "directory": "packages/fonts"
   },
   "license": "MIT",
   "files": [
     "dist"
   ],
-  "repository": {
-    "url": "git+https://github.com/mi6/ic-ui-kit.git",
-    "directory": "packages/fonts"
-  },
-  "bugs": {
-    "url": "https://github.com/mi6/ic-ui-kit/issues",
-    "email": "icds@gchq.gov.uk"
+  "scripts": {
+    "audit": "echo 'Audit for: @ukic/fonts' && audit-ci -m --config ../../audit-ci.json",
+    "build": "rimraf ./dist && webpack --config .webpack/webpack.config.js"
   },
   "devDependencies": {
     "@fontsource/nunito-sans": "^4.5.4",
