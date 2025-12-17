@@ -19,7 +19,7 @@
 | `progress`      | `progress`       | The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.                             | `number \| undefined`                      | `undefined`  |
 | `size`          | `size`           | The size of the loading indicator.                                                                                                      | `"icon" \| "large" \| "medium" \| "small"` | `"medium"`   |
 | `theme`         | `theme`          | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"`           | `"inherit"`  |
-| `type`          | `type`           | The type of indicator, either linear or circular.                                                                                       | `"circular" \| "linear"`                   | `"circular"` |
+| `type`          | `type`           | The type of indicator, either linear or circular. When size is set to 'icon' the type will be set to circular.                          | `"circular" \| "linear"`                   | `"circular"` |
 
 
 ## Shadow Parts

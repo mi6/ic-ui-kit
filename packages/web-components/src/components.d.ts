@@ -1209,7 +1209,7 @@ export namespace Components {
          */
         "theme": IcThemeMode;
         /**
-          * The type of indicator, either linear or circular.
+          * The type of indicator, either linear or circular. When size is set to 'icon' the type will be set to circular.
          */
         "type": IcLoadingTypes;
     }
@@ -4893,7 +4893,7 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode;
         /**
-          * The type of indicator, either linear or circular.
+          * The type of indicator, either linear or circular. When size is set to 'icon' the type will be set to circular.
          */
         "type"?: IcLoadingTypes;
     }

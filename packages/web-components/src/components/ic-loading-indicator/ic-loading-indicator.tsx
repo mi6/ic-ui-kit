@@ -35,6 +35,7 @@ export class LoadingIndicator {
   };
   @State() indicatorLabel?: string;
   @State() clipInnerElement = false;
+  @State() internalType: IcLoadingTypes = "circular";
 
   /**
    * The description that will be set as the aria-label of the loading indicator when not using a visible label.
@@ -92,7 +93,7 @@ export class LoadingIndicator {
   @Watch("min")
   @Watch("progress")
   handleProgressChange(): void {
-    if (this.type === "linear") {
+    if (this.internalType === "linear") {
       this.setLinearDeterminateWidth();
     } else {
       this.setCircleDimensions();
@@ -103,6 +104,10 @@ export class LoadingIndicator {
    * The size of the loading indicator.
    */
   @Prop({ reflect: true }) size: IcLoadingSizes = "medium";
+  @Watch("size")
+  handleIconSize(): void {
+    this.setIndicatorDimensions();
+  }
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -110,12 +115,13 @@ export class LoadingIndicator {
   @Prop() theme: IcThemeMode = "inherit";
 
   /**
-   * The type of indicator, either linear or circular.
+   * The type of indicator, either linear or circular. When size is set to 'icon' the type will be set to circular.
    */
   @Prop({ reflect: true }) type: IcLoadingTypes = "circular";
   @Watch("type")
   setIndicatorDimensions(): void {
-    if (this.type === "circular") {
+    this.setInternalType();
+    if (this.internalType === "circular") {
       // Sets the circular indicator line width - accounting for the circle size being altered using the CSS custom property
       const diameter = this.calculateWidth();
       if (this.outerElement && diameter !== this.circularDiameter) {
@@ -158,7 +164,7 @@ export class LoadingIndicator {
     });
 
   private getLabelVariant = () => {
-    const width = this.type === "circular" ? this.calculateWidth() : 0;
+    const width = this.internalType === "circular" ? this.calculateWidth() : 0;
 
     if (this.size === "small" || (width && width < 60)) {
       return "label";
@@ -208,6 +214,13 @@ export class LoadingIndicator {
     );
   };
 
+  private setInternalType = () => {
+    this.internalType = this.type;
+    if (this.type == "linear") {
+      this.internalType = this.size == "icon" ? "circular" : "linear";
+    }
+  };
+
   private updateLabel = () => {
     if (!this.label) return;
 
@@ -248,6 +261,7 @@ export class LoadingIndicator {
       fullWidth,
       indicatorLabel,
       innerLabel,
+      internalType,
       label,
       max,
       min,
@@ -255,7 +269,6 @@ export class LoadingIndicator {
       progress,
       size,
       theme,
-      type,
     } = this;
 
     return (
@@ -272,7 +285,7 @@ export class LoadingIndicator {
           <div
             ref={(el) => (this.outerElement = el)}
             class={{
-              [`ic-loading-${type}-outer`]: true,
+              [`ic-loading-${internalType}-outer`]: true,
               [progress === undefined ? "indeterminate" : "determinate"]: true,
             }}
             role="progressbar"
@@ -285,7 +298,7 @@ export class LoadingIndicator {
             <div
               ref={(el) => (this.innerElement = el)}
               class={{
-                [`ic-loading-${type}-inner`]: true,
+                [`ic-loading-${internalType}-inner`]: true,
                 "inner-label": !!innerLabel,
               }}
             >
@@ -294,7 +307,7 @@ export class LoadingIndicator {
                   {innerLabel}
                 </ic-typography>
               )}
-              {type === "circular" && (
+              {internalType === "circular" && (
                 <svg
                   class="ic-loading-circular-svg"
                   viewBox={`0 0 ${circularDiameter} ${circularDiameter}`}
