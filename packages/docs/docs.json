@@ -10166,7 +10166,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": true,
-          "docs": "The type of indicator, either linear or circular.",
+          "docs": "The type of indicator, either linear or circular. When size is set to 'icon' the type will be set to circular.",
           "docsTags": [],
           "default": "\"circular\"",
           "values": [
