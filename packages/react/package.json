@@ -1,11 +1,7 @@
 {
   "name": "@ukic/react",
-  "sideEffects": [
-    "*.css"
-  ],
   "version": "3.16.0",
   "description": "React-wrapped web components compiled using StencilJS",
-  "author": "mi6",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit",
     "email": "icds@gchq.gov.uk"
@@ -14,37 +10,42 @@
     "url": "https://github.com/mi6/ic-ui-kit",
     "directory": "packages/react"
   },
-  "scripts": {
-    "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
-    "cypress": "cypress run --component --headed",
-    "cypress:open": "cypress open",
-    "cypress:component": "cypress run --component --headless",
-    "cypress:ci": "cross-env CYPRESS_CI=true npm run cypress:component",
-    "perf:local": "webpack serve --config ./.webpack/webpack.perf.config.js --mode development",
-    "perf:build": "webpack build --config ./.webpack/webpack.perf.config.js --mode production",
-    "perf:lighthouse": "node ./scripts/lighthouse-runner.js",
-    "cypress:performance": "cypress run --e2e --headless --browser=chrome",
-    "test:performance": "npm run perf:clean && npm run perf:build && npm run perf:lighthouse",
-    "perf:clean": "rimraf dist-perf",
-    "clean": "rimraf dist",
-    "compile": "npm run tsc",
-    "tsc": "tsc -p .",
-    "rollup": "rollup -c",
-    "lint:cypress": "eslint --config ./cypress/.eslintrc.json ./src/component-tests",
-    "storybook": "storybook dev -p 6007",
-    "build-storybook": "rimraf ./storybook-static && storybook build public",
-    "audit": "echo 'Audit for: @ukic/react' && audit-ci -m --config ../../audit-ci.json",
-    "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
-    "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
-    "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
-    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css"
-  },
+  "license": "MIT",
+  "author": "mi6",
+  "sideEffects": [
+    "*.css"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/"
   ],
+  "scripts": {
+    "audit": "echo 'Audit for: @ukic/react' && audit-ci -m --config ../../audit-ci.json",
+    "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
+    "build-storybook": "rimraf ./storybook-static && storybook build public",
+    "clean": "rimraf dist",
+    "compile": "npm run tsc",
+    "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
+    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css",
+    "cypress": "cypress run --component --headed",
+    "cypress:ci": "cross-env CYPRESS_CI=true npm run cypress:component",
+    "cypress:component": "cypress run --component --headless",
+    "cypress:open": "cypress open",
+    "cypress:performance": "cypress run --e2e --headless --browser=chrome",
+    "lint:cypress": "eslint --config ./cypress/.eslintrc.json ./src/component-tests",
+    "perf:build": "webpack build --config ./.webpack/webpack.perf.config.js --mode production",
+    "perf:clean": "rimraf dist-perf",
+    "perf:lighthouse": "node ./scripts/lighthouse-runner.js",
+    "perf:local": "webpack serve --config ./.webpack/webpack.perf.config.js --mode development",
+    "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
+    "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
+    "rollup": "rollup -c",
+    "storybook": "storybook dev -p 6007",
+    "test:performance": "npm run perf:clean && npm run perf:build && npm run perf:lighthouse",
+    "tsc": "tsc -p ."
+  },
   "dependencies": {
     "@ukic/web-components": "^3.16.0"
   },
@@ -112,6 +113,5 @@
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0 || ^19.0.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0 || ^19.0.0"
   },
-  "license": "MIT",
   "packageManager": "^npm@10.9.2"
 }
