@@ -1,22 +1,22 @@
 {
-  "author": "mi6",
   "name": "@ukic/canary-docs",
   "version": "3.0.0-canary.25",
   "description": "API documentation for @ukic canary components",
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit/issues",
+    "email": "icds@gchq.gov.uk"
+  },
+  "repository": {
+    "url": "git+https://github.com/mi6/ic-ui-kit.git",
+    "directory": "packages/canary-docs"
+  },
+  "license": "MIT",
+  "author": "mi6",
   "main": "docs.json",
   "types": "./docs.d.ts",
   "files": [
     "docs.json",
     "docs.d.ts"
   ],
-  "repository": {
-    "url": "git+https://github.com/mi6/ic-ui-kit.git",
-    "directory": "packages/canary-docs"
-  },
-  "bugs": {
-    "url": "https://github.com/mi6/ic-ui-kit/issues",
-    "email": "icds@gchq.gov.uk"
-  },
-  "license": "MIT",
   "packageManager": "^npm@10.9.2"
 }
