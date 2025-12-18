@@ -476,7 +476,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("01");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("06");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
+
+    cy.wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
       .eq(0)
@@ -504,7 +506,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("01");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("12");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2050").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2050");
+
+    cy.wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
       .eq(0)
@@ -552,7 +556,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("14");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
+
+    cy.wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
       .eq(0)
@@ -584,7 +590,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024");
+
+    cy.wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
       .eq(0)
@@ -616,7 +624,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024");
+
+    cy.wait(200);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -644,7 +654,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024");
+
+    cy.wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
       .eq(0)
@@ -676,7 +688,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024");
+
+    cy.wait(200);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -704,7 +718,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990");
+
+    cy.wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
       .eq(0)
@@ -736,7 +752,9 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990");
+
+    cy.wait(200);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -1183,7 +1201,9 @@ describe("IcDateInput visual regression tests in high contrast mode", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024").wait(200);
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024");
+
+    cy.wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN)
       .eq(0)

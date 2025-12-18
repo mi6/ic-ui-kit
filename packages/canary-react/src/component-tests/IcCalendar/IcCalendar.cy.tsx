@@ -276,7 +276,7 @@ describe("IcCalendar end-to-end, visual regression and a11y tests", () => {
     mount(<IcCalendar value={DEFAULT_VALUE} />);
 
     cy.checkHydrated(CALENDAR);
-    cy.findShadowEl(CALENDAR, TODAY_BUTTON_ID).should("exist");
+    cy.findShadowEl(CALENDAR, TODAY_BUTTON_ID);
 
     cy.findShadowEl(CALENDAR, TODAY_BUTTON_ID).click();
 
@@ -1484,7 +1484,7 @@ describe("IcCalendar end-to-end, visual regression and a11y tests", () => {
       cy.findShadowEl(CALENDAR, FOCUSSED_DAY_BTN_CLASS)
         .should(BE_VISIBLE)
         .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023");
-      cy.findShadowEl(CALENDAR, SELECTED_DAY_BTN_CLASS).should("exist");
+      cy.findShadowEl(CALENDAR, SELECTED_DAY_BTN_CLASS);
 
       cy.get(CALENDAR)
         .invoke("prop", "value", NEW_VALUE)
@@ -1492,7 +1492,7 @@ describe("IcCalendar end-to-end, visual regression and a11y tests", () => {
           cy.findShadowEl(CALENDAR, FOCUSSED_DAY_BTN_CLASS)
             .should(BE_VISIBLE)
             .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Monday, 4 November 2024");
-          cy.findShadowEl(CALENDAR, SELECTED_DAY_BTN_CLASS).should("exist");
+          cy.findShadowEl(CALENDAR, SELECTED_DAY_BTN_CLASS);
         });
     });
 

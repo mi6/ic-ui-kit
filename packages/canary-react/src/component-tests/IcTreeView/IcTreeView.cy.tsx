@@ -12,6 +12,7 @@ import {
   NOT_EXIST,
   NOT_HAVE_CSS,
   NOT_HAVE_BEEN_CALLED,
+  HAVE_ID,
 } from "@ukic/react/src/component-tests/utils/constants";
 import { IcTreeItemOptions } from "@ukic/canary-web-components";
 
@@ -862,8 +863,8 @@ describe("IcTreeView", () => {
     cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
       .eq(1)
       .focus()
-      .realPress("ArrowRight")
       .realPress("ArrowRight");
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).realPress("ArrowRight");
 
     cy.get(TREE_ITEM).eq(2).should(HAVE_FOCUS);
   });
@@ -906,17 +907,11 @@ describe("IcTreeView", () => {
 
     cy.get(TREE_ITEM).eq(0).should(HAVE_FOCUS).realPress("ArrowDown");
 
-    cy.get(TREE_ITEM)
-      .eq(1)
-      .should(HAVE_FOCUS)
-      .realPress("Enter")
-      .realPress("ArrowUp");
+    cy.get(TREE_ITEM).eq(1).should(HAVE_FOCUS).realPress("Enter");
+    cy.get(TREE_ITEM).eq(1).realPress("ArrowUp");
 
-    cy.get(TREE_ITEM)
-      .eq(0)
-      .should(HAVE_FOCUS)
-      .realPress("Enter")
-      .realPress("ArrowDown");
+    cy.get(TREE_ITEM).eq(0).should(HAVE_FOCUS).realPress("Enter");
+    cy.get(TREE_ITEM).eq(0).realPress("ArrowDown");
 
     cy.get(TREE_ITEM).eq(4).should(HAVE_FOCUS);
   });
@@ -929,11 +924,8 @@ describe("IcTreeView", () => {
       .focus()
       .realPress("Tab");
 
-    cy.get(TREE_ITEM)
-      .eq(1)
-      .should(HAVE_FOCUS)
-      .realPress("Enter")
-      .realPress("Tab");
+    cy.get(TREE_ITEM).eq(1).should(HAVE_FOCUS).realPress("Enter");
+    cy.get(TREE_ITEM).eq(1).realPress("Tab");
 
     cy.get(TREE_ITEM).eq(2).should(HAVE_FOCUS);
   });
@@ -946,11 +938,8 @@ describe("IcTreeView", () => {
       .focus()
       .realPress("ArrowDown");
 
-    cy.get(TREE_ITEM)
-      .eq(1)
-      .should(HAVE_FOCUS)
-      .realPress("Enter")
-      .realPress("ArrowDown");
+    cy.get(TREE_ITEM).eq(1).should(HAVE_FOCUS).realPress("Enter");
+    cy.get(TREE_ITEM).eq(1).realPress("ArrowDown");
 
     cy.get(TREE_ITEM).eq(2).should(HAVE_FOCUS);
   });
@@ -1018,14 +1007,14 @@ describe("IcTreeView", () => {
 
     cy.checkHydrated(TREE_VIEW);
 
-    cy.get(TREE_ITEM).should("have.id", "bar-1");
+    cy.get(TREE_ITEM).should(HAVE_ID, "bar-1");
 
-    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should("have.id", "baz-1");
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should(HAVE_ID, "baz-1");
 
     cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).click();
 
     // Assert ID doesn't change after a re-render
-    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should("have.id", "baz-1");
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should(HAVE_ID, "baz-1");
   });
 
   it("should update parent node when children removed", () => {
