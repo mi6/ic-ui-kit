@@ -15,6 +15,9 @@ import {
   NOT_BE_VISIBLE,
   NOT_HAVE_BEEN_CALLED,
   HAVE_TEXT,
+  EQUAL,
+  NOT_HAVE_TEXT,
+  HAVE_BEEN_CALLED_TWICE,
 } from "../utils/constants";
 import {
   ARIA_SELECTED,
@@ -224,7 +227,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("a");
     cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).should("not.have.text");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).should(NOT_HAVE_TEXT);
   });
 
   it("should clear the value when the input is changed after selecting an option", () => {
@@ -257,7 +260,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
       "false"
     );
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, null);
-    cy.get("@spyWinConsoleLog").should("have.been.calledTwice");
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_TWICE);
   });
 
   it("should clear the input text on blur when an option isn't selected", () => {
@@ -383,11 +386,11 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, 'input[role="combobox"]')
       .invoke("prop", "value")
-      .should("eq", "");
+      .should(EQUAL, "");
     cy.get(IC_SELECT).invoke("attr", "value", "Cap");
     cy.findShadowEl(IC_SELECT, 'input[role="combobox"]')
       .invoke("prop", "value")
-      .should("eq", "Cappuccino");
+      .should(EQUAL, "Cappuccino");
   });
 
   it("should trigger icChange on input for each typed value", () => {
@@ -1130,7 +1133,9 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.checkHydrated(IC_SELECT);
 
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/searchable-recommended-open-high-contrast",
@@ -1152,7 +1157,9 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.checkHydrated(IC_SELECT);
 
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("bo").wait(500);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("bo");
+
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/searchable-groups-in-filter-open-high-contrast",
@@ -1173,7 +1180,9 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.checkHydrated(IC_SELECT);
 
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(600);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.wait(600);
 
     cy.compareSnapshot({
       name: "/searchable-disabled-options-open-high-contrast",
@@ -1194,7 +1203,9 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.checkHydrated(IC_SELECT);
 
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/searchable-descriptions-open-high-contrast",

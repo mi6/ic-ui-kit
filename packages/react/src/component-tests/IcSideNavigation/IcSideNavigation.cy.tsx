@@ -7,6 +7,7 @@ import { IcTheme } from "../../components";
 import {
   BE_VISIBLE,
   CONTAIN_TEXT,
+  EQUAL,
   HAVE_CSS,
   HAVE_LENGTH,
   NOT_BE_VISIBLE,
@@ -70,14 +71,14 @@ describe("IcSideNavigation", () => {
         .shadow()
         .find("button")
         .invoke("attr", "aria-expanded")
-        .should("eq", "false");
+        .should(EQUAL, "false");
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
       cy.findShadowEl(SIDE_NAV_SELECTOR, INNER_SIDE_NAV_SELECTOR);
       cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)
         .shadow()
         .find("button")
         .invoke("attr", "aria-expanded")
-        .should("eq", "true");
+        .should(EQUAL, "true");
       cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).should(
         CONTAIN_TEXT,
         "Close"
@@ -91,12 +92,12 @@ describe("IcSideNavigation", () => {
         .shadow()
         .find("button")
         .invoke("attr", "aria-expanded")
-        .should("eq", "false");
+        .should(EQUAL, "false");
       cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)
         .shadow()
         .find("button")
         .invoke("attr", ARIA_LABEL_ATTR)
-        .should("eq", "Open navigation menu");
+        .should(EQUAL, "Open navigation menu");
 
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
 
@@ -105,12 +106,12 @@ describe("IcSideNavigation", () => {
         .shadow()
         .find("button")
         .invoke("attr", "aria-expanded")
-        .should("eq", "true");
+        .should(EQUAL, "true");
       cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)
         .shadow()
         .find("button")
         .invoke("attr", ARIA_LABEL_ATTR)
-        .should("eq", "Close navigation menu");
+        .should(EQUAL, "Close navigation menu");
     });
 
     it("should render the correct number of navigation-items", () => {
@@ -405,12 +406,12 @@ describe("IcSideNavigation", () => {
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
       cy.findShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR)
         .invoke("attr", ARIA_LABEL_ATTR)
-        .should("eq", "Collapse side navigation");
+        .should(EQUAL, "Collapse side navigation");
 
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
       cy.findShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR)
         .invoke("attr", ARIA_LABEL_ATTR)
-        .should("eq", "Expand side navigation");
+        .should(EQUAL, "Expand side navigation");
     });
 
     it("should display application name on expanded side navigation", () => {
@@ -442,17 +443,17 @@ describe("IcSideNavigation", () => {
       mount(<GroupedSideNav />);
       cy.findShadowEl(NAV_GROUP_SELECTOR, NAV_GROUP_WRAPPER_SELECTOR)
         .invoke("height")
-        .should("eq", 56);
+        .should(EQUAL, 56);
 
       cy.clickOnShadowEl(NAV_GROUP_SELECTOR, ".navigation-group");
       cy.findShadowEl(NAV_GROUP_SELECTOR, NAV_GROUP_WRAPPER_SELECTOR)
         .invoke("height")
-        .should("eq", 0);
+        .should(EQUAL, 0);
 
       cy.clickOnShadowEl(NAV_GROUP_SELECTOR, ".navigation-group");
       cy.findShadowEl(NAV_GROUP_SELECTOR, NAV_GROUP_WRAPPER_SELECTOR)
         .invoke("height")
-        .should("eq", 56);
+        .should(EQUAL, 56);
     });
 
     it("should have aria-landmarks added to side navigation nav sections", () => {
@@ -463,7 +464,7 @@ describe("IcSideNavigation", () => {
 
       cy.findShadowEl(SIDE_NAV_SELECTOR, "nav.primary-navigation")
         .invoke("attr", "aria-labelledby")
-        .should("eq", PRIMARY_LANDMARK_ID);
+        .should(EQUAL, PRIMARY_LANDMARK_ID);
       cy.findShadowEl(
         SIDE_NAV_SELECTOR,
         `nav.primary-navigation #${PRIMARY_LANDMARK_ID}`
@@ -471,7 +472,7 @@ describe("IcSideNavigation", () => {
 
       cy.findShadowEl(SIDE_NAV_SELECTOR, "nav.secondary-navigation")
         .invoke("attr", "aria-labelledby")
-        .should("eq", SECONDARY_LANDMARK_ID);
+        .should(EQUAL, SECONDARY_LANDMARK_ID);
       cy.findShadowEl(
         SIDE_NAV_SELECTOR,
         `nav.secondary-navigation #${SECONDARY_LANDMARK_ID}`
@@ -574,7 +575,8 @@ describe("IcSideNavigation", () => {
       cy.checkSideNavSize(true);
 
       cy.findShadowEl("ic-side-navigation", ".title-link").focus();
-      cy.realPress("Tab").realPress("Enter");
+      cy.realPress("Tab");
+      cy.realPress("Enter");
       cy.checkSideNavSize(false);
 
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);

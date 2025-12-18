@@ -37,6 +37,7 @@ import {
   NOT_BE_VISIBLE,
   HAVE_BEEN_CALLED_ONCE,
   NOT_HAVE_BEEN_CALLED,
+  NOT_HAVE_FOCUS,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -57,7 +58,8 @@ describe("IcDialog end-to-end tests", () => {
     mount(<SimpleDialog />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get("body").click(0, 0);
     cy.wait(300);
@@ -68,9 +70,11 @@ describe("IcDialog end-to-end tests", () => {
     mount(<SlottedUpdatedContentDialog />);
 
     cy.get(DIALOG);
-    cy.get("ic-button#display-btn-1-btn").click().wait(300);
+    cy.get("ic-button#display-btn-1-btn").click();
+    cy.wait(300);
     cy.get("ic-button#display-btn-2-btn").click();
-    cy.get("ic-button#display-dialog-btn").click().wait(300);
+    cy.get("ic-button#display-dialog-btn").click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get("ic-button#test-button-1").should(HAVE_FOCUS).realPress("Tab");
     cy.get("ic-button#test-button-2").should(HAVE_FOCUS);
@@ -80,11 +84,13 @@ describe("IcDialog end-to-end tests", () => {
     mount(<NoBackgroundClickDialog />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).click().wait(1000);
+    cy.get(BUTTON).click();
+    cy.wait(1000);
     cy.get(DIALOG).should(BE_VISIBLE);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
-    cy.get("body").click(0, 0).wait(1000);
+    cy.get("body").click(0, 0);
+    cy.wait(1000);
 
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get(DIALOG).should(BE_VISIBLE);
@@ -98,10 +104,8 @@ describe("IcDialog end-to-end tests", () => {
 
     cy.get(DYNAMIC_SHOW_BUTTON).click();
 
-    cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button")
-      .focus()
-      .realPress("Tab")
-      .realPress("Tab");
+    cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button").focus().realPress("Tab");
+    cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button").realPress("Tab");
 
     cy.findShadowEl("ic-button#tab-btn", "button").should(HAVE_FOCUS);
 
@@ -154,7 +158,7 @@ describe("IcDialog end-to-end tests", () => {
 
     // after 4 tabs, the tab should have focus again
     cy.realPress("Tab");
-    cy.get("ic-tab").should("not.have.focus");
+    cy.get("ic-tab").should(NOT_HAVE_FOCUS);
     cy.realPress("Tab");
     cy.realPress("Tab");
     cy.realPress("Tab");
@@ -235,7 +239,8 @@ describe("IcDialog end-to-end tests", () => {
   it("should hide dialog on pressing escape on dialog", () => {
     mount(<SimpleDialog />);
 
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get(DIALOG).should(BE_VISIBLE);
 
@@ -248,7 +253,8 @@ describe("IcDialog end-to-end tests", () => {
   it("should hide tooltip and then hide dialog on pressing escape on close button", () => {
     mount(<SimpleDialog />);
 
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get(DIALOG).should(BE_VISIBLE);
 
@@ -294,7 +300,8 @@ describe("IcDialog end-to-end tests", () => {
 
     cy.get("@icDialogOpened").should(NOT_HAVE_BEEN_CALLED);
 
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.get("@icDialogOpened").should(HAVE_BEEN_CALLED_ONCE);
@@ -314,7 +321,8 @@ describe("IcDialog end-to-end tests", () => {
       cy.stub().as("icDialogCancelled")
     );
 
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.get("@icDialogCancelled").should(NOT_HAVE_BEEN_CALLED);
@@ -343,7 +351,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<SimpleDialog />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait(undefined, 500);
@@ -357,7 +366,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<SlottedContentDialog />);
 
     cy.get(DIALOG);
-    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait(undefined, 200);
@@ -371,7 +381,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<SlottedContentDialog />);
 
     cy.get(DIALOG);
-    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get("ic-select").should(HAVE_FOCUS);
     cy.get("ic-select").click();
@@ -387,7 +398,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<NoHeightConstraintDialog />);
 
     cy.get(DIALOG);
-    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get("ic-select").click();
 
@@ -402,7 +414,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordion />);
 
     cy.get(DIALOG);
-    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -416,7 +429,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordionGroup />);
 
     cy.get(DIALOG);
-    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -430,7 +444,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordionGroupSingleExpansion />);
 
     cy.get(DIALOG);
-    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -444,7 +459,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogSearch />);
 
     cy.get(DIALOG);
-    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.wait(300);
     cy.realPress("Tab");
@@ -600,7 +616,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<ScrollableDialog />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).click().wait(1000);
+    cy.get(BUTTON).click();
+    cy.wait(1000);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -614,7 +631,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<ScrollableDialog />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).click().wait(1000);
+    cy.get(BUTTON).click();
+    cy.wait(1000);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.findShadowEl(DIALOG, ".content-area").scrollTo("bottom").wait(1000);
 
@@ -633,10 +651,8 @@ describe("IcDialog visual regression and a11y tests", () => {
 
     cy.get(DYNAMIC_SHOW_BUTTON).click();
 
-    cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button")
-      .focus()
-      .realPress("Tab")
-      .realPress("Tab");
+    cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button").focus().realPress("Tab");
+    cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button").realPress("Tab");
 
     cy.findShadowEl("ic-button#tab-btn", "button").should(HAVE_FOCUS);
 
@@ -676,7 +692,8 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogWithTooltips />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).eq(0).click().wait(300);
+    cy.get(BUTTON).eq(0).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -716,7 +733,8 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
     mount(<SimpleDialog />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.compareSnapshot({
@@ -729,7 +747,8 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
     mount(<SlottedContentDialog />);
 
     cy.get(DIALOG);
-    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.compareSnapshot({
@@ -762,7 +781,8 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
     mount(<NoButtonDialog />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.compareSnapshot({
@@ -775,7 +795,8 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
     mount(<DestructiveButtonDialog />);
 
     cy.get(DIALOG);
-    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).click();
+    cy.wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.compareSnapshot({

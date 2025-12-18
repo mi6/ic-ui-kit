@@ -133,7 +133,8 @@ describe("IcToast end-to-end tests", () => {
 
     cy.get(IC_TOAST_SELECTOR).click(60, 40);
 
-    cy.realPress("Tab").realPress("Tab");
+    cy.realPress("Tab");
+    cy.realPress("Tab");
     cy.get(IC_TOAST_SELECTOR).shadow().find(DISMISS_BUTTON_SELECTOR);
   });
 
@@ -156,7 +157,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<HeadingOnlyToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -169,7 +171,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<ToastTypes variant="neutral" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -182,7 +185,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<ToastTypes variant="success" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -195,7 +199,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<ToastTypes variant="warning" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -208,7 +213,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<ToastTypes variant="info" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -221,7 +227,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<ToastTypes variant="error" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -234,7 +241,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<ToastTypes variant="ai" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -247,7 +255,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<MultilineMessageToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -260,7 +269,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<SlottedActionToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(OPEN_BUTTON_SELECTOR).click().wait(500);
+    cy.get(OPEN_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -273,7 +283,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<SlottedLinkToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -286,7 +297,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<SimpleAutoDismissToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -299,7 +311,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<SlottedIconToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -312,7 +325,8 @@ describe("IcToast visual regression and a11y tests", () => {
     mount(<DismissAriaLabelToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -339,7 +353,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<ToastTypes variant="neutral" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/neutral-high-contrast",
@@ -351,7 +366,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<ToastTypes variant="success" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/success-high-contrast",
@@ -363,7 +379,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<ToastTypes variant="warning" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/warning-high-contrast",
@@ -375,7 +392,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<ToastTypes variant="error" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/error-high-contrast",
@@ -387,7 +405,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<ToastTypes variant="info" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/info-high-contrast",
@@ -399,7 +418,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<ToastTypes variant="ai" />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/ai-high-contrast",
@@ -411,7 +431,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<SimpleAutoDismissToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/auto-dismiss-high-contrast",
@@ -423,7 +444,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<SlottedIconToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/custom-icon-high-contrast",
@@ -435,7 +457,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<SlottedActionToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(OPEN_BUTTON_SELECTOR).click().wait(500);
+    cy.get(OPEN_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/slotted-button-high-contrast",
@@ -447,7 +470,8 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     mount(<SlottedLinkToast />);
 
     cy.checkHydrated(IC_TOAST_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/slotted-link-high-contrast",

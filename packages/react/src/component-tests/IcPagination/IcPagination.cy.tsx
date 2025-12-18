@@ -345,10 +345,9 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
       cy.stub().as("icPageChanged")
     );
 
-    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR)
-      .click()
-      .click()
-      .click();
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
 
     cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
@@ -429,7 +428,8 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
       cy.stub().as("icPageChanged")
     );
 
-    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click().click();
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
     cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(3);
     });
@@ -557,7 +557,8 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.findShadowEl(PAGINATION_SELECTOR, "#last-page-button").click();
-    cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click().click();
+    cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click();
+    cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click();
     cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
@@ -743,9 +744,11 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
     });
-    cy.findShadowEl(PAGINATION_SELECTOR, "#end-ellipsis")
-      .click()
-      .should(NOT_HAVE_CLASS, "active");
+    cy.findShadowEl(PAGINATION_SELECTOR, "#end-ellipsis").click();
+    cy.findShadowEl(PAGINATION_SELECTOR, "#end-ellipsis").should(
+      NOT_HAVE_CLASS,
+      "active"
+    );
     cy.findShadowEl(PAGINATION_SELECTOR, "#pagination-item-8").should(
       NOT_EXIST
     );
@@ -769,11 +772,26 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
       .shadow()
       .find("button")
       .focus()
-      .realPress("Enter")
-      .realPress(["Shift", "Tab"])
-      .realPress("Space")
-      .realPress(["Shift", "Tab"])
-      .realPress(["Shift", "Tab"])
+      .realPress("Enter");
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR)
+      .shadow()
+      .find("button")
+      .realPress(["Shift", "Tab"]);
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR)
+      .shadow()
+      .find("button")
+      .realPress("Space");
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR)
+      .shadow()
+      .find("button")
+      .realPress(["Shift", "Tab"]);
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR)
+      .shadow()
+      .find("button")
+      .realPress(["Shift", "Tab"]);
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR)
+      .shadow()
+      .find("button")
       .realPress("Enter");
 
     cy.get(PAGE_CHANGE_EVENT).should((stub) => {

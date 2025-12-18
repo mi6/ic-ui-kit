@@ -279,7 +279,9 @@ describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
     mount(<ClickableButton />);
 
     cy.checkHydrated(CARD_SELECTOR);
-    cy.get(CARD_SELECTOR).click().should(HAVE_FOCUS);
+    cy.get(CARD_SELECTOR).click();
+
+    cy.get(CARD_SELECTOR).should(HAVE_FOCUS);
 
     cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
@@ -500,7 +502,9 @@ describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
       mount(<ClickableButton />);
 
       cy.checkHydrated(CARD_SELECTOR);
-      cy.get(CARD_SELECTOR).click().should(HAVE_FOCUS);
+      cy.get(CARD_SELECTOR).click();
+
+      cy.get(CARD_SELECTOR).should(HAVE_FOCUS);
 
       cy.wait(200).compareSnapshot({
         name: "/clickable-button-high-contrast",

@@ -401,7 +401,8 @@ describe("IcRadio end-to-end tests", () => {
     mount(<RadioGroupInAdditionalField />);
 
     cy.get("#ic-radio-option-option1-Parent").focus();
-    cy.realPress("Tab").realPress("ArrowDown");
+    cy.realPress("Tab");
+    cy.realPress("ArrowDown");
 
     cy.get(`${RADIO_SELECTOR}[label="child-option-2"]`).should(
       HAVE_PROP,

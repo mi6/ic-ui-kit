@@ -195,10 +195,9 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
       cy.stub().as("icOptionSelect")
     );
 
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .click()
-      .realPress("ArrowDown")
-      .realPress("Enter");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("ArrowDown");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Enter");
 
     cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
     cy.get("@icChange").should((stub) => {
@@ -222,10 +221,9 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
       cy.stub().as("icOptionDeselect")
     );
 
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .click()
-      .realPress("ArrowDown")
-      .realPress("Enter");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("ArrowDown");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Enter");
 
     cy.findShadowEl(IC_SELECT, DATA_VALUE_ESPRESSO).should(
       HAVE_ATTR,
@@ -234,7 +232,8 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     );
     cy.findShadowEl(IC_SELECT, `${DATA_VALUE_ESPRESSO} .check-icon`);
 
-    cy.realPress("ArrowDown").realPress("Enter");
+    cy.realPress("ArrowDown");
+    cy.realPress("Enter");
 
     cy.findShadowEl(IC_SELECT, DATA_VALUE_ESPRESSO).should(
       HAVE_ATTR,
@@ -257,11 +256,12 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .focus()
-      .click()
-      .realPress("ArrowDown")
-      .realPress(["Shift", "ArrowDown"]);
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("ArrowDown");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress([
+      "Shift",
+      "ArrowDown",
+    ]);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -278,11 +278,9 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .focus()
-      .click()
-      .realPress("ArrowUp")
-      .realPress(["Shift", "ArrowUp"]);
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("ArrowUp");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress(["Shift", "ArrowUp"]);
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
@@ -301,8 +299,12 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
       .focus()
-      .realPress(["Shift", "ArrowDown"])
-      .realPress(["Shift", "Control", "End"]);
+      .realPress(["Shift", "ArrowDown"]);
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress([
+      "Shift",
+      "Control",
+      "End",
+    ]);
     //menu currently closes (in cypress only) so need to reopen to check selections
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
 
@@ -323,8 +325,12 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
       .focus()
-      .realPress(["Shift", "ArrowUp"])
-      .realPress(["Shift", "Control", "Home"]);
+      .realPress(["Shift", "ArrowUp"]);
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress([
+      "Shift",
+      "Control",
+      "Home",
+    ]);
     //menu currently closes (in cypress only) so need to reopen to check selections
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
 
@@ -345,8 +351,8 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
       .focus()
-      .type("{shift}", { release: false })
-      .type("{downArrow}");
+      .type("{shift}", { release: false });
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).type("{downArrow}");
     cy.findShadowEl(IC_SELECT, `li${DATA_LABEL_CAPPUCCINO}`).click({
       shiftKey: true,
     });
@@ -368,8 +374,8 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
       .focus()
-      .type("{shift}", { release: false })
-      .type("{upArrow}");
+      .type("{shift}", { release: false });
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).type("{upArrow}");
     cy.findShadowEl(IC_SELECT, `li${DATA_LABEL_CAPPUCCINO}`).click({
       shiftKey: true,
     });
@@ -389,7 +395,8 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click().realPress("Tab");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Tab");
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
@@ -406,11 +413,9 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     mount(<MultiSelectWithClearButton />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .focus()
-      .click()
-      .click()
-      .realPress("Tab");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Tab");
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
@@ -479,7 +484,8 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click().wait(500);
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/default-multi-select-high-contrast",
@@ -497,8 +503,8 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
       .focus()
-      .type("{shift}", { release: false })
-      .type("{upArrow}");
+      .type("{shift}", { release: false });
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).type("{upArrow}");
     cy.findShadowEl(IC_SELECT, `li${DATA_LABEL_CAPPUCCINO}`).click({
       shiftKey: true,
     });
@@ -517,11 +523,9 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .focus()
-      .click()
-      .realPress("ArrowUp")
-      .realPress(["Shift", "ArrowUp"]);
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("ArrowUp");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress(["Shift", "ArrowUp"]);
 
     cy.wait(300).compareSnapshot({
       name: "/multi-select-option-highlighted-high-contrast",
@@ -537,7 +541,8 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click().realPress("Tab");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Tab");
 
     cy.wait(300).compareSnapshot({
       name: "/multi-select-select-all-button-focused-high-contrast",
@@ -553,11 +558,9 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     mount(<MultiSelectWithClearButton />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .focus()
-      .click()
-      .click()
-      .realPress("Tab");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Tab");
 
     cy.wait(300).compareSnapshot({
       name: "/multi-select-clear-button-focused-high-contrast",
@@ -573,7 +576,8 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click().realPress("Tab");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Tab");
 
     cy.findShadowEl(IC_SELECT, SELECT_ALL_BUTTON).should(HAVE_FOCUS);
 
@@ -586,7 +590,8 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click().realPress("ArrowDown");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("ArrowDown");
 
     cy.findShadowEl(IC_SELECT, DATA_VALUE_ESPRESSO).should(HAVE_FOCUS);
 
@@ -606,10 +611,9 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
       cy.stub().as("icOptionSelect")
     );
 
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .click()
-      .realPress("Tab")
-      .realPress("Enter");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Tab");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Enter");
 
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value.length).to.equal(6);
@@ -629,10 +633,9 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
       cy.stub().as("icOptionDeselect")
     );
 
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
-      .click()
-      .realPress("Tab")
-      .realPress("Enter");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Tab");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).realPress("Enter");
 
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(null);
@@ -657,7 +660,8 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
       cy.stub().as("icOptionDeselect")
     );
 
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click().type("{ctrl}a");
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).type("{ctrl}a");
 
     cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
     cy.get(OPTION_SELECT_STUB).should(HAVE_CALL_COUNT, 6);

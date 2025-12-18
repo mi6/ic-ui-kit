@@ -50,7 +50,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverDropdown />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -67,7 +68,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/inherit-theme",
@@ -79,7 +81,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverTheme theme="light" />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/light-theme",
@@ -91,7 +94,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverTheme theme="dark" />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/dark-theme",
@@ -103,7 +107,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverMenuDescription />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -150,7 +155,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(POPOVER_SELECTOR);
 
     cy.get(BUTTON_SELECTOR).click();
-    cy.realPress("ArrowDown").wait(250);
+    cy.realPress("ArrowDown");
+    cy.wait(250);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -163,7 +169,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverMenuWithVariants />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     // this accessibility check had to be modified, as the 'toggle' variant ic-menu-item triggers the nested-interactive rule
     // but in manual testing the menu items read okay to NVDA and Voiceover
@@ -178,7 +185,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverWithMenuGroups />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -191,7 +199,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<MaxHeight />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -206,7 +215,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(POPOVER_SELECTOR);
 
     cy.get(BUTTON_SELECTOR).click();
-    cy.get("#submenu-trigger-actions").click().wait(250);
+    cy.get("#submenu-trigger-actions").click();
+    cy.wait(250);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -319,7 +329,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.get(BUTTON_SELECTOR).click();
-    cy.get("#submenu-trigger-actions").click().wait(250);
+    cy.get("#submenu-trigger-actions").click();
+    cy.wait(250);
     cy.get("body").click("bottomRight");
     cy.get("@icPopoverClosed").should(HAVE_BEEN_CALLED_ONCE);
     cy.get(BUTTON_SELECTOR).click();
@@ -367,7 +378,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PositioningStrategy fixed={false} />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/position-absolute",
@@ -379,7 +391,8 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PositioningStrategy fixed={true} />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/position-fixed",
@@ -405,7 +418,8 @@ describe("IcPopoverMenu visual regression tests in high contrast mode", () => {
     mount(<PopoverDropdown />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/default-high-contrast",
@@ -417,7 +431,8 @@ describe("IcPopoverMenu visual regression tests in high contrast mode", () => {
     mount(<DisabledPopoverMenu />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/disabled-high-contrast",
@@ -429,7 +444,8 @@ describe("IcPopoverMenu visual regression tests in high contrast mode", () => {
     mount(<PopoverMenuWithVariants />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/variants-high-contrast",
@@ -441,7 +457,8 @@ describe("IcPopoverMenu visual regression tests in high contrast mode", () => {
     mount(<PopoverWithMenuGroups />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    cy.get(BUTTON_SELECTOR).click().wait(500);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/menu-group-high-contrast",
