@@ -171,7 +171,7 @@ export const MaxTime = {
 export const DisableTimes = {
   render: () => (
       <IcTimeSelector
-        disableTimes={[{ start: "08:00", end: "10:00" }, "13:20"]}
+        disableTimes={[{ start: "08:00", end: "10:00" }]}
       />
 ),
   name: "Disable times",
@@ -257,7 +257,7 @@ export const UpdatingValue = {
 };
 
 const defaultArgs = {
-  disableTimes: [],
+  disableTimes: [{ start: "08:00", end: "10:00" }],
   max: "",
   min: "",
   size: "medium",
