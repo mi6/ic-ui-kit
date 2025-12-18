@@ -18,6 +18,7 @@ import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import {
   HAVE_FOCUS,
   HAVE_LENGTH,
+  NOT_HAVE_FOCUS,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 const TIME_SELECTOR = "ic-time-selector";
@@ -180,7 +181,7 @@ describe("IcTimeSelector e2e tests", () => {
     cy.findShadowEl(TIME_SELECTOR, COLUMN).eq(2).should(HAVE_FOCUS);
 
     cy.realPress("ArrowRight");
-    cy.findShadowEl(TIME_SELECTOR, CLEAR_BTN).should("not.have.focus");
+    cy.findShadowEl(TIME_SELECTOR, CLEAR_BTN).should(NOT_HAVE_FOCUS);
   });
 });
 

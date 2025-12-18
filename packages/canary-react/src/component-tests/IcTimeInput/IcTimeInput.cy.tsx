@@ -267,9 +267,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
-        .click()
-        .realPress(["ArrowRight"]);
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE).click();
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE).realPress(["ArrowRight"]);
 
       cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
         .find("ic-toggle-button")
@@ -292,7 +291,9 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).click().realPress("Tab");
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).click();
+
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).realPress("Tab");
 
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(BE_FOCUSED);
     });
@@ -302,9 +303,9 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, SECOND_INPUT)
-        .click()
-        .realPress(["Shift", "Tab"]);
+      cy.findShadowEl(TIME_INPUT, SECOND_INPUT).click();
+
+      cy.findShadowEl(TIME_INPUT, SECOND_INPUT).realPress(["Shift", "Tab"]);
 
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(BE_FOCUSED);
     });
@@ -315,7 +316,9 @@ describe("IcTimeInput e2e tests", () => {
 
     //   cy.checkHydrated(TIME_INPUT);
 
-    //   cy.findShadowEl(TIME_INPUT, SECOND_INPUT).click().realPress("Tab");
+    //   cy.findShadowEl(TIME_INPUT, SECOND_INPUT).click();
+
+    //   cy.findShadowEl(TIME_INPUT, SECOND_INPUT).realPress("Tab");
 
     //   cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
     //     .find("ic-toggle-button")
@@ -328,9 +331,9 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
-        .click()
-        .realPress(["Shift", "Tab"]);
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE).click();
+
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE).realPress(["Shift", "Tab"]);
 
       cy.findShadowEl(TIME_INPUT, SECOND_INPUT).should(BE_FOCUSED);
     });
@@ -340,7 +343,8 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12").type(BACKSPACE);
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type("12");
+      cy.findShadowEl(TIME_INPUT, HOUR_INPUT).type(BACKSPACE);
 
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(HAVE_VALUE, "");
     });
@@ -350,10 +354,9 @@ describe("IcTimeInput e2e tests", () => {
 
       cy.checkHydrated(TIME_INPUT);
 
-      cy.findShadowEl(TIME_INPUT, MINUTE_INPUT)
-        .type("30")
-        .type(BACKSPACE)
-        .type(BACKSPACE);
+      cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type("30");
+      cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type(BACKSPACE);
+      cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).type(BACKSPACE);
 
       cy.findShadowEl(TIME_INPUT, MINUTE_INPUT).should(HAVE_VALUE, "");
       cy.findShadowEl(TIME_INPUT, HOUR_INPUT).should(BE_FOCUSED);

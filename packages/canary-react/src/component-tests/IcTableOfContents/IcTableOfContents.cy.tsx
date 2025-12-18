@@ -9,6 +9,10 @@ import {
   NestedTableOfContents,
 } from "./IcTableOfContentsTestData";
 import React from "react";
+import {
+  EQUAL,
+  NOT_EQUAL,
+} from "@ukic/react/src/component-tests/utils/constants";
 
 const TABLE_OF_CONTENTS = "ic-table-of-contents";
 const DEFAULT_TEST_THRESHOLD = 0.025;
@@ -39,13 +43,13 @@ describe("IcTableOfContents", () => {
 
     cy.checkHydrated(TABLE_OF_CONTENTS);
 
-    cy.window().its("scrollY").should("equal", 0);
+    cy.window().its("scrollY").should(EQUAL, 0);
 
     cy.findShadowEl(TABLE_OF_CONTENTS, "#toc_subtitle").click();
 
     cy.on("url:changed", (newUrl) => {
       expect(newUrl).to.contain("#subtitle");
-      cy.window().its("scrollY").should("not.equal", 0);
+      cy.window().its("scrollY").should(NOT_EQUAL, 0);
     });
   });
 

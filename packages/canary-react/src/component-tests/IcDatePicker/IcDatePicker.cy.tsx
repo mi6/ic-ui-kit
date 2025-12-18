@@ -2713,8 +2713,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
         .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023");
       cy.findShadowEl(DATE_PICKER, CALENDAR)
         .shadow()
-        .find(SELECTED_DAY_BTN_CLASS)
-        .should("exist");
+        .find(SELECTED_DAY_BTN_CLASS);
 
       cy.get(DATE_PICKER)
         .invoke("prop", "value", NEW_VALUE)
@@ -2726,8 +2725,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
             .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Monday, 4 November 2024");
           cy.findShadowEl(DATE_PICKER, CALENDAR)
             .shadow()
-            .find(SELECTED_DAY_BTN_CLASS)
-            .should("exist");
+            .find(SELECTED_DAY_BTN_CLASS);
         });
     });
 
@@ -2811,8 +2809,9 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       cy.findShadowEl(DATE_PICKER, DATE_INPUT)
         .shadow()
         .find(YEAR_INPUT_ARIA_LABEL)
-        .type("2000")
-        .wait(200);
+        .type("2000");
+
+      cy.wait(200);
     });
 
     it("should test 'disableDays' prop", () => {
@@ -3222,7 +3221,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
           .find(CALENDAR_BUTTON_ID)
           .shadow()
           .find(BUTTON)
-          .should("be.disabled");
+          .should(BE_DISABLED);
 
         cy.compareSnapshot({
           name: "/disabled",
@@ -3238,7 +3237,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
               .find(CALENDAR_BUTTON_ID)
               .shadow()
               .find(BUTTON)
-              .should("not.be.disabled");
+              .should(NOT_BE_DISABLED);
           });
       });
 
@@ -3259,8 +3258,9 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
         cy.findShadowEl(DATE_PICKER, DATE_INPUT)
           .shadow()
           .find(YEAR_INPUT_ARIA_LABEL)
-          .type("2000")
-          .wait(200);
+          .type("2000");
+
+        cy.wait(200);
 
         cy.findShadowEl(DATE_PICKER, DATE_INPUT)
           .shadow()

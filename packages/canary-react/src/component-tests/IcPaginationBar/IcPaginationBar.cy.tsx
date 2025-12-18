@@ -890,10 +890,9 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(PAGINATION_BAR);
 
-    cy.findShadowEl(PAGINATION_BAR, "ic-select")
-      .click()
-      .realPress("ArrowDown")
-      .realPress("ArrowDown");
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").realPress("ArrowDown");
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").realPress("ArrowDown");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -907,7 +906,8 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(PAGINATION_BAR);
 
-    cy.findShadowEl(PAGINATION_BAR, "ic-select").click().realPress("ArrowDown");
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").realPress("ArrowDown");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({

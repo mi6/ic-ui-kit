@@ -78,7 +78,8 @@ describe("IcCardHorizontal", () => {
   it("should render clickable", () => {
     paddedMount(<BasicCardHorizontal clickable />);
 
-    cy.get(CARD_SELECTOR).click("topLeft").should(HAVE_FOCUS);
+    cy.get(CARD_SELECTOR).click("topLeft");
+    cy.get(CARD_SELECTOR).should(HAVE_FOCUS);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -342,7 +343,8 @@ describe("IcCardHorizontal visual regression tests in high contrast mode", () =>
   it("should render clickable", () => {
     paddedMount(<BasicCardHorizontal clickable />);
 
-    cy.get(CARD_SELECTOR).click("topLeft").should(HAVE_FOCUS);
+    cy.get(CARD_SELECTOR).click("topLeft");
+    cy.get(CARD_SELECTOR).should(HAVE_FOCUS);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
