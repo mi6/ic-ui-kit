@@ -744,3 +744,48 @@ export const renderDynamicChildSlots = (
     forceUpdate(ref);
   }
 };
+
+/**
+ * Parses a time string (HH:MM or HH:MM:SS) or Date and returns both Date and time parts.
+ * @param value string or Date
+ * @returns { date: Date | null, parts: { hour: number, minute: number, second: number } | null }
+ */
+export function parseTimeHelper(value: string | Date): {
+  date: Date | null;
+  parts: {
+    hour: number;
+    minute: number;
+    second: number;
+    millisecond: number;
+  } | null;
+} {
+  if (!value) return { date: null, parts: null };
+  let d: Date;
+  if (typeof value === "string") {
+    const parts = value.split(/[:.]/);
+    if (parts.length >= 2) {
+      d = new Date();
+      d.setHours(
+        +parts[0],
+        +parts[1],
+        parts[2] ? +parts[2] : 0,
+        parts[3] ? +parts[3] : 0
+      );
+    } else {
+      return { date: null, parts: null };
+    }
+  } else if (value instanceof Date) {
+    d = value;
+  } else {
+    return { date: null, parts: null };
+  }
+  return {
+    date: d,
+    parts: {
+      hour: d.getHours(),
+      minute: d.getMinutes(),
+      second: d.getSeconds(),
+      millisecond: d.getMilliseconds(),
+    },
+  };
+}

@@ -6357,6 +6357,346 @@
       }
     },
     {
+      "filePath": "src/components/ic-time-selector/ic-time-selector.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-time-selector",
+      "readme": "# ic-time-selector\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disableTimes",
+          "type": "IcDisableTimeSelection[]",
+          "complexType": {
+            "original": "IcDisableTimeSelection[]",
+            "resolved": "IcDisableTimeSelection[]",
+            "references": {
+              "IcDisableTimeSelection": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcDisableTimeSelection"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "An array of times that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "IcDisableTimeSelection[]"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "max",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "The latest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "min",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "The earliest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the time selector to be displayed.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "timeFormat",
+          "type": "\"HH:MM\" | \"HH:MM:SS\"",
+          "complexType": {
+            "original": "IcTimeFormatSelector",
+            "resolved": "\"HH:MM\" | \"HH:MM:SS\"",
+            "references": {
+              "IcTimeFormatSelector": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcTimeFormatSelector"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "time-format",
+          "reflectToAttr": false,
+          "docs": "The format in which the time will be displayed.",
+          "docsTags": [],
+          "default": "this.DEFAULT_TIME_FORMAT",
+          "values": [
+            {
+              "value": "HH:MM",
+              "type": "string"
+            },
+            {
+              "value": "HH:MM:SS",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "timePeriod",
+          "type": "\"12\" | \"24\"",
+          "complexType": {
+            "original": "\"12\" | \"24\"",
+            "resolved": "\"12\" | \"24\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "time-period",
+          "reflectToAttr": false,
+          "docs": "The time period format: \"12\" for 12-hour, \"24\" for 24-hour. Defaults to \"24\".",
+          "docsTags": [],
+          "default": "\"24\"",
+          "values": [
+            {
+              "value": "12",
+              "type": "string"
+            },
+            {
+              "value": "24",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "Date | null | string | undefined",
+          "complexType": {
+            "original": "string | Date | null | undefined",
+            "resolved": "Date | null | string | undefined",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of the time selector. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "icChange",
+          "detail": "{ value: Date | null; timeString: string | null; timeObject: { hour: string | null; minute: string | null; second: string | null; period?: IcTimePeriods | undefined; }; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{\n    value: Date | null;\n    timeString: string | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n      period?: IcTimePeriods;\n    };\n  }",
+            "resolved": "{ value: Date | null; timeString: string | null; timeObject: { hour: string | null; minute: string | null; second: string | null; period?: IcTimePeriods | undefined; }; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              },
+              "IcTimePeriods": {
+                "location": "import",
+                "path": "./ic-time-selector.types",
+                "id": "src/components/ic-time-selector/ic-time-selector.types.ts::IcTimePeriods"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
+      "dependencyGraph": {
+        "ic-time-selector": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
@@ -7201,6 +7541,16 @@
       "declaration": "export type IcTimeFormat = \"HH:MM\" | \"HH:MM:SS\" | \"HH:MM:SS.SSS\";",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcTimeFormatSelector": {
+      "declaration": "export type IcTimeFormatSelector = \"HH:MM\" | \"HH:MM:SS\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-time-selector/ic-time-selector.types.ts::IcTimePeriods": {
+      "declaration": "export type IcTimePeriods = \"AM\" | \"PM\";",
+      "docstring": "",
+      "path": "src/components/ic-time-selector/ic-time-selector.types.ts"
     },
     "src/components/ic-tree-view/ic-tree-view.types.tsx::IcTreeItemOptions": {
       "declaration": "{\n  label: string;\n  icon?: string;\n  children?: IcTreeItemOptions[];\n  disabled?: boolean;\n  expanded?: boolean;\n  href?: string;\n  selected?: boolean;\n  treeItemId?: string;\n  theme?: IcThemeMode;\n  truncateTreeItem?: boolean;\n}",
