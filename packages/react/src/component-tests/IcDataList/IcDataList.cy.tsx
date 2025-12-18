@@ -246,10 +246,9 @@ describe("IcDataList end-to-end, visual regression and a11y tests", () => {
     cy.get("input").should(HAVE_VALUE, "Michael");
     cy.get("ic-button").should(HAVE_LENGTH, "2");
     cy.get("ic-button").contains("Edit").click();
-    cy.findShadowEl(TEXT_FIELD_SELECTOR, "input")
-      .clear()
-      .type("Matt")
-      .should(HAVE_VALUE, "Matt");
+    cy.findShadowEl(TEXT_FIELD_SELECTOR, "input").clear();
+    cy.findShadowEl(TEXT_FIELD_SELECTOR, "input").type("Matt");
+    cy.findShadowEl(TEXT_FIELD_SELECTOR, "input").should(HAVE_VALUE, "Matt");
     cy.get("ic-button").contains("Confirm").click();
     cy.get("input").should(HAVE_VALUE, "Matt");
 
@@ -407,7 +406,9 @@ describe("IcDataList visual regression tests in high contrast mode", () => {
     );
 
     cy.checkHydrated(DATA_LIST_SELECTOR);
-    cy.get("ic-button").contains("Edit").click().wait(500);
+    cy.get("ic-button").contains("Edit").click();
+
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/editable-data-clicked-high-contrast",

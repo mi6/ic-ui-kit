@@ -264,13 +264,16 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
       cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
-      cy.realPress("Tab").realPress("Enter");
+      cy.realPress("Tab");
+      cy.realPress("Enter");
       cy.get(NAVIGATION_MENU_SELECTOR).should(NOT_EXIST);
 
       // Check slotted link
       cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
       cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
-      cy.realPress("Tab").realPress("Tab").realPress("Enter");
+      cy.realPress("Tab");
+      cy.realPress("Tab");
+      cy.realPress("Enter");
       cy.get(NAVIGATION_MENU_SELECTOR).should(NOT_EXIST);
     });
 
@@ -557,7 +560,8 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     mount(<AllNavTypesTopNav />);
 
     cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-    cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(500);
+    cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/all-nav-types-top-nav-high-contrast",
@@ -569,7 +573,8 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     mount(<AllNavTypesTopNav />);
 
     cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-    cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(250);
+    cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
+    cy.wait(250);
 
     cy.findShadowEl(TOP_NAV_SELECTOR, NAVIGATION_MENU_SELECTOR)
       .shadow()
@@ -589,7 +594,8 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     mount(<AllNavTypesSideNav />);
 
     cy.checkShadowElVisible(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-    cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(500);
+    cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
+    cy.wait(500);
     cy.get(SIDE_NAV_SELECTOR).should(HAVE_CLASS, "xs-menu-open");
 
     cy.wait(500);
@@ -605,7 +611,8 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     mount(<AllNavTypesSideNav />);
 
     cy.checkShadowElVisible(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-    cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(250);
+    cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
+    cy.wait(250);
     cy.get(SIDE_NAV_SELECTOR).should(HAVE_CLASS, "xs-menu-open");
 
     cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)

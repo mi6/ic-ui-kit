@@ -18,7 +18,7 @@ import {
   FullWidth,
   BrandChange,
 } from "./IcHeroTestData";
-import { BE_VISIBLE } from "../utils/constants";
+import { BE_VISIBLE, EQUAL } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.021;
 const IC_HERO_SELECTOR = "ic-hero";
@@ -63,7 +63,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
     mount(<CenterAlignment />);
 
     cy.checkHydrated(IC_HERO_SELECTOR);
-    cy.get(IC_HERO_SELECTOR).invoke("prop", "aligned").should("eq", "center");
+    cy.get(IC_HERO_SELECTOR).invoke("prop", "aligned").should(EQUAL, "center");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -88,7 +88,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
     mount(<Small />);
 
     cy.checkHydrated(IC_HERO_SELECTOR);
-    cy.get(IC_HERO_SELECTOR).invoke("prop", "size").should("eq", "small");
+    cy.get(IC_HERO_SELECTOR).invoke("prop", "size").should(EQUAL, "small");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -171,7 +171,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_HERO_SELECTOR);
     cy.get(IC_HERO_SELECTOR)
       .invoke("prop", "aligned")
-      .should("eq", "full-width");
+      .should(EQUAL, "full-width");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({

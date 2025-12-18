@@ -76,8 +76,8 @@ describe("IcBackToTop end-to-end tests", () => {
       .shadow()
       .find("ic-button")
       .should(BE_VISIBLE)
-      .click()
-      .wait(500);
+      .click();
+    cy.wait(500);
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
       .find("ic-button")

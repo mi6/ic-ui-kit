@@ -21,6 +21,7 @@ import {
   NOT_BE_VISIBLE,
   NOT_HAVE_ATTR,
   NOT_EXIST,
+  HAVE_LENGTH,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -148,7 +149,7 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.get("ic-button").click();
     cy.get("ic-button").click();
     cy.get("ic-button").click();
-    cy.get(".collapsed-breadcrumb").should("have.length", 1);
+    cy.get(".collapsed-breadcrumb").should(HAVE_LENGTH, 1);
   });
 
   it("should expand collapsed state then render all breadcrumbs when narrowing the viewport", () => {

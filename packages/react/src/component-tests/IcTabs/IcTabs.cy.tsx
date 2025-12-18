@@ -122,7 +122,8 @@ describe("IcTab end-to-end tests", () => {
     cy.get(TAB_PANEL_2).should(NOT_BE_VISIBLE).and(HAVE_PROP, "active", false);
     cy.get(TAB_PANEL_3).should(NOT_BE_VISIBLE).and(HAVE_PROP, "active", false);
 
-    cy.get(TAB_2).click().should(HAVE_ATTR, "selected");
+    cy.get(TAB_2).click();
+    cy.get(TAB_2).should(HAVE_ATTR, "selected");
     checkTab(TAB_1, false);
     checkTab(TAB_3, false);
 
@@ -143,7 +144,8 @@ describe("IcTab end-to-end tests", () => {
     );
 
     cy.get("@icTabSelect").should(NOT_HAVE_BEEN_CALLED);
-    cy.get(TAB_2).click().should(HAVE_ATTR, "selected");
+    cy.get(TAB_2).click();
+    cy.get(TAB_2).should(HAVE_ATTR, "selected");
     cy.get("@icTabSelect").should(HAVE_BEEN_CALLED_ONCE);
   });
 
@@ -391,7 +393,8 @@ describe("IcTab end-to-end tests", () => {
     );
 
     cy.get("@icTabSelectNested").should(NOT_HAVE_BEEN_CALLED);
-    cy.get(nestedTab2).click().should(HAVE_ATTR, "selected");
+    cy.get(nestedTab2).click();
+    cy.get(nestedTab2).should(HAVE_ATTR, "selected");
     cy.get(nestedTab2Panel)
       .should(BE_VISIBLE)
       .and(CONTAIN_TEXT, "Nested Tab Panel Two - Water");
@@ -419,7 +422,8 @@ describe("IcTab end-to-end tests", () => {
     );
 
     cy.get("@icTabSelect").should(NOT_HAVE_BEEN_CALLED);
-    cy.get(TAB_2).click().should(HAVE_ATTR, "selected");
+    cy.get(TAB_2).click();
+    cy.get(TAB_2).should(HAVE_ATTR, "selected");
     cy.get("@icTabSelect").should(HAVE_BEEN_CALLED_ONCE);
   });
 

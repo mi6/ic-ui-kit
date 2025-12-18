@@ -23,6 +23,7 @@ import {
   NOT_HAVE_ATTR,
   NOT_EXIST,
   NOT_HAVE_CLASS,
+  EQUAL,
 } from "../utils/constants";
 import {
   ARIA_SELECTED,
@@ -271,9 +272,8 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
-      .type(TYPE_DOWN_ARROW)
-      .type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -850,9 +850,8 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, ID_CLEAR_BUTTON).should(NOT_EXIST);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
-      .type(TYPE_DOWN_ARROW)
-      .type(TYPE_ENTER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
     cy.findShadowEl(IC_SELECT, ID_CLEAR_BUTTON).should(BE_VISIBLE);
   });
 
@@ -1095,9 +1094,8 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
-      .realPress("Tab")
-      .realPress("Enter");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).realPress("Tab");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).realPress("Enter");
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
   });
 
@@ -1544,7 +1542,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated(IC_SELECT);
     cy.get(IC_SELECT).invoke("attr", "name", "test-input-name");
-    cy.get("input").invoke("prop", "name").should("eq", "test-input-name");
+    cy.get("input").invoke("prop", "name").should(EQUAL, "test-input-name");
   });
 
   it("should call icChange when the selected option is changed", () => {
@@ -1796,10 +1794,9 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
 
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
-      .type(TYPE_DOWN_ARROW)
-      .type(TYPE_DOWN_ARROW)
-      .type(TYPE_ENTER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -2114,9 +2111,8 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
-      .type(TYPE_DOWN_ARROW)
-      .wait(250);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.wait(250);
 
     cy.compareSnapshot({
       name: "/recommended-open-high-contrast",

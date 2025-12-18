@@ -123,9 +123,11 @@ describe("IcTextField end-to-end tests", () => {
 
     cy.get(IC_TEXTFIELD).invoke("on", "icChange", cy.stub().as("icChange"));
 
-    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT)
-      .type("Test Text")
-      .should(HAVE_VALUE, "Test Text");
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).type("Test Text");
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).should(
+      HAVE_VALUE,
+      "Test Text"
+    );
     cy.get("@icChange").should(HAVE_BEEN_CALLED);
   });
 
@@ -203,7 +205,9 @@ describe("IcTextField end-to-end tests", () => {
     const maxInput = cy.findShadowEl("#max", "input");
     const minInput = cy.findShadowEl("#min", "input");
 
-    maxInput.type("Test Text").wait(100).should(HAVE_VALUE, "Test Text");
+    maxInput.type("Test Text");
+    cy.wait(100);
+    maxInput.should(HAVE_VALUE, "Test Text");
     cy.findShadowEl(IC_TEXTFIELD, ".char-count-text").should(
       CONTAIN_TEXT,
       "9/20"
@@ -236,8 +240,10 @@ describe("IcTextField end-to-end tests", () => {
     cy.findShadowEl(IC_TEXTFIELD, ".icon-warning").should(BE_VISIBLE);
     cy.get(IC_TEXTFIELD).should(HAVE_VALUE, "This string is too l");
 
-    minInput.type("A").should(HAVE_VALUE, "A");
-    cy.realPress("Tab").wait(200);
+    minInput.type("A");
+    minInput.should(HAVE_VALUE, "A");
+    cy.realPress("Tab");
+    cy.wait(200);
     cy.get(IC_TEXTFIELD)
       .shadow()
       .find('[id$="validation-text"]')
@@ -261,11 +267,15 @@ describe("IcTextField end-to-end tests", () => {
 
     const input = cy.findShadowEl(IC_TEXTFIELD, 'input[type="number"]');
 
-    input.type("2").wait(200).should(HAVE_VALUE, "2");
+    input.type("2");
+    cy.wait(200);
+    input.should(HAVE_VALUE, "2");
     cy.findShadowEl(IC_TEXTFIELD, ".icon-error").should(NOT_EXIST);
 
     input.clear();
-    input.type("5").wait(200).should(HAVE_VALUE, "5");
+    input.type("5");
+    cy.wait(200);
+    input.should(HAVE_VALUE, "5");
     cy.get(IC_TEXTFIELD)
       .shadow()
       .find('[id$="validation-text"]')
@@ -273,7 +283,9 @@ describe("IcTextField end-to-end tests", () => {
     cy.findShadowEl(IC_TEXTFIELD, ".icon-error").should(BE_VISIBLE);
 
     input.clear();
-    input.type("0").wait(200).should(HAVE_VALUE, "0");
+    input.type("0");
+    cy.wait(200);
+    input.should(HAVE_VALUE, "0");
     cy.get(IC_TEXTFIELD)
       .shadow()
       .find('[id$="validation-text"]')
@@ -322,7 +334,8 @@ describe("IcTextField end-to-end tests", () => {
     cy.get(IC_TEXTFIELD).invoke("on", "icInput", cy.stub().as("icInput"));
 
     cy.get("@icInput").should(NOT_HAVE_BEEN_CALLED);
-    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).click().realPress("Space");
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).click();
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).realPress("Space");
     cy.get("@icInput").should(HAVE_BEEN_CALLED_ONCE);
   });
 
@@ -342,9 +355,11 @@ describe("IcTextField end-to-end tests", () => {
 
     cy.checkHydrated(IC_TEXTFIELD);
 
-    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT)
-      .type("Test text")
-      .should(HAVE_VALUE, "Test text");
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).type("Test text");
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).should(
+      HAVE_VALUE,
+      "Test text"
+    );
     cy.get("input[name=formInputEl]").should(NOT_BE_VISIBLE);
     cy.get("input[name=formInputEl]").should(HAVE_VALUE, "Test text");
     cy.get("#resetButton").click();

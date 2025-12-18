@@ -2,7 +2,7 @@
 
 import { mount } from "cypress/react";
 import React from "react";
-import { HAVE_TEXT } from "../utils/constants";
+import { EQUAL, HAVE_TEXT } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   IndeterminateCircularLoadingIndWithLabel,
@@ -86,7 +86,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "size")
-      .should("eq", "icon");
+      .should(EQUAL, "icon");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -173,11 +173,11 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "theme")
-      .should("eq", "dark");
+      .should(EQUAL, "dark");
 
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "monochrome")
-      .should("eq", true);
+      .should(EQUAL, true);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -198,15 +198,15 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "theme")
-      .should("eq", "dark");
+      .should(EQUAL, "dark");
 
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "monochrome")
-      .should("eq", true);
+      .should(EQUAL, true);
 
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "size")
-      .should("eq", "icon");
+      .should(EQUAL, "icon");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -275,7 +275,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "description")
-      .should("eq", "Loading");
+      .should(EQUAL, "Loading");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -299,8 +299,8 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "inner-label")
-      .should("eq", "3");
-    cy.get(LOADING_INDICATOR_SELECTOR).invoke("prop", "min").should("eq", 0);
+      .should(EQUAL, "3");
+    cy.get(LOADING_INDICATOR_SELECTOR).invoke("prop", "min").should(EQUAL, 0);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -327,7 +327,8 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
   it("should render a loading-indicator within a dialog with a custom size", () => {
     mount(<LoadingIndicatorInDialog size="small" />);
 
-    cy.get("ic-button").click().wait(300);
+    cy.get("ic-button").click();
+    cy.wait(300);
     cy.compareSnapshot({
       name: "/loading-indicator-within-dialog-small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.073),
@@ -339,7 +340,8 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
       <LoadingIndicatorInDialog style={{ "--circular-diameter": "1.5rem" }} />
     );
 
-    cy.get("ic-button").click().wait(300);
+    cy.get("ic-button").click();
+    cy.wait(300);
     cy.compareSnapshot({
       name: "/loading-indicator-within-dialog-custom-diameter",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.073),

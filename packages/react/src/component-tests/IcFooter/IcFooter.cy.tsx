@@ -3,7 +3,7 @@
 
 import React from "react";
 import { mount } from "cypress/react";
-import { BE_VISIBLE, HAVE_ATTR, HAVE_LENGTH } from "../utils/constants";
+import { BE_VISIBLE, EQUAL, HAVE_ATTR, HAVE_LENGTH } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   CenterAlignment,
@@ -84,9 +84,9 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
       .should(HAVE_LENGTH, "3");
 
     cy.get(FOOTER_LINK_GROUP_SELECTOR).last().click();
-    cy.realPress(["Shift", "Tab"])
-      .realPress(["Shift", "Tab"])
-      .realPress("Space");
+    cy.realPress(["Shift", "Tab"]);
+    cy.realPress(["Shift", "Tab"]);
+    cy.realPress("Space");
     cy.get(FOOTER_LINK_GROUP_SELECTOR).should(HAVE_ATTR, "aria-expanded");
 
     cy.checkA11yWithWait();
@@ -132,7 +132,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
     mount(<CenterAlignment />);
 
     cy.checkHydrated(FOOTER_SELECTOR);
-    cy.get(FOOTER_SELECTOR).invoke("prop", "aligned").should("eq", "center");
+    cy.get(FOOTER_SELECTOR).invoke("prop", "aligned").should(EQUAL, "center");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -147,7 +147,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(FOOTER_SELECTOR);
     cy.get(FOOTER_SELECTOR)
       .invoke("prop", "aligned")
-      .should("eq", "full-width");
+      .should(EQUAL, "full-width");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
