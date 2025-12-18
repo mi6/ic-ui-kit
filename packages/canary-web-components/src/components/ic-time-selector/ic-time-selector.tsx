@@ -49,7 +49,7 @@ export class TimeSelector {
   @State() ariaLiveMessage: string = "";
 
   /**
-   * An array of times that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+   * An array of objects with start and end values that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
    */
   @Prop() disableTimes: IcDisableTimeSelection[] = [];
 
@@ -407,17 +407,7 @@ export class TimeSelector {
     type?: ColumnType
   ): boolean => {
     for (const t of this.disableTimes) {
-      if (typeof t === "string" || t instanceof Date) {
-        const parts = parseTimeHelper(t).parts;
-        if (
-          parts &&
-          parts.hour === hour &&
-          parts.minute === minute &&
-          parts.second === second
-        ) {
-          return true;
-        }
-      } else if (t && typeof t === "object" && "start" in t && "end" in t) {
+      if (t && typeof t === "object" && "start" in t && "end" in t) {
         const startParts = parseTimeHelper(t.start).parts;
         const endParts = parseTimeHelper(t.end).parts;
         if (startParts && endParts) {

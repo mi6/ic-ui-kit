@@ -662,7 +662,7 @@ export namespace Components {
     }
     interface IcTimeInput {
         /**
-          * An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * An array of objects with start and end values that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
          */
         "disableTimes": IcDisableTimeSelection[];
         /**
@@ -763,7 +763,7 @@ export namespace Components {
     }
     interface IcTimeSelector {
         /**
-          * An array of times that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * An array of objects with start and end values that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
          */
         "disableTimes": IcDisableTimeSelection[];
         /**
@@ -1898,7 +1898,7 @@ declare namespace LocalJSX {
     }
     interface IcTimeInput {
         /**
-          * An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * An array of objects with start and end values that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
          */
         "disableTimes"?: IcDisableTimeSelection[];
         /**
@@ -2015,7 +2015,7 @@ declare namespace LocalJSX {
     }
     interface IcTimeSelector {
         /**
-          * An array of times that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * An array of objects with start and end values that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
          */
         "disableTimes"?: IcDisableTimeSelection[];
         /**

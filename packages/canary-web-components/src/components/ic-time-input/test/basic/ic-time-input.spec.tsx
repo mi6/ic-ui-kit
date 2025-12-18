@@ -1091,10 +1091,7 @@ describe("ic-time-input component", () => {
 
   it("should set isValidTime to false and set validation message when selected time is disabled", async () => {
     const { componentInstance } = await createTimeInputEnv();
-    componentInstance.disableTimes = [
-      { start: "12:00:00", end: "13:00:00" },
-      "14:00:00",
-    ];
+    componentInstance.disableTimes = [{ start: "12:00:00", end: "13:00:00" }];
     componentInstance.hour = "12";
     componentInstance.minute = "30";
     componentInstance.second = "00";
