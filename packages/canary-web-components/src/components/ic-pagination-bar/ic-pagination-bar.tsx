@@ -294,7 +294,7 @@ export class PaginationBar {
     if (isSelectedItemsPerPagePresent) {
       this.setItemsPerPage(selectedItemsPerPage, false);
     } else {
-      console.error(
+      console.warn(
         `The selected items per page option "${this.selectedItemsPerPage}" does not exist`
       );
       this.setItemsPerPage(+this.totalItems, false);
