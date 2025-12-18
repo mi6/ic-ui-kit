@@ -367,7 +367,7 @@ export const IcTimeChangeEmitTimePartChangesMilliseconds = {
 export const MinTime = {
   render: () => (
   <IcTimeInput
-    label="What time would you like to collect your coffee?"
+    label="What time would you like to collect your coffee? We are closed before 08:00."
     min="08:00:00"
   />
 ),
@@ -381,7 +381,7 @@ export const MinTime = {
 export const MaxTime = {
   render: () => (
   <IcTimeInput
-    label="What time would you like to collect your coffee?"
+    label="What time would you like to collect your coffee? We are closed after 16:00."
     max="16:00:00"
   />
 ),
@@ -398,8 +398,8 @@ export const DisableTimes = {
   render: () => (
       <IcTimeInput
         id="time-input-default-disable-time"
-        label="What time would you like to collect your coffee?"
-        disableTimes={[{ start: "08:00", end: "10:00" }, "13:20"]}
+        label="What time would you like to collect your coffee? We are closed between 08:00 and 10:00."
+        disableTimes={[{ start: "08:00", end: "10:00" }]}
       />
 ),
   name: "Disable times",
@@ -445,7 +445,7 @@ export const WithClearingValue = {
 
 const defaultArgs = {
   disabled: false,
-  disableTimes: [],
+  disableTimes: [{ start: "08:00", end: "10:00" }],
   helperText: "Please enter a time in HH:MM:SS format.",
   hideLabel: false,
   hideHelperText: false,
