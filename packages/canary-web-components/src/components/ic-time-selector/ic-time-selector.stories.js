@@ -135,7 +135,7 @@ export const DefaultValueTimeFormat = {
  */
 export const MinTime = {
   render: () => html`<ic-time-selector min="09:30:00"></ic-time-selector>`,
-  name: "Min time",
+  name: "Min time (09:30)",
 };
 
 /**
@@ -144,7 +144,7 @@ export const MinTime = {
  */
 export const MaxTime = {
   render: () => html`<ic-time-selector max="18:00:00"></ic-time-selector>`,
-  name: "Max time",
+  name: "Max time (18:00)",
 };
 
 /**
@@ -161,12 +161,9 @@ export const DisableTimes = {
       var timeSelectorDisable = document.querySelector(
         "#time-selector-default-disable-time"
       );
-      timeSelectorDisable.disableTimes = [
-        { start: "08:00", end: "10:00" },
-        "13:20",
-      ];
+      timeSelectorDisable.disableTimes = [{ start: "08:00", end: "10:00" }];
     </script>`,
-  name: "Disabled times",
+  name: "Disabled times (08:00-10:00)",
 };
 
 /**

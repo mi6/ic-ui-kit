@@ -396,7 +396,7 @@ export const IcTimeChangeTimePartsMilliseconds = {
  */
 export const MinTime = {
   render: () => html`<ic-time-input
-    label="What time would you like to collect your coffee?"
+    label="What time would you like to collect your coffee? We are closed before 08:00"
     min="08:00:00"
   ></ic-time-input>`,
   name: "Min time",
@@ -408,7 +408,7 @@ export const MinTime = {
  */
 export const MaxTime = {
   render: () => html`<ic-time-input
-    label="What time would you like to collect your coffee?"
+    label="What time would you like to collect your coffee? We are closed after 16:00"
     max="16:00:00"
   ></ic-time-input>`,
   name: "Max time",
@@ -424,14 +424,14 @@ export const DisableTimes = {
   render: () => html`<div>
       <ic-time-input
         id="time-input-default-disable-time"
-        label="What time would you like to collect your coffee?"
+        label="What time would you like to collect your coffee? We are closed between 08:00 and 10:00."
       ></ic-time-input>
     </div>
     <script>
       var timeInputDate = document.querySelector(
         "#time-input-default-disable-time"
       );
-      timeInputDate.disableTimes = [{ start: "08:00", end: "10:00" }, "13:20"];
+      timeInputDate.disableTimes = [{ start: "08:00", end: "10:00" }];
     </script>`,
   name: "Disable times",
 };
