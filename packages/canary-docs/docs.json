@@ -5538,7 +5538,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "An array of times that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docs": "An array of objects with start and end values that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -6381,7 +6381,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "An array of times that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
+          "docs": "An array of objects with start and end values that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -7533,7 +7533,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcDisableTimeSelection": {
-      "declaration": "export type IcDisableTimeSelection =\n  | string\n  | Date\n  | { start: string | Date; end: string | Date };",
+      "declaration": "{\n  start: string | Date;\n  end: string | Date;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
