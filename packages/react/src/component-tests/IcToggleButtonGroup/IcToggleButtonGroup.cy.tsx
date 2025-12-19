@@ -354,7 +354,7 @@ describe("IcToggleButtonGroup", () => {
     cy.get(IC_TOGGLE_BUTTON_GROUP)
       .find(IC_TOGGLE_BUTTON)
       .each((el) => {
-        cy.wrap(el).should("have.class", "ic-toggle-button-hide-outline");
+        cy.wrap(el).should(HAVE_CLASS, "ic-toggle-button-hide-outline");
       });
 
     cy.compareSnapshot({

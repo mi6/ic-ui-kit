@@ -13,7 +13,7 @@ import {
   TruncatedText,
   SlottedContent,
 } from "./IcEmptyStateTestData";
-import { HAVE_ATTR, BE_VISIBLE } from "../utils/constants";
+import { HAVE_ATTR, BE_VISIBLE, EQUAL } from "../utils/constants";
 import { IcEmptyState } from "../..";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -106,7 +106,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
     mount(EmptyStateAligned("right"));
 
     cy.checkHydrated(EMPTY_STATE);
-    cy.get(EMPTY_STATE).invoke("prop", "aligned").should("eq", "right");
+    cy.get(EMPTY_STATE).invoke("prop", "aligned").should(EQUAL, "right");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -119,7 +119,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
     mount(EmptyStateAligned("center"));
 
     cy.checkHydrated(EMPTY_STATE);
-    cy.get(EMPTY_STATE).invoke("prop", "aligned").should("eq", "center");
+    cy.get(EMPTY_STATE).invoke("prop", "aligned").should(EQUAL, "center");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -132,7 +132,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
     mount(EmptyStateImage("small"));
 
     cy.checkHydrated(EMPTY_STATE);
-    cy.get(EMPTY_STATE).invoke("prop", "imageSize").should("eq", "small");
+    cy.get(EMPTY_STATE).invoke("prop", "imageSize").should(EQUAL, "small");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -145,7 +145,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
     mount(EmptyStateImage("large"));
 
     cy.checkHydrated(EMPTY_STATE);
-    cy.get(EMPTY_STATE).invoke("prop", "imageSize").should("eq", "large");
+    cy.get(EMPTY_STATE).invoke("prop", "imageSize").should(EQUAL, "large");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -158,7 +158,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
     mount(<TruncatedText />);
 
     cy.checkHydrated(EMPTY_STATE);
-    cy.get(EMPTY_STATE).invoke("prop", "maxLines").should("eq", 2);
+    cy.get(EMPTY_STATE).invoke("prop", "maxLines").should(EQUAL, 2);
     cy.findShadowEl(EMPTY_STATE, "ic-typography")
       .shadow()
       .find(".trunc-btn")

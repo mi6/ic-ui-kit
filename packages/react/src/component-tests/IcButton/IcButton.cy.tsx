@@ -1252,7 +1252,9 @@ describe("IcButton visual regression tests in high contrast mode", () => {
     mount(<PopoverDropdown />);
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
-    cy.get(IC_BUTTON_SELECTOR).click().wait(1000);
+    cy.get(IC_BUTTON_SELECTOR).click();
+
+    cy.wait(1000);
 
     cy.compareSnapshot({
       name: "/expanded-dropdown-popover-high-contrast",

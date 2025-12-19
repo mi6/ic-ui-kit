@@ -75,6 +75,8 @@ import {
   NOT_EXIST,
   NOT_HAVE_CSS,
   NOT_HAVE_BEEN_CALLED,
+  EQUAL,
+  NOT_HAVE_ATTR,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
@@ -1249,7 +1251,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
       .eq(3)
       .invoke("css", "height")
-      .should("equal", "151px");
+      .should(EQUAL, "151px");
 
     cy.document().then((doc) => {
       const dataTable = doc.querySelector(DATA_TABLE_SELECTOR);
@@ -1314,10 +1316,8 @@ describe("IcDataTables", () => {
       sorted: "ascending",
     });
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
-      .eq(1)
-      .click()
-      .click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(1).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(1).click();
 
     cy.get("@sortChanged").should(HAVE_CALL_COUNT, 3);
     cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, {
@@ -1399,11 +1399,10 @@ describe("IcDataTables", () => {
 
       cy.get('[data-testid="download-button"]').click();
       cy.get('[data-testid="cellphone-button"]').click();
-      cy.get('[data-testid="copy-button"]')
-        .click()
-        .then(() => {
-          expect(onClickStub).to.be.calledThrice;
-        });
+      cy.get('[data-testid="copy-button"]').click();
+      cy.then(() => {
+        expect(onClickStub).to.be.calledThrice;
+      });
     });
 
     // Can be re-enabled once snapshots have been generated
@@ -1980,10 +1979,8 @@ describe("IcDataTable with truncation", () => {
         .find(`${LAST_CELL_SELECTOR} ic-tooltip`)
         .should(HAVE_LENGTH, 1);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
-        .eq(4)
-        .click()
-        .click();
+      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(4).click();
+      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(4).click();
       cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(2).click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
@@ -2475,7 +2472,7 @@ describe("IcDataTable with truncation", () => {
         .each(($row) => {
           cy.wrap($row)
             .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
-            .should("have.attr", "style", "--ic-line-clamp: 1");
+            .should(HAVE_ATTR, "style", "--ic-line-clamp: 1");
         });
     });
   });
@@ -2664,7 +2661,7 @@ describe("IcDataTable with truncation", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
           .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
-          .should("not.have.attr", "max-lines");
+          .should(NOT_HAVE_ATTR, "max-lines");
       });
     });
 
@@ -2705,7 +2702,7 @@ describe("IcDataTable with truncation", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
           .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
-          .should("not.have.attr", "max-lines");
+          .should(NOT_HAVE_ATTR, "max-lines");
       });
     });
 
@@ -3464,7 +3461,7 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(LAST_CELL_SELECTOR)
           .invoke("outerHeight")
-          .should("equal", 89);
+          .should(EQUAL, 89);
       });
     });
 
@@ -3766,7 +3763,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
   });
 
@@ -3785,7 +3782,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 256);
+        .should(EQUAL, 256);
     });
   });
 
@@ -3804,7 +3801,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
   });
 
@@ -3824,7 +3821,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
   });
 
@@ -3844,7 +3841,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 125);
+        .should(EQUAL, 125);
     });
   });
 
@@ -3864,7 +3861,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
   });
 
@@ -3883,14 +3880,14 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
       cy.wrap($row)
         .find(LAST_CELL_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 100);
+        .should(EQUAL, 100);
     });
   });
 
@@ -3909,14 +3906,14 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 256);
+        .should(EQUAL, 256);
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
       cy.wrap($row)
         .find(LAST_CELL_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 102.390625);
+        .should(EQUAL, 102.390625);
     });
   });
 
@@ -3935,14 +3932,14 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
       cy.wrap($row)
         .find(LAST_CELL_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 100);
+        .should(EQUAL, 100);
     });
   });
 
@@ -3962,14 +3959,14 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
       cy.wrap($row)
         .find(LAST_CELL_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 100);
+        .should(EQUAL, 100);
     });
   });
 
@@ -3989,14 +3986,14 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 125);
+        .should(EQUAL, 125);
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
       cy.wrap($row)
         .find(LAST_CELL_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 50);
+        .should(EQUAL, 50);
     });
   });
 
@@ -4016,14 +4013,14 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
       cy.wrap($row)
         .find(LAST_CELL_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 100);
+        .should(EQUAL, 100);
     });
   });
 
@@ -4137,7 +4134,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
@@ -4151,7 +4148,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 200);
+        .should(EQUAL, 200);
     });
   });
 
@@ -4167,7 +4164,7 @@ describe("IcDataTable table sizing and column width", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 500);
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should(EQUAL, 500);
   });
 
   it("should render data table height to 700 using percentages in height prop", () => {
@@ -4184,7 +4181,7 @@ describe("IcDataTable table sizing and column width", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 700);
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should(EQUAL, 700);
   });
 
   it("should render data table height to 400 using rem in height prop", () => {
@@ -4199,7 +4196,7 @@ describe("IcDataTable table sizing and column width", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 600);
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should(EQUAL, 600);
   });
 
   it("should set the table layout to auto", () => {
@@ -4219,7 +4216,7 @@ describe("IcDataTable table sizing and column width", () => {
         return window.getComputedStyle($el[0]);
       })
       .invoke("getPropertyValue", "table-layout")
-      .should("equal", "auto");
+      .should(EQUAL, "auto");
   });
 
   it("should set a max width of 700px", () => {
@@ -4240,9 +4237,9 @@ describe("IcDataTable table sizing and column width", () => {
         return window.getComputedStyle($el[0]);
       })
       .invoke("getPropertyValue", "max-width")
-      .should("equal", "700px");
+      .should(EQUAL, "700px");
 
-    cy.get(DATA_TABLE_SELECTOR).invoke("outerWidth").should("equal", 700);
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerWidth").should(EQUAL, 700);
   });
 
   it("should set a min width of 500px", () => {
@@ -4285,11 +4282,11 @@ describe("IcDataTable table sizing and column width", () => {
         return window.getComputedStyle($el[0]);
       })
       .invoke("getPropertyValue", "min-width")
-      .should("equal", "500px");
+      .should(EQUAL, "500px");
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "table")
       .invoke("outerWidth")
-      .should("equal", 500);
+      .should(EQUAL, 500);
   });
 
   it("should set a min width of 800px with pagination", () => {
@@ -4347,11 +4344,11 @@ describe("IcDataTable table sizing and column width", () => {
         return window.getComputedStyle($el[0]);
       })
       .invoke("getPropertyValue", "min-width")
-      .should("equal", "800px");
+      .should(EQUAL, "800px");
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "table")
       .invoke("outerWidth")
-      .should("equal", 800);
+      .should(EQUAL, 800);
   });
 
   it("should set a max width of 900px with pagination", () => {
@@ -4372,9 +4369,9 @@ describe("IcDataTable table sizing and column width", () => {
         return window.getComputedStyle($el[0]);
       })
       .invoke("getPropertyValue", "max-width")
-      .should("equal", "900px");
+      .should(EQUAL, "900px");
 
-    cy.get(DATA_TABLE_SELECTOR).invoke("outerWidth").should("equal", 900);
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerWidth").should(EQUAL, 900);
   });
 
   it("should set first name column to 300px with table layout set to auto", () => {
@@ -4393,7 +4390,7 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 300);
+        .should(EQUAL, 300);
     });
   });
 
@@ -4414,13 +4411,13 @@ describe("IcDataTable table sizing and column width", () => {
       cy.wrap($row)
         .find(TABLE_CELL_FIRST_CHILD_SELECTOR)
         .invoke("outerWidth")
-        .should("equal", 300);
+        .should(EQUAL, 300);
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
           .find(LAST_CELL_SELECTOR)
           .invoke("outerWidth")
-          .should("equal", 100);
+          .should(EQUAL, 100);
       });
     });
   });
@@ -4655,7 +4652,7 @@ describe("IcDataTable table with descriptions", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(1)
       .find(".table-cell:nth-child(1) .cell-container")
-      .should("have.attr", "style", "--row-height: 1.5rem;");
+      .should(HAVE_ATTR, "style", "--row-height: 1.5rem;");
   });
 
   it("should expand row height beyond global row height if a description is present but no cell data is present", () => {
@@ -4674,7 +4671,7 @@ describe("IcDataTable table with descriptions", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(3)
       .find(".table-cell:nth-child(1) .cell-container")
-      .should("have.attr", "style", "--row-height: 24px");
+      .should(HAVE_ATTR, "style", "--row-height: 24px");
   });
 });
 

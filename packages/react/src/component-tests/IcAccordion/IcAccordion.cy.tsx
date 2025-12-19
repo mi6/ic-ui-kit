@@ -7,6 +7,7 @@ import { IcAccordion, IcAccordionGroup } from "../../components";
 import {
   BE_VISIBLE,
   CONTAIN_TEXT,
+  EQUAL,
   HAVE_ATTR,
   HAVE_BEEN_CALLED_ONCE,
 } from "../utils/constants";
@@ -58,17 +59,17 @@ describe("End-to-end tests", () => {
       cy.get("@isClicked").should(HAVE_BEEN_CALLED_ONCE);
       cy.findShadowEl(IC_ACCORDION, "button")
         .invoke("attr", "aria-expanded")
-        .should("eq", "true");
+        .should(EQUAL, "true");
     });
 
     it("should expand when space bar pressed", () => {
       mount(<SimpleAccordion />);
 
       cy.checkHydrated(IC_ACCORDION);
-      cy.get(IC_ACCORDION).invoke("prop", "expanded").should("eq", false);
+      cy.get(IC_ACCORDION).invoke("prop", "expanded").should(EQUAL, false);
 
       cy.findShadowEl(IC_ACCORDION, "button").type(" ");
-      cy.get(IC_ACCORDION).invoke("prop", "expanded").should("eq", true);
+      cy.get(IC_ACCORDION).invoke("prop", "expanded").should(EQUAL, true);
     });
 
     it("should skip disabled accordion when using tab", () => {
@@ -143,10 +144,10 @@ describe("End-to-end tests", () => {
       cy.checkHydrated(IC_ACCORDION_GROUP);
       cy.get(getAccordionSelector(1))
         .invoke("prop", "expanded")
-        .should("eq", false);
+        .should(EQUAL, false);
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
       cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
         CONTAIN_TEXT,
         "See all"
@@ -155,10 +156,10 @@ describe("End-to-end tests", () => {
       cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
       cy.get(getAccordionSelector(1))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
       cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
         CONTAIN_TEXT,
         "Hide all"
@@ -167,10 +168,10 @@ describe("End-to-end tests", () => {
       cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
       cy.get(getAccordionSelector(1))
         .invoke("prop", "expanded")
-        .should("eq", false);
+        .should(EQUAL, false);
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
-        .should("eq", false);
+        .should(EQUAL, false);
       cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
         CONTAIN_TEXT,
         "See all"
@@ -187,28 +188,29 @@ describe("End-to-end tests", () => {
 
       cy.get(getAccordionSelector(1))
         .invoke("prop", "expanded")
-        .should("eq", false);
+        .should(EQUAL, false);
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
 
       cy.findShadowEl(getAccordionSelector(1), "button")
         .focus()
         .realPress("Space");
       cy.get(getAccordionSelector(1))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
-        .should("eq", false);
+        .should(EQUAL, false);
 
-      cy.realPress("Tab").realPress("Space");
+      cy.realPress("Tab");
+      cy.realPress("Space");
       cy.get(getAccordionSelector(1))
         .invoke("prop", "expanded")
-        .should("eq", false);
+        .should(EQUAL, false);
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
     });
 
     it("should have both accordions open when single expansion is false", () => {
@@ -217,18 +219,18 @@ describe("End-to-end tests", () => {
       cy.checkHydrated(IC_ACCORDION_GROUP);
       cy.get(getAccordionSelector(1))
         .invoke("prop", "expanded")
-        .should("eq", false);
+        .should(EQUAL, false);
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
 
       cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
       cy.get(getAccordionSelector(1))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
-        .should("eq", true);
+        .should(EQUAL, true);
     });
   });
 });
