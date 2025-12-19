@@ -13,7 +13,6 @@ export default {
 };
 
 const defaultArgs = {
-  ariaLabel: "",
   boundary: "viewport",
   chevronButtonAriaLabel: "",
   closeButtonAriaLabel: "",
@@ -1084,7 +1083,6 @@ export const Playground = {
               : ""}
           </ic-section-container>
           <ic-drawer
-            aria-label=${args.ariaLabel}
             boundary=${args.boundary}
             chevron-button-aria-label=${args.chevronButtonAriaLabel}
             close-button-aria-label=${args.closeButtonAriaLabel}

@@ -225,43 +225,43 @@
 }
 
 @media (max-width: 300px /* --drawer-size-small */) {
-  :host(.ic-drawer-right) .drawer-panel.small .inner-drawer-panel,
-  :host(.ic-drawer-left) .drawer-panel.small .inner-drawer-panel {
+  :host(.ic-drawer-right.ic-drawer-small) .drawer-panel .inner-drawer-panel,
+  :host(.ic-drawer-left.ic-drawer-small) .drawer-panel .inner-drawer-panel {
     min-width: 100vw;
   }
 }
 
 @media (max-height: 300px /* --drawer-size-small */) {
-  :host(.ic-drawer-top) .drawer-panel.small .inner-drawer-panel,
-  :host(.ic-drawer-bottom) .drawer-panel.small .inner-drawer-panel {
+  :host(.ic-drawer-top.ic-drawer-small) .drawer-panel .inner-drawer-panel,
+  :host(.ic-drawer-bottom.ic-drawer-small) .drawer-panel .inner-drawer-panel {
     min-height: 100vh;
   }
 }
 
 @media (max-width: 450px /* --drawer-size-medium */) {
-  :host(.ic-drawer-right) .drawer-panel.medium .inner-drawer-panel,
-  :host(.ic-drawer-left) .drawer-panel.medium .inner-drawer-panel {
+  :host(.ic-drawer-right.ic-drawer-medium) .drawer-panel .inner-drawer-panel,
+  :host(.ic-drawer-left.ic-drawer-medium) .drawer-panel .inner-drawer-panel {
     min-width: 100vw;
   }
 }
 
 @media (max-height: 450px /* --drawer-size-medium */) {
-  :host(.ic-drawer-top) .drawer-panel.medium .inner-drawer-panel,
-  :host(.ic-drawer-bottom) .drawer-panel.medium .inner-drawer-panel {
+  :host(.ic-drawer-top.ic-drawer-medium) .drawer-panel .inner-drawer-panel,
+  :host(.ic-drawer-bottom.ic-drawer-medium) .drawer-panel .inner-drawer-panel {
     min-height: 100vh;
   }
 }
 
 @media (max-width: 600px /* --drawer-size-large */) {
-  :host(.ic-drawer-right) .drawer-panel.large .inner-drawer-panel,
-  :host(.ic-drawer-left) .drawer-panel.large .inner-drawer-panel {
+  :host(.ic-drawer-right.ic-drawer-large) .drawer-panel .inner-drawer-panel,
+  :host(.ic-drawer-left.ic-drawer-large) .drawer-panel .inner-drawer-panel {
     min-width: 100vw;
   }
 }
 
 @media (max-height: 600px /* --drawer-size-large */) {
-  :host(.ic-drawer-top) .drawer-panel.large .inner-drawer-panel,
-  :host(.ic-drawer-bottom) .drawer-panel.large .inner-drawer-panel {
+  :host(.ic-drawer-top.ic-drawer-large) .drawer-panel .inner-drawer-panel,
+  :host(.ic-drawer-bottom.ic-drawer-large) .drawer-panel .inner-drawer-panel {
     min-height: 100vh;
   }
 }

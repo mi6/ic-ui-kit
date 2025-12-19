@@ -50,7 +50,6 @@ const selectOptions = [
 ];
 
 const defaultArgs = {
-  ariaLabel: "",
   boundary: "viewport",
   chevronButtonAriaLabel: "",
   closeButtonAriaLabel: "",
@@ -708,7 +707,6 @@ export const Playground = {
               )}
             </IcSectionContainer>
             <IcDrawer
-              ariaLabel={args.ariaLabel}
               boundary={args.boundary}
               chevronButtonAriaLabel={args.chevronButtonAriaLabel}
               closeButtonAriaLabel={args.closeButtonAriaLabel}

@@ -237,8 +237,10 @@ export class Drawer {
   // if drawer width is too narrow to display to the right of it
   // (For top and bottom drawer position)
   private updateActionAreaMargin = () => {
+    const withMarginClass = "with-margin";
+
     if (this.actionAreaEl) {
-      this.actionAreaEl.classList.remove("with-margin");
+      this.actionAreaEl.classList.remove(withMarginClass);
 
       if (
         this.preventActionAreaChevronOverlap() &&
@@ -250,25 +252,10 @@ export class Drawer {
         const threshold = drawerWidth / 2 - 48;
 
         if (actionAreaWidth > threshold) {
-          this.actionAreaEl.classList.add("with-margin");
+          this.actionAreaEl.classList.add(withMarginClass);
         }
       }
     }
-  };
-
-  private getAriaAttributes = () => {
-    if (!this.expanded) return {};
-    if (isSlotUsed(this.el, "heading")) {
-      return {
-        "aria-label": this.ariaLabel,
-      };
-    }
-    return {
-      // "aria-labelledby": !isEmptyString(this.ariaLabel)
-      //   ? this.ariaLabel // NEEDS FIXING
-      //   : "drawer-heading",
-      "aria-labelledby": "drawer-heading",
-    };
   };
 
   private getInteractiveElements = () => {
@@ -452,10 +439,10 @@ export class Drawer {
         }
       }, this.TRANSITION_DURATION);
     } else {
-      const collapsingClassName = "ic-drawer-collapsing";
-      this.el.classList.add(collapsingClassName);
+      const collapsingClass = "ic-drawer-collapsing";
+      this.el.classList.add(collapsingClass);
       setTimeout(() => {
-        this.el.classList.remove(collapsingClassName);
+        this.el.classList.remove(collapsingClass);
         if (this.trigger === "controlled") {
           this.sourceElement?.focus();
         } else {
@@ -500,8 +487,9 @@ export class Drawer {
           }}
           id="drawer-panel"
           tabindex={-1} // Needed to set focus on whole drawer panel when there are no focusable elements
-          {...(expanded ? { role: "dialog" } : {})}
-          {...this.getAriaAttributes()}
+          {...(expanded
+            ? { role: "dialog", "aria-labelledby": "drawer-heading" }
+            : {})}
           onClick={(ev) =>
             !expanded ? this.handleDrawerExpanded(false, ev) : undefined
           }
@@ -515,11 +503,13 @@ export class Drawer {
             <div class="drawer-header">
               <div class="heading-area">
                 <slot name="heading-adornment" />
-                <slot name="heading">
-                  <ic-typography id="drawer-heading" variant="h4">
-                    <h4>{heading}</h4>
-                  </ic-typography>
-                </slot>
+                <div id="drawer-heading">
+                  <slot name="heading">
+                    <ic-typography variant="h4">
+                      <h4>{heading}</h4>
+                    </ic-typography>
+                  </slot>
+                </div>
               </div>
               {!hideCloseButton && trigger === "controlled" && (
                 <ic-button
