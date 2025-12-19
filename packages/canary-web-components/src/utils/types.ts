@@ -261,10 +261,10 @@ export type IcTimeFormat = "HH:MM" | "HH:MM:SS" | "HH:MM:SS.SSS";
 
 export type IcTimeFormatSelector = "HH:MM" | "HH:MM:SS";
 
-export type IcDisableTimeSelection =
-  | string
-  | Date
-  | { start: string | Date; end: string | Date };
+export type IcDisableTimeSelection = {
+  start: string | Date;
+  end: string | Date;
+};
 
 export enum IcDateInputMonths {
   "January",
