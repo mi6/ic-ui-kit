@@ -1340,6 +1340,13 @@ export class DataTable {
           ["--column-max-width"]: columnWidth.maxWidth,
         };
       }
+
+      if (columnWidth.width) {
+        columnWidthStyling = {
+          ...columnWidthStyling,
+          ["--column-width"]: columnWidth.width,
+        };
+      }
     }
 
     return columnWidthStyling;
