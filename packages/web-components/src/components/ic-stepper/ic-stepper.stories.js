@@ -338,6 +338,18 @@ export const Internationalisation = {
   name: "Internationalisation",
 };
 
+export const SlottedHeading = {
+  render: () =>
+    html`<ic-stepper>
+      <ic-step type="completed"><span slot="heading">Create</span></ic-step>
+      <ic-step type="current"><span slot="heading">Read</span></ic-step>
+      <ic-step type="active"><span slot="heading">Update</span></ic-step>
+      <ic-step type="disabled"><span slot="heading">Delete</span></ic-step>
+    </ic-stepper>`,
+
+  name: "Slotted heading",
+};
+
 export const Playground = {
   render: (args) =>
     html`<ic-stepper theme=${args.theme}>

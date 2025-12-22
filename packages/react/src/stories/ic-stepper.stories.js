@@ -334,6 +334,27 @@ export const CustomCompactStepper = {
   name: "Custom compact stepper",
 };
 
+export const SlottedHeading = {
+  render: () => (
+    <IcStepper>
+      <IcStep type="completed">
+        <span slot="heading">Create</span>
+      </IcStep>
+      <IcStep type="current">
+        <span slot="heading">Read</span>
+      </IcStep>
+      <IcStep type="active">
+        <span slot="heading">Update</span>
+      </IcStep>
+      <IcStep type="disabled">
+        <span slot="heading">Delete</span>
+      </IcStep>
+    </IcStepper>
+  ),
+
+  name: "Slotted heading",
+};
+
 export const Playground = {
   render: (args) => (
     <div>
