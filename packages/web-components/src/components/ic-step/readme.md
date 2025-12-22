@@ -16,6 +16,13 @@
 | `type`       | `type`       | The state of the step within the stepper.                                                                                                               | `"active" \| "completed" \| "current" \| "disabled" \| undefined`                                                                                          | `"active"`                                                                                                                                                                                                                |
 
 
+## Slots
+
+| Slot        | Description                                            |
+| ----------- | ------------------------------------------------------ |
+| `"heading"` | Content will be rendered in place of the heading prop. |
+
+
 ## Dependencies
 
 ### Depends on
