@@ -17,6 +17,7 @@ import {
   Disabled,
   Internationalisation,
   ICI18N,
+  SlottedHeading,
 } from "./IcStepperTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
@@ -166,6 +167,30 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/with-hidden-step-information",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render a stepper with slotted headings", () => {
+    mount(<SlottedHeading />);
+
+    cy.checkHydrated(STEPPER_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "/with-slotted-headings",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
+  });
+
+  it("should render a stepper with slotted headings - compact", () => {
+    cy.viewport(500, 700);
+    mount(<SlottedHeading />);
+
+    cy.checkHydrated(STEPPER_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/with-slotted-headings-compact",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 

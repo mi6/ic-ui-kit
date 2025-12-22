@@ -324,3 +324,24 @@ export const Disabled = () => {
     </div>
   );
 };
+
+export const SlottedHeading = () => {
+  return (
+    <div style={{ padding: "100px" }}>
+      <IcStepper>
+        <IcStep type="completed">
+          <span slot="heading">Create</span>
+        </IcStep>
+        <IcStep type="current">
+          <span slot="heading">Read</span>
+        </IcStep>
+        <IcStep type="active">
+          <span slot="heading">Update</span>
+        </IcStep>
+        <IcStep type="disabled">
+          <span slot="heading">Delete</span>
+        </IcStep>
+      </IcStepper>
+    </div>
+  );
+};
