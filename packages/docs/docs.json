@@ -18127,7 +18127,12 @@
       "tag": "ic-step",
       "readme": "# ic-step\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "heading - Content will be rendered in place of the heading prop."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -18299,7 +18304,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "heading",
+          "docs": "Content will be rendered in place of the heading prop."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
