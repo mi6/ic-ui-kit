@@ -17,6 +17,7 @@
 }
 
 .heading,
+::slotted([slot="heading"]),
 .subheading,
 .step-status,
 .next-step {
@@ -77,11 +78,13 @@
   width: 14.25rem;
 }
 
-:host(.ic-step-compact) .heading {
+:host(.ic-step-compact) .heading,
+:host(.ic-step-compact) ::slotted([slot="heading"]) {
   color: var(--ic-stepper-compact-step-title);
 }
 
-:host(.ic-step-compact) .disabled .heading {
+:host(.ic-step-compact) .disabled .heading,
+:host(.ic-step-compact) .disabled ::slotted([slot="heading"]) {
   color: var(--ic-stepper-compact-step-title-disabled);
 }
 
@@ -161,23 +164,28 @@
 }
 
 :host(.ic-step-default) .heading,
+:host(.ic-step-default) ::slotted([slot="heading"]),
 .subheading {
   width: fit-content;
 }
 
-.heading {
+.heading,
+::slotted([slot="heading"]) {
   color: var(--ic-step-title);
 }
 
-.current .heading {
+.current .heading,
+.current ::slotted([slot="heading"]) {
   color: var(--ic-step-title-current);
 }
 
-.completed .heading {
+.completed .heading,
+.completed ::slotted([slot="heading"]) {
   color: var(--ic-step-title-success);
 }
 
-.disabled .heading {
+.disabled .heading,
+.disabled ::slotted([slot="heading"]) {
   color: var(--ic-step-title-disabled);
 }
 
@@ -312,7 +320,8 @@
   .disabled,
   .disabled .heading-area,
   .disabled .step-icon-inner,
-  .disabled .heading {
+  .disabled .heading,
+  .disabled ::slotted([slot="heading"]) {
     color: GrayText;
   }
 

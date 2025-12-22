@@ -992,6 +992,105 @@ exports[`default variant of ic-stepper component should render a stepper with hi
 </ic-stepper>
 `;
 
+exports[`default variant of ic-stepper component should render a stepper with slotted step headings 1`] = `
+<ic-stepper class="ic-stepper-default">
+  <template shadowrootmode="open">
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </template>
+  <ic-step aria-label="Step 1. Completed" class="aligned-full-width ic-step-default" role="listitem" type="completed" style="width: 0rem; min-width: 9.25rem;">
+    <template shadowrootmode="open">
+      <div class="completed step">
+        <div class="step-top">
+          <div class="step-icon">
+            <div aria-hidden="true" class="step-icon-inner">
+              <span class="check-icon">
+                svg
+              </span>
+            </div>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="heading-area">
+          <slot name="heading"></slot>
+        </div>
+      </div>
+    </template>
+    <span slot="heading">
+      Create
+    </span>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" role="listitem" type="current" style="width: 0rem; min-width: 9.25rem;">
+    <template shadowrootmode="open">
+      <div class="current step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                2
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect">
+            <div class="step-connect-inner"></div>
+          </div>
+        </div>
+        <div class="heading-area">
+          <slot name="heading"></slot>
+        </div>
+      </div>
+    </template>
+    <span slot="heading">
+      Read
+    </span>
+  </ic-step>
+  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" role="listitem" style="width: 0rem; min-width: 9.25rem;">
+    <template shadowrootmode="open">
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                3
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="heading-area">
+          <slot name="heading"></slot>
+        </div>
+      </div>
+    </template>
+    <span slot="heading">
+      Update
+    </span>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="aligned-full-width ic-step-default last-step" role="listitem" style="max-width: 0px;">
+    <template shadowrootmode="open">
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                4
+              </span>
+            </ic-typography>
+          </div>
+        </div>
+        <div class="heading-area">
+          <slot name="heading"></slot>
+        </div>
+      </div>
+    </template>
+    <span slot="heading">
+      Delete
+    </span>
+  </ic-step>
+</ic-stepper>
+`;
+
 exports[`default variant of ic-stepper component should render a stepper without step titles 1`] = `
 <ic-stepper class="ic-stepper-default">
   <template shadowrootmode="open">

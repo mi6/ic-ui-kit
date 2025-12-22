@@ -237,6 +237,40 @@ describe("default variant of ic-stepper component", () => {
 
     expect(lastStep?.classList.contains("last-step")).toBeTruthy();
   });
+
+  it("should render a stepper with slotted step headings", async () => {
+    const page = await newSpecPage({
+      components: [Stepper, Step],
+      html: `<ic-stepper>
+      <ic-step type="completed"><span slot="heading">Create</span></ic-step>
+      <ic-step type="current"><span slot="heading">Read</span></ic-step>
+      <ic-step><span slot="heading">Update</span></ic-step>
+      <ic-step><span slot="heading">Delete</span></ic-step></ic-stepper>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should return the correct values for prop step headings and slotted step headings", async () => {
+    const page = await newSpecPage({
+      components: [Stepper, Step],
+      html: `<ic-stepper>
+      <ic-step heading="Create"></ic-step>
+      <ic-step><span slot="heading">Read</span></ic-step>
+    </ic-stepper>`,
+    });
+
+    page.rootInstance.resizeObserverCallback();
+    await page.waitForChanges();
+
+    const steps = document.querySelectorAll("ic-step");
+
+    expect(page.rootInstance.stepHeading(steps[0], false)).toBe("Create");
+    expect(page.rootInstance.stepHeading(steps[0], true)).toBe("Create");
+
+    expect(page.rootInstance.stepHeading(steps[1], false)).toBe("Read");
+    expect(page.rootInstance.stepHeading(steps[1], true)).toBe("Read");
+  });
 });
 
 describe("resizeObserver for ic-stepper", () => {

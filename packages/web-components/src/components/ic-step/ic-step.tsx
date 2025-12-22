@@ -7,9 +7,12 @@ import {
   IcStepTypes,
   IcStepI18n,
 } from "./ic-step.types";
-import { isPropDefined } from "../../utils/helpers";
+import { isPropDefined, isSlotUsed } from "../../utils/helpers";
 import { IcThemeMode } from "../../utils/types";
 
+/**
+ * @slot heading - Content will be rendered in place of the heading prop.
+ */
 @Component({
   tag: "ic-step",
   styleUrl: "ic-step.css",
@@ -128,6 +131,10 @@ export class Step {
     // ARIA LABEL
     let ariaLabel = "";
 
+    const hasHeading =
+      (isPropDefined(heading) && heading !== "") ||
+      isSlotUsed(this.el, "heading");
+
     if (type === "completed") {
       ariaLabel = `. ${icI18n.completed}`;
     } else if (type === "disabled") {
@@ -195,9 +202,13 @@ export class Step {
           progress={progress}
         ></ic-loading-indicator>
         <div class="heading-area">
-          <ic-typography variant="h4" class="heading">
-            {heading}
-          </ic-typography>
+          {isSlotUsed(this.el, "heading") ? (
+            <slot name="heading"></slot>
+          ) : (
+            <ic-typography variant="h4" class="heading">
+              {heading}
+            </ic-typography>
+          )}
           <div class="info-line">
             <ic-typography variant="caption" class="step-num">
               {`${stepNum} ${icI18n.of} ${lastStepNum}`}
@@ -295,14 +306,16 @@ export class Step {
           <div class="step-icon">{icon}</div>
           {finalStep}
         </div>
-        {(heading || subheading || status) && (
+        {(hasHeading || subheading || status) && (
           <div class="heading-area">
-            {heading && (
+            {isSlotUsed(this.el, "heading") ? (
+              <slot name="heading"></slot>
+            ) : (
               <ic-typography variant="subtitle-large" class="heading">
                 {heading}
               </ic-typography>
             )}
-            {heading && (subheading || status) && (
+            {hasHeading && (subheading || status) && (
               <ic-typography variant="caption" class="subheading">
                 {subheading !== null && isPropDefined(subheading)
                   ? subheading
