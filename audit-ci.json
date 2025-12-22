@@ -125,6 +125,13 @@
         "notes": "issue in 'glob' package used by multiple packages (all on different versions) - need to wait for those to upgrade",
         "expiry": "25 December 2025"
       }
+    },
+    {
+      "GHSA-8452-54wp-rmv6": {
+        "active": true,
+        "notes": "issue in 'ws' package used by 'cypress' - no current fix",
+        "expiry": "25 December 2025"
+      }
     }
   ]
 }
