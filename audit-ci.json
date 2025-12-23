@@ -4,126 +4,133 @@
       "GHSA-pfrx-2q88-qq97": {
         "active": true,
         "notes": "requires upgrade to np@8.0.4, which is a breaking change",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-c2qf-rxjj-qqgw": {
         "active": true,
         "notes": "requires lerna v7, which is a breaking change",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-7fh5-64p2-3v2j": {
         "active": true,
         "notes": "requires upgrade to postcss v8.4.31, which doesn't align with the version used by @storybook/addon-postcss",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-f5x3-32g6-xq36": {
         "active": true,
         "notes": "issue in 'tar' package used by '@lerna/legacy-package-management' v6.6.2 - no current fix",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-grv7-fg5c-xmjg": {
         "active": true,
         "notes": "braces package has a vulnerability which is fixed in v3.0.3, but cannot currrently upgrade",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-3h5v-q93c-6h6q": {
         "active": true,
         "notes": "ws package has a vulnerability but requires multiple package upgrades to fix",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-952p-6rrq-rcjv": {
         "active": true,
         "notes": "issue in 'micromatch' package, we're currently on the highest version available so no fix",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-p6mc-m468-83gw": {
         "active": true,
         "notes": "issue in 'lodash.set' package use by '@cypress-audit/lighthouse>lighthouse' - no current fix",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-3xgq-45jj-v275": {
         "active": true,
         "notes": "issue in 'cross-spawn' package - unable to upgrade currently",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-h5c3-5r3r-rr8q": {
         "active": true,
         "notes": "issue in '@octokit/plugin-paginate-rest' package which relies on a lerna upgrade",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-xx4v-prfh-6cgc": {
         "active": true,
         "notes": "issue in '@octokit/request-error' package which relies on a lerna upgrade",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-pq67-2wwv-3xjx": {
         "active": true,
         "notes": "issue in puppeteer used in '@cypress-audit/lighthouse' - no current fix",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-8cj5-5rvv-wf4v": {
         "active": true,
         "notes": "issue in tar-fs in puppeteer used in '@cypress-audit/lighthouse' - no current fix",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-4v9v-hfq4-rm2v": {
         "active": true,
         "notes": "requires upgrade to webpack-dev-server > 5.2.0 in react package, which is a breaking change",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-9jgg-88mc-972h": {
         "active": true,
         "notes": "requires upgrade to webpack-dev-server > 5.2.0 in react package, which is a breaking change",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-vj76-c3g6-qr5v": {
         "active": true,
         "notes": "issue in tar-fs in puppeteer used in cypress - no current fix",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-mh29-5h37-fv8m": {
         "active": true,
         "notes": "issue in 'js-yaml' package - running audit fix in each package does not fix the issue",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
       }
     },
     {
       "GHSA-5j98-mcp5-4vw2": {
         "active": true,
         "notes": "issue in 'glob' package used by multiple packages (all on different versions) - need to wait for those to upgrade",
-        "expiry": "25 December 2025"
+        "expiry": "25 January 2026"
+      }
+    },
+    {
+      "GHSA-8452-54wp-rmv6": {
+        "active": true,
+        "notes": "issue in 'ws' package used by 'cypress' - no current fix",
+        "expiry": "25 January 2026"
       }
     }
   ]
