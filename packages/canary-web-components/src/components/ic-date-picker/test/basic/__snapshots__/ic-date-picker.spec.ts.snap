@@ -3835,443 +3835,517 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
         <input class="ic-input" name="ic-date-input-9" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
-    <div>
-      <span class="sr-only" id="dialog-description">
-        July 2023 currently in view. Use arrow keys to change day. Press enter or space to select a date or press escape to close the picker
-      </span>
-      <div aria-describedby="dialog-description" aria-label="choose date" aria-modal="true" class="calendar-container" role="dialog">
-        <span aria-live="assertive" class="sr-only" id="live-region"></span>
-        <div class="month-year-nav-container">
-          <div class="month-year-nav">
-            <div aria-hidden="true">
-              <ic-button class="flip ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="previous-month-button">
-                <template shadowrootmode="open">
-                  <button aria-hidden="true" class="button" part="button" tabindex="0" type="button">
-                    <slot></slot>
-                  </button>
-                </template>
-                svg
-              </ic-button>
-            </div>
-            <span aria-hidden="true" id="select-month-hint">
-              Press Enter or Space to open month picker view or use the arrow keys to change month.
-            </span>
-            <ic-button class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary month-picker-button" exportparts="button" full-width="true">
-              <template shadowrootmode="open">
-                <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="July" class="button" part="button" tabindex="0" type="button">
-                  <slot></slot>
-                </button>
-                <span class="ic-button-describedby" id="select-month-hint">
+    <ic-calendar class="ic-calendar-medium ic-date-picker-calendar" value="11-07-2023">
+      <template shadowrootmode="open">
+        <div>
+          <span class="sr-only" id="dialog-description">
+            December 2025 currently in view. No date selected. Use arrow keys to change day. Press enter or space to select a date or press escape to close the picker.
+          </span>
+          <div aria-describedby="dialog-description" aria-label="choose date" aria-modal="true" class="calendar-container" role="dialog">
+            <span aria-live="assertive" class="sr-only" id="live-region"></span>
+            <div class="month-year-nav-container">
+              <div class="month-year-nav">
+                <ic-button class="flip ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="previous-month-button">
+                  <template shadowrootmode="open">
+                    <button aria-label="Go to previous month" class="button" part="button" tabindex="0" type="button">
+                      <slot></slot>
+                    </button>
+                  </template>
+                  svg
+                </ic-button>
+                <span aria-hidden="true" id="select-month-hint">
                   Press Enter or Space to open month picker view or use the arrow keys to change month.
                 </span>
-              </template>
-              July
-            </ic-button>
-            <div aria-hidden="true">
-              <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="next-month-button">
-                <template shadowrootmode="open">
-                  <button aria-hidden="true" class="button" part="button" tabindex="0" type="button">
-                    <slot></slot>
-                  </button>
-                </template>
-                svg
-              </ic-button>
-            </div>
-          </div>
-          <div class="month-year-nav">
-            <div aria-hidden="true">
-              <ic-button class="flip ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="previous-year-button">
-                <template shadowrootmode="open">
-                  <button aria-hidden="true" class="button" part="button" tabindex="0" type="button">
-                    <slot></slot>
-                  </button>
-                </template>
-                svg
-              </ic-button>
-            </div>
-            <span aria-hidden="true" id="select-year-hint">
-              Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
-            </span>
-            <ic-button class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary year-picker-button" exportparts="button" full-width="true">
-              <template shadowrootmode="open">
-                <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2023" class="button" part="button" tabindex="0" type="button">
-                  <slot></slot>
-                </button>
-                <span class="ic-button-describedby" id="select-year-hint">
+                <ic-button class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary month-picker-button" exportparts="button" full-width="true">
+                  <template shadowrootmode="open">
+                    <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="December" class="button" part="button" tabindex="0" type="button">
+                      <slot></slot>
+                    </button>
+                  </template>
+                  December
+                </ic-button>
+                <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="next-month-button">
+                  <template shadowrootmode="open">
+                    <button aria-label="Go to next month" class="button" part="button" tabindex="0" type="button">
+                      <slot></slot>
+                    </button>
+                  </template>
+                  svg
+                </ic-button>
+              </div>
+              <div class="month-year-nav">
+                <ic-button class="flip ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="previous-year-button">
+                  <template shadowrootmode="open">
+                    <button aria-label="Go to previous year" class="button" part="button" tabindex="0" type="button">
+                      <slot></slot>
+                    </button>
+                  </template>
+                  svg
+                </ic-button>
+                <span aria-hidden="true" id="select-year-hint">
                   Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
                 </span>
-              </template>
-              2023
-            </ic-button>
-            <div aria-hidden="true">
-              <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="next-year-button">
+                <ic-button class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary year-picker-button" exportparts="button" full-width="true">
+                  <template shadowrootmode="open">
+                    <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2025" class="button" part="button" tabindex="0" type="button">
+                      <slot></slot>
+                    </button>
+                  </template>
+                  2025
+                </ic-button>
+                <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="next-year-button">
+                  <template shadowrootmode="open">
+                    <button aria-label="Go to next year" class="button" part="button" tabindex="0" type="button">
+                      <slot></slot>
+                    </button>
+                  </template>
+                  svg
+                </ic-button>
+              </div>
+            </div>
+            <table class="calendar" role="grid">
+              <thead class="weekdays-container">
+                <tr class="weekdays">
+                  <th class="calendar-day-header" scope="col">
+                    Mon
+                  </th>
+                  <th class="calendar-day-header" scope="col">
+                    Tue
+                  </th>
+                  <th class="calendar-day-header" scope="col">
+                    Wed
+                  </th>
+                  <th class="calendar-day-header" scope="col">
+                    Thu
+                  </th>
+                  <th class="calendar-day-header" scope="col">
+                    Fri
+                  </th>
+                  <th class="calendar-day-header" scope="col">
+                    Sat
+                  </th>
+                  <th class="calendar-day-header" scope="col">
+                    Sun
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="calendar-days-container">
+                <tr>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 1 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          1
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 2 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          2
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 3 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          3
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 4 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          4
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 5 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          5
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 6 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          6
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 7 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          7
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 8 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          8
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 9 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          9
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 10 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          10
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 11 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          11
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 12 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          12
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 13 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          13
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 14 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          14
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 15 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          15
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 16 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          16
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 17 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          17
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 18 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          18
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 19 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          19
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 20 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          20
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 21 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          21
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 22 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          22
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 23 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          23
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 24 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          24
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 25 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          25
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 26 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          26
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 27 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          27
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 28 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          28
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 29 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          29
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 30 December 2025" class="day-button" tabindex="-1">
+                        <ic-typography variant="subtitle-small">
+                          30
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-current="date" aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 31 December 2025" class="day-button focussed today" tabindex="0">
+                        <ic-typography variant="subtitle-small">
+                          31
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          1
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          2
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          3
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          4
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          5
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          6
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          7
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          8
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          9
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          10
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          11
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="hidden month-picker-container"></div>
+            <div class="hidden year-picker-container"></div>
+            <div class="bottom-buttons">
+              <ic-button class="ic-button-disabled ic-button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
                 <template shadowrootmode="open">
-                  <button aria-hidden="true" class="button" part="button" tabindex="0" type="button">
+                  <button aria-disabled="true" aria-label="Navigate to current date" class="button" disabled="" part="button" tabindex="0" type="button">
                     <slot></slot>
                   </button>
                 </template>
-                svg
+                Go to today
+              </ic-button>
+              <ic-button class="ic-button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
+                <template shadowrootmode="open">
+                  <button aria-label="clear selected date" class="button" part="button" tabindex="0" type="button">
+                    <slot></slot>
+                  </button>
+                </template>
+                Clear
               </ic-button>
             </div>
           </div>
         </div>
-        <div class="calendar">
-          <div aria-hidden="true" class="weekdays">
-            <div class="calendar-day-header">
-              <ic-typography variant="caption">
-                Mon
-              </ic-typography>
-            </div>
-            <div class="calendar-day-header">
-              <ic-typography variant="caption">
-                Tue
-              </ic-typography>
-            </div>
-            <div class="calendar-day-header">
-              <ic-typography variant="caption">
-                Wed
-              </ic-typography>
-            </div>
-            <div class="calendar-day-header">
-              <ic-typography variant="caption">
-                Thu
-              </ic-typography>
-            </div>
-            <div class="calendar-day-header">
-              <ic-typography variant="caption">
-                Fri
-              </ic-typography>
-            </div>
-            <div class="calendar-day-header">
-              <ic-typography variant="caption">
-                Sat
-              </ic-typography>
-            </div>
-            <div class="calendar-day-header">
-              <ic-typography variant="caption">
-                Sun
-              </ic-typography>
-            </div>
-          </div>
-          <div class="calendar-days-container">
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  26
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  27
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  28
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  29
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  30
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 1 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  1
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 2 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  2
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 3 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  3
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 4 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  4
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 5 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  5
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 6 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  6
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 7 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  7
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 8 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  8
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 9 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  9
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 10 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  10
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 11 July 2023" class="day-button focussed selected" tabindex="0">
-                <ic-typography variant="subtitle-small">
-                  11
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 12 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  12
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 13 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  13
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 14 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  14
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 15 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  15
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 16 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  16
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 17 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  17
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 18 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  18
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 19 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  19
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 20 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  20
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 21 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  21
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 22 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  22
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 23 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  23
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 24 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  24
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 25 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  25
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 26 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  26
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 27 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  27
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 28 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  28
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 29 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  29
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 30 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  30
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 31 July 2023" class="day-button" tabindex="-1">
-                <ic-typography variant="subtitle-small">
-                  31
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  1
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  2
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  3
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  4
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  5
-                </ic-typography>
-              </button>
-            </div>
-            <div class="day-button-container">
-              <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                <ic-typography italic="" variant="subtitle-small">
-                  6
-                </ic-typography>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="hidden month-picker-container"></div>
-        <div class="hidden year-picker-container"></div>
-        <div class="bottom-buttons">
-          <ic-button class="ic-button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
-            <template shadowrootmode="open">
-              <button aria-label="Navigate to current date" class="button" part="button" tabindex="0" type="button">
-                <slot></slot>
-              </button>
-            </template>
-            Go to today
-          </ic-button>
-          <ic-button class="ic-button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
-            <template shadowrootmode="open">
-              <button aria-label="clear selected date" class="button" part="button" tabindex="0" type="button">
-                <slot></slot>
-              </button>
-            </template>
-            Clear
-          </ic-button>
-        </div>
-      </div>
-    </div>
+      </template>
+    </ic-calendar>
   </template>
 </ic-date-picker>
 `;
@@ -4370,11 +4444,11 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
         <input class="ic-input" name="ic-date-input-10" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
-    <ic-calendar class="ic-calendar-medium" value="07-11-2023">
+    <ic-calendar class="ic-calendar-medium ic-date-picker-calendar" value="07-11-2023">
       <template shadowrootmode="open">
         <div>
           <span class="sr-only" id="dialog-description">
-            November 2025 currently in view. No date selected. Use arrow keys to change day. Press enter or space to select a date or press escape to close the picker.
+            December 2025 currently in view. No date selected. Use arrow keys to change day. Press enter or space to select a date or press escape to close the picker.
           </span>
           <div aria-describedby="dialog-description" aria-label="choose date" aria-modal="true" class="calendar-container" role="dialog">
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
@@ -4393,11 +4467,11 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                 </span>
                 <ic-button class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary month-picker-button" exportparts="button" full-width="true">
                   <template shadowrootmode="open">
-                    <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="November" class="button" part="button" tabindex="0" type="button">
+                    <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="December" class="button" part="button" tabindex="0" type="button">
                       <slot></slot>
                     </button>
                   </template>
-                  November
+                  December
                 </ic-button>
                 <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="next-month-button">
                   <template shadowrootmode="open">
@@ -4442,39 +4516,25 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
               <thead class="weekdays-container">
                 <tr class="weekdays">
                   <th class="calendar-day-header" scope="col">
-                    <ic-typography variant="caption">
-                      Mon
-                    </ic-typography>
+                    Mon
                   </th>
                   <th class="calendar-day-header" scope="col">
-                    <ic-typography variant="caption">
-                      Tue
-                    </ic-typography>
+                    Tue
                   </th>
                   <th class="calendar-day-header" scope="col">
-                    <ic-typography variant="caption">
-                      Wed
-                    </ic-typography>
+                    Wed
                   </th>
                   <th class="calendar-day-header" scope="col">
-                    <ic-typography variant="caption">
-                      Thu
-                    </ic-typography>
+                    Thu
                   </th>
                   <th class="calendar-day-header" scope="col">
-                    <ic-typography variant="caption">
-                      Fri
-                    </ic-typography>
+                    Fri
                   </th>
                   <th class="calendar-day-header" scope="col">
-                    <ic-typography variant="caption">
-                      Sat
-                    </ic-typography>
+                    Sat
                   </th>
                   <th class="calendar-day-header" scope="col">
-                    <ic-typography variant="caption">
-                      Sun
-                    </ic-typography>
+                    Sun
                   </th>
                 </tr>
               </thead>
@@ -4482,52 +4542,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                 <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                        <ic-typography italic="" variant="subtitle-small">
-                          27
-                        </ic-typography>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                        <ic-typography italic="" variant="subtitle-small">
-                          28
-                        </ic-typography>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                        <ic-typography italic="" variant="subtitle-small">
-                          29
-                        </ic-typography>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                        <ic-typography italic="" variant="subtitle-small">
-                          30
-                        </ic-typography>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
-                        <ic-typography italic="" variant="subtitle-small">
-                          31
-                        </ic-typography>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 1 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 1 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           1
                         </ic-typography>
@@ -4536,18 +4551,16 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 2 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 2 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           2
                         </ic-typography>
                       </button>
                     </div>
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 3 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 3 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           3
                         </ic-typography>
@@ -4556,7 +4569,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-current="date" aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 4 November 2025" class="day-button focussed today" tabindex="0">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 4 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           4
                         </ic-typography>
@@ -4565,7 +4578,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 5 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 5 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           5
                         </ic-typography>
@@ -4574,7 +4587,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 6 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 6 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           6
                         </ic-typography>
@@ -4583,16 +4596,18 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 7 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 7 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           7
                         </ic-typography>
                       </button>
                     </div>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 8 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 8 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           8
                         </ic-typography>
@@ -4601,18 +4616,16 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 9 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 9 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           9
                         </ic-typography>
                       </button>
                     </div>
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 10 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 10 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           10
                         </ic-typography>
@@ -4621,7 +4634,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 11 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 11 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           11
                         </ic-typography>
@@ -4630,7 +4643,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 12 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 12 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           12
                         </ic-typography>
@@ -4639,7 +4652,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 13 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 13 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           13
                         </ic-typography>
@@ -4648,16 +4661,18 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 14 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 14 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           14
                         </ic-typography>
                       </button>
                     </div>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 15 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 15 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           15
                         </ic-typography>
@@ -4666,18 +4681,16 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 16 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 16 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           16
                         </ic-typography>
                       </button>
                     </div>
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 17 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 17 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           17
                         </ic-typography>
@@ -4686,7 +4699,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 18 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 18 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           18
                         </ic-typography>
@@ -4695,7 +4708,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 19 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 19 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           19
                         </ic-typography>
@@ -4704,7 +4717,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 20 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 20 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           20
                         </ic-typography>
@@ -4713,16 +4726,18 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 21 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 21 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           21
                         </ic-typography>
                       </button>
                     </div>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 22 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 22 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           22
                         </ic-typography>
@@ -4731,18 +4746,16 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 23 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 23 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           23
                         </ic-typography>
                       </button>
                     </div>
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 24 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 24 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           24
                         </ic-typography>
@@ -4751,7 +4764,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 25 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 25 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           25
                         </ic-typography>
@@ -4760,7 +4773,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 26 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 26 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           26
                         </ic-typography>
@@ -4769,7 +4782,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 27 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 27 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           27
                         </ic-typography>
@@ -4778,16 +4791,18 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Friday, 28 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 28 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           28
                         </ic-typography>
                       </button>
                     </div>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Saturday, 29 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Monday, 29 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           29
                         </ic-typography>
@@ -4796,15 +4811,22 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Sunday, 30 November 2025" class="day-button" tabindex="-1">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 30 December 2025" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           30
                         </ic-typography>
                       </button>
                     </div>
                   </td>
-                </tr>
-                <tr>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-current="date" aria-disabled="false" aria-hidden="false" aria-label="Choose Wednesday, 31 December 2025" class="day-button focussed today" tabindex="0">
+                        <ic-typography variant="subtitle-small">
+                          31
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
                   <td>
                     <div class="day-button-container">
                       <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
@@ -4841,6 +4863,8 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                       </button>
                     </div>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <div class="day-button-container">
                       <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
@@ -4864,6 +4888,42 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                       <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
                         <ic-typography italic="" variant="subtitle-small">
                           7
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          8
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          9
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          10
+                        </ic-typography>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="day-button-container">
+                      <button aria-disabled="false" aria-hidden="true" class="day-button outside-month" tabindex="-1">
+                        <ic-typography italic="" variant="subtitle-small">
+                          11
                         </ic-typography>
                       </button>
                     </div>

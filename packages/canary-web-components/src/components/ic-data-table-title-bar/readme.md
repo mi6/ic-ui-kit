@@ -36,21 +36,18 @@
 
 ### Depends on
 
-- ic-typography
-- ic-select
+- [ic-typography](../../../../web-components/src/components/ic-typography)
+- [ic-select](../../../../web-components/src/components/ic-select)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-data-table-title-bar --> ic-typography
   ic-data-table-title-bar --> ic-select
-  ic-select --> ic-input-container
   ic-select --> ic-input-label
-  ic-select --> ic-input-component-container
   ic-select --> ic-typography
   ic-select --> ic-button
   ic-select --> ic-menu
-  ic-select --> ic-input-validation
   ic-input-label --> ic-typography
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
@@ -60,7 +57,6 @@ graph TD;
   ic-menu --> ic-loading-indicator
   ic-menu --> ic-typography
   ic-menu --> ic-button
-  ic-input-validation --> ic-typography
   style ic-data-table-title-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

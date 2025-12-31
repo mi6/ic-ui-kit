@@ -36,8 +36,8 @@
 
 ### Depends on
 
-- ic-tooltip
-- ic-typography
+- [ic-tooltip](../../../../web-components/src/components/ic-tooltip)
+- [ic-typography](../../../../web-components/src/components/ic-typography)
 
 ### Graph
 ```mermaid

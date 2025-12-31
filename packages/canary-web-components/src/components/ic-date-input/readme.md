@@ -74,27 +74,20 @@ Date
 
 ### Depends on
 
-- ic-input-container
-- ic-input-label
-- ic-input-component-container
-- ic-button
-- ic-input-validation
+- [ic-input-label](../../../../web-components/src/components/ic-input-label)
+- [ic-button](../../../../web-components/src/components/ic-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-date-input --> ic-input-container
   ic-date-input --> ic-input-label
-  ic-date-input --> ic-input-component-container
   ic-date-input --> ic-button
-  ic-date-input --> ic-input-validation
   ic-input-label --> ic-typography
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
-  ic-input-validation --> ic-typography
   ic-date-picker --> ic-date-input
   style ic-date-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

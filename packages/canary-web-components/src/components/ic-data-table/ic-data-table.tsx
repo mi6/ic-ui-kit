@@ -1838,7 +1838,7 @@ export class DataTable {
                     } row ${cellIndex}`}
                     onIcCheck={() => this.onRowClick(row)}
                     size={this.density === "dense" ? "small" : "medium"}
-                    value={cellIndex}
+                    value={cellIndex.toString()}
                   ></ic-checkbox>
                 </div>
               </td>
@@ -2317,7 +2317,7 @@ export class DataTable {
           max={loadingOptions?.max}
           min={loadingOptions?.min}
           progress={loadingOptions?.progress}
-          ref={(el: HTMLIcLoadingIndicatorElement) =>
+          ref={(el: HTMLIcLoadingIndicatorElement | undefined) =>
             (this.loadingIndicator = el)
           }
         ></ic-loading-indicator>

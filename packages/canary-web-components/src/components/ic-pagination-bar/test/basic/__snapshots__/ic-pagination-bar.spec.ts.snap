@@ -17,7 +17,7 @@ exports[`ic-pagination-bar should allow more than a maximum of 4 custom items pe
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="6" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="6" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@ exports[`ic-pagination-bar should render 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ exports[`ic-pagination-bar should render with a custom item label 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@ exports[`ic-pagination-bar should render with a custom page label 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Sheet" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Sheet" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -182,7 +182,7 @@ exports[`ic-pagination-bar should render with custom items per page options 1`] 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="7" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="7" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -201,7 +201,7 @@ exports[`ic-pagination-bar should render with dark appearance 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -220,7 +220,7 @@ exports[`ic-pagination-bar should render with data pagination type 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -239,7 +239,7 @@ exports[`ic-pagination-bar should render with go to page controls 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
         <div class="go-to-page-holder">
           <ic-typography variant="label">
@@ -306,7 +306,7 @@ exports[`ic-pagination-bar should render with items per page controls 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -325,7 +325,7 @@ exports[`ic-pagination-bar should render with left alignment 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -344,7 +344,7 @@ exports[`ic-pagination-bar should render with light appearance 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -363,7 +363,7 @@ exports[`ic-pagination-bar should render with space between alignment 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -377,7 +377,7 @@ exports[`ic-pagination-bar should render without range text 1`] = `
     <div class="pagination-bar pagination-bar-right">
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -470,7 +470,7 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="1" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="1" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -489,7 +489,7 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="10" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -508,7 +508,7 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination currentpage="1" label="Page" pages="5" theme="inherit" type="simple"></ic-pagination>
+          <ic-pagination accessiblelabel="Pagination Navigation" currentpage="1" label="Page" pages="5" theme="inherit" type="simple"></ic-pagination>
         </div>
       </div>
     </div>

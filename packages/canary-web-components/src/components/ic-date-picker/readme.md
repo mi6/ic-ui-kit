@@ -76,18 +76,14 @@
 graph TD;
   ic-date-picker --> ic-date-input
   ic-date-picker --> ic-calendar
-  ic-date-input --> ic-input-container
   ic-date-input --> ic-input-label
-  ic-date-input --> ic-input-component-container
   ic-date-input --> ic-button
-  ic-date-input --> ic-input-validation
   ic-input-label --> ic-typography
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
-  ic-input-validation --> ic-typography
   ic-calendar --> ic-button
   ic-calendar --> ic-typography
   style ic-date-picker fill:#f9f,stroke:#333,stroke-width:4px

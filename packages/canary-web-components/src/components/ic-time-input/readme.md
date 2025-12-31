@@ -67,32 +67,20 @@ Date
 
 ### Depends on
 
-- ic-input-container
-- ic-input-label
-- ic-input-component-container
-- ic-button
-- ic-toggle-button-group
-- ic-toggle-button
-- ic-input-validation
+- [ic-input-label](../../../../web-components/src/components/ic-input-label)
+- [ic-button](../../../../web-components/src/components/ic-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-time-input --> ic-input-container
   ic-time-input --> ic-input-label
-  ic-time-input --> ic-input-component-container
   ic-time-input --> ic-button
-  ic-time-input --> ic-toggle-button-group
-  ic-time-input --> ic-toggle-button
-  ic-time-input --> ic-input-validation
   ic-input-label --> ic-typography
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
-  ic-toggle-button --> ic-button
-  ic-input-validation --> ic-typography
   style ic-time-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

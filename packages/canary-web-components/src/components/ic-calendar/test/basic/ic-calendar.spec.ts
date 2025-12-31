@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Calendar } from "../../ic-calendar";
-import { IcButton as Button } from "@ukic/web-components/dist/components/ic-button";
+import { Button } from "../../../../../../web-components/src/components/ic-button/ic-button";
 import {
   waitForTimeout,
   testKeyboardEvent as keyboardEvent,

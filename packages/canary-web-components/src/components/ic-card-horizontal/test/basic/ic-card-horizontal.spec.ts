@@ -1,8 +1,8 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Card } from "../../ic-card-horizontal";
-import { IcTypography as Typography } from "@ukic/web-components/dist/components/ic-typography";
-import { IcBadge as Badge } from "@ukic/web-components/dist/components/ic-badge";
-import { IcButton as Button } from "@ukic/web-components/dist/components/ic-button";
+import { Typography } from "../../../../../../web-components/src/components/ic-typography/ic-typography";
+import { Badge } from "../../../../../../web-components/src/components/ic-badge/ic-badge";
+import { Button } from "../../../../../../web-components/src/components/ic-button/ic-button";
 
 describe("ic-card-horizontal", () => {
   it("should render", async () => {

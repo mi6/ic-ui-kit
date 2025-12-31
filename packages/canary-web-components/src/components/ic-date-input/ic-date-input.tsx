@@ -1657,7 +1657,7 @@ export class DateInput {
               for={inputId}
               label={label}
               hideLabel={hideLabel}
-              helperText={!hideHelperText ? helperText : ""}
+              helperText={!hideHelperText ? helperText ?? undefined : ""}
               disabled={disabled}
             >
               <slot name="helper-text" slot="helper-text"></slot>
@@ -1675,8 +1675,8 @@ export class DateInput {
           <span id="live-region" aria-live="assertive" class="sr-only"></span>
           <ic-input-component-container
             id={inputId}
-            ref={(el: HTMLIcInputComponentContainerElement) =>
-              (this.inputCompContainerEl = el)
+            ref={(el: HTMLIcInputComponentContainerElement | undefined) =>
+              (this.inputCompContainerEl = el!)
             }
             disabled={disabled}
             validationStatus={validationStatus}
@@ -1716,8 +1716,8 @@ export class DateInput {
                     <div class={{ divider: true, [size]: true }}></div>
                     <ic-button
                       id="calendar-button"
-                      ref={(el: HTMLIcButtonElement) =>
-                        (this.calendarButtonEl = el)
+                      ref={(el: HTMLIcButtonElement | undefined) =>
+                        (this.calendarButtonEl = el!)
                       }
                       aria-label="Display calendar"
                       aria-haspopup="dialog"
@@ -1745,7 +1745,9 @@ export class DateInput {
           <ic-input-validation
             status={validationStatus}
             message={
-              hasCustomValidation ? this.validationText : this.invalidDateText
+              hasCustomValidation
+                ? this.validationText ?? ""
+                : this.invalidDateText
             }
             for={inputId}
             ariaLiveMode={validationAriaLive}

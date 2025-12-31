@@ -57,8 +57,8 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- ic-typography
-- ic-tooltip
+- [ic-typography](../../../../web-components/src/components/ic-typography)
+- [ic-tooltip](../../../../web-components/src/components/ic-tooltip)
 
 ### Graph
 ```mermaid

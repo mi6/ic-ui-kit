@@ -86,13 +86,11 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- ic-loading-indicator
-- ic-typography
-- ic-link
-- ic-tooltip
-- ic-button
-- ic-checkbox
-- ic-empty-state
+- [ic-loading-indicator](../../../../web-components/src/components/ic-loading-indicator)
+- [ic-typography](../../../../web-components/src/components/ic-typography)
+- [ic-tooltip](../../../../web-components/src/components/ic-tooltip)
+- [ic-button](../../../../web-components/src/components/ic-button)
+- [ic-empty-state](../../../../web-components/src/components/ic-empty-state)
 - [ic-pagination-bar](../ic-pagination-bar)
 
 ### Graph
@@ -100,10 +98,8 @@ Type: `Promise<void>`
 graph TD;
   ic-data-table --> ic-loading-indicator
   ic-data-table --> ic-typography
-  ic-data-table --> ic-link
   ic-data-table --> ic-tooltip
   ic-data-table --> ic-button
-  ic-data-table --> ic-checkbox
   ic-data-table --> ic-empty-state
   ic-data-table --> ic-pagination-bar
   ic-loading-indicator --> ic-typography
@@ -111,7 +107,6 @@ graph TD;
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
-  ic-checkbox --> ic-typography
   ic-empty-state --> ic-typography
   ic-pagination-bar --> ic-typography
   ic-pagination-bar --> ic-select
@@ -119,25 +114,18 @@ graph TD;
   ic-pagination-bar --> ic-tooltip
   ic-pagination-bar --> ic-text-field
   ic-pagination-bar --> ic-button
-  ic-select --> ic-input-container
   ic-select --> ic-input-label
-  ic-select --> ic-input-component-container
   ic-select --> ic-typography
   ic-select --> ic-button
   ic-select --> ic-menu
-  ic-select --> ic-input-validation
   ic-input-label --> ic-typography
   ic-menu --> ic-loading-indicator
   ic-menu --> ic-typography
   ic-menu --> ic-button
-  ic-input-validation --> ic-typography
   ic-pagination --> ic-button
   ic-pagination --> ic-pagination-item
   ic-pagination-item --> ic-typography
-  ic-text-field --> ic-input-container
   ic-text-field --> ic-input-label
-  ic-text-field --> ic-input-component-container
-  ic-text-field --> ic-input-validation
   ic-text-field --> ic-typography
   style ic-data-table fill:#f9f,stroke:#333,stroke-width:4px
 ```

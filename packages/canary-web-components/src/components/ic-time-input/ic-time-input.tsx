@@ -1556,7 +1556,7 @@ export class TimeInput {
               for={inputId}
               label={label}
               hideLabel={hideLabel}
-              helperText={!hideHelperText ? helperText : ""}
+              helperText={!hideHelperText ? helperText ?? undefined : ""}
               disabled={disabled}
             >
               <slot name="helper-text" slot="helper-text"></slot>
@@ -1579,8 +1579,8 @@ export class TimeInput {
           >
             <ic-input-component-container
               id={inputId}
-              ref={(el: HTMLIcInputComponentContainerElement) =>
-                (this.inputCompContainerEl = el)
+              ref={(el: HTMLIcInputComponentContainerElement | undefined) =>
+                (this.inputCompContainerEl = el!)
               }
               disabled={disabled}
               validationStatus={validationStatus}
@@ -1649,7 +1649,7 @@ export class TimeInput {
               <ic-toggle-button-group
                 select-type="single"
                 accessible-label="AM PM Toggle"
-                ref={(el: HTMLIcToggleButtonGroupElement) =>
+                ref={(el: HTMLIcToggleButtonGroupElement | undefined) =>
                   (this.periodToggleEl = el)
                 }
                 disabled={disabled}
@@ -1691,7 +1691,9 @@ export class TimeInput {
           <ic-input-validation
             status={validationStatus}
             message={
-              hasCustomValidation ? this.validationText : this.invalidTimeText
+              hasCustomValidation
+                ? this.validationText ?? ""
+                : this.invalidTimeText
             }
             for={inputId}
             ariaLiveMode={validationAriaLive}

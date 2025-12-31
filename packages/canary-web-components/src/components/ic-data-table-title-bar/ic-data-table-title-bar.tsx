@@ -6,7 +6,7 @@ import {
   Prop,
   h,
 } from "@stencil/core";
-import { IcSelectCustomEvent } from "@ukic/web-components/dist/types/interface";
+import { IcMultiValueEventDetail } from "../../../../web-components/src/utils/types";
 import {
   IcDataTableDensityOptions,
   IcDensityUpdateEventDetail,
@@ -69,10 +69,18 @@ export class DataTableTitleBar {
     }
   }
 
-  private changeDensity = (
-    ev: IcSelectCustomEvent<IcDensityUpdateEventDetail>
-  ) => {
-    this.icTableDensityUpdate.emit({ value: ev.detail.value });
+  private changeDensity = (ev: CustomEvent<IcMultiValueEventDetail>) => {
+    const allowedDensity: IcDataTableDensityOptions[] = [
+      "default",
+      "dense",
+      "spacious",
+    ];
+    const value = ev.detail.value;
+    if (allowedDensity.includes(value as IcDataTableDensityOptions)) {
+      this.icTableDensityUpdate.emit({
+        value: value as IcDataTableDensityOptions,
+      });
+    }
   };
 
   render() {

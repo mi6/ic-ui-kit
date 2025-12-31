@@ -23,15 +23,13 @@
 
 ### Depends on
 
-- ic-tooltip
-- ic-section-container
-- ic-typography
+- [ic-tooltip](../../../../web-components/src/components/ic-tooltip)
+- [ic-typography](../../../../web-components/src/components/ic-typography)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-table-of-contents --> ic-tooltip
-  ic-table-of-contents --> ic-section-container
   ic-table-of-contents --> ic-typography
   ic-tooltip --> ic-typography
   style ic-table-of-contents fill:#f9f,stroke:#333,stroke-width:4px
