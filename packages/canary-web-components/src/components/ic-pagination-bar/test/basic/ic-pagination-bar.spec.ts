@@ -1,13 +1,13 @@
 import { PaginationBar } from "../../ic-pagination-bar";
-import { IcPagination } from "@ukic/web-components/dist/components/ic-pagination";
-import { IcButton } from "@ukic/web-components/dist/components/ic-button";
-import { IcTooltip } from "@ukic/web-components/dist/components/ic-tooltip";
-import { IcTextField } from "@ukic/web-components/dist/components/ic-text-field";
+import { Pagination as IcPagination } from "../../../../../../web-components/src/components/ic-pagination/ic-pagination";
+import { Button as IcButton } from "../../../../../../web-components/src/components/ic-button/ic-button";
+import { Tooltip as IcTooltip } from "../../../../../../web-components/src/components/ic-tooltip/ic-tooltip";
+import { TextField as IcTextField } from "../../../../../../web-components/src/components/ic-text-field/ic-text-field";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { newSpecPage } from "@stencil/core/testing";
-import { IcSelect } from "@ukic/web-components/dist/components/ic-select";
-import { IcTypography } from "@ukic/web-components/dist/components/ic-typography";
-import { IcMenu } from "@ukic/web-components/dist/components/ic-menu";
+import { Select as IcSelect } from "../../../../../../web-components/src/components/ic-select/ic-select";
+import { Typography as IcTypography } from "../../../../../../web-components/src/components/ic-typography/ic-typography";
+import { Menu as IcMenu } from "../../../../../../web-components/src/components/ic-menu/ic-menu";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());

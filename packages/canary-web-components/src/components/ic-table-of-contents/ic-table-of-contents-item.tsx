@@ -1,4 +1,5 @@
 import { FunctionalComponent, h } from "@stencil/core";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
 
 interface IcTableOfContentsItemElement {
   id: string;

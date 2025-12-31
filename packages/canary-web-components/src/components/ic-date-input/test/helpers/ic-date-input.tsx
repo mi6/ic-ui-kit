@@ -1,7 +1,7 @@
 import { SpecPage, newSpecPage } from "@stencil/core/testing";
 import { DateInput } from "../../ic-date-input";
 import { h } from "@stencil/core";
-import { IcInputLabel } from "@ukic/web-components/dist/components/ic-input-label";
+import { InputLabel as IcInputLabel } from "../../../../../../web-components/src/components/ic-input-label/ic-input-label";
 
 interface EventType {
   inputType: string;

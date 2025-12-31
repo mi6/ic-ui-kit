@@ -1,7 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { TreeView } from "../../ic-tree-view";
 import { TreeItem } from "../../../ic-tree-item/ic-tree-item";
-import { IcTypography as Typography } from "@ukic/web-components/dist/components/ic-typography";
+import { Typography } from "../../../../../../web-components/src/components/ic-typography/ic-typography";
 
 const parent = { tagName: "IC-TREE-VIEW", expanded: true };
 

@@ -51,8 +51,8 @@
 
 ### Depends on
 
-- ic-button
-- ic-typography
+- [ic-button](../../../../web-components/src/components/ic-button)
+- [ic-typography](../../../../web-components/src/components/ic-typography)
 
 ### Graph
 ```mermaid

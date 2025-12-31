@@ -5,8 +5,8 @@ import {
   createTimeInputEnv,
   keyboardEvent,
 } from "../helpers/ic-time-input";
-import { IcButton } from "@ukic/web-components/dist/components/ic-button";
-import { IcInputLabel } from "@ukic/web-components/dist/components/ic-input-label";
+import { Button as IcButton } from "../../../../../../web-components/src/components/ic-button/ic-button";
+import { InputLabel as IcInputLabel } from "../../../../../../web-components/src/components/ic-input-label/ic-input-label";
 
 const TIME_000000 = "00:00:00";
 const TIME_123456 = "12:34:56";

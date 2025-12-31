@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { TreeItem } from "../../ic-tree-item";
-import { IcTypography as Typography } from "@ukic/web-components/dist/components/ic-typography";
+import { Typography } from "../../../../../../web-components/src/components/ic-typography/ic-typography";
 import * as helpers from "../../../../utils/helpers";
 
 describe("ic-tree-item component", () => {

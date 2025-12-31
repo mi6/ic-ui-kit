@@ -2,7 +2,7 @@ import "../dist/core/normalize.css";
 import "@ukic/fonts/dist/fonts.css";
 import "../dist/core/core.css";
 import "./storybook-overrides.css";
-import "@ukic/web-components/dist/core/icds-table-style.css";
+import "../../web-components/src/global/icds-table-style.css";
 
 import { html } from "lit";
 import { defineCustomElements } from "../dist/esm/loader";

@@ -41,6 +41,9 @@ import { MonthPicker } from "./ic-month-picker";
 import { YearPicker } from "./ic-year-picker";
 import { removeDisabledFalse, stringEnumToArray } from "../../utils/helpers";
 
+import "../../../../web-components/src/components/ic-button/ic-button";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+
 const FOCUS_TIMER = 100;
 
 @Component({

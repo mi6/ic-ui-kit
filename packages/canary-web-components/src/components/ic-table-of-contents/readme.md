@@ -23,9 +23,9 @@
 
 ### Depends on
 
-- ic-tooltip
-- ic-section-container
-- ic-typography
+- [ic-tooltip](../../../../web-components/src/components/ic-tooltip)
+- [ic-section-container](../../../../web-components/src/components/ic-section-container)
+- [ic-typography](../../../../web-components/src/components/ic-typography)
 
 ### Graph
 ```mermaid

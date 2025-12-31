@@ -60,6 +60,7 @@ export const config: Config = {
     browserArgs: ["--no-sandbox", "--disable-setuid-sandbox"],
     moduleNameMapper: {
       "\\.svg": "<rootDir>/mocks/svgMock.ts",
+      "lit-html": "<rootDir>/mocks/empty.js",
     },
     coverageThreshold: {
       "./src/components/*/*.tsx": {

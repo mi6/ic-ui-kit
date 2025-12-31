@@ -19,6 +19,7 @@ import {
   renderDynamicChildSlots,
 } from "../../utils/helpers";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
 
 let treeItemIds = 0;
 

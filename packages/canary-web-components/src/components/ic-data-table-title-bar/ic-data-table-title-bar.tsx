@@ -6,12 +6,17 @@ import {
   Prop,
   h,
 } from "@stencil/core";
-import { IcSelectCustomEvent } from "@ukic/web-components/dist/types/interface";
+import { IcMultiValueEventDetail } from "../../../../web-components/src/utils/types";
 import {
   IcDataTableDensityOptions,
   IcDensityUpdateEventDetail,
 } from "../ic-data-table/ic-data-table.types";
 import { isSlotUsed } from "../../utils/helpers";
+
+import "../../../../web-components/src/components/ic-select/ic-select";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-chip/ic-chip";
+import "../../../../web-components/src/components/ic-button/ic-button";
 
 const DEFAULT_TITLE_BAR_HEADING = "Title Bar";
 
@@ -69,10 +74,18 @@ export class DataTableTitleBar {
     }
   }
 
-  private changeDensity = (
-    ev: IcSelectCustomEvent<IcDensityUpdateEventDetail>
-  ) => {
-    this.icTableDensityUpdate.emit({ value: ev.detail.value });
+  private changeDensity = (ev: CustomEvent<IcMultiValueEventDetail>) => {
+    const allowedDensity: IcDataTableDensityOptions[] = [
+      "default",
+      "dense",
+      "spacious",
+    ];
+    const value = ev.detail.value;
+    if (allowedDensity.includes(value as IcDataTableDensityOptions)) {
+      this.icTableDensityUpdate.emit({
+        value: value as IcDataTableDensityOptions,
+      });
+    }
   };
 
   render() {

@@ -29,8 +29,8 @@
 
 ### Depends on
 
-- ic-typography
-- ic-button
+- [ic-typography](../../../../web-components/src/components/ic-typography)
+- [ic-button](../../../../web-components/src/components/ic-button)
 
 ### Graph
 ```mermaid

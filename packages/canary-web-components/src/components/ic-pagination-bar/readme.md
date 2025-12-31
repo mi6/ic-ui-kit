@@ -47,12 +47,12 @@
 
 ### Depends on
 
-- ic-typography
-- ic-select
-- ic-pagination
-- ic-tooltip
-- ic-text-field
-- ic-button
+- [ic-typography](../../../../web-components/src/components/ic-typography)
+- [ic-select](../../../../web-components/src/components/ic-select)
+- [ic-pagination](../../../../web-components/src/components/ic-pagination)
+- [ic-tooltip](../../../../web-components/src/components/ic-tooltip)
+- [ic-text-field](../../../../web-components/src/components/ic-text-field)
+- [ic-button](../../../../web-components/src/components/ic-button)
 
 ### Graph
 ```mermaid
@@ -81,8 +81,6 @@ graph TD;
   ic-menu --> ic-button
   ic-input-validation --> ic-typography
   ic-pagination --> ic-button
-  ic-pagination --> ic-pagination-item
-  ic-pagination-item --> ic-typography
   ic-text-field --> ic-input-container
   ic-text-field --> ic-input-label
   ic-text-field --> ic-input-component-container

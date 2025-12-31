@@ -51,7 +51,7 @@ exports[`ic-time-input component should handle default value 1`] = `
       <ic-input-validation arialivemode="polite" for="ic-time-input-11" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-11" type="hidden" value="2025-10-21T00:01:20.000Z">
+  <input class="ic-input" name="ic-time-input-11" type="hidden" value="2026-01-13T01:01:20.000Z">
 </ic-time-input>
 `;
 
@@ -106,7 +106,7 @@ exports[`ic-time-input component should handle single digit hour and minute 1`] 
       <ic-input-validation arialivemode="polite" for="ic-time-input-12" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-12" type="hidden" value="2025-10-21T00:01:20.000Z">
+  <input class="ic-input" name="ic-time-input-12" type="hidden" value="2026-01-13T01:01:20.000Z">
 </ic-time-input>
 `;
 
@@ -449,7 +449,7 @@ exports[`ic-time-input component should render disabled, with clock button 1`] =
       <ic-input-validation arialivemode="polite" for="ic-time-input-10" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" disabled="" name="ic-time-input-10" type="hidden" value="2025-10-21T12:45:00.000Z">
+  <input class="ic-input" disabled="" name="ic-time-input-10" type="hidden" value="2026-01-13T13:45:00.000Z">
 </ic-time-input>
 `;
 
@@ -891,7 +891,7 @@ exports[`ic-time-input component should render with open clock button 1`] = `
       <ic-input-validation arialivemode="polite" for="ic-time-input-9" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-9" type="hidden" value="2025-10-21T12:45:00.000Z">
+  <input class="ic-input" name="ic-time-input-9" type="hidden" value="2026-01-13T13:45:00.000Z">
 </ic-time-input>
 `;
 

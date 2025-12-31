@@ -2,14 +2,14 @@ import { newSpecPage } from "@stencil/core/testing";
 import { DatePicker } from "../../ic-date-picker";
 import { Calendar } from "../../../ic-calendar/ic-calendar";
 import { DateInput } from "../../../ic-date-input/ic-date-input";
-import { IcButton as Button } from "@ukic/web-components/dist/components/ic-button";
-import { IcTooltip as Tooltip } from "@ukic/web-components/dist/components/ic-tooltip";
+import { Button } from "../../../../../../web-components/src/components/ic-button/ic-button";
+import { Tooltip } from "../../../../../../web-components/src/components/ic-tooltip/ic-tooltip";
 import {
   waitForTimeout,
   testKeyboardEvent as keyboardEvent,
 } from "../../../../testspec.setup";
 import { dateIsToday, dateMatches } from "../../../../utils/date-helpers";
-import { IcInputLabel as InputLabel } from "@ukic/web-components/dist/components/ic-input-label";
+import { InputLabel } from "../../../../../../web-components/src/components/ic-input-label/ic-input-label";
 
 const DELAY_MS = 350;
 

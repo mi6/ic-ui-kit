@@ -20,6 +20,9 @@ import {
 import { sanitizeHTMLIconString } from "../../../../web-components/src/utils/common-helpers";
 import { IcTreeItemOptions } from "./ic-tree-view.types";
 
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-skip-link/ic-skip-link";
+
 let treeViewIds = 0;
 
 /**

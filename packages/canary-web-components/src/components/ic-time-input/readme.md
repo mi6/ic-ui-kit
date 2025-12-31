@@ -1,4 +1,4 @@
-# ic-date-input
+# ic-time-input
 
 
 
@@ -67,13 +67,13 @@ Date
 
 ### Depends on
 
-- ic-input-container
-- ic-input-label
-- ic-input-component-container
-- ic-button
-- ic-toggle-button-group
-- ic-toggle-button
-- ic-input-validation
+- [ic-input-container](../../../../web-components/src/components/ic-input-container)
+- [ic-input-label](../../../../web-components/src/components/ic-input-label)
+- [ic-input-component-container](../../../../web-components/src/components/ic-input-component-container)
+- [ic-button](../../../../web-components/src/components/ic-button)
+- [ic-toggle-button-group](../../../../web-components/src/components/ic-toggle-button-group)
+- [ic-toggle-button](../../../../web-components/src/components/ic-toggle-button)
+- [ic-input-validation](../../../../web-components/src/components/ic-input-validation)
 
 ### Graph
 ```mermaid

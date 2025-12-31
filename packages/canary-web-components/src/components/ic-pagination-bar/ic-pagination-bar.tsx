@@ -21,7 +21,15 @@ import {
   IcPaginationAlignmentOptions,
   IcPaginationLabelTypes,
   IcPaginationTypes,
-} from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
+} from "../../../../web-components/src/components/ic-pagination/ic-pagination.types";
+
+import "../../../../web-components/src/components/ic-pagination/ic-pagination";
+import "../../../../web-components/src/components/ic-select/ic-select";
+import "../../../../web-components/src/components/ic-menu/ic-menu";
+import "../../../../web-components/src/components/ic-text-field/ic-text-field";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-button/ic-button";
+import "../../../../web-components/src/components/ic-tooltip/ic-tooltip";
 
 @Component({
   tag: "ic-pagination-bar",
@@ -596,8 +604,8 @@ export class PaginationBar {
                     selectOnEnter={selectItemsPerPageOnEnter}
                     value={itemsPerPageString}
                     onIcChange={this.changeItemsPerPage}
-                    ref={(el: HTMLIcSelectElement) =>
-                      (this.pageDropdownEl = el)
+                    ref={(el: HTMLIcSelectElement | undefined) =>
+                      (this.pageDropdownEl = el!)
                     }
                   ></ic-select>
                 </div>
@@ -642,7 +650,9 @@ export class PaginationBar {
                 type={type}
                 pages={totalPages}
                 label={pageLabel}
-                ref={(el: HTMLIcPaginationElement) => (this.paginationEl = el)}
+                ref={(el: HTMLIcPaginationElement | undefined) =>
+                  (this.paginationEl = el!)
+                }
                 currentPage={activePage}
                 theme={theme}
                 monochrome={monochrome}
@@ -663,8 +673,8 @@ export class PaginationBar {
                   target={`#${PAGE_INPUT_FIELD_ID}`}
                   disableHover
                   disableClick
-                  ref={(el: HTMLIcTooltipElement) =>
-                    (this.pageInputTooltipEl = el)
+                  ref={(el: HTMLIcTooltipElement | undefined) =>
+                    (this.pageInputTooltipEl = el!)
                   }
                 >
                   <ic-text-field
@@ -683,8 +693,8 @@ export class PaginationBar {
                     validationInlineInternal
                     onBlur={this.handleBlur}
                     onFocus={this.handleFocus}
-                    ref={(el: HTMLIcTextFieldElement) =>
-                      (this.pageInputEl = el)
+                    ref={(el: HTMLIcTextFieldElement | undefined) =>
+                      (this.pageInputEl = el!)
                     }
                   ></ic-text-field>
                 </ic-tooltip>
