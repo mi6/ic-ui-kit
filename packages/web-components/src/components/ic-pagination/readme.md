@@ -52,6 +52,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+
 ### Depends on
 
 - [ic-button](../ic-button)
@@ -68,6 +72,7 @@ graph TD;
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
   ic-pagination-item --> ic-typography
+  ic-pagination-bar --> ic-pagination
   style ic-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

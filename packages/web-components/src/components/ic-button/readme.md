@@ -85,22 +85,15 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [ic-accordion-group](../ic-accordion-group)
- - [ic-alert](../ic-alert)
- - [ic-back-to-top](../ic-back-to-top)
- - [ic-dialog](../ic-dialog)
- - [ic-horizontal-scroll](../ic-horizontal-scroll)
+ - [ic-calendar](../../../../canary-web-components/src/components/ic-calendar)
+ - [ic-data-table](../../../../canary-web-components/src/components/ic-data-table)
+ - [ic-date-input](../../../../canary-web-components/src/components/ic-date-input)
  - [ic-menu](../ic-menu)
- - [ic-menu-item](../ic-menu-item)
- - [ic-navigation-button](../ic-navigation-button)
- - [ic-navigation-menu](../ic-navigation-menu)
  - [ic-pagination](../ic-pagination)
- - [ic-search-bar](../ic-search-bar)
+ - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
  - [ic-select](../ic-select)
- - [ic-side-navigation](../ic-side-navigation)
- - [ic-toast](../ic-toast)
- - [ic-toggle-button](../ic-toggle-button)
- - [ic-top-navigation](../ic-top-navigation)
+ - [ic-time-input](../../../../canary-web-components/src/components/ic-time-input)
+ - [ic-time-selector](../../../../canary-web-components/src/components/ic-time-selector)
 
 ### Depends on
 
@@ -116,22 +109,15 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
-  ic-accordion-group --> ic-button
-  ic-alert --> ic-button
-  ic-back-to-top --> ic-button
-  ic-dialog --> ic-button
-  ic-horizontal-scroll --> ic-button
+  ic-calendar --> ic-button
+  ic-data-table --> ic-button
+  ic-date-input --> ic-button
   ic-menu --> ic-button
-  ic-menu-item --> ic-button
-  ic-navigation-button --> ic-button
-  ic-navigation-menu --> ic-button
   ic-pagination --> ic-button
-  ic-search-bar --> ic-button
+  ic-pagination-bar --> ic-button
   ic-select --> ic-button
-  ic-side-navigation --> ic-button
-  ic-toast --> ic-button
-  ic-toggle-button --> ic-button
-  ic-top-navigation --> ic-button
+  ic-time-input --> ic-button
+  ic-time-selector --> ic-button
   style ic-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

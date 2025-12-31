@@ -90,26 +90,25 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [ic-data-table-title-bar](../../../../canary-web-components/src/components/ic-data-table-title-bar)
+ - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+
 ### Depends on
 
-- [ic-input-container](../ic-input-container)
 - [ic-input-label](../ic-input-label)
-- [ic-input-component-container](../ic-input-component-container)
 - [ic-typography](../ic-typography)
 - [ic-button](../ic-button)
 - [ic-menu](../ic-menu)
-- [ic-input-validation](../ic-input-validation)
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-select --> ic-input-container
   ic-select --> ic-input-label
-  ic-select --> ic-input-component-container
   ic-select --> ic-typography
   ic-select --> ic-button
   ic-select --> ic-menu
-  ic-select --> ic-input-validation
   ic-input-label --> ic-typography
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
@@ -119,7 +118,8 @@ graph TD;
   ic-menu --> ic-loading-indicator
   ic-menu --> ic-typography
   ic-menu --> ic-button
-  ic-input-validation --> ic-typography
+  ic-data-table-title-bar --> ic-select
+  ic-pagination-bar --> ic-select
   style ic-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
