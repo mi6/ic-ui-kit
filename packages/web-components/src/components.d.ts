@@ -1062,7 +1062,7 @@ export namespace Components {
         /**
           * The validation message to display.
          */
-        "message": string;
+        "message"?: string;
         /**
           * The status of the validation - e.g. 'error' | 'warning' | 'success'.
          */
@@ -4750,7 +4750,7 @@ declare namespace LocalJSX {
         /**
           * The validation message to display.
          */
-        "message": string;
+        "message"?: string;
         /**
           * The status of the validation - e.g. 'error' | 'warning' | 'success'.
          */

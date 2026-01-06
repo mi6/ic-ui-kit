@@ -9,10 +9,7 @@ import errorIcon from "../../assets/error-icon.svg";
 import successIcon from "../../assets/success-icon.svg";
 import warningIcon from "../../assets/warning-icon.svg";
 
-import {
-  getInputValidationTextID,
-  onComponentRequiredPropUndefined,
-} from "../../utils/helpers";
+import { getInputValidationTextID } from "../../utils/helpers";
 
 const ICON = {
   [IcInformationStatus.Warning]: warningIcon,
@@ -51,7 +48,7 @@ export class InputValidation {
   /**
    * The validation message to display.
    */
-  @Prop() message!: string;
+  @Prop() message?: string;
   @Watch("message")
   watchMessageHandler(newValue: string) {
     // Force detectable DOM changes
@@ -68,10 +65,6 @@ export class InputValidation {
   @Prop() status?: IcInformationStatusOrEmpty = "";
 
   componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.message, propName: "message" }],
-      "Input Validation"
-    );
     this.messageEl.textContent = INVISIBLE_CHAR;
   }
 
