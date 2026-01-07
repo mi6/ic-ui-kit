@@ -7,7 +7,7 @@
 
 .data {
   display: flex;
-  align-items: center;
+  align-items: top;
 }
 
 .text-cells {

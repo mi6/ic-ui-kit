@@ -155,6 +155,7 @@ export const IconButton = {
           variant="icon-tertiary"
           aria-label="Edit"
           slot="end-component"
+          size="small"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -173,6 +174,7 @@ export const IconButton = {
           variant="icon-tertiary"
           aria-label="Edit"
           slot="end-component"
+          size="small"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -191,6 +193,7 @@ export const IconButton = {
           variant="icon-tertiary"
           aria-label="Edit"
           slot="end-component"
+          size="small"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -209,6 +212,7 @@ export const IconButton = {
           variant="icon-tertiary"
           aria-label="Edit"
           slot="end-component"
+          size="small"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -236,6 +240,7 @@ export const IconButton = {
           variant="icon-tertiary"
           aria-label="Edit"
           slot="end-component"
+          size="small"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -502,6 +507,7 @@ export const Playground = {
           variant="icon-tertiary"
           aria-label="Edit"
           slot=${args.endCompSlot}
+          size="small"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
