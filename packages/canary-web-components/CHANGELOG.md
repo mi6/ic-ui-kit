@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.33](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.32...@ukic/canary-web-components@3.0.0-canary.33) (2026-01-07)
+
+### Bug Fixes
+
+- **canary-web-components:** add fix to column width styling in data table ([82d384b](https://github.com/mi6/ic-ui-kit/commit/82d384b258e7f4bc24b8f510b90fb7d7656bc255))
+- **canary-web-components:** remove absolute positioning for ic-calendar when it's not in date picker ([c88fd59](https://github.com/mi6/ic-ui-kit/commit/c88fd59631e52467f985d9f7461f6384853f472b))
+- **canary-web-components:** update pagination bar to pass accessible label through to pagination ([b0f0207](https://github.com/mi6/ic-ui-kit/commit/b0f0207d3070a0b83199ceb44c8c7ff187fa98fe))
+
+### Features
+
+- **canary-web-components:** add millisecond time format, and AM/PM toggle to time input ([9dbd383](https://github.com/mi6/ic-ui-kit/commit/9dbd383cd63e296f1eeb056beeaae629ae847336)), closes [#3963](https://github.com/mi6/ic-ui-kit/issues/3963)
+- **canary-web-components:** implement time selector component ([68ce880](https://github.com/mi6/ic-ui-kit/commit/68ce880285c3d26c890331baafd558e52ded0443)), closes [#3671](https://github.com/mi6/ic-ui-kit/issues/3671)
+
 # [3.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.31...@ukic/canary-web-components@3.0.0-canary.32) (2025-12-16)
 
 ### Features

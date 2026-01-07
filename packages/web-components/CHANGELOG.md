@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.17.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.16.0...@ukic/web-components@3.17.0) (2026-01-07)
+
+### Bug Fixes
+
+- **web-components:** update pagination to include accessible label to replace <nav> aria label ([706d7e1](https://github.com/mi6/ic-ui-kit/commit/706d7e18234f95795276d4d2096fc423f3b3f098)), closes [#4080](https://github.com/mi6/ic-ui-kit/issues/4080)
+- **web-components:** update toggle button group to externally set active toggle ([dbe5ebd](https://github.com/mi6/ic-ui-kit/commit/dbe5ebdb7ef128827e9e3d104ac0001dcf1a7ca5))
+
+### Features
+
+- **web-components:** add light/dark mode tokens for time selector ([2a4978b](https://github.com/mi6/ic-ui-kit/commit/2a4978b0411bc6d8316e37857ec846410f7664f9))
+
 # [3.16.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.15.0...@ukic/web-components@3.16.0) (2025-12-16)
 
 ### Bug Fixes

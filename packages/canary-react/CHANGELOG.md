@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.33](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.32...@ukic/canary-react@3.0.0-canary.33) (2026-01-07)
+
+### Bug Fixes
+
+- **canary-react:** add Storybook story for IcCalendar's size prop, update Cypress images ([b6fb7b6](https://github.com/mi6/ic-ui-kit/commit/b6fb7b66bdb019ed4033c9d749ba6593d9a75153))
+
+### Features
+
+- **canary-react:** add millisecond time format, and AM/PM toggle to time input ([6272911](https://github.com/mi6/ic-ui-kit/commit/6272911cd856e1c48b816ee2b829087797807863))
+- **canary-react:** implement time selector component ([7e7ef70](https://github.com/mi6/ic-ui-kit/commit/7e7ef7077bb765ee4396787cbdc377e6cc75b7c6))
+
 # [3.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.31...@ukic/canary-react@3.0.0-canary.32) (2025-12-16)
 
 ### Features

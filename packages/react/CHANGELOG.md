@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.17.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.16.0...@ukic/react@3.17.0) (2026-01-07)
+
+### Features
+
+- **react:** react version update in line with web-components ([64c7cb8](https://github.com/mi6/ic-ui-kit/commit/64c7cb8348c06e5f24886fe331f8bf3668b61d55))
+
 # [3.16.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.15.0...@ukic/react@3.16.0) (2025-12-16)
 
 ### Bug Fixes
