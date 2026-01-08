@@ -96,7 +96,12 @@ export const WithButton = () => {
   return (
     <IcDataList heading="Order details">
       <IcDataRow label="Download receipt" value="CoffeeOrder_X46w32.pdf">
-        <IcButton variant="icon" aria-label="Download" slot="end-component">
+        <IcButton
+          variant="icon"
+          aria-label="Download"
+          slot="end-component"
+          size="small"
+        >
           <SlottedSVG viewBox="0 0 24 24" height="24px" width="24px">
             <path
               d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"

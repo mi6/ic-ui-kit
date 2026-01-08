@@ -205,7 +205,7 @@ export const IconButton = {
   render: () => (
     <IcDataList heading="Data">
       <IcDataRow label="Label" value="value">
-        <IcButton variant="icon" aria-label="Edit" slot="end-component">
+        <IcButton variant="icon" aria-label="Edit" slot="end-component" size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -217,7 +217,7 @@ export const IconButton = {
         </IcButton>
       </IcDataRow>
       <IcDataRow label="Label" value="value">
-        <IcButton variant="icon" aria-label="Edit" slot="end-component">
+        <IcButton variant="icon" aria-label="Edit" slot="end-component" size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -229,7 +229,7 @@ export const IconButton = {
         </IcButton>
       </IcDataRow>
       <IcDataRow label="Label" value="value">
-        <IcButton variant="icon" aria-label="Edit" slot="end-component">
+        <IcButton variant="icon" aria-label="Edit" slot="end-component" size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -241,7 +241,7 @@ export const IconButton = {
         </IcButton>
       </IcDataRow>
       <IcDataRow label="Label" value="value">
-        <IcButton variant="icon" aria-label="Edit" slot="end-component">
+        <IcButton variant="icon" aria-label="Edit" slot="end-component" size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -253,7 +253,7 @@ export const IconButton = {
         </IcButton>
       </IcDataRow>
       <IcDataRow label="Label" value="value">
-        <IcButton variant="icon" aria-label="Edit" slot="end-component">
+        <IcButton variant="icon" aria-label="Edit" slot="end-component" size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -265,7 +265,7 @@ export const IconButton = {
         </IcButton>
       </IcDataRow>
       <IcDataRow label="Label" value="value">
-        <IcButton variant="icon" aria-label="Edit" slot="end-component">
+        <IcButton variant="icon" aria-label="Edit" slot="end-component" size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -277,7 +277,7 @@ export const IconButton = {
         </IcButton>
       </IcDataRow>
       <IcDataRow label="Label" value="value">
-        <IcButton variant="icon" aria-label="Edit" slot="end-component">
+        <IcButton variant="icon" aria-label="Edit" slot="end-component" size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -289,7 +289,7 @@ export const IconButton = {
         </IcButton>
       </IcDataRow>
       <IcDataRow label="Label" value="value">
-        <IcButton variant="icon" aria-label="Edit" slot="end-component">
+        <IcButton variant="icon" aria-label="Edit" slot="end-component" size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -562,7 +562,7 @@ export const Playground = {
         size={args.rowSize}
         theme={args.rowTheme}
       >
-        <IcButton variant="icon" aria-label="Edit" slot={args.endCompSlot}>
+        <IcButton variant="icon" aria-label="Edit" slot={args.endCompSlot} size="small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
