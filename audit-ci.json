@@ -132,6 +132,13 @@
         "notes": "issue in 'ws' package used by 'cypress' - no current fix",
         "expiry": "25 January 2026"
       }
+    },
+    {
+      "GHSA-2w69-qvjg-hvjx": {
+        "active": true,
+        "notes": "need to upgrade to v7 of react router",
+        "expiry": "25 January 2026"
+      }
     }
   ]
 }
