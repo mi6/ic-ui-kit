@@ -868,7 +868,7 @@ export const Playground = {
           height="24px"
           viewBox="0 0 24 24"
           width="24px"
-          fill="#000000"
+          fill="currentColor"
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path
