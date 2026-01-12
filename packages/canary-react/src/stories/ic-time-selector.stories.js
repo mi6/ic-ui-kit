@@ -55,7 +55,7 @@ export const IcChangeEvent = {
 export const WithValue = {
   render: () => (
   <IcTimeSelector
-    value="13:45:00"
+    value="13:45"
   />
 ),
   name: "With value",
@@ -69,7 +69,7 @@ export const WithValue = {
 export const DateObject = {
   render: () => (
   <IcTimeSelector
-      value={new Date("2025-07-14T15:30:45")}
+      value={new Date("2025-07-14T15:30")}
     />
 ),
   name: "Date object",
@@ -78,7 +78,7 @@ export const DateObject = {
 export const ZuluTime = {
   render: () => (
       <IcTimeSelector
-        value="15:30:45Z"
+        value="15:30Z"
       />
     ),
   name: "Zulu time",
@@ -107,33 +107,11 @@ export const IcChangeEventTimePeriod = {
 export const DefaultValue12Hour = {
   render: () => (
   <IcTimeSelector
-    value="14:30:40"
+    value="14:30"
     timePeriod="12"
   />
 ),
   name: "Default value - 12 hour",
-};
-
-/**
- * Demonstrates the time format HH:MM.
- */
-export const HHMM = {
-  render: () => (
-  <IcTimeSelector
-    timeFormat="HH:MM"
-  />
-),
-  name: "Time format HH:MM",
-};
-
-export const DefaultValueHHMM = {
-  render: () => (
-  <IcTimeSelector
-    value="14:30"
-    timeFormat="HH:MM"
-  />
-),
-  name: "Default value - Time format HH:MM",
 };
 
 /**
@@ -143,7 +121,7 @@ export const DefaultValueHHMM = {
 export const MinTime = {
   render: () => (
   <IcTimeSelector
-    min="09:00:00"
+    min="09:00"
   />
 ),
   name: "Min time",
@@ -156,7 +134,7 @@ export const MinTime = {
 export const MaxTime = {
   render: () => (
   <IcTimeSelector
-    max="18:00:00"
+    max="18:00"
   />
 ),
   name: "Max time",
@@ -202,9 +180,9 @@ export const Large = {
  */
 export const WithClearingValue = {
   render: () => {
-    const [value, setValue] = useState("08:30:00");
+    const [value, setValue] = useState("08:30");
     const handleUpdate = () => {
-      setValue("08:30:00");
+      setValue("08:30");
     };
     const handleClearValue = (value) => {
       setValue(value);
@@ -233,12 +211,12 @@ export const WithClearingValue = {
 
 export const UpdatingValue = {
   render: () => {
-    const [value, setValue] = useState("08:30:00");
+    const [value, setValue] = useState("08:30");
     const handleReset = () => {
-      setValue("08:30:00");
+      setValue("08:30");
     };
     const handleNewValue = () => {
-      setValue("10:45:15");
+      setValue("10:45");
     }
     return (
       <>
@@ -262,9 +240,8 @@ const defaultArgs = {
   min: "",
   size: "medium",
   theme: "inherit",
-  timeFormat: "HH:MM:SS",
   timePeriod: "24",
-  value: "12:00:00",
+  value: "12:00",
 };
 
 /**
@@ -280,7 +257,6 @@ export const Playground = {
         min={args.min}
         size={args.size}
         theme={args.theme}
-        timeFormat={args.timeFormat}
         timePeriod={args.timePeriod}
         value={args.value}
       />
@@ -296,12 +272,6 @@ export const Playground = {
     },
     theme: {
       options: ["inherit", "light", "dark"],
-      control: {
-        type: "inline-radio",
-      },
-    },
-    timeFormat: {
-      options: ["HH:MM:SS", "HH:MM"],
       control: {
         type: "inline-radio",
       },

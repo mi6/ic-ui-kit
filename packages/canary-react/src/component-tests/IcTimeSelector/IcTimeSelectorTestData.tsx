@@ -11,11 +11,11 @@ export const DarkThemeTimeSelector = () => {
 };
 
 export const ValueTimeSelector = () => {
-  return <IcTimeSelector value="13:45:00" />;
+  return <IcTimeSelector value="13:45" />;
 };
 
 export const DateObjectTimeSelector = () => {
-  return <IcTimeSelector value={new Date("2025-07-14T15:30:45")} />;
+  return <IcTimeSelector value={new Date("2025-07-14T15:30")} />;
 };
 
 export const ZuluTimeSelector = () => {
@@ -39,25 +39,25 @@ export const HHMMTimeSelector = () => {
 };
 
 export const MinTimeSelector = () => {
-  return <IcTimeSelector min="08:00:00" />;
+  return <IcTimeSelector min="08:00" />;
 };
 
 export const MaxTimeSelector = () => {
-  return <IcTimeSelector max="16:00:00" />;
+  return <IcTimeSelector max="16:00" />;
 };
 
 export const DisableTimesTimeSelector = () => {
   return (
     <IcTimeSelector
-      disableTimes={[{ start: "08:00:00", end: "10:00:00" }, "13:20:00"]}
+      disableTimes={[{ start: "08:00", end: "10:00" }, "13:20"]}
     />
   );
 };
 
 export const ClearingValueTimeSelector = () => {
-  const [value, setValue] = useState<string>("08:30:00");
+  const [value, setValue] = useState<string>("08:30");
   const handleUpdate = () => {
-    setValue("08:30:00");
+    setValue("08:30");
   };
   const handleClearValue = (value: string | null | undefined) => {
     setValue(value);

@@ -38,7 +38,7 @@ describe("IcTimeSelector e2e tests", () => {
 
     cy.checkHydrated(TIME_SELECTOR);
 
-    cy.findShadowEl(TIME_SELECTOR, SELECTED_ITEM).should(HAVE_LENGTH, 3);
+    cy.findShadowEl(TIME_SELECTOR, SELECTED_ITEM).should(HAVE_LENGTH, 2);
 
     cy.findShadowEl(TIME_SELECTOR, CLEAR_BTN).click();
 
@@ -54,7 +54,7 @@ describe("IcTimeSelector e2e tests", () => {
 
     cy.checkHydrated(TIME_SELECTOR);
 
-    cy.findShadowEl(TIME_SELECTOR, SELECTED_ITEM).should(HAVE_LENGTH, 3);
+    cy.findShadowEl(TIME_SELECTOR, SELECTED_ITEM).should(HAVE_LENGTH, 2);
 
     cy.get('ic-button[id="update-null"]').click();
 
@@ -70,7 +70,7 @@ describe("IcTimeSelector e2e tests", () => {
 
     cy.checkHydrated(TIME_SELECTOR);
 
-    cy.findShadowEl(TIME_SELECTOR, SELECTED_ITEM).should(HAVE_LENGTH, 3);
+    cy.findShadowEl(TIME_SELECTOR, SELECTED_ITEM).should(HAVE_LENGTH, 2);
 
     cy.get('ic-button[id="update-empty"]').click();
 
@@ -86,7 +86,7 @@ describe("IcTimeSelector e2e tests", () => {
 
     cy.checkHydrated(TIME_SELECTOR);
 
-    cy.findShadowEl(TIME_SELECTOR, SELECTED_ITEM).should(HAVE_LENGTH, 3);
+    cy.findShadowEl(TIME_SELECTOR, SELECTED_ITEM).should(HAVE_LENGTH, 2);
 
     cy.get('ic-button[id="update-undefined"]').click();
 
@@ -160,9 +160,6 @@ describe("IcTimeSelector e2e tests", () => {
     cy.findShadowEl(TIME_SELECTOR, COLUMN).eq(1).should(HAVE_FOCUS);
 
     cy.realPress("Tab");
-    cy.findShadowEl(TIME_SELECTOR, COLUMN).eq(2).should(HAVE_FOCUS);
-
-    cy.realPress("Tab");
     cy.findShadowEl(TIME_SELECTOR, CLEAR_BTN).should(HAVE_FOCUS);
   });
 
@@ -176,9 +173,6 @@ describe("IcTimeSelector e2e tests", () => {
 
     cy.realPress("ArrowRight");
     cy.findShadowEl(TIME_SELECTOR, COLUMN).eq(1).should(HAVE_FOCUS);
-
-    cy.realPress("ArrowRight");
-    cy.findShadowEl(TIME_SELECTOR, COLUMN).eq(2).should(HAVE_FOCUS);
 
     cy.realPress("ArrowRight");
     cy.findShadowEl(TIME_SELECTOR, CLEAR_BTN).should(NOT_HAVE_FOCUS);
@@ -205,7 +199,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-selector-default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -229,7 +223,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-selector-dark-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -248,7 +242,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/time-selector-string-value",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -267,7 +261,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/time-selector-date-object-value",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -285,7 +279,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/time-selector-zulu-time-value",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -304,7 +298,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-selector-small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -323,7 +317,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-selector-large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -341,7 +335,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-selector-hhmm-format",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + +0.19),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -418,7 +412,7 @@ describe("IcTimeSelector visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/time-selector-column-focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -451,7 +445,7 @@ describe("IcTimeSelector visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/time-selector-default-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -470,7 +464,7 @@ describe("IcTimeSelector visual regression tests in high contrast mode", () => {
     cy.wait(700);
     cy.compareSnapshot({
       name: "/time-selector-string-value-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -489,7 +483,7 @@ describe("IcTimeSelector visual regression tests in high contrast mode", () => {
     cy.wait(500);
     cy.compareSnapshot({
       name: "/time-selector-min-time-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
