@@ -5,13 +5,13 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcTimeFormatSelector, IcWeekDays } from "./utils/types";
+import { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTimePeriods } from "./components/ic-time-selector/ic-time-selector.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
-export { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcTimeFormatSelector, IcWeekDays } from "./utils/types";
+export { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes, IcThemeMode, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
@@ -763,7 +763,7 @@ export namespace Components {
     }
     interface IcTimeSelector {
         /**
-          * An array of objects with start and end values that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * An array of objects with start and end values that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
          */
         "disableTimes": IcDisableTimeSelection[];
         /**
@@ -782,10 +782,6 @@ export namespace Components {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
-        /**
-          * The format in which the time will be displayed.
-         */
-        "timeFormat": IcTimeFormatSelector;
         /**
           * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
          */
@@ -1110,7 +1106,6 @@ declare global {
     timeObject: {
       hour: string | null;
       minute: string | null;
-      second: string | null;
       period?: IcTimePeriods;
     };
   };
@@ -2015,7 +2010,7 @@ declare namespace LocalJSX {
     }
     interface IcTimeSelector {
         /**
-          * An array of objects with start and end values that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
+          * An array of objects with start and end values that will be disabled in the time selector. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
          */
         "disableTimes"?: IcDisableTimeSelection[];
         /**
@@ -2035,7 +2030,6 @@ declare namespace LocalJSX {
     timeObject: {
       hour: string | null;
       minute: string | null;
-      second: string | null;
       period?: IcTimePeriods;
     };
   }>) => void;
@@ -2047,10 +2041,6 @@ declare namespace LocalJSX {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
-        /**
-          * The format in which the time will be displayed.
-         */
-        "timeFormat"?: IcTimeFormatSelector;
         /**
           * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
          */

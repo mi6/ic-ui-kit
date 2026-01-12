@@ -59,7 +59,7 @@ describe("ic-time-selector", () => {
   it("should render with time format", async () => {
     const page = await newSpecPage({
       components: [TimeSelector],
-      html: `<ic-time-selector time-format="HH:MM"></ic-time-selector>`,
+      html: `<ic-time-selector></ic-time-selector>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -142,12 +142,6 @@ describe("ic-time-selector", () => {
       39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56,
       57, 58, 59,
     ]);
-    expect(page.rootInstance.getColumnValues("second")).toEqual([
-      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-      21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
-      39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56,
-      57, 58, 59,
-    ]);
   });
 
   it("should getColumnValues correctly for 12 hour time", async () => {
@@ -165,19 +159,13 @@ describe("ic-time-selector", () => {
       39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56,
       57, 58, 59,
     ]);
-    expect(page.rootInstance.getColumnValues("second")).toEqual([
-      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-      21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
-      39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56,
-      57, 58, 59,
-    ]);
     expect(page.rootInstance.getColumnValues("period")).toEqual(["AM", "PM"]);
   });
 
   it("should call scrollTo on selected item", async () => {
     const page = await newSpecPage({
       components: [TimeSelector],
-      html: `<ic-time-selector value="15:30:45"></ic-time-selector>`,
+      html: `<ic-time-selector value="15:30"></ic-time-selector>`,
     });
 
     const mockScrollTo = jest.fn();
@@ -198,7 +186,7 @@ describe("ic-time-selector", () => {
     expect(mockScrollTo).toHaveBeenCalled();
   });
 
-  it("should set selectedHour, selectedMinute, selectedSecond and selectedPeriod state when handleSelect is called", async () => {
+  it("should set selectedHour, selectedMinute and selectedPeriod state when handleSelect is called", async () => {
     const page = await newSpecPage({
       components: [TimeSelector],
       html: `<ic-time-selector time-period="12"></ic-time-selector>`,
@@ -206,11 +194,9 @@ describe("ic-time-selector", () => {
 
     page.rootInstance.handleSelect("hour", 10);
     page.rootInstance.handleSelect("minute", 20);
-    page.rootInstance.handleSelect("second", 30);
     page.rootInstance.handleSelect("period", "PM");
     expect(page.rootInstance.selectedHour).toBe(10);
     expect(page.rootInstance.selectedMinute).toBe(20);
-    expect(page.rootInstance.selectedSecond).toBe(30);
     expect(page.rootInstance.selectedPeriod).toBe("PM");
   });
 
@@ -234,16 +220,6 @@ describe("ic-time-selector", () => {
     expect(page.rootInstance.getSelectedValue("minute")).toBe(7);
   });
 
-  it("returns selectedSecond when type is 'second'", async () => {
-    const page = await newSpecPage({
-      components: [TimeSelector],
-      html: `<ic-time-selector></ic-time-selector>`,
-    });
-
-    page.rootInstance.selectedSecond = 7;
-    expect(page.rootInstance.getSelectedValue("second")).toBe(7);
-  });
-
   it("returns selectedPeriod when type is 'period'", async () => {
     const page = await newSpecPage({
       components: [TimeSelector],
@@ -260,13 +236,12 @@ describe("ic-time-selector", () => {
       html: `<ic-time-selector></ic-time-selector>`,
     });
 
-    page.rootInstance.min = "12:34:56";
+    page.rootInstance.min = "12:34";
     await page.waitForChanges();
 
     expect(page.rootInstance.minTime).toBeInstanceOf(Date);
     expect(page.rootInstance.minTime.getHours()).toBe(12);
     expect(page.rootInstance.minTime.getMinutes()).toBe(34);
-    expect(page.rootInstance.minTime.getSeconds()).toBe(56);
   });
 
   it("updates maxTime when max changes", async () => {
@@ -275,16 +250,15 @@ describe("ic-time-selector", () => {
       html: `<ic-time-selector></ic-time-selector>`,
     });
 
-    page.rootInstance.max = "12:34:56";
+    page.rootInstance.max = "12:34";
     await page.waitForChanges();
 
     expect(page.rootInstance.maxTime).toBeInstanceOf(Date);
     expect(page.rootInstance.maxTime.getHours()).toBe(12);
     expect(page.rootInstance.maxTime.getMinutes()).toBe(34);
-    expect(page.rootInstance.maxTime.getSeconds()).toBe(56);
   });
 
-  it("should focus the seconds column when Tab+Shift is pressed on clear button", async () => {
+  it("should focus the minutes column when Tab+Shift is pressed on clear button", async () => {
     const page = await newSpecPage({
       components: [TimeSelector],
       html: `<ic-time-selector></ic-time-selector>`,
@@ -296,12 +270,7 @@ describe("ic-time-selector", () => {
 
     const focusHour = jest.fn();
     const focusMinute = jest.fn();
-    const focusSecond = jest.fn();
-    const columns = [
-      { focus: focusHour },
-      { focus: focusMinute },
-      { focus: focusSecond },
-    ];
+    const columns = [{ focus: focusHour }, { focus: focusMinute }];
 
     page.root!.shadowRoot!.querySelectorAll = () =>
       Object.assign([...columns], {
@@ -318,7 +287,7 @@ describe("ic-time-selector", () => {
     });
     clearBtn?.dispatchEvent(event);
 
-    expect(focusSecond).toHaveBeenCalled();
+    expect(focusMinute).toHaveBeenCalled();
   });
 
   it("should convert 24 hour time to 12 hour time when setTimeParts is called", async () => {
@@ -327,19 +296,19 @@ describe("ic-time-selector", () => {
       html: `<ic-time-selector time-period="12"></ic-time-selector>`,
     });
 
-    page.rootInstance.setTimeParts(0, 0, 0);
+    page.rootInstance.setTimeParts(0, 0);
     expect(page.rootInstance.selectedHour).toBe(12);
     expect(page.rootInstance.selectedPeriod).toBe("AM");
 
-    page.rootInstance.setTimeParts(12, 0, 0);
+    page.rootInstance.setTimeParts(12, 0);
     expect(page.rootInstance.selectedHour).toBe(12);
     expect(page.rootInstance.selectedPeriod).toBe("PM");
 
-    page.rootInstance.setTimeParts(15, 0, 0);
+    page.rootInstance.setTimeParts(15, 0);
     expect(page.rootInstance.selectedHour).toBe(3);
     expect(page.rootInstance.selectedPeriod).toBe("PM");
 
-    page.rootInstance.setTimeParts(11, 0, 0);
+    page.rootInstance.setTimeParts(11, 0);
     expect(page.rootInstance.selectedHour).toBe(11);
     expect(page.rootInstance.selectedPeriod).toBe("AM");
   });
@@ -352,9 +321,9 @@ describe("ic-time-selector", () => {
 
     page.rootInstance.disableTimes = [{ start: "16:00", end: "16:30" }];
 
-    expect(page.rootInstance.isTimeDisabled(16, 15, 0)).toBe(true);
-    expect(page.rootInstance.isTimeDisabled(15, 59, 59)).toBe(false);
-    expect(page.rootInstance.isTimeDisabled(16, 30, 1)).toBe(false);
+    expect(page.rootInstance.isTimeDisabled(16, 15)).toBe(true);
+    expect(page.rootInstance.isTimeDisabled(15, 59)).toBe(false);
+    expect(page.rootInstance.isTimeDisabled(16, 30)).toBe(false);
   });
 
   it("returns the highlighted value", async () => {
@@ -432,31 +401,6 @@ describe("ic-time-selector", () => {
       minuteCol as any
     );
     expect(minute).toBe(5);
-
-    const secondInRange = createMockElement({
-      top: 120,
-      height: 20,
-      key: "second-val-5",
-      classList: [TIME_SELECTOR_ITEM],
-      textContent: "05",
-    });
-    const secondOutOfRange = createMockElement({
-      top: 80,
-      height: 20,
-      key: "second-val-1",
-      classList: [TIME_SELECTOR_ITEM],
-      textContent: "01",
-    });
-
-    const secondCol = {
-      querySelectorAll: () => [secondInRange, secondOutOfRange, scrollRow],
-    };
-
-    const second = page.rootInstance.getHighlightedValue(
-      "second",
-      secondCol as any
-    );
-    expect(second).toBe(5);
   });
 
   it("should return correct highlighted value for period type", async () => {
@@ -505,12 +449,11 @@ describe("ic-time-selector", () => {
   it("should emit icChange with correct value on confirm", async () => {
     const page = await newSpecPage({
       components: [TimeSelector],
-      html: `<ic-time-selector time-format="HH:MM:SS" time-period="12"></ic-time-selector>`,
+      html: `<ic-time-selector time-period="12"></ic-time-selector>`,
     });
 
     page.rootInstance.selectedHour = 10;
     page.rootInstance.selectedMinute = 30;
-    page.rootInstance.selectedSecond = 45;
     page.rootInstance.selectedPeriod = "AM";
 
     const spy = jest.spyOn(page.rootInstance.icChange, "emit");
@@ -520,11 +463,10 @@ describe("ic-time-selector", () => {
     expect(spy).toHaveBeenCalledWith(
       expect.objectContaining({
         value: expect.any(Date),
-        timeString: "10:30:45 AM",
+        timeString: "10:30 AM",
         timeObject: {
           hour: "10",
           minute: "30",
-          second: "45",
           period: "AM",
         },
       })
@@ -534,7 +476,7 @@ describe("ic-time-selector", () => {
   it("should emit icChange with correct value on confirm with HH:MM time format", async () => {
     const page = await newSpecPage({
       components: [TimeSelector],
-      html: `<ic-time-selector time-format="HH:MM"></ic-time-selector>`,
+      html: `<ic-time-selector></ic-time-selector>`,
     });
 
     page.rootInstance.selectedHour = 10;
@@ -551,7 +493,6 @@ describe("ic-time-selector", () => {
         timeObject: {
           hour: "10",
           minute: "30",
-          second: null,
         },
       })
     );
@@ -560,7 +501,7 @@ describe("ic-time-selector", () => {
   it("should emit icChange with correct value on confirm when not all values are selected", async () => {
     const page = await newSpecPage({
       components: [TimeSelector],
-      html: `<ic-time-selector time-format="HH:MM:SS" time-period="12"></ic-time-selector>`,
+      html: `<ic-time-selector time-period="12"></ic-time-selector>`,
     });
 
     page.rootInstance.selectedMinute = 30;
@@ -577,7 +518,6 @@ describe("ic-time-selector", () => {
         timeObject: {
           hour: null,
           minute: "30",
-          second: null,
           period: "AM",
         },
       })

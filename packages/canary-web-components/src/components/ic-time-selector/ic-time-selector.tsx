@@ -13,14 +13,13 @@ import {
   IcDisableTimeSelection,
   IcSizes,
   IcThemeMode,
-  IcTimeFormatSelector,
 } from "../../utils/types";
 import { parseTimeHelper } from "../../utils/helpers";
 import Check from "../../assets/check-icon.svg";
 import Clear from "../../assets/close-icon.svg";
 import { IcTimePeriods } from "./ic-time-selector.types";
 
-const COLUMN_TYPES = ["hour", "minute", "second", "period"] as const;
+const COLUMN_TYPES = ["hour", "minute", "period"] as const;
 const COLUMN_CLASS = ".ic-time-selector-column";
 const ITEM_CLASS = ".ic-time-selector-item";
 type ColumnType = typeof COLUMN_TYPES[number];
@@ -31,9 +30,7 @@ type ColumnType = typeof COLUMN_TYPES[number];
   shadow: true,
 })
 export class TimeSelector {
-  private DEFAULT_TIME_FORMAT: IcTimeFormatSelector = "HH:MM:SS";
   private minutes: number[] = Array.from({ length: 60 }, (_, i) => i);
-  private seconds: number[] = Array.from({ length: 60 }, (_, i) => i);
   private periods: IcTimePeriods[] = ["AM", "PM"];
   private minTime: Date | null = null;
   private maxTime: Date | null = null;
@@ -44,7 +41,6 @@ export class TimeSelector {
 
   @State() selectedHour?: number;
   @State() selectedMinute?: number;
-  @State() selectedSecond?: number;
   @State() selectedPeriod?: IcTimePeriods;
   @State() ariaLiveMessage: string = "";
 
@@ -82,11 +78,6 @@ export class TimeSelector {
   @Prop() theme?: IcThemeMode = "inherit";
 
   /**
-   * The format in which the time will be displayed.
-   */
-  @Prop() timeFormat: IcTimeFormatSelector = this.DEFAULT_TIME_FORMAT;
-
-  /**
    * The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".
    */
   @Prop() timePeriod: "12" | "24" = "24";
@@ -101,9 +92,6 @@ export class TimeSelector {
     setTimeout(() => {
       this.scrollSelectedItem("hour");
       this.scrollSelectedItem("minute");
-      if (this.timeFormat === this.DEFAULT_TIME_FORMAT) {
-        this.scrollSelectedItem("second");
-      }
       if (this.timePeriod === "12") {
         this.scrollSelectedItem("period");
       }
@@ -119,7 +107,6 @@ export class TimeSelector {
     timeObject: {
       hour: string | null;
       minute: string | null;
-      second: string | null;
       period?: IcTimePeriods;
     };
   }>;
@@ -140,13 +127,6 @@ export class TimeSelector {
       } else if (this.min) {
         this.scrollMinTime("minute");
       }
-      if (this.timeFormat === this.DEFAULT_TIME_FORMAT) {
-        if (this.selectedSecond !== undefined && this.selectedSecond !== null) {
-          this.scrollSelectedItem("second");
-        } else if (this.min) {
-          this.scrollMinTime("second");
-        }
-      }
       if (this.timePeriod === "12") {
         if (this.selectedPeriod !== undefined && this.selectedPeriod !== null) {
           this.scrollSelectedItem("period");
@@ -164,14 +144,12 @@ export class TimeSelector {
         return "HH";
       case "minute":
         return "MM";
-      case "second":
-        return "SS";
       default:
         return "";
     }
   }
 
-  private setTimeParts = (hour: number, minute: number, second: number) => {
+  private setTimeParts = (hour: number, minute: number) => {
     let period: IcTimePeriods = "AM";
     if (this.timePeriod === "12") {
       if (hour === 0) {
@@ -191,7 +169,6 @@ export class TimeSelector {
       this.selectedHour = hour;
     }
     this.selectedMinute = minute;
-    this.selectedSecond = second;
   };
 
   private setTime(time?: string | Date | null) {
@@ -205,23 +182,15 @@ export class TimeSelector {
         /^([0-9]{2}):([0-9]{2}):([0-9]{2})(?:\.[0-9]{1,3})?Z?$/
       );
       if (zuluMatch) {
-        this.setTimeParts(
-          Number(zuluMatch[1]),
-          Number(zuluMatch[2]),
-          Number(zuluMatch[3])
-        );
+        this.setTimeParts(Number(zuluMatch[1]), Number(zuluMatch[2]));
       } else {
         const parts = time.split(":");
-        this.setTimeParts(
-          Number(parts[0]) || 0,
-          Number(parts[1]) || 0,
-          Number(parts[2]) || 0
-        );
+        this.setTimeParts(Number(parts[0]) || 0, Number(parts[1]) || 0);
       }
     } else {
       const { parts } = parseTimeHelper(time);
       if (parts) {
-        this.setTimeParts(parts.hour, parts.minute, parts.second);
+        this.setTimeParts(parts.hour, parts.minute);
       }
     }
   }
@@ -311,18 +280,15 @@ export class TimeSelector {
     if (!col) return;
     const items = col.querySelectorAll(ITEM_CLASS);
     let minHour = 0,
-      minMinute = 0,
-      minSecond = 0;
+      minMinute = 0;
     if (this.minTime) {
       minHour = this.minTime.getHours() + 2;
       minMinute = this.minTime.getMinutes() + 2;
-      minSecond = this.minTime.getSeconds();
     } else if (this.min) {
       const minDate = parseTimeHelper(this.min).date;
       if (minDate) {
         minHour = minDate.getHours();
         minMinute = minDate.getMinutes();
-        minSecond = minDate.getSeconds();
       }
     }
     let targetIdx = -1;
@@ -331,8 +297,6 @@ export class TimeSelector {
       targetIdx = values.findIndex((v) => v === minHour);
     } else if (colClass === "minute") {
       targetIdx = values.findIndex((v) => v === minMinute);
-    } else if (colClass === "second") {
-      targetIdx = values.findIndex((v) => v === minSecond);
     } else if (colClass === "period") {
       let period: IcTimePeriods = "AM";
       if (this.timePeriod === "12") {
@@ -377,9 +341,6 @@ export class TimeSelector {
       case "minute":
         this.selectedMinute = Number(value);
         break;
-      case "second":
-        this.selectedSecond = Number(value);
-        break;
       case "period":
         this.selectedPeriod = value as IcTimePeriods;
         break;
@@ -403,7 +364,6 @@ export class TimeSelector {
   private isTimeDisabled = (
     hour: number,
     minute: number,
-    second: number,
     type?: ColumnType
   ): boolean => {
     for (const t of this.disableTimes) {
@@ -411,11 +371,9 @@ export class TimeSelector {
         const startParts = parseTimeHelper(t.start).parts;
         const endParts = parseTimeHelper(t.end).parts;
         if (startParts && endParts) {
-          const timeVal = hour * 3600 + minute * 60 + second;
-          const startVal =
-            startParts.hour * 3600 + startParts.minute * 60 + startParts.second;
-          const endVal =
-            endParts.hour * 3600 + endParts.minute * 60 + endParts.second;
+          const timeVal = hour * 3600 + minute * 60;
+          const startVal = startParts.hour * 3600 + startParts.minute * 60;
+          const endVal = endParts.hour * 3600 + endParts.minute * 60;
           if (timeVal >= startVal && timeVal <= endVal) {
             return true;
           }
@@ -427,16 +385,12 @@ export class TimeSelector {
       if (this.minTime) {
         const minHour = this.minTime.getHours();
         const minMinute = this.minTime.getMinutes();
-        const minSecond = this.minTime.getSeconds();
         if (type === "hour") {
           const highlightedMinute = this.selectedMinute ?? minMinute;
-          const highlightedSecond = this.selectedSecond ?? minSecond;
           if (
             hour < minHour ||
             (hour === minHour && highlightedMinute < minMinute) ||
-            (hour === minHour &&
-              highlightedMinute === minMinute &&
-              highlightedSecond < minSecond)
+            (hour === minHour && highlightedMinute === minMinute)
           ) {
             return true;
           }
@@ -444,15 +398,11 @@ export class TimeSelector {
           if (hour === minHour && minute < minMinute) {
             return true;
           }
-        } else if (type === "second") {
-          if (hour === minHour && minute === minMinute && second < minSecond) {
-            return true;
-          }
         } else {
           if (
             hour < minHour ||
             (hour === minHour && minute < minMinute) ||
-            (hour === minHour && minute === minMinute && second < minSecond)
+            (hour === minHour && minute === minMinute)
           ) {
             return true;
           }
@@ -464,16 +414,12 @@ export class TimeSelector {
       if (this.maxTime) {
         const maxHour = this.maxTime.getHours();
         const maxMinute = this.maxTime.getMinutes();
-        const maxSecond = this.maxTime.getSeconds();
         if (type === "hour") {
           const selectedMinute = this.selectedMinute ?? 59;
-          const selectedSecond = this.selectedSecond ?? 59;
           if (
             hour > maxHour ||
             (hour === maxHour && selectedMinute > maxMinute) ||
-            (hour === maxHour &&
-              selectedMinute === maxMinute &&
-              selectedSecond > maxSecond)
+            (hour === maxHour && selectedMinute === maxMinute)
           ) {
             return true;
           }
@@ -481,15 +427,11 @@ export class TimeSelector {
           if (hour === maxHour && minute > maxMinute) {
             return true;
           }
-        } else if (type === "second") {
-          if (hour === maxHour && minute === maxMinute && second > maxSecond) {
-            return true;
-          }
         } else {
           if (
             hour > maxHour ||
             (hour === maxHour && minute > maxMinute) ||
-            (hour === maxHour && minute === maxMinute && second > maxSecond)
+            (hour === maxHour && minute === maxMinute)
           ) {
             return true;
           }
@@ -520,7 +462,6 @@ export class TimeSelector {
         ? Array.from({ length: 12 }, (_, i) => i + 1)
         : Array.from({ length: 24 }, (_, i) => i);
     if (type === "minute") return this.minutes;
-    if (type === "second") return this.seconds;
     if (type === "period") return this.periods;
     return [];
   }
@@ -528,7 +469,6 @@ export class TimeSelector {
   private getSelectedValue(type: ColumnType): number | IcTimePeriods | null {
     if (type === "hour") return this.selectedHour ?? null;
     if (type === "minute") return this.selectedMinute ?? null;
-    if (type === "second") return this.selectedSecond ?? null;
     if (type === "period") return this.selectedPeriod ?? null;
     return null;
   }
@@ -560,14 +500,14 @@ export class TimeSelector {
         const key = item.getAttribute("key");
         if (key) {
           const valStr = key.replace(`${type}-val-`, "");
-          if (type === "hour" || type === "minute" || type === "second") {
+          if (type === "hour" || type === "minute") {
             return Number(valStr);
           } else {
             return valStr as IcTimePeriods;
           }
         }
         const text = item.textContent?.trim();
-        if (type === "hour" || type === "minute" || type === "second") {
+        if (type === "hour" || type === "minute") {
           return text ? Number(text) : null;
         } else {
           return text as IcTimePeriods;
@@ -650,7 +590,7 @@ export class TimeSelector {
           newIdx >= 0 &&
           newIdx <= maxIdx &&
           (() => {
-            if (type === "hour" || type === "minute" || type === "second") {
+            if (type === "hour" || type === "minute") {
               const hour =
                 type === "hour"
                   ? (values[newIdx] as number)
@@ -659,11 +599,7 @@ export class TimeSelector {
                 type === "minute"
                   ? (values[newIdx] as number)
                   : this.selectedMinute ?? 0;
-              const second =
-                type === "second"
-                  ? (values[newIdx] as number)
-                  : this.selectedSecond ?? 0;
-              return this.isTimeDisabled(hour, minute, second);
+              return this.isTimeDisabled(hour, minute);
             }
             return false;
           })()
@@ -688,33 +624,15 @@ export class TimeSelector {
       this.selectedMinute != null
         ? this.selectedMinute.toString().padStart(2, "0")
         : null;
-    const secondStr =
-      this.selectedSecond != null
-        ? this.selectedSecond.toString().padStart(2, "0")
-        : null;
     let timeString = "";
     let allSelected = false;
-    if (this.timeFormat === "HH:MM") {
-      allSelected = hourStr !== null && minuteStr !== null;
-      if (allSelected) {
-        timeString =
-          hourStr +
-          ":" +
-          minuteStr +
-          (this.selectedPeriod ? " " + this.selectedPeriod : "");
-      }
-    } else if (this.timeFormat === this.DEFAULT_TIME_FORMAT) {
-      allSelected =
-        hourStr !== null && minuteStr !== null && secondStr !== null;
-      if (allSelected) {
-        timeString =
-          hourStr +
-          ":" +
-          minuteStr +
-          ":" +
-          secondStr +
-          (this.selectedPeriod ? " " + this.selectedPeriod : "");
-      }
+    allSelected = hourStr !== null && minuteStr !== null;
+    if (allSelected) {
+      timeString =
+        hourStr +
+        ":" +
+        minuteStr +
+        (this.selectedPeriod ? " " + this.selectedPeriod : "");
     }
     this.ariaLiveMessage =
       allSelected && timeString ? `Selected time: ${timeString}` : "";
@@ -725,8 +643,7 @@ export class TimeSelector {
     values: number[] | IcTimePeriods[],
     selected: number | IcTimePeriods | null
   ) => {
-    const isTimeColumn =
-      type === "hour" || type === "minute" || type === "second";
+    const isTimeColumn = type === "hour" || type === "minute";
     const isPeriodColumn = type === "period";
     const headerLabel = this.getHeaderLabel(type);
     const topSpacerCount = 2;
@@ -768,11 +685,7 @@ export class TimeSelector {
                   type === "minute"
                     ? (val as number)
                     : this.selectedMinute ?? 0;
-                const second =
-                  type === "second"
-                    ? (val as number)
-                    : this.selectedSecond ?? 0;
-                disabled = this.isTimeDisabled(hour, minute, second, type);
+                disabled = this.isTimeDisabled(hour, minute, type);
               }
               return (
                 <li
@@ -811,8 +724,6 @@ export class TimeSelector {
     this.scrollSelectedItem("hour", true);
     this.selectedMinute = undefined;
     this.scrollSelectedItem("minute", true);
-    this.selectedSecond = undefined;
-    this.scrollSelectedItem("second", true);
     this.selectedPeriod = undefined;
     this.scrollSelectedItem("period", true);
     this.lastAnnouncedType = undefined;
@@ -823,7 +734,6 @@ export class TimeSelector {
       timeObject: {
         hour: null,
         minute: null,
-        second: null,
         period: undefined,
       },
     });
@@ -832,21 +742,14 @@ export class TimeSelector {
   private handleConfirmClick = () => {
     const hour = this.selectedHour != null ? this.selectedHour : null;
     const minute = this.selectedMinute != null ? this.selectedMinute : null;
-    const second = this.selectedSecond != null ? this.selectedSecond : null;
     const period = this.selectedPeriod;
 
     const hourStr = hour != null ? hour.toString().padStart(2, "0") : null;
     const minuteStr =
       minute != null ? minute.toString().padStart(2, "0") : null;
-    const secondStr =
-      second != null ? second.toString().padStart(2, "0") : null;
 
     let allSelected = false;
-    if (this.timeFormat === this.DEFAULT_TIME_FORMAT) {
-      allSelected = hour !== null && minute !== null && second !== null;
-    } else {
-      allSelected = hour !== null && minute !== null;
-    }
+    allSelected = hour !== null && minute !== null;
 
     let value: Date | null = null;
     let timeString: string | null = null;
@@ -859,19 +762,7 @@ export class TimeSelector {
       value = new Date();
       value.setHours(date24hours ?? 0);
       value.setMinutes(minute ?? 0);
-      value.setSeconds(second ?? 0);
-      value.setMilliseconds(0);
-      if (this.timeFormat === "HH:MM") {
-        timeString = hourStr + ":" + minuteStr + (period ? " " + period : "");
-      } else if (this.timeFormat === this.DEFAULT_TIME_FORMAT) {
-        timeString =
-          hourStr +
-          ":" +
-          minuteStr +
-          ":" +
-          secondStr +
-          (period ? " " + period : "");
-      }
+      timeString = hourStr + ":" + minuteStr + (period ? " " + period : "");
       this.value = value;
     }
 
@@ -881,7 +772,6 @@ export class TimeSelector {
       timeObject: {
         hour: hourStr,
         minute: minuteStr,
-        second: secondStr,
         ...(period ? { period } : {}),
       },
     });
@@ -892,28 +782,15 @@ export class TimeSelector {
       this.timePeriod === "12"
         ? Array.from({ length: 12 }, (_, i) => i + 1)
         : Array.from({ length: 24 }, (_, i) => i);
-    const timeFormat = this.timeFormat || this.DEFAULT_TIME_FORMAT;
     const columns = [
       this.renderColumn("hour", hours, this.selectedHour ?? null),
       this.renderColumn("minute", this.minutes, this.selectedMinute ?? null),
     ];
-    if (timeFormat === this.DEFAULT_TIME_FORMAT) {
-      columns.push(
-        this.renderColumn("second", this.seconds, this.selectedSecond ?? null)
-      );
-    }
 
     let colonSelectedStates: boolean[] = [];
-    if (timeFormat === this.DEFAULT_TIME_FORMAT) {
-      colonSelectedStates = [
-        this.selectedHour !== undefined && this.selectedMinute !== undefined,
-        this.selectedMinute !== undefined && this.selectedSecond !== undefined,
-      ];
-    } else {
-      colonSelectedStates = [
-        this.selectedHour !== undefined && this.selectedMinute !== undefined,
-      ];
-    }
+    colonSelectedStates = [
+      this.selectedHour !== undefined && this.selectedMinute !== undefined,
+    ];
 
     const isInPicker = this.el.closest("ic-time-picker") !== null;
 
@@ -985,7 +862,6 @@ export class TimeSelector {
               disabled={
                 this.selectedHour === undefined &&
                 this.selectedMinute === undefined &&
-                this.selectedSecond === undefined &&
                 this.selectedPeriod === undefined
               }
               size={size}
@@ -1012,7 +888,6 @@ export class TimeSelector {
               disabled={
                 this.selectedHour === undefined &&
                 this.selectedMinute === undefined &&
-                this.selectedSecond === undefined &&
                 this.selectedPeriod === undefined
               }
               size={size}

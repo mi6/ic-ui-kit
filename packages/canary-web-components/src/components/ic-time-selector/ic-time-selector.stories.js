@@ -2,6 +2,8 @@
 import { html } from "lit-html";
 import readme from "./readme.md";
 
+const INLINE_RADIO = "inline-radio";
+
 export default {
   title: "Web Components/Time Selector",
   component: "ic-time-selector",
@@ -66,7 +68,7 @@ export const DateObject = {
       var timeSelectorDate = document.querySelector(
         "#time-selector-default-time-date"
       );
-      timeSelectorDate.value = new Date("2025-07-14T15:30:45");
+      timeSelectorDate.value = new Date("2025-07-14T15:30");
     </script>`,
   name: "Date object",
 };
@@ -113,28 +115,11 @@ export const DefaultValue12Hour = {
 };
 
 /**
- * Demonstrates the time format HH:MM.
- */
-export const TimeFormat = {
-  render: () => html`<ic-time-selector time-format="HH:MM"></ic-time-selector>`,
-  name: "Time format HH:MM",
-};
-
-export const DefaultValueTimeFormat = {
-  render: () =>
-    html`<ic-time-selector
-      value="14:30"
-      time-format="HH:MM"
-    ></ic-time-selector>`,
-  name: "Default value - Time format HH:MM",
-};
-
-/**
  * Setting min time allows you to restrict the earliest time that can be selected.
  * The value can be in any format supported as `time-format`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
  */
 export const MinTime = {
-  render: () => html`<ic-time-selector min="09:30:00"></ic-time-selector>`,
+  render: () => html`<ic-time-selector min="09:30"></ic-time-selector>`,
   name: "Min time (09:30)",
 };
 
@@ -143,7 +128,7 @@ export const MinTime = {
  * The value can be in any format supported as `time-format`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.
  */
 export const MaxTime = {
-  render: () => html`<ic-time-selector max="18:00:00"></ic-time-selector>`,
+  render: () => html`<ic-time-selector max="18:00"></ic-time-selector>`,
   name: "Max time (18:00)",
 };
 
@@ -179,4 +164,49 @@ export const Large = {
   render: () =>
     html`<ic-time-selector size="large" time-period="12"></ic-time-selector>`,
   name: "Large",
+};
+
+const defaultArgs = {
+  disableTimes: [{ start: "08:00", end: "10:00" }],
+  max: "",
+  min: "",
+  size: "medium",
+  theme: "inherit",
+  timePeriod: "24",
+  value: "12:00",
+};
+
+export const Playground = {
+  render: (args) =>
+    html`<ic-time-selector
+      disable-times=${args.disableTimes}
+      max=${args.max}
+      min=${args.min}
+      size=${args.size}
+      theme=${args.theme}
+      time-period=${args.timePeriod}
+      value=${args.value}
+    />`,
+  args: defaultArgs,
+  argTypes: {
+    size: {
+      options: ["small", "medium", "large"],
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+    theme: {
+      options: ["inherit", "light", "dark"],
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+    timePeriod: {
+      options: ["24", "12"],
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+  },
+  name: "Playground",
 };
