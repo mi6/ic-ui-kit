@@ -1,5 +1,4 @@
-
-import * as d from './proxies';
+import * as d from "./proxies";
 
 export const DIRECTIVES = [
   d.IcAccordion,
@@ -69,5 +68,5 @@ export const DIRECTIVES = [
   d.IcToggleButtonGroup,
   d.IcTooltip,
   d.IcTopNavigation,
-  d.IcTypography
+  d.IcTypography,
 ];

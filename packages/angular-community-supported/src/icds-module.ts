@@ -23,8 +23,6 @@ const DECLARATIONS = [
   declarations: DECLARATIONS,
   exports: DECLARATIONS,
   imports: [CommonModule],
-  providers: [
-      provideAppInitializer(() => defineCustomElements()),
-  ],
+  providers: [provideAppInitializer(() => defineCustomElements())],
 })
 export class ICDSModule {}

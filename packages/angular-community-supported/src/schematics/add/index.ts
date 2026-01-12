@@ -26,7 +26,12 @@ import { skipLibCheckTsConfig } from "../utils/tsconfig";
 
 function addICDSAngularToPackageJson(): Rule {
   return (host: Tree) => {
-    addPackageToPackageJson(host, "dependencies", "@ukic/angular-community-supported", "latest");
+    addPackageToPackageJson(
+      host,
+      "dependencies",
+      "@ukic/angular-community-supported",
+      "latest"
+    );
     return host;
   };
 }

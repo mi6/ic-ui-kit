@@ -1,22 +1,22 @@
-import { Directive, ElementRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Directive, ElementRef } from "@angular/core";
+import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
-import { ValueAccessor } from './value-accessor';
+import { ValueAccessor } from "./value-accessor";
 
 @Directive({
   /* tslint:disable-next-line:directive-selector */
-  selector: 'ic-select',
+  selector: "ic-select",
   host: {
-    '(icChange)': 'handleChangeEvent($event.target?.["value"])'
+    "(icChange)": 'handleChangeEvent($event.target?.["value"])',
   },
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: SelectValueAccessor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-standalone: false
+  standalone: false,
 })
 export class SelectValueAccessor extends ValueAccessor {
   constructor(el: ElementRef) {
