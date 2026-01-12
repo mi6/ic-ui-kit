@@ -1,7 +1,7 @@
 {
   "total": 294,
-  "totalPassed": 291,
-  "totalFailed": 3,
+  "totalPassed": 290,
+  "totalFailed": 4,
   "totalSuites": 11,
   "suites": [
     {
@@ -1242,14 +1242,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/cell-descriptions-icons.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDataTable.cy.tsx/slotted-custom-element-in-cell",
-          "percentage": 0,
+          "percentage": 0.033697302850540456,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/slotted-custom-element-in-cell.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx/slotted-custom-element-in-cell.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/slotted-custom-element-in-cell.png"
         },
         {
@@ -3305,9 +3305,9 @@
       ]
     }
   ],
-  "startedAt": "2026-01-12T11:28:11.093Z",
-  "endedAt": "2026-01-12T11:38:38.583Z",
-  "duration": 600388,
+  "startedAt": "2026-01-12T12:29:08.644Z",
+  "endedAt": "2026-01-12T12:39:40.856Z",
+  "duration": 604755,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
