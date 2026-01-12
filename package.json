@@ -4,6 +4,7 @@
     "audit": "npm run audit-expiry && audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:bypass-expiry": "audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:fix": "lerna-audit",
+    "audit:update": "node update-audit.mjs",
     "audit-expiry": "node check-audit-expiry.mjs",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build --scope=@ukic/web-components --scope=@ukic/fonts --scope=@ukic/docs --stream  && lerna run build --scope=@ukic/react --stream",
