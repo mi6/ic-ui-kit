@@ -6540,41 +6540,6 @@
           "setter": false
         },
         {
-          "name": "timeFormat",
-          "type": "\"HH:MM\" | \"HH:MM:SS\"",
-          "complexType": {
-            "original": "IcTimeFormatSelector",
-            "resolved": "\"HH:MM\" | \"HH:MM:SS\"",
-            "references": {
-              "IcTimeFormatSelector": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcTimeFormatSelector"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "time-format",
-          "reflectToAttr": false,
-          "docs": "The format in which the time will be displayed.",
-          "docsTags": [],
-          "default": "this.DEFAULT_TIME_FORMAT",
-          "values": [
-            {
-              "value": "HH:MM",
-              "type": "string"
-            },
-            {
-              "value": "HH:MM:SS",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "timePeriod",
           "type": "\"12\" | \"24\"",
           "complexType": {
@@ -6646,11 +6611,11 @@
       "events": [
         {
           "event": "icChange",
-          "detail": "{ value: Date | null; timeString: string | null; timeObject: { hour: string | null; minute: string | null; second: string | null; period?: IcTimePeriods | undefined; }; }",
+          "detail": "{ value: Date | null; timeString: string | null; timeObject: { hour: string | null; minute: string | null; period?: IcTimePeriods | undefined; }; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\n    value: Date | null;\n    timeString: string | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n      period?: IcTimePeriods;\n    };\n  }",
-            "resolved": "{ value: Date | null; timeString: string | null; timeObject: { hour: string | null; minute: string | null; second: string | null; period?: IcTimePeriods | undefined; }; }",
+            "original": "{\n    value: Date | null;\n    timeString: string | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      period?: IcTimePeriods;\n    };\n  }",
+            "resolved": "{ value: Date | null; timeString: string | null; timeObject: { hour: string | null; minute: string | null; period?: IcTimePeriods | undefined; }; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -7539,11 +7504,6 @@
     },
     "src/utils/types.ts::IcTimeFormat": {
       "declaration": "export type IcTimeFormat = \"HH:MM\" | \"HH:MM:SS\" | \"HH:MM:SS.SSS\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcTimeFormatSelector": {
-      "declaration": "export type IcTimeFormatSelector = \"HH:MM\" | \"HH:MM:SS\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
