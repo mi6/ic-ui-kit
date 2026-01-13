@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "core": {
     disableTelemetry: true
   },
@@ -7,17 +7,17 @@ module.exports = {
 
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-postcss",
     "@storybook/addon-a11y",
-    "@storybook/addon-mdx-gfm",
-    "@storybook/addon-webpack5-compiler-babel"
+    "@storybook/addon-docs"
   ],
 
   "framework": {
-    name: "@storybook/web-components-webpack5",
+    name: "@storybook/web-components-vite",
     options: {}
   },
-
+  async viteFinal(config) {
+    config.assetsInclude = ['**/*.md']
+    return config;
+  },
   docs: {}
 }
