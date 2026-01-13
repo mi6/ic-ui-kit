@@ -16,6 +16,8 @@ cd ../fonts
 echo "../ic-ui-kit/packages/fonts/$(npm pack -s)"
 cd ../react
 echo "../ic-ui-kit/packages/react/$(npm pack -s)"
+cd ../angular-community-supported
+echo "../ic-ui-kit/packages/angular-community-supported/$(npm pack -s)"
 cd ../web-components
 echo "../ic-ui-kit/packages/web-components/$(npm pack -s)"
 cd ../canary-react

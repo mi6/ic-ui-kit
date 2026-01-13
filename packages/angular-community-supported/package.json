@@ -1,0 +1,95 @@
+{
+  "name": "@ukic/angular-community-supported",
+  "version": "3.17.0",
+  "description": "Angular specific wrappers for @ukic/web-components provided by the wider community",
+  "license": "MIT",
+  "author": "mi6",
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit",
+    "email": "icds@gchq.gov.uk"
+  },
+  "repository": {
+    "url": "https://github.com/mi6/ic-ui-kit",
+    "directory": "packages/angular-community-supported"
+  },
+  "homepage": "https://design.sis.gov.uk",
+  "scripts": {
+    "build": "npm run clean && npm run build.ng && npm run build.core && npm run clean-generated",
+    "build.core": "node scripts/build-core.js",
+    "build.ng": "ng-packagr -p ng-package.json -c tsconfig.json",
+    "build.watch": "npm run build.ng -- --watch",
+    "clean": "node scripts/clean.js",
+    "clean-generated": "node ./scripts/clean-generated.js",
+    "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
+    "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
+    "tsc": "tsc -p .",
+    "validate": "npm i && npm run build",
+    "audit": "echo 'Audit for: @ukic/angular-community-supported' & audit-ci -m --config ../../audit-ci.json"
+  },
+  "exports": {
+    "./css/*": {
+      "style": "./css/*"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "import": "./dist/fesm2022/ukic-angular.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./standalone": {
+      "import": "./dist/fesm2022/ukic-angular-standalone.mjs",
+      "types": "./dist/standalone/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "main": "./dist/index.d.ts",
+  "module": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@ukic/web-components": "^3.17.0",
+    "jsonc-parser": "^3.0.0",
+    "tslib": "^2.8.1"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=21.0.2",
+    "@angular/forms": ">=21.0.2",
+    "@angular/router": ">=21.0.2",
+    "@ukic/fonts": "^3.2.0",
+    "rxjs": ">=7.8.0",
+    "zone.js": ">=0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^21.0.0",
+    "@angular-devkit/core": "^21.0.0",
+    "@angular-devkit/schematics": "^21.0.0",
+    "@angular/cli": "^21.0.0",
+    "@angular/common": "^21.0.0",
+    "@angular/compiler": "^21.0.0",
+    "@angular/compiler-cli": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/forms": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
+    "@angular/platform-browser-dynamic": "^21.0.0",
+    "@angular/router": "^21.0.0",
+    "@schematics/angular": "^21.0.0",
+    "@types/node": "22.15.14",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "angular-eslint": "^20.3.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-import": "^2.30.0",
+    "fs-extra": "^11.3.0",
+    "ng-packagr": "^21.0.0",
+    "prettier": "^3.5.3",
+    "rxjs": "~7.5.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.0",
+    "typescript": "~5.9.0",
+    "typescript-eslint-language-service": "^5.0.0",
+    "zone.js": "~0.15.0"
+  },
+  "schematics": "./dist/schematics/collection.json"
+}
