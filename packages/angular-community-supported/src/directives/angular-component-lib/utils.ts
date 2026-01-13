@@ -30,7 +30,7 @@ export const proxyMethods = (Cmp: any, methods: string[]) => {
     Prototype[methodName] = function () {
       const args = arguments;
       return this.z.runOutsideAngular(() =>
-        this.el[methodName].apply(this.el, args)
+        this.el[methodName].apply(this.el, args),
       );
     };
   });
@@ -38,7 +38,7 @@ export const proxyMethods = (Cmp: any, methods: string[]) => {
 
 export const proxyOutputs = (instance: any, el: any, events: string[]) => {
   events.forEach(
-    (eventName) => (instance[eventName] = fromEvent(el, eventName))
+    (eventName) => (instance[eventName] = fromEvent(el, eventName)),
   );
 };
 

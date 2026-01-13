@@ -28,7 +28,11 @@ import { Components } from "@ukic/web-components";
 })
 export class IcAccordion {
   protected el: HTMLIcAccordionElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -64,7 +68,11 @@ export declare interface IcAccordion extends Components.IcAccordion {}
 })
 export class IcAccordionGroup {
   protected el: HTMLIcAccordionGroupElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -128,7 +136,11 @@ export declare interface IcAccordionGroup extends Components.IcAccordionGroup {}
 })
 export class IcActionChip {
   protected el: HTMLIcActionChipElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -169,7 +181,11 @@ export declare interface IcActionChip extends Components.IcActionChip {}
 export class IcAlert {
   protected el: HTMLIcAlertElement;
   @Output() icDismiss = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -195,7 +211,11 @@ export declare interface IcAlert extends Components.IcAlert {
 })
 export class IcBackToTop {
   protected el: HTMLIcBackToTopElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -238,7 +258,11 @@ export declare interface IcBackToTop extends Components.IcBackToTop {}
 })
 export class IcBadge {
   protected el: HTMLIcBadgeElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -260,7 +284,11 @@ export declare interface IcBadge extends Components.IcBadge {}
 })
 export class IcBreadcrumb {
   protected el: HTMLIcBreadcrumbElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -281,7 +309,11 @@ export declare interface IcBreadcrumb extends Components.IcBreadcrumb {}
 })
 export class IcBreadcrumbGroup {
   protected el: HTMLIcBreadcrumbGroupElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -372,7 +404,11 @@ export class IcButton {
   @Output() icBlur = new EventEmitter<CustomEvent<void>>();
   @Output() icFileSelection = new EventEmitter<CustomEvent<FileList>>();
   @Output() icFocus = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -435,7 +471,11 @@ export declare interface IcButton extends Components.IcButton {
 })
 export class IcCardVertical {
   protected el: HTMLIcCardVerticalElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -489,7 +529,11 @@ export declare interface IcCardVertical extends Components.IcCardVertical {}
 export class IcCheckbox {
   protected el: HTMLIcCheckboxElement;
   @Output() icCheck = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -543,7 +587,11 @@ export class IcCheckboxGroup {
   @Output() icChange = new EventEmitter<
     CustomEvent<IIcCheckboxGroupIcChangeEventDetail>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -594,7 +642,11 @@ export declare interface IcCheckboxGroup extends Components.IcCheckboxGroup {
 export class IcChip {
   protected el: HTMLIcChipElement;
   @Output() icDismiss = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -632,7 +684,11 @@ export declare interface IcChip extends Components.IcChip {
 })
 export class IcClassificationBanner {
   protected el: HTMLIcClassificationBannerElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -654,7 +710,11 @@ export declare interface IcClassificationBanner
 })
 export class IcDataList {
   protected el: HTMLIcDataListElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -675,7 +735,11 @@ export declare interface IcDataList extends Components.IcDataList {}
 })
 export class IcDataRow {
   protected el: HTMLIcDataRowElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -733,7 +797,11 @@ export class IcDialog {
   @Output() icDialogClosed = new EventEmitter<CustomEvent<void>>();
   @Output() icDialogConfirmed = new EventEmitter<CustomEvent<void>>();
   @Output() icDialogOpened = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -787,7 +855,11 @@ export declare interface IcDialog extends Components.IcDialog {
 })
 export class IcDivider {
   protected el: HTMLIcDividerElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -824,7 +896,11 @@ export declare interface IcDivider extends Components.IcDivider {}
 })
 export class IcEmptyState {
   protected el: HTMLIcEmptyStateElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -861,7 +937,11 @@ export declare interface IcEmptyState extends Components.IcEmptyState {}
 })
 export class IcFooter {
   protected el: HTMLIcFooterElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -882,7 +962,11 @@ export declare interface IcFooter extends Components.IcFooter {}
 })
 export class IcFooterLink {
   protected el: HTMLIcFooterLinkElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -903,7 +987,11 @@ export declare interface IcFooterLink extends Components.IcFooterLink {}
 })
 export class IcFooterLinkGroup {
   protected el: HTMLIcFooterLinkGroupElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -947,7 +1035,11 @@ export declare interface IcFooterLinkGroup
 })
 export class IcHero {
   protected el: HTMLIcHeroElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -968,7 +1060,11 @@ export declare interface IcHero extends Components.IcHero {}
 })
 export class IcHorizontalScroll {
   protected el: HTMLIcHorizontalScrollElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1006,7 +1102,11 @@ export declare interface IcHorizontalScroll
 })
 export class IcInputComponentContainer {
   protected el: HTMLIcInputComponentContainerElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1028,7 +1128,11 @@ export declare interface IcInputComponentContainer
 })
 export class IcInputContainer {
   protected el: HTMLIcInputContainerElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1067,7 +1171,11 @@ export declare interface IcInputContainer extends Components.IcInputContainer {}
 })
 export class IcInputLabel {
   protected el: HTMLIcInputLabelElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1088,7 +1196,11 @@ export declare interface IcInputLabel extends Components.IcInputLabel {}
 })
 export class IcInputValidation {
   protected el: HTMLIcInputValidationElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1130,7 +1242,11 @@ export declare interface IcInputValidation
 })
 export class IcLayoutGrid {
   protected el: HTMLIcLayoutGridElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1151,7 +1267,11 @@ export declare interface IcLayoutGrid extends Components.IcLayoutGrid {}
 })
 export class IcLayoutGridItem {
   protected el: HTMLIcLayoutGridItemElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1191,7 +1311,11 @@ export declare interface IcLayoutGridItem extends Components.IcLayoutGridItem {}
 })
 export class IcLink {
   protected el: HTMLIcLinkElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1236,7 +1360,11 @@ export declare interface IcLink extends Components.IcLink {}
 })
 export class IcLoadingIndicator {
   protected el: HTMLIcLoadingIndicatorElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1291,7 +1419,11 @@ export declare interface IcLoadingIndicator
 export class IcMenu {
   protected el: HTMLIcMenuElement;
   @Output() icClear = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1317,7 +1449,11 @@ export declare interface IcMenu extends Components.IcMenu {
 })
 export class IcMenuGroup {
   protected el: HTMLIcMenuGroupElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1368,7 +1504,11 @@ export class IcMenuItem {
   @Output() icToggleChecked = new EventEmitter<
     CustomEvent<{ checked: boolean }>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1413,7 +1553,11 @@ export declare interface IcMenuItem extends Components.IcMenuItem {
 })
 export class IcNavigationButton {
   protected el: HTMLIcNavigationButtonElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1441,7 +1585,11 @@ export declare interface IcNavigationButton
 })
 export class IcNavigationGroup {
   protected el: HTMLIcNavigationGroupElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1484,7 +1632,11 @@ export declare interface IcNavigationGroup
 })
 export class IcNavigationItem {
   protected el: HTMLIcNavigationItemElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1505,7 +1657,11 @@ export declare interface IcNavigationItem extends Components.IcNavigationItem {}
 })
 export class IcNavigationMenu {
   protected el: HTMLIcNavigationMenuElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1546,7 +1702,11 @@ export declare interface IcNavigationMenu extends Components.IcNavigationMenu {}
 })
 export class IcPageHeader {
   protected el: HTMLIcPageHeaderElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1600,7 +1760,11 @@ export class IcPagination {
   @Output() icPageChange = new EventEmitter<
     CustomEvent<IIcPaginationIcChangeEventDetail>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1644,7 +1808,11 @@ export declare interface IcPagination extends Components.IcPagination {
 })
 export class IcPaginationItem {
   protected el: HTMLIcPaginationItemElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1669,7 +1837,11 @@ export class IcPopoverMenu {
   @Output() icPopoverClosed = new EventEmitter<
     CustomEvent<HTMLIcMenuItemElement>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1725,7 +1897,11 @@ export class IcRadioGroup {
   @Output() icChange = new EventEmitter<
     CustomEvent<IIcRadioGroupIcChangeEventDetail>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1781,7 +1957,11 @@ export class IcRadioOption {
     CustomEvent<IIcRadioOptionIcValueEventDetail>
   >();
   @Output() icSelectedChange = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1920,7 +2100,11 @@ export class IcSearchBar {
   @Output() icKeydown = new EventEmitter<
     CustomEvent<{ event: KeyboardEvent }>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -1992,7 +2176,11 @@ export declare interface IcSearchBar extends Components.IcSearchBar {
 })
 export class IcSectionContainer {
   protected el: HTMLIcSectionContainerElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2111,7 +2299,11 @@ export class IcSelect {
   @Output() icRetryLoad = new EventEmitter<
     CustomEvent<IIcSelectIcMultiValueEventDetail>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2207,7 +2399,11 @@ export class IcSideNavigation {
   @Output() icSideNavExpanded = new EventEmitter<
     CustomEvent<IIcSideNavigationIcExpandedDetail>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2237,7 +2433,11 @@ export declare interface IcSideNavigation extends Components.IcSideNavigation {
 })
 export class IcSkeleton {
   protected el: HTMLIcSkeletonElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2275,7 +2475,11 @@ export declare interface IcSkeleton extends Components.IcSkeleton {}
 })
 export class IcSkipLink {
   protected el: HTMLIcSkipLinkElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2312,7 +2516,11 @@ export declare interface IcSkipLink extends Components.IcSkipLink {}
 })
 export class IcStatusTag {
   protected el: HTMLIcStatusTagElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2333,7 +2541,11 @@ export declare interface IcStatusTag extends Components.IcStatusTag {}
 })
 export class IcStep {
   protected el: HTMLIcStepElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2368,7 +2580,11 @@ export declare interface IcStep extends Components.IcStep {}
 })
 export class IcStepper {
   protected el: HTMLIcStepperElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2416,7 +2632,11 @@ export class IcSwitch {
     CustomEvent<IIcSwitchIcSwitchChangeEventDetail>
   >();
   @Output() icFocus = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2453,7 +2673,11 @@ export declare interface IcSwitch extends Components.IcSwitch {
 })
 export class IcTab {
   protected el: HTMLIcTabElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2491,7 +2715,11 @@ export class IcTabContext {
   @Output() icTabSelect = new EventEmitter<
     CustomEvent<IIcTabContextIcTabSelectEventDetail>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2519,7 +2747,11 @@ export declare interface IcTabContext extends Components.IcTabContext {
 })
 export class IcTabGroup {
   protected el: HTMLIcTabGroupElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2538,7 +2770,11 @@ export declare interface IcTabGroup extends Components.IcTabGroup {}
 })
 export class IcTabPanel {
   protected el: HTMLIcTabPanelElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2658,7 +2894,11 @@ export class IcTextField {
     CustomEvent<IIcTextFieldIcTextFieldKeydownEventDetail>
   >();
   @Output() icScroll = new EventEmitter<CustomEvent<any>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2713,7 +2953,11 @@ export class IcTheme {
   @Output() icThemeChange = new EventEmitter<
     CustomEvent<IIcThemeIcThemeSettings>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2761,7 +3005,11 @@ export declare interface IcTheme extends Components.IcTheme {
 export class IcToast {
   protected el: HTMLIcToastElement;
   @Output() icDismiss = new EventEmitter<CustomEvent<void>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2787,7 +3035,11 @@ export declare interface IcToast extends Components.IcToast {
 })
 export class IcToastRegion {
   protected el: HTMLIcToastRegionElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2840,7 +3092,11 @@ export class IcToggleButton {
   @Output() icToggleChecked = new EventEmitter<
     CustomEvent<{ checked: boolean }>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2898,7 +3154,11 @@ export class IcToggleButtonGroup {
   @Output() icChange = new EventEmitter<
     CustomEvent<IIcToggleButtonGroupIcChangeEventDetail>
   >();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2946,7 +3206,11 @@ export declare interface IcToggleButtonGroup
 })
 export class IcTooltip {
   protected el: HTMLIcTooltipElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -2989,7 +3253,11 @@ export declare interface IcTooltip extends Components.IcTooltip {}
 export class IcTopNavigation {
   protected el: HTMLIcTopNavigationElement;
   @Output() icTopNavResized = new EventEmitter<CustomEvent<{ size: number }>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
@@ -3033,7 +3301,11 @@ export declare interface IcTopNavigation extends Components.IcTopNavigation {
 })
 export class IcTypography {
   protected el: HTMLIcTypographyElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
