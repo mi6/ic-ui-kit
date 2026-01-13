@@ -57,10 +57,10 @@ ng add @ukic/angular
 #### Step one
 
 ```shell
-// using npm
+# using npm
 npm install @ukic/angular @ukic/fonts
 
-// using yarn
+# using yarn
 rm package-lock.json
 yarn add @ukic/angular @ukic/fonts
 ```
