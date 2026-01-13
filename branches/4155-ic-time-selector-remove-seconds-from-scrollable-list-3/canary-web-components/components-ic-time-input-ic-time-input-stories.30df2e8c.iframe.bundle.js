@@ -1,0 +1,257 @@
+/*! For license information please see components-ic-time-input-ic-time-input-stories.30df2e8c.iframe.bundle.js.LICENSE.txt */
+"use strict";(self.webpackChunk_ukic_canary_web_components=self.webpackChunk_ukic_canary_web_components||[]).push([[1267],{"./node_modules/lit-html/lit-html.js":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.d(__webpack_exports__,{qy:()=>x});const t=globalThis,i=t.trustedTypes,s=i?i.createPolicy("lit-html",{createHTML:t=>t}):void 0,e="$lit$",h=`lit$${Math.random().toFixed(9).slice(2)}$`,o="?"+h,n=`<${o}>`,r=document,l=()=>r.createComment(""),c=t=>null===t||"object"!=typeof t&&"function"!=typeof t,a=Array.isArray,u=t=>a(t)||"function"==typeof t?.[Symbol.iterator],d="[ \t\n\f\r]",f=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,v=/-->/g,_=/>/g,m=RegExp(`>|${d}(?:([^\\s"'>=/]+)(${d}*=${d}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`,"g"),p=/'/g,g=/"/g,$=/^(?:script|style|textarea|title)$/i,y=t=>(i,...s)=>({_$litType$:t,strings:i,values:s}),x=y(1),T=(y(2),y(3),Symbol.for("lit-noChange")),E=Symbol.for("lit-nothing"),A=new WeakMap,C=r.createTreeWalker(r,129);function P(t,i){if(!a(t)||!t.hasOwnProperty("raw"))throw Error("invalid template strings array");return void 0!==s?s.createHTML(i):i}const V=(t,i)=>{const s=t.length-1,o=[];let r,l=2===i?"<svg>":3===i?"<math>":"",c=f;for(let i=0;i<s;i++){const s=t[i];let a,u,d=-1,y=0;for(;y<s.length&&(c.lastIndex=y,u=c.exec(s),null!==u);)y=c.lastIndex,c===f?"!--"===u[1]?c=v:void 0!==u[1]?c=_:void 0!==u[2]?($.test(u[2])&&(r=RegExp("</"+u[2],"g")),c=m):void 0!==u[3]&&(c=m):c===m?">"===u[0]?(c=r??f,d=-1):void 0===u[1]?d=-2:(d=c.lastIndex-u[2].length,a=u[1],c=void 0===u[3]?m:'"'===u[3]?g:p):c===g||c===p?c=m:c===v||c===_?c=f:(c=m,r=void 0);const x=c===m&&t[i+1].startsWith("/>")?" ":"";l+=c===f?s+n:d>=0?(o.push(a),s.slice(0,d)+e+s.slice(d)+h+x):s+h+(-2===d?i:x)}return[P(t,l+(t[s]||"<?>")+(2===i?"</svg>":3===i?"</math>":"")),o]};class N{constructor({strings:t,_$litType$:s},n){let r;this.parts=[];let c=0,a=0;const u=t.length-1,d=this.parts,[f,v]=V(t,s);if(this.el=N.createElement(f,n),C.currentNode=this.el.content,2===s||3===s){const t=this.el.content.firstChild;t.replaceWith(...t.childNodes)}for(;null!==(r=C.nextNode())&&d.length<u;){if(1===r.nodeType){if(r.hasAttributes())for(const t of r.getAttributeNames())if(t.endsWith(e)){const i=v[a++],s=r.getAttribute(t).split(h),e=/([.?@])?(.*)/.exec(i);d.push({type:1,index:c,name:e[2],strings:s,ctor:"."===e[1]?H:"?"===e[1]?I:"@"===e[1]?L:k}),r.removeAttribute(t)}else t.startsWith(h)&&(d.push({type:6,index:c}),r.removeAttribute(t));if($.test(r.tagName)){const t=r.textContent.split(h),s=t.length-1;if(s>0){r.textContent=i?i.emptyScript:"";for(let i=0;i<s;i++)r.append(t[i],l()),C.nextNode(),d.push({type:2,index:++c});r.append(t[s],l())}}}else if(8===r.nodeType)if(r.data===o)d.push({type:2,index:c});else{let t=-1;for(;-1!==(t=r.data.indexOf(h,t+1));)d.push({type:7,index:c}),t+=h.length-1}c++}}static createElement(t,i){const s=r.createElement("template");return s.innerHTML=t,s}}function S(t,i,s=t,e){if(i===T)return i;let h=void 0!==e?s._$Co?.[e]:s._$Cl;const o=c(i)?void 0:i._$litDirective$;return h?.constructor!==o&&(h?._$AO?.(!1),void 0===o?h=void 0:(h=new o(t),h._$AT(t,s,e)),void 0!==e?(s._$Co??=[])[e]=h:s._$Cl=h),void 0!==h&&(i=S(t,h._$AS(t,i.values),h,e)),i}class M{constructor(t,i){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=i}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){const{el:{content:i},parts:s}=this._$AD,e=(t?.creationScope??r).importNode(i,!0);C.currentNode=e;let h=C.nextNode(),o=0,n=0,l=s[0];for(;void 0!==l;){if(o===l.index){let i;2===l.type?i=new R(h,h.nextSibling,this,t):1===l.type?i=new l.ctor(h,l.name,l.strings,this,t):6===l.type&&(i=new z(h,this,t)),this._$AV.push(i),l=s[++n]}o!==l?.index&&(h=C.nextNode(),o++)}return C.currentNode=r,e}p(t){let i=0;for(const s of this._$AV)void 0!==s&&(void 0!==s.strings?(s._$AI(t,s,i),i+=s.strings.length-2):s._$AI(t[i])),i++}}class R{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(t,i,s,e){this.type=2,this._$AH=E,this._$AN=void 0,this._$AA=t,this._$AB=i,this._$AM=s,this.options=e,this._$Cv=e?.isConnected??!0}get parentNode(){let t=this._$AA.parentNode;const i=this._$AM;return void 0!==i&&11===t?.nodeType&&(t=i.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,i=this){t=S(this,t,i),c(t)?t===E||null==t||""===t?(this._$AH!==E&&this._$AR(),this._$AH=E):t!==this._$AH&&t!==T&&this._(t):void 0!==t._$litType$?this.$(t):void 0!==t.nodeType?this.T(t):u(t)?this.k(t):this._(t)}O(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}T(t){this._$AH!==t&&(this._$AR(),this._$AH=this.O(t))}_(t){this._$AH!==E&&c(this._$AH)?this._$AA.nextSibling.data=t:this.T(r.createTextNode(t)),this._$AH=t}$(t){const{values:i,_$litType$:s}=t,e="number"==typeof s?this._$AC(t):(void 0===s.el&&(s.el=N.createElement(P(s.h,s.h[0]),this.options)),s);if(this._$AH?._$AD===e)this._$AH.p(i);else{const t=new M(e,this),s=t.u(this.options);t.p(i),this.T(s),this._$AH=t}}_$AC(t){let i=A.get(t.strings);return void 0===i&&A.set(t.strings,i=new N(t)),i}k(t){a(this._$AH)||(this._$AH=[],this._$AR());const i=this._$AH;let s,e=0;for(const h of t)e===i.length?i.push(s=new R(this.O(l()),this.O(l()),this,this.options)):s=i[e],s._$AI(h),e++;e<i.length&&(this._$AR(s&&s._$AB.nextSibling,e),i.length=e)}_$AR(t=this._$AA.nextSibling,i){for(this._$AP?.(!1,!0,i);t&&t!==this._$AB;){const i=t.nextSibling;t.remove(),t=i}}setConnected(t){void 0===this._$AM&&(this._$Cv=t,this._$AP?.(t))}}class k{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(t,i,s,e,h){this.type=1,this._$AH=E,this._$AN=void 0,this.element=t,this.name=i,this._$AM=e,this.options=h,s.length>2||""!==s[0]||""!==s[1]?(this._$AH=Array(s.length-1).fill(new String),this.strings=s):this._$AH=E}_$AI(t,i=this,s,e){const h=this.strings;let o=!1;if(void 0===h)t=S(this,t,i,0),o=!c(t)||t!==this._$AH&&t!==T,o&&(this._$AH=t);else{const e=t;let n,r;for(t=h[0],n=0;n<h.length-1;n++)r=S(this,e[s+n],i,n),r===T&&(r=this._$AH[n]),o||=!c(r)||r!==this._$AH[n],r===E?t=E:t!==E&&(t+=(r??"")+h[n+1]),this._$AH[n]=r}o&&!e&&this.j(t)}j(t){t===E?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"")}}class H extends k{constructor(){super(...arguments),this.type=3}j(t){this.element[this.name]=t===E?void 0:t}}class I extends k{constructor(){super(...arguments),this.type=4}j(t){this.element.toggleAttribute(this.name,!!t&&t!==E)}}class L extends k{constructor(t,i,s,e,h){super(t,i,s,e,h),this.type=5}_$AI(t,i=this){if((t=S(this,t,i,0)??E)===T)return;const s=this._$AH,e=t===E&&s!==E||t.capture!==s.capture||t.once!==s.once||t.passive!==s.passive,h=t!==E&&(s===E||e);e&&this.element.removeEventListener(this.name,this,s),h&&this.element.addEventListener(this.name,this,t),this._$AH=t}handleEvent(t){"function"==typeof this._$AH?this._$AH.call(this.options?.host??this.element,t):this._$AH.handleEvent(t)}}class z{constructor(t,i,s){this.element=t,this.type=6,this._$AN=void 0,this._$AM=i,this.options=s}get _$AU(){return this._$AM._$AU}_$AI(t){S(this,t)}}const j=t.litHtmlPolyfillSupport;j?.(N,R),(t.litHtmlVersions??=[]).push("3.2.1")},"./src/components/ic-time-input/ic-time-input.stories.js":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,{AriaLiveBehaviour:()=>AriaLiveBehaviour,CustomHelperText:()=>CustomHelperText,DateObject:()=>DateObject,Default:()=>Default,DisableTimes:()=>DisableTimes,Disabled:()=>Disabled,HHMM:()=>HHMM,HideHelperText:()=>HideHelperText,HideLabel:()=>HideLabel,IcTimeChangeEmitTimePartChanges:()=>IcTimeChangeEmitTimePartChanges,IcTimeChangeEvent:()=>IcTimeChangeEvent,IcTimeChangeTimeParts12Hour:()=>IcTimeChangeTimeParts12Hour,IcTimeChangeTimePartsMilliseconds:()=>IcTimeChangeTimePartsMilliseconds,MaxTime:()=>MaxTime,Milliseconds:()=>Milliseconds,MinTime:()=>MinTime,Required:()=>Required,Sizes:()=>Sizes,TimePeriod:()=>TimePeriod,TimePeriodAMPMToggle:()=>TimePeriodAMPMToggle,Validation:()=>Validation,WithClearingValue:()=>WithClearingValue,WithValue:()=>WithValue,ZuluTime:()=>ZuluTime,__namedExportsOrder:()=>__namedExportsOrder,default:()=>ic_time_input_stories});var lit_html=__webpack_require__("./node_modules/lit-html/lit-html.js");const ic_time_input_stories={title:"Web Components/Time Input",component:"ic-time-input",parameters:{componentAPI:{data:'# ic-date-input\n\n\n\n\x3c!-- Auto Generated Below --\x3e\n\n\n## Properties\n\n| Property             | Attribute               | Description                                                                                                                                                                                                                    | Type                                          | Default                             |\n| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | ----------------------------------- |\n| `disableTimes`       | --                      | An array of objects with start and end values that will be disabled in the time input. The times can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object. | `IcDisableTimeSelection[]`                    | `[]`                                |\n| `disabled`           | `disabled`              | If `true`, the disabled state will be set.                                                                                                                                                                                     | `boolean`                                     | `false`                             |\n| `emitTimePartChange` | `emit-time-part-change` | If `true`, every individual input field completed will emit an icTimeChange event.                                                                                                                                             | `boolean \\| undefined`                        | `false`                             |\n| `helperText`         | `helper-text`           | The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `timeFormat` value.                                                                            | `null \\| string`                              | `undefined`                         |\n| `hideHelperText`     | `hide-helper-text`      | If `true`, the helper text will be visually hidden, but still read out by screenreaders.                                                                                                                                       | `boolean`                                     | `false`                             |\n| `hideLabel`          | `hide-label`            | If `true`, the label will be visually hidden, but will still be read out by screen readers.                                                                                                                                    | `boolean \\| undefined`                        | `false`                             |\n| `inputId`            | `input-id`              | The ID for the input.                                                                                                                                                                                                          | `string`                                      | `` `ic-time-input-${inputIds++}` `` |\n| `invalidTimeMessage` | `invalid-time-message`  | The text to display as the validation message when an invalid time is entered.                                                                                                                                                 | `string`                                      | `"Please enter a valid time."`      |\n| `label` _(required)_ | `label`                 | The label for the time input.                                                                                                                                                                                                  | `string`                                      | `undefined`                         |\n| `max`                | `max`                   | The latest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.                                                  | `Date \\| string`                              | `""`                                |\n| `min`                | `min`                   | The earliest time that will be allowed. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.                                                | `Date \\| string`                              | `""`                                |\n| `name`               | `name`                  | The name of the control, which is submitted with the form data.                                                                                                                                                                | `string`                                      | `this.inputId`                      |\n| `required`           | `required`              | If `true`, the input will require a value.                                                                                                                                                                                     | `boolean`                                     | `false`                             |\n| `showAmPmToggle`     | `show-am-pm-toggle`     | If `true`, the time input will show an AM/PM toggle when in 12-hour time period.                                                                                                                                               | `boolean \\| undefined`                        | `false`                             |\n| `showClearButton`    | `show-clear-button`     | If `true`, a button which clears the time input when clicked will be displayed.                                                                                                                                                | `boolean \\| undefined`                        | `true`                              |\n| `size`               | `size`                  | The size of the time input to be displayed.                                                                                                                                                                                    | `"large" \\| "medium" \\| "small"`              | `"medium"`                          |\n| `theme`              | `theme`                 | Sets the time picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.                                                                                       | `"dark" \\| "inherit" \\| "light" \\| undefined` | `"inherit"`                         |\n| `timeFormat`         | `time-format`           | The format in which the time will be displayed.                                                                                                                                                                                | `"HH:MM" \\| "HH:MM:SS" \\| "HH:MM:SS.SSS"`     | `this.DEFAULT_TIME_FORMAT`          |\n| `timePeriod`         | `time-period`           | The time period format: "12" for 12-hour, "24" for 24-hour. Defaults to "24".                                                                                                                                                  | `"12" \\| "24"`                                | `"24"`                              |\n| `validationAriaLive` | `validation-aria-live`  | The value of the `aria-live` attribute on the validation message.                                                                                                                                                              | `"assertive" \\| "off" \\| "polite"`            | `"polite"`                          |\n| `validationStatus`   | `validation-status`     | The validation status - e.g. \'error\' \\| \'warning\' \\| \'success\'. This will override the built-in time validation.                                                                                                               | `"" \\| "error" \\| "success" \\| "warning"`     | `""`                                |\n| `validationText`     | `validation-text`       | The text to display as the validation message. This will override the built-in time validation.                                                                                                                                | `string \\| undefined`                         | `""`                                |\n| `value`              | `value`                 | The value of the time input. The value can be in any format supported as `timeFormat`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.                                                           | `Date \\| null \\| string \\| undefined`         | `""`                                |\n\n\n## Events\n\n| Event          | Description                         | Type                                                                                                                                                                                |\n| -------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `icBlur`       | Emitted when the input loses focus. | `CustomEvent<{ value: Date \\| null; }>`                                                                                                                                             |\n| `icFocus`      | Emitted when the input gains focus. | `CustomEvent<{ value: Date \\| null; }>`                                                                                                                                             |\n| `icTimeChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date \\| null; timeObject: { hour: string \\| null; minute: string \\| null; second: string \\| null; millisecond: string \\| null; period: string \\| null; }; }>` |\n\n\n## Methods\n\n### `getTime() => Promise<Date | null>`\n\nReturns the value as a Date object\n\n#### Returns\n\nType: `Promise<Date | null>`\n\nDate\n\n\n## Slots\n\n| Slot            | Description                                           |\n| --------------- | ----------------------------------------------------- |\n| `"helper-text"` | Content is set as the helper text for the time input. |\n\n\n## Dependencies\n\n### Depends on\n\n- ic-input-container\n- ic-input-label\n- ic-input-component-container\n- ic-button\n- ic-toggle-button-group\n- ic-toggle-button\n- ic-input-validation\n\n### Graph\n```mermaid\ngraph TD;\n  ic-time-input --\x3e ic-input-container\n  ic-time-input --\x3e ic-input-label\n  ic-time-input --\x3e ic-input-component-container\n  ic-time-input --\x3e ic-button\n  ic-time-input --\x3e ic-toggle-button-group\n  ic-time-input --\x3e ic-toggle-button\n  ic-time-input --\x3e ic-input-validation\n  ic-input-label --\x3e ic-typography\n  ic-button --\x3e ic-typography\n  ic-button --\x3e ic-loading-indicator\n  ic-button --\x3e ic-tooltip\n  ic-loading-indicator --\x3e ic-typography\n  ic-tooltip --\x3e ic-typography\n  ic-toggle-button --\x3e ic-button\n  ic-input-validation --\x3e ic-typography\n  style ic-time-input fill:#f9f,stroke:#333,stroke-width:4px\n```\n\n----------------------------------------------\n\n\n'}}},Default={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee?"
+  ></ic-time-input>`,name:"Default"},IcTimeChangeEvent={render:()=>lit_html.qy`<ic-time-input
+      label="What time would you like to collect your coffee?"
+    ></ic-time-input>
+    <script>
+      var timeInput = document.querySelector("ic-time-input");
+      timeInput.addEventListener("icTimeChange", function (event) {
+        console.log(event.detail.value, event.detail.utcValue);
+      });
+    </script>`,name:"icTimeChange event"},WithValue={render:()=>lit_html.qy`<ic-time-input
+    id="time-input-default-time-with-value"
+    label="What time would you like to collect your coffee?"
+    time-format="HH:MM:SS"
+    value="13:45:00"
+  ></ic-time-input>`,name:"With value"},DateObject={render:()=>lit_html.qy`<ic-time-input
+      id="time-input-default-time-date"
+      label="What time would you like to collect your coffee?"
+    ></ic-time-input>
+    <script>
+      var timeInputDate = document.querySelector(
+        "#time-input-default-time-date"
+      );
+      timeInputDate.value = new Date("2025-07-14T15:30:45");
+    </script>`,name:"Date object"},ZuluTime={render:()=>lit_html.qy`<div>
+      <ic-time-input
+        id="time-input-default-zulu-time"
+        label="What time would you like to collect your coffee?"
+      ></ic-time-input>
+    </div>
+    <script>
+      var timeInputDate = document.querySelector(
+        "#time-input-default-zulu-time"
+      );
+      timeInputDate.value = "15:30:45Z";
+    </script>`,name:"Zulu time"},Required={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee?"
+    required="true"
+  ></ic-time-input>`,name:"Required"},HideLabel={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee?"
+    hide-label="true"
+  ></ic-time-input>`,name:"Hide label"},Disabled={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee?"
+    disabled="true"
+  ></ic-time-input>`},Sizes={render:()=>lit_html.qy`<ic-time-input
+      label="What time would you like to collect your coffee?"
+      size="small"
+    ></ic-time-input>
+    <br />
+    <ic-time-input
+      label="What time would you like to collect your coffee?"
+    ></ic-time-input>
+    <br />
+    <ic-time-input
+      label="What time would you like to collect your coffee?"
+      size="large"
+    ></ic-time-input>`,name:"Sizes"},CustomHelperText={render:()=>lit_html.qy`<ic-time-input
+      label="What time would you like to collect your coffee?"
+      helper-text="We will have your order ready for you at this time"
+    ></ic-time-input>
+    <br />
+    <ic-time-input label="What time would you like to collect your coffee?"
+      ><ic-typography variant="caption" slot="helper-text">
+        <span>
+          For special requests,
+          <ic-link href="#">contact us</ic-link> before choosing a time
+        </span>
+      </ic-typography></ic-time-input
+    >`,name:"Custom helper text"},HideHelperText={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee?"
+    helper-text="You cannot see me, but you can hear me"
+    hide-helper-text="true"
+  ></ic-time-input>`,name:"Hide helper text"},Validation={render:()=>lit_html.qy`<ic-time-input
+      label="What time would you like to collect your coffee?"
+      validation-status="error"
+      validation-text="There is a coffee shortage forecast for that time. Please choose a different time."
+    ></ic-time-input>
+    <br />
+    <ic-time-input
+      label="What time would you like to collect your coffee?"
+      validation-status="warning"
+      validation-text="Please be aware that there may be a coffee shortage at that time."
+    ></ic-time-input>
+    <br />
+    <ic-time-input
+      label="What time would you like to collect your coffee?"
+      validation-status="success"
+      validation-text="Your coffee will be available for you to collect at this time."
+    ></ic-time-input>`,name:"Custom validation"},AriaLiveBehaviour={render:args=>lit_html.qy`<ic-time-input
+        id="field-1"
+        label="What time would you like to collect your coffee?"
+        helper-text="Error already set on page load and aria-live overridden as 'assertive'"
+        validation-status="error"
+        validation-text="First error message"
+        validation-aria-live="assertive"
+      ></ic-time-input>
+      <br />
+      <ic-time-input
+        id="field-2"
+        label="What time would you like to collect your coffee?"
+        helper-text="Error set after page load and aria-live overridden as 'assertive'"
+        validation-aria-live="assertive"
+      ></ic-time-input>
+      <br />
+      <ic-button id="toggle-btn-1">Toggle errors</ic-button>
+      <script>
+        let showErrors1 = false;
+        const btn1 = document.getElementById("toggle-btn-1");
+        const field1 = document.getElementById("field-1");
+        const field2 = document.getElementById("field-2");
+
+        btn1.addEventListener("click", () => {
+          showErrors1 = !showErrors1;
+
+          field1.setAttribute("validation-status", showErrors1 ? "" : "error");
+          field1.setAttribute(
+            "validation-text",
+            showErrors1 ? "" : "First error message"
+          );
+
+          field2.setAttribute("validation-status", showErrors1 ? "error" : "");
+          field2.setAttribute(
+            "validation-text",
+            showErrors1 ? "Second error message" : ""
+          );
+        });
+      </script>
+      <br />
+      <br />
+      <br />
+      <br />
+      <ic-time-input
+        id="field-3"
+        label="What time would you like to collect your coffee?"
+        helper-text="Default aria-live behaviour (i.e. 'polite')"
+      ></ic-time-input>
+      <br />
+      <ic-time-input
+        id="field-4"
+        label="What time would you like to collect your coffee?"
+        helper-text="Default aria-live behaviour (i.e. 'polite')"
+      ></ic-time-input>
+      <br />
+      <ic-button id="toggle-btn-2">Toggle errors</ic-button>
+      <script>
+        let showErrors2 = false;
+        const btn2 = document.getElementById("toggle-btn-2");
+        const field3 = document.getElementById("field-3");
+        const field4 = document.getElementById("field-4");
+
+        btn2.addEventListener("click", () => {
+          showErrors2 = !showErrors2;
+
+          field3.setAttribute("validation-status", showErrors2 ? "error" : "");
+          field3.setAttribute(
+            "validation-text",
+            showErrors2 ? "Third error message" : ""
+          );
+
+          field4.setAttribute("validation-status", showErrors2 ? "error" : "");
+          field4.setAttribute(
+            "validation-text",
+            showErrors2 ? "Fourth error message" : ""
+          );
+        });
+      </script>`,name:"Aria-live behaviour"},IcTimeChangeEmitTimePartChanges={render:()=>lit_html.qy`<ic-time-input
+      emit-time-part-change="true"
+      label="What time would you like to collect your coffee?"
+    ></ic-time-input>
+    <script>
+      var timeInput = document.querySelector("ic-time-input");
+      timeInput.addEventListener("icTimeChange", function (event) {
+        console.log("icTimeChange", event.detail);
+      });
+    </script>`,name:"IcTimeChange with emitTimePartChange"},TimePeriod={render:()=>lit_html.qy`
+    <ic-time-input label="12-hour time" time-period="12"></ic-time-input>
+  `,name:"Time period"},TimePeriodAMPMToggle={render:()=>lit_html.qy`
+    <ic-time-input
+      label="12-hour time"
+      time-period="12"
+      show-am-pm-toggle="true"
+    ></ic-time-input>
+  `,name:"Time period - with AM/PM toggle"},IcTimeChangeTimeParts12Hour={render:()=>lit_html.qy`<ic-time-input
+      emit-time-part-change="true"
+      label="What time would you like to collect your coffee?"
+      time-period="12"
+      show-am-pm-toggle="true"
+    ></ic-time-input>
+    <script>
+      var timeInput = document.querySelector("ic-time-input");
+      timeInput.addEventListener("icTimeChange", function (event) {
+        console.log("icTimeChange", event.detail);
+      });
+    </script>`,name:"IcTimeChange with emitTimePartChange - 12 hour"},HHMM={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee?"
+    time-format="HH:MM"
+  ></ic-time-input>`,name:"Time format HH:MM"},Milliseconds={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee?"
+    time-format="HH:MM:SS.SSS"
+  ></ic-time-input>`,name:"Time format HH:MM:SS.SSS"},IcTimeChangeTimePartsMilliseconds={render:()=>lit_html.qy`<ic-time-input
+      emit-time-part-change="true"
+      label="What time would you like to collect your coffee?"
+      time-format="HH:MM:SS.SSS"
+    ></ic-time-input>
+    <script>
+      var timeInput = document.querySelector("ic-time-input");
+      timeInput.addEventListener("icTimeChange", function (event) {
+        console.log("icTimeChange", event.detail);
+      });
+    </script>`,name:"IcTimeChange with emitTimePartChange - Milliseconds"},MinTime={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee? We are closed before 08:00"
+    min="08:00:00"
+  ></ic-time-input>`,name:"Min time"},MaxTime={render:()=>lit_html.qy`<ic-time-input
+    label="What time would you like to collect your coffee? We are closed after 16:00"
+    max="16:00:00"
+  ></ic-time-input>`,name:"Max time"},DisableTimes={render:()=>lit_html.qy`<div>
+      <ic-time-input
+        id="time-input-default-disable-time"
+        label="What time would you like to collect your coffee? We are closed between 08:00 and 10:00."
+      ></ic-time-input>
+    </div>
+    <script>
+      var timeInputDate = document.querySelector(
+        "#time-input-default-disable-time"
+      );
+      timeInputDate.disableTimes = [{ start: "08:00", end: "10:00" }];
+    </script>`,name:"Disable times"},WithClearingValue={render:()=>lit_html.qy`<ic-time-input
+      id="time-input-clear-value"
+      label="What time you like to collect your coffee?"
+      value="08:30:00"
+    ></ic-time-input>
+    <br />
+    <ic-button id="update">Update time</ic-button>
+    <ic-button id="null-btn">set null</ic-button>
+    <ic-button id="empty-btn">set empty string</ic-button>
+    <ic-button id="undef-btn">set undefined</ic-button>
+    <script>
+      var input = document.querySelector("#time-input-clear-value");
+      var btn = document.querySelector("#update");
+      btn.addEventListener("click", () => {
+        input.value = "08:30:00";
+      });
+      var btn2 = document.querySelector("#null-btn");
+      btn2.addEventListener("click", () => {
+        input.value = null;
+      });
+      var btn3 = document.querySelector("#empty-btn");
+      btn3.addEventListener("click", () => {
+        input.value = "";
+      });
+      var btn4 = document.querySelector("#undef-btn");
+      btn4.addEventListener("click", () => {
+        input.value = undefined;
+      });
+    </script>`,name:"With clearing value"},__namedExportsOrder=["Default","IcTimeChangeEvent","WithValue","DateObject","ZuluTime","Required","HideLabel","Disabled","Sizes","CustomHelperText","HideHelperText","Validation","AriaLiveBehaviour","IcTimeChangeEmitTimePartChanges","TimePeriod","TimePeriodAMPMToggle","IcTimeChangeTimeParts12Hour","HHMM","Milliseconds","IcTimeChangeTimePartsMilliseconds","MinTime","MaxTime","DisableTimes","WithClearingValue"];Default.parameters={...Default.parameters,docs:{...Default.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee?"\n  ></ic-time-input>`,\n  name: "Default"\n}',...Default.parameters?.docs?.source},description:{story:"Use the time input component to manually type in a time in different formats.\n\nThe input `label` is the only required attribute for time input.\n\nClick the 'Component API' tab to view all the available attributes, events and slots for time input.\n\nTo use the time input component, import `@ukic/canary-web-components` into your application.\n\nTimes can be added by manually typing into the input or using the up and down arrow keys.\n\nTo move between hour, minute and second using the keyboard, provide the required values based on the placeholders or use `:`.\n\nBy default, the helper text displays the time format.",...Default.parameters?.docs?.description}}},IcTimeChangeEvent.parameters={...IcTimeChangeEvent.parameters,docs:{...IcTimeChangeEvent.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      label="What time would you like to collect your coffee?"\n    ></ic-time-input>\n    <script>\n      var timeInput = document.querySelector("ic-time-input");\n      timeInput.addEventListener("icTimeChange", function (event) {\n        console.log(event.detail.value, event.detail.utcValue);\n      });\n    <\/script>`,\n  name: "icTimeChange event"\n}',...IcTimeChangeEvent.parameters?.docs?.source},description:{story:"Retrieving the time input value via `icTimeChange` returns the time as a Date object.\n\nThe event returns the Date object once hour, minute and second have been entered.",...IcTimeChangeEvent.parameters?.docs?.description}}},WithValue.parameters={...WithValue.parameters,docs:{...WithValue.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    id="time-input-default-time-with-value"\n    label="What time would you like to collect your coffee?"\n    time-format="HH:MM:SS"\n    value="13:45:00"\n  ></ic-time-input>`,\n  name: "With value"\n}',...WithValue.parameters?.docs?.source},description:{story:"To set a value to the time input, pass the time value in the relevant time format.",...WithValue.parameters?.docs?.description}}},DateObject.parameters={...DateObject.parameters,docs:{...DateObject.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      id="time-input-default-time-date"\n      label="What time would you like to collect your coffee?"\n    ></ic-time-input>\n    <script>\n      var timeInputDate = document.querySelector(\n        "#time-input-default-time-date"\n      );\n      timeInputDate.value = new Date("2025-07-14T15:30:45");\n    <\/script>`,\n  name: "Date object"\n}',...DateObject.parameters?.docs?.source},description:{story:"The time input also accepts a number of different time formats within the value attribute:\n- [Date object](#date-object)\n- [Zulu time](#zulu-time)",...DateObject.parameters?.docs?.description}}},ZuluTime.parameters={...ZuluTime.parameters,docs:{...ZuluTime.parameters?.docs,source:{originalSource:'{\n  render: () => html`<div>\n      <ic-time-input\n        id="time-input-default-zulu-time"\n        label="What time would you like to collect your coffee?"\n      ></ic-time-input>\n    </div>\n    <script>\n      var timeInputDate = document.querySelector(\n        "#time-input-default-zulu-time"\n      );\n      timeInputDate.value = "15:30:45Z";\n    <\/script>`,\n  name: "Zulu time"\n}',...ZuluTime.parameters?.docs?.source}}},Required.parameters={...Required.parameters,docs:{...Required.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee?"\n    required="true"\n  ></ic-time-input>`,\n  name: "Required"\n}',...Required.parameters?.docs?.source},description:{story:"To set the time input as a required field, set the `required` attribute to `true`. This will add an asterisk at the end of the time input label.",...Required.parameters?.docs?.description}}},HideLabel.parameters={...HideLabel.parameters,docs:{...HideLabel.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee?"\n    hide-label="true"\n  ></ic-time-input>`,\n  name: "Hide label"\n}',...HideLabel.parameters?.docs?.source},description:{story:"To hide the label, set the `hide-label` attribute to `true`. The required `label` will still be read out by screen readers.",...HideLabel.parameters?.docs?.description}}},Disabled.parameters={...Disabled.parameters,docs:{...Disabled.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee?"\n    disabled="true"\n  ></ic-time-input>`\n}',...Disabled.parameters?.docs?.source},description:{story:"Set the `disabled` attribute to `true` to prevent interaction with the time input.",...Disabled.parameters?.docs?.description}}},Sizes.parameters={...Sizes.parameters,docs:{...Sizes.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      label="What time would you like to collect your coffee?"\n      size="small"\n    ></ic-time-input>\n    <br />\n    <ic-time-input\n      label="What time would you like to collect your coffee?"\n    ></ic-time-input>\n    <br />\n    <ic-time-input\n      label="What time would you like to collect your coffee?"\n      size="large"\n    ></ic-time-input>`,\n  name: "Sizes"\n}',...Sizes.parameters?.docs?.source},description:{story:"The time input is available in three different sizes:\n- `small`\n- `medium` (default)\n- `large`",...Sizes.parameters?.docs?.description}}},CustomHelperText.parameters={...CustomHelperText.parameters,docs:{...CustomHelperText.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      label="What time would you like to collect your coffee?"\n      helper-text="We will have your order ready for you at this time"\n    ></ic-time-input>\n    <br />\n    <ic-time-input label="What time would you like to collect your coffee?"\n      ><ic-typography variant="caption" slot="helper-text">\n        <span>\n          For special requests,\n          <ic-link href="#">contact us</ic-link> before choosing a time\n        </span>\n      </ic-typography></ic-time-input\n    >`,\n  name: "Custom helper text"\n}',...CustomHelperText.parameters?.docs?.source},description:{story:"Use the helper text to add additional detail for the time input. Display custom content using the `helper-text` slot.",...CustomHelperText.parameters?.docs?.description}}},HideHelperText.parameters={...HideHelperText.parameters,docs:{...HideHelperText.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee?"\n    helper-text="You cannot see me, but you can hear me"\n    hide-helper-text="true"\n  ></ic-time-input>`,\n  name: "Hide helper text"\n}',...HideHelperText.parameters?.docs?.source}}},Validation.parameters={...Validation.parameters,docs:{...Validation.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      label="What time would you like to collect your coffee?"\n      validation-status="error"\n      validation-text="There is a coffee shortage forecast for that time. Please choose a different time."\n    ></ic-time-input>\n    <br />\n    <ic-time-input\n      label="What time would you like to collect your coffee?"\n      validation-status="warning"\n      validation-text="Please be aware that there may be a coffee shortage at that time."\n    ></ic-time-input>\n    <br />\n    <ic-time-input\n      label="What time would you like to collect your coffee?"\n      validation-status="success"\n      validation-text="Your coffee will be available for you to collect at this time."\n    ></ic-time-input>`,\n  name: "Custom validation"\n}',...Validation.parameters?.docs?.source},description:{story:"Validation on time input is set via `validation-status` and `validation-text`.\n\n`validation-status` will set the style of the validation message. `validation-status` accepts:\n- `error`\n- `warning`\n- `success`\n\n`validation-status` is required for the `validation-text` to appear.",...Validation.parameters?.docs?.description}}},AriaLiveBehaviour.parameters={...AriaLiveBehaviour.parameters,docs:{...AriaLiveBehaviour.parameters?.docs,source:{originalSource:'{\n  render: args => html`<ic-time-input\n        id="field-1"\n        label="What time would you like to collect your coffee?"\n        helper-text="Error already set on page load and aria-live overridden as \'assertive\'"\n        validation-status="error"\n        validation-text="First error message"\n        validation-aria-live="assertive"\n      ></ic-time-input>\n      <br />\n      <ic-time-input\n        id="field-2"\n        label="What time would you like to collect your coffee?"\n        helper-text="Error set after page load and aria-live overridden as \'assertive\'"\n        validation-aria-live="assertive"\n      ></ic-time-input>\n      <br />\n      <ic-button id="toggle-btn-1">Toggle errors</ic-button>\n      <script>\n        let showErrors1 = false;\n        const btn1 = document.getElementById("toggle-btn-1");\n        const field1 = document.getElementById("field-1");\n        const field2 = document.getElementById("field-2");\n\n        btn1.addEventListener("click", () => {\n          showErrors1 = !showErrors1;\n\n          field1.setAttribute("validation-status", showErrors1 ? "" : "error");\n          field1.setAttribute(\n            "validation-text",\n            showErrors1 ? "" : "First error message"\n          );\n\n          field2.setAttribute("validation-status", showErrors1 ? "error" : "");\n          field2.setAttribute(\n            "validation-text",\n            showErrors1 ? "Second error message" : ""\n          );\n        });\n      <\/script>\n      <br />\n      <br />\n      <br />\n      <br />\n      <ic-time-input\n        id="field-3"\n        label="What time would you like to collect your coffee?"\n        helper-text="Default aria-live behaviour (i.e. \'polite\')"\n      ></ic-time-input>\n      <br />\n      <ic-time-input\n        id="field-4"\n        label="What time would you like to collect your coffee?"\n        helper-text="Default aria-live behaviour (i.e. \'polite\')"\n      ></ic-time-input>\n      <br />\n      <ic-button id="toggle-btn-2">Toggle errors</ic-button>\n      <script>\n        let showErrors2 = false;\n        const btn2 = document.getElementById("toggle-btn-2");\n        const field3 = document.getElementById("field-3");\n        const field4 = document.getElementById("field-4");\n\n        btn2.addEventListener("click", () => {\n          showErrors2 = !showErrors2;\n\n          field3.setAttribute("validation-status", showErrors2 ? "error" : "");\n          field3.setAttribute(\n            "validation-text",\n            showErrors2 ? "Third error message" : ""\n          );\n\n          field4.setAttribute("validation-status", showErrors2 ? "error" : "");\n          field4.setAttribute(\n            "validation-text",\n            showErrors2 ? "Fourth error message" : ""\n          );\n        });\n      <\/script>`,\n  name: "Aria-live behaviour"\n}',...AriaLiveBehaviour.parameters?.docs?.source}}},IcTimeChangeEmitTimePartChanges.parameters={...IcTimeChangeEmitTimePartChanges.parameters,docs:{...IcTimeChangeEmitTimePartChanges.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      emit-time-part-change="true"\n      label="What time would you like to collect your coffee?"\n    ></ic-time-input>\n    <script>\n      var timeInput = document.querySelector("ic-time-input");\n      timeInput.addEventListener("icTimeChange", function (event) {\n        console.log("icTimeChange", event.detail);\n      });\n    <\/script>`,\n  name: "IcTimeChange with emitTimePartChange"\n}',...IcTimeChangeEmitTimePartChanges.parameters?.docs?.source},description:{story:"The `IcTimeChange` event is emitted by the time input every time an input field is changed.",...IcTimeChangeEmitTimePartChanges.parameters?.docs?.description}}},TimePeriod.parameters={...TimePeriod.parameters,docs:{...TimePeriod.parameters?.docs,source:{originalSource:'{\n  render: () => html`\n    <ic-time-input label="12-hour time" time-period="12"></ic-time-input>\n  `,\n  name: "Time period"\n}',...TimePeriod.parameters?.docs?.source},description:{story:"Demonstrates the `time-period` prop for 12-hour and 24-hour time selection.",...TimePeriod.parameters?.docs?.description}}},TimePeriodAMPMToggle.parameters={...TimePeriodAMPMToggle.parameters,docs:{...TimePeriodAMPMToggle.parameters?.docs,source:{originalSource:'{\n  render: () => html`\n    <ic-time-input\n      label="12-hour time"\n      time-period="12"\n      show-am-pm-toggle="true"\n    ></ic-time-input>\n  `,\n  name: "Time period - with AM/PM toggle"\n}',...TimePeriodAMPMToggle.parameters?.docs?.source}}},IcTimeChangeTimeParts12Hour.parameters={...IcTimeChangeTimeParts12Hour.parameters,docs:{...IcTimeChangeTimeParts12Hour.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      emit-time-part-change="true"\n      label="What time would you like to collect your coffee?"\n      time-period="12"\n      show-am-pm-toggle="true"\n    ></ic-time-input>\n    <script>\n      var timeInput = document.querySelector("ic-time-input");\n      timeInput.addEventListener("icTimeChange", function (event) {\n        console.log("icTimeChange", event.detail);\n      });\n    <\/script>`,\n  name: "IcTimeChange with emitTimePartChange - 12 hour"\n}',...IcTimeChangeTimeParts12Hour.parameters?.docs?.source}}},HHMM.parameters={...HHMM.parameters,docs:{...HHMM.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee?"\n    time-format="HH:MM"\n  ></ic-time-input>`,\n  name: "Time format HH:MM"\n}',...HHMM.parameters?.docs?.source},description:{story:"Demonstrates the time format HH:MM.",...HHMM.parameters?.docs?.description}}},Milliseconds.parameters={...Milliseconds.parameters,docs:{...Milliseconds.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee?"\n    time-format="HH:MM:SS.SSS"\n  ></ic-time-input>`,\n  name: "Time format HH:MM:SS.SSS"\n}',...Milliseconds.parameters?.docs?.source},description:{story:"Demonstrates the time format HH:MM:SS.SSS.",...Milliseconds.parameters?.docs?.description}}},IcTimeChangeTimePartsMilliseconds.parameters={...IcTimeChangeTimePartsMilliseconds.parameters,docs:{...IcTimeChangeTimePartsMilliseconds.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      emit-time-part-change="true"\n      label="What time would you like to collect your coffee?"\n      time-format="HH:MM:SS.SSS"\n    ></ic-time-input>\n    <script>\n      var timeInput = document.querySelector("ic-time-input");\n      timeInput.addEventListener("icTimeChange", function (event) {\n        console.log("icTimeChange", event.detail);\n      });\n    <\/script>`,\n  name: "IcTimeChange with emitTimePartChange - Milliseconds"\n}',...IcTimeChangeTimePartsMilliseconds.parameters?.docs?.source}}},MinTime.parameters={...MinTime.parameters,docs:{...MinTime.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee? We are closed before 08:00"\n    min="08:00:00"\n  ></ic-time-input>`,\n  name: "Min time"\n}',...MinTime.parameters?.docs?.source},description:{story:"Setting min time allows you to restrict the earliest time that can be selected.\nThe value can be in any format supported as `time-format`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",...MinTime.parameters?.docs?.description}}},MaxTime.parameters={...MaxTime.parameters,docs:{...MaxTime.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n    label="What time would you like to collect your coffee? We are closed after 16:00"\n    max="16:00:00"\n  ></ic-time-input>`,\n  name: "Max time"\n}',...MaxTime.parameters?.docs?.source},description:{story:"Setting max time allows you to restrict the latest time that can be selected.\nThe value can be in any format supported as `time-format`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",...MaxTime.parameters?.docs?.description}}},DisableTimes.parameters={...DisableTimes.parameters,docs:{...DisableTimes.parameters?.docs,source:{originalSource:'{\n  render: () => html`<div>\n      <ic-time-input\n        id="time-input-default-disable-time"\n        label="What time would you like to collect your coffee? We are closed between 08:00 and 10:00."\n      ></ic-time-input>\n    </div>\n    <script>\n      var timeInputDate = document.querySelector(\n        "#time-input-default-disable-time"\n      );\n      timeInputDate.disableTimes = [{ start: "08:00", end: "10:00" }];\n    <\/script>`,\n  name: "Disable times"\n}',...DisableTimes.parameters?.docs?.source},description:{story:"To disable specific times in the time input, set the `disable-times` prop.\nThe `disable-times` prop accepts an array of time objects or strings.\nEach time object can have a `start` and `end` property to define a range of disabled times, or it can be a single time string to disable that specific time.\nThe time can be in any format supported as `time-format`, in ISO 8601 time string format (`HH:MM:SS`) or as a JavaScript `Date` object.",...DisableTimes.parameters?.docs?.description}}},WithClearingValue.parameters={...WithClearingValue.parameters,docs:{...WithClearingValue.parameters?.docs,source:{originalSource:'{\n  render: () => html`<ic-time-input\n      id="time-input-clear-value"\n      label="What time you like to collect your coffee?"\n      value="08:30:00"\n    ></ic-time-input>\n    <br />\n    <ic-button id="update">Update time</ic-button>\n    <ic-button id="null-btn">set null</ic-button>\n    <ic-button id="empty-btn">set empty string</ic-button>\n    <ic-button id="undef-btn">set undefined</ic-button>\n    <script>\n      var input = document.querySelector("#time-input-clear-value");\n      var btn = document.querySelector("#update");\n      btn.addEventListener("click", () => {\n        input.value = "08:30:00";\n      });\n      var btn2 = document.querySelector("#null-btn");\n      btn2.addEventListener("click", () => {\n        input.value = null;\n      });\n      var btn3 = document.querySelector("#empty-btn");\n      btn3.addEventListener("click", () => {\n        input.value = "";\n      });\n      var btn4 = document.querySelector("#undef-btn");\n      btn4.addEventListener("click", () => {\n        input.value = undefined;\n      });\n    <\/script>`,\n  name: "With clearing value"\n}',...WithClearingValue.parameters?.docs?.source},description:{story:"The time input can be cleared by setting the the value attribute to one of the following:\n- empty string\n- `null`\n- `undefined`",...WithClearingValue.parameters?.docs?.description}}}}}]);
+//# sourceMappingURL=components-ic-time-input-ic-time-input-stories.30df2e8c.iframe.bundle.js.map
