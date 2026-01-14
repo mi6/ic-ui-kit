@@ -153,6 +153,20 @@
         "notes": "issue in 'tar' package used by '@lerna/legacy-package-management' - breaking change to upgrade",
         "expiry": "25 January 2026"
       }
+    },
+    {
+      "GHSA-3vhc-576x-3qv4": {
+        "active": true,
+        "notes": "need to use hono v4.11.4 - currently dictated by @angular/cli",
+        "expiry": "25 January 2026"
+      }
+    },
+    {
+      "GHSA-f67f-6cw9-8mq4": {
+        "active": true,
+        "notes": "need to use hono v4.11.4 - currently dictated by @angular/cli",
+        "expiry": "25 January 2026"
+      }
     }
   ]
 }
