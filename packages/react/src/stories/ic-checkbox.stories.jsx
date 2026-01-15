@@ -16,7 +16,7 @@ import {
 } from "../components";
 import { useForm } from "react-hook-form";
 import React, { useState, useRef } from "react";
-import { useArgs } from "@storybook/preview-api";
+import { useArgs } from "storybook/preview-api";
 
 const Form = () => {
   const { register, handleSubmit, unregister } = useForm();

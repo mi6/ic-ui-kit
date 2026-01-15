@@ -7,7 +7,6 @@ import "../dist/core/core.css";
 import "../dist/core/normalize.css";
 import "./storybook-overrides.css";
 
-import { withPerformance } from "storybook-addon-performance";
 import { IcTheme } from "../src/components";
 
 const preview = {
@@ -67,7 +66,6 @@ const preview = {
         </>
       );
     },
-    withPerformance,
   ],
 };
 
