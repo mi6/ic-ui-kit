@@ -53,12 +53,6 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     targetAttr: "value",
     type: "radio",
   },
-  // {
-  //   elementSelectors: ["ic-date-input", "ic-date-picker"],
-  //   event: "icChange",
-  //   targetAttr: "value",
-  //   type: "date"
-  // },
 ];
 
 export const config: Config = {
