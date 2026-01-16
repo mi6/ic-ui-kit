@@ -186,11 +186,6 @@ Visit our websites to learn more about:
 - The [Security Service (MI5)](https://www.mi5.gov.uk).
 - [His Majesty's Government Communications Centre (HMGCC)](https://www.hmgcc.gov.uk)- our national security partner.
 
-## Known Issues
-
-At the time of writing, there is an issue with importing Stencil components into another Stencil component library for Unit tests. 
-The current workaround is to initially build and test the canary component within the web components directory and then move across when ready.
-
 ## License
 
 Unless stated otherwise, the codebase is released under the [MIT License](https://opensource.org/licenses/MIT). This covers both the codebase and any sample code in the documentation. The documentation is and available under the terms of the [Open Government License v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
