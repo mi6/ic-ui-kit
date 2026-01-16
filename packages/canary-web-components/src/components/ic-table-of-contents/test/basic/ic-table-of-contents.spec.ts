@@ -1,3 +1,16 @@
+jest.mock("../../../../../../canary-web-components/src/utils/helpers", () => ({
+  DEVICE_SIZES: {
+    XS: 0,
+    S: 576,
+    M: 768,
+    L: 992,
+    XL: 1200,
+    UNDEFINED: 1200,
+  },
+  deviceSizeMatches: jest.fn(),
+  getCurrentDeviceSize: jest.fn(),
+}));
+
 import { newSpecPage, SpecPage } from "@stencil/core/testing";
 import { TableOfContents } from "../../ic-table-of-contents";
 
@@ -221,18 +234,23 @@ describe("ic-table-of-contents", () => {
       components: [TableOfContents],
       html: `
       <ic-table-of-contents heading="Custom Title" truncate="true">
-      <div>
-        <h2 id="test">Heading with long message that should be truncated</h2>
-      </div> 
+        <div>
+          <h2 id="test">Heading with long message that should be truncated</h2>
+        </div> 
       </ic-table-of-contents>
-        `,
+    `,
     });
+
     expect(page.rootInstance.position).toBe("right");
+
     window.innerWidth = 900;
     page.rootInstance.handleResizeBounds();
+    await page.waitForChanges();
     expect(page.rootInstance.position).toBe("top");
+
     window.innerWidth = 1300;
     page.rootInstance.handleResizeBounds();
+    await page.waitForChanges();
     expect(page.rootInstance.position).toBe("right");
   });
 
