@@ -5,11 +5,7 @@ import {
   waitForTimeout,
   testKeyboardEvent as keyboardEvent,
 } from "../../../../testspec.setup";
-import {
-  // clampDate,
-  dateIsToday,
-  dateMatches,
-} from "../../../../utils/date-helpers";
+import { dateIsToday, dateMatches } from "../../../../utils/date-helpers";
 
 const DELAY_MS = 350;
 
