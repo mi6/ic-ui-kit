@@ -41,6 +41,22 @@ export const iconProps = {
     disabled: false,
     monochrome: false,
   },
+  iconLoadingSmall: {
+    title: "Small",
+    size: "small",
+    theme: "light",
+    loading: true,
+    disabled: false,
+    monochrome: false,
+  },
+  iconLoadingLarge: {
+    title: "Large",
+    size: "large",
+    theme: "light",
+    loading: true,
+    disabled: false,
+    monochrome: false,
+  },
   iconDisabled: {
     title: "Disabled",
     size: "medium",
@@ -924,7 +940,9 @@ export const IconButtonGroup = (): ReactElement => {
       <IconBtnGroup props={iconProps.iconDefault} />
       <IconBtnGroup props={iconProps.iconLarge} />
       <IconBtnGroup props={iconProps.iconSmall} />
+      <IconBtnGroup props={iconProps.iconLoadingSmall} />
       <IconBtnGroup props={iconProps.iconLoading} />
+      <IconBtnGroup props={iconProps.iconLoadingLarge} />
       <IconBtnGroup props={iconProps.iconDisabled} />
       <IconBtnGroup props={iconProps.iconDark} />
       <IconBtnGroup props={iconProps.iconDarkLoading} />

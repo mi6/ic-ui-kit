@@ -81,15 +81,15 @@ const PopoverDropdown = () => {
 const IconBtnGroup = (iconProps) => {
   return (
     <>
-      <h1>{iconProps.title}</h1>
+      <h1 style={{ color: "var(--ic-typography-color)" }}>{iconProps.title}</h1>
       <div
         style={{
-          backgroundColor: iconProps.theme === "light" ? "var(--ic-color-page-background-dark)" : "var(--ic-color-page-background-light)",
+          backgroundColor: iconProps.theme === "dark" ? "var(--ic-color-page-background-dark)" : "var(--ic-color-page-background-light)",
           display: "flex",
           gap: "0.5rem",
           marginBottom: "1rem",
           width: "fit-content",
-          padding: iconProps.theme === "light" ? "6px 10px" : "none",
+          padding: iconProps.theme === "dark" ? "6px 10px" : "none",
         }}
       >
         <IcButton
@@ -1429,6 +1429,9 @@ export const IconVariants = {
     IconBtnGroup(iconProps.iconDefault),
     IconBtnGroup(iconProps.iconSmall),
     IconBtnGroup(iconProps.iconLarge),
+    IconBtnGroup(iconProps.iconLoadingSmall),
+    IconBtnGroup(iconProps.iconLoading),
+    IconBtnGroup(iconProps.iconLoadingLarge),
     IconBtnGroup(iconProps.iconDisabled),
     IconBtnGroup(iconProps.iconLight),
     IconBtnGroup(iconProps.iconDark),

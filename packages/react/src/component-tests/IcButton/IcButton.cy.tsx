@@ -1240,6 +1240,14 @@ describe("IcButton visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
 
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "ic-loading-indicator").then(
+      (loadingIndicators) => {
+        for (let i = 0; i < loadingIndicators.length; i++) {
+          cy.wrap(loadingIndicators[i]).invoke("attr", "progress", 50);
+        }
+      }
+    );
+
     cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
 
     cy.compareSnapshot({
