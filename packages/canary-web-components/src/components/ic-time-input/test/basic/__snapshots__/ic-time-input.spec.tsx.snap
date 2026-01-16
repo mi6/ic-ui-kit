@@ -2,11 +2,11 @@
 
 exports[`ic-time-input component should handle default value 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label" value="01:01:20">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-11" id="ic-time-input-11-label">
             Test label
@@ -51,17 +51,17 @@ exports[`ic-time-input component should handle default value 1`] = `
       <ic-input-validation arialivemode="polite" for="ic-time-input-11" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-11" type="hidden" value="2026-01-13T01:01:20.000Z">
+  <input class="ic-input" name="ic-time-input-11" type="hidden" value="2026-01-23T01:01:20.000Z">
 </ic-time-input>
 `;
 
 exports[`ic-time-input component should handle single digit hour and minute 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label" value="1:1:20">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-12" id="ic-time-input-12-label">
             Test label
@@ -106,17 +106,17 @@ exports[`ic-time-input component should handle single digit hour and minute 1`] 
       <ic-input-validation arialivemode="polite" for="ic-time-input-12" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-12" type="hidden" value="2026-01-13T01:01:20.000Z">
+  <input class="ic-input" name="ic-time-input-12" type="hidden" value="2026-01-23T01:01:20.000Z">
 </ic-time-input>
 `;
 
 exports[`ic-time-input component should remove handle disabled=false 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-15" id="ic-time-input-15-label">
             Test label
@@ -165,11 +165,11 @@ exports[`ic-time-input component should remove handle disabled=false 1`] = `
 
 exports[`ic-time-input component should render 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-0" id="ic-time-input-0-label">
             Test label
@@ -218,11 +218,11 @@ exports[`ic-time-input component should render 1`] = `
 
 exports[`ic-time-input component should render as disabled 1`] = `
 <ic-time-input class="ic-time-input-disabled ic-time-input-medium" disabled="" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container disabled="">
       <ic-input-label class="ic-input-label-disabled with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-2">
             Test label
@@ -271,11 +271,11 @@ exports[`ic-time-input component should render as disabled 1`] = `
 
 exports[`ic-time-input component should render as required 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label" required="">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-1" id="ic-time-input-1-label">
             Test label
@@ -327,11 +327,11 @@ exports[`ic-time-input component should render as required 1`] = `
 
 exports[`ic-time-input component should render as required: required-prop-false 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label" required="">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-1" id="ic-time-input-1-label">
             Test label
@@ -380,11 +380,11 @@ exports[`ic-time-input component should render as required: required-prop-false 
 
 exports[`ic-time-input component should render disabled, with clock button 1`] = `
 <ic-time-input class="ic-time-input-disabled ic-time-input-medium" disabled="" label="Test label" show-clock-button="true" value="13:45:00">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container disabled="">
       <ic-input-label class="ic-input-label-disabled with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-10">
             Test label
@@ -415,7 +415,7 @@ exports[`ic-time-input component should render disabled, with clock button 1`] =
             </div>
             <div class="action-buttons">
               <ic-button class="clear-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
-                <template shadowrootmode="open">
+                <template shadowrootmode="open" shadowrootdelegatesfocus>
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" tabindex="0" type="button">
                       <slot></slot>
@@ -427,7 +427,7 @@ exports[`ic-time-input component should render disabled, with clock button 1`] =
               <div class="show-clock-button-wrapper">
                 <div class="divider medium"></div>
                 <ic-button class="clock-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clock-button">
-                  <template shadowrootmode="open">
+                  <template shadowrootmode="open" shadowrootdelegatesfocus>
                     <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clock-button" label="Display clock" placement="bottom" silent="" target="ic-button-with-tooltip-clock-button">
                       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clock-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display clock" class="button" disabled="" part="button" tabindex="0" type="button">
                         <slot></slot>
@@ -449,17 +449,17 @@ exports[`ic-time-input component should render disabled, with clock button 1`] =
       <ic-input-validation arialivemode="polite" for="ic-time-input-10" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" disabled="" name="ic-time-input-10" type="hidden" value="2026-01-13T13:45:00.000Z">
+  <input class="ic-input" disabled="" name="ic-time-input-10" type="hidden" value="2026-01-23T13:45:00.000Z">
 </ic-time-input>
 `;
 
 exports[`ic-time-input component should render large 1`] = `
 <ic-time-input class="ic-time-input-large" label="Test label" size="large">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-4" id="ic-time-input-4-label">
             Test label
@@ -508,11 +508,11 @@ exports[`ic-time-input component should render large 1`] = `
 
 exports[`ic-time-input component should render small 1`] = `
 <ic-time-input class="ic-time-input-small" label="Test label" size="small">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-3" id="ic-time-input-3-label">
             Test label
@@ -561,11 +561,11 @@ exports[`ic-time-input component should render small 1`] = `
 
 exports[`ic-time-input component should render with custom helper text 1`] = `
 <ic-time-input class="ic-time-input-medium" helper-text="Test helper text" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-5" id="ic-time-input-5-label">
             Test label
@@ -614,11 +614,11 @@ exports[`ic-time-input component should render with custom helper text 1`] = `
 
 exports[`ic-time-input component should render with custom validation status and text 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label" validation-status="error" validation-text="Test error text">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-7" id="ic-time-input-7-label">
             Test label
@@ -667,11 +667,11 @@ exports[`ic-time-input component should render with custom validation status and
 
 exports[`ic-time-input component should render with disabled times 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-14" id="ic-time-input-14-label">
             Test label
@@ -720,11 +720,11 @@ exports[`ic-time-input component should render with disabled times 1`] = `
 
 exports[`ic-time-input component should render with helper text hidden 1`] = `
 <ic-time-input class="ic-time-input-medium" hide-helper-text="true" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label>
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-6" id="ic-time-input-6-label">
             Test label
@@ -769,11 +769,11 @@ Use format HH:MM:SS.
 
 exports[`ic-time-input component should render with min/max times 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label" max-time="20:00:00" min-time="08:00:00">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-13" id="ic-time-input-13-label">
             Test label
@@ -822,11 +822,11 @@ exports[`ic-time-input component should render with min/max times 1`] = `
 
 exports[`ic-time-input component should render with open clock button 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label" show-clock-button="true" value="13:45:00">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-9" id="ic-time-input-9-label">
             Test label
@@ -857,7 +857,7 @@ exports[`ic-time-input component should render with open clock button 1`] = `
             </div>
             <div class="action-buttons">
               <ic-button class="clear-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
-                <template shadowrootmode="open">
+                <template shadowrootmode="open" shadowrootdelegatesfocus>
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" tabindex="0" type="button">
                       <slot></slot>
@@ -869,7 +869,7 @@ exports[`ic-time-input component should render with open clock button 1`] = `
               <div class="show-clock-button-wrapper">
                 <div class="divider medium"></div>
                 <ic-button class="clock-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clock-button">
-                  <template shadowrootmode="open">
+                  <template shadowrootmode="open" shadowrootdelegatesfocus>
                     <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clock-button" label="Display clock" placement="bottom" silent="" target="ic-button-with-tooltip-clock-button">
                       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clock-button" aria-haspopup="dialog" aria-label="Display clock" class="button" part="button" tabindex="0" type="button">
                         <slot></slot>
@@ -891,17 +891,17 @@ exports[`ic-time-input component should render with open clock button 1`] = `
       <ic-input-validation arialivemode="polite" for="ic-time-input-9" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-time-input-9" type="hidden" value="2026-01-13T13:45:00.000Z">
+  <input class="ic-input" name="ic-time-input-9" type="hidden" value="2026-01-23T13:45:00.000Z">
 </ic-time-input>
 `;
 
 exports[`ic-time-input component should render with validation-aria-live 1`] = `
 <ic-time-input class="ic-time-input-medium" label="Test label" validation-aria-live="assertive" validation-status="error" validation-text="Test error text">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
           <label htmlfor="ic-time-input-8" id="ic-time-input-8-label">
             Test label
