@@ -658,7 +658,8 @@ export class Button {
           {loading ? (
             <div class="loading-container">
               <ic-loading-indicator
-                type="linear"
+                type={isIconVariant() ? "circular" : "linear"}
+                class={{ "loading-indicator-icon-button": isIconVariant() }}
                 monochrome={monochrome}
                 theme={theme}
               ></ic-loading-indicator>

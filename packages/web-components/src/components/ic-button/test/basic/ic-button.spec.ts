@@ -145,6 +145,16 @@ describe("button component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render correct HTML when loading - icon variant", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: `
+      <ic-button loading variant="icon-primary">Button</ic-button>
+      `,
+    });
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render correct HTML when using slotted content and slotted router item", async () => {
     const page = await newSpecPage({
       components: [Button],

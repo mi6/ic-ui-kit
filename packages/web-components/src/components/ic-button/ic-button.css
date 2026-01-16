@@ -893,6 +893,18 @@ div.loading-container {
   width: 100%;
 }
 
+.loading-indicator-icon-button {
+  --circular-diameter: var(--ic-space-md);
+}
+
+:host(.ic-button-size-small) .loading-indicator-icon-button {
+  --circular-diameter: calc(var(--ic-space-sm) + var(--ic-space-xxxs));
+}
+
+:host(.ic-button-size-large) .loading-indicator-icon-button {
+  --circular-diameter: calc(var(--ic-space-sm) + var(--ic-space-xs));
+}
+
 ic-loading-indicator {
   --inner-color: var(--button-loading-inner-color);
   --outer-color: var(--button-loading-outer-color), transparent;

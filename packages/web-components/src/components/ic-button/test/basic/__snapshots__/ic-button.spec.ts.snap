@@ -52,7 +52,7 @@ exports[`button component should render a 'file' type input when fileUpload prop
     </button>
   </template>
   Button
-  <input accept="*" class="ic-input" hidden="" name="ic-button-file-upload-input-33" type="file">
+  <input accept="*" class="ic-input" hidden="" name="ic-button-file-upload-input-35" type="file">
 </ic-button>
 `;
 
@@ -97,6 +97,21 @@ exports[`button component should render correct HTML when loading - destructive 
         <ic-loading-indicator theme="inherit" type="linear"></ic-loading-indicator>
       </div>
     </button>
+  </template>
+  Button
+</ic-button>
+`;
+
+exports[`button component should render correct HTML when loading - icon variant 1`] = `
+<ic-button class="ic-button-loading ic-button-size-medium ic-button-variant-icon-primary" exportparts="button" loading="" variant="icon-primary">
+  <template shadowrootmode="open">
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-24" placement="bottom" target="ic-button-with-tooltip-24">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-24" aria-disabled="true" aria-label="Loading" class="button" part="button" tabindex="0" type="button">
+        <div class="loading-container">
+          <ic-loading-indicator class="loading-indicator-icon-button" theme="inherit" type="circular"></ic-loading-indicator>
+        </div>
+      </button>
+    </ic-tooltip>
   </template>
   Button
 </ic-button>
