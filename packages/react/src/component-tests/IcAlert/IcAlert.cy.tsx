@@ -25,6 +25,7 @@ import {
   NoIcon,
   SlottedIcon,
   ThemeDark,
+  CustomDismissLabel,
 } from "./IcAlertTestData";
 import { IcAlert } from "../../components";
 
@@ -267,6 +268,21 @@ describe("IcAlert visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dismissible-focussed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+  });
+
+  it("should render a focussed dismissible alert with custom tooltip label", () => {
+    mount(<CustomDismissLabel />);
+
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.wait(500);
+
+    cy.findShadowEl(ALERT_SELECTOR, "ic-button").realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/dismissible-focussed-custom-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });

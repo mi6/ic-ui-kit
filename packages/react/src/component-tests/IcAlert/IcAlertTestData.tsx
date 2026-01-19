@@ -187,6 +187,16 @@ export const SlottedIcon = (): ReactElement => {
   );
 };
 
+export const CustomDismissLabel = () => {
+  return (
+    <IcAlert
+      heading="Dismissible"
+      message="This alert has a custom dismiss label."
+      dismissible
+      dismiss-label="custom dismiss"
+    />
+  );
+};
 export const ThemeDark = (): ReactElement => {
   return (
     <div style={{ backgroundColor: "black", padding: "8px" }}>
