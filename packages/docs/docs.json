@@ -1245,6 +1245,33 @@
           "setter": false
         },
         {
+          "name": "dismissLabel",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string | undefined",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dismiss-label",
+          "reflectToAttr": false,
+          "docs": "The text in the dismiss button tooltip. Makes the user aware of the action resulting from clicking the 'Dismiss' button.",
+          "docsTags": [],
+          "default": "\"Dismiss\"",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "dismissible",
           "type": "boolean",
           "complexType": {
