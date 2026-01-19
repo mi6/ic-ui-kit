@@ -139,6 +139,13 @@
         "notes": "need to upgrade to v7 of react router",
         "expiry": "25 January 2026"
       }
+    },
+    {
+      "GHSA-8qq5-rm4j-mr97": {
+        "active": true,
+        "notes": "issue with node-tar package - audit fix work being done in #4084",
+        "expiry": "25 January 2026"
+      }
     }
   ]
 }
