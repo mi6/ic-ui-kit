@@ -405,6 +405,8 @@ const defaultArgs = {
   additionalFieldDisplay: "dynamic",
   additionalFieldSlot: "additional-field",
   checked: false,
+  checkboxDisabled: false,
+  checkboxSize: "medium",
   disabled: false,
   dynamicText: "Dynamic text",
   groupLabel: "Checkbox group label",
@@ -455,13 +457,12 @@ export const Required = {
 export const Disabled = {
   render: () => (
     <IcCheckboxGroup label="This is a label" name="1" disabled>
-      <IcCheckbox value="valueName1" label="Unselected / Disabled 1" disabled />
-      <IcCheckbox value="valueName2" label="Unselected / Disabled 2" disabled />
-      <IcCheckbox value="valueName3" label="Unselected / Disabled 3" disabled />
+      <IcCheckbox value="valueName1" label="Unselected / Disabled 1" />
+      <IcCheckbox value="valueName2" label="Unselected / Disabled 2" />
+      <IcCheckbox value="valueName3" label="Unselected / Disabled 3" />
       <IcCheckbox
         value="valueName4"
         label="Selected / Disabled"
-        disabled
         checked
       />
     </IcCheckboxGroup>
@@ -808,10 +809,10 @@ export const Playground = {
         theme={args.theme}
       >
         <IcCheckbox
-          disabled={args.disabled}
+          disabled={args.checkboxDisabled}
           label={args.label}
           value={args.value}
-          size={args.size}
+          size={args.checkboxSize}
           hideLabel={args.hideLabel}
           indeterminate={args.indeterminate}
           checked={checked}
@@ -830,6 +831,8 @@ export const Playground = {
             label="What's your favourite type of coffee?"
           />
         </IcCheckbox>
+        <IcCheckbox value="valueName2" label="Checkbox 2" />
+        <IcCheckbox value="valueName3" label="Checkbox 3" />
       </IcCheckboxGroup>
     );
   },
@@ -854,6 +857,14 @@ export const Playground = {
     },
 
     size: {
+      options: ["medium", "large", "small"],
+
+      control: {
+        type: "inline-radio",
+      },
+    },
+
+    checkboxSize: {
       options: ["medium", "large", "small"],
 
       control: {

@@ -273,14 +273,9 @@ export const IndeterminateWithChildren = () => {
 export const Disabled = () => {
   return (
     <IcCheckboxGroup label="This is a label" name="1" disabled>
-      <IcCheckbox value="valueName1" label="Unselected / Disabled 1" disabled />
-      <IcCheckbox value="valueName2" label="Unselected / Disabled 2" disabled />
-      <IcCheckbox
-        value="valueName4"
-        label="Selected / Disabled"
-        disabled
-        checked
-      />
+      <IcCheckbox value="valueName1" label="Unselected / Disabled 1" />
+      <IcCheckbox value="valueName2" label="Unselected / Disabled 2" />
+      <IcCheckbox value="valueName4" label="Selected / Disabled" checked />
     </IcCheckboxGroup>
   );
 };
