@@ -5,6 +5,8 @@ const defaultArgs = {
   additionalFieldDisplay: "dynamic",
   additionalFieldSlot: "additional-field",
   checked: false,
+  checkboxDisabled: false,
+  checkboxSize: "medium",
   disabled: false,
   dynamicText: "Dynamic text",
   groupLabel: "Checkbox group label",
@@ -43,7 +45,7 @@ export const Default = {
       <ic-checkbox
         value="valueName3"
         label="Unselected / Disabled"
-        Disabled
+        disabled
       ></ic-checkbox>
     </ic-checkbox-group>
   `,
@@ -76,26 +78,22 @@ export const Required = {
 
 export const Disabled = {
   render: () => html`
-    <ic-checkbox-group label="This is a label" name="group1" Disabled>
+    <ic-checkbox-group label="This is a label" name="group1" disabled>
       <ic-checkbox
         value="valueName1"
         label="Unselected / Disabled 1"
-        Disabled
       ></ic-checkbox>
       <ic-checkbox
         value="valueName2"
         label="Unselected / Disabled 2"
-        Disabled
       ></ic-checkbox>
       <ic-checkbox
         value="valueName3"
         label="Unselected / Disabled 3"
-        Disabled
       ></ic-checkbox>
       <ic-checkbox
         value="valueName4"
         label="Selected / Disabled"
-        Disabled
         checked
       ></ic-checkbox>
     </ic-checkbox-group>
@@ -872,10 +870,10 @@ export const Playground = {
       theme=${args.theme}
     >
       <ic-checkbox
-        disabled=${args.disabled}
+        disabled=${args.checkboxDisabled}
         label=${args.label}
         value=${args.value}
-        size=${args.size}
+        size=${args.checkboxSize}
         hide-label=${args.hideLabel}
         indeterminate=${args.indeterminate}
         checked=${checked}
@@ -889,6 +887,8 @@ export const Playground = {
           label="What's your favourite type of coffee?"
         ></ic-text-field>
       </ic-checkbox>
+      <ic-checkbox value="valueName2" label="Checkbox 2"></ic-checkbox>
+      <ic-checkbox value="valueName3" label="Checkbox 3"></ic-checkbox>
     </ic-checkbox-group>`;
   },
 
@@ -912,6 +912,14 @@ export const Playground = {
     },
 
     size: {
+      options: ["medium", "large", "small"],
+
+      control: {
+        type: inlineRadioSelector,
+      },
+    },
+
+    checkboxSize: {
       options: ["medium", "large", "small"],
 
       control: {

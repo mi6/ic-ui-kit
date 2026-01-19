@@ -106,6 +106,49 @@ describe("ic-checkbox-group", () => {
     expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
+  it("should pass down disabled state to child checkboxes", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `<ic-checkbox-group label="test label" name="test" disabled>
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
+        <ic-checkbox value="test2" label="test label"></ic-checkbox>
+      </ic-checkbox-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-disabled-child");
+
+    const checkboxes = page.root?.querySelectorAll("ic-checkbox");
+
+    if (checkboxes) {
+      checkboxes.forEach((checkbox) => {
+        expect(checkbox.disabled).toBe(true);
+      });
+    }
+  });
+
+  it("should set disabled on all child checkboxes when disabled changes", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `
+        <ic-checkbox-group>
+          <ic-checkbox></ic-checkbox>
+          <ic-checkbox></ic-checkbox>
+        </ic-checkbox-group>
+      `,
+    });
+
+    const group = page.rootInstance;
+    group.disabled = true;
+    await page.waitForChanges();
+
+    const checkboxes = page.root?.querySelectorAll("ic-checkbox");
+    if (checkboxes) {
+      checkboxes.forEach((checkbox) => {
+        expect(checkbox.disabled).toBe(true);
+      });
+    }
+  });
+
   it("should render with validation status", async () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
@@ -276,6 +319,29 @@ describe("ic-checkbox-group", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should set size on all child checkboxes when size changes", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `
+        <ic-checkbox-group>
+          <ic-checkbox></ic-checkbox>
+          <ic-checkbox></ic-checkbox>
+        </ic-checkbox-group>
+      `,
+    });
+
+    const group = page.rootInstance;
+    group.size = "small";
+    await page.waitForChanges();
+
+    const checkboxes = page.root?.querySelectorAll("ic-checkbox");
+    if (checkboxes) {
+      checkboxes.forEach((checkbox) => {
+        expect(checkbox.size).toBe("small");
+      });
+    }
+  });
+
   it("should change checked state", async () => {
     const page = await newSpecPage({
       components: [Checkbox],
@@ -437,5 +503,32 @@ describe("ic-checkbox-group", () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  it("should include textFieldValue from slotted ic-text-field in checkedOptions", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox, TextField],
+      html: `
+        <ic-checkbox-group>
+          <ic-checkbox checked>
+            <ic-text-field slot="additional-field" value="checkbox icChange test"></ic-text-field>
+          </ic-checkbox>
+        </ic-checkbox-group>
+      `,
+    });
+
+    const icChangeHandler = jest.fn();
+    page.root!.addEventListener("icChange", icChangeHandler);
+
+    const checkbox = page.root!.querySelector("ic-checkbox");
+    checkbox!.dispatchEvent(new CustomEvent("icCheck", { bubbles: true }));
+
+    await page.waitForChanges();
+
+    expect(icChangeHandler).toHaveBeenCalled();
+    const eventDetail = icChangeHandler.mock.calls[0][0].detail;
+    expect(eventDetail.checkedOptions[0].textFieldValue).toBe(
+      "checkbox icChange test"
+    );
   });
 });

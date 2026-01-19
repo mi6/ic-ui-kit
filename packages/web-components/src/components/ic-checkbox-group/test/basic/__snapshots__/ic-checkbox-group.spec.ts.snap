@@ -13,10 +13,54 @@ exports[`ic-checkbox-group should not have a validation status if disabled: no-v
     </fieldset>
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
-  <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="ic-checkbox-disabled ic-checkbox-medium" label="test label" value="test">
     <template shadowrootmode="open">
       <div class="container">
-        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
+        <ic-typography class="checkbox-label" variant="body">
+          <label htmlfor="ic-checkbox-test-label-test-label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
+    </template>
+  </ic-checkbox>
+</ic-checkbox-group>
+`;
+
+exports[`ic-checkbox-group should pass down disabled state to child checkboxes: renders-disabled-child 1`] = `
+<ic-checkbox-group class="ic-checkbox-group-disabled ic-checkbox-group-medium" disabled="" label="test label" name="test">
+  <template shadowrootmode="open">
+    <fieldset aria-labelledby="" disabled="" id="test">
+      <legend>
+        <ic-input-label disabled="" helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
+      </legend>
+      <div class="checkboxes-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+    <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
+  </template>
+  <ic-checkbox additional-field-display="static" class="ic-checkbox-disabled ic-checkbox-medium" label="test label" value="test">
+    <template shadowrootmode="open">
+      <div class="container">
+        <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
+        <ic-typography class="checkbox-label" variant="body">
+          <label htmlfor="ic-checkbox-test-label-test-label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+      <span class="sr-only" id="ic-checkbox-test-label-test-label-additional-field-description" role="alert"></span>
+    </template>
+  </ic-checkbox>
+  <ic-checkbox additional-field-display="static" class="ic-checkbox-disabled ic-checkbox-medium" label="test label" value="test2">
+    <template shadowrootmode="open">
+      <div class="container">
+        <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test2">
         <ic-typography class="checkbox-label" variant="body">
           <label htmlfor="ic-checkbox-test-label-test-label">
             test label

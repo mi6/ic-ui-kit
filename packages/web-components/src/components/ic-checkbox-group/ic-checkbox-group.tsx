@@ -35,6 +35,8 @@ const CHECKBOX_SELECTOR = "ic-checkbox";
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class CheckboxGroup {
+  private checkboxes: HTMLIcCheckboxElement[];
+
   @Element() el: HTMLIcCheckboxGroupElement;
 
   /**
@@ -43,6 +45,9 @@ export class CheckboxGroup {
   @Prop() disabled: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
+    this.checkboxes.forEach((checkbox) => {
+      checkbox.disabled = this.disabled;
+    });
     removeDisabledFalse(this.disabled, this.el);
   }
 
@@ -93,6 +98,12 @@ export class CheckboxGroup {
    * The size of the checkboxes to be displayed. This does not affect the font size of the label.
    */
   @Prop() size: IcSizes = "medium";
+  @Watch("size")
+  watchSizeHandler(): void {
+    this.checkboxes.forEach((checkbox) => {
+      checkbox.size = this.size;
+    });
+  }
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -137,6 +148,7 @@ export class CheckboxGroup {
   }
 
   componentWillLoad(): void {
+    this.setCheckboxProps();
     removeDisabledFalse(this.disabled, this.el);
     this.watchThemeHandler(this.theme);
   }
@@ -165,6 +177,19 @@ export class CheckboxGroup {
       selectedOption: target as HTMLIcCheckboxElement,
     });
   }
+
+  private setCheckboxProps = () => {
+    this.checkboxes = Array.from(this.el.querySelectorAll(CHECKBOX_SELECTOR));
+
+    this.checkboxes.forEach((checkbox) => {
+      if (!checkbox.disabled) {
+        checkbox.disabled = this.disabled;
+      }
+      if (!checkbox.size) {
+        checkbox.size = this.size;
+      }
+    });
+  };
 
   render() {
     const {
