@@ -116,6 +116,33 @@ exports[`ic-alert component should render default icon of success variant when t
 </ic-alert>
 `;
 
+exports[`ic-alert component should render with a custom dismiss label when provided 1`] = `
+<ic-alert class="ic-alert-variant-neutral" dismiss-label="Custom dismiss label" dismissible="true" message="This is dismissible" role="alert" style="--ic-alert-min-height: 3.5rem;">
+  <template shadowrootmode="open">
+    <div class="container container-neutral">
+      <div class="divider divider-neutral"></div>
+      <div class="alert-content">
+        <span class="alert-icon icon-neutral svg-container">
+          svg
+        </span>
+        <div class="alert-message">
+          <slot name="message">
+            <ic-typography variant="body">
+              This is dismissible
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="dismiss-icon-container">
+        <ic-button class="dismiss-icon svg-container" theme="dark" title="Custom dismiss label" variant="icon-tertiary">
+          svg
+        </ic-button>
+      </div>
+    </div>
+  </template>
+</ic-alert>
+`;
+
 exports[`ic-alert component should render with a dismiss icon when the prop is applied 1`] = `
 <ic-alert class="ic-alert-variant-neutral" dismissible="true" message="This is dismissible" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">

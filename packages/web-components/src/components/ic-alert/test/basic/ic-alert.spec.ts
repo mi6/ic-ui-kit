@@ -52,6 +52,15 @@ describe("ic-alert component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with a custom dismiss label when provided", async () => {
+    const page = await newSpecPage({
+      components: [Alert],
+      html: `<ic-alert message="This is dismissible" dismissible=true dismiss-label="Custom dismiss label"></ic-alert>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render an element in the message slot", async () => {
     const page = await newSpecPage({
       components: [Alert],

@@ -2,6 +2,7 @@ import { html } from "lit-html";
 
 const defaultArgs = {
   dismissible: false,
+  dismissLabel: "Dismiss",
   heading: "Heading",
   message: "Message",
   titleAbove: false,
@@ -152,6 +153,19 @@ export const CustomMessageAndTitleAbove = {
   name: "Custom message and title above",
 };
 
+export const CustomDismissLabel = {
+  render: () => html`
+    <ic-alert
+      heading="Neutral"
+      message="This is dismissible"
+      dismissible="true"
+      dismiss-label="Custom dismiss label"
+    ></ic-alert>
+  `,
+
+  name: "Custom dismiss label",
+};
+
 export const Announced = {
   render: () => html`
     <ic-alert
@@ -225,6 +239,7 @@ export const Playground = {
   render: (args) =>
     html`<ic-alert
       dismissible=${args.dismissible}
+      dismiss-label=${args.dismissLabel}
       variant=${args.variant}
       heading=${args.heading}
       message=${args.message}

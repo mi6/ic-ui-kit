@@ -218,6 +218,10 @@ export namespace Components {
          */
         "announced": boolean;
         /**
+          * The text in the dismiss button tooltip. Makes the user aware of the action resulting from clicking the 'Dismiss' button.
+         */
+        "dismissLabel"?: string | undefined;
+        /**
           * If `true`, the alert will have a close icon at the end to dismiss it.
          */
         "dismissible": boolean;
@@ -3889,6 +3893,10 @@ declare namespace LocalJSX {
           * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
          */
         "announced"?: boolean;
+        /**
+          * The text in the dismiss button tooltip. Makes the user aware of the action resulting from clicking the 'Dismiss' button.
+         */
+        "dismissLabel"?: string | undefined;
         /**
           * If `true`, the alert will have a close icon at the end to dismiss it.
          */
