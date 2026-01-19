@@ -1,7 +1,7 @@
 {
-  "total": 887,
-  "totalPassed": 884,
-  "totalFailed": 3,
+  "total": 888,
+  "totalPassed": 888,
+  "totalFailed": 0,
   "totalSuites": 45,
   "suites": [
     {
@@ -412,15 +412,26 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/dismissible.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcAlert.cy.tsx/dismissible-focussed",
-          "percentage": 0.018470133549417917,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
           "specFilename": "IcAlert.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/dismissible-focussed.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcAlert.cy.tsx/dismissible-focussed.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/dismissible-focussed.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcAlert.cy.tsx/dismissible-focussed-custom-label",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
+          "specFilename": "IcAlert.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/dismissible-focussed-custom-label.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/dismissible-focussed-custom-label.png"
         },
         {
           "status": "pass",
@@ -500,14 +511,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/slotted-icon.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcAlert.cy.tsx/theme-dark",
-          "percentage": 0.01996089927833914,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
           "specFilename": "IcAlert.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/theme-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcAlert.cy.tsx/theme-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/theme-dark.png"
         },
         {
@@ -544,14 +555,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/custom-message-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcAlert.cy.tsx/dismissible-high-contrast",
-          "percentage": 0.020636886641535613,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
           "specFilename": "IcAlert.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/dismissible-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcAlert.cy.tsx/dismissible-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/dismissible-high-contrast.png"
         },
         {
@@ -10032,9 +10043,9 @@
       ]
     }
   ],
-  "startedAt": "2026-01-14T13:52:53.090Z",
-  "endedAt": "2026-01-14T14:12:21.212Z",
-  "duration": 1064311,
+  "startedAt": "2026-01-19T11:07:42.862Z",
+  "endedAt": "2026-01-19T11:26:42.176Z",
+  "duration": 1035092,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
