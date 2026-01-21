@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.18.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.17.0...@ukic/web-components@3.18.0) (2026-01-21)
+
+### Bug Fixes
+
+- **web-components:** align the end component to match label ([9703a1f](https://github.com/mi6/ic-ui-kit/commit/9703a1f919c88ce8f523b18aab6b2e1f1ec8112a))
+- **web-components:** force loading indicator to be circular when size is 'icon' ([1c1f8c8](https://github.com/mi6/ic-ui-kit/commit/1c1f8c81a68867c9984fe1c9e2f447e1794a77fb)), closes [#2029](https://github.com/mi6/ic-ui-kit/issues/2029)
+- **web-components:** update checkbox group to correctly pass down size and disabled props ([b102175](https://github.com/mi6/ic-ui-kit/commit/b1021753defe04b1edc8f2dc5517b3e7b130bd46)), closes [#3638](https://github.com/mi6/ic-ui-kit/issues/3638)
+- **web-components:** update spacing between icon and text ([62ffe68](https://github.com/mi6/ic-ui-kit/commit/62ffe6880d2c15046da6a3263e127432f228180e))
+
+### Features
+
+- **web-components:** add dismissLabel prop to icAlert ([4411aa6](https://github.com/mi6/ic-ui-kit/commit/4411aa6e09fa90c77b827ef1405ea300c6142246))
+- **web-components:** add heading slot to ic-step ([c1a6076](https://github.com/mi6/ic-ui-kit/commit/c1a607696d19d7afa53484c19cfd6d3868d23c70)), closes [#4078](https://github.com/mi6/ic-ui-kit/issues/4078)
+- **web-components:** add width and height to ic-skeleton ([fa08beb](https://github.com/mi6/ic-ui-kit/commit/fa08bebf16bf34a78a1927da91f6973cab9ceb69)), closes [#1837](https://github.com/mi6/ic-ui-kit/issues/1837)
+- **web-components:** enforce circular loading to icon buttons ([8940826](https://github.com/mi6/ic-ui-kit/commit/894082648f20f6db082aa0fdfa5a846f41841a56)), closes [#3891](https://github.com/mi6/ic-ui-kit/issues/3891)
+- **web-components:** update ic-input-validation to make message prop optional, remove console error ([082c5ae](https://github.com/mi6/ic-ui-kit/commit/082c5ae6aa39160a4d6ef4a294865cd1bee0ad2f))
+
 # [3.17.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.16.0...@ukic/web-components@3.17.0) (2026-01-07)
 
 ### Bug Fixes

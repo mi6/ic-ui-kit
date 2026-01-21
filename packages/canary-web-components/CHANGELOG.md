@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.34](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.33...@ukic/canary-web-components@3.0.0-canary.34) (2026-01-21)
+
+### Features
+
+- **canary-web-components:** modify time-input and time-selector 'disableTimes' prop ([d39c0a2](https://github.com/mi6/ic-ui-kit/commit/d39c0a2536ea41ac098ee2eab023e4a7bb2fc133)), closes [#3949](https://github.com/mi6/ic-ui-kit/issues/3949)
+- **canary-web-components:** remove seconds from ic-time-selector ([e328cb8](https://github.com/mi6/ic-ui-kit/commit/e328cb8ea043ebc672f2d4917ebb96e8ba814788))
+
+### BREAKING CHANGES
+
+- **canary-web-components:** Modified IcDisableTimeSelection type, affecting disableTimes prop
+
 # [3.0.0-canary.33](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.32...@ukic/canary-web-components@3.0.0-canary.33) (2026-01-07)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@ukic/canary-docs",
-  "version": "3.0.0-canary.26",
+  "version": "3.0.0-canary.27",
   "description": "API documentation for @ukic canary components",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit/issues",

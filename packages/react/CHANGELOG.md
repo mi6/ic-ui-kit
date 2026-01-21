@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.18.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.17.0...@ukic/react@3.18.0) (2026-01-21)
+
+### Bug Fixes
+
+- **react:** icon colour reflective of theme ([c74ebfe](https://github.com/mi6/ic-ui-kit/commit/c74ebfe6677e7a3c9ee7246b5f063beeb89850fa))
+- **react:** update checkbox group to correctly pass down size and disabled props ([74d07e7](https://github.com/mi6/ic-ui-kit/commit/74d07e72f1eeeece2bbb7f7d4864dc78f87707ce))
+
+### Features
+
+- **react:** add heading slot to IcStep ([dd98130](https://github.com/mi6/ic-ui-kit/commit/dd981308d2d826db26336369bc18bd963d7f0b9f))
+- **react:** add width and height to IcSkeleton ([9472edb](https://github.com/mi6/ic-ui-kit/commit/9472edba62d806b623166c37b158ff086da4ea28))
+- **react:** enforce circular loading to icon buttons ([b58b310](https://github.com/mi6/ic-ui-kit/commit/b58b31069807081586000b0dc12cdbce7d758c56))
+
 # [3.17.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.16.0...@ukic/react@3.17.0) (2026-01-07)
 
 ### Features

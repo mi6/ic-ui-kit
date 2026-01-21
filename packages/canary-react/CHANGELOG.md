@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.34](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.33...@ukic/canary-react@3.0.0-canary.34) (2026-01-21)
+
+### Features
+
+- **canary-react:** update to ic-time-selector story ([bbae4b3](https://github.com/mi6/ic-ui-kit/commit/bbae4b33e87bd49cb19927fce685b3639b20ce3b))
+
 # [3.0.0-canary.33](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.32...@ukic/canary-react@3.0.0-canary.33) (2026-01-07)
 
 ### Bug Fixes
