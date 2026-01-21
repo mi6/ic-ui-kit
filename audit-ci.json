@@ -146,6 +146,13 @@
         "notes": "issue with node-tar package - audit fix work being done in #4084",
         "expiry": "25 January 2026"
       }
+    },
+    {
+      "GHSA-r6q2-hw4h-h46w": {
+        "active": true,
+        "notes": "issue in 'tar' package used by '@lerna/legacy-package-management' - breaking change to upgrade",
+        "expiry": "25 January 2026"
+      }
     }
   ]
 }
