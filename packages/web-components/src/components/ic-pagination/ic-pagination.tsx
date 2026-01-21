@@ -254,6 +254,43 @@ export class Pagination {
     );
   }
 
+  /**
+   * Prevents focus lingering on a disabled element. If the currently
+   * focused element is one of the back buttons (and we reach the first page),
+   * move focus to "next" button, and vice versa.
+   * @param ev
+   */
+  @Listen("icPageChange")
+  icPageChangeHandler(ev: CustomEvent<IcChangeEventDetail>) {
+    const shadow = document.activeElement?.shadowRoot;
+
+    const activeEl = shadow ? shadow.activeElement : document.activeElement;
+    if (!shadow || !activeEl) {
+      return;
+    }
+
+    if (
+      ev.detail.value === 1 &&
+      ["first-page-button", "previous-page-button"].some(
+        (id) => id === activeEl?.id
+      )
+    ) {
+      const btn = (
+        shadow.querySelector("#next-page-button") as HTMLElement
+      ).shadowRoot?.querySelector("button");
+      // When navigating from firstPage->lastPage or vice versa, the to-be-selected element will be disabled. wait a tick so that it can receive focus.
+      setTimeout(() => btn?.focus(), 10);
+    } else if (
+      ev.detail.value === this.pages &&
+      ["last-page-button", "next-page-button"].some((id) => id === activeEl?.id)
+    ) {
+      const btn = (
+        shadow!.querySelector("#previous-page-button") as HTMLElement
+      ).shadowRoot?.querySelector("button");
+      setTimeout(() => btn?.focus(), 10);
+    }
+  }
+
   @Listen("paginationItemClick")
   paginationItemClickHandler(ev: CustomEvent): void {
     const page = ev.detail.page;
