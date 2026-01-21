@@ -1,6 +1,6 @@
 {
-  "total": 887,
-  "totalPassed": 887,
+  "total": 888,
+  "totalPassed": 888,
   "totalFailed": 0,
   "totalSuites": 45,
   "suites": [
@@ -421,6 +421,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/dismissible-focussed.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/dismissible-focussed.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcAlert.cy.tsx/dismissible-focussed-custom-label",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
+          "specFilename": "IcAlert.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/dismissible-focussed-custom-label.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/dismissible-focussed-custom-label.png"
         },
         {
           "status": "pass",
@@ -10032,9 +10043,9 @@
       ]
     }
   ],
-  "startedAt": "2026-01-15T15:26:48.044Z",
-  "endedAt": "2026-01-15T15:45:42.215Z",
-  "duration": 1030052,
+  "startedAt": "2026-01-21T12:38:26.973Z",
+  "endedAt": "2026-01-21T12:57:28.106Z",
+  "duration": 1035913,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
