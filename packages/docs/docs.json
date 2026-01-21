@@ -13197,6 +13197,11 @@
       ],
       "listeners": [
         {
+          "event": "icPageChange",
+          "capture": false,
+          "passive": false
+        },
+        {
           "event": "paginationItemClick",
           "capture": false,
           "passive": false
