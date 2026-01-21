@@ -17552,6 +17552,32 @@
       "usage": {},
       "props": [
         {
+          "name": "height",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "height",
+          "reflectToAttr": false,
+          "docs": "Height of the skeleton. Accepts any valid CSS length (e.g. \"24px\", \"2rem\", \"100%\").",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "theme",
           "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
@@ -17624,6 +17650,32 @@
             },
             {
               "value": "text",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "width",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": false,
+          "docs": "Width of the skeleton. Accepts any valid CSS length (e.g. \"24px\", \"2rem\", \"100%\").",
+          "docsTags": [],
+          "values": [
+            {
               "type": "string"
             },
             {
