@@ -103,6 +103,15 @@ describe("ic-pagination simple appearance component", () => {
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
+    Object.defineProperty(page.root?.shadowRoot, "activeElement", {
+      value: btn,
+      configurable: true,
+    });
+    Object.defineProperty(page.doc, "activeElement", {
+      value: page.root,
+      configurable: true,
+    });
+
     await btn.click();
     await page.waitForChanges();
 
@@ -141,6 +150,14 @@ describe("ic-pagination simple appearance component", () => {
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
+    Object.defineProperty(page.root?.shadowRoot, "activeElement", {
+      value: btn,
+      configurable: true,
+    });
+    Object.defineProperty(page.doc, "activeElement", {
+      value: page.root,
+      configurable: true,
+    });
     await btn.click();
     await page.waitForChanges();
 
@@ -534,6 +551,22 @@ describe("ic-pagination appearance tests", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.currentPage).toBe(3);
+  });
+
+  it("should change page when current page set with public method", async () => {
+    const page = await newSpecPage({
+      components: [Pagination, Button, PaginationItem],
+      html: `<ic-pagination pages="15" type="complex"></ic-pagination>
+      `,
+    });
+    expect(page.rootInstance.currentPage).toBe(1);
+
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
+
+    await page.rootInstance.setCurrentPage(999);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.currentPage).toBe(1);
   });
 
   it("should update number of pages dynamically if the prop is updated", async () => {
