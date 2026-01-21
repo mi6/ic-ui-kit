@@ -2050,6 +2050,10 @@ export namespace Components {
     }
     interface IcSkeleton {
         /**
+          * Height of the skeleton. Accepts any valid CSS length (e.g. "24px", "2rem", "100%").
+         */
+        "height"?: string;
+        /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
@@ -2057,6 +2061,10 @@ export namespace Components {
           * The variant of the skeleton that will be displayed.
          */
         "variant"?: IcSkeletonVariants;
+        /**
+          * Width of the skeleton. Accepts any valid CSS length (e.g. "24px", "2rem", "100%").
+         */
+        "width"?: string;
     }
     interface IcSkipLink {
         /**
@@ -5819,6 +5827,10 @@ declare namespace LocalJSX {
     }
     interface IcSkeleton {
         /**
+          * Height of the skeleton. Accepts any valid CSS length (e.g. "24px", "2rem", "100%").
+         */
+        "height"?: string;
+        /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
@@ -5826,6 +5838,10 @@ declare namespace LocalJSX {
           * The variant of the skeleton that will be displayed.
          */
         "variant"?: IcSkeletonVariants;
+        /**
+          * Width of the skeleton. Accepts any valid CSS length (e.g. "24px", "2rem", "100%").
+         */
+        "width"?: string;
     }
     interface IcSkipLink {
         /**
