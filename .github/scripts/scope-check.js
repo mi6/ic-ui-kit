@@ -55,6 +55,7 @@ function validateScope(commitMessage, changedFiles, scopeToPathMap) {
   if (scope === "root") {
     const forbiddenPrefixes = Object.values(scopeToPathMap).filter(Boolean);
     for (const file of changedFiles) {
+      if (file.endsWith("CHANGELOG.md")) continue;
       if (forbiddenPrefixes.some(prefix => file.startsWith(prefix))) {
         console.error(`❌ File "${file}" is inside a package folder but scope is "root".`);
         process.exit(1);
@@ -62,6 +63,7 @@ function validateScope(commitMessage, changedFiles, scopeToPathMap) {
     }
   } else {
     for (const file of changedFiles) {
+      if (file.endsWith("CHANGELOG.md")) continue;
       if (!file.startsWith(allowedPrefix)) {
         console.error(`❌ File "${file}" changed in commit, but does not match scope "${scope}" (expected path prefix: "${allowedPrefix}")`);
         process.exit(1);
