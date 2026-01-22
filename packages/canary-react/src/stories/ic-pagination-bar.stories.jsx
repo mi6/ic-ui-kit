@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { useArgs } from "@storybook/preview-api";
+import { useArgs } from "storybook/preview-api";
 import React from "react";
 import readme from "../../../canary-web-components/src/components/ic-pagination-bar/readme.md";
 import { IcPaginationBar } from "../components";

@@ -5,7 +5,6 @@ import "@ukic/web-components/dist/core/icds-table-style.css";
 
 import { IcTheme } from "@ukic/react";
 import React from "react";
-import { withPerformance } from "storybook-addon-performance";
 
 const preview = {
   parameters: {
@@ -61,8 +60,7 @@ const preview = {
           <IcTheme theme={selectedTheme}>{story()}</IcTheme>
         </>
       );
-    },
-    withPerformance,
+    }
   ],
 };
 
