@@ -1,7 +1,7 @@
 {
   "total": 888,
-  "totalPassed": 888,
-  "totalFailed": 0,
+  "totalPassed": 887,
+  "totalFailed": 1,
   "totalSuites": 45,
   "suites": [
     {
@@ -594,14 +594,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/default.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcBackToTop.cy.tsx/position-left",
-          "percentage": 0,
+          "percentage": 0.0515363949069005,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/position-left.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcBackToTop.cy.tsx/position-left.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/position-left.png"
         },
         {
@@ -10043,9 +10043,9 @@
       ]
     }
   ],
-  "startedAt": "2026-01-21T12:38:26.973Z",
-  "endedAt": "2026-01-21T12:57:28.106Z",
-  "duration": 1035913,
+  "startedAt": "2026-01-22T11:27:50.803Z",
+  "endedAt": "2026-01-22T11:46:16.631Z",
+  "duration": 1009552,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
