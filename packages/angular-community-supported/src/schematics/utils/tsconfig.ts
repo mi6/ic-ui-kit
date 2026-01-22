@@ -21,7 +21,7 @@ export function skipLibCheckTsConfig(host: Tree): Tree {
         formattingOptions: {
           tabSize: 4,
         },
-      }
+      },
     );
 
     const newTsconfig = applyEdits(tsConfigContent, editResults);

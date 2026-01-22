@@ -30,7 +30,7 @@ function addICDSAngularToPackageJson(): Rule {
       host,
       "dependencies",
       "@ukic/angular-community-supported",
-      "latest"
+      "latest",
     );
     return host;
   };
@@ -86,7 +86,7 @@ export default function ngAdd(options: IonAddOptions): Rule {
 
     const [projectName, config] = getDefaultAngularApp(
       workspace,
-      options?.project
+      options?.project,
     );
 
     const sourcePath: Path = join(config.sourceRoot as Path);
