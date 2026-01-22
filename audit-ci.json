@@ -216,6 +216,20 @@
         "notes": "requires upgrade to 'dompurify', awaiting patch for above",
         "expiry": "27 March 2026"
       }
+    },
+    {
+      "GHSA-3vhc-576x-3qv4": {
+        "active": true,
+        "notes": "need to use hono v4.11.4 - currently dictated by @angular/cli",
+        "expiry": "22 February 2026"
+      }
+    },
+    {
+      "GHSA-f67f-6cw9-8mq4": {
+        "active": true,
+        "notes": "need to use hono v4.11.4 - currently dictated by @angular/cli",
+        "expiry": "22 February 2026"
+      }
     }
   ]
 }
