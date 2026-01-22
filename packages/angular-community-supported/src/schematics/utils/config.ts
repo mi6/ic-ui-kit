@@ -15,7 +15,7 @@ export function readConfig<T extends JsonObject = JsonObject>(host: Tree): T {
 
 export function writeConfig(
   host: Tree,
-  config: JsonObject | ProjectDefinition
+  config: JsonObject | ProjectDefinition,
 ): void {
   host.overwrite(ANGULAR_JSON_PATH, JSON.stringify(config, null, 2));
 }
@@ -39,7 +39,7 @@ function isAngularBrowserProject(projectConfig: ProjectDefinition): boolean {
 
 export function getDefaultAngularApp(
   workspace: WorkspaceDefinition,
-  projectName?: string
+  projectName?: string,
 ): [string, ProjectDefinition] {
   const projects = workspace.projects;
 
@@ -59,7 +59,7 @@ export function getDefaultAngularApp(
   }
 
   throw new SchematicsException(
-    `ICDS Add requires a project type of "application".`
+    `ICDS Add requires a project type of "application".`,
   );
 }
 
@@ -67,7 +67,7 @@ export function addStyle(
   host: Tree,
   project: ProjectDefinition,
   projectName: string,
-  stylePath: string
+  stylePath: string,
 ): void {
   const config = readConfig(host);
   const stylesList = project.targets.get("build").options.styles as string[];

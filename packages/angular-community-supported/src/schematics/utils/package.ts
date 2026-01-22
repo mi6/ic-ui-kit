@@ -7,7 +7,7 @@ export function addPackageToPackageJson(
   host: Tree,
   type: string,
   pkg: string,
-  version: string
+  version: string,
 ): Tree {
   const packageJsonPath = "package.json";
   if (host.exists(packageJsonPath)) {

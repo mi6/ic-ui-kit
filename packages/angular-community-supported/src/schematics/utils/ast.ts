@@ -20,7 +20,7 @@ function getSourceFile(host: Tree, path: string): ts.SourceFile {
  */
 export function addICDSModuleImportToNgModule(
   host: Tree,
-  modulePath: string
+  modulePath: string,
 ): void {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const moduleSource = getSourceFile(host, modulePath) as any;
@@ -30,7 +30,7 @@ export function addICDSModuleImportToNgModule(
       moduleSource,
       modulePath,
       "ICDSModule",
-      "@ukic/angular"
+      "@ukic/angular",
     );
 
     if (icdsModuleChange) {
@@ -41,7 +41,7 @@ export function addICDSModuleImportToNgModule(
       moduleSource,
       modulePath,
       "imports",
-      "ICDSModule"
+      "ICDSModule",
     );
     if (metadataChange) {
       applyToUpdateRecorder(recorder, metadataChange);
