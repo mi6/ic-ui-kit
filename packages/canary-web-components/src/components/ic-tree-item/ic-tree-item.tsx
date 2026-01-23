@@ -460,7 +460,7 @@ export class TreeItem {
           [`ic-theme-${theme}`]: theme !== "inherit",
           "ic-tree-item-truncate": !!this.truncateTreeItem,
         }}
-        id={this.treeItemId ?? `ic-tree-item-${treeItemIds++}`}
+        id={this.el.id || this.treeItemId || `ic-tree-item-${treeItemIds++}`}
       >
         {this.hasRouterSlot() ? (
           <slot name="router-item" />

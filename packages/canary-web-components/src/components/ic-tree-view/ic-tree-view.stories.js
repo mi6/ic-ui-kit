@@ -119,13 +119,44 @@ export const SlottedCustomIds = {
       <ic-tree-view heading="Menu">
         <ic-tree-item label="Coffee" tree-item-id="coffee-1">
           <ic-tree-item label="Americano">
-            <ic-tree-item label="With milk" tree-item-id="with-milk-1"></ic-tree-item>
+            <ic-tree-item
+              label="With milk"
+              tree-item-id="with-milk-1"
+            ></ic-tree-item>
           </ic-tree-item>
         </ic-tree-item>
-        <ic-tree-item label="Tea" tree-item-id="tea-1"></ic-tree-view>
+        <ic-tree-item label="Tea" tree-item-id="tea-1"></ic-tree-item>
+      </ic-tree-view>
     </div>
   `,
   name: "Custom IDs with Slotted",
+};
+
+export const CustomID = {
+  render: () => html`
+    <div style="width:250px">
+      <ic-tree-view heading="Menu">
+        <ic-tree-item label="Coffee" id="coffee-1"></ic-tree-item>
+        <ic-tree-item label="Tea" id="tea-1"></ic-tree-item>
+        <ic-tree-item label="Hot chocolate" id="hot-chocolate-1"></ic-tree-item>
+      </ic-tree-view>
+    </div>
+    <script>
+      const coffee = document.querySelector("#coffee-1");
+      coffee.addEventListener("icTreeItemSelected", function (event) {
+        console.log(event.detail.id);
+      });
+      const tea = document.querySelector("#tea-1");
+      tea.addEventListener("icTreeItemSelected", function (event) {
+        console.log(event.detail.id);
+      });
+      const hotChocolate = document.querySelector("#hot-chocolate-1");
+      hotChocolate.addEventListener("icTreeItemSelected", function (event) {
+        console.log(event.detail.id);
+      });
+    </script>
+  `,
+  name: "Custom IDs using ID",
 };
 
 export const WithIcons = {
