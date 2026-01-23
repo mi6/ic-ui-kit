@@ -1,5 +1,5 @@
-/** @type { import('@storybook/nextjs').StorybookConfig } */
-const config = {
+/** @type { import('@storybook/nextjs-vite').StorybookConfig } */
+export default {
   core: {
     disableTelemetry: true,
   },
@@ -19,14 +19,12 @@ const config = {
 
   addons: [
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-postcss",
     "@storybook/addon-a11y",
+    "@storybook/addon-docs"
   ],
 
   framework: {
-    name: "@storybook/nextjs",
+    name: "@storybook/nextjs-vite",
     options: {},
   },
 
@@ -35,5 +33,8 @@ const config = {
   typescript: {
     reactDocgen: "react-docgen-typescript",
   },
+  async viteFinal(config) {
+    config.assetsInclude = ['**/*.md']
+    return config;
+  },
 };
-export default config;

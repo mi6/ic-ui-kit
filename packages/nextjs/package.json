@@ -34,23 +34,19 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@storybook/addon-a11y": "^8.6.9",
-    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-a11y": "10.1.11",
     "@ukic/react": "^3.18.0",
     "@ukic/web-components": "^3.18.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
-    "@storybook/addon-essentials": "^8.6.9",
-    "@storybook/addon-interactions": "^8.6.9",
-    "@storybook/addon-links": "^8.6.9",
-    "@storybook/blocks": "^8.6.9",
-    "@storybook/nextjs": "^8.6.9",
-    "@storybook/react": "^8.6.9",
-    "@storybook/test": "^8.6.9",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.26.0",
+    "@storybook/addon-docs": "10.1.11",
+    "@storybook/addon-links": "10.1.11",
+    "@storybook/nextjs-vite": "10.1.11",
     "@types/node": "^20.11.20",
-    "@types/webpack": "^5.28.5",
     "babel-loader": "^8.3.0",
     "css-loader": "^6.8.1",
     "mkdirp": "^1.0.4",
@@ -58,11 +54,11 @@
     "np": "^10.0.1",
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0",
-    "storybook": "^8.6.9",
+    "storybook": "10.1.11",
     "ts-loader": "^9.5.0",
     "ts-node": "^10.9.2",
     "typescript": "^4.9.5",
-    "webpack": "^5.89.0"
+    "vite": "^7.0.0"
   },
   "peerDependencies": {
     "@ukic/fonts": "^3.1.0",
