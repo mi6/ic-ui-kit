@@ -132,6 +132,18 @@ export const SlottedCustomIds = {
   name: "Custom IDs with Slotted",
 };
 
+export const CustomID = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        <IcTreeItem label="Coffee" id="coffee-1" onIcTreeItemSelected={(ev) => console.log(ev.detail.id)} />
+        <IcTreeItem label="Tea" id="tea-1" onIcTreeItemSelected={(ev) => console.log(ev.detail.id)} />
+        <IcTreeItem label="Hot chocolate" id="hot-chocolate-1" onIcTreeItemSelected={(ev) => console.log(ev.detail.id)} />
+      </IcTreeView>
+    </div>
+  ),
+  name: "Custom IDs using ID",
+}
 
 export const WithIcons = {
   render: () => (
