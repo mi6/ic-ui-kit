@@ -31,6 +31,10 @@
   background-color: var(--ic-data-list-keyline-heading);
 }
 
+.divider-no-heading {
+  margin-top: 0;
+}
+
 :host(.ic-data-list-small) .divider {
   margin-top: var(--ic-space-sm);
   margin-bottom: var(--ic-space-xs);

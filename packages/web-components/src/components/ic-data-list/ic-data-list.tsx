@@ -36,6 +36,8 @@ export class DataList {
       );
     }
 
+    const hasHeading = heading || el.querySelector('[slot="heading"]');
+
     return (
       <Host
         class={{
@@ -48,7 +50,7 @@ export class DataList {
             <ic-typography variant="h3">{heading}</ic-typography>
           </slot>
         </div>
-        <div class="divider" />
+        <div class={{ divider: true, "divider-no-heading": !hasHeading }} />
         <ul aria-labelledby="data-list-heading" class="rows">
           <slot></slot>
         </ul>
