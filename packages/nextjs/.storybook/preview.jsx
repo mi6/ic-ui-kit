@@ -1,6 +1,6 @@
-import "../dist/core/normalize.css";
+// import "../dist/core/normalize.css";
+// import "../dist/core/core.css";
 import "@ukic/fonts/dist/fonts.css";
-import "../dist/core/core.css";
 import "./storybook.css";
 
 import { IcTheme } from "@ukic/react";
