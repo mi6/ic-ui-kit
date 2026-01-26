@@ -131,7 +131,6 @@ export const DynamicExpandedSideNav = (): ReactElement => {
         version="v0.0.0"
         status="BETA"
         expanded={expanded}
-        disableAutoParentStyling
       >
         <SlottedSVG
           slot="app-icon"

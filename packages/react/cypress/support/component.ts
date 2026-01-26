@@ -27,5 +27,11 @@ import "../../dist/core/normalize.css";
 import "../../../fonts/src/fonts";
 import "../../dist/core/core.css";
 
+Cypress.on("uncaught:exception", (err) => {
+  if (err.message.includes("ResizeObserver loop limit exceeded")) {
+    return false;
+  }
+  return true;
+});
 
 

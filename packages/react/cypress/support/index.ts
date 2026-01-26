@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import "./component";
+import 'cypress-axe';
 import "cypress-real-events";
 
 import Commands from "./commands";
