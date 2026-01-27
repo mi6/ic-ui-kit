@@ -44,7 +44,8 @@
     "rollup": "rollup -c",
     "storybook": "storybook dev -p 6007",
     "test:performance": "npm run perf:clean && npm run perf:build && npm run perf:lighthouse",
-    "tsc": "tsc -p ."
+    "tsc": "tsc -p .",
+    "lhci:per-route": "node lhci-run-per-route.js"
   },
   "dependencies": {
     "@ukic/web-components": "^3.21.0"
@@ -58,6 +59,7 @@
     "@cypress-audit/lighthouse": "^1.4.2",
     "@cypress/react": "^8.0.0",
     "@cypress/webpack-preprocessor": "^6.0.0",
+    "@lhci/cli": "^0.15.1",
     "@mdi/js": "^7.2.96",
     "@stencil/react-output-target": "^0.5.3",
     "@storybook/addon-a11y": "10.1.11",

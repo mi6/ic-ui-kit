@@ -60,6 +60,10 @@ typings/
 # next.js build output
 .next
 
+# lighthouse ci reports
+.lighthouseci/
+lhci-reports/
+
 # cypress test report
 cypress-image-diff-html-report/
 
