@@ -93,6 +93,12 @@ export class Chip {
   @Prop() dismissLabel = "Dismiss";
 
   /**
+   * Specify whether the chip fills the full width of the container.
+   * If `true`, this overrides the --input-width CSS variable.
+   */
+  @Prop() fullWidth = false;
+
+  /**
    * The text rendered within the chip.
    */
   @Prop() label!: string;
@@ -183,6 +189,7 @@ export class Chip {
       foregroundColor,
       dismissLabel,
       transparentBackground,
+      fullWidth,
     } = this;
 
     const ariaLabel = `${label} chip`;
@@ -194,6 +201,7 @@ export class Chip {
           [`ic-theme-${theme}`]: theme !== "inherit",
           [`ic-chip-${foregroundColor}-text`]:
             variant === "filled" && !!foregroundColor,
+          "ic-chip-full-width": fullWidth,
         }}
       >
         {visible && (
@@ -207,6 +215,7 @@ export class Chip {
               hovered,
               "non-transparent":
                 variant === "outlined" && !transparentBackground,
+              "full-width": fullWidth,
             }}
           >
             {isSlotUsed(this.el, "icon") && (
