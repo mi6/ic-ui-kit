@@ -60,6 +60,7 @@
     "@cspell/dict-la": "^1.0.0",
     "@cspell/dict-lorem-ipsum": "^4.0.0",
     "@cspell/dict-scientific-terms-gb": "^1.0.0",
+    "@lhci/cli": "^0.15.1",
     "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.2",
     "@stencil/eslint-plugin": "^1.1.0",
