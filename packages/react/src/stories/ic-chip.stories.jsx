@@ -6,7 +6,7 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { AgGridReact } from "ag-grid-react";
 
-import { IcBadge, IcChip, IcTheme, IcTypography } from "../components";
+import { IcBadge, IcChip, IcTheme, IcTypography, IcTextField } from "../components";
 
 const UserIcon = () => {
   return (
@@ -91,6 +91,7 @@ const defaultArgs = {
   transparentBackground: true,
   variant: "filled",
   badgeSlot: "badge",
+  fullWidth: false,
 };
 
 export default {
@@ -103,12 +104,12 @@ export const Static = {
     <div
       style={{
         display: "flex",
-        "flex-direction": "column",
+        flexDirection: "column",
       }}
     >
       <div
         style={{
-          "background-color": "white",
+          backgroundColor: "white",
           padding: "8px",
         }}
       >
@@ -378,23 +379,49 @@ export const WithoutIcons = {
   name: "Without icons",
 };
 
+export const FullWidth = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <IcChip
+        label="Americano"
+        dismissible
+        onIcDismiss={(ev) => console.log(ev)}
+        fullWidth
+      ></IcChip>
+      <IcChip
+        label="Americano"
+        dismissible
+        onIcDismiss={(ev) => console.log(ev)}
+      >
+      </IcChip>
+      <IcTheme theme="dark" width="100%">
+        <IcChip label="Cappuccino" fullWidth>
+        </IcChip>
+      </IcTheme>
+    </div>
+    
+  ),
+
+  name: "Full Width",
+};
+
 export const CustomColour = {
   render: () => (
     <>
       <IcChip label="Label" customColor="#F8C8DC">
-      <UserIcon />
-    </IcChip>
-    <IcChip label="Label" variant="outlined" customColor="#F8C8DC">
-      <UserIcon />
-    </IcChip>
-    <IcChip
-      label="Label"
-      variant="outlined"
-      transparentBackground={false}
-      customColor="#F8C8DC"
-    >
-      <UserIcon />
-    </IcChip>
+        <UserIcon />
+      </IcChip>
+      <IcChip label="Label" variant="outlined" customColor="#F8C8DC">
+        <UserIcon />
+      </IcChip>
+      <IcChip
+        label="Label"
+        variant="outlined"
+        transparentBackground={false}
+        customColor="#F8C8DC"
+      >
+        <UserIcon />
+      </IcChip>
     </>
   ),
 
@@ -418,6 +445,7 @@ export const Playground = {
       theme={args.theme}
       variant={args.variant}
       transparentBackground={args.transparentBackground}
+      fullWidth={args.fullWidth}
     >
       <UserIcon />
       <IcBadge
