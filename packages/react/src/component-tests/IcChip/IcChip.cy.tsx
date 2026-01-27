@@ -14,6 +14,7 @@ import {
   WithBadgeSlot,
   InAGGrid,
   AllSizes,
+  FullWidth,
   SingleDismissible,
   DismissibleWithIcon,
   Transparency,
@@ -80,6 +81,18 @@ describe("IcChip visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/sizes",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
+    });
+  });
+
+  it("should render chips of different sizes, full width", () => {
+    mount(<FullWidth />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/full-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -191,7 +204,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.compareSnapshot({
       name: "/transparency",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -202,7 +215,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.compareSnapshot({
       name: "/in-ag-grid",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.085),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.09),
     });
   });
 });

@@ -5,6 +5,8 @@ import { ColDef } from "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 
+const backgroundDark = "var(--ic-color-page-background-dark)";
+
 const ReusableSlottedIcon = (): ReactElement => (
   <svg
     slot="icon"
@@ -166,12 +168,25 @@ export const AllSizes = () => {
       <div
         style={{
           padding: "8px",
-          backgroundColor: "var(--ic-color-page-background-dark)",
+          backgroundColor: backgroundDark,
         }}
       >
         <IcTheme theme="dark">
           <Sizes />
           <Sizes variant="outlined" />
+        </IcTheme>
+      </div>
+    </div>
+  );
+};
+
+export const FullWidth = () => {
+  return (
+    <div>
+      <div style={{ padding: "8px" }}>
+        <IcTheme theme="light">
+          <Sizes fullWidth />
+          <Sizes variant="outlined" fullWidth />
         </IcTheme>
       </div>
     </div>
@@ -204,7 +219,7 @@ export const Disabled = () => {
       <div
         style={{
           padding: "8px",
-          backgroundColor: "var(--ic-color-page-background-dark)",
+          backgroundColor: backgroundDark,
         }}
       >
         <IcTheme theme="dark">
@@ -243,7 +258,7 @@ export const Dismissible = () => {
       <div
         style={{
           padding: "8px",
-          backgroundColor: "var(--ic-color-page-background-dark)",
+          backgroundColor: backgroundDark,
         }}
       >
         <IcTheme theme="dark">
@@ -279,7 +294,7 @@ export const WithIcon = () => {
       <div
         style={{
           padding: "8px",
-          backgroundColor: "var(--ic-color-page-background-dark)",
+          backgroundColor: backgroundDark,
         }}
       >
         <IcTheme theme="dark">
@@ -303,7 +318,7 @@ export const DismissibleWithIcon = () => {
       <div
         style={{
           padding: "8px",
-          backgroundColor: "var(--ic-color-page-background-dark)",
+          backgroundColor: backgroundDark,
         }}
       >
         <IcTheme theme="dark">
@@ -331,7 +346,7 @@ export const WithBadgeSlot = () => {
       <div
         style={{
           padding: "8px",
-          backgroundColor: "var(--ic-color-page-background-dark)",
+          backgroundColor: backgroundDark,
         }}
       >
         <IcTheme theme="dark">
