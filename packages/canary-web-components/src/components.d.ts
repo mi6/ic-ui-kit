@@ -417,6 +417,10 @@ export namespace Components {
          */
         "dismissible": boolean;
         /**
+          * Specify whether the chip fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+         */
+        "fullWidth": boolean;
+        /**
           * The text rendered within the chip.
          */
         "label": string;
@@ -3317,6 +3321,10 @@ declare namespace LocalJSX {
           * If `true`, the chip will have a close button at the end to dismiss it.
          */
         "dismissible"?: boolean;
+        /**
+          * Specify whether the chip fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+         */
+        "fullWidth"?: boolean;
         /**
           * The text rendered within the chip.
          */
