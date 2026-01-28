@@ -367,9 +367,7 @@ export class SearchBar {
       if (this.disableAutoFiltering === false) {
         const rawFilteredOptions = getFilteredMenuOptions(
           this.options,
-          false,
           this.value,
-          "anywhere",
           this.labelField
         );
 

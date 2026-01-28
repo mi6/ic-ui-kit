@@ -190,6 +190,11 @@ export class Menu {
   @Prop() valueField = "value";
 
   /**
+   * @internal If `true`, allows the menu to receive focus when opened.
+   */
+  @Prop() allowMenuFocus: boolean = true;
+
+  /**
    * Emitted when the clear all button is clicked.
    */
   @Event() icClear: EventEmitter<void>;
@@ -296,9 +301,7 @@ export class Menu {
         this.autofocusOnSelected &&
         !this.searchableSelect
       ) {
-        this.scrollToSelected(this.menu);
-      } else if (this.selectOnEnter) {
-        this.menu.focus();
+        this.scrollToSelected();
       } else if (
         !!this.optionHighlighted &&
         !this.focusFromSearchKeypress &&
@@ -310,15 +313,21 @@ export class Menu {
 
         if (highlightedEl) {
           this.menu.setAttribute(this.ACTIVE_DESCENDANT, highlightedEl.id);
-          highlightedEl.focus();
+          if (this.allowMenuFocus) {
+            highlightedEl.focus();
+          }
         }
-      } else if (this.inputEl && this.inputEl.tagName !== "INPUT") {
+      } else if (
+        this.inputEl &&
+        this.inputEl.tagName !== "INPUT" &&
+        this.allowMenuFocus
+      ) {
         this.menu.focus();
       }
     }
 
-    if (this.menu && this.open && !this.value && this.selectOnEnter) {
-      this.scrollToSelected(this.menu);
+    if (this.menu && this.open) {
+      this.scrollToSelected();
     }
 
     this.preventMenuFocus = false;
@@ -356,6 +365,20 @@ export class Menu {
     if (this.activationType === "automatic") {
       this.autoSetInputValueKeyboardOpen(event);
     } else {
+      this.manualSetInputValueKeyboardOpen(event);
+    }
+  }
+
+  /**
+   * Used alongside activationType
+   * If menu is open and user navigates options via keyboard, emit optionSelect custom event.
+   * @param {KeyboardEvent} event The keyboard event which is available when handleMenuKeydown is invoked.
+   */
+  @Method()
+  async handleMenuKeyDown(event: KeyboardEvent): Promise<void> {
+    if (this.activationType === "automatic") {
+      this.autoSetValueOnMenuKeyDown(event);
+    } else if (this.activationType === "manual" && !this.searchBar) {
       this.manualSetInputValueKeyboardOpen(event);
     }
   }
@@ -406,6 +429,25 @@ export class Menu {
     this.popperProps = props;
   }
 
+  private emitOptionId = (index: number) => {
+    let option;
+    if (index >= 0 && index < this.ungroupedOptions.length) {
+      option = this.ungroupedOptions[index];
+    } else if (this.ungroupedOptions.length > 0) {
+      option =
+        index < 0
+          ? this.ungroupedOptions[this.ungroupedOptions.length - 1]
+          : this.ungroupedOptions[0];
+    }
+    if (option) {
+      this.menuOptionId.emit({
+        optionId: this.getOptionId(option[this.valueField]),
+      });
+    } else {
+      this.menuOptionId.emit({ optionId: undefined });
+    }
+  };
+
   private handleClearListener = (): void => {
     this.optionHighlighted = "";
   };
@@ -423,7 +465,9 @@ export class Menu {
 
     if (!open) {
       if (focusInput !== false) {
-        this.inputEl?.focus();
+        if (this.allowMenuFocus) {
+          this.inputEl?.focus();
+        }
         this.preventClickOpen = false;
       }
 
@@ -504,16 +548,44 @@ export class Menu {
     this.keyboardNav = false;
 
     switch (event.key) {
-      case "ArrowDown":
+      case "ArrowDown": {
         this.keyboardNav = true;
         this.arrowBehaviour(event);
+        const nextIndex =
+          selectedOptionIndex < this.ungroupedOptions.length - 1
+            ? selectedOptionIndex + 1
+            : 0;
         this.setNextOptionValue(selectedOptionIndex);
+        this.emitOptionId(nextIndex);
         break;
-      case "ArrowUp":
+      }
+      case "ArrowUp": {
         this.keyboardNav = true;
         this.arrowBehaviour(event);
+        const prevIndex =
+          selectedOptionIndex > 0
+            ? selectedOptionIndex - 1
+            : this.ungroupedOptions.length - 1;
         this.setPreviousOptionValue(selectedOptionIndex);
+        this.emitOptionId(prevIndex);
         break;
+      }
+      case "Home": {
+        this.keyboardNav = true;
+        event.preventDefault();
+        this.arrowBehaviour(event);
+        this.setNextOptionValue(-1);
+        this.emitOptionId(0);
+        break;
+      }
+      case "End": {
+        this.keyboardNav = true;
+        event.preventDefault();
+        this.arrowBehaviour(event);
+        this.setPreviousOptionValue(this.ungroupedOptions.length);
+        this.emitOptionId(this.ungroupedOptions.length - 1);
+        break;
+      }
       case " ":
       case "Enter":
         if ((event.target as HTMLElement).id !== this.CLEAR_BUTTON_ID) {
@@ -770,15 +842,16 @@ export class Menu {
           if (this.open) {
             event.stopImmediatePropagation();
           }
-          this.handleMenuChange(false);
+          this.handleMenuChange(false, !this.allowMenuFocus);
           this.menuOptionId.emit({ optionId: undefined });
           break;
         case "a":
           // Checks if Cmd (meta) key is pressed if Mac device (while excluding meta key on Windows)
           // Otherwise, if a different OS, checks Ctrl key
           if (
-            (isMacDevice() && event.metaKey) ||
-            (!isMacDevice() && event.ctrlKey)
+            this.multiSelect &&
+            ((isMacDevice() && event.metaKey) ||
+              (!isMacDevice() && event.ctrlKey))
           ) {
             this.emitSelectAllEvents();
             this.lastOptionFocused = null;
@@ -898,14 +971,6 @@ export class Menu {
     event.preventDefault();
   };
 
-  private handleMenuKeyDown = (event: KeyboardEvent) => {
-    if (this.activationType === "automatic") {
-      this.autoSetValueOnMenuKeyDown(event);
-    } else if (this.activationType === "manual" && !this.searchBar) {
-      this.manualSetInputValueKeyboardOpen(event);
-    }
-  };
-
   private handleMenuKeyUp = (event: KeyboardEvent): void => {
     if (event.key === "Tab" && event.shiftKey) {
       this.preventClickOpen = false;
@@ -922,7 +987,9 @@ export class Menu {
 
   private handleSelectAllClick = () => {
     this.keyboardNav = false;
-    this.menu?.focus();
+    if (this.allowMenuFocus) {
+      this.menu?.focus();
+    }
     this.emitSelectAllEvents();
     this.lastOptionFocused = null;
     this.lastOptionSelected = null;
@@ -930,7 +997,11 @@ export class Menu {
 
   private handleSelectAllBlur = (event: FocusEvent) => {
     this.host.classList.remove("ic-select-select-all-focused");
-    if (!this.menu?.contains(event.relatedTarget as HTMLElement)) {
+    const relatedTarget = event.relatedTarget as HTMLElement;
+    if (
+      !this.menu?.contains(relatedTarget) &&
+      !this.parentEl?.shadowRoot?.contains(relatedTarget)
+    ) {
       this.handleMenuChange(false, false);
     }
   };
@@ -1076,6 +1147,11 @@ export class Menu {
         if (!this.hasTimedOut) {
           event.preventDefault();
           this.setPreviousOptionValue(selectedOptionIndex);
+          this.emitOptionId(
+            selectedOptionIndex > 0
+              ? selectedOptionIndex - 1
+              : this.ungroupedOptions.length - 1
+          );
           this.keyboardNav = true;
         }
         break;
@@ -1083,6 +1159,11 @@ export class Menu {
         if (!this.hasTimedOut) {
           event.preventDefault();
           this.setNextOptionValue(selectedOptionIndex);
+          this.emitOptionId(
+            selectedOptionIndex < this.ungroupedOptions.length - 1
+              ? selectedOptionIndex + 1
+              : 0
+          );
           this.keyboardNav = true;
         }
         break;
@@ -1090,6 +1171,7 @@ export class Menu {
         this.menuOptionSelect.emit({
           value: this.ungroupedOptions[0][this.valueField],
         });
+        this.emitOptionId(0);
         this.keyboardNav = true;
         break;
       case "End":
@@ -1099,18 +1181,16 @@ export class Menu {
               this.valueField
             ],
         });
+        this.emitOptionId(this.ungroupedOptions.length - 1);
         this.keyboardNav = true;
         break;
       case "Enter":
         !this.hasTimedOut && this.handleMenuChange(false);
         break;
       case "Escape":
-        this.handleMenuChange(false);
+        this.handleMenuChange(false, !this.allowMenuFocus);
         break;
       case "Backspace":
-        if (isSearchableSelect) {
-          this.inputEl?.focus();
-        }
         break;
       case "Shift":
         break;
@@ -1171,25 +1251,31 @@ export class Menu {
 
   private isManualMode = this.activationType === "manual";
 
-  private scrollToSelected = (menu: HTMLUListElement) => {
-    const selectedOption = this.selectOnEnter
-      ? (this.host.querySelector(
-          `li[data-value="${this.optionHighlighted}"]`
-        ) as HTMLElement)
-      : (menu.querySelector(".option[aria-selected='true']") as HTMLElement);
+  // Scroll to highlighted option, or selected option if no highlighted option (i.e. when the menu opens)
+  private scrollToSelected = () => {
+    const menu = this.menu as HTMLUListElement;
+    const selectedOption =
+      this.selectOnEnter || this.searchableSelect || this.multiSelect
+        ? (this.host.querySelector(
+            `li[data-value="${this.optionHighlighted}"]`
+          ) as HTMLElement)
+        : (menu.querySelector(".option[aria-selected='true']") as HTMLElement);
 
     if (selectedOption) {
-      const elTop = selectedOption.offsetTop + selectedOption.offsetHeight;
-      if (
-        elTop > menu.scrollTop + menu.offsetHeight ||
-        elTop < menu.scrollTop + menu.offsetHeight
-      ) {
-        menu.scrollTop = selectedOption.offsetTop;
+      const menuRect = menu.getBoundingClientRect();
+      const optionRect = selectedOption.getBoundingClientRect();
+
+      if (optionRect.top < menuRect.top) {
+        menu.scrollTop -= menuRect.top - optionRect.top;
+      } else if (optionRect.bottom > menuRect.bottom) {
+        menu.scrollTop += optionRect.bottom - menuRect.bottom;
       }
       // 'aria-activedescendant' affects screen reader focus
       // https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#kbd_focus_activedescendant
       this.menu?.setAttribute(this.ACTIVE_DESCENDANT, selectedOption.id);
-      selectedOption.focus();
+      if (this.allowMenuFocus) {
+        selectedOption.focus();
+      }
     }
   };
 
@@ -1297,7 +1383,9 @@ export class Menu {
             ></div>
           )}
         </div>
-        {showCheckIcon && <span class="check-icon" innerHTML={Check} />}
+        {showCheckIcon && (
+          <span class="check-icon" innerHTML={Check} aria-hidden="true" />
+        )}
       </Fragment>
     );
   };
@@ -1337,9 +1425,11 @@ export class Menu {
         }}
         role="option"
         tabindex={
-          open &&
-          (selected || option[this.valueField] === optionHighlighted) &&
-          keyboardNav
+          !this.allowMenuFocus
+            ? "-1"
+            : open &&
+              (selected || option[this.valueField] === optionHighlighted) &&
+              keyboardNav
             ? "0"
             : "-1"
         }
@@ -1438,11 +1528,18 @@ export class Menu {
             role="listbox"
             aria-label={`${inputLabel} pop-up`}
             aria-multiselectable={multiSelect ? "true" : "false"}
+            aria-activedescendant={
+              this.optionHighlighted
+                ? this.getOptionId(this.optionHighlighted)
+                : undefined
+            }
             tabindex={
-              open &&
-              !keyboardNav &&
-              (inputEl?.tagName !== "INPUT" ||
-                parentEl?.tagName === SEARCH_BAR_TAG)
+              !this.allowMenuFocus
+                ? "-1"
+                : open &&
+                  !keyboardNav &&
+                  (inputEl?.tagName !== "INPUT" ||
+                    parentEl?.tagName === SEARCH_BAR_TAG)
                 ? "0"
                 : "-1"
             }

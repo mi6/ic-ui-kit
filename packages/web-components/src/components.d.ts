@@ -26,6 +26,7 @@ import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationAlignmentOptio
 import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
+import { IcSelectOption } from "./components/ic-select/ic-select.types";
 import { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 import { IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
@@ -57,6 +58,7 @@ export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationAlignmentOptio
 export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
+export { IcSelectOption } from "./components/ic-select/ic-select.types";
 export { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 export { IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
@@ -1290,6 +1292,7 @@ export namespace Components {
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
          */
         "activationType": IcActivationTypes;
+        "allowMenuFocus": boolean;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
@@ -1309,6 +1312,11 @@ export namespace Components {
           * @param event The keyboard event which is available when handleKeyboardOpen is invoked.
          */
         "handleKeyboardOpen": (event: KeyboardEvent) => Promise<void>;
+        /**
+          * Used alongside activationType If menu is open and user navigates options via keyboard, emit optionSelect custom event.
+          * @param event The keyboard event which is available when handleMenuKeydown is invoked.
+         */
+        "handleMenuKeyDown": (event: KeyboardEvent) => Promise<void>;
         "handleSetFirstOption": () => Promise<void>;
         "initPopperJs": (anchor: HTMLElement) => Promise<void>;
         /**
@@ -2092,7 +2100,7 @@ export namespace Components {
         /**
           * The possible selection options.
          */
-        "options": IcMenuOption[];
+        "options": IcSelectOption[];
         /**
           * The placeholder value to be displayed.
          */
@@ -2118,7 +2126,7 @@ export namespace Components {
          */
         "selectOnEnter": boolean;
         /**
-          * Sets focus on the input box.
+          * Sets focus on the select component.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -2137,6 +2145,10 @@ export namespace Components {
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
+        /**
+          * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+         */
+        "useNativeSelectOnMobile": boolean;
         /**
           * The value of the `aria-live` attribute on the validation message.
          */
@@ -5163,6 +5175,7 @@ declare namespace LocalJSX {
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
          */
         "activationType"?: IcActivationTypes;
+        "allowMenuFocus"?: boolean;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
@@ -6054,7 +6067,7 @@ declare namespace LocalJSX {
         /**
           * The possible selection options.
          */
-        "options"?: IcMenuOption[];
+        "options"?: IcSelectOption[];
         /**
           * The placeholder value to be displayed.
          */
@@ -6095,6 +6108,10 @@ declare namespace LocalJSX {
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
+        /**
+          * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+         */
+        "useNativeSelectOnMobile"?: boolean;
         /**
           * The value of the `aria-live` attribute on the validation message.
          */

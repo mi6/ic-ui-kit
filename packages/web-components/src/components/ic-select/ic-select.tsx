@@ -4,48 +4,47 @@ import {
   Event,
   EventEmitter,
   Host,
-  Method,
   Prop,
   h,
   State,
   Watch,
   forceUpdate,
+  Method,
 } from "@stencil/core";
-
 import {
-  getInputDescribedByText,
-  getLabelFromValue,
-  hasValidationStatus,
-  inheritAttributes,
-  onComponentRequiredPropUndefined,
-  renderHiddenInput,
-  isMobileOrTablet,
-  getFilteredMenuOptions,
-  getOptionsWithoutGroupTitlesCount,
   addFormResetListener,
-  removeFormResetListener,
-  removeDisabledFalse,
   checkSlotInChildMutations,
+  getInputDescribedByText,
+  isMobileOrTablet,
   isSlotUsed,
-  isMacDevice,
+  removeDisabledFalse,
+  removeFormResetListener,
+  renderHiddenInput,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
   IcAriaLive,
-  IcInformationStatus,
   IcInformationStatusOrEmpty,
-  IcMenuOption,
   IcSearchMatchPositions,
   IcMultiValueEventDetail,
   IcSizes,
   IcThemeMode,
+  IcInformationStatus,
 } from "../../utils/types";
+import {
+  IcSelectOption,
+  IcSelectOptionBase,
+  IcSelectOptionFlat,
+  IcSelectOptionGroup,
+} from "./ic-select.types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
 import {
   IcMenuChangeEventDetail,
+  IcMenuOptionIdEventDetail,
   IcOptionSelectEventDetail,
 } from "../ic-menu/ic-menu.types";
+import { IcMenuCustomEvent } from "../../components";
 
 let inputIds = 0;
 const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "tabindex", "title"];
@@ -62,42 +61,37 @@ const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "tabindex", "title"];
   },
 })
 export class Select {
-  private anchorEl?: HTMLElement;
-  private blurredBecauseButtonPressed = false;
-  private characterKeyPressTimer?: number;
-  private clearButton?: HTMLIcButtonElement;
-  private customSelectElement?: HTMLButtonElement;
-  private debounceAria?: number;
-  private hasSetDefaultValue = false;
-  private hasTimedOut = false;
-  private inheritedAttributes: { [k: string]: string } = {};
-  private initialOptionsEmpty = false;
   private inputId = `ic-select-input-${inputIds++}`;
   private menu?: HTMLIcMenuElement;
   private menuId = `${this.inputId}-menu`;
+  private inheritedAttributes: { [k: string]: string } = {};
+  private anchorEl?: HTMLElement;
   private nativeSelectElement?: HTMLSelectElement;
-  private retryButtonClick = false;
-  private searchableMenuItemSelected = false;
-  private searchableSelectElement?: HTMLInputElement;
-  private timeoutTimer?: number;
-  private ungroupedOptions: IcMenuOption[] = [];
   private hostMutationObserver: MutationObserver | null = null;
+  private clearButton?: HTMLIcButtonElement;
+  private searchableSelectElement?: HTMLInputElement;
+  private timeoutTimer: number | null = null;
+  private hasTimedOut: boolean = false;
+  private selectElement?: HTMLButtonElement;
+  private initialRender: boolean = true;
+  private characterKeyPressTimer?: number;
+  private pressedCharacters = "";
 
   @Element() el!: HTMLIcSelectElement;
 
   @State() ariaActiveDescendant?: string;
-  @State() clearButtonFocused = false;
   @State() debounceIcInput?: number;
   @State() hiddenInputValue: string | null;
-  @State() noOptions: IcMenuOption[] | null = null;
-  @State() open = false;
-  @State() pressedCharacters = "";
-  @State() searchableSelectInputValue: string | null = null;
+  @State() hasError: boolean = false;
+  @State() searchableSelectInputValue: string = "";
+  @State() selectButtonAriaLiveText: string = "";
+  @State() selectInputAriaLiveText: string = "";
 
   /**
    * If `true`, the disabled state will be set.
    */
   @Prop({ reflect: true }) disabled = false;
+
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -234,23 +228,63 @@ export class Select {
   @Prop() validationText = "";
 
   /**
+   * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+   */
+  @Prop() useNativeSelectOnMobile = true;
+
+  /**
    * If `true`, the loading state will be triggered when fetching options asynchronously.
    */
   @Prop({ mutable: true }) loading = false;
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
-    newValue ? this.triggerLoading() : this.setOptions();
+    this.hasTimedOut = false;
+
+    if (newValue) {
+      this.hasError = false;
+      if (this.timeout) {
+        if (this.timeoutTimer) {
+          this.clearTimer();
+        }
+        this.timeoutTimer = window.setTimeout(() => {
+          this.loading = false;
+          this.hasTimedOut = true;
+          forceUpdate(this);
+        }, this.timeout);
+      }
+    } else {
+      if (this.timeoutTimer) {
+        this.clearTimer();
+      }
+    }
+  }
+
+  private clearTimer() {
+    if (this.timeoutTimer) {
+      clearTimeout(this.timeoutTimer);
+      this.timeoutTimer = null;
+    }
   }
 
   /**
    * The possible selection options.
    */
-  @Prop() options: IcMenuOption[] = [];
-  @State() filteredOptions: IcMenuOption[] = this.options;
-  @State() uniqueOptions: IcMenuOption[] = this.options;
+  @Prop() options: IcSelectOption[] = [];
+  @State() flatOptions: IcSelectOptionFlat[] = [];
   @Watch("options")
-  watchOptionsHandler(): void {
-    this.setOptions();
+  optionsChangedHandler(): void {
+    const flat = this.getFlatOptions(this.options)
+      .filter((option) => option.value != null || option.label != null) // filter out options missing both value and label
+      .map((option) => ({
+        ...option,
+        value: option.value ?? option.label, // if an option is missing a value, use the label as the value
+        label: option.label ?? option.value, // vice versa
+      }));
+    this.flatOptions = this.getDeduplicatedOptions(flat);
+
+    if (!this.initialRender) this.loading = false;
+    this.clearTimer();
+    this.updateSelectButtonAriaLive();
   }
 
   /**
@@ -272,33 +306,33 @@ export class Select {
    */
   @Prop({ mutable: true }) value: string | string[] | null = null;
   @State() initialValue = this.value;
-  @State() inputValueToFilter: string | null = this.value as string;
-  @State() currValue: string | string[] | null;
   @Watch("value")
-  valueChangedHandler(): void {
-    if (this.value !== this.currValue) {
-      if (this.value && this.multiple) {
-        this.currValue = this.getMultipleOptionsString(this.value as string[])
-          ? this.getValueSortedByOptions(this.value as string[])
-          : null;
-        this.updateMultiSelectedCountAriaLive();
-      } else {
-        this.currValue = this.getLabelFromValue(this.value as string)
-          ? this.value
-          : null;
-      }
+  valueChangedHandler(newValue: string | string[] | null): void {
+    const validated = this.getValidatedValue(newValue);
+
+    const isEqual =
+      Array.isArray(validated) && Array.isArray(this.value)
+        ? validated.length === this.value.length &&
+          validated.every((v, i) => v === (this.value as string[])[i])
+        : validated === this.value;
+
+    if (!isEqual) {
+      this.value = validated;
+      return;
     }
 
-    if (this.searchable && this.value) {
-      // Only set if value not null - prevents whole input value being cleared when edited
-      this.searchableSelectInputValue =
-        this.getLabelFromValue(String(this.currValue)) || null;
-    }
+    this.updateSelectButtonAriaLive();
+    this.icChange.emit({ value: this.value });
   }
 
+  @State() open = false;
   @Watch("open")
   openChangedHandler(): void {
     this.open ? this.icOpen.emit() : this.icClose.emit();
+    if (!this.open) {
+      this.ariaActiveDescendant = undefined;
+    }
+    this.handleFocusIndicatorDisplay();
   }
 
   /**
@@ -352,49 +386,35 @@ export class Select {
    */
   @Event() icRetryLoad: EventEmitter<IcMultiValueEventDetail>;
 
+  /**
+   * Sets focus on the select component.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.nativeSelectElement) {
+      this.nativeSelectElement.focus();
+    } else if (this.selectElement) {
+      this.selectElement.focus();
+    } else if (this.searchableSelectElement) {
+      this.searchableSelectElement.focus();
+    }
+  }
+
+  componentDidRender(): void {
+    if (this.nativeSelectElement && !this.disabled) {
+      this.setTextColor();
+    }
+    this.initialRender = false;
+  }
+
   disconnectedCallback(): void {
     removeFormResetListener(this.el, this.handleFormReset);
     this.hostMutationObserver?.disconnect();
-  }
-
-  componentWillLoad(): void {
-    const valueInOptions = this.multiple
-      ? this.getMultipleOptionsString(this.value as string[])
-      : this.getLabelFromValue(this.value as string);
-    this.currValue = valueInOptions ? this.value : null;
-    this.inheritedAttributes = inheritAttributes(this.el, MUTABLE_ATTRIBUTES);
-
-    removeDisabledFalse(this.disabled, this.el);
-
-    this.setOptionsValuesFromLabels();
-
-    addFormResetListener(this.el, this.handleFormReset);
-
-    if (!this.options.length) {
-      this.initialOptionsEmpty = true;
-      this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
-      this.uniqueOptions = this.noOptions;
-      this.filteredOptions = this.noOptions;
-    } else {
-      this.setDefaultValue();
-      this.uniqueOptions = this.deduplicateOptions(this.options);
-    }
+    this.clearTimer();
   }
 
   componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Select"
-    );
-
-    if (this.loading) {
-      this.triggerLoading();
-    }
-
-    if (this.searchable) {
-      this.hiddenInputValue = this.currValue as string;
-    }
-
+    forceUpdate(this);
     this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
     this.hostMutationObserver.observe(this.el, {
       attributes: true,
@@ -402,27 +422,359 @@ export class Select {
     });
   }
 
-  componentDidRender(): void {
-    if (this.nativeSelectElement && !this.disabled) {
-      this.setTextColor();
+  private getValidatedValue = (
+    value: string | string[] | null
+  ): string | string[] | null => {
+    const validValues = this.flatOptions.map((opt) => opt.value);
+
+    if (validValues.length === 0) return value;
+
+    if (this.multiple) {
+      if (!value) return null;
+      const arr = Array.isArray(value) ? value : [value]; // Ensure value is an array
+      const filtered = validValues.filter((v) => arr.includes(v)); // Keep only valid values
+      return filtered.length > 0 ? filtered : null;
+    } else {
+      return validValues.includes(value as string) ? value : null;
     }
+  };
+
+  componentWillLoad(): void {
+    this.optionsChangedHandler();
+    this.value = this.getValidatedValue(this.value);
+    this.initialValue = this.value;
+
+    if (this.loading) this.loadingHandler(true);
+
+    addFormResetListener(this.el, this.handleFormReset);
   }
 
-  /**
-   * Sets focus on the input box.
-   */
-  @Method()
-  async setFocus(): Promise<void> {
+  private getFilteredOptions = (
+    searchString: string,
+    searchMatchPosition: "anywhere" | "start",
+    includeDescriptionsInSearch: boolean,
+    includeGroupTitlesInSearch: boolean
+  ): IcSelectOption[] => {
+    const search = searchString.toLowerCase();
+    const match = (text: string, method: "anywhere" | "start") =>
+      method === "anywhere" ? text.includes(search) : text.startsWith(search);
+
+    return this.unflattenOptions(
+      this.flatOptions.filter((option) => {
+        const label = option.label.toLowerCase();
+        const group = option.group?.toLowerCase() ?? "";
+        const description = option.description?.toLowerCase() ?? "";
+        return (
+          match(label, searchMatchPosition) ||
+          (includeDescriptionsInSearch &&
+            match(description, searchMatchPosition)) ||
+          (includeGroupTitlesInSearch && match(group, searchMatchPosition))
+        );
+      })
+    );
+  };
+
+  private getOptions = (): IcSelectOption[] => {
+    const options =
+      this.searchable &&
+      !this.disableAutoFiltering &&
+      this.searchableSelectInputValue
+        ? this.getFilteredOptions(
+            this.searchableSelectInputValue,
+            this.searchMatchPosition,
+            this.includeDescriptionsInSearch,
+            this.includeGroupTitlesInSearch
+          )
+        : this.unflattenOptions(this.flatOptions);
+
+    if (this.hasTimedOut)
+      return [{ label: this.loadingErrorLabel, value: "", timedOut: true }];
+
+    if (this.loading)
+      return [{ label: this.loadingLabel, value: "", loading: true }];
+
+    if (options.length > 0) return options;
+
+    return [{ label: this.emptyOptionListText, value: "" }];
+  };
+
+  private getFlatOptions = (options: IcSelectOption[]): IcSelectOptionFlat[] =>
+    options.flatMap(
+      (item) =>
+        ("children" in item && item.children
+          ? [...item.children.map((child) => ({ group: item.label, ...child }))]
+          : [item]) as IcSelectOptionFlat[]
+    );
+
+  private unflattenOptions = (
+    flatOptions: IcSelectOptionFlat[]
+  ): IcSelectOption[] => {
+    const groupMap = new Map<string, IcSelectOptionGroup>();
+    const result: IcSelectOption[] = [];
+
+    for (const option of flatOptions) {
+      if (option.group) {
+        let group = groupMap.get(option.group);
+        if (!group) {
+          group = { label: option.group, children: [] };
+          groupMap.set(option.group, group);
+          result.push(group);
+        }
+        const { group: _, ...rest } = option;
+        group.children.push(rest as IcSelectOptionBase);
+      } else {
+        result.push(option);
+      }
+    }
+    return result;
+  };
+
+  private getLabelFromValue = (value: string | null): string =>
+    this.flatOptions.find((option) => option.value === value)?.label ?? "";
+
+  // Construct the string that will be shown in the select input or button
+  private getLabelString = (): string => {
+    if (Array.isArray(this.value)) {
+      return this.value.map(this.getLabelFromValue).filter(Boolean).join(", ");
+    }
+    return (
+      this.getLabelFromValue(this.value) ||
+      (this.searchable ? "" : this.placeholder)
+    );
+  };
+
+  private handleClick = (event: MouseEvent) => {
+    if (event.detail !== 0) {
+      this.menu?.handleClickOpen();
+    }
+  };
+
+  private handleExpandIconMouseDown = (event: MouseEvent) => {
+    if (!this.disabled) {
+      event.preventDefault();
+      this.searchableSelectElement?.focus();
+      this.handleClick(event);
+    }
+  };
+
+  private handleBlur = ({ relatedTarget }: FocusEvent) => {
+    const target = relatedTarget as HTMLElement;
+    if (
+      this.el.contains(target) ||
+      this.el.shadowRoot?.contains(target) ||
+      this.menu?.contains(target) ||
+      target === this.clearButton
+    ) {
+      return;
+    }
+
+    this.open = false;
+    this.handleFocusIndicatorDisplay();
+
+    if (this.searchable) {
+      this.searchableSelectInputValue = "";
+    }
+    this.icBlur.emit();
+  };
+
+  private handleTimeoutBlur = (event: CustomEvent<{ ev: FocusEvent }>) => {
+    this.handleBlur(event.detail.ev);
+  };
+
+  private handleFocus = () => {
+    this.icFocus.emit();
+  };
+
+  private handleClear = () => {
+    this.clearTimer();
+    this.loading = false;
+    this.value = null;
+    this.searchableSelectInputValue = "";
+
+    this.icClear.emit();
+
+    this.setFocus();
+  };
+
+  private setTextColor = () => {
     if (this.nativeSelectElement) {
-      this.nativeSelectElement.focus();
-    } else if (this.customSelectElement) {
-      this.customSelectElement.focus();
-    } else if (this.searchableSelectElement) {
-      this.searchableSelectElement.focus();
+      this.nativeSelectElement.className =
+        this.nativeSelectElement.selectedIndex === 0
+          ? "placeholder"
+          : "select-option-selected";
     }
-  }
+  };
 
-  // triggered when attributes of host element change
+  private handleNativeSelectChange = () => {
+    if (this.nativeSelectElement) {
+      this.icOptionSelect.emit({ value: this.nativeSelectElement.value });
+      this.icChange.emit({ value: this.nativeSelectElement.value });
+    }
+    this.setTextColor();
+  };
+
+  private handleFocusIndicatorDisplay = () => {
+    const focusIndicator =
+      this.el.shadowRoot?.querySelector(".focus-indicator");
+
+    if (focusIndicator) {
+      if (this.open) {
+        focusIndicator.classList.add("focus-indicator-enabled");
+      } else {
+        focusIndicator.classList.remove("focus-indicator-enabled");
+      }
+    }
+  };
+
+  private handleKeyDown = (event: KeyboardEvent) => {
+    if (!(event.key === " " && this.pressedCharacters.length > 0)) {
+      if (this.open) {
+        this.menu?.handleMenuKeyDown(event);
+      } else {
+        this.menu?.handleKeyboardOpen(event);
+      }
+    }
+
+    if (
+      !this.multiple &&
+      !this.searchable &&
+      !this.selectOnEnter &&
+      /^[a-zA-Z0-9 ]$/.test(event.key)
+    ) {
+      this.handleCharacterKeyDown(event.key);
+    }
+  };
+
+  private handleCharacterKeyDown = (key: string) => {
+    // Only close menu when space is pressed if not being used alongside character keys to quickly select options
+    if (this.open && key === " " && this.pressedCharacters.length === 0) {
+      this.open = false;
+    }
+
+    if (key.length !== 1 || this.searchable) {
+      this.pressedCharacters = "";
+      return;
+    }
+
+    window.clearTimeout(this.characterKeyPressTimer);
+    this.characterKeyPressTimer = window.setTimeout(
+      () => (this.pressedCharacters = ""),
+      1000
+    );
+
+    if (key !== " " || !!this.pressedCharacters) {
+      this.pressedCharacters += key;
+      const filteredOptions = this.getFilteredOptions(
+        this.pressedCharacters,
+        "start",
+        false,
+        false
+      );
+
+      if (filteredOptions.length > 0) {
+        const firstOption = filteredOptions[0];
+        if ("children" in firstOption) {
+          this.value = firstOption.children[0].value;
+        } else {
+          this.value = firstOption.value;
+        }
+      }
+    }
+  };
+
+  private handleNativeSelectKeyDown = (event: KeyboardEvent) => {
+    this.handleKeyDown(event);
+  };
+
+  private handleSelectChange = (
+    event: CustomEvent<IcOptionSelectEventDetail>
+  ) => {
+    const { value } = event.detail;
+    if (!value || this.getLabelFromValue(value) === this.emptyOptionListText) {
+      this.value = null;
+      return;
+    }
+
+    if (this.multiple) {
+      let valueArray = Array.isArray(this.value) ? [...this.value] : [];
+      const index = valueArray.indexOf(value);
+
+      if (index > -1) {
+        valueArray.splice(index, 1);
+        this.icOptionDeselect.emit({ value });
+      } else {
+        this.icOptionSelect.emit({ value });
+        valueArray.push(value);
+        valueArray = this.getValidatedValue(valueArray) as string[];
+      }
+      this.value = valueArray.length ? valueArray : null;
+    } else {
+      this.icOptionSelect.emit({ value });
+      this.value = value;
+      if (this.searchable) this.searchableSelectInputValue = "";
+    }
+  };
+
+  private handleSelectAllChange = ({
+    detail,
+  }: CustomEvent<{ select: boolean }>) => {
+    const allSelectableValues = this.flatOptions
+      .filter((option) => !option.disabled)
+      .map((option) => option.value);
+    if (detail.select) {
+      allSelectableValues
+        .filter((value) => !((this.value ?? []) as string[]).includes(value))
+        .forEach((value) => {
+          this.icOptionSelect.emit({ value });
+        });
+
+      this.value = allSelectableValues;
+    } else {
+      (this.value as string[]).forEach((value) =>
+        this.icOptionDeselect.emit({ value })
+      );
+      this.value = null;
+    }
+  };
+
+  private handleFormReset = () => {
+    this.value = this.initialValue;
+    this.searchableSelectInputValue = "";
+    if (this.searchable) {
+      this.hiddenInputValue = this.initialValue as string;
+    }
+  };
+
+  private handleRetry = () => {
+    this.clearTimer();
+    this.hasTimedOut = false;
+    this.hasError = false;
+    this.loading = true;
+    this.icRetryLoad.emit({
+      value: this.searchable
+        ? this.searchableSelectInputValue
+        : this.hiddenInputValue,
+    });
+    this.setFocus();
+  };
+
+  private handleSearchableSelectInput = (event: Event) => {
+    this.updateSearchableSelectResultAriaLive();
+    if (!this.multiple) {
+      this.value = null;
+    }
+
+    this.searchableSelectInputValue =
+      (event.target as HTMLInputElement).value ?? "";
+    this.open = true;
+
+    clearTimeout(this.debounceIcInput);
+    this.debounceIcInput = window.setTimeout(
+      () => this.icInput.emit({ value: this.searchableSelectInputValue }),
+      this.currDebounce
+    );
+  };
+
   private hostMutationCallback = (mutationList: MutationRecord[]) => {
     let forceComponentUpdate = false;
     mutationList.forEach(
@@ -447,669 +799,56 @@ export class Select {
     }
   };
 
-  private handleRetry = (ev: CustomEvent<IcMultiValueEventDetail>) => {
-    if (ev.detail.keyPressed) this.searchableSelectElement?.focus();
-    this.blurredBecauseButtonPressed = true;
-    this.retryButtonClick = true;
-    this.hasSetDefaultValue = true;
-    this.icRetryLoad.emit({
-      value: this.searchable
-        ? this.searchableSelectInputValue
-        : this.hiddenInputValue,
-    });
+  private updateSelectButtonAriaLive = () => {
+    const value_label = this.getLabelFromValue(this.value as string);
+    this.selectButtonAriaLiveText = this.multiple
+      ? `${this.value ? this.value.length : 0} of ${
+          this.flatOptions.length
+        } selected`
+      : this.value
+      ? value_label ?? `${value_label} selected`
+      : "";
   };
 
-  private emitIcChange = (value: string | string[] | null) => {
-    // If "Select all" button clicked, replace value with new value (array of all option values)
-    if (this.multiple && !Array.isArray(value) && value !== null) {
-      // Update selected options - adds / removes them, in order of option list
-      // Create new array if value prop is undefined
-      if (this.value) {
-        let valueArray = (this.value as string[]).slice();
-
-        if (this.value.includes(value)) {
-          valueArray.splice(valueArray.indexOf(value), 1);
-        } else {
-          valueArray.push(value);
-          valueArray = this.getValueSortedByOptions(valueArray);
-        }
-
-        this.value = valueArray.length === 0 ? null : valueArray;
-      } else {
-        this.value = [value];
-      }
-    } else {
-      this.value = value;
-    }
-
-    this.icChange.emit({ value: this.multiple ? this.value : value });
+  private updateSearchableSelectResultAriaLive = () => {
+    this.selectInputAriaLiveText =
+      this.getOptions()?.[0]?.label == this.emptyOptionListText
+        ? this.emptyOptionListText
+        : "";
   };
 
-  private emitIcInput = (value: string) => {
-    clearTimeout(this.debounceIcInput);
-    this.debounceIcInput = window.setTimeout(
-      () => this.icInput.emit({ value }),
-      this.currDebounce
-    );
-  };
-
-  private setOptions = () => {
-    if (!this.hasTimedOut && this.options !== this.noOptions) {
-      this.loading = false;
-      clearTimeout(this.timeoutTimer);
-
-      if (this.options.length > 0) {
-        this.setOptionsValuesFromLabels();
-        this.uniqueOptions = this.deduplicateOptions(this.options);
-      } else {
-        this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
-        this.uniqueOptions = this.noOptions;
-      }
-
-      this.filteredOptions = this.uniqueOptions;
-
-      if (this.isExternalFiltering()) {
-        // When searchable select
-        this.noOptions = null;
-        this.updateSearchableSelectResultAriaLive();
-        this.setDefaultValue();
-      } else if (this.initialOptionsEmpty) {
-        this.setDefaultValue();
-        this.initialOptionsEmpty = false;
-      }
-    } else if (!this.searchable) {
-      this.options = this.noOptions || [];
-    }
-  };
-
-  /**
-   * Processes the provided array of IcMenuOptions, removing duplicates and reporting them with a console.warn
-   * @param options array of IcMenuOptions
-   * @returns a new options object, with all entries possessing a duplicate 'value' field removed
-   */
-  private deduplicateOptions = (options: IcMenuOption[]) => {
-    const uniqueValues: string[] = [];
-    const dedupedOptions: IcMenuOption[] = [];
-
-    options.forEach((option) => {
-      if (option.children) {
-        //If an option has children, we will loop through them
-        const dedupedChildren: IcMenuOption[] = [];
-        option.children.forEach((child) => {
-          if (uniqueValues.includes(child.value)) {
-            console.warn(
-              `ic-select with label ${this.label} was populated with duplicate option (value: ${child.value}) which has been removed.`
-            );
-          } else {
-            uniqueValues.push(child.value);
-            dedupedChildren.push(child);
-          }
-        });
-        // construct a modified option, inserting the deduplicated children alongside the original information
-        dedupedOptions.push({
-          ...option,
-          children: dedupedChildren,
-        });
-      } else {
-        // If an option does not have children, assess to see if it's value has been included already
-        if (uniqueValues.includes(option.value)) {
-          console.warn(
-            `ic-select with label ${this.label} was populated with duplicate option (value: ${option.value}) which has been removed.`
-          );
-        } else {
-          uniqueValues.push(option.value);
-          dedupedOptions.push(option);
-        }
-      }
-    });
-    return dedupedOptions;
-  };
-
-  /**
-   * Loop through options array and for all options with no value, infer it from the label
-   */
-  private setOptionsValuesFromLabels = () => {
-    if (this.options.length > 0) {
-      this.options.map((option) => {
-        if (!option.value) {
-          option.value = option.label;
-        }
-      });
-    }
-  };
-
-  private setUngroupedOptions = (event: CustomEvent) => {
-    this.ungroupedOptions = event.detail.options;
-  };
-
-  private setTextColor = () => {
-    if (this.nativeSelectElement) {
-      this.nativeSelectElement.className =
-        this.nativeSelectElement.selectedIndex === 0
-          ? "placeholder"
-          : "select-option-selected";
-    }
-  };
-
-  private setMenuChange = (open: boolean) => {
-    if (this.open !== open) {
-      this.open = open;
-    }
-  };
-
-  private getLabelFromValue = (value: string) =>
-    getLabelFromValue(value, this.uniqueOptions);
-
-  private getMultipleOptionsString = (selectedValues: string[]) =>
-    selectedValues
-      ?.map((value) => this.getLabelFromValue(value))
-      .filter((label) => !!label)
-      .join(", ");
-
-  private getFilteredChildMenuOptions = (
-    option: IcMenuOption
-  ): IcMenuOption => ({
-    ...option,
-    children:
-      option.children &&
-      getFilteredMenuOptions(
-        option.children,
-        this.searchable && !!this.includeDescriptionsInSearch,
-        this.searchable
-          ? this.searchableSelectInputValue || ""
-          : this.pressedCharacters,
-        this.searchable ? this.searchMatchPosition : "start"
-      ),
-  });
-
-  // (For multi-select) get value array, i.e. selected option values, in order they appear in option list
-  private getValueSortedByOptions = (value: string[]) => {
-    const valueArray = value;
-    const valuesFromAllOptions = this.ungroupedOptions.map(
-      (option) => option.value
-    );
-
-    valueArray.sort(
-      (a, b) =>
-        valuesFromAllOptions.indexOf(a) - valuesFromAllOptions.indexOf(b)
-    );
-
-    return valueArray;
-  };
-
-  private handleNativeSelectChange = () => {
-    if (this.nativeSelectElement) {
-      this.icOptionSelect.emit({ value: this.nativeSelectElement.value });
-      this.emitIcChange(this.nativeSelectElement.value);
-    }
-    this.setTextColor();
-  };
-
-  // Handle option select for when a custom input box and menu is rendered
-  // (rather than native <select> - rendered when viewed on a mobile / tablet screen)
-  private handleCustomSelectChange = (
-    event: CustomEvent<IcOptionSelectEventDetail>
+  private updateAriaActiveDescendant = (
+    event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>
   ) => {
-    const { value, label, optionId } = event.detail;
-
-    if (label === this.emptyOptionListText) {
-      this.searchableSelectElement?.focus();
-      return;
-    }
-
-    if (this.searchable) {
-      this.value = value || null;
-      this.searchableMenuItemSelected = true;
-
-      // After editing the input, if selecting the same option as before, set the input value to label again
-      if (this.value === this.currValue) {
-        this.searchableSelectInputValue =
-          this.getLabelFromValue(this.value as string) || null;
-      }
-
-      this.inputValueToFilter = null;
-      this.hiddenInputValue =
-        this.getValueFromLabel(this.searchableSelectInputValue) || null;
-    }
-
-    if (value) {
-      if (this.multiple && this.value?.includes(value)) {
-        this.icOptionDeselect.emit({ value });
-      } else {
-        this.icOptionSelect.emit({ value });
-      }
-    }
-
-    this.ariaActiveDescendant = optionId;
-    this.emitIcChange(value || null);
-  };
-
-  private handleSelectAllChange = ({
-    detail,
-  }: CustomEvent<{ select: boolean }>) => {
-    const allValues = this.ungroupedOptions
-      .filter((option) => !option.disabled)
-      .map((option) => option.value);
-
-    if (detail.select) {
-      // Only emit icOptionSelect for all values that are newly selected
-      const unselectedValues = this.value
-        ? allValues.filter(
-            (value) => this.value && !(this.value as string[]).includes(value)
-          )
-        : allValues;
-
-      unselectedValues.forEach((value) => this.icOptionSelect.emit({ value }));
-    } else {
-      // Only emit icOptionDeselect for values that were selected
-      (this.value as string[]).forEach((value) =>
-        this.icOptionDeselect.emit({ value })
-      );
-    }
-
-    this.emitIcChange(detail.select ? allValues : null);
+    this.ariaActiveDescendant = event.detail.optionId;
   };
 
   private handleMenuChange = (event: CustomEvent<IcMenuChangeEventDetail>) => {
     this.open = event.detail.open;
     this.pressedCharacters = "";
-
-    if (this.searchable) this.handleFocusIndicatorDisplay();
   };
 
-  // clears the debounce delay when navigating the menu with arrow keys etc
-  // to prevent delay in change event, which should only occur when typing in input
-  private handleMenuKeyPress = (ev: CustomEvent): void => {
-    ev.cancelBubble = true;
-    if (!this.multiple) {
-      this.handleCharacterKeyDown(ev.detail.key);
-    }
-  };
-
-  private handleFocusIndicatorDisplay = () => {
-    const focusIndicator =
-      this.el.shadowRoot?.querySelector(".focus-indicator");
-
-    if (focusIndicator) {
-      if (this.open) {
-        focusIndicator.classList.add("focus-indicator-enabled");
-      } else {
-        focusIndicator.classList.remove("focus-indicator-enabled");
+  private getDeduplicatedOptions = (
+    flatOptions: IcSelectOptionFlat[]
+  ): IcSelectOptionFlat[] => {
+    const seen = new Set();
+    return flatOptions.filter((option) => {
+      if (option.value && seen.has(option.value)) {
+        console.warn(
+          `ic-select with label ${this.label} was populated with duplicate option (value: ${option.value}) which has been removed.`
+        );
+        return false;
       }
-    }
+      if (option.value) seen.add(option.value);
+      return true;
+    });
   };
 
-  private handleMouseDown = (event: Event) => {
-    if (!this.open) {
-      event.preventDefault();
-    }
-  };
-
-  private isExternalFiltering = () =>
-    this.searchable && !!this.disableAutoFiltering;
-
-  private handleClick = (event: MouseEvent) => {
-    if (!this.open && this.menu) {
-      if (this.isExternalFiltering()) {
-        this.menu.options = this.filteredOptions;
-      } else if (
-        !this.hasTimedOut &&
-        !this.loading &&
-        !this.noOptions?.length &&
-        (!this.searchable || this.searchableMenuItemSelected)
-      ) {
-        this.noOptions = null;
-        this.menu.options = this.uniqueOptions;
-      }
-    }
-
-    if (event.detail !== 0) {
-      this.menu?.handleClickOpen();
-    }
-  };
-
-  private handleExpandIconMouseDown = (event: MouseEvent) => {
-    if (!this.disabled) {
-      event.preventDefault();
-      this.searchableSelectElement?.focus();
-      this.handleClick(event);
-    }
-  };
-
-  private handleClear = (event: Event) => {
-    event.stopPropagation();
-    this.hasTimedOut = false;
-    clearTimeout(this.timeoutTimer);
-    this.clearInput();
-    this.emitIcChange(null);
-    this.icClear.emit();
-
-    if (this.searchable) {
-      this.hiddenInputValue = null;
-      this.searchableSelectElement?.focus();
-    } else {
-      this.customSelectElement?.focus();
-    }
-  };
-
-  private handleCharacterKeyDown = (key: string) => {
-    // Only close menu when space is pressed if not being used alongside character keys to quickly select options
-    if (this.open && key === " " && this.pressedCharacters.length === 0) {
-      this.setMenuChange(false);
-    }
-
-    if (key.length !== 1 || this.searchable) {
-      this.pressedCharacters = "";
-      return;
-    }
-
-    window.clearTimeout(this.characterKeyPressTimer);
-    this.characterKeyPressTimer = window.setTimeout(
-      () => (this.pressedCharacters = ""),
-      1000
-    );
-
-    if (key !== " " || !!this.pressedCharacters) {
-      this.pressedCharacters += key;
-      this.handleFilter();
-
-      if (!this.noOptions) {
-        this.emitIcChange(this.filteredOptions[0].value);
-      }
-    }
-  };
-
-  private handleNativeSelectKeyDown = (event: KeyboardEvent) => {
-    if ((event.key !== "Escape" && event.key !== "Tab") || this.open) {
-      event.cancelBubble = true;
-    }
-    this.handleCharacterKeyDown(event.key);
-  };
-
-  private handleKeyDown = (event: KeyboardEvent) => {
-    if ((event.key !== "Escape" && event.key !== "Tab") || this.open) {
-      event.cancelBubble = true;
-    }
-    const isArrowKey = event.key === "ArrowDown" || event.key === "ArrowUp";
-
-    if (this.menu && !this.open) {
-      if (this.isExternalFiltering() && (event.key === "Enter" || isArrowKey)) {
-        this.menu.options = this.filteredOptions;
-      } else if (!this.hasTimedOut) {
-        this.noOptions = null;
-        this.menu.options = this.uniqueOptions;
-      }
-    }
-
-    if (this.open && event.key === "Enter") {
-      this.setMenuChange(false);
-    } else {
-      if (!isArrowKey || this.noOptions === null) {
-        if (event.key !== " " || this.pressedCharacters.length <= 0) {
-          // Keyboard events get passed onto ic-menu except in the case of ctrl-a on a searchable select
-          const isCtrlA =
-            event.key === "a" &&
-            ((isMacDevice() && event.metaKey) ||
-              (!isMacDevice() && event.ctrlKey));
-
-          if (!(this.searchable && isCtrlA)) {
-            this.menu?.handleKeyboardOpen(event);
-          }
-        }
-        if (!this.multiple) {
-          this.handleCharacterKeyDown(event.key);
-        }
-      }
-    }
-  };
-
-  private handleClearButtonFocus = () => {
-    this.clearButtonFocused = true;
-  };
-
-  private handleClearButtonBlur = (ev: FocusEvent) => {
-    const retryButton = this.menu?.querySelector("#retry-button");
-    if (
-      (!this.searchableSelectElement ||
-        ev.relatedTarget !== this.searchableSelectElement) &&
-      (!retryButton || ev.relatedTarget !== retryButton)
-    ) {
-      this.setMenuChange(false);
-      this.handleFocusIndicatorDisplay();
-    }
-    this.clearButtonFocused = false;
-  };
-
-  private handleFilter = () => {
-    const options = this.deduplicateOptions(
-      this.searchable ? [...this.uniqueOptions] : this.ungroupedOptions
-    );
-
-    const isGrouped = options.some((option) => !!option.children);
-    let newFilteredOptions: IcMenuOption[] = [];
-
-    let menuOptionsFiltered: IcMenuOption[];
-
-    if (this.searchable) {
-      menuOptionsFiltered = getFilteredMenuOptions(
-        options,
-        !!this.includeDescriptionsInSearch,
-        this.inputValueToFilter || "",
-        this.searchMatchPosition
-      );
-      this.searchableMenuItemSelected = false;
-    } else {
-      menuOptionsFiltered = getFilteredMenuOptions(
-        options,
-        false,
-        this.pressedCharacters,
-        "start"
-      );
-    }
-
-    if (
-      !isGrouped &&
-      menuOptionsFiltered[0]?.label !== this.emptyOptionListText
-    ) {
-      newFilteredOptions = menuOptionsFiltered;
-    } else if (isGrouped) {
-      newFilteredOptions = options.map((option) =>
-        this.includeGroupTitlesInSearch &&
-        menuOptionsFiltered.indexOf(option) !== -1
-          ? option
-          : this.getFilteredChildMenuOptions(option)
-      );
-    }
-
-    if (
-      newFilteredOptions.length > 0 &&
-      (!isGrouped ||
-        newFilteredOptions.some(
-          ({ children }) => children && children.length > 0
-        ))
-    ) {
-      this.noOptions = null;
-      this.filteredOptions = newFilteredOptions;
-    } else {
-      this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
-      this.filteredOptions = this.noOptions;
-    }
-  };
-
-  /**
-   * Put the select component into loading state.
-   * Replace options with the loading message. If timeout is enabled, set the timeout and once passed, replace options with the loading error message
-   */
-  private triggerLoading = () => {
-    this.hasTimedOut = false;
-    this.noOptions = [{ label: this.loadingLabel, value: "", loading: true }];
-    if (this.filteredOptions !== this.noOptions && this.searchable) {
-      this.filteredOptions = this.noOptions;
-    } else if (this.uniqueOptions !== this.noOptions && !this.searchable) {
-      this.uniqueOptions = this.noOptions;
-    }
-    if (this.timeout) {
-      this.timeoutTimer = window.setTimeout(() => {
-        this.loading = false;
-        this.hasTimedOut = true;
-        this.noOptions = [
-          { label: this.loadingErrorLabel, value: "", timedOut: true },
-        ];
-        this.filteredOptions = this.noOptions;
-        if (!this.searchable) this.uniqueOptions = this.noOptions;
-      }, this.timeout);
-    }
-  };
-
-  private getValueFromLabel = (label: string | null): string | undefined =>
-    label && this.uniqueOptions.find((option) => option.label === label)?.value;
-
-  private handleSearchableSelectInput = (event: Event) => {
-    this.searchableSelectInputValue = (event.target as HTMLInputElement).value;
-    this.emitIcInput(this.searchableSelectInputValue);
-
-    // De-select previous selection when input is edited
-    // Only emit icChange once when editing input
-    if (this.value != null) {
-      this.emitIcChange(null);
-    }
-
-    this.hiddenInputValue = null;
-    this.inputValueToFilter = this.searchableSelectInputValue;
-    this.setMenuChange(true);
-
-    if (!this.disableAutoFiltering) {
-      this.handleFilter();
-      clearTimeout(this.debounceAria);
-
-      window.setTimeout(() => {
-        this.updateSearchableSelectResultAriaLive();
-      }, 800);
-    }
-  };
-
-  private updateSearchableSelectResultAriaLive = () => {
-    const searchableSelectResultsStatusEl =
-      this.el.shadowRoot?.querySelector<HTMLDivElement>(
-        ".searchable-select-results-status"
-      );
-
-    if (searchableSelectResultsStatusEl) {
-      searchableSelectResultsStatusEl.innerText =
-        this.noOptions !== null ? this.emptyOptionListText : "";
-    }
-  };
-
-  private updateMultiSelectedCountAriaLive = () => {
-    const multiSelectSelectedCountEl =
-      this.el.shadowRoot?.querySelector<HTMLDivElement>(
-        ".multi-select-selected-count"
-      );
-
-    const selectedCount = `${
-      this.currValue?.length
-    } of ${getOptionsWithoutGroupTitlesCount(this.options)} selected`;
-
-    if (
-      multiSelectSelectedCountEl &&
-      multiSelectSelectedCountEl.innerText !== selectedCount
-    ) {
-      multiSelectSelectedCountEl.innerText = selectedCount;
-    }
-  };
-
-  private getDefaultValue = (value: string) =>
-    this.getLabelFromValue(value) || null;
-
-  private setDefaultValue = () => {
-    if (!this.hasSetDefaultValue && this.currValue) {
-      this.searchableSelectInputValue = this.searchable
-        ? this.getDefaultValue(this.currValue as string)
-        : null;
-
-      this.initialValue = this.currValue;
-      this.hasSetDefaultValue = true;
-    }
-  };
-
-  private onFocus = () => {
-    this.icFocus.emit();
-  };
-
-  private onBlur = ({ relatedTarget }: FocusEvent) => {
-    const target = relatedTarget as HTMLElement;
-    if (
-      target !== null &&
-      ((target.tagName === "UL" && target.className.includes("menu")) ||
-        (target.tagName === "LI" && target.className.includes("option")))
-    ) {
-      return;
-    }
-
-    const retryButton = this.menu?.querySelector("#retry-button");
-
-    if (
-      this.searchable &&
-      !!this.menu &&
-      target !== this.menu &&
-      !Array.from(this.menu.querySelectorAll("[role='option']")).includes(
-        target
-      ) &&
-      (!this.clearButton || target !== this.clearButton) &&
-      (!retryButton || target !== retryButton)
-    ) {
-      if (!this.retryButtonClick) {
-        this.setMenuChange(false);
-        // Clear input field on blur when searchable if no option is selected
-        if (!this.value) {
-          this.clearInput();
-        }
-      }
-      this.handleFocusIndicatorDisplay();
-    }
-
-    this.retryButtonClick = false;
-    this.icBlur.emit();
-  };
-
-  private onTimeoutBlur = (ev: CustomEvent) => {
-    if (
-      (ev.detail.ev as FocusEvent).relatedTarget !==
-        this.searchableSelectElement &&
-      !this.blurredBecauseButtonPressed
-    ) {
-      this.setMenuChange(false);
-      this.handleFocusIndicatorDisplay();
-      this.icBlur.emit();
-    }
-    this.blurredBecauseButtonPressed = false;
-  };
-
-  private handleFormReset = () => {
-    this.value = this.initialValue;
-    if (this.searchable) {
-      this.searchableSelectInputValue = this.getDefaultValue(
-        this.value as string
-      );
-      this.hiddenInputValue = this.value as string;
-    }
-  };
-
-  private clearInput = () => {
-    this.noOptions = null;
-
-    if (this.searchable) {
-      this.searchableSelectElement?.setAttribute("value", "");
-      this.searchableSelectInputValue = null;
-      this.filteredOptions = this.uniqueOptions;
-    }
-  };
-
-  private renderNativeOption = (option: IcMenuOption) => (
+  private renderNativeOption = (option: IcSelectOptionBase) => (
     <option
       value={option.value}
       disabled={option.disabled}
-      selected={option.value === this.currValue}
+      selected={option.value === this.value}
     >
       {option.label}
     </option>
@@ -1117,55 +856,48 @@ export class Select {
 
   render() {
     const {
-      size,
       disabled,
+      searchable,
+      size,
       fullWidth,
-      helperText,
+      theme,
+      readonly,
       hideLabel,
+      inputId,
       label,
+      helperText,
+      required,
+      value,
+      options,
       menuId,
       multiple,
-      name,
-      options,
-      placeholder,
-      readonly,
-      required,
-      searchable,
-      showClearButton,
-      validationAriaLive,
       validationStatus,
-      validationText,
-      currValue,
-      theme,
-      hiddenInputValue,
       open,
-      inputId,
-      searchableSelectInputValue,
-      loading,
-      value,
-      emptyOptionListText,
-      uniqueOptions,
+      showClearButton,
       selectOnEnter,
+      loading,
+      searchableSelectInputValue,
+      validationText,
+      validationAriaLive,
       form,
-      inheritedAttributes,
       ariaActiveDescendant,
-      hasTimedOut,
-      filteredOptions,
-      clearButtonFocused,
+      placeholder,
+      name,
+      inheritedAttributes,
+      selectInputAriaLiveText,
+      selectButtonAriaLiveText,
     } = this;
 
-    // HTML inputs only accept 'string' for their value
-    // Does not cause errors when it is a multi-select - sets value correctly, to a comma-separated string
-    renderHiddenInput(
-      this.el,
-      searchable ? hiddenInputValue : (currValue as string),
-      name || inputId,
-      disabled
-    );
+    const hasValue = !!value;
+    const hasInput = !!searchableSelectInputValue;
+    const isClearable =
+      !disabled &&
+      ((searchable && (hasInput || hasValue)) ||
+        (!searchable && hasValue && !loading && showClearButton));
 
-    const invalid = `${validationStatus === IcInformationStatus.Error}`;
+    const showValidation = !!validationStatus && !disabled;
 
-    const showValidation = hasValidationStatus(validationStatus, !!disabled);
+    const invalid = validationStatus === IcInformationStatus.Error;
 
     const describedBy = getInputDescribedByText(
       this.el,
@@ -1174,15 +906,187 @@ export class Select {
       showValidation
     ).trim();
 
-    const valueLabelString = multiple
-      ? this.getMultipleOptionsString(currValue as string[])
-      : this.getLabelFromValue(currValue as string);
+    const menuOptions = this.getOptions();
+    const noOptions =
+      disabled ||
+      (menuOptions.length === 1 &&
+        (menuOptions[0].label === this.emptyOptionListText ||
+          "loading" in menuOptions[0] ||
+          "timedOut" in menuOptions[0]));
 
-    const isClearable =
-      !disabled &&
-      (searchable
-        ? !!searchableSelectInputValue
-        : !!currValue && !loading && showClearButton);
+    renderHiddenInput(this.el, value as string, name || inputId, disabled);
+
+    const ClearButton = () => (
+      <ic-button
+        ref={(el) => (this.clearButton = el)}
+        id="clear-button"
+        aria-label={this.searchable ? "Clear input" : "Clear selection"}
+        class="clear-button"
+        innerHTML={Clear}
+        onClick={this.handleClear}
+        onBlur={this.handleBlur}
+        size={size}
+        variant="icon-tertiary"
+      ></ic-button>
+    );
+
+    const NativeSelect = () => (
+      <select
+        ref={(el) => (this.nativeSelectElement = el)}
+        disabled={disabled}
+        onChange={this.handleNativeSelectChange}
+        required={required}
+        id={inputId}
+        aria-label={label}
+        aria-describedby={describedBy}
+        aria-invalid={invalid ? "true" : "false"}
+        onBlur={this.handleBlur}
+        onFocus={this.handleFocus}
+        onKeyDown={this.handleNativeSelectKeyDown}
+        form={form}
+        {...inheritedAttributes}
+      >
+        <option value="" selected disabled={!showClearButton}>
+          {placeholder}
+        </option>
+        {options.map((option) =>
+          "children" in option ? (
+            <optgroup label={option.label}>
+              {option.children.map((child) =>
+                this.renderNativeOption(child as IcSelectOptionBase)
+              )}
+            </optgroup>
+          ) : (
+            this.renderNativeOption(option as IcSelectOptionBase)
+          )
+        )}
+      </select>
+    );
+
+    const SelectButton = () => (
+      <div class="select-container">
+        <button
+          class="select-input"
+          role="combobox"
+          ref={(el) => (this.selectElement = el)}
+          id={inputId}
+          aria-label={`${label}, ${
+            (multiple && value
+              ? `${value.length} of ${
+                  this.flatOptions.length
+                } selected, ${this.getLabelString()}`
+              : this.getLabelString()) || placeholder
+          }`}
+          onClick={this.handleClick}
+          aria-describedby={describedBy}
+          aria-invalid={invalid ? "true" : "false"}
+          aria-haspopup="listbox"
+          aria-expanded={`${open}`}
+          aria-controls={menuId}
+          aria-required={`${required}`}
+          disabled={disabled}
+          onKeyDown={this.handleKeyDown}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          aria-activedescendant={ariaActiveDescendant}
+        >
+          <ic-typography
+            variant="body"
+            class={{
+              "value-text": true,
+              "with-clear-button": !!isClearable,
+              placeholder: !value,
+            }}
+          >
+            {this.getLabelString()}
+          </ic-typography>
+          <div class="select-input-end">
+            {isClearable && <div class="divider"></div>}
+            <span
+              class={{
+                "expand-icon": true,
+                "expand-icon-open": open,
+              }}
+              innerHTML={Expand}
+              aria-hidden="true"
+            />
+          </div>
+        </button>
+        {isClearable && <ClearButton></ClearButton>}
+        <div
+          aria-live="polite"
+          aria-atomic="true"
+          class="aria-live-hidden-text"
+        >
+          {selectButtonAriaLiveText}
+        </div>
+      </div>
+    );
+
+    const SelectInput = () => (
+      <div class="searchable-select-container">
+        <input
+          class={{
+            "value-text": true,
+            "select-input": true,
+            "with-clear-button": !!searchableSelectInputValue,
+          }}
+          role="combobox"
+          autocomplete="off"
+          aria-label={label}
+          aria-describedby={describedBy}
+          aria-activedescendant={ariaActiveDescendant}
+          aria-autocomplete="list"
+          aria-expanded={`${open}`}
+          aria-invalid={invalid ? "true" : "false"}
+          aria-required={`${required}`}
+          aria-controls={menuId}
+          ref={(el) => (this.searchableSelectElement = el)}
+          id={inputId}
+          value={
+            multiple
+              ? ""
+              : value
+              ? this.getLabelString()
+              : searchableSelectInputValue || undefined
+          }
+          disabled={disabled}
+          placeholder={placeholder}
+          onInput={this.handleSearchableSelectInput}
+          onClick={this.handleClick}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
+          onKeyDown={this.handleKeyDown}
+          form={form}
+        ></input>
+        {isClearable && (
+          <div class="clear-button-container">
+            <ClearButton></ClearButton>
+            <div class="divider"></div>
+          </div>
+        )}
+        <span
+          onMouseDown={this.handleExpandIconMouseDown}
+          class={{
+            "expand-icon": true,
+            "expand-icon-open": open,
+          }}
+          innerHTML={Expand}
+          aria-hidden="true"
+        />
+        <div aria-live="polite" role="status" class="aria-live-hidden-text">
+          {selectInputAriaLiveText}
+        </div>
+      </div>
+    );
+
+    const ReadOnly = () => (
+      <ic-typography>
+        <p>
+          {this.getLabelString() === placeholder ? "" : this.getLabelString()}
+        </p>
+      </ic-typography>
+    );
 
     return (
       <Host
@@ -1193,7 +1097,6 @@ export class Select {
           "ic-select-full-width": fullWidth,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
-        onBlur={this.onBlur}
       >
         <ic-input-container readonly={readonly}>
           {!hideLabel && (
@@ -1230,229 +1133,52 @@ export class Select {
                   <slot name="icon" />
                 </span>
               )}
-            {readonly ? (
-              <ic-typography>
-                <p>{valueLabelString}</p>
-              </ic-typography>
-            ) : isMobileOrTablet() && !multiple ? (
-              <select
-                ref={(el) => (this.nativeSelectElement = el)}
-                disabled={disabled}
-                onChange={this.handleNativeSelectChange}
-                required={required}
-                id={inputId}
-                aria-label={label}
-                aria-describedby={describedBy}
-                aria-invalid={invalid}
-                onBlur={this.onBlur}
-                onFocus={this.onFocus}
-                onKeyDown={this.handleNativeSelectKeyDown}
-                form={form}
-                {...inheritedAttributes}
-              >
-                <option value="" selected disabled={!showClearButton}>
-                  {placeholder}
-                </option>
-                {options.map((option) =>
-                  option.children ? (
-                    <optgroup label={option.label}>
-                      {option.children.map((child) =>
-                        this.renderNativeOption(child)
-                      )}
-                    </optgroup>
-                  ) : (
-                    this.renderNativeOption(option)
-                  )
-                )}
-              </select>
-            ) : searchable ? (
-              <div class="searchable-select-container">
-                <input
-                  class={{
-                    "value-text": true,
-                    "select-input": true,
-                    "with-clear-button": !!searchableSelectInputValue,
-                  }}
-                  role="combobox"
-                  autocomplete="off"
-                  aria-label={label}
-                  aria-describedby={describedBy}
-                  aria-activedescendant={ariaActiveDescendant}
-                  aria-autocomplete="list"
-                  aria-expanded={`${open}`}
-                  aria-invalid={invalid}
-                  aria-required={`${required}`}
-                  aria-controls={menuId}
-                  ref={(el) => (this.searchableSelectElement = el)}
-                  id={inputId}
-                  value={searchableSelectInputValue || undefined}
-                  placeholder={placeholder}
-                  disabled={disabled}
-                  onInput={this.handleSearchableSelectInput}
-                  onClick={this.handleClick}
-                  onKeyDown={this.handleKeyDown}
-                  onFocus={this.onFocus}
-                  onBlur={this.onBlur}
-                  form={form}
-                ></input>
-                {isClearable && (
-                  <div class="clear-button-container">
-                    <ic-button
-                      id="clear-button"
-                      ref={(el) => (this.clearButton = el)}
-                      aria-label={
-                        searchableSelectInputValue &&
-                        (currValue === null || loading)
-                          ? "Clear input"
-                          : "Clear selection"
-                      }
-                      class="clear-button"
-                      innerHTML={Clear}
-                      onClick={this.handleClear}
-                      onFocus={this.handleClearButtonFocus}
-                      onBlur={this.handleClearButtonBlur}
-                      size={size}
-                      variant="icon-tertiary"
-                      theme={clearButtonFocused ? "light" : "dark"}
-                    ></ic-button>
-                    <div class="divider"></div>
-                  </div>
-                )}
-                <span
-                  onMouseDown={this.handleExpandIconMouseDown}
-                  class={{
-                    "expand-icon": true,
-                    "expand-icon-open": open,
-                  }}
-                  innerHTML={Expand}
-                  aria-hidden="true"
-                />
-                <div
-                  aria-live="polite"
-                  role="status"
-                  class="searchable-select-results-status"
-                ></div>
-              </div>
+            {isMobileOrTablet() && this.useNativeSelectOnMobile && !multiple ? (
+              <NativeSelect />
+            ) : readonly ? (
+              <ReadOnly />
+            ) : !searchable ? (
+              <SelectButton />
             ) : (
-              <div class="select-container">
-                <button
-                  role="combobox"
-                  class="select-input"
-                  ref={(el) => (this.customSelectElement = el)}
-                  id={inputId}
-                  aria-label={`${label}, ${
-                    (multiple && currValue
-                      ? `${
-                          currValue.length
-                        } of ${getOptionsWithoutGroupTitlesCount(
-                          options
-                        )} selected, ${valueLabelString}`
-                      : valueLabelString) || placeholder
-                  }`}
-                  aria-describedby={describedBy}
-                  aria-invalid={invalid}
-                  aria-haspopup="listbox"
-                  aria-expanded={`${open}`}
-                  aria-owns={menuId}
-                  aria-controls={menuId}
-                  aria-required={`${required}`}
-                  disabled={disabled}
-                  onBlur={this.onBlur}
-                  onFocus={this.onFocus}
-                  onClick={this.handleClick}
-                  onMouseDown={this.handleMouseDown}
-                  onKeyDown={this.handleKeyDown}
-                >
-                  <ic-typography
-                    variant="body"
-                    class={{
-                      "value-text": true,
-                      "with-clear-button": isClearable,
-                      placeholder:
-                        !loading && multiple
-                          ? !value || value.length < 1
-                          : !this.getLabelFromValue(currValue as string),
-                    }}
-                  >
-                    {valueLabelString || placeholder}
-                  </ic-typography>
-                  <div class="select-input-end">
-                    {isClearable && <div class="divider"></div>}
-                    <span
-                      class={{
-                        "expand-icon": true,
-                        "expand-icon-open": open,
-                      }}
-                      innerHTML={Expand}
-                      aria-hidden="true"
-                    />
-                  </div>
-                </button>
-                {isClearable && (
-                  <ic-button
-                    id="clear-button"
-                    aria-label="Clear selection"
-                    class="clear-button"
-                    innerHTML={Clear}
-                    onClick={this.handleClear}
-                    onFocus={this.handleClearButtonFocus}
-                    onBlur={this.handleClearButtonBlur}
-                    size={size}
-                    variant="icon-tertiary"
-                    theme={clearButtonFocused ? "light" : "dark"}
-                  ></ic-button>
-                )}
-              </div>
+              <SelectInput />
             )}
           </ic-input-component-container>
-          {(!isMobileOrTablet() || multiple) && (
+          {!(
+            isMobileOrTablet() &&
+            this.useNativeSelectOnMobile &&
+            !multiple
+          ) && (
             <ic-menu
-              class={{
-                "no-results":
-                  loading ||
-                  hasTimedOut ||
-                  (searchable &&
-                    this.filteredOptions?.[0]?.label === emptyOptionListText) ||
-                  (!searchable &&
-                    this.uniqueOptions?.[0]?.label === emptyOptionListText),
-              }}
               ref={(el) => (this.menu = el)}
+              class={{ "no-results": noOptions }}
               inputEl={
-                searchable
-                  ? this.searchableSelectElement
-                  : this.customSelectElement
+                searchable ? this.searchableSelectElement : this.selectElement
               }
+              allowMenuFocus={false}
               inputLabel={label}
               anchorEl={this.anchorEl}
               size={size}
               menuId={menuId}
               open={open}
-              options={searchable ? filteredOptions : uniqueOptions}
-              value={multiple ? (currValue as string[]) : (currValue as string)}
+              options={this.getOptions()}
+              value={multiple ? (value as string[]) : (value as string)}
               fullWidth={fullWidth}
               selectOnEnter={selectOnEnter}
               onMenuStateChange={this.handleMenuChange}
-              onMenuOptionSelect={this.handleCustomSelectChange}
+              onMenuOptionSelect={this.handleSelectChange}
               onMenuOptionSelectAll={this.handleSelectAllChange}
-              onMenuKeyPress={this.handleMenuKeyPress}
-              onUngroupedOptionsSet={this.setUngroupedOptions}
-              onRetryButtonClicked={this.handleRetry}
+              onTimeoutBlur={this.handleTimeoutBlur}
+              onMenuOptionId={this.updateAriaActiveDescendant}
+              onClick={this.setFocus}
               parentEl={this.el}
-              onTimeoutBlur={this.onTimeoutBlur}
               activationType={
                 searchable || multiple || selectOnEnter ? "manual" : "automatic"
               }
+              onRetryButtonClicked={this.handleRetry}
               closeOnSelect={!multiple}
-              multiSelect={multiple ? true : false}
-              searchableSelect={searchable ? true : false}
+              multiSelect={multiple}
+              searchableSelect={searchable}
             ></ic-menu>
-          )}
-          {multiple && (
-            <div
-              aria-live="polite"
-              role="status"
-              class="multi-select-selected-count"
-            ></div>
           )}
           <ic-input-validation
             class={{

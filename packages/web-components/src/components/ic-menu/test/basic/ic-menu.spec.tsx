@@ -1384,7 +1384,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    expect(eventSpy).toHaveBeenCalledTimes(4);
+    expect(eventSpy).toHaveBeenCalledTimes(3);
 
     const preDef = jest.fn();
 
@@ -1409,7 +1409,7 @@ describe("ic-menu in isolation", () => {
       expect.objectContaining({
         detail: expect.objectContaining({
           open: false,
-          focusInput: undefined,
+          focusInput: false,
         }),
       })
     );
@@ -1641,7 +1641,7 @@ describe("ic-menu in isolation", () => {
 
     jest.spyOn(page.rootInstance, "handleMenuChange").mockImplementation();
 
-    const option = await document.querySelector("li");
+    const option = page.rootInstance.menu.querySelector("li");
 
     await page.rootInstance.handleSelectAllBlur({ relatedTarget: option });
 
