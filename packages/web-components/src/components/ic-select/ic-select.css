@@ -264,8 +264,7 @@ select:not([disabled]) {
   position: static;
 }
 
-.searchable-select-results-status,
-.multi-select-selected-count {
+.aria-live-hidden-text {
   border: 0;
   clip: rect(0, 0, 0, 0, 0);
   height: var(--ic-space-1px);

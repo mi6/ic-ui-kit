@@ -13,7 +13,7 @@ Object {
             </ic-typography>
           </div>
         </div>
-        <span class="check-icon">
+        <span aria-hidden="true" class="check-icon">
           svg
         </span>
       </li>
@@ -127,7 +127,7 @@ Object {
             </ic-typography>
           </div>
         </div>
-        <span class="check-icon">
+        <span aria-hidden="true" class="check-icon">
           svg
         </span>
       </li>
@@ -328,7 +328,7 @@ exports[`ic-menu in isolation should test handleSelectAllFocus function 1`] = `
           </ic-typography>
         </div>
       </div>
-      <span class="check-icon">
+      <span aria-hidden="true" class="check-icon">
         svg
       </span>
     </li>

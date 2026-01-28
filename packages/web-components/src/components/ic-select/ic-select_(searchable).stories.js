@@ -784,27 +784,32 @@ export const UpdateInputValueFromExternalRequest = {
         ></ic-select>
       </ic-section-container>
       <script>
-        const searchSelect = document.getElementById("select-external-request");
-        let options = [];
-        options.push({ label: "unknown", value: "unknown" });
-        options.push({ label: "item 1", value: "item-1" });
-        options.push({ label: "item 2", value: "item-2" });
-        options.push({ label: "item 3", value: "item-3" });
-        searchSelect.options = options;
-        let searchoption = "";
-        searchSelect.addEventListener("icChange", function (event) {
-          console.log("icChange", event.detail.value);
-          searchoption = event.detail.value;
-          if (searchoption === "unknown") {
-            searchoption = "item-1";
-            searchSelect.value = "item-1";
-          } else {
-            searchSelect.value = searchoption;
-          }
-        });
-        searchSelect.addEventListener("icOptionSelect", function (event) {
-          console.log("icOptionSelect: " + event.detail.value);
-        });
+        (() => {
+          const searchSelect = document.getElementById(
+            "select-external-request"
+          );
+          if (!searchSelect) return;
+          let options = [];
+          options.push({ label: "unknown", value: "unknown" });
+          options.push({ label: "item 1", value: "item-1" });
+          options.push({ label: "item 2", value: "item-2" });
+          options.push({ label: "item 3", value: "item-3" });
+          searchSelect.options = options;
+          let searchoption = "";
+          searchSelect.addEventListener("icChange", function (event) {
+            console.log("icChange", event.detail.value);
+            searchoption = event.detail.value;
+            if (searchoption === "unknown") {
+              searchoption = "item-1";
+              searchSelect.value = "item-1";
+            } else {
+              searchSelect.value = searchoption;
+            }
+          });
+          searchSelect.addEventListener("icOptionSelect", function (event) {
+            console.log("icOptionSelect: " + event.detail.value);
+          });
+        })();
       </script>`,
 
   name: "Update input value from external request",
