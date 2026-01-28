@@ -545,7 +545,13 @@ export const DarkTheme = (): ReactElement => (
 );
 
 export const DarkThemeGroupDescription = (): ReactElement => (
-  <div style={{ backgroundColor: "var(--ic-color-page-background-dark)" }}>
+  <div
+    style={{
+      backgroundColor: "var(--ic-color-page-background-dark)",
+      height: "100vh",
+      paddingLeft: "8px",
+    }}
+  >
     <IcSelect
       label="What are your favourite types of coffee?"
       theme="dark"
