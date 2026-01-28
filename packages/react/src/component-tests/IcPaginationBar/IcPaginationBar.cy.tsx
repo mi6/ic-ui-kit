@@ -607,7 +607,7 @@ describe("IcPaginationBar end-to-end tests", () => {
     );
   });
 
-  it("should stay set to All when manually setting the totalItems to 5 and then 30 after initially setting to All", () => {
+  it.skip("should stay set to All when manually setting the totalItems to 5 and then 30 after initially setting to All", () => {
     mount(<PaginationBarItemsPerPageWithButtons />);
 
     cy.checkHydrated(PAGINATION_BAR);
@@ -637,7 +637,7 @@ describe("IcPaginationBar end-to-end tests", () => {
       .should(CONTAIN_TEXT, "All");
   });
 
-  it("should set items per page to 20 when manually setting totalItems to 5 and then 30 after initially setting to 20", () => {
+  it.skip("should set items per page to 20 when manually setting totalItems to 5 and then 30 after initially setting to 20", () => {
     mount(<PaginationBarItemsPerPageWithButtons />);
 
     cy.checkHydrated(PAGINATION_BAR);

@@ -231,8 +231,8 @@ const options = [
   { label: "Mocha", value: "Moc" },
   { label: "Macchiato", value: "Mac" },
   { label: "Café au lait", value: "Caf" },
-  { label: "Espresso", value: "Esp" },
   { label: "Cortado", value: "Cor" },
+  { label: "Espresso", value: "Esp" },
   { label: "Ristretto", value: "Ris" },
   { label: "Latte macchiato", value: "Lam" },
 ];

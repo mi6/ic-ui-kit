@@ -7,8 +7,10 @@ export const DISABLED_OPTION_MENU = "option disabled-option sc-ic-menu";
 export const IC_TYPOGRAPHY = "ic-typography";
 export const ID_CLEAR_BUTTON = "#clear-button";
 export const ARIA_SELECTED = "aria-selected";
+export const SELECT_INPUT = ".select-input";
 
 export const TYPE_DOWN_ARROW = "{downArrow}";
+export const TYPE_UP_ARROW = "{upArrow}";
 export const TYPE_ENTER = "{enter}";
 export const TYPE_BACKSPACE = "{backspace}";
 export const DATA_VALUE_CAPPUCCINO = '[data-value="cappuccino"]';
@@ -21,6 +23,7 @@ export const INPUT_TYPE_HIDDEN = "input[type='hidden']";
 export const NO_RESULTS_FOUND = "No results found";
 export const RETRY_BUTTON = "#retry-button";
 export const LOADING_MESSAGE = "Loading...";
+export const CHECK_ICON_CLASS = "check-icon";
 
 export const COFFEE_EXAMPLE = "Café au lait";
 export const OPTION_SELECT_STUB = "@icOptionSelect";
