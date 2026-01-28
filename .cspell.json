@@ -216,7 +216,8 @@
     "packages/react/cypress-image-diff-html-report/**",
     "packages/canary-react/cypress-image-diff-html-report/**",
     "vscode-data.json",
-    "packages/web-components/src/global/ag-theme-icds.css"
+    "packages/web-components/src/global/ag-theme-icds.css",
+    "packages/react/lhci-run-per-route.js"
   ],
   "import": [
     "@cspell/dict-la/cspell-ext.json",
