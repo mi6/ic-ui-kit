@@ -502,3 +502,22 @@ export const HelperTextSlot = (): ReactElement => (
     </IcTextField>
   </div>
 );
+
+export const ValidationTextSlot = (): ReactElement => (
+  <div style={style}>
+    <IcTextField
+      maxCharacters={25}
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      placeholder="Please enter…"
+      validation-status="error"
+    >
+      <IcTypography variant="caption" slot="validation-text">
+        <span>
+          Uh oh, error time <a href="www.example.com">with a link</a>
+        </span>
+      </IcTypography>
+    </IcTextField>
+  </div>
+);
