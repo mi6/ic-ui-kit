@@ -106,7 +106,7 @@ export class PaginationBar {
         this.currentPage < 1 ||
         (this.totalPages && this.currentPage > this.totalPages)
       ) {
-        console.error(
+        console.warn(
           `The current page (${this.currentPage}) must be a number greater than zero but less than or equal to the total number of pages (${this.totalPages})`
         );
       } else {
