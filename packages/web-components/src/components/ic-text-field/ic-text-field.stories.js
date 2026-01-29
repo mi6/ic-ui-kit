@@ -796,7 +796,18 @@ export const Validation = {
         size="small"
         placeholder="Placeholder"
         helper-text="Such as Arabica, Robusta or Liberica"
-      ></ic-text-field>`,
+      ></ic-text-field>
+      <ic-text-field
+        label="What is your favourite slotted coffee?"
+        validation-status="error"
+        placeholder="Placeholder"
+      >
+        <ic-typography variant="caption" slot="validation-text">
+          <span>
+            Slotted validation text with a <ic-link href="#">link</ic-link>
+          </span>
+        </ic-typography>
+      </ic-text-field>`,
 
   name: "Validation",
 };

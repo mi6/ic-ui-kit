@@ -20,6 +20,7 @@
 
 | Slot                             | Description                                                    |
 | -------------------------------- | -------------------------------------------------------------- |
+| `"validation-message"`           | Content will be placed as the validation message.              |
 | `"validation-message-adornment"` | Content will be placed to the right of the validation message. |
 
 
