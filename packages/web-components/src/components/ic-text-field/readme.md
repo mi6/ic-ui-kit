@@ -74,10 +74,11 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| `"helper-text"` | Content is set as the helper text for the text field. |
-| `"icon"`        | Content will be placed to the left of the text input. |
+| Slot                | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| `"helper-text"`     | Content is set as the helper text for the text field. |
+| `"icon"`            | Content will be placed to the left of the text input. |
+| `"validation-text"` | Content is set as validation text for the text field. |
 
 
 ## CSS Custom Properties

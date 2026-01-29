@@ -52,6 +52,7 @@ const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "title"];
 
 /**
  * @slot helper-text - Content is set as the helper text for the text field.
+ * @slot validation-text - Content is set as validation text for the text field.
  * @slot icon - Content will be placed to the left of the text input.
  */
 @Component({
@@ -825,6 +826,9 @@ export class TextField {
             for={inputId}
             fullWidth={fullWidth}
           >
+            {isSlotUsed(el, "validation-text") && (
+              <slot name="validation-text" slot="validation-message"></slot>
+            )}
             {!readonly && maxNumChars > 0 && (
               <div slot="validation-message-adornment">
                 {!hideCharCount && (
