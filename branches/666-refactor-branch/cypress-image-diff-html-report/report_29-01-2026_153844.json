@@ -1,7 +1,7 @@
 {
   "total": 838,
-  "totalPassed": 834,
-  "totalFailed": 4,
+  "totalPassed": 836,
+  "totalFailed": 2,
   "totalSuites": 45,
   "suites": [
     {
@@ -2881,25 +2881,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx/slotted-content.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx/slotted-content-clicked",
-          "percentage": 0.10478151872666604,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx/slotted-content-clicked.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx/slotted-content-clicked.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx/slotted-content-clicked.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx/disable-height-constraint",
-          "percentage": 0.1204267585159821,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx/disable-height-constraint.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx/disable-height-constraint.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx/disable-height-constraint.png"
         },
         {
@@ -9493,9 +9493,9 @@
       ]
     }
   ],
-  "startedAt": "2026-01-29T13:27:25.869Z",
-  "endedAt": "2026-01-29T13:47:57.369Z",
-  "duration": 1127377,
+  "startedAt": "2026-01-29T15:38:44.745Z",
+  "endedAt": "2026-01-29T15:58:16.145Z",
+  "duration": 1068262,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
