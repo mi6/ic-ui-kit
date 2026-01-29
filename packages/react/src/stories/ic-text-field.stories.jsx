@@ -552,6 +552,15 @@ export const Validation = {
     >
       <SlottedIcon />
     </IcTextField>
+    <IcTextField
+      validationStatus="error"
+      label="What is your favourite slotted coffee?"
+      placeholder="Placeholder"
+    >
+      <IcTypography variant="caption" slot="validation-text">
+            Slotted validation text with a <IcLink href="#">link</IcLink>
+        </IcTypography>
+    </IcTextField>
     </>
   ),
 
