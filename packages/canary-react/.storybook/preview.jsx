@@ -1,14 +1,10 @@
-import React from "react";
-
 import "@ukic/fonts/dist/fonts.css";
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-alpine.css";
 import "../dist/core/core.css";
 import "../dist/core/normalize.css";
-import "./storybook-overrides.css";
+import "@ukic/web-components/dist/core/icds-table-style.css";
 
-import { withPerformance } from "storybook-addon-performance";
-import { IcTheme } from "../src/components";
+import { IcTheme } from "@ukic/react";
+import React from "react";
 
 const preview = {
   parameters: {
@@ -21,13 +17,13 @@ const preview = {
     },
     options: {
       storySort: {
-        method: 'configure',
+        method: "configure",
         includeNames: true,
-        order: ['*', ['*', ['Docs', 'Playground']]],
+        order: ["*", ["*", ["Docs", "Playground"]]],
       },
     },
+    viewMode: "docs",
   },
-
   globalTypes: {
     theme: {
       description: "Global theme for components",
@@ -42,11 +38,9 @@ const preview = {
       },
     },
   },
-
   initialGlobals: {
     theme: "light",
   },
-
   decorators: [
     (story, context) => {
       const selectedTheme = context.globals.theme || "light";
@@ -58,7 +52,7 @@ const preview = {
         <>
           <style>
             {`
-              .sb-show-main {
+              .sb-show-main, .sbdocs-preview {
                 background-color: ${backgroundColor};
               }
             `}
@@ -66,8 +60,7 @@ const preview = {
           <IcTheme theme={selectedTheme}>{story()}</IcTheme>
         </>
       );
-    },
-    withPerformance,
+    }
   ],
 };
 

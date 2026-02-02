@@ -1,9 +1,13 @@
-import "../dist/core/normalize.css";
-import "@ukic/fonts/dist/fonts.css";
-import "../dist/core/core.css";
-import "./storybook.css";
+import React from "react";
 
-import { IcTheme } from "@ukic/react";
+import "@ukic/fonts/dist/fonts.css";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
+import "../dist/core/core.css";
+import "../dist/core/normalize.css";
+import "./storybook-overrides.css";
+
+import { IcTheme } from "../src/components";
 
 const preview = {
   parameters: {
@@ -53,7 +57,7 @@ const preview = {
         <>
           <style>
             {`
-              .sb-show-main, .sbdocs-preview {
+              .sb-show-main {
                 background-color: ${backgroundColor};
               }
             `}
@@ -63,8 +67,6 @@ const preview = {
       );
     },
   ],
-
-  tags: ["autodocs"],
 };
 
 export default preview;
