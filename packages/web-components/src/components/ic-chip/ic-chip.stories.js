@@ -12,6 +12,7 @@ const defaultArgs = {
   transparentBackground: true,
   variant: "filled",
   badgeSlot: "badge",
+  fullWidth: false,
 };
 
 export default {
@@ -739,6 +740,19 @@ export const WithoutIcons = {
   name: "Without icons",
 };
 
+export const FullWidth = {
+  render: () =>
+    html`<div style="display:flex; flex-direction: column; gap: 0.5rem ">
+      <ic-chip label="Americano" dismissible full-width></ic-chip>
+      <ic-chip label="Americano" dismissible> </ic-chip>
+      <ic-theme theme="dark">
+        <ic-chip label="Cappuccino" full-width> </ic-chip>
+      </ic-theme>
+    </div>`,
+
+  name: "Full Width",
+};
+
 export const LongLabel = {
   render: () =>
     html`<ic-chip
@@ -913,6 +927,7 @@ export const Playground = {
       transparent-background=${args.transparentBackground}
       theme=${args.theme}
       dismiss-label=${args.dismissLabel}
+      full-width=${args.fullWidth}
     >
       <svg
         slot="icon"
