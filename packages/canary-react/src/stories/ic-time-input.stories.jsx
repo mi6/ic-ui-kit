@@ -322,6 +322,20 @@ export const IcTimeChangeEmitTimePartChanges12Hour = {
   name: "IcTimeChange with emitTimePartChange - 12 hour",
 };
 
+export const IcTimeChangeEmitTimePartChanges12HourMilliseconds = {
+  render: () => (
+  <IcTimeInput
+      emitTimePartChange
+      label="What time would you like to collect your coffee?"
+      timePeriod="12"
+      showAmPmToggle
+      timeFormat="HH:MM:SS.SSS"
+      onIcTimeChange={(event) => console.log("icTimeChange with time parts", event.detail)}
+    />
+),
+  name: "IcTimeChange with emitTimePartChange - 12 hour milliseconds",
+};
+
 /**
  * Demonstrates the time format HH:MM.
  */
