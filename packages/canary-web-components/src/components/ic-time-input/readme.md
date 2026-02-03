@@ -36,11 +36,11 @@
 
 ## Events
 
-| Event          | Description                         | Type                                                                                                                                                                                |
-| -------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `icBlur`       | Emitted when the input loses focus. | `CustomEvent<{ value: Date \| null; }>`                                                                                                                                             |
-| `icFocus`      | Emitted when the input gains focus. | `CustomEvent<{ value: Date \| null; }>`                                                                                                                                             |
-| `icTimeChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date \| null; timeObject: { hour: string \| null; minute: string \| null; second: string \| null; millisecond: string \| null; period: string \| null; }; }>` |
+| Event          | Description                         | Type                                                                                                                                                                                  |
+| -------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `icBlur`       | Emitted when the input loses focus. | `CustomEvent<{ value: Date \| null; }>`                                                                                                                                               |
+| `icFocus`      | Emitted when the input gains focus. | `CustomEvent<{ value: Date \| null; }>`                                                                                                                                               |
+| `icTimeChange` | Emitted when the value has changed. | `CustomEvent<{ value: string \| null; timeObject: { hour: string \| null; minute: string \| null; second: string \| null; millisecond: string \| null; period: string \| null; }; }>` |
 
 
 ## Methods
