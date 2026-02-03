@@ -47,6 +47,7 @@ import {
   HiddenInput,
   DarkThemeDisabled,
   HelperTextSlot,
+  ValidationTextSlot,
 } from "./IcTextFieldTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
@@ -562,6 +563,17 @@ describe("IcTextField visual regression tests", () => {
     // Check positioning matches normal helper text
     cy.compareSnapshot({
       name: "/icon-value-max-characters",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+    });
+  });
+
+  it("should render with slotted validation text", () => {
+    mount(<ValidationTextSlot />);
+
+    cy.checkA11yWithWait(undefined, 500);
+
+    cy.compareSnapshot({
+      name: "/validation-text-slot",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
