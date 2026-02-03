@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 import {
   Component,
   Element,
@@ -309,7 +308,7 @@ export class TimeInput {
    * Emitted when the value has changed.
    */
   @Event() icTimeChange: EventEmitter<{
-    value: Date | null;
+    value: string | null;
     timeObject: {
       hour: string | null;
       minute: string | null;
@@ -911,13 +910,23 @@ export class TimeInput {
 
     if (!onlyPeriodChanged) {
       this.icTimeChange.emit({
-        value: allSelected ? time : null,
+        value:
+          allSelected && time
+            ? time.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: this.timePeriod === "12" ? true : false,
+                ...(this.isSSSFormat() && { fractionalSecondDigits: 3 }),
+              })
+            : null,
         timeObject: {
           hour: this.hour === "" ? null : this.hour,
           minute: this.minute === "" ? null : this.minute,
           second: this.second === "" ? null : this.second,
           millisecond: this.millisecond === "" ? null : this.millisecond,
-          period: this.period === "" ? null : this.period,
+          period:
+            this.timePeriod === "24" || this.period === "" ? null : this.period,
         },
       });
     }

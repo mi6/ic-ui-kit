@@ -353,6 +353,23 @@ export const IcTimeChangeTimeParts12Hour = {
   name: "IcTimeChange with emitTimePartChange - 12 hour",
 };
 
+export const IcTimeChangeTimeParts12HourMilliseconds = {
+  render: () => html`<ic-time-input
+      emit-time-part-change="true"
+      label="What time would you like to collect your coffee?"
+      time-period="12"
+      show-am-pm-toggle="true"
+      time-format="HH:MM:SS.SSS"
+    ></ic-time-input>
+    <script>
+      var timeInput = document.querySelector("ic-time-input");
+      timeInput.addEventListener("icTimeChange", function (event) {
+        console.log("icTimeChange", event.detail);
+      });
+    </script>`,
+  name: "IcTimeChange with emitTimePartChange - 12 hour milliseconds",
+};
+
 /**
  * Demonstrates the time format HH:MM.
  */

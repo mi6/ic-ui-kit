@@ -2719,7 +2719,7 @@ declare global {
         "clockButtonClicked": { value: Date | null };
         "icBlur": { value: Date | null };
         "icTimeChange": {
-    value: Date | null;
+    value: string | null;
     timeObject: {
       hour: string | null;
       minute: string | null;
@@ -4848,7 +4848,7 @@ declare namespace LocalJSX {
           * Emitted when the value has changed.
          */
         "onIcTimeChange"?: (event: IcTimeInputCustomEvent<{
-    value: Date | null;
+    value: string | null;
     timeObject: {
       hour: string | null;
       minute: string | null;
