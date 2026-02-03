@@ -15442,17 +15442,12 @@
         },
         {
           "event": "icTimeChange",
-          "detail": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; millisecond: string | null; period: string | null; }; }",
+          "detail": "{ value: string | null; timeObject: { hour: string | null; minute: string | null; second: string | null; millisecond: string | null; period: string | null; }; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\n    value: Date | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n      millisecond: string | null;\n      period: string | null;\n    };\n  }",
-            "resolved": "{ value: Date | null; timeObject: { hour: string | null; minute: string | null; second: string | null; millisecond: string | null; period: string | null; }; }",
-            "references": {
-              "Date": {
-                "location": "global",
-                "id": "global::Date"
-              }
-            }
+            "original": "{\n    value: string | null;\n    timeObject: {\n      hour: string | null;\n      minute: string | null;\n      second: string | null;\n      millisecond: string | null;\n      period: string | null;\n    };\n  }",
+            "resolved": "{ value: string | null; timeObject: { hour: string | null; minute: string | null; second: string | null; millisecond: string | null; period: string | null; }; }",
+            "references": {}
           },
           "cancelable": true,
           "composed": true,
