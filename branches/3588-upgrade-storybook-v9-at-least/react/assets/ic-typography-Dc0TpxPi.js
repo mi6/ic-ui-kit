@@ -1,3 +1,0 @@
-import{j as r,M as n,a as s,S as m}from"./blocks-noVJf4xX.js";import{useMDXComponents as a}from"./index-JWiKM07o.js";import{I as i}from"./ic-typography.stories-qagXHYVm.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-C1l6q3Gx.js";import"./index-D3Iq1Q93.js";import"./index.esm-Bc9Hxhl2.js";const p=""+new URL("readme-DVBMTSkT.md",import.meta.url).href;function e(t){return r.jsxs(r.Fragment,{children:[r.jsx(n,{of:i}),`
-`,r.jsx(s,{children:p}),`
-`,r.jsx(m,{})]})}function h(t={}){const{wrapper:o}={...a(),...t.components};return o?r.jsx(o,{...t,children:r.jsx(e,{...t})}):e()}export{h as default};
