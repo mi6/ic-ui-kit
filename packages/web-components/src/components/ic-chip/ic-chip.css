@@ -25,6 +25,17 @@
   background-color: var(--chip-bg-color);
   border: var(--ic-border-width) solid transparent;
   justify-content: space-between;
+  width: fit-content;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.chip.full-width {
+  width: 100%;
+}
+
+:host(.ic-chip-full-width) {
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

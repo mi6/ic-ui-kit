@@ -63,7 +63,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- ic-typography
+- [ic-typography](../../../../web-components/src/components/ic-typography)
 
 ### Graph
 ```mermaid

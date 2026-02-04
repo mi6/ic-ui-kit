@@ -35,6 +35,16 @@ import {
 import Clear from "../../assets/clear-icon.svg";
 import Clock from "../../assets/clock.svg";
 
+import "../../../../web-components/src/components/ic-input-container/ic-input-container";
+import "../../../../web-components/src/components/ic-input-component-container/ic-input-component-container";
+import "../../../../web-components/src/components/ic-input-label/ic-input-label";
+import "../../../../web-components/src/components/ic-toggle-button-group/ic-toggle-button-group";
+import "../../../../web-components/src/components/ic-toggle-button/ic-toggle-button";
+import "../../../../web-components/src/components/ic-input-validation/ic-input-validation";
+import "../../../../web-components/src/components/ic-button/ic-button";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-link/ic-link";
+
 let inputIds = 0;
 
 /**
@@ -1556,7 +1566,7 @@ export class TimeInput {
               for={inputId}
               label={label}
               hideLabel={hideLabel}
-              helperText={!hideHelperText ? helperText : ""}
+              helperText={!hideHelperText ? helperText ?? undefined : ""}
               disabled={disabled}
             >
               <slot name="helper-text" slot="helper-text"></slot>
@@ -1579,8 +1589,8 @@ export class TimeInput {
           >
             <ic-input-component-container
               id={inputId}
-              ref={(el: HTMLIcInputComponentContainerElement) =>
-                (this.inputCompContainerEl = el)
+              ref={(el: HTMLIcInputComponentContainerElement | undefined) =>
+                (this.inputCompContainerEl = el!)
               }
               disabled={disabled}
               validationStatus={validationStatus}
@@ -1649,7 +1659,7 @@ export class TimeInput {
               <ic-toggle-button-group
                 select-type="single"
                 accessible-label="AM PM Toggle"
-                ref={(el: HTMLIcToggleButtonGroupElement) =>
+                ref={(el: HTMLIcToggleButtonGroupElement | undefined) =>
                   (this.periodToggleEl = el)
                 }
                 disabled={disabled}
@@ -1691,7 +1701,9 @@ export class TimeInput {
           <ic-input-validation
             status={validationStatus}
             message={
-              hasCustomValidation ? this.validationText : this.invalidTimeText
+              hasCustomValidation
+                ? this.validationText ?? ""
+                : this.invalidTimeText
             }
             for={inputId}
             ariaLiveMode={validationAriaLive}

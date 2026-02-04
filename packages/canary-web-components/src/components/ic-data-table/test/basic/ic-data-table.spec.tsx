@@ -1,16 +1,16 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { IcButton } from "@ukic/web-components/dist/components/ic-button";
+import { Button as IcButton } from "../../../../../../web-components/src/components/ic-button/ic-button";
 import { DataTable } from "../../ic-data-table";
-import { IcLoadingIndicator } from "@ukic/web-components/dist/components/ic-loading-indicator";
-import { IcPagination } from "@ukic/web-components/dist/components/ic-pagination";
+import { LoadingIndicator as IcLoadingIndicator } from "../../../../../../web-components/src/components/ic-loading-indicator/ic-loading-indicator";
+import { Pagination as IcPagination } from "../../../../../../web-components/src/components/ic-pagination/ic-pagination";
 import { PaginationBar } from "../../../ic-pagination-bar/ic-pagination-bar";
-import { IcPaginationItem } from "@ukic/web-components/dist/components/ic-pagination-item";
-import { IcTooltip } from "@ukic/web-components/dist/components/ic-tooltip";
-import { IcTypography } from "@ukic/web-components/dist/components/ic-typography";
+import { PaginationItem as IcPaginationItem } from "../../../../../../web-components/src/components/ic-pagination-item/ic-pagination-item";
+import { Tooltip as IcTooltip } from "../../../../../../web-components/src/components/ic-tooltip/ic-tooltip";
+import { Typography as IcTypography } from "../../../../../../web-components/src/components/ic-typography/ic-typography";
 import { h } from "@stencil/core";
 import { IcDataTableColumnObject } from "../../ic-data-table.types";
 import { waitForTimeout } from "../../../../testspec.setup";
-import { IcEmptyState } from "@ukic/web-components/dist/components/ic-empty-state";
+import { EmptyState as IcEmptyState } from "../../../../../../web-components/src/components/ic-empty-state/ic-empty-state";
 import { DataTableTitleBar } from "../../../ic-data-table-title-bar/ic-data-table-title-bar";
 import {
   COLUMNS_NO_TEXT_WRAP,

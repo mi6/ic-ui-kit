@@ -9,7 +9,7 @@ import errorIcon from "../../assets/error-icon.svg";
 import successIcon from "../../assets/success-icon.svg";
 import warningIcon from "../../assets/warning-icon.svg";
 
-import { getInputValidationTextID } from "../../utils/helpers";
+import { getInputValidationTextID, isSlotUsed } from "../../utils/helpers";
 
 const ICON = {
   [IcInformationStatus.Warning]: warningIcon,
@@ -20,6 +20,7 @@ const INVISIBLE_CHAR = "\u200B";
 
 /**
  * @slot validation-message-adornment - Content will be placed to the right of the validation message.
+ * @slot validation-message - Content will be placed as the validation message.
  */
 @Component({
   tag: "ic-input-validation",
@@ -90,7 +91,11 @@ export class InputValidation {
         )}
         <ic-typography variant="caption" class="statustext">
           <span id={this.for && getInputValidationTextID(this.for)}>
-            {message}
+            {isSlotUsed(this.el, "validation-message") ? (
+              <slot name="validation-message" />
+            ) : (
+              message
+            )}
           </span>
           {/* Separate aria-live region to avoid flashing due to textContent delay */}
           <span

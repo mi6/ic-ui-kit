@@ -25,6 +25,11 @@ import {
   renderDynamicChildSlots,
 } from "../../utils/helpers";
 
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-button/ic-button";
+import "../../../../web-components/src/components/ic-status-tag/ic-status-tag";
+import "../../../../web-components/src/components/ic-badge/ic-badge";
+
 /**
  * @slot heading - Content will be placed at the top of the horizontal card to the right of the icon.
  * @slot message - Content will be placed in the main body of the horizontal card.

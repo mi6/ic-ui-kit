@@ -74,10 +74,11 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| `"helper-text"` | Content is set as the helper text for the text field. |
-| `"icon"`        | Content will be placed to the left of the text input. |
+| Slot                | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| `"helper-text"`     | Content is set as the helper text for the text field. |
+| `"icon"`            | Content will be placed to the left of the text input. |
+| `"validation-text"` | Content is set as validation text for the text field. |
 
 
 ## CSS Custom Properties
@@ -88,6 +89,10 @@ Type: `Promise<void>`
 
 
 ## Dependencies
+
+### Used by
+
+ - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
 
 ### Depends on
 
@@ -107,6 +112,7 @@ graph TD;
   ic-text-field --> ic-typography
   ic-input-label --> ic-typography
   ic-input-validation --> ic-typography
+  ic-pagination-bar --> ic-text-field
   style ic-text-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -3,6 +3,16 @@ import { IcPositionTopOrRight, IcSizes, IcThemeMode } from "../../utils/types";
 import { TableOfContentsItem } from "./ic-table-of-contents-item";
 import { DEVICE_SIZES } from "../../utils/helpers";
 
+import "../../../../web-components/src/components/ic-tooltip/ic-tooltip";
+import "../../../../web-components/src/components/ic-section-container/ic-section-container";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-top-navigation/ic-top-navigation";
+import "../../../../web-components/src/components/ic-navigation-item/ic-navigation-item";
+import "../../../../web-components/src/components/ic-page-header/ic-page-header";
+import "../../../../web-components/src/components/ic-button/ic-button";
+import "../../../../web-components/src/components/ic-link/ic-link";
+import "../../../../web-components/src/components/ic-theme/ic-theme";
+
 const TOC_CONTENT_CLASS = "table-of-contents-content";
 const TOC_LIST_ITEMS_CLASS = "table-of-contents-list-items";
 const TOC_ITEM_CLASS = "table-of-contents-item-content";

@@ -12,5 +12,10 @@
     "skipLibCheck": true
   },
   "include": ["src", "./node.d.ts"],
-  "exclude": ["node_modules", "src/testa11y.setup.ts"]
+  "exclude": [
+    "node_modules",
+    "src/testa11y.setup.ts",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
 }

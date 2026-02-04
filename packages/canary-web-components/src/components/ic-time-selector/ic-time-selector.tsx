@@ -18,6 +18,8 @@ import { parseTimeHelper } from "../../utils/helpers";
 import Check from "../../assets/check-icon.svg";
 import Clear from "../../assets/close-icon.svg";
 import { IcTimePeriods } from "./ic-time-selector.types";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-button/ic-button";
 
 const COLUMN_TYPES = ["hour", "minute", "period"] as const;
 const COLUMN_CLASS = ".ic-time-selector-column";

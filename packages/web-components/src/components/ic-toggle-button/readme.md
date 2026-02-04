@@ -41,6 +41,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [ic-time-input](../../../../canary-web-components/src/components/ic-time-input)
+
 ### Depends on
 
 - [ic-button](../ic-button)
@@ -54,6 +58,7 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
+  ic-time-input --> ic-toggle-button
   style ic-toggle-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -6,6 +6,7 @@ import {
 } from "../../utils/date-helpers";
 import { stringEnumToArray } from "../../utils/helpers";
 import { IcSizes, IcDateInputMonths } from "../../utils/types";
+import "../../../../web-components/src/components/ic-button/ic-button";
 
 export type MonthPickerProps = {
   focussedMonth: number;

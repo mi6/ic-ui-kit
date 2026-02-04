@@ -86,13 +86,13 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- ic-loading-indicator
-- ic-typography
-- ic-link
-- ic-tooltip
-- ic-button
-- ic-checkbox
-- ic-empty-state
+- [ic-loading-indicator](../../../../web-components/src/components/ic-loading-indicator)
+- [ic-typography](../../../../web-components/src/components/ic-typography)
+- [ic-link](../../../../web-components/src/components/ic-link)
+- [ic-tooltip](../../../../web-components/src/components/ic-tooltip)
+- [ic-button](../../../../web-components/src/components/ic-button)
+- [ic-checkbox](../../../../web-components/src/components/ic-checkbox)
+- [ic-empty-state](../../../../web-components/src/components/ic-empty-state)
 - [ic-pagination-bar](../ic-pagination-bar)
 
 ### Graph
@@ -132,8 +132,6 @@ graph TD;
   ic-menu --> ic-button
   ic-input-validation --> ic-typography
   ic-pagination --> ic-button
-  ic-pagination --> ic-pagination-item
-  ic-pagination-item --> ic-typography
   ic-text-field --> ic-input-container
   ic-text-field --> ic-input-label
   ic-text-field --> ic-input-component-container

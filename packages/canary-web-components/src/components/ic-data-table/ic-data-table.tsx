@@ -44,6 +44,13 @@ import {
 } from "../../utils/helpers";
 import { sanitizeHTMLIconString } from "../../../../web-components/src/utils/common-helpers";
 import { IC_DEVICE_SIZES } from "../../utils/constants";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-loading-indicator/ic-loading-indicator";
+import "../../../../web-components/src/components/ic-button/ic-button";
+import "../../../../web-components/src/components/ic-link/ic-link";
+import "../../../../web-components/src/components/ic-empty-state/ic-empty-state";
+import "../../../../web-components/src/components/ic-checkbox/ic-checkbox";
+import "../../../../web-components/src/components/ic-tooltip/ic-tooltip";
 
 /**
  * @slot empty-state - Content is slotted below the table header when there is no data and the table is not loading.
@@ -1838,7 +1845,7 @@ export class DataTable {
                     } row ${cellIndex}`}
                     onIcCheck={() => this.onRowClick(row)}
                     size={this.density === "dense" ? "small" : "medium"}
-                    value={cellIndex}
+                    value={cellIndex.toString()}
                   ></ic-checkbox>
                 </div>
               </td>
@@ -2317,7 +2324,7 @@ export class DataTable {
           max={loadingOptions?.max}
           min={loadingOptions?.min}
           progress={loadingOptions?.progress}
-          ref={(el: HTMLIcLoadingIndicatorElement) =>
+          ref={(el: HTMLIcLoadingIndicatorElement | undefined) =>
             (this.loadingIndicator = el)
           }
         ></ic-loading-indicator>

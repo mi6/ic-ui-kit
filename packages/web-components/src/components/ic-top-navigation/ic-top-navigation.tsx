@@ -532,6 +532,8 @@ export class TopNavigation {
                     class="nav-panel-container"
                   >
                     <ic-horizontal-scroll
+                      // eslint-disable-next-line
+                      // @ts-ignore
                       monochrome
                       appearance={foregroundColor}
                     >

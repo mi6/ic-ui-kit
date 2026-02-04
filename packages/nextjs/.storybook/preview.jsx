@@ -1,11 +1,9 @@
+// import "../dist/core/normalize.css";
+// import "../dist/core/core.css";
 import "@ukic/fonts/dist/fonts.css";
-import "../dist/core/core.css";
-import "../dist/core/normalize.css";
-import "@ukic/web-components/dist/core/icds-table-style.css";
+import "./storybook.css";
 
 import { IcTheme } from "@ukic/react";
-import React from "react";
-import { withPerformance } from "storybook-addon-performance";
 
 const preview = {
   parameters: {
@@ -18,13 +16,13 @@ const preview = {
     },
     options: {
       storySort: {
-        method: "configure",
+        method: 'configure',
         includeNames: true,
-        order: ["*", ["*", ["Docs", "Playground"]]],
+        order: ['*', ['*', ['Docs', 'Playground']]],
       },
     },
-    viewMode: "docs",
   },
+
   globalTypes: {
     theme: {
       description: "Global theme for components",
@@ -39,9 +37,11 @@ const preview = {
       },
     },
   },
+
   initialGlobals: {
     theme: "light",
   },
+
   decorators: [
     (story, context) => {
       const selectedTheme = context.globals.theme || "light";
@@ -62,8 +62,9 @@ const preview = {
         </>
       );
     },
-    withPerformance,
   ],
+
+  tags: ["autodocs"],
 };
 
 export default preview;

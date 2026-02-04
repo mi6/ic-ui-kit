@@ -5156,6 +5156,30 @@
           "setter": false
         },
         {
+          "name": "fullWidth",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "full-width",
+          "reflectToAttr": false,
+          "docs": "Specify whether the chip fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "label",
           "type": "string",
           "complexType": {
@@ -8852,6 +8876,10 @@
         {
           "name": "slot",
           "text": "validation-message-adornment - Content will be placed to the right of the validation message."
+        },
+        {
+          "name": "slot",
+          "text": "validation-message - Content will be placed as the validation message."
         }
       ],
       "usage": {},
@@ -9028,6 +9056,10 @@
       "listeners": [],
       "styles": [],
       "slots": [
+        {
+          "name": "validation-message",
+          "docs": "Content will be placed as the validation message."
+        },
         {
           "name": "validation-message-adornment",
           "docs": "Content will be placed to the right of the validation message."
@@ -13196,6 +13228,11 @@
         }
       ],
       "listeners": [
+        {
+          "event": "icPageChange",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "paginationItemClick",
           "capture": false,
@@ -19477,6 +19514,10 @@
         },
         {
           "name": "slot",
+          "text": "validation-text - Content is set as validation text for the text field."
+        },
+        {
+          "name": "slot",
           "text": "icon - Content will be placed to the left of the text input."
         }
       ],
@@ -20670,6 +20711,10 @@
         {
           "name": "icon",
           "docs": "Content will be placed to the left of the text input."
+        },
+        {
+          "name": "validation-text",
+          "docs": "Content is set as validation text for the text field."
         }
       ],
       "parts": [],

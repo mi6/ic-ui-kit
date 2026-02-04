@@ -19,6 +19,7 @@ import {
   renderDynamicChildSlots,
 } from "../../utils/helpers";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
 
 let treeItemIds = 0;
 
@@ -459,7 +460,7 @@ export class TreeItem {
           [`ic-theme-${theme}`]: theme !== "inherit",
           "ic-tree-item-truncate": !!this.truncateTreeItem,
         }}
-        id={this.treeItemId ?? `ic-tree-item-${treeItemIds++}`}
+        id={this.el.id || this.treeItemId || `ic-tree-item-${treeItemIds++}`}
       >
         {this.hasRouterSlot() ? (
           <slot name="router-item" />

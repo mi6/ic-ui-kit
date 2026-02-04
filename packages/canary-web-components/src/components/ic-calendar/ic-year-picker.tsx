@@ -1,6 +1,7 @@
 import { h, FunctionalComponent } from "@stencil/core";
 import { yearInRange } from "../../utils/date-helpers";
 import { IcSizes } from "../../utils/types";
+import "../../../../web-components/src/components/ic-button/ic-button";
 
 export type YearPickerProps = {
   decadeView: number[];

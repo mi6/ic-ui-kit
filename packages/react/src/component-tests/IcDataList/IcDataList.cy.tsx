@@ -12,6 +12,7 @@ import {
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   Default,
+  NoHeading,
   Editable,
   EditableRow,
   LongTextValues,
@@ -89,6 +90,22 @@ describe("IcDataList end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/slotted-heading-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    });
+  });
+
+  it("should render with no heading", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <NoHeading />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_LIST_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/no-heading",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 

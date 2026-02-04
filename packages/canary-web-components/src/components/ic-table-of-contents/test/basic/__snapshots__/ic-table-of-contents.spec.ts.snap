@@ -9,7 +9,7 @@ exports[`ic-table-of-contents should render default 1`] = `
           Contents
         </ic-typography>
         <div class="table-of-contents-list">
-          <div class="false medium table-of-contents-sidebar"></div>
+          <div class="false medium table-of-contents-sidebar" style="transform: translateY(0px); height: undefinedpx;"></div>
           <ol class="table-of-contents-list-items"></ol>
         </div>
       </div>
@@ -33,7 +33,7 @@ exports[`ic-table-of-contents should render default top 1`] = `
           Contents
         </ic-typography>
         <div class="table-of-contents-list">
-          <div class="false medium table-of-contents-sidebar"></div>
+          <div class="false medium table-of-contents-sidebar" style="transform: translateY(0px); height: undefinedpx;"></div>
           <ol class="table-of-contents-list-items"></ol>
         </div>
       </div>
@@ -57,7 +57,7 @@ exports[`ic-table-of-contents should render default with custom title 1`] = `
           Custom Title
         </ic-typography>
         <div class="table-of-contents-list">
-          <div class="false medium table-of-contents-sidebar"></div>
+          <div class="false medium table-of-contents-sidebar" style="transform: translateY(0px); height: undefinedpx;"></div>
           <ol class="table-of-contents-list-items">
             <li class="false table-of-contents-item">
               <ic-tooltip disable-click="true" disable-hover="true" label="Subheading" target="toc_subheading">
@@ -94,7 +94,7 @@ exports[`ic-table-of-contents should render default with multiple headings 1`] =
           Contents
         </ic-typography>
         <div class="table-of-contents-list">
-          <div class="false medium table-of-contents-sidebar"></div>
+          <div class="false medium table-of-contents-sidebar" style="transform: translateY(0px); height: undefinedpx;"></div>
           <ol class="table-of-contents-list-items">
             <li class="false table-of-contents-item">
               <ic-tooltip disable-click="true" disable-hover="true" label="Subheading" target="toc_subheading">
@@ -131,7 +131,7 @@ exports[`ic-table-of-contents should render maximum heading depth 1`] = `
           Custom Title
         </ic-typography>
         <div class="table-of-contents-list">
-          <div class="false medium table-of-contents-sidebar"></div>
+          <div class="false medium table-of-contents-sidebar" style="transform: translateY(0px); height: undefinedpx;"></div>
           <ol class="table-of-contents-list-items">
             <li class="false table-of-contents-item">
               <ic-tooltip disable-click="true" disable-hover="true" label="Subheading" target="toc_subheading">

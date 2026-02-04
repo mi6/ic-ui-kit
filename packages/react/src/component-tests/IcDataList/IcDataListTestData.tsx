@@ -25,6 +25,17 @@ export const Default = () => {
   );
 };
 
+export const NoHeading = () => {
+  return (
+    <IcDataList>
+      <IcDataRow label="Name" value="Michael Johnson" />
+      <IcDataRow label="Date of birth" value="16 October 1995" />
+      <IcDataRow label="Telephone" value="07449 7654873" />
+      <IcDataRow label="Email" value="mjohnson@coffee.gov" />
+    </IcDataList>
+  );
+};
+
 export const SlottedHeadingLabel = () => {
   return (
     <IcDataList>

@@ -5,8 +5,8 @@ import {
   createDateInputEnv,
   keyboardEvent,
 } from "../helpers/ic-date-input";
-import { IcButton } from "@ukic/web-components/dist/components/ic-button";
-import { IcInputLabel } from "@ukic/web-components/dist/components/ic-input-label";
+import { Button as IcButton } from "../../../../../../web-components/src/components/ic-button/ic-button";
+import { InputLabel as IcInputLabel } from "../../../../../../web-components/src/components/ic-input-label/ic-input-label";
 
 const DATE_1970 = "01/01/1970";
 const DATE_2000 = "01/01/2000";

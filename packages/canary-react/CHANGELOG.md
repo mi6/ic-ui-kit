@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.35](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.34...@ukic/canary-react@3.0.0-canary.35) (2026-02-04)
+
+### Bug Fixes
+
+- **canary-react:** update tree item to accept ids being passed through ([d8b1f60](https://github.com/mi6/ic-ui-kit/commit/d8b1f601a03b7e19ebba434d07458a90868265d8))
+
 # [3.0.0-canary.34](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.33...@ukic/canary-react@3.0.0-canary.34) (2026-01-21)
 
 ### Features

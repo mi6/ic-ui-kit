@@ -45,6 +45,14 @@ import {
 import Clear from "../../assets/clear-icon.svg";
 import Calendar from "../../assets/calendar.svg";
 
+import "../../../../web-components/src/components/ic-input-container/ic-input-container";
+import "../../../../web-components/src/components/ic-input-component-container/ic-input-component-container";
+import "../../../../web-components/src/components/ic-input-label/ic-input-label";
+import "../../../../web-components/src/components/ic-input-validation/ic-input-validation";
+import "../../../../web-components/src/components/ic-button/ic-button";
+import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "../../../../web-components/src/components/ic-link/ic-link";
+
 let inputIds = 0;
 
 /**
@@ -1657,7 +1665,7 @@ export class DateInput {
               for={inputId}
               label={label}
               hideLabel={hideLabel}
-              helperText={!hideHelperText ? helperText : ""}
+              helperText={!hideHelperText ? helperText ?? undefined : ""}
               disabled={disabled}
             >
               <slot name="helper-text" slot="helper-text"></slot>
@@ -1675,8 +1683,8 @@ export class DateInput {
           <span id="live-region" aria-live="assertive" class="sr-only"></span>
           <ic-input-component-container
             id={inputId}
-            ref={(el: HTMLIcInputComponentContainerElement) =>
-              (this.inputCompContainerEl = el)
+            ref={(el: HTMLIcInputComponentContainerElement | undefined) =>
+              (this.inputCompContainerEl = el!)
             }
             disabled={disabled}
             validationStatus={validationStatus}
@@ -1716,8 +1724,8 @@ export class DateInput {
                     <div class={{ divider: true, [size]: true }}></div>
                     <ic-button
                       id="calendar-button"
-                      ref={(el: HTMLIcButtonElement) =>
-                        (this.calendarButtonEl = el)
+                      ref={(el: HTMLIcButtonElement | undefined) =>
+                        (this.calendarButtonEl = el!)
                       }
                       aria-label="Display calendar"
                       aria-haspopup="dialog"
@@ -1745,7 +1753,9 @@ export class DateInput {
           <ic-input-validation
             status={validationStatus}
             message={
-              hasCustomValidation ? this.validationText : this.invalidDateText
+              hasCustomValidation
+                ? this.validationText ?? ""
+                : this.invalidDateText
             }
             for={inputId}
             ariaLiveMode={validationAriaLive}
