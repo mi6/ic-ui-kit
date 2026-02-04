@@ -51,9 +51,13 @@ Type: `Promise<void>`
 ### Used by
 
  - [ic-button](../ic-button)
- - [ic-card-vertical](../ic-card-vertical)
  - [ic-chip](../ic-chip)
+ - [ic-data-table](../../../../canary-web-components/src/components/ic-data-table)
  - [ic-navigation-item](../ic-navigation-item)
+ - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+ - [ic-table-of-contents](../../../../canary-web-components/src/components/ic-table-of-contents)
+ - [ic-tree-item](../../../../canary-web-components/src/components/ic-tree-item)
+ - [ic-tree-view](../../../../canary-web-components/src/components/ic-tree-view)
 
 ### Depends on
 
@@ -64,9 +68,13 @@ Type: `Promise<void>`
 graph TD;
   ic-tooltip --> ic-typography
   ic-button --> ic-tooltip
-  ic-card-vertical --> ic-tooltip
   ic-chip --> ic-tooltip
+  ic-data-table --> ic-tooltip
   ic-navigation-item --> ic-tooltip
+  ic-pagination-bar --> ic-tooltip
+  ic-table-of-contents --> ic-tooltip
+  ic-tree-item --> ic-tooltip
+  ic-tree-view --> ic-tooltip
   style ic-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
