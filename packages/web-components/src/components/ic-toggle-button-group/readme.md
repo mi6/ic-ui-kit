@@ -31,6 +31,19 @@
 | `icChange` | Emitted when a toggle button is selected. | `CustomEvent<IcChangeEventDetail>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ic-time-input](../../../../canary-web-components/src/components/ic-time-input)
+
+### Graph
+```mermaid
+graph TD;
+  ic-time-input --> ic-toggle-button-group
+  style ic-toggle-button-group fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 
