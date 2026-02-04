@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.18.0...@ukic/react@3.19.0) (2026-02-04)
+
+### Bug Fixes
+
+- **react:** update storybook and tests for ic-chip ([83219a2](https://github.com/mi6/ic-ui-kit/commit/83219a209c979e1d49dc45a9aeea5385848d39d7))
+
+### Features
+
+- **react:** tests for validation-text slot on ic-text-field ([e4f9aee](https://github.com/mi6/ic-ui-kit/commit/e4f9aeeaae93b6afab7f7004989fc74c31dfee0d)), closes [#4216](https://github.com/mi6/ic-ui-kit/issues/4216)
+
 # [3.18.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.17.0...@ukic/react@3.18.0) (2026-01-21)
 
 ### Bug Fixes

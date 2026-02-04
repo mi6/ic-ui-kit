@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.18.0...@ukic/web-components@3.19.0) (2026-02-04)
+
+### Bug Fixes
+
+- **web-components:** remove margin top from divider when data list has no heading ([c0f63d8](https://github.com/mi6/ic-ui-kit/commit/c0f63d85c76caffb681fe9b97ff6d93ed14559de)), closes [#4109](https://github.com/mi6/ic-ui-kit/issues/4109)
+- **web-components:** update --ic-space-1px to be unrounded ([9a7fc3f](https://github.com/mi6/ic-ui-kit/commit/9a7fc3fd267ca6958cf25f95608edfd7685c8a59)), closes [#3869](https://github.com/mi6/ic-ui-kit/issues/3869)
+- **web-components:** update ic-chip to fit to content, and add fullWidth prop ([1901ea3](https://github.com/mi6/ic-ui-kit/commit/1901ea387e8fe29d54f51c2c8b80af0e636c0f7c))
+
+### Features
+
+- **web-components:** add focus change handling to ic-pagination ([a86c09e](https://github.com/mi6/ic-ui-kit/commit/a86c09e58a2f1b91308f013aeee6eb65747b4cd6)), closes [#4812](https://github.com/mi6/ic-ui-kit/issues/4812)
+- **web-components:** add validation-text slot to ic-text-field ([80a52a0](https://github.com/mi6/ic-ui-kit/commit/80a52a0cc7ef7ec2d2cd73501c95e3bda1d04881)), closes [#4216](https://github.com/mi6/ic-ui-kit/issues/4216)
+
 # [3.18.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.17.0...@ukic/web-components@3.18.0) (2026-01-21)
 
 ### Bug Fixes
