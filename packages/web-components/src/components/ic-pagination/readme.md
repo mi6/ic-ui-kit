@@ -52,22 +52,24 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+
 ### Depends on
 
 - [ic-button](../ic-button)
-- [ic-pagination-item](../ic-pagination-item)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-pagination --> ic-button
-  ic-pagination --> ic-pagination-item
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
-  ic-pagination-item --> ic-typography
+  ic-pagination-bar --> ic-pagination
   style ic-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

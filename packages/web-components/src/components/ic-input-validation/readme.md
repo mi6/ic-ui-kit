@@ -28,10 +28,10 @@
 
 ### Used by
 
- - [ic-checkbox-group](../ic-checkbox-group)
- - [ic-radio-group](../ic-radio-group)
+ - [ic-date-input](../../../../canary-web-components/src/components/ic-date-input)
  - [ic-select](../ic-select)
  - [ic-text-field](../ic-text-field)
+ - [ic-time-input](../../../../canary-web-components/src/components/ic-time-input)
 
 ### Depends on
 
@@ -41,10 +41,10 @@
 ```mermaid
 graph TD;
   ic-input-validation --> ic-typography
-  ic-checkbox-group --> ic-input-validation
-  ic-radio-group --> ic-input-validation
+  ic-date-input --> ic-input-validation
   ic-select --> ic-input-validation
   ic-text-field --> ic-input-validation
+  ic-time-input --> ic-input-validation
   style ic-input-validation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

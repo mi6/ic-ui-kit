@@ -23,12 +23,10 @@
 
 ### Used by
 
- - [ic-checkbox-group](../ic-checkbox-group)
- - [ic-radio-group](../ic-radio-group)
- - [ic-search-bar](../ic-search-bar)
+ - [ic-date-input](../../../../canary-web-components/src/components/ic-date-input)
  - [ic-select](../ic-select)
- - [ic-switch](../ic-switch)
  - [ic-text-field](../ic-text-field)
+ - [ic-time-input](../../../../canary-web-components/src/components/ic-time-input)
 
 ### Depends on
 
@@ -38,12 +36,10 @@
 ```mermaid
 graph TD;
   ic-input-label --> ic-typography
-  ic-checkbox-group --> ic-input-label
-  ic-radio-group --> ic-input-label
-  ic-search-bar --> ic-input-label
+  ic-date-input --> ic-input-label
   ic-select --> ic-input-label
-  ic-switch --> ic-input-label
   ic-text-field --> ic-input-label
+  ic-time-input --> ic-input-label
   style ic-input-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -63,7 +63,6 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
 
 ### Depends on
@@ -83,7 +82,6 @@ graph TD;
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-tooltip --> ic-typography
-  ic-search-bar --> ic-menu
   ic-select --> ic-menu
   style ic-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
