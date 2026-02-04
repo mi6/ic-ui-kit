@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.35](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.34...@ukic/canary-web-components@3.0.0-canary.35) (2026-02-04)
+
+### Bug Fixes
+
+- **canary-web-components:** adds fullWidth prop to ic-chip ([6888d36](https://github.com/mi6/ic-ui-kit/commit/6888d36a3dedb8715440179ce7824a0cc1843a5a))
+- **canary-web-components:** update tree item to accept ids being passed through ([ebfa4b3](https://github.com/mi6/ic-ui-kit/commit/ebfa4b35739422e0c895995cc7a40c368d9159a7)), closes [#3874](https://github.com/mi6/ic-ui-kit/issues/3874)
+
 # [3.0.0-canary.34](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.33...@ukic/canary-web-components@3.0.0-canary.34) (2026-01-21)
 
 ### Features
