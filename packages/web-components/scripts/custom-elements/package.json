@@ -1,6 +1,6 @@
 {
   "name": "@ukic/web-components/components",
-  "version": "3.18.0",
+  "version": "3.19.0",
   "description": "UKIC Components exported as custom elements, extending HTMLElement.",
   "main": "./index.js",
   "types": "./custom-elements.d.ts",
