@@ -7,12 +7,9 @@ The [Intelligence Community Design System](https://design.sis.gov.uk) helps the 
 
 This is a joint project led by [MI6](https://www.sis.gov.uk), working with [GCHQ](https://www.gchq.gov.uk), [MI5](https://www.mi5.gov.uk) and [HMGCC](https://www.hmgcc.gov.uk) (our national security partner).
 
-<div style="border: 1px red solid; border-radius: 3px; background-color: red; color: white; padding:8px">
+> [!WARNING]
+> **This Angular-native package is not maintained or supported by the core ICDS team and is entirely community-developed**
 
-### Support Info
-**This Angular-native package is not maintained or supported by the core ICDS team and is entirely community-developed**
-
-</div>
 
 ### Choice of approach
 
