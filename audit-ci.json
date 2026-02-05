@@ -218,17 +218,10 @@
       }
     },
     {
-      "GHSA-3vhc-576x-3qv4": {
+      "GHSA-345p-7cg4-v4c7": {
         "active": true,
-        "notes": "need to use hono v4.11.4 - currently dictated by @angular/cli",
-        "expiry": "22 February 2026"
-      }
-    },
-    {
-      "GHSA-f67f-6cw9-8mq4": {
-        "active": true,
-        "notes": "need to use hono v4.11.4 - currently dictated by @angular/cli",
-        "expiry": "22 February 2026"
+        "notes": "need to use modelcontextprotocol/sdk v1.26 - currently dictated by @angular/cli",
+        "expiry": "05 March 2026"
       }
     }
   ]
