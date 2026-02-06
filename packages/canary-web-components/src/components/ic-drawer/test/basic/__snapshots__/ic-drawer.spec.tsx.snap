@@ -1,0 +1,783 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-drawer should apply custom chevron button aria-label to chevron button 1`] = `
+<ic-drawer chevron-button-aria-label="Test aria-label" class="ic-drawer-collapsed ic-drawer-medium ic-drawer-right" heading="Test heading" message="Test message">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-22" label="Test aria-label" placement="bottom" silent="" target="ic-button-with-tooltip-22">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-22" aria-expanded="false" aria-label="Test aria-label" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should apply custom close button aria-label to close button 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-medium ic-drawer-right" close-button-aria-label="Test aria-label" heading="Test heading" message="Test message" trigger="controlled">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="controlled drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+          <ic-button class="close-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+            <template shadowrootmode="open">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-24" label="Test aria-label" placement="bottom" silent="" target="ic-button-with-tooltip-24">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-24" aria-label="Test aria-label" class="button" part="button" tabindex="0" type="button">
+                  <slot></slot>
+                </button>
+              </ic-tooltip>
+            </template>
+            svg
+          </ic-button>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render as expanded 1`] = `
+<ic-drawer class="ic-drawer-expanded ic-drawer-medium ic-drawer-right" expanded="" heading="Test heading" message="Test message">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div aria-labelledby="drawer-heading" class="drawer-panel medium" id="drawer-panel" role="dialog" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-8" label="Close drawer" placement="bottom" silent="" target="ic-button-with-tooltip-8">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-8" aria-expanded="true" aria-label="Close drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render at the bottom 1`] = `
+<ic-drawer class="ic-drawer-bottom ic-drawer-collapsed ic-drawer-medium" heading="Test heading" message="Test message" position="bottom">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-6" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-6">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-6" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-height: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+          <div class="action-area">
+            <slot name="actions"></slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render at the top 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-medium ic-drawer-top" heading="Test heading" message="Test message" position="top">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-4" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-4">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-4" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-height: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+          <div class="action-area">
+            <slot name="actions"></slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render large 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-large ic-drawer-right" heading="Test heading" message="Test message" size="large">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel large" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-12" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-12">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-12" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render on the left 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-left ic-drawer-medium" heading="Test heading" message="Test message" position="left">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-2" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-2">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-2" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render on the right 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-medium ic-drawer-right" heading="Test heading" message="Test message" position="right">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-0" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-0">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-0" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render small 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-right ic-drawer-small" heading="Test heading" message="Test message" size="small">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel small" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-10" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-10">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-10" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render with boundary prop set to 'parent' 1`] = `
+<ic-drawer boundary="parent" class="ic-drawer-boundary-parent ic-drawer-collapsed ic-drawer-medium ic-drawer-right" heading="Test heading" message="Test message">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-14" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-14">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-14" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render with hidden close button when trigger prop is set to 'controlled' 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-medium ic-drawer-right" heading="Test heading" hide-close-button="true" message="Test message" trigger="controlled">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="controlled drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render with slotted content 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-medium ic-drawer-right">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-28" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-28">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-28" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4></h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p></p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <svg slot="heading-adornment" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5C22,3.89 21.1,3 20,3Z"></path>
+  </svg>
+  <ic-typography slot="heading" variant="h4">
+    <h4>
+      Test heading
+    </h4>
+  </ic-typography>
+  <div slot="message">
+    <ic-typography>
+      <p>
+        Test message
+      </p>
+    </ic-typography>
+    <div>
+      <ic-button class="ic-button-size-medium ic-button-variant-primary" exportparts="button" slot="actions">
+        <template shadowrootmode="open">
+          <button class="button" part="button" tabindex="0" type="button">
+            <slot></slot>
+          </button>
+        </template>
+        Add to order
+      </ic-button>
+    </div>
+  </div>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render with theme prop set to 'dark' 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-medium ic-drawer-right ic-theme-dark" heading="Test heading" message="Test message" theme="dark">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-20" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-20">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-20" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render with theme prop set to 'light' 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-medium ic-drawer-right ic-theme-light" heading="Test heading" message="Test message" theme="light">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-light" exportparts="button">
+        <template shadowrootmode="open">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-18" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-18">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-18" aria-expanded="false" aria-label="Open drawer" class="button" part="button" tabindex="0" type="button">
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </template>
+        svg
+      </ic-button>
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render with trigger prop set to 'controlled' 1`] = `
+<ic-drawer class="ic-drawer-collapsed ic-drawer-medium ic-drawer-right" heading="Test heading" message="Test message" trigger="controlled">
+  <template shadowrootmode="open">
+    <div class="overlay"></div>
+    <div class="controlled drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div class="inner-drawer-panel" style="min-width: 0px;">
+        <div class="drawer-header">
+          <div class="heading-area">
+            <slot name="heading-adornment"></slot>
+            <div id="drawer-heading">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <h4>
+                    Test heading
+                  </h4>
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+          <ic-button class="close-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
+            <template shadowrootmode="open">
+              <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-16" label="Close drawer" placement="bottom" silent="" target="ic-button-with-tooltip-16">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-16" aria-label="Close drawer" class="button" part="button" tabindex="0" type="button">
+                  <slot></slot>
+                </button>
+              </ic-tooltip>
+            </template>
+            svg
+          </ic-button>
+        </div>
+        <div class="main-content">
+          <div class="content-area">
+            <div class="content-area-shadow-top show"></div>
+            <div class="drawer-content">
+              <slot name="message">
+                <ic-typography>
+                  <p>
+                    Test message
+                  </p>
+                </ic-typography>
+              </slot>
+            </div>
+            <div class="content-area-shadow-bottom show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</ic-drawer>
+`;
