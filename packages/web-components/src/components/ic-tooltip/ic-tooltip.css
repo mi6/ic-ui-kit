@@ -129,7 +129,7 @@
   top: calc(-1 * var(--ic-space-1px));
 }
 
-:host(.ic-tooltip-on-dialog) {
+:host(.ic-tooltip-in-container) {
   display: inline-block;
 }
 
