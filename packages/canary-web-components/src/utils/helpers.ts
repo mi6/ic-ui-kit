@@ -19,11 +19,17 @@ import {
 } from "@ukic/web-components";
 import { IcDataTableDataType } from "../interface";
 import {
+  IC_ACCORDION,
+  IC_ACCORDION_GROUP,
+  IC_CHECKBOX,
+  IC_SEARCH_BAR,
+  IC_TAB_CONTEXT,
+  IC_TEXT_FIELD,
   IC_BLOCK_COLOR_COMPONENTS,
   IC_BLOCK_COLOR_EXCEPTIONS,
   IC_FIXED_COLOR_COMPONENTS,
 } from "./constants"; // Using @ukic/web-components/dist/types/utils/constants does not work so duplicated constants into canary package
-import { IcBrandForegroundEnum } from "./types"; // Using @ukic/web-components/dist/types/utils/types does not work so duplicated constants into canary package
+import { IcBrandForegroundEnum, IcFocusableComponents } from "./types"; // Using @ukic/web-components/dist/types/utils/types does not work so duplicated constants into canary package
 
 const DARK_MODE_THRESHOLD = 133.3505;
 const ANYWHERE_SEARCH_POSITION = "anywhere";
@@ -718,7 +724,7 @@ export const addDataToPosition = (
   return newData;
 };
 
-/*
+/**
  * Checks if the component is slotted in its relevant 'group' component
  * @param component - the component to check
  */
@@ -789,3 +795,261 @@ export function parseTimeHelper(value: string | Date): {
     },
   };
 }
+
+/**
+ * Focuses the provided element, or the next focusable element if it should be skipped. Used for focus trapping.
+ * @param focusAttemptCount - number of focus attempts that have been made
+ * @param focusedElementIndex - current focused element index
+ * @param interactiveElementList - list of interactive elements
+ * @param shiftKey - whether the shift key is pressed
+ */
+export const focusElement = (
+  focusAttemptCount: number,
+  focusedElementIndex: number,
+  interactiveElementList: HTMLElement[],
+  shiftKey = false
+):
+  | { newFocusAttemptCount: number; newFocusedElementIndex: number }
+  | undefined => {
+  const element = interactiveElementList[focusedElementIndex];
+
+  if (!element) {
+    return;
+  }
+
+  let newFocusAttemptCount = focusAttemptCount;
+
+  if (newFocusAttemptCount++ > interactiveElementList.length) {
+    return;
+  }
+
+  let newFocusedElementIndex = focusedElementIndex;
+
+  if (shouldSkipElement(element)) {
+    newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
+      newFocusedElementIndex,
+      shiftKey
+    );
+    newFocusedElementIndex = getLoopedNextFocusIndexIfLastElement(
+      newFocusedElementIndex,
+      interactiveElementList
+    );
+    return focusElement(
+      newFocusAttemptCount,
+      newFocusedElementIndex,
+      interactiveElementList,
+      shiftKey
+    );
+  } else {
+    switch (element.tagName) {
+      case IC_ACCORDION:
+      case IC_ACCORDION_GROUP:
+      case IC_CHECKBOX:
+      case IC_SEARCH_BAR:
+      case IC_TAB_CONTEXT:
+      case IC_TEXT_FIELD:
+        (element as IcFocusableComponents).setFocus();
+        break;
+      default:
+        element.focus();
+    }
+    return { newFocusAttemptCount, newFocusedElementIndex };
+  }
+};
+
+/**
+ * Gets the index of the currently focused element. Used for focus trapping.
+ * @param el - host element of the component
+ * @param interactiveElementList - list of interactive elements
+ */
+export const getFocusedElementIndex = (
+  el: HTMLElement,
+  interactiveElementList: HTMLElement[]
+) => {
+  for (let i = 0; i < interactiveElementList.length; i++) {
+    if (
+      (interactiveElementList[i] as HTMLElement) ===
+      (el.shadowRoot?.activeElement || document.activeElement)
+    ) {
+      return i;
+    }
+  }
+  return null;
+};
+
+/**
+ * Gets the next focusable element index based on whether the shift key is pressed. Used for focus trapping.
+ * @param focusedElementIndex - current focused element index
+ * @param shiftKey - whether the shift key is pressed
+ */
+export const getFocusIndexBasedOnShiftKey = (
+  focusedElementIndex: number,
+  shiftKey: boolean
+) => (shiftKey ? (focusedElementIndex -= 1) : (focusedElementIndex += 1));
+
+/**
+ * Gets the next focusable element index, looping back to the start or end if necessary. Used for focus trapping.
+ * @param focusedElementIndex - current focused element index
+ * @param interactiveElementList - list of interactive elements
+ */
+export const getLoopedNextFocusIndexIfLastElement = (
+  focusedElementIndex: number,
+  interactiveElementList: HTMLElement[]
+): number => {
+  if (focusedElementIndex > interactiveElementList.length - 1) {
+    return 0;
+  } else if (focusedElementIndex < 0) {
+    return interactiveElementList.length - 1;
+  }
+  return focusedElementIndex;
+};
+
+/**
+ * Handles tab key press for focus trapping.
+ * @param el - host element of the component
+ * @param focusAttemptCount - number of focus attempts that have been made
+ * @param focusedElementIndex - current focused element index
+ * @param interactiveElementList - list of interactive elements
+ * @param shiftKey - whether the shift key is pressed
+ */
+export function handleFocusTrapTabKeyPress(
+  el: HTMLElement,
+  focusAttemptCount: number,
+  focusedElementIndex: number,
+  interactiveElementList: HTMLElement[],
+  shiftKey: boolean
+): {
+  newFocusAttemptCount: number;
+  newFocusedElementIndex: number;
+  preventDefault: boolean;
+} {
+  let newFocusAttemptCount = focusAttemptCount;
+
+  let newFocusedElementIndex =
+    getFocusedElementIndex(el, interactiveElementList) || focusedElementIndex;
+
+  if (interactiveElementList[focusedElementIndex]?.tagName === IC_SEARCH_BAR) {
+    return {
+      newFocusAttemptCount,
+      newFocusedElementIndex,
+      preventDefault: false,
+    };
+  }
+
+  newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
+    newFocusedElementIndex,
+    shiftKey
+  );
+  newFocusedElementIndex = getLoopedNextFocusIndexIfLastElement(
+    newFocusedElementIndex,
+    interactiveElementList
+  );
+
+  newFocusAttemptCount = 0;
+  const focusElementResult = focusElement(
+    newFocusAttemptCount,
+    newFocusedElementIndex,
+    interactiveElementList,
+    shiftKey
+  );
+  if (focusElementResult) {
+    newFocusedElementIndex = focusElementResult.newFocusedElementIndex;
+    newFocusAttemptCount = focusElementResult.newFocusAttemptCount;
+  }
+
+  return { newFocusAttemptCount, newFocusedElementIndex, preventDefault: true };
+}
+
+/**
+ * Sets up listener and mutation observer to refresh interactive elements on slot changes. Used for focus trapping.
+ * @param contentWrapper - content wrapper element
+ * @param getInteractiveElements - function to get interactive elements
+ */
+export const refreshInteractiveElementsOnSlotChange = (
+  contentWrapper: HTMLElement | null,
+  getInteractiveElements: () => void
+): {
+  contentAreaSlot: HTMLSlotElement | null;
+  contentAreaMutationObserver: MutationObserver | null;
+} => {
+  let contentAreaSlot: HTMLSlotElement | null = null;
+  let contentAreaMutationObserver: MutationObserver | null = null;
+
+  if (contentWrapper) {
+    contentAreaSlot = contentWrapper.querySelector("slot");
+
+    // Detect changes to slotted elements
+    contentAreaSlot?.addEventListener("slotchange", getInteractiveElements);
+
+    contentAreaMutationObserver = new MutationObserver(() => {
+      getInteractiveElements();
+    });
+
+    // Detect changes to children of slotted elements
+    getSlotElements(contentWrapper)?.forEach((el) => {
+      contentAreaMutationObserver?.observe(el, {
+        childList: true,
+        subtree: true,
+      });
+    });
+  }
+
+  return { contentAreaSlot, contentAreaMutationObserver };
+};
+
+/**
+ * Removes listener and disconnects mutation observer for slot changes. Used for focus trapping.
+ * @param contentAreaSlotMutationObserver - mutation observer for content area slot
+ * @param contentAreaSlot - content area slot element
+ * @param getInteractiveElements - function to get interactive elements
+ */
+export const removeInteractiveElementSlotChangeListener = (
+  contentAreaSlot: HTMLSlotElement | null | undefined,
+  contentAreaSlotMutationObserver: MutationObserver | null,
+  getInteractiveElements: () => void
+) => {
+  if (contentAreaSlot) {
+    contentAreaSlot.removeEventListener("slotchange", getInteractiveElements);
+    contentAreaSlotMutationObserver?.disconnect();
+  }
+};
+
+/**
+ * Determines whether an element should be skipped when focusing interactive elements. Used for focus trapping.
+ * @param element - element to check
+ */
+export const shouldSkipElement = (element: HTMLElement): boolean => {
+  if (!element) {
+    return true;
+  }
+
+  const isHidden =
+    getComputedStyle(element).visibility === "hidden" ||
+    element.offsetHeight === 0 ||
+    element.hasAttribute("disabled") ||
+    (element.tagName === IC_ACCORDION_GROUP &&
+      element.hasAttribute("single-expansion"));
+
+  const radioEl = element.closest("ic-radio-option");
+
+  return (
+    isHidden ||
+    (element.getAttribute("type") === "radio" &&
+      !!radioEl &&
+      !(radioEl.hasAttribute("selected") || element.tabIndex === 0))
+  );
+};
+
+/**
+ * Gets all interactive elements slotted within a component. Used for focus trapping.
+ * @param el - host element of the component
+ */
+export const slottedInteractiveElements = (el: HTMLElement): HTMLElement[] =>
+  Array.from(
+    el.querySelectorAll(
+      `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-context,
+          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
+          ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker, ic-action-chip, ic-time-input`
+    )
+  );
