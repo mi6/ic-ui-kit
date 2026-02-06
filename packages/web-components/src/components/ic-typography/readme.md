@@ -41,6 +41,7 @@
  - [ic-data-table-title-bar](../../../../canary-web-components/src/components/ic-data-table-title-bar)
  - [ic-dialog](../ic-dialog)
  - [ic-divider](../ic-divider)
+ - [ic-drawer](../../../../canary-web-components/src/components/ic-drawer)
  - [ic-empty-state](../ic-empty-state)
  - [ic-footer](../ic-footer)
  - [ic-footer-link-group](../ic-footer-link-group)
@@ -95,6 +96,7 @@ graph TD;
   ic-data-table-title-bar --> ic-typography
   ic-dialog --> ic-typography
   ic-divider --> ic-typography
+  ic-drawer --> ic-typography
   ic-empty-state --> ic-typography
   ic-footer --> ic-typography
   ic-footer-link-group --> ic-typography

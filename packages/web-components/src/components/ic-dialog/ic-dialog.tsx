@@ -16,10 +16,13 @@ import closeIcon from "../../assets/close-icon.svg";
 import {
   isSlotUsed,
   checkResizeObserver,
+  focusElement,
+  handleFocusTrapTabKeyPress,
   onComponentRequiredPropUndefined,
-  getSlotElements,
+  refreshInteractiveElementsOnSlotChange,
+  slottedInteractiveElements,
 } from "../../utils/helpers";
-import { IcFocusableComponents, IcThemeMode } from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 
 /**
  * @slot dialog-controls - Content will be place at the bottom of the dialog.
@@ -40,18 +43,12 @@ export class Dialog {
   private DIALOG_CONTROLS: string = "dialog-controls";
   private dialogEl?: HTMLDialogElement;
   private dialogHeight: number = 0;
+  private focusAttemptCount = 0;
   private focusedElementIndex = 0;
-  private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
-  private IC_ACCORDION: string = "IC-ACCORDION";
-  private IC_ACCORDION_GROUP: string = "IC-ACCORDION-GROUP";
-  private IC_CHECKBOX = "IC-CHECKBOX";
-  private IC_SEARCH_BAR: string = "IC-SEARCH-BAR";
-  private IC_TAB_CONTEXT: string = "IC-TAB-CONTEXT";
   private interactiveElementList: HTMLElement[] = [];
   private resizeObserver: ResizeObserver | null = null;
   private resizeTimeout: number;
   private sourceElement: HTMLElement;
-  private focusAttemptCount = 0;
 
   @Element() el: HTMLIcDialogElement;
 
@@ -163,7 +160,7 @@ export class Dialog {
   }
 
   componentDidLoad(): void {
-    this.refreshInteractiveElementsOnSlotChange();
+    this.setContentAreaMutationObserver();
 
     if (this.open) {
       this.dialogOpened();
@@ -188,11 +185,23 @@ export class Dialog {
   handleKeyboard(ev: KeyboardEvent): void {
     if (this.dialogRendered) {
       switch (ev.key) {
-        case "Tab":
-          if (this.onTabKeyPress(ev.shiftKey)) {
+        case "Tab": {
+          const tabKeyPressHandlerResult = handleFocusTrapTabKeyPress(
+            this.el,
+            this.focusAttemptCount,
+            this.focusedElementIndex,
+            this.interactiveElementList,
+            ev.shiftKey
+          );
+          this.focusAttemptCount =
+            tabKeyPressHandlerResult.newFocusAttemptCount;
+          this.focusedElementIndex =
+            tabKeyPressHandlerResult.newFocusedElementIndex;
+          if (tabKeyPressHandlerResult.preventDefault) {
             ev.preventDefault();
           }
           break;
+        }
         case "Escape":
           if (!ev.repeat) {
             this.open = false;
@@ -295,32 +304,6 @@ export class Dialog {
     }
   };
 
-  private refreshInteractiveElementsOnSlotChange = () => {
-    const contentWrapper = this.el.shadowRoot?.querySelector("#dialog-content");
-
-    if (contentWrapper) {
-      this.contentArea = contentWrapper.querySelector("slot");
-
-      // Detect changes to slotted elements
-      this.contentArea?.addEventListener(
-        "slotchange",
-        this.getInteractiveElements
-      );
-
-      this.contentAreaMutationObserver = new MutationObserver(() => {
-        this.getInteractiveElements();
-      });
-
-      // Detect changes to children of slotted elements
-      getSlotElements(contentWrapper)?.forEach((el) => {
-        this.contentAreaMutationObserver?.observe(el, {
-          childList: true,
-          subtree: true,
-        });
-      });
-    }
-  };
-
   private removeSlotChangeListener = () => {
     if (this.contentArea) {
       this.contentArea.removeEventListener(
@@ -329,6 +312,23 @@ export class Dialog {
       );
 
       this.contentAreaMutationObserver?.disconnect();
+    }
+  };
+
+  private setContentAreaMutationObserver = () => {
+    const contentWrapper = this.el.shadowRoot?.querySelector(
+      "#dialog-content"
+    ) as HTMLElement;
+
+    if (contentWrapper) {
+      const { contentAreaSlot, contentAreaMutationObserver } =
+        refreshInteractiveElementsOnSlotChange(
+          contentWrapper || null,
+          this.getInteractiveElements
+        );
+
+      this.contentArea = contentAreaSlot;
+      this.contentAreaMutationObserver = contentAreaMutationObserver;
     }
   };
 
@@ -354,19 +354,15 @@ export class Dialog {
       this.focusedElementIndex = 0;
     }
 
-    const elToFocus = this.interactiveElementList[this.focusedElementIndex];
-    if (elToFocus) {
-      this.focusElement(elToFocus);
-    }
-  };
-
-  private getFocusedElementIndex = () => {
-    for (let i = 0; i < this.interactiveElementList.length; i++) {
-      if (
-        (this.interactiveElementList[i] as HTMLElement) ===
-        (this.el.shadowRoot?.activeElement || document.activeElement)
-      ) {
-        this.focusedElementIndex = i;
+    if (this.interactiveElementList[this.focusedElementIndex]) {
+      const focusElementResult = focusElement(
+        this.focusAttemptCount,
+        this.focusedElementIndex,
+        this.interactiveElementList
+      );
+      if (focusElementResult) {
+        this.focusAttemptCount = focusElementResult.newFocusAttemptCount;
+        this.focusedElementIndex = focusElementResult.newFocusedElementIndex;
       }
     }
   };
@@ -380,127 +376,27 @@ export class Dialog {
       this.el.shadowRoot?.querySelectorAll("ic-button") || []
     );
 
-    const slottedInteractiveElements = Array.from(
-      this.el.querySelectorAll(
-        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
-          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-context,
-          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
-          ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker`
-      )
-    );
+    const interactiveElements = slottedInteractiveElements(this.el);
 
-    if (slottedInteractiveElements.length > 0) {
-      if (slottedInteractiveElements[0].slot !== this.DIALOG_CONTROLS) {
-        slottedInteractiveElements[0].setAttribute(this.DATA_GETS_FOCUS, "");
+    if (interactiveElements.length > 0) {
+      if (interactiveElements[0].slot !== this.DIALOG_CONTROLS) {
+        interactiveElements[0].setAttribute(this.DATA_GETS_FOCUS, "");
       } else if (!this.destructive) {
-        slottedInteractiveElements[
-          slottedInteractiveElements.length - 1
-        ].setAttribute(this.DATA_GETS_FOCUS, "");
+        interactiveElements[interactiveElements.length - 1].setAttribute(
+          this.DATA_GETS_FOCUS,
+          ""
+        );
       }
     }
 
-    for (let i = 0; i < slottedInteractiveElements.length; i++) {
+    for (let i = 0; i < interactiveElements.length; i++) {
       this.interactiveElementList.splice(
         1 + i,
         0,
-        slottedInteractiveElements[i] as HTMLElement
+        interactiveElements[i] as HTMLElement
       );
     }
   };
-
-  private getNextFocusEl = (focusedElementIndex: number) =>
-    this.interactiveElementList[focusedElementIndex];
-
-  private onTabKeyPress = (shiftKey: boolean): boolean => {
-    this.getFocusedElementIndex();
-
-    if (
-      this.interactiveElementList[this.focusedElementIndex]?.tagName ===
-      this.IC_SEARCH_BAR
-    ) {
-      return false;
-    }
-
-    this.setFocusIndexBasedOnShiftKey(shiftKey);
-    this.loopNextFocusIndexIfLastElement();
-
-    this.focusAttemptCount = 0;
-    this.focusElement(this.getNextFocusEl(this.focusedElementIndex), shiftKey);
-    return true;
-  };
-
-  private shouldSkipElement = (element: HTMLElement): boolean => {
-    if (!element) {
-      return true;
-    }
-
-    const isHidden =
-      getComputedStyle(element).visibility === "hidden" ||
-      element.offsetHeight === 0 ||
-      element.hasAttribute("disabled") ||
-      (element.tagName === this.IC_ACCORDION_GROUP &&
-        element.hasAttribute("single-expansion"));
-
-    const radioEl = element.closest("ic-radio-option");
-
-    return (
-      isHidden ||
-      (element.getAttribute("type") === "radio" &&
-        !!radioEl &&
-        !(radioEl.hasAttribute("selected") || element.tabIndex === 0))
-    );
-  };
-
-  private focusElement = (
-    element: HTMLElement | undefined,
-    shiftKey = false
-  ) => {
-    if (!element) {
-      return;
-    }
-
-    if (this.focusAttemptCount++ > this.interactiveElementList.length) {
-      return;
-    }
-
-    if (this.shouldSkipElement(element)) {
-      this.setFocusIndexBasedOnShiftKey(shiftKey);
-      this.loopNextFocusIndexIfLastElement();
-      this.focusElement(
-        this.getNextFocusEl(this.focusedElementIndex),
-        shiftKey
-      );
-    } else {
-      switch (element.tagName) {
-        case this.IC_ACCORDION_GROUP:
-        case this.IC_ACCORDION:
-        case this.IC_SEARCH_BAR:
-        case this.IC_TEXT_FIELD:
-        case this.IC_CHECKBOX:
-        case this.IC_TAB_CONTEXT:
-          (element as IcFocusableComponents).setFocus();
-          break;
-        default:
-          element.focus();
-      }
-    }
-  };
-
-  private loopNextFocusIndexIfLastElement() {
-    if (this.focusedElementIndex > this.interactiveElementList.length - 1)
-      this.focusedElementIndex = 0;
-    else if (this.focusedElementIndex < 0) {
-      this.focusedElementIndex = this.interactiveElementList.length - 1;
-    }
-  }
-
-  private setFocusIndexBasedOnShiftKey(shiftKey: boolean) {
-    if (shiftKey) {
-      this.focusedElementIndex -= 1;
-    } else {
-      this.focusedElementIndex += 1;
-    }
-  }
 
   private renderDialog = () => {
     const {

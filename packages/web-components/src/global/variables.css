@@ -51,7 +51,8 @@
   --ic-z-index-toast: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-tooltip: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-classification-banner: calc(var(--ic-z-index-base-value) + 200);
-  --ic-z-index-skip-link: calc(var(--ic-z-index-base-value) + 210);
+  --ic-z-index-drawer: calc(var(--ic-z-index-base-value) + 210);
+  --ic-z-index-skip-link: calc(var(--ic-z-index-base-value) + 220);
 
   /* table tokens */
   --ic-table-cell-padding: var(--ic-space-xs);

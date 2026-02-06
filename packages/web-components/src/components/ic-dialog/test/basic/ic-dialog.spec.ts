@@ -4,6 +4,7 @@ import {
   waitForTimeout,
   testKeyboardEvent as keyboardEvent,
 } from "../../../../testspec.setup";
+import * as helpers from "../../../../utils/helpers";
 import { Button } from "../../../ic-button/ic-button";
 import { TextField } from "../../../ic-text-field/ic-text-field";
 import { AccordionGroup } from "../../../ic-accordion-group/ic-accordion-group";
@@ -473,7 +474,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
   });
 
-  it("should trigger private focusNextInteractiveElement method when tab pressed", async () => {
+  it("should trigger handleFocusTrapTabKeyPress helper function when tab pressed", async () => {
     const page = await newSpecPage({
       components: [Dialog, TextField, Button],
       html: `<ic-dialog heading="Dialog heading">
@@ -493,12 +494,18 @@ describe("ic-dialog component", () => {
     //delay for setTimeout in code
     await waitForTimeout(DIALOG_DELAY_MS);
 
+    const handleFocusTrapTabKeyPressSpy = jest.spyOn(
+      helpers,
+      "handleFocusTrapTabKeyPress"
+    );
+
     page.win.document.dispatchEvent(
       new KeyboardEvent("keydown", keyboardEvent("Tab"))
     );
     await page.waitForChanges();
 
     expect(page.rootInstance.dialogRendered).toBe(true);
+    expect(handleFocusTrapTabKeyPressSpy).toHaveBeenCalled();
   });
 
   it("should update the index of the focused element correctly", async () => {
@@ -547,6 +554,36 @@ describe("ic-dialog component", () => {
         page.rootInstance.focusedElementIndex
       ].nodeName
     ).toBe("IC-TEXT-FIELD");
+  });
+
+  // helpers.ts coverage
+  it("should not move focus if the focused element index is not found", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, TextField, Button],
+      html: `<ic-dialog heading="Dialog heading">
+        <ic-text-field label="What is your favourite coffee?">
+        </ic-text-field>
+        <ic-button>Click Me</ic-button>
+      </ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog?.setAttribute("open", "true");
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    const focusElementResult = helpers.focusElement(
+      0,
+      5,
+      page.rootInstance.interactiveElementList
+    );
+
+    expect(focusElementResult).toBeUndefined();
   });
 
   it("should render with an accordion group as first focussable element", async () => {
@@ -708,7 +745,10 @@ describe("ic-dialog component", () => {
       .spyOn(page.rootInstance, "getInteractiveElements")
       .mockImplementation();
 
-    await page.rootInstance.refreshInteractiveElementsOnSlotChange();
+    await helpers.refreshInteractiveElementsOnSlotChange(
+      page.root?.shadowRoot?.querySelector("#dialog-content") || null,
+      page.rootInstance.getInteractiveElements
+    );
 
     contentAreaSlot?.dispatchEvent(new Event("slotchange"));
 
@@ -773,9 +813,9 @@ describe("ic-dialog component", () => {
         <ic-radio-group label="This is a label" name="1">
           <ic-radio-option
             value="valueName1"
-            label="Selected / Default" 
+            label="Selected / Default"
             additional-field-display="dynamic"
-            selected       
+            selected
           >
             <ic-text-field
               slot="additional-field"
@@ -881,5 +921,39 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
     expect(page.rootInstance.focusedElementIndex).toBe(2);
+  });
+
+  it("should skip focus over elements correctly", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, TextField, Button],
+      html: `<ic-dialog heading="Dialog heading">
+        <ic-text-field label="What is your favourite coffee?" disabled="true">
+        </ic-text-field>
+        <ic-button>Click Me</ic-button>
+      </ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog?.setAttribute("open", "true");
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-BUTTON");
+
+    // helpers.ts coverage
+    const shouldSkipElementResult = helpers.shouldSkipElement(
+      null as unknown as HTMLElement
+    );
+
+    expect(shouldSkipElementResult).toBe(true);
   });
 });
