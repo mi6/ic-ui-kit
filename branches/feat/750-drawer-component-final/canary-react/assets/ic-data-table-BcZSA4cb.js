@@ -1,2 +1,0 @@
-import{j as t,M as n,S as s}from"./blocks-BVYPeKy3.js";import{useMDXComponents as i}from"./index-DRCITWdm.js";import{I as m}from"./ic-data-table.stories-CXgQAEOB.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-BOATGpgC.js";import"./index-DcpqOP0x.js";import"./mdi-BzQ819As.js";import"./components-Ce_VHPrG.js";import"./slottedSVG-bKpEf2fv.js";function e(o){return t.jsxs(t.Fragment,{children:[t.jsx(n,{of:m}),`
-`,t.jsx(s,{})]})}function l(o={}){const{wrapper:r}={...i(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(e,{...o})}):e()}export{l as default};
