@@ -1,7 +1,7 @@
 {
-  "total": 853,
+  "total": 852,
   "totalPassed": 791,
-  "totalFailed": 62,
+  "totalFailed": 61,
   "totalSuites": 45,
   "suites": [
     {
@@ -4436,17 +4436,6 @@
       "path": "src/component-tests/IcNavigationMenu/IcNavigationMenu.cy.tsx",
       "tests": [
         {
-          "status": "fail",
-          "name": "IcNavigationMenu.cy.tsx/with-nav-groups-top-nav",
-          "percentage": 0.03807430600520222,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcNavigationMenu/IcNavigationMenu.cy.tsx",
-          "specFilename": "IcNavigationMenu.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcNavigationMenu.cy.tsx/with-nav-groups-top-nav.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcNavigationMenu.cy.tsx/with-nav-groups-top-nav.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcNavigationMenu.cy.tsx/with-nav-groups-top-nav.png"
-        },
-        {
           "status": "pass",
           "name": "IcNavigationMenu.cy.tsx/all-nav-types-top-nav-high-contrast",
           "percentage": 0,
@@ -6615,7 +6604,7 @@
         {
           "status": "fail",
           "name": "IcSelectSearchable.cy.tsx/searchable-search-match-position-open",
-          "percentage": 0.009797958971132713,
+          "percentage": 0.18099723754798028,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -9658,9 +9647,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-09T15:23:15.257Z",
-  "endedAt": "2026-02-09T15:59:03.143Z",
-  "duration": 2039416,
+  "startedAt": "2026-02-09T17:58:02.723Z",
+  "endedAt": "2026-02-09T18:30:55.121Z",
+  "duration": 1867665,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
