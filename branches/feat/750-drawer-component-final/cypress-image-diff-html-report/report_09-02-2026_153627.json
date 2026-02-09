@@ -1,7 +1,7 @@
 {
-  "total": 321,
-  "totalPassed": 321,
-  "totalFailed": 0,
+  "total": 322,
+  "totalPassed": 320,
+  "totalFailed": 2,
   "totalSuites": 12,
   "suites": [
     {
@@ -2685,26 +2685,26 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/hidden-close-button.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDrawer.cy.tsx/long-content",
-          "percentage": 0,
+          "percentage": 0.11539977536501912,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx/long-content.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx/long-content.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/long-content.png"
         },
         {
-          "status": "pass",
-          "name": "IcDrawer.cy.tsx/long-content-with-icon-and-button",
-          "percentage": 0,
+          "status": "fail",
+          "name": "IcDrawer.cy.tsx/long-content-with-icon-and-buttons",
+          "percentage": 0.10011234330766654,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx/long-content-with-icon-and-button.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/long-content-with-icon-and-button.png"
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx/long-content-with-icon-and-buttons.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx/long-content-with-icon-and-buttons.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/long-content-with-icon-and-buttons.png"
         },
         {
           "status": "pass",
@@ -2738,6 +2738,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx/dark-mode.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/dark-mode.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDrawer.cy.tsx/high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx/high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/high-contrast.png"
         }
       ]
     },
@@ -3608,9 +3619,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-06T16:10:48.592Z",
-  "endedAt": "2026-02-06T16:20:50.810Z",
-  "duration": 572255,
+  "startedAt": "2026-02-09T15:36:27.898Z",
+  "endedAt": "2026-02-09T15:46:58.625Z",
+  "duration": 600131,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
