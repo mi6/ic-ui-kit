@@ -141,4 +141,23 @@ describe("ic-accordion-group component", () => {
     expect(page.rootInstance.expanded).toBe(false);
     expect(page.rootInstance.areAllAccordionsOpen).toBe(false);
   });
+
+  it("should test the accessibleButtonLabel slot", async () => {
+    const page = await newSpecPage({
+      components: [AccordionGroup],
+      html: `
+      <ic-accordion-group label="Test heading">
+        <span slot="accessibleButtonLabel">Custom accessible label</span>
+        <ic-accordion heading="Accordion 1">
+          <ic-typography variant="body">
+            This is an example of the main body text.
+          </ic-typography>
+        </ic-accordion>
+      </ic-accordion-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot(
+      "renders with accessibleButtonLabel slot"
+    );
+  });
 });
