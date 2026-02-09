@@ -4663,11 +4663,11 @@
           "ic-button"
         ],
         "ic-select": [
+          "ic-button",
+          "ic-typography",
           "ic-input-container",
           "ic-input-label",
           "ic-input-component-container",
-          "ic-typography",
-          "ic-button",
           "ic-menu",
           "ic-input-validation"
         ],
@@ -4886,16 +4886,13 @@
           "ic-select"
         ],
         "ic-select": [
+          "ic-button",
+          "ic-typography",
           "ic-input-container",
           "ic-input-label",
           "ic-input-component-container",
-          "ic-typography",
-          "ic-button",
           "ic-menu",
           "ic-input-validation"
-        ],
-        "ic-input-label": [
-          "ic-typography"
         ],
         "ic-button": [
           "ic-typography",
@@ -4906,6 +4903,9 @@
           "ic-typography"
         ],
         "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-input-label": [
           "ic-typography"
         ],
         "ic-menu": [
@@ -10136,6 +10136,49 @@
               "text": "event The keyboard event which is available when handleKeyboardOpen is invoked."
             }
           ]
+        },
+        {
+          "name": "handleMenuKeyDown",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(event: KeyboardEvent) => Promise<void>",
+            "parameters": [
+              {
+                "name": "event",
+                "type": "KeyboardEvent",
+                "docs": "The keyboard event which is available when handleMenuKeydown is invoked."
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "KeyboardEvent": {
+                "location": "global",
+                "id": "global::KeyboardEvent"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "handleMenuKeyDown(event: KeyboardEvent) => Promise<void>",
+          "parameters": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent",
+              "docs": "The keyboard event which is available when handleMenuKeydown is invoked."
+            }
+          ],
+          "docs": "Used alongside activationType\nIf menu is open and user navigates options via keyboard, emit optionSelect custom event.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "event The keyboard event which is available when handleMenuKeydown is invoked."
+            }
+          ]
         }
       ],
       "events": [
@@ -12620,16 +12663,13 @@
           "ic-button"
         ],
         "ic-select": [
+          "ic-button",
+          "ic-typography",
           "ic-input-container",
           "ic-input-label",
           "ic-input-component-container",
-          "ic-typography",
-          "ic-button",
           "ic-menu",
           "ic-input-validation"
-        ],
-        "ic-input-label": [
-          "ic-typography"
         ],
         "ic-button": [
           "ic-typography",
@@ -12640,6 +12680,9 @@
           "ic-typography"
         ],
         "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-input-label": [
           "ic-typography"
         ],
         "ic-menu": [
@@ -15855,15 +15898,15 @@
         },
         {
           "name": "options",
-          "type": "IcMenuOption[]",
+          "type": "IcSelectOption[]",
           "complexType": {
-            "original": "IcMenuOption[]",
-            "resolved": "IcMenuOption[]",
+            "original": "IcSelectOption[]",
+            "resolved": "IcSelectOption[]",
             "references": {
-              "IcMenuOption": {
+              "IcSelectOption": {
                 "location": "import",
-                "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcMenuOption"
+                "path": "./ic-select.types",
+                "id": "../web-components/src/components/ic-select/ic-select.types.ts::IcSelectOption"
               }
             }
           },
@@ -15874,7 +15917,7 @@
           "default": "[]",
           "values": [
             {
-              "type": "IcMenuOption[]"
+              "type": "IcSelectOption[]"
             }
           ],
           "optional": false,
@@ -16166,6 +16209,30 @@
           "setter": false
         },
         {
+          "name": "useNativeSelectOnMobile",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "use-native-select-on-mobile",
+          "reflectToAttr": false,
+          "docs": "If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "validationAriaLive",
           "type": "\"assertive\" | \"off\" | \"polite\"",
           "complexType": {
@@ -16321,7 +16388,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the input box.",
+          "docs": "Sets focus on the select component.",
           "docsTags": []
         }
       ],
@@ -16531,26 +16598,23 @@
         "ic-pagination-bar"
       ],
       "dependencies": [
+        "ic-button",
+        "ic-typography",
         "ic-input-container",
         "ic-input-label",
         "ic-input-component-container",
-        "ic-typography",
-        "ic-button",
         "ic-menu",
         "ic-input-validation"
       ],
       "dependencyGraph": {
         "ic-select": [
+          "ic-button",
+          "ic-typography",
           "ic-input-container",
           "ic-input-label",
           "ic-input-component-container",
-          "ic-typography",
-          "ic-button",
           "ic-menu",
           "ic-input-validation"
-        ],
-        "ic-input-label": [
-          "ic-typography"
         ],
         "ic-button": [
           "ic-typography",
@@ -16561,6 +16625,9 @@
           "ic-typography"
         ],
         "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-input-label": [
           "ic-typography"
         ],
         "ic-menu": [
@@ -23963,10 +24030,15 @@
       "docstring": "",
       "path": "../web-components/src/utils/types.ts"
     },
-    "../web-components/src/utils/types.ts::IcMenuOption": {
-      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n  hideLabel?: boolean;\n  htmlProps?: Record<string, any>;\n}",
+    "../web-components/src/utils/types.ts::IcInformationStatusOrEmpty": {
+      "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
       "docstring": "",
       "path": "../web-components/src/utils/types.ts"
+    },
+    "../web-components/src/components/ic-select/ic-select.types.ts::IcSelectOption": {
+      "declaration": "export type IcSelectOption =\n  | IcSelectOptionBase\n  | IcSelectOptionGroup\n  | IcSelectOptionLoading\n  | IcSelectOptionTimedOut;",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-select/ic-select.types.ts"
     },
     "../web-components/src/utils/types.ts::IcMultiValueEventDetail": {
       "declaration": "export interface IcMultiValueEventDetail {\n  value: string | string[] | null;\n  keyPressed?: string;\n}",
@@ -24027,6 +24099,11 @@
       "declaration": "export type IcSearchBarSearchModes = \"navigation\" | \"query\";",
       "docstring": "",
       "path": "../web-components/src/components/ic-search-bar/ic-search-bar.types.ts"
+    },
+    "../web-components/src/utils/types.ts::IcMenuOption": {
+      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n  hideLabel?: boolean;\n  htmlProps?: Record<string, any>;\n}",
+      "docstring": "",
+      "path": "../web-components/src/utils/types.ts"
     },
     "../web-components/src/components/ic-menu/ic-menu.types.ts::IcMenuOptionIdEventDetail": {
       "declaration": "export interface IcMenuOptionIdEventDetail {\n  optionId: string | undefined;\n}",
