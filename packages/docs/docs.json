@@ -274,6 +274,10 @@
         {
           "name": "slot",
           "text": "label - Content is placed as the accordion group title."
+        },
+        {
+          "name": "slot",
+          "text": "accessibleButtonLabel - Content is placed as the accessible label for the 'See all/Hide all' button for screen reader users. If this slot is not used, the `accessibleButtonLabel` prop will be used as the accessible label instead."
         }
       ],
       "usage": {},
@@ -505,6 +509,10 @@
       ],
       "styles": [],
       "slots": [
+        {
+          "name": "accessibleButtonLabel",
+          "docs": "Content is placed as the accessible label for the 'See all/Hide all' button for screen reader users. If this slot is not used, the `accessibleButtonLabel` prop will be used as the accessible label instead."
+        },
         {
           "name": "label",
           "docs": "Content is placed as the accordion group title."
