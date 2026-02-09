@@ -520,6 +520,27 @@ export const SlottedHeadings = {
   name: "Slotted headings",
 };
 
+export const AccessibleButtonLabelSlot = {
+  render: () =>
+    html` <ic-accordion-group label="Title of the Accordion Group">
+      <span slot="accessibleButtonLabel">
+        This is the accessible button label for screen readers
+      </span>
+      <ic-accordion heading="Accordion 1">
+        <ic-typography variant="body">
+          This is an example of the main body text.
+        </ic-typography>
+      </ic-accordion>
+      <ic-accordion heading="Accordion 2">
+        <ic-typography variant="body">
+          This is an example of the main body text.
+        </ic-typography>
+      </ic-accordion>
+    </ic-accordion-group>`,
+
+  name: "Accessible button label slot",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {

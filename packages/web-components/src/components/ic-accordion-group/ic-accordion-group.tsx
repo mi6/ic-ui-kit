@@ -16,6 +16,7 @@ let accordionGroupIds = 0;
 
 /**
  * @slot label - Content is placed as the accordion group title.
+ * @slot accessibleButtonLabel - Content is placed as the accessible label for the 'See all/Hide all' button for screen reader users. If this slot is not used, the `accessibleButtonLabel` prop will be used as the accessible label instead.
  */
 @Component({
   tag: "ic-accordion-group",
@@ -154,6 +155,10 @@ export class AccordionGroup {
 
   render() {
     const { size, label, singleExpansion, accessibleButtonLabel, theme } = this;
+    const accessibleLabelSlotUsed = isSlotUsed(
+      this.el,
+      "accessibleButtonLabel"
+    );
     return (
       <Host
         context-id={this.accordionGroupId}
@@ -174,12 +179,22 @@ export class AccordionGroup {
               ref={(el) => (this.allButtonEl = el)}
               onClick={this.handleExpanded}
               variant="tertiary"
-              aria-label={`${this.accordionOpenBtnText()} ${accessibleButtonLabel}`}
+              aria-label={
+                accessibleLabelSlotUsed
+                  ? undefined
+                  : `${this.accordionOpenBtnText()} ${accessibleButtonLabel}`
+              }
             >
               {this.accordionOpenBtnText()}
+              {accessibleLabelSlotUsed && (
+                <span class="sr-only">
+                  <slot name="accessibleButtonLabel" />
+                </span>
+              )}
             </ic-button>
           )}
         </div>
+
         <slot></slot>
       </Host>
     );

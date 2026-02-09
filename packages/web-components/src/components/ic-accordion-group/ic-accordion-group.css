@@ -17,3 +17,14 @@
 :host(.ic-accordion-group-large) .label-container {
   padding: var(--ic-space-sm) var(--ic-space-xs);
 }
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: var(--ic-space-1px);
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: var(--ic-space-1px);
+}

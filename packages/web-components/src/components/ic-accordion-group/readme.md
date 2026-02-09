@@ -33,9 +33,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot      | Description                                     |
-| --------- | ----------------------------------------------- |
-| `"label"` | Content is placed as the accordion group title. |
+| Slot                      | Description                                                                                                                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"accessibleButtonLabel"` | Content is placed as the accessible label for the 'See all/Hide all' button for screen reader users. If this slot is not used, the `accessibleButtonLabel` prop will be used as the accessible label instead. |
+| `"label"`                 | Content is placed as the accordion group title.                                                                                                                                                               |
 
 
 ## Dependencies

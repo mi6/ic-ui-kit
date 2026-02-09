@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-accordion-group component should test the accessibleButtonLabel slot: renders with accessibleButtonLabel slot 1`] = `
+<ic-accordion-group class="ic-accordion-group ic-accordion-group-medium" context-id="ic-accordion-group-7" label="Test heading">
+  <template shadowrootmode="open">
+    <div class="label-container">
+      <ic-typography variant="h4">
+        <h3>
+          Test heading
+        </h3>
+      </ic-typography>
+      <ic-button variant="tertiary">
+        See all
+        <span class="sr-only">
+          <slot name="accessibleButtonLabel"></slot>
+        </span>
+      </ic-button>
+    </div>
+    <slot></slot>
+  </template>
+  <span slot="accessibleButtonLabel">
+    Custom accessible label
+  </span>
+  <ic-accordion context-id="ic-accordion-group-7" heading="Accordion 1">
+    <ic-typography variant="body">
+      This is an example of the main body text.
+    </ic-typography>
+  </ic-accordion>
+</ic-accordion-group>
+`;
+
 exports[`ic-accordion-group snapshots should match dark snapshot: renders as dark 1`] = `
 <ic-accordion-group class="ic-accordion-group ic-accordion-group-medium ic-theme-dark" context-id="ic-accordion-group-1" label="Test heading" theme="dark">
   <template shadowrootmode="open">
