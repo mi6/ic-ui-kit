@@ -5,6 +5,9 @@ import {
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
 
+/**
+ * @slot label - Content is placed as the label text.
+ */
 @Component({
   tag: "ic-input-label",
   styleUrl: "./ic-input-label.css",
@@ -64,14 +67,14 @@ export class InputLabel {
     );
   }
 
-  private isHelperTextSlotUsed = (slot: Element | null): boolean => {
+  private isSlotUsed = (slot: Element | null): boolean => {
     const assignedEls = (slot as HTMLSlotElement)?.assignedElements();
     if (assignedEls && assignedEls.length) {
       for (const el of assignedEls) {
         if (el.tagName === "SLOT") {
           // Recursion needed for when slot is forwarded multiple times - through child components
           // (e.g. in date picker)
-          if (this.isHelperTextSlotUsed(el as HTMLSlotElement)) {
+          if (this.isSlotUsed(el as HTMLSlotElement)) {
             return true;
           }
         } else {
@@ -103,32 +106,43 @@ export class InputLabel {
     };
 
     const helperTextSlot = this.el.querySelector("slot[name='helper-text']");
+    const labelSlot = this.el.querySelector('[slot="label"]');
+
+    const LabelContent = () =>
+      this.isSlotUsed(labelSlot) ? (
+        <slot name="label"></slot>
+      ) : readonly || !useLabelTag ? (
+        <ic-typography
+          variant="label"
+          class={{
+            "readonly-label": readonly,
+            "error-label": status === "error" && !(readonly || disabled),
+          }}
+        >
+          {labelText}
+        </ic-typography>
+      ) : (
+        <ic-typography
+          variant="label"
+          class={{
+            "readonly-label": readonly,
+            "error-label": status === "error" && !(readonly || disabled),
+          }}
+        >
+          <label htmlFor={this.for}>{labelText}</label>
+        </ic-typography>
+      );
 
     return (
       <Host
         class={{
           "ic-input-label-disabled": !!disabled,
           "ic-input-label-readonly": readonly,
-          "with-helper":
-            this.isHelperTextSlotUsed(helperTextSlot) || helperText !== "",
+          "with-helper": this.isSlotUsed(helperTextSlot) || helperText !== "",
         }}
       >
-        {!hideLabel && (
-          <ic-typography
-            variant="label"
-            class={{
-              "readonly-label": readonly,
-              "error-label": status === "error" && !(readonly || disabled),
-            }}
-          >
-            {readonly || !useLabelTag ? (
-              `${labelText}`
-            ) : (
-              <label htmlFor={this.for}>{labelText}</label>
-            )}
-          </ic-typography>
-        )}
-        {this.isHelperTextSlotUsed(helperTextSlot) ? (
+        {!hideLabel && <LabelContent />}
+        {this.isSlotUsed(helperTextSlot) ? (
           <span id={helperTextId} class={helperTextClass}>
             <slot name="helper-text"></slot>
           </span>

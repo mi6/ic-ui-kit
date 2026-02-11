@@ -34,6 +34,7 @@
 | Slot            | Description                                               |
 | --------------- | --------------------------------------------------------- |
 | `"helper-text"` | Content is set as the helper text for the checkbox group. |
+| `"label"`       | Content is placed as the label text.                      |
 
 
 ## Dependencies

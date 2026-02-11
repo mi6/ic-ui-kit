@@ -19,6 +19,13 @@
 | `status`             | `status`      | The status of the label - e.g. 'error'.           | `"" \| "error"`        | `""`        |
 
 
+## Slots
+
+| Slot      | Description                          |
+| --------- | ------------------------------------ |
+| `"label"` | Content is placed as the label text. |
+
+
 ## Dependencies
 
 ### Used by

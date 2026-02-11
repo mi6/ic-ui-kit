@@ -35,6 +35,7 @@ exports[`ic-checkbox-group should pass down disabled state to child checkboxes: 
     <fieldset aria-labelledby="" disabled="" id="test">
       <legend>
         <ic-input-label disabled="" helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -79,6 +80,7 @@ exports[`ic-checkbox-group should pass the size on the checkbox group to the chi
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -123,6 +125,7 @@ exports[`ic-checkbox-group should prioritise the size on an individual checkbox 
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -167,6 +170,7 @@ exports[`ic-checkbox-group should render an aria label when checkbox label hidde
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -222,6 +226,7 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
     <fieldset aria-labelledby="test-helper-text" id="test">
       <legend>
         <ic-input-label helpertext="helper test" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -256,6 +261,7 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
     <fieldset aria-labelledby="screenReaderOnlyText" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label" required="">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -287,6 +293,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -325,6 +332,7 @@ exports[`ic-checkbox-group should render in a disabled state: disabled-removed 1
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -356,6 +364,7 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -387,6 +396,7 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -639,6 +649,7 @@ exports[`ic-checkbox-group should render with slotted checkbox label: renders-wi
     <fieldset aria-labelledby="">
       <legend>
         <ic-input-label helpertext="" label="test checkbox group">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -767,6 +778,7 @@ exports[`ic-checkbox-group should render: renders 1`] = `
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -928,6 +940,7 @@ exports[`ic-checkbox-group should test labelNameHandler 1`] = `
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="test label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>
@@ -959,6 +972,7 @@ exports[`ic-checkbox-group should test labelNameHandler 2`] = `
     <fieldset aria-labelledby="" id="test">
       <legend>
         <ic-input-label helpertext="" label="new label">
+          <slot name="label" slot="label"></slot>
           <slot name="helper-text" slot="helper-text"></slot>
         </ic-input-label>
       </legend>

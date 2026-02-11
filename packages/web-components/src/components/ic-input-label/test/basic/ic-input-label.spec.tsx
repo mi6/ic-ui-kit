@@ -111,7 +111,7 @@ describe("ic-input-label", () => {
         .mockReturnValue([document.createElement("div")]),
     } as unknown as HTMLSlotElement;
 
-    expect(page.rootInstance.isHelperTextSlotUsed(mockSlot)).toBe(true);
+    expect(page.rootInstance.isSlotUsed(mockSlot)).toBe(true);
 
     const parentMockSlot = {
       assignedElements: jest.fn().mockReturnValue([mockSlot]),
@@ -119,10 +119,10 @@ describe("ic-input-label", () => {
 
     parentMockSlot.assignedElements = jest.fn().mockReturnValue([mockSlot]);
 
-    expect(page.rootInstance.isHelperTextSlotUsed(parentMockSlot)).toBe(true);
+    expect(page.rootInstance.isSlotUsed(parentMockSlot)).toBe(true);
 
     mockSlot.assignedElements = jest.fn().mockReturnValue([]);
 
-    expect(page.rootInstance.isHelperTextSlotUsed(mockSlot)).toBe(false);
+    expect(page.rootInstance.isSlotUsed(mockSlot)).toBe(false);
   });
 });

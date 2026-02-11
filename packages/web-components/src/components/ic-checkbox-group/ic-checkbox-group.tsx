@@ -27,13 +27,13 @@ const CHECKBOX_SELECTOR = "ic-checkbox";
 
 /**
  * @slot helper-text - Content is set as the helper text for the checkbox group.
+ * @slot label - Content is placed as the label text.
  */
 @Component({
   tag: "ic-checkbox-group",
   styleUrl: "ic-checkbox-group.css",
   shadow: true,
 })
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class CheckboxGroup {
   private checkboxes: HTMLIcCheckboxElement[];
 
@@ -252,6 +252,7 @@ export class CheckboxGroup {
                 disabled={disabled}
                 useLabelTag={false}
               >
+                <slot name="label" slot="label"></slot>
                 <slot name="helper-text" slot="helper-text"></slot>
               </ic-input-label>
             </legend>
