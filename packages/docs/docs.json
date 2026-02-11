@@ -4644,6 +4644,10 @@
         {
           "name": "slot",
           "text": "helper-text - Content is set as the helper text for the checkbox group."
+        },
+        {
+          "name": "slot",
+          "text": "label - Content is placed as the label text."
         }
       ],
       "usage": {},
@@ -5014,6 +5018,10 @@
         {
           "name": "helper-text",
           "docs": "Content is set as the helper text for the checkbox group."
+        },
+        {
+          "name": "label",
+          "docs": "Content is placed as the label text."
         }
       ],
       "parts": [],
@@ -8629,7 +8637,12 @@
       "tag": "ic-input-label",
       "readme": "# ic-input-label\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "label - Content is placed as the label text."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -8837,7 +8850,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "label",
+          "docs": "Content is placed as the label text."
+        }
+      ],
       "parts": [],
       "dependents": [
         "ic-checkbox-group",
