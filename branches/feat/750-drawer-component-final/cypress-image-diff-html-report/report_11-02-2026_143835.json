@@ -1,7 +1,7 @@
 {
   "total": 322,
-  "totalPassed": 320,
-  "totalFailed": 2,
+  "totalPassed": 321,
+  "totalFailed": 1,
   "totalSuites": 12,
   "suites": [
     {
@@ -2663,14 +2663,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/controlled-trigger-collapsed.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDrawer.cy.tsx/controlled-trigger-expanded",
-          "percentage": 0,
+          "percentage": 0.015044557302462687,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx/controlled-trigger-expanded.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx/controlled-trigger-expanded.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/controlled-trigger-expanded.png"
         },
         {
@@ -2685,25 +2685,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/hidden-close-button.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDrawer.cy.tsx/long-content",
-          "percentage": 0.11539977536501912,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx/long-content.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx/long-content.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/long-content.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDrawer.cy.tsx/long-content-with-icon-and-buttons",
-          "percentage": 0.10011234330766654,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx/long-content-with-icon-and-buttons.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx/long-content-with-icon-and-buttons.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx/long-content-with-icon-and-buttons.png"
         },
         {
@@ -2974,6 +2974,177 @@
       ]
     },
     {
+      "name": "IcTimeSelector.cy.tsx",
+      "path": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-default",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-default.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-default.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-dark-theme.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-string-value",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-string-value.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-string-value.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-date-object-value",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-date-object-value.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-date-object-value.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-zulu-time-value",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-zulu-time-value.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-zulu-time-value.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-small",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-small.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-small.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-large",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-large.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-large.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-hhmm-format",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-hhmm-format.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-hhmm-format.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-min-time",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-min-time.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-min-time.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-max-time",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-max-time.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-max-time.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-disable-times",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-disable-times.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-disable-times.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-column-focus",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-column-focus.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-column-focus.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-default-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-default-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-default-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-string-value-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-string-value-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-string-value-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTimeSelector.cy.tsx/time-selector-min-time-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
+          "specFilename": "IcTimeSelector.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-min-time-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-min-time-high-contrast.png"
+        }
+      ]
+    },
+    {
       "name": "IcTimeInput.cy.tsx",
       "path": "src/component-tests/IcTimeInput/IcTimeInput.cy.tsx",
       "tests": [
@@ -3185,177 +3356,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeInput.cy.tsx/time-input-disable-times.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeInput.cy.tsx/time-input-disable-times.png"
-        }
-      ]
-    },
-    {
-      "name": "IcTimeSelector.cy.tsx",
-      "path": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-      "tests": [
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-default",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-default.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-default.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-dark-theme",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-dark-theme.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-dark-theme.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-string-value",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-string-value.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-string-value.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-date-object-value",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-date-object-value.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-date-object-value.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-zulu-time-value",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-zulu-time-value.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-zulu-time-value.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-small",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-small.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-small.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-large",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-large.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-large.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-hhmm-format",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-hhmm-format.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-hhmm-format.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-min-time",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-min-time.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-min-time.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-max-time",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-max-time.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-max-time.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-disable-times",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-disable-times.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-disable-times.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-column-focus",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-column-focus.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-column-focus.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-default-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-default-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-default-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-string-value-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-string-value-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-string-value-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTimeSelector.cy.tsx/time-selector-min-time-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTimeSelector/IcTimeSelector.cy.tsx",
-          "specFilename": "IcTimeSelector.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTimeSelector.cy.tsx/time-selector-min-time-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTimeSelector.cy.tsx/time-selector-min-time-high-contrast.png"
         }
       ]
     },
@@ -3619,9 +3619,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-09T15:36:27.898Z",
-  "endedAt": "2026-02-09T15:46:58.625Z",
-  "duration": 600131,
+  "startedAt": "2026-02-11T14:38:35.747Z",
+  "endedAt": "2026-02-11T14:48:37.653Z",
+  "duration": 571272,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
