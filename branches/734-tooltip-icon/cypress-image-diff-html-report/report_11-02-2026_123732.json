@@ -662,7 +662,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/focussed-icon-only",
-          "percentage": 0.013856406460551019,
+          "percentage": 0.10478549517943789,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -728,7 +728,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/focussed-icon-only-high-contrast",
-          "percentage": 0.013856406460551019,
+          "percentage": 0.06016643582596529,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -8473,7 +8473,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/neutral",
-          "percentage": 0.09325234581499812,
+          "percentage": 0.014422205101855956,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -8616,7 +8616,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/success-high-contrast",
-          "percentage": 0.013711309200802088,
+          "percentage": 0.056356011214421485,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -10054,9 +10054,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-11T11:37:48.244Z",
-  "endedAt": "2026-02-11T12:03:31.602Z",
-  "duration": 1442508,
+  "startedAt": "2026-02-11T12:37:32.436Z",
+  "endedAt": "2026-02-11T13:02:47.694Z",
+  "duration": 1413897,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
