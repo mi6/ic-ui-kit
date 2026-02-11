@@ -9473,7 +9473,12 @@
       "tag": "ic-input-label",
       "readme": "# ic-input-label\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "label - Content is placed as the label text."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -9681,7 +9686,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "label",
+          "docs": "Content is placed as the label text."
+        }
+      ],
       "parts": [],
       "dependents": [
         "ic-date-input",
