@@ -1,7 +1,7 @@
 {
-  "total": 853,
+  "total": 852,
   "totalPassed": 838,
-  "totalFailed": 15,
+  "totalFailed": 14,
   "totalSuites": 45,
   "suites": [
     {
@@ -6604,7 +6604,7 @@
         {
           "status": "fail",
           "name": "IcSelectSearchable.cy.tsx/searchable-search-match-position-open",
-          "percentage": 0.18099723754798028,
+          "percentage": 0.009797958971132713,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -9397,17 +9397,6 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-app-icon-title.png"
         },
         {
-          "status": "fail",
-          "name": "IcTopNavigation.cy.tsx/mobile-navigation-items",
-          "percentage": 0.05569962994142954,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
-          "specFilename": "IcTopNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-navigation-items.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx/mobile-navigation-items.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-navigation-items.png"
-        },
-        {
           "status": "pass",
           "name": "IcTopNavigation.cy.tsx/navigation-items-high-contrast",
           "percentage": 0,
@@ -9658,9 +9647,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-10T17:44:09.567Z",
-  "endedAt": "2026-02-10T18:09:57.068Z",
-  "duration": 1441775,
+  "startedAt": "2026-02-12T11:50:17.701Z",
+  "endedAt": "2026-02-12T12:15:07.308Z",
+  "duration": 1384158,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
