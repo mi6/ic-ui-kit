@@ -17,13 +17,20 @@
 
 ### Used by
 
+ - [ic-footer](../ic-footer)
+ - [ic-footer-link-group](../ic-footer-link-group)
+ - [ic-hero](../ic-hero)
  - [ic-page-header](../ic-page-header)
  - [ic-table-of-contents](../../../../canary-web-components/src/components/ic-table-of-contents)
  - [ic-top-navigation](../ic-top-navigation)
 
+
 ### Graph
 ```mermaid
 graph TD;
+  ic-footer --> ic-section-container
+  ic-footer-link-group --> ic-section-container
+  ic-hero --> ic-section-container
   ic-page-header --> ic-section-container
   ic-table-of-contents --> ic-section-container
   ic-top-navigation --> ic-section-container
