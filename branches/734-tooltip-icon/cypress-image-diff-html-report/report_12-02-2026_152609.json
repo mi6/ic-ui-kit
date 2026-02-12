@@ -1,7 +1,7 @@
 {
   "total": 887,
-  "totalPassed": 782,
-  "totalFailed": 105,
+  "totalPassed": 783,
+  "totalFailed": 104,
   "totalSuites": 45,
   "suites": [
     {
@@ -605,14 +605,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/position-left.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBackToTop.cy.tsx/position-centre",
-          "percentage": 0.052230259428802384,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/position-centre.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBackToTop.cy.tsx/position-centre.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/position-centre.png"
         },
         {
@@ -7369,7 +7369,7 @@
         {
           "status": "fail",
           "name": "IcSideNavigation.cy.tsx/navigation-item-focus-high-contrast",
-          "percentage": 0.02045352718221355,
+          "percentage": 0.018513290779433866,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
@@ -8462,7 +8462,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/success",
-          "percentage": 0.014560219778561036,
+          "percentage": 0.09465727652959387,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -8605,7 +8605,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/warning-high-contrast",
-          "percentage": 0.021633307652783935,
+          "percentage": 0.05628498911788116,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -8616,7 +8616,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/error-high-contrast",
-          "percentage": 0.021633307652783935,
+          "percentage": 0.05628498911788116,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -8660,7 +8660,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/custom-icon-high-contrast",
-          "percentage": 0.021633307652783935,
+          "percentage": 0.05628498911788116,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -8809,7 +8809,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx/tooltip-placement-right",
-          "percentage": 0.045563142999578074,
+          "percentage": 0.0433589667773576,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -9195,7 +9195,7 @@
         {
           "status": "fail",
           "name": "IcTooltip.cy.tsx/right-placement-start",
-          "percentage": 0.05509990925582364,
+          "percentage": 0.054,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
@@ -9206,7 +9206,7 @@
         {
           "status": "fail",
           "name": "IcTooltip.cy.tsx/right-placement",
-          "percentage": 0.05520869496736904,
+          "percentage": 0.0540740233383831,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
@@ -9217,7 +9217,7 @@
         {
           "status": "fail",
           "name": "IcTooltip.cy.tsx/right-placement-end",
-          "percentage": 0.03072458299147443,
+          "percentage": 0.028705400188814647,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
@@ -9228,7 +9228,7 @@
         {
           "status": "fail",
           "name": "IcTooltip.cy.tsx/left-placement-start",
-          "percentage": 0.05469917732470937,
+          "percentage": 0.05411099703387473,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
@@ -9239,7 +9239,7 @@
         {
           "status": "fail",
           "name": "IcTooltip.cy.tsx/left-placement",
-          "percentage": 0.05488169093604897,
+          "percentage": 0.05418486873657626,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
@@ -9250,7 +9250,7 @@
         {
           "status": "fail",
           "name": "IcTooltip.cy.tsx/left-placement-end",
-          "percentage": 0.03006659275674582,
+          "percentage": 0.028705400188814647,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
@@ -9338,7 +9338,7 @@
         {
           "status": "fail",
           "name": "IcTooltip.cy.tsx/left-placement-high-contrast",
-          "percentage": 0.06371812928829595,
+          "percentage": 0.0627375485654325,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
@@ -10032,9 +10032,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-11T14:18:58.754Z",
-  "endedAt": "2026-02-11T14:59:10.878Z",
-  "duration": 2314295,
+  "startedAt": "2026-02-12T15:26:09.141Z",
+  "endedAt": "2026-02-12T16:06:52.417Z",
+  "duration": 2339392,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
