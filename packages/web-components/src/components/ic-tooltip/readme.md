@@ -51,6 +51,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [ic-button](../ic-button)
+ - [ic-card-vertical](../ic-card-vertical)
  - [ic-chip](../ic-chip)
  - [ic-data-table](../../../../canary-web-components/src/components/ic-data-table)
  - [ic-navigation-item](../ic-navigation-item)
@@ -59,15 +60,18 @@ Type: `Promise<void>`
  - [ic-tree-item](../../../../canary-web-components/src/components/ic-tree-item)
  - [ic-tree-view](../../../../canary-web-components/src/components/ic-tree-view)
 
+
 ### Depends on
 
 - [ic-typography](../ic-typography)
+
 
 ### Graph
 ```mermaid
 graph TD;
   ic-tooltip --> ic-typography
   ic-button --> ic-tooltip
+  ic-card-vertical --> ic-tooltip
   ic-chip --> ic-tooltip
   ic-data-table --> ic-tooltip
   ic-navigation-item --> ic-tooltip

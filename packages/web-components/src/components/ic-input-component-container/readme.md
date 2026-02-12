@@ -49,14 +49,17 @@
 ### Used by
 
  - [ic-date-input](../../../../canary-web-components/src/components/ic-date-input)
+ - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
  - [ic-text-field](../ic-text-field)
  - [ic-time-input](../../../../canary-web-components/src/components/ic-time-input)
+
 
 ### Graph
 ```mermaid
 graph TD;
   ic-date-input --> ic-input-component-container
+  ic-search-bar --> ic-input-component-container
   ic-select --> ic-input-component-container
   ic-text-field --> ic-input-component-container
   ic-time-input --> ic-input-component-container

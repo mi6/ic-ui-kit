@@ -94,25 +94,27 @@ Type: `Promise<void>`
 
  - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
 
+
 ### Depends on
 
+- [ic-input-component-container](../ic-input-component-container)
 - [ic-input-container](../ic-input-container)
 - [ic-input-label](../ic-input-label)
-- [ic-input-component-container](../ic-input-component-container)
 - [ic-input-validation](../ic-input-validation)
 - [ic-typography](../ic-typography)
+
 
 ### Graph
 ```mermaid
 graph TD;
+  ic-text-field --> ic-input-component-container
   ic-text-field --> ic-input-container
   ic-text-field --> ic-input-label
-  ic-text-field --> ic-input-component-container
   ic-text-field --> ic-input-validation
   ic-text-field --> ic-typography
+  ic-pagination-bar --> ic-text-field
   ic-input-label --> ic-typography
   ic-input-validation --> ic-typography
-  ic-pagination-bar --> ic-text-field
   style ic-text-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
