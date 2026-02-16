@@ -177,7 +177,8 @@
     "chaud",
     "boisson",
     "préférée",
-    "AMPM"
+    "AMPM",
+    "GHSA"
   ],
   "dictionaries": [
     "npm",

@@ -6,6 +6,7 @@
     "audit:fix": "lerna-audit",
     "audit:update": "node update-audit.mjs",
     "audit-expiry": "node check-audit-expiry.mjs",
+    "audit:poll": "npm run --silent audit-expiry -- --json | npm run --silent audit:update -- --json",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build --scope=@ukic/web-components --scope=@ukic/fonts --scope=@ukic/docs --stream  && lerna run build --scope=@ukic/react --stream",
     "build:all": "npm run build && npm run build:canary",
