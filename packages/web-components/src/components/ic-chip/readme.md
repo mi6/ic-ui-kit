@@ -53,14 +53,15 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [ic-typography](../ic-typography)
 - [ic-tooltip](../ic-tooltip)
+- [ic-typography](../ic-typography)
+
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-chip --> ic-typography
   ic-chip --> ic-tooltip
+  ic-chip --> ic-typography
   ic-tooltip --> ic-typography
   style ic-chip fill:#f9f,stroke:#333,stroke-width:4px
 ```

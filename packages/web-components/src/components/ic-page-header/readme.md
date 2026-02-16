@@ -45,14 +45,18 @@
 
 ### Depends on
 
+- [ic-horizontal-scroll](../ic-horizontal-scroll)
 - [ic-section-container](../ic-section-container)
 - [ic-typography](../ic-typography)
+
 
 ### Graph
 ```mermaid
 graph TD;
+  ic-page-header --> ic-horizontal-scroll
   ic-page-header --> ic-section-container
   ic-page-header --> ic-typography
+  ic-horizontal-scroll --> ic-button
   style ic-page-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
