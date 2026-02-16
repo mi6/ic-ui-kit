@@ -415,6 +415,7 @@ const defaultArgs = {
   hideGroupLabel: false,
   indeterminate: false,
   label: "Checkbox label",
+  name: "checkbox-group",
   nativeIndeterminateBehaviour: false,
   required: false,
   size: "medium",
@@ -702,6 +703,31 @@ export const HelperText = {
   name: "Helper text",
 };
 
+export const SlottedGroupLabel = {
+  render: () => (
+    <>
+    <IcCheckboxGroup label="Coffee Extras" name="1" helperText="Helper text provided by prop">
+      <IcCheckbox value="valueName1" label="Sugar" />
+      <IcCheckbox value="valueName2" label="Milk" checked />
+      <IcCheckbox value="valueName3" label="Salt" disabled />
+    </IcCheckboxGroup>
+    <br />
+    <IcCheckboxGroup label="More coffee extras" name="2">
+      <IcTypography variant="caption" slot="label">
+        <span>
+          Slotted Label with a <IcLink href="#">helpful link to guidance</IcLink> and language tag example <span lang="fr">exemple de texte en français</span>
+        </span>
+      </IcTypography>
+      <IcCheckbox value="valueName1" label="Shortbread" />
+      <IcCheckbox value="valueName2" label="Scone" checked />
+      <IcCheckbox value="valueName3" label="Ham sandwich" disabled />
+    </IcCheckboxGroup>
+    </>
+  ),
+
+  name: "Slotted group label",
+};
+
 export const Validation = {
   render: () => (
     <IcCheckboxGroup
@@ -802,6 +828,7 @@ export const Playground = {
         size={args.size}
         helperText={args.helperText}
         hideLabel={args.hideGroupLabel}
+        name={args.name}
         required={args.required}
         validationAriaLive={args.validationAriaLive}
         validationStatus={args.validationStatus === "no status" ? "" : args.validationStatus}
