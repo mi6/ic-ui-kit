@@ -3,6 +3,7 @@ import {
   IcButton,
   IcCheckbox,
   IcCheckboxGroup,
+  IcLink,
   IcTextField,
   IcTypography,
 } from "../../components";
@@ -137,6 +138,23 @@ export const SlottedLabel = () => {
           </p>
         </span>
       </IcCheckbox>
+    </IcCheckboxGroup>
+  );
+};
+
+export const SlottedGroupLabel = () => {
+  return (
+    <IcCheckboxGroup label="More coffee extras" name="2">
+      <IcTypography variant="caption" slot="label">
+        <span>
+          Slotted Label with a{" "}
+          <IcLink href="#">helpful link to guidance</IcLink> and language tag
+          example <span lang="fr">exemple de texte en français</span>
+        </span>
+      </IcTypography>
+      <IcCheckbox value="valueName1" label="Shortbread" />
+      <IcCheckbox value="valueName2" label="Scone" checked />
+      <IcCheckbox value="valueName3" label="Ham sandwich" disabled />
     </IcCheckboxGroup>
   );
 };
