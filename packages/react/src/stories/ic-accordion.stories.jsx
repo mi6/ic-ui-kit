@@ -508,6 +508,28 @@ export const SlottedHeadings = {
   name: "Slotted headings",
 };
 
+export const SlottedAccessibleButtonLabel = {
+  render: () => (
+    <IcAccordionGroup label="Title of the Accordion Group">
+      <span slot="accessibleButtonLabel"> 
+        This is the accessible button label for screen readers
+      </span>
+      <IcAccordion heading="Accordion 1">
+        <IcTypography variant="body">
+          This is an example of the main body text.
+        </IcTypography>
+      </IcAccordion>
+      <IcAccordion heading="Accordion 2">
+        <IcTypography variant="body">
+          This is an example of the main body text.
+        </IcTypography>
+      </IcAccordion>
+    </IcAccordionGroup>
+  ),
+
+  name: "Slotted accessible button label",
+};
+
 export const Playground = {
   render: (args) => (
     <IcAccordionGroup
