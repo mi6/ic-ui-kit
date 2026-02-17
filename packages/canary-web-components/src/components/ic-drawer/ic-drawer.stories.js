@@ -211,7 +211,7 @@ export const ContainedWithinParent = {
   name: "Contained within parent",
 };
 
-export const ManualTrigger = {
+export const ControlledTrigger = {
   render: () => html`<div style="margin: 16px; display: flex; gap: 16px;">
       <ic-button onclick="toggleDrawer('right')">Toggle right drawer</ic-button>
       <ic-button onclick="toggleDrawer('left')">Toggle left drawer</ic-button>
@@ -305,10 +305,10 @@ export const ManualTrigger = {
         drawer.addEventListener("icDrawerExpanded", handleDrawerExpanded);
       });
     </script>`,
-  name: "Manual trigger",
+  name: "Controlled trigger",
 };
 
-export const ManualTriggerContainedWithinParent = {
+export const ControlledTriggerContainedWithinParent = {
   render: () => html`<div
       style="display: flex; flex-direction: column; height: 100vh;"
     >
@@ -418,7 +418,7 @@ export const ManualTriggerContainedWithinParent = {
         drawer.addEventListener("icDrawerExpanded", handleDrawerExpanded);
       });
     </script>`,
-  name: "Manual trigger - contained within parent",
+  name: "Controlled trigger - contained within parent",
 };
 
 export const Small = {
