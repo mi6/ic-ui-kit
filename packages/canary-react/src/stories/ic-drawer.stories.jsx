@@ -220,7 +220,7 @@ export const ContainedWithinParent = {
   name: "Contained within parent",
 };
 
-export const ManualTrigger = {
+export const ControlledTrigger = {
   render: () => {
     const toggleDrawer = (position) => {
       const drawer = document.querySelector(`#drawer-${position}`);
@@ -297,10 +297,10 @@ export const ManualTrigger = {
       </>
     )
   },
-  name: "Manual trigger",
+  name: "Controlled trigger",
 };
 
-export const ManualTriggerContainedWithinParent = {
+export const ControlledTriggerContainedWithinParent = {
   render: () => {
     const toggleDrawer = (position) => {
       const drawer = document.querySelector(`#drawer-${position}`);
@@ -385,7 +385,7 @@ export const ManualTriggerContainedWithinParent = {
       </div>
     )
   },
-  name: "Manual trigger - contained within parent",
+  name: "Controlled trigger - contained within parent",
 };
 
 export const Small = {
