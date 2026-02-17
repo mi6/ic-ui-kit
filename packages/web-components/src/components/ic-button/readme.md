@@ -92,6 +92,7 @@ Type: `Promise<void>`
  - [ic-data-table](../../../../canary-web-components/src/components/ic-data-table)
  - [ic-date-input](../../../../canary-web-components/src/components/ic-date-input)
  - [ic-dialog](../ic-dialog)
+ - [ic-drawer](../../../../canary-web-components/src/components/ic-drawer)
  - [ic-horizontal-scroll](../ic-horizontal-scroll)
  - [ic-menu](../ic-menu)
  - [ic-menu-item](../ic-menu-item)
@@ -129,6 +130,7 @@ graph TD;
   ic-data-table --> ic-button
   ic-date-input --> ic-button
   ic-dialog --> ic-button
+  ic-drawer --> ic-button
   ic-horizontal-scroll --> ic-button
   ic-menu --> ic-button
   ic-menu-item --> ic-button

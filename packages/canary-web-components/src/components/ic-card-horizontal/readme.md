@@ -1,4 +1,4 @@
-# ic-horizontal-card
+# ic-card-horizontal
 
 
 

@@ -1036,6 +1036,7 @@ export const DisableWidthConstraint = {
 };
 
 export const ShowHideInteractiveElements = {
+  // Delay with second button prevents false positive by ensuring the two slot updates happen at separate times
   render: () => html`
     <script>
       function showShowHideContentDialog() {
@@ -1077,8 +1078,8 @@ export const ShowHideInteractiveElements = {
       <ic-typography>
         Demonstrates changes to slotted elements happening after first load.
         <br />
-        The button which is a child of an existing slotted element will update
-        after a 2s delay.
+        The button which is a child of an already rendered slotted
+        <code>${`<div>`}</code> will show / hide after a 2s delay.
       </ic-typography>
       <br />
       <ic-button class="show">Show</ic-button>

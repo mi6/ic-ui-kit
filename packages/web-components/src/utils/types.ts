@@ -235,3 +235,5 @@ export type IcAriaLive = "polite" | "assertive" | "off";
 
 // Includes 'default' option for when the aria-live value is handled within a component
 export type IcValidationAriaLive = "default" | "polite" | "assertive" | "off";
+
+export type IcPosition = "top" | "right" | "bottom" | "left";
