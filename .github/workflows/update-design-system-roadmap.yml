@@ -1,0 +1,20 @@
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  ic-ui-kit-update-roadmap-design-system:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'develop'
+    name: "Trigger design system update roadmap workflow"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 #v3.0.0
+        with:
+          token: ${{ secrets.PUBLISH_PAT }}
+          repository: mi6/ic-design-system
+          event-type: design-system-roadmap-update
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
