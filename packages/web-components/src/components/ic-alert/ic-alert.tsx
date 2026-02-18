@@ -258,9 +258,9 @@ export class Alert {
                   innerHTML={closeIcon}
                   onClick={dismissAction}
                   variant="icon-tertiary"
-                  theme="dark"
+                  {...(theme !== "inherit" ? { theme } : {})}
                   title={dismissLabel}
-                ></ic-button>
+                />
               )}
             </div>
           </div>

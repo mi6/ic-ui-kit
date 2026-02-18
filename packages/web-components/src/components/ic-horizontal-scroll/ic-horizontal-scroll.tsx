@@ -230,6 +230,9 @@ export class HorizontalScroll {
   render() {
     const { firstItemVisible, lastItemVisible, itemOverflow } = this;
 
+    const buttonTheme =
+      this.theme === "light" || this.theme === "dark" ? this.theme : undefined;
+
     return (
       <Host
         class={{
@@ -254,11 +257,7 @@ export class HorizontalScroll {
             class="scroll-arrow"
             variant="icon-tertiary"
             aria-label="Scroll left"
-            theme={
-              this.theme === "light" || this.theme === "inherit"
-                ? "dark"
-                : "light"
-            }
+            {...(buttonTheme ? { theme: buttonTheme } : {})}
             monochrome={this.monochrome}
             innerHTML={LeftArrow}
             disabled={firstItemVisible}
@@ -283,11 +282,7 @@ export class HorizontalScroll {
             class="scroll-arrow"
             variant="icon-tertiary"
             aria-label="Scroll right"
-            theme={
-              this.theme === "light" || this.theme === "inherit"
-                ? "dark"
-                : "light"
-            }
+            {...(buttonTheme ? { theme: buttonTheme } : {})}
             monochrome={this.monochrome}
             innerHTML={RightArrow}
             disabled={lastItemVisible}

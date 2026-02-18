@@ -674,7 +674,7 @@ export class SideNavigation {
       <div
         class={{
           "top-bar": true,
-          [this.foregroundColor]: true,
+          [foregroundColor]: true,
         }}
       >
         {isSDevice && (
@@ -690,9 +690,9 @@ export class SideNavigation {
               size="small"
               full-width="true"
               theme={
-                foregroundColor == "default" || foregroundColor == "light"
-                  ? "light"
-                  : "dark"
+                foregroundColor === "default" || foregroundColor === "light"
+                  ? "dark"
+                  : "light"
               }
               monochrome
               onClick={this.toggleMenu}

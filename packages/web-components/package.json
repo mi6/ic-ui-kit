@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
-    "@stencil/core": "^4.26.0",
+    "@stencil/core": "^4.41.1",
     "dompurify": "^3.2.6"
   },
   "devDependencies": {

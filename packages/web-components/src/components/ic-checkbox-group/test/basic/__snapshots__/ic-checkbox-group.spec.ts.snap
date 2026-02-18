@@ -14,7 +14,7 @@ exports[`ic-checkbox-group should not have a validation status if disabled: no-v
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-disabled ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -46,7 +46,7 @@ exports[`ic-checkbox-group should pass down disabled state to child checkboxes: 
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-disabled ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -59,7 +59,7 @@ exports[`ic-checkbox-group should pass down disabled state to child checkboxes: 
     </template>
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-disabled ic-checkbox-medium" label="test label" value="test2">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test2">
         <ic-typography class="checkbox-label" variant="body">
@@ -91,7 +91,7 @@ exports[`ic-checkbox-group should pass the size on the checkbox group to the chi
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-small" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -104,7 +104,7 @@ exports[`ic-checkbox-group should pass the size on the checkbox group to the chi
     </template>
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-small" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -136,7 +136,7 @@ exports[`ic-checkbox-group should prioritise the size on an individual checkbox 
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-large" id="large-checkbox" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -149,7 +149,7 @@ exports[`ic-checkbox-group should prioritise the size on an individual checkbox 
     </template>
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-small" id="small-checkbox" label="test label" size="small" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -181,7 +181,7 @@ exports[`ic-checkbox-group should render an aria label when checkbox label hidde
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" hide-label="" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input aria-label="test label" class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
       </div>
@@ -205,7 +205,7 @@ exports[`ic-checkbox-group should render an aria label when group label hidden: 
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -237,7 +237,7 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -272,7 +272,7 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -304,7 +304,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
@@ -343,7 +343,7 @@ exports[`ic-checkbox-group should render in a disabled state: disabled-removed 1
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -375,7 +375,7 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-disabled ic-checkbox-medium" disabled="" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -407,7 +407,7 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" indeterminate="" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <div class="indeterminate-symbol"></div>
         <input checked="" class="checkbox checked indeterminate" id="ic-checkbox-test-label-test-label" indeterminate="" name="test" role="checkbox" type="checkbox" value="test">
@@ -438,7 +438,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
     <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -472,7 +472,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
     </ic-text-field>
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test2">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test2">
         <ic-typography class="checkbox-label" variant="body">
@@ -538,7 +538,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
     <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="dynamic" checked="" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
@@ -603,7 +603,7 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
     <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="dynamic" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -660,7 +660,7 @@ exports[`ic-checkbox-group should render with slotted checkbox label: renders-wi
     <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="Americano" value="valueName1">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-Americano-test-checkbox-group" role="checkbox" type="checkbox" value="valueName1">
         <ic-typography class="checkbox-label" variant="body">
@@ -673,7 +673,7 @@ exports[`ic-checkbox-group should render with slotted checkbox label: renders-wi
     </template>
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" value="valueName2">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
@@ -692,7 +692,7 @@ exports[`ic-checkbox-group should render with slotted checkbox label: renders-wi
     </span>
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" value="valueName3">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
@@ -728,7 +728,7 @@ exports[`ic-checkbox-group should render with validation status: renders-with-va
     <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="error message" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -757,7 +757,7 @@ exports[`ic-checkbox-group should render with validation-aria-live: renders-with
     <ic-input-validation arialivemode="assertive" class="show-validation" for="test" message="error message" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -789,7 +789,7 @@ exports[`ic-checkbox-group should render: renders 1`] = `
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -818,7 +818,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
     <ic-input-validation arialivemode="polite" class="show-validation" for="test" message="" status="error"></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
@@ -859,7 +859,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
     <input class="ic-input" name="test" type="hidden" value="test">
   </ic-checkbox>
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" label="test label" value="test2">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
@@ -920,7 +920,7 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
 
 exports[`ic-checkbox-group should test checkbox option as submit on form 1`] = `
 <ic-checkbox additional-field-display="static" form="new-form" id="ic-checkbox" label="IC Checkbox Test" selected="" value="test-value">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <div class="container">
       <input class="checkbox" form="new-form" id="ic-checkbox-IC-Checkbox-Test-undefined" role="checkbox" type="checkbox" value="test-value">
       <ic-typography class="checkbox-label" variant="body">
@@ -951,7 +951,7 @@ exports[`ic-checkbox-group should test labelNameHandler 1`] = `
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
@@ -983,7 +983,7 @@ exports[`ic-checkbox-group should test labelNameHandler 2`] = `
     <ic-input-validation arialivemode="polite" for="test" message="" status=""></ic-input-validation>
   </template>
   <ic-checkbox additional-field-display="static" class="ic-checkbox-medium" label="test label" value="test">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-new-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography class="checkbox-label" variant="body">
