@@ -1,0 +1,864 @@
+import{x as e}from"./lit-html-CWQq0DyO.js";const u={accessibleLabel:"",disabled:!1,fullWidth:!1,iconPlacement:"left",loading:!1,monochrome:!1,outline:!0,selectMethod:"manual",selectType:"single",size:"medium",theme:"inherit",variant:"default",toggleAccessibleLabel:"",toggleDisabled:!1,toggleFullWidth:!1,toggleIconPlacement:"left",toggleLabel:"Custom Toggle",toggleLoading:!1,toggleMonochrome:!1,toggleSize:"medium",toggleTheme:"inherit",toggleChecked:!1,toggleVariant:"default"},s={title:"Web Components/Toggle button group",component:"ic-toggle-button-group"},l={render:()=>e`
+    <ic-typography>Single and manual</ic-typography>
+    <ic-toggle-button-group
+      select-type="single"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Single and auto</ic-typography>
+    <ic-toggle-button-group
+      select-method="auto"
+      accessible-label="Single and auto select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Multi and manual</ic-typography>
+    <ic-toggle-button-group
+      select-type="multi"
+      accessible-label="Multi and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+  `,name:"Select type"},g={render:()=>e`
+    <ic-typography>Default</ic-typography>
+    <ic-toggle-button-group
+      label="Label for single and manual"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Small</ic-typography>
+    <ic-toggle-button-group
+      size="small"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Large</ic-typography>
+    <ic-toggle-button-group
+      size="large"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Full width</ic-typography>
+    <ic-toggle-button-group
+      full-width="true"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Custom width</ic-typography>
+    <ic-toggle-button-group
+      style="width: 75%;"
+      label="Label for single and manual"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button
+        label="First toggle"
+        class="expand-toggle-group-child"
+      ></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Large label</ic-typography>
+    <ic-toggle-button-group
+      style="width: 40%;"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="Toggle"></ic-toggle-button>
+      <ic-toggle-button
+        label="Toggle with a very very long label"
+      ></ic-toggle-button>
+    </ic-toggle-button-group>
+  `,name:"Sizes"},n={render:()=>e`<ic-toggle-button-group
+      monochrome="true"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>`,name:"Monochrome"},i={render:()=>e`<ic-typography>Disabled</ic-typography>
+      <ic-toggle-button-group
+        disabled="true"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+      </ic-toggle-button-group>`,name:"Disabled"},c={render:()=>e`<ic-toggle-button-group
+        loading="true"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <ic-toggle-button-group
+        loading="true"
+        monochrome="true"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+      </ic-toggle-button-group> `,name:"Loading"},a={render:()=>e`<ic-typography>Icon only</ic-typography>
+      <ic-toggle-button-group
+        variant="icon"
+        accessible-label="A group of buttons"
+      >
+        <ic-toggle-button accessible-label="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button accessible-label="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <span>Tooltip placement</span>
+      <ic-toggle-button-group
+        variant="icon"
+        accessible-label="A group of buttons"
+        tooltip-placement="right"
+      >
+        <ic-toggle-button variant="icon" accessible-label="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button variant="icon" accessible-label="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <span>Icon right</span>
+      <ic-toggle-button-group
+        icon-placement="right"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <ic-typography>Icon top</ic-typography>
+      <ic-toggle-button-group
+        icon-placement="top"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <ic-typography>Icon left</ic-typography>
+      <ic-toggle-button-group
+        icon-placement="left"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group> `,name:"With icons"},b={render:()=>e`<ic-toggle-button-group
+      select-type="single"
+      accessible-label="Hide outline toggle group"
+      outline="false"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>`,name:"Hide outline"},o="inline-radio",r={render:t=>e`<ic-toggle-button-group
+      accessible-label=${t.accessibleLabel}
+      disabled=${t.disabled}
+      full-width=${t.fullWidth}
+      icon-placement=${t.iconPlacement}
+      loading=${t.loading}
+      monochrome=${t.monochrome}
+      outline=${t.outline}
+      select-method=${t.selectMethod}
+      select-type=${t.selectType}
+      size=${t.size}
+      theme=${t.theme}
+      variant=${t.variant}
+    >
+      <ic-toggle-button
+        accessible-label=${t.toggleAccessibleLabel}
+        disabled=${t.toggleDisabled}
+        full-width=${t.toggleFullWidth}
+        icon-placement=${t.toggleIconPlacement}
+        label=${t.toggleLabel}
+        loading=${t.toggleLoading}
+        monochrome=${t.toggleMonochrome}
+        size=${t.toggleSize}
+        theme=${t.toggleTheme}
+        checked=${t.toggleChecked}
+        variant=${t.toggleVariant}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+          slot="icon"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+          />
+        </svg>
+      </ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>`,args:u,argTypes:{accessibleLabel:{control:{type:"text"}},disabled:{control:{type:"boolean"}},fullWidth:{control:{type:"boolean"}},iconPlacement:{options:["left","right","top"],control:{type:"radio"}},loading:{control:{type:"boolean"}},monochrome:{control:{type:"boolean"}},selectMethod:{options:["manual","auto"],control:{type:o}},selectType:{options:["single","multi"],control:{type:o}},size:{options:["medium","small","large"],control:{type:"radio"}},theme:{options:["inherit","light","dark"],control:{type:o}},variant:{options:["default","icon"],control:{type:o}},toggleAccessibleLabel:{control:{type:"text"}},toggleDisabled:{control:{type:"boolean"}},toggleFullWidth:{control:{type:"boolean"}},toggleIconPlacement:{options:["left","right","top"],control:{type:"radio"}},toggleLabel:{control:{type:"text"}},toggleLoading:{control:{type:"boolean"}},toggleMonochrome:{control:{type:"boolean"}},toggleSize:{options:["medium","small","large"],control:{type:"radio"}},toggleTheme:{options:["inherit","light","dark"],control:{type:o}},toggleChecked:{control:{type:"boolean"}},toggleVariant:{options:["default","icon"],control:{type:o}}},name:"Playground"};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+    <ic-typography>Single and manual</ic-typography>
+    <ic-toggle-button-group
+      select-type="single"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Single and auto</ic-typography>
+    <ic-toggle-button-group
+      select-method="auto"
+      accessible-label="Single and auto select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Multi and manual</ic-typography>
+    <ic-toggle-button-group
+      select-type="multi"
+      accessible-label="Multi and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+  \`,
+  name: "Select type"
+}`,...l.parameters?.docs?.source}}};g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+    <ic-typography>Default</ic-typography>
+    <ic-toggle-button-group
+      label="Label for single and manual"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Small</ic-typography>
+    <ic-toggle-button-group
+      size="small"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Large</ic-typography>
+    <ic-toggle-button-group
+      size="large"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Full width</ic-typography>
+    <ic-toggle-button-group
+      full-width="true"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Custom width</ic-typography>
+    <ic-toggle-button-group
+      style="width: 75%;"
+      label="Label for single and manual"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button
+        label="First toggle"
+        class="expand-toggle-group-child"
+      ></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>
+    <br />
+    <ic-typography>Large label</ic-typography>
+    <ic-toggle-button-group
+      style="width: 40%;"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="Toggle"></ic-toggle-button>
+      <ic-toggle-button
+        label="Toggle with a very very long label"
+      ></ic-toggle-button>
+    </ic-toggle-button-group>
+  \`,
+  name: "Sizes"
+}`,...g.parameters?.docs?.source}}};n.parameters={...n.parameters,docs:{...n.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-toggle-button-group
+      monochrome="true"
+      accessible-label="Single and manual select toggle group"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>\`,
+  name: "Monochrome"
+}`,...n.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-typography>Disabled</ic-typography>
+      <ic-toggle-button-group
+        disabled="true"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+      </ic-toggle-button-group>\`,
+  name: "Disabled"
+}`,...i.parameters?.docs?.source}}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-toggle-button-group
+        loading="true"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <ic-toggle-button-group
+        loading="true"
+        monochrome="true"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+      </ic-toggle-button-group> \`,
+  name: "Loading"
+}`,...c.parameters?.docs?.source}}};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-typography>Icon only</ic-typography>
+      <ic-toggle-button-group
+        variant="icon"
+        accessible-label="A group of buttons"
+      >
+        <ic-toggle-button accessible-label="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button accessible-label="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <span>Tooltip placement</span>
+      <ic-toggle-button-group
+        variant="icon"
+        accessible-label="A group of buttons"
+        tooltip-placement="right"
+      >
+        <ic-toggle-button variant="icon" accessible-label="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button variant="icon" accessible-label="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <span>Icon right</span>
+      <ic-toggle-button-group
+        icon-placement="right"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <ic-typography>Icon top</ic-typography>
+      <ic-toggle-button-group
+        icon-placement="top"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group>
+      <br />
+      <ic-typography>Icon left</ic-typography>
+      <ic-toggle-button-group
+        icon-placement="left"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button label="Toggle">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </ic-toggle-button-group> \`,
+  name: "With icons"
+}`,...a.parameters?.docs?.source}}};b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-toggle-button-group
+      select-type="single"
+      accessible-label="Hide outline toggle group"
+      outline="false"
+    >
+      <ic-toggle-button label="First toggle"></ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>\`,
+  name: "Hide outline"
+}`,...b.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  render: args => html\`<ic-toggle-button-group
+      accessible-label=\${args.accessibleLabel}
+      disabled=\${args.disabled}
+      full-width=\${args.fullWidth}
+      icon-placement=\${args.iconPlacement}
+      loading=\${args.loading}
+      monochrome=\${args.monochrome}
+      outline=\${args.outline}
+      select-method=\${args.selectMethod}
+      select-type=\${args.selectType}
+      size=\${args.size}
+      theme=\${args.theme}
+      variant=\${args.variant}
+    >
+      <ic-toggle-button
+        accessible-label=\${args.toggleAccessibleLabel}
+        disabled=\${args.toggleDisabled}
+        full-width=\${args.toggleFullWidth}
+        icon-placement=\${args.toggleIconPlacement}
+        label=\${args.toggleLabel}
+        loading=\${args.toggleLoading}
+        monochrome=\${args.toggleMonochrome}
+        size=\${args.toggleSize}
+        theme=\${args.toggleTheme}
+        checked=\${args.toggleChecked}
+        variant=\${args.toggleVariant}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+          slot="icon"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+          />
+        </svg>
+      </ic-toggle-button>
+      <ic-toggle-button label="Second toggle"></ic-toggle-button>
+      <ic-toggle-button label="Third toggle"></ic-toggle-button>
+    </ic-toggle-button-group>\`,
+  args: defaultArgs,
+  argTypes: {
+    accessibleLabel: {
+      control: {
+        type: "text"
+      }
+    },
+    disabled: {
+      control: {
+        type: "boolean"
+      }
+    },
+    fullWidth: {
+      control: {
+        type: "boolean"
+      }
+    },
+    iconPlacement: {
+      options: ["left", "right", "top"],
+      control: {
+        type: "radio"
+      }
+    },
+    loading: {
+      control: {
+        type: "boolean"
+      }
+    },
+    monochrome: {
+      control: {
+        type: "boolean"
+      }
+    },
+    selectMethod: {
+      options: ["manual", "auto"],
+      control: {
+        type: inlineRadioSelector
+      }
+    },
+    selectType: {
+      options: ["single", "multi"],
+      control: {
+        type: inlineRadioSelector
+      }
+    },
+    size: {
+      options: ["medium", "small", "large"],
+      control: {
+        type: "radio"
+      }
+    },
+    theme: {
+      options: ["inherit", "light", "dark"],
+      control: {
+        type: inlineRadioSelector
+      }
+    },
+    variant: {
+      options: ["default", "icon"],
+      control: {
+        type: inlineRadioSelector
+      }
+    },
+    toggleAccessibleLabel: {
+      control: {
+        type: "text"
+      }
+    },
+    toggleDisabled: {
+      control: {
+        type: "boolean"
+      }
+    },
+    toggleFullWidth: {
+      control: {
+        type: "boolean"
+      }
+    },
+    toggleIconPlacement: {
+      options: ["left", "right", "top"],
+      control: {
+        type: "radio"
+      }
+    },
+    toggleLabel: {
+      control: {
+        type: "text"
+      }
+    },
+    toggleLoading: {
+      control: {
+        type: "boolean"
+      }
+    },
+    toggleMonochrome: {
+      control: {
+        type: "boolean"
+      }
+    },
+    toggleSize: {
+      options: ["medium", "small", "large"],
+      control: {
+        type: "radio"
+      }
+    },
+    toggleTheme: {
+      options: ["inherit", "light", "dark"],
+      control: {
+        type: inlineRadioSelector
+      }
+    },
+    toggleChecked: {
+      control: {
+        type: "boolean"
+      }
+    },
+    toggleVariant: {
+      options: ["default", "icon"],
+      control: {
+        type: inlineRadioSelector
+      }
+    }
+  },
+  name: "Playground"
+}`,...r.parameters?.docs?.source}}};const p=["SelectType","Sizes","Monochrome","Disabled","Loading","WithIcons","HideOutline","Playground"],d=Object.freeze(Object.defineProperty({__proto__:null,Disabled:i,HideOutline:b,Loading:c,Monochrome:n,Playground:r,SelectType:l,Sizes:g,WithIcons:a,__namedExportsOrder:p,default:s},Symbol.toStringTag,{value:"Module"}));export{d as I};
