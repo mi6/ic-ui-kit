@@ -102,6 +102,37 @@ exports[`ic-text-field should render with a custom min characters message: rende
 </ic-text-field>
 `;
 
+exports[`ic-text-field should render with aria-describedby set to the correct order: renders-with-validation-aria-live 1`] = `
+<ic-text-field helper-text="Test helper text" label="Test label" max-characters="2" validation-status="error" validation-text="Test error" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-23" helpertext="Test helper text" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="error">
+        <input aria-describedby="ic-text-field-input-23-helper-text ic-text-field-input-23-validation-text ic-text-field-input-23-char-count-desc" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-23" inputmode="text" name="ic-text-field-input-23" placeholder="" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-23" message="Test error" status="error">
+        <div slot="validation-message-adornment">
+          <ic-typography class="char-count-text" variant="caption">
+            <span class="char-count">
+              0/2
+            </span>
+          </ic-typography>
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-23-remaining-char-count-desc">
+            2 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-23-char-count-desc">
+            Field can contain a maximum of 2 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-23" type="hidden" value="">
+</ic-text-field>
+`;
+
 exports[`ic-text-field should render with autoprops: renders-with-autoprops 1`] = `
 <ic-text-field autocapitalize="on" autocomplete="on" autocorrect="on" label="Test label" value="test value">
   <template shadowrootmode="open">
@@ -452,37 +483,6 @@ exports[`ic-text-field should render with warning validation: renders-with-warni
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-18" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with aria-describedby set to the correct order: renders-with-validation-aria-live 1`] = `
-<ic-text-field helper-text="Test helper text" label="Test label" max-characters="2" validation-status="error" validation-text="Test error" value="">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-23" helpertext="Test helper text" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-23-helper-text ic-text-field-input-23-validation-text ic-text-field-input-23-char-count-desc" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-23" inputmode="text" name="ic-text-field-input-23" placeholder="" type="text" value="">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-23" message="Test error" status="error">
-        <div slot="validation-message-adornment">
-          <ic-typography class="char-count-text" variant="caption">
-            <span class="char-count">
-              0/2
-            </span>
-          </ic-typography>
-          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-23-remaining-char-count-desc">
-            2 characters remaining.
-          </span>
-          <span hidden="" id="ic-text-field-input-23-char-count-desc">
-            Field can contain a maximum of 2 characters.
-          </span>
-        </div>
-      </ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-23" type="hidden" value="">
 </ic-text-field>
 `;
 

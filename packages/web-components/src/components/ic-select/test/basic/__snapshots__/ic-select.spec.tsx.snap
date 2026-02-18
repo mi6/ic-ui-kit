@@ -2,7 +2,7 @@
 
 exports[`ic-select multi should not render a native select on a mobile / tablet screen 1`] = `
 <ic-select label="IC Select Test" multiple="true">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-71" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -64,7 +64,7 @@ exports[`ic-select multi should not render a native select on a mobile / tablet 
             </p>
           </ic-typography>
           <ic-button class="ic-button-size-medium ic-button-variant-tertiary select-all-button" exportparts="button">
-            <template shadowrootmode="open">
+            <template shadowrootmode="open" shadowrootdelegatesfocus>
               <button aria-label="Select all options for IC Select Test" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
@@ -82,7 +82,7 @@ exports[`ic-select multi should not render a native select on a mobile / tablet 
 
 exports[`ic-select multi should test keydown on menu - arrow down, up, and enter 1`] = `
 <ic-select label="IC Select Test" multiple="true">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-74" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -147,7 +147,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
             </p>
           </ic-typography>
           <ic-button class="ic-button-size-medium ic-button-variant-tertiary select-all-button" exportparts="button">
-            <template shadowrootmode="open">
+            <template shadowrootmode="open" shadowrootdelegatesfocus>
               <button aria-label="Select all options for IC Select Test" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
@@ -165,7 +165,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 
 exports[`ic-select multi should test keydown on menu - arrow down, up, and enter 2`] = `
 <ic-select label="IC Select Test" multiple="true">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-74" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -233,7 +233,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
             </p>
           </ic-typography>
           <ic-button class="ic-button-size-medium ic-button-variant-tertiary select-all-button" exportparts="button">
-            <template shadowrootmode="open">
+            <template shadowrootmode="open" shadowrootdelegatesfocus>
               <button aria-label="Select all options for IC Select Test" class="button" part="button" tabindex="0" type="button">
                 <slot></slot>
               </button>
@@ -251,7 +251,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 
 exports[`ic-select native should test native select with groups: native-select-with-groups 1`] = `
 <ic-select label="New label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-25" helpertext="" label="New label">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -288,7 +288,7 @@ exports[`ic-select native should test native select with groups: native-select-w
 
 exports[`ic-select native should test native select: native-select 1`] = `
 <ic-select label="New label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-24" helpertext="" label="New label">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -318,7 +318,7 @@ exports[`ic-select native should test native select: native-select 1`] = `
 
 exports[`ic-select searchable should render as required: required-searchable 1`] = `
 <ic-select class="ic-select-searchable" label="IC Select Test" required="true" searchable="true">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-28" helpertext="" label="IC Select Test" required="">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -357,7 +357,7 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
 
 exports[`ic-select searchable should render disabled: disabled-removed 1`] = `
 <ic-select class="ic-select-searchable" label="IC Select Test" searchable="true">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-69" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -396,7 +396,7 @@ exports[`ic-select searchable should render disabled: disabled-removed 1`] = `
 
 exports[`ic-select searchable should render disabled: renders-disabled 1`] = `
 <ic-select class="ic-select-disabled ic-select-searchable" disabled="" label="IC Select Test" searchable="true">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label disabled="" for="ic-select-input-69" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -435,7 +435,7 @@ exports[`ic-select searchable should render disabled: renders-disabled 1`] = `
 
 exports[`ic-select should have correct validation status: with-validation-status-error 1`] = `
 <ic-select label="IC Select Test" validation-status="error">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-4" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -480,7 +480,7 @@ exports[`ic-select should have correct validation status: with-validation-status
 
 exports[`ic-select should not have a validation status if disabled: no-validation-status-if-disabled 1`] = `
 <ic-select class="ic-select-disabled" disabled="" label="IC Select Test" validation-status="error">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label disabled="" for="ic-select-input-5" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -525,7 +525,7 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
 
 exports[`ic-select should not render a label when the 'hide-label' prop is supplied: hide-label-set 1`] = `
 <ic-select hide-label="" label="IC Select Test">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-component-container class="ic-input-component-container-medium">
         <!---->
@@ -567,7 +567,7 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
 
 exports[`ic-select should not render validation text if no validation status has been supplied: no-validation-text-if-no-status 1`] = `
 <ic-select label="IC Select Test" validation-text="Test validation text">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-7" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -612,7 +612,7 @@ exports[`ic-select should not render validation text if no validation status has
 
 exports[`ic-select should render correct validation text: with-validation-text 1`] = `
 <ic-select label="IC Select Test" validation-status="error" validation-text="Test validation text">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-6" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -657,7 +657,7 @@ exports[`ic-select should render correct validation text: with-validation-text 1
 
 exports[`ic-select should render readonly: readonly 1`] = `
 <ic-select label="IC Select Test" readonly="true">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container readonly="">
       <ic-input-label for="ic-select-input-2" helpertext="" label="IC Select Test" readonly="">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -692,7 +692,7 @@ exports[`ic-select should render readonly: readonly 1`] = `
 
 exports[`ic-select should render with an icon: with-icon 1`] = `
 <ic-select label="IC Select Test">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-3" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -746,7 +746,7 @@ exports[`ic-select should render with an icon: with-icon 1`] = `
 
 exports[`ic-select should render with validation-aria-live: renders-with-validation-aria-live 1`] = `
 <ic-select label="IC Select Test" validation-aria-live="assertive">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-8" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -791,7 +791,7 @@ exports[`ic-select should render with validation-aria-live: renders-with-validat
 
 exports[`ic-select should test select as submit on form 1`] = `
 <ic-select form="new-form" id="ic-select" label="IC Select Test" value="test-value">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-1" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -836,7 +836,7 @@ exports[`ic-select should test select as submit on form 1`] = `
 
 exports[`ic-select should test with clear button: with-clear-button 1`] = `
 <ic-select label="IC Select Test" show-clear-button="true" value="Test value 1">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label for="ic-select-input-9" helpertext="" label="IC Select Test">
         <slot name="helper-text" slot="helper-text"></slot>
@@ -857,7 +857,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
               </div>
             </button>
             <ic-button class="clear-button ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" id="clear-button">
-              <template shadowrootmode="open">
+              <template shadowrootmode="open" shadowrootdelegatesfocus>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear selection" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear selection" class="button" part="button" tabindex="0" type="button">
                     <slot></slot>
