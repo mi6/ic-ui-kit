@@ -19,16 +19,12 @@
 
 - [ic-horizontal-scroll](../ic-horizontal-scroll)
 
+
 ### Graph
 ```mermaid
 graph TD;
   ic-tab-group --> ic-horizontal-scroll
   ic-horizontal-scroll --> ic-button
-  ic-button --> ic-typography
-  ic-button --> ic-loading-indicator
-  ic-button --> ic-tooltip
-  ic-loading-indicator --> ic-typography
-  ic-tooltip --> ic-typography
   style ic-tab-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
