@@ -309,6 +309,8 @@ export enum IcWeekDays {
   Saturday = 6,
 }
 
+export type IcPosition = "top" | "right" | "bottom" | "left";
+
 export type IcPositionTopOrRight = "top" | "right";
 
 // Matches HTML aria-live attribute options

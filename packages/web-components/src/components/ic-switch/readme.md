@@ -56,6 +56,7 @@ Type: `Promise<void>`
 
 - [ic-input-label](../ic-input-label)
 
+
 ### Graph
 ```mermaid
 graph TD;

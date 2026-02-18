@@ -244,7 +244,30 @@ describe("ic-tooltip component", () => {
       .mockReturnValue({ host: { closest: () => dialog } });
 
     await page.rootInstance.componentDidLoad();
-    expect(page.rootInstance.dialogContentArea).toBe(contentArea);
+    expect(page.rootInstance.containerContentArea).toBe(contentArea);
+
+    await page.rootInstance.show(page.rootInstance.popperInstance);
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render correctly when in a drawer", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip label="tooltip"></ic-tooltip>`,
+    });
+
+    const drawer = document.createElement("ic-drawer");
+    const shadowRoot = drawer.attachShadow({ mode: "open" });
+    const contentArea = document.createElement("div");
+    contentArea.className = "content-area";
+    shadowRoot.appendChild(contentArea);
+
+    jest
+      .spyOn(page.root as any, "getRootNode")
+      .mockReturnValue({ host: { closest: () => drawer } });
+
+    await page.rootInstance.componentDidLoad();
+    expect(page.rootInstance.containerContentArea).toBe(contentArea);
 
     await page.rootInstance.show(page.rootInstance.popperInstance);
     expect(page.root).toMatchSnapshot();

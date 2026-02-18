@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.35...@ukic/canary-react@3.0.0-canary.36) (2026-02-18)
+
+### Bug Fixes
+
+- **canary-react:** updates tests to meet passing thresholds ([052a095](https://github.com/mi6/ic-ui-kit/commit/052a095ca52c7db7a90cd269f167bfe280932b17))
+
+### Features
+
+- **canary-react:** add React stories and Cypress tests for drawer component ([a99a81c](https://github.com/mi6/ic-ui-kit/commit/a99a81c7b568527dae23a25ab58f1a47a6890fb3)), closes [#750](https://github.com/mi6/ic-ui-kit/issues/750)
+
 # [3.0.0-canary.35](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.34...@ukic/canary-react@3.0.0-canary.35) (2026-02-04)
 
 ### Bug Fixes

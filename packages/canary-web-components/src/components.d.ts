@@ -5,43 +5,173 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive as IcAriaLive1, IcAutocompleteTypes, IcAutocorrectStates, IcBrand, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcMenuOption, IcMultiValueEventDetail, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "../../web-components/src/utils/types";
-import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "../../web-components/src/components/ic-badge/ic-badge.types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive as IcAriaLive1, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "../../web-components/src/utils/types";
 import { IcButtonTypes, IcButtonVariants } from "../../web-components/src/components/ic-button/ic-button.types";
-import { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes as IcSizes1, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
+import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "../../web-components/src/components/ic-badge/ic-badge.types";
+import { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcPositionTopOrRight, IcSizes as IcSizes1, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
+import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 import { IcEmptyStateAlignment } from "../../web-components/src/components/ic-empty-state/ic-empty-state.types";
+import { IcFooterBreakpoints } from "../../web-components/src/components/ic-footer/ic-footer.types";
 import { IcLoadingSizes, IcLoadingTypes } from "../../web-components/src/components/ic-loading-indicator/ic-loading-indicator.types";
-import { IcSearchBarSearchModes } from "../../web-components/src/components/ic-search-bar/ic-search-bar.types";
+import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "../../web-components/src/components/ic-search-bar/ic-search-bar.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "../../web-components/src/components/ic-menu/ic-menu.types";
 import { Options } from "@popperjs/core";
+import { IcMenuItemVariants } from "../../web-components/src/components/ic-menu-item/ic-menu-item.types";
 import { IcChangeEventDetail, IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "../../web-components/src/components/ic-pagination/ic-pagination.types";
 import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+import { IcChangeEventDetail as IcChangeEventDetail1 } from "../../web-components/src/components/ic-radio-group/ic-radio-group.types";
+import { IcExpandedDetail } from "../../web-components/src/components/ic-side-navigation/ic-side-navigation.types";
 import { IcStatusTagStatuses } from "../../web-components/src/components/ic-status-tag/ic-status-tag.types";
+import { IcSwitchChangeEventDetail } from "../../web-components/src/components/ic-switch/ic-switch.types";
+import { IcTabClickEventDetail, IcTabSelectEventDetail } from "../../web-components/src/components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldKeydownEventDetail, IcTextFieldTypes } from "../../web-components/src/components/ic-text-field/ic-text-field.types";
 import { IcTimePeriods } from "./components/ic-time-selector/ic-time-selector.types";
-import { IcChangeEventDetail as IcChangeEventDetail1 } from "../../web-components/src/components/ic-toggle-button-group/ic-toggle-button-group.types";
+import { IcChangeEventDetail as IcChangeEventDetail2 } from "../../web-components/src/components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "../../web-components/src/components/ic-tooltip/ic-tooltip.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive as IcAriaLive1, IcAutocompleteTypes, IcAutocorrectStates, IcBrand, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcMenuOption, IcMultiValueEventDetail, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "../../web-components/src/utils/types";
-export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "../../web-components/src/components/ic-badge/ic-badge.types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive as IcAriaLive1, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "../../web-components/src/utils/types";
 export { IcButtonTypes, IcButtonVariants } from "../../web-components/src/components/ic-button/ic-button.types";
-export { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPositionTopOrRight, IcSizes as IcSizes1, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
+export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "../../web-components/src/components/ic-badge/ic-badge.types";
+export { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcPositionTopOrRight, IcSizes as IcSizes1, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
+export { IcDrawerBoundary, IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 export { IcEmptyStateAlignment } from "../../web-components/src/components/ic-empty-state/ic-empty-state.types";
+export { IcFooterBreakpoints } from "../../web-components/src/components/ic-footer/ic-footer.types";
 export { IcLoadingSizes, IcLoadingTypes } from "../../web-components/src/components/ic-loading-indicator/ic-loading-indicator.types";
-export { IcSearchBarSearchModes } from "../../web-components/src/components/ic-search-bar/ic-search-bar.types";
+export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "../../web-components/src/components/ic-search-bar/ic-search-bar.types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "../../web-components/src/components/ic-menu/ic-menu.types";
 export { Options } from "@popperjs/core";
+export { IcMenuItemVariants } from "../../web-components/src/components/ic-menu-item/ic-menu-item.types";
 export { IcChangeEventDetail, IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "../../web-components/src/components/ic-pagination/ic-pagination.types";
 export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+export { IcChangeEventDetail as IcChangeEventDetail1 } from "../../web-components/src/components/ic-radio-group/ic-radio-group.types";
+export { IcExpandedDetail } from "../../web-components/src/components/ic-side-navigation/ic-side-navigation.types";
 export { IcStatusTagStatuses } from "../../web-components/src/components/ic-status-tag/ic-status-tag.types";
+export { IcSwitchChangeEventDetail } from "../../web-components/src/components/ic-switch/ic-switch.types";
+export { IcTabClickEventDetail, IcTabSelectEventDetail } from "../../web-components/src/components/ic-tab/ic-tab.types";
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldKeydownEventDetail, IcTextFieldTypes } from "../../web-components/src/components/ic-text-field/ic-text-field.types";
 export { IcTimePeriods } from "./components/ic-time-selector/ic-time-selector.types";
-export { IcChangeEventDetail as IcChangeEventDetail1 } from "../../web-components/src/components/ic-toggle-button-group/ic-toggle-button-group.types";
+export { IcChangeEventDetail as IcChangeEventDetail2 } from "../../web-components/src/components/ic-toggle-button-group/ic-toggle-button-group.types";
 export { IcTooltipPlacements } from "../../web-components/src/components/ic-tooltip/ic-tooltip.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export namespace Components {
+    interface IcAccordion {
+        /**
+          * If `true`, the accordion will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the accordion appears expanded.
+         */
+        "expanded"?: boolean;
+        /**
+          * The section header outlining section content.
+         */
+        "heading"?: string;
+        /**
+          * The main body message of the accordion.
+         */
+        "message"?: string;
+        /**
+          * Sets focus on accordion heading.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+    }
+    interface IcActionChip {
+        /**
+          * If `true`, the chip will appear disabled.
+         */
+        "disabled": boolean;
+        /**
+          * If `true`, the user can save the linked URL instead of navigating to it.
+         */
+        "download": string | boolean;
+        /**
+          * The <form> element to associate the chip with.
+         */
+        "form"?: string;
+        /**
+          * The URL that processes the information submitted by the chip. It overrides the action attribute of the chip's form owner. Does nothing if there is no form owner.
+         */
+        "formaction"?: string;
+        /**
+          * The way the submitted form data is encoded.
+         */
+        "formenctype"?: string;
+        /**
+          * The HTTP method used to submit the form.
+         */
+        "formmethod"?: string;
+        /**
+          * If `true`, the form will not be validated when submitted.
+         */
+        "formnovalidate"?: boolean;
+        /**
+          * The place to display the response from submitting the form. It overrides the target attribute of the chip's form owner.
+         */
+        "formtarget"?: string;
+        /**
+          * The URL that the link points to. This will render the chip as an "a" tag.
+         */
+        "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The text rendered within the chip.
+         */
+        "label": string;
+        /**
+          * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+         */
+        "monochrome": boolean;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * Sets focus on the chip.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The size of the chip.
+         */
+        "size": IcSizes;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
+         */
+        "transparentBackground": boolean;
+        /**
+          * The type of the chip.
+         */
+        "type": IcButtonTypes;
+        /**
+          * The emphasis of the chip.
+         */
+        "variant": IcEmphasisType;
+    }
     interface IcBadge {
         /**
           * The accessible label of the badge component to provide context for screen reader users.
@@ -847,6 +977,56 @@ export namespace Components {
          */
         "value"?: IcDateValueFormat;
     }
+    interface IcDrawer {
+        /**
+          * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
+         */
+        "boundary": IcDrawerBoundary;
+        /**
+          * The aria-label of the chevron button (displayed when `trigger="chevron"`). This will default to "Open drawer" / "Close drawer".
+         */
+        "chevronButtonAriaLabel"?: string;
+        /**
+          * The aria-label of the X (close) button (displayed when `trigger="controlled"`). This will default to "Close drawer".
+         */
+        "closeButtonAriaLabel"?: string;
+        /**
+          * If `true`, the drawer will close when the backdrop is clicked.
+         */
+        "closeOnBackdropClick": boolean;
+        /**
+          * If `true`, the drawer will display in an expanded state.
+         */
+        "expanded": boolean;
+        /**
+          * The heading of the drawer. This is required, unless a slotted heading is used.
+         */
+        "heading"?: string;
+        /**
+          * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
+         */
+        "hideCloseButton": boolean;
+        /**
+          * The body content of the drawer.
+         */
+        "message"?: string;
+        /**
+          * The position of the drawer.
+         */
+        "position": IcPosition;
+        /**
+          * The size of the expanded drawer.
+         */
+        "size": IcSizes1;
+        /**
+          * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode1;
+        /**
+          * The method in which the drawer is expanded.
+         */
+        "trigger": "chevron" | "controlled";
+    }
     interface IcEmptyState {
         /**
           * The alignment of the empty state container.
@@ -875,6 +1055,46 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
+        "theme"?: IcThemeMode;
+    }
+    interface IcFooter {
+        /**
+          * The alignment of the section containers used within the footer.
+         */
+        "aligned"?: IcAlignment;
+        /**
+          * The screen size breakpoint at which to switch to the small layout.
+         */
+        "breakpoint"?: IcFooterBreakpoints;
+        /**
+          * The caption displayed at the bottom of the footer.
+         */
+        "caption"?: string;
+        /**
+          * If `true`, the footer will display the crown copyright at the bottom.
+         */
+        "copyright"?: boolean;
+        /**
+          * The text displayed for the copyright notice if `copyright` is `true`.
+         */
+        "copyrightText"?: string;
+        /**
+          * The description displayed at the top of the footer.
+         */
+        "description"?: string;
+        /**
+          * If `true`, the footer will be set up to handle link groups instead of standalone links.
+         */
+        "groupLinks"?: boolean;
+    }
+    interface IcHorizontalScroll {
+        /**
+          * The appearance of the horizontal scroll, e.g. dark, light or the default.
+         */
+        "appearance"?: IcBrandForeground;
+        "focusTrigger"?: string;
+        "monochrome"?: boolean;
+        "scrollItemIntoView": (itemPosition: number) => Promise<void>;
         "theme"?: IcThemeMode;
     }
     interface IcInputComponentContainer {
@@ -1135,6 +1355,62 @@ export namespace Components {
          */
         "valueField": string;
     }
+    interface IcMenuGroup {
+        /**
+          * The label to display as the title of the menu group.
+         */
+        "label"?: string;
+    }
+    interface IcMenuItem {
+        /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "checked"?: boolean;
+        /**
+          * The description displayed in the menu item, below the label.
+         */
+        "description"?: string;
+        /**
+          * If `true`, the menu item will be in disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * The URL that the link points to. This will render the menu item as an "a" tag.
+         */
+        "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The label describing the keyboard shortcut for a menu item's action.
+         */
+        "keyboardShortcutLabel"?: string;
+        /**
+          * The label to display in the menu item.
+         */
+        "label": string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * This references the popover menu instance that the menu item is a trigger for. If this prop is set, then the variant will always be default.
+         */
+        "submenuTriggerFor"?: string;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * The variant of the menu item.
+         */
+        "variant"?: IcMenuItemVariants;
+    }
     interface IcNavigationItem {
         "collapsedIconLabel": boolean;
         "displayNavigationTooltip": boolean;
@@ -1362,6 +1638,272 @@ export namespace Components {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcPopoverMenu {
+        /**
+          * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
+         */
+        "anchor"?: string;
+        /**
+          * @param setFocusToAnchor when true return focus to anchor element when menu is closed
+         */
+        "closeMenu": (setFocusToAnchor?: boolean, menuElement?: HTMLIcMenuItemElement) => Promise<void>;
+        /**
+          * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+         */
+        "fixedPositioning": boolean;
+        /**
+          * If `true`, the popover menu will be displayed.
+         */
+        "open"?: boolean | undefined;
+        "openFromChild": () => Promise<void>;
+        "openFromParent": () => Promise<void>;
+        "parentLabel"?: string;
+        "parentPopover"?: HTMLIcPopoverMenuElement;
+        /**
+          * @param props object - createPopper props set externally
+         */
+        "setExternalPopperProps": <T extends Partial<Options>>(props: T) => Promise<void>;
+        /**
+          * The unique identifier for a popover submenu.
+         */
+        "submenuId"?: string;
+        "submenuLevel"?: number;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+    }
+    interface IcRadioGroup {
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText"?: string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * The label for the radio group to be displayed.
+         */
+        "label": string;
+        /**
+          * The name for the radio group to differentiate from other groups.
+         */
+        "name": string;
+        /**
+          * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
+         */
+        "orientation"?: IcOrientation;
+        /**
+          * If `true`, the radio group will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * The size of the radio group component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive": IcAriaLive1;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty1;
+        /**
+          * The text to display as the validation message.
+         */
+        "validationText": string;
+    }
+    interface IcRadioOption {
+        /**
+          * The style of additionalField that will be displayed if used.
+         */
+        "additionalFieldDisplay"?: IcAdditionalFieldTypes;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The text to be displayed when dynamic.
+         */
+        "dynamicText"?: string;
+        /**
+          * The <form> element to associate the radio with.
+         */
+        "form"?: string;
+        /**
+          * The group label for the radio option.
+         */
+        "groupLabel"?: string;
+        /**
+          * The label for the radio option.
+         */
+        "label"?: string;
+        /**
+          * The name for the radio option.
+         */
+        "name"?: string;
+        /**
+          * If `true`, the radio option will be displayed in a selected state.
+         */
+        "selected"?: boolean;
+        /**
+          * Sets focus on the radio option.
+         */
+        "setFocus": () => Promise<void>;
+        "setTabIndex": (value: number) => Promise<void>;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value for the radio option.
+         */
+        "value": string;
+    }
+    interface IcSearchBar {
+        /**
+          * The hint text for the hidden assistive description element.
+         */
+        "assistiveHintText": string;
+        /**
+          * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
+         */
+        "autocapitalize": string;
+        /**
+          * The state of autocompletion the browser can apply on the text value.
+         */
+        "autocomplete": IcAutocompleteTypes;
+        /**
+          * The state of autocorrection the browser can apply when the user is entering/editing the text value.
+         */
+        "autocorrect": IcAutocorrectStates;
+        /**
+          * If `true`, the form control will have input focus when the page loads.
+         */
+        "autofocus": boolean;
+        /**
+          * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
+         */
+        "charactersUntilSuggestion": number;
+        /**
+          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
+         */
+        "disableAutoFiltering": boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled": boolean;
+        /**
+          * The text displayed when there are no options in the option list.
+         */
+        "emptyOptionListText": string;
+        /**
+          * If `true`, the search bar will be focused when component loaded.
+         */
+        "focusOnLoad": boolean;
+        /**
+          * Specify whether the search bar fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+         */
+        "fullWidth": boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText": string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel": boolean;
+        /**
+          * The label for the search bar.
+         */
+        "label": string;
+        /**
+          * The custom name for the label field to correspond with the IcMenuOption type.
+         */
+        "labelField": string;
+        /**
+          * Trigger loading state when fetching options asynchronously
+         */
+        "loading": boolean;
+        /**
+          * Change the message displayed when external loading times out.
+         */
+        "loadingErrorLabel": string;
+        /**
+          * Change the message displayed whilst the options are being loaded externally.
+         */
+        "loadingLabel": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * The suggested search options.
+         */
+        "options": IcMenuOption[];
+        /**
+          * The placeholder value to display.
+         */
+        "placeholder": string;
+        /**
+          * If `true` the parent form will not submit when the icSubmitSearch event fires.
+         */
+        "preventFormSubmitOnSearch": boolean;
+        /**
+          * If `true`, the readonly state will be set.
+         */
+        "readonly": boolean;
+        /**
+          * If `true`, the search bar will require a value.
+         */
+        "required": boolean;
+        /**
+          * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+         */
+        "searchMode": IcSearchBarSearchModes;
+        /**
+          * Sets focus on the native `input`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The size of the search bar component.
+         */
+        "size": IcSizesNoLarge;
+        /**
+          * If `true`, the value of the search will have its spelling and grammar checked.
+         */
+        "spellcheck": boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
+        /**
+          * If using external filtering, set a timeout for when loading takes too long.
+         */
+        "timeout"?: number;
+        /**
+          * The value of the search input.
+         */
+        "value": string;
+        /**
+          * The custom name for the value field to correspond with the IcMenuOption type.
+         */
+        "valueField": string;
+    }
     interface IcSectionContainer {
         /**
           * The alignment of the container.
@@ -1502,6 +2044,53 @@ export namespace Components {
          */
         "value": string | string[] | null;
     }
+    interface IcSideNavigation {
+        /**
+          * The app title to be displayed. This is required, unless a slotted app title link is used.
+         */
+        "appTitle"?: string;
+        /**
+          * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+         */
+        "closeOnNavItemClick"?: boolean;
+        /**
+          * If `true`, the icon and label will appear when side navigation is collapsed.
+         */
+        "collapsedIconLabels"?: boolean;
+        /**
+          * If `true`, automatic parent wrapper styling will be disabled.
+         */
+        "disableAutoParentStyling"?: boolean;
+        /**
+          * If `true`, the side navigation will not display as a top bar on small devices.
+         */
+        "disableTopBarBehaviour"?: boolean;
+        /**
+          * If `true`, the side navigation will display in an expanded state.
+         */
+        "expanded"?: boolean;
+        /**
+          * The URL that the app title link points to.
+         */
+        "href"?: string;
+        "inline"?: boolean;
+        /**
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
+         */
+        "shortAppTitle"?: string;
+        /**
+          * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
+         */
+        "static"?: boolean;
+        /**
+          * The status of the app to be displayed.
+         */
+        "status"?: string;
+        /**
+          * The version of the app to be displayed.
+         */
+        "version"?: string;
+    }
     interface IcSkipLink {
         /**
           * If `true`, the skip link will fill the width of the page.
@@ -1565,6 +2154,111 @@ export namespace Components {
           * The emphasis of the status tag.
          */
         "variant"?: IcEmphasisType;
+    }
+    interface IcSwitch {
+        /**
+          * If `true`, the switch will display as checked.
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText"?: string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * The aria-label applied to the switch when no visual 'name' is provided.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Sets focus on the switch.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The size of the switch component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value of the toggle does not mean if it's checked or not, use the `checked` property for that.  The value of a toggle is analogous to the value of a `<input type="checkbox">`, it's only used when the toggle participates in a native `<form>`.
+         */
+        "value"?: string | null;
+    }
+    interface IcTab {
+        "contextId"?: string;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        "monochrome"?: boolean;
+        "selected"?: boolean;
+        /**
+          * Sets focus on the tab.
+         */
+        "setFocus": () => Promise<void>;
+        "tabId": string;
+        "tabPosition": number;
+        "theme"?: IcThemeMode;
+    }
+    interface IcTabContext {
+        /**
+          * Determines whether tabs have to be manually activated (by pressing 'Enter' or 'Space') when they receive focus using keyboard navigation.
+         */
+        "activationType"?: IcActivationTypes;
+        /**
+          * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+         */
+        "contextId"?: string;
+        /**
+          * If `true`, the tabs will display as black in the light theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
+         */
+        "selectedTabIndex"?: number;
+        /**
+          * Sets focus on the tab context.
+         */
+        "setFocus": () => Promise<void>;
+        "tabRemovedHandler": (hadFocus?: boolean) => Promise<void>;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+    }
+    interface IcTabGroup {
+        /**
+          * If `true`, the tabs and tab panels will be positioned separately.
+         */
+        "inline"?: boolean;
+        /**
+          * The label to describe the purpose of the set of tabs to screen reader users.
+         */
+        "label": string;
+        "monochrome"?: boolean;
+        "theme"?: IcThemeMode;
+    }
+    interface IcTabPanel {
+        "active": boolean;
+        "monochrome"?: boolean;
+        "panelId"?: string;
+        "selectedTab"?: string;
+        "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTableOfContents {
         /**
@@ -2218,6 +2912,10 @@ export namespace Components {
         "variant"?: IcTypographyVariants;
     }
 }
+export interface IcAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcAccordionElement;
+}
 export interface IcButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcButtonElement;
@@ -2250,9 +2948,21 @@ export interface IcDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcDatePickerElement;
 }
+export interface IcDrawerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcDrawerElement;
+}
+export interface IcFooterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcFooterElement;
+}
 export interface IcMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcMenuElement;
+}
+export interface IcMenuItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcMenuItemElement;
 }
 export interface IcNavigationItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2266,9 +2976,45 @@ export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
 }
+export interface IcPopoverMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcPopoverMenuElement;
+}
+export interface IcRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcRadioGroupElement;
+}
+export interface IcRadioOptionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcRadioOptionElement;
+}
+export interface IcSearchBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcSearchBarElement;
+}
 export interface IcSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcSelectElement;
+}
+export interface IcSideNavigationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcSideNavigationElement;
+}
+export interface IcSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcSwitchElement;
+}
+export interface IcTabCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTabElement;
+}
+export interface IcTabContextCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTabContextElement;
+}
+export interface IcTabPanelCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTabPanelElement;
 }
 export interface IcTextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2307,6 +3053,29 @@ export interface IcTypographyCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIcTypographyElement;
 }
 declare global {
+    interface HTMLIcAccordionElementEventMap {
+        "accordionClicked": { id: string };
+    }
+    interface HTMLIcAccordionElement extends Components.IcAccordion, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcAccordionElementEventMap>(type: K, listener: (this: HTMLIcAccordionElement, ev: IcAccordionCustomEvent<HTMLIcAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcAccordionElementEventMap>(type: K, listener: (this: HTMLIcAccordionElement, ev: IcAccordionCustomEvent<HTMLIcAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcAccordionElement: {
+        prototype: HTMLIcAccordionElement;
+        new (): HTMLIcAccordionElement;
+    };
+    interface HTMLIcActionChipElement extends Components.IcActionChip, HTMLStencilElement {
+    }
+    var HTMLIcActionChipElement: {
+        prototype: HTMLIcActionChipElement;
+        new (): HTMLIcActionChipElement;
+    };
     interface HTMLIcBadgeElement extends Components.IcBadge, HTMLStencilElement {
     }
     var HTMLIcBadgeElement: {
@@ -2498,11 +3267,51 @@ declare global {
         prototype: HTMLIcDatePickerElement;
         new (): HTMLIcDatePickerElement;
     };
+    interface HTMLIcDrawerElementEventMap {
+        "icDrawerExpanded": IcDrawerExpandedDetail;
+    }
+    interface HTMLIcDrawerElement extends Components.IcDrawer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcDrawerElementEventMap>(type: K, listener: (this: HTMLIcDrawerElement, ev: IcDrawerCustomEvent<HTMLIcDrawerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcDrawerElementEventMap>(type: K, listener: (this: HTMLIcDrawerElement, ev: IcDrawerCustomEvent<HTMLIcDrawerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcDrawerElement: {
+        prototype: HTMLIcDrawerElement;
+        new (): HTMLIcDrawerElement;
+    };
     interface HTMLIcEmptyStateElement extends Components.IcEmptyState, HTMLStencilElement {
     }
     var HTMLIcEmptyStateElement: {
         prototype: HTMLIcEmptyStateElement;
         new (): HTMLIcEmptyStateElement;
+    };
+    interface HTMLIcFooterElementEventMap {
+        "footerResized": void;
+    }
+    interface HTMLIcFooterElement extends Components.IcFooter, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcFooterElementEventMap>(type: K, listener: (this: HTMLIcFooterElement, ev: IcFooterCustomEvent<HTMLIcFooterElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcFooterElementEventMap>(type: K, listener: (this: HTMLIcFooterElement, ev: IcFooterCustomEvent<HTMLIcFooterElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcFooterElement: {
+        prototype: HTMLIcFooterElement;
+        new (): HTMLIcFooterElement;
+    };
+    interface HTMLIcHorizontalScrollElement extends Components.IcHorizontalScroll, HTMLStencilElement {
+    }
+    var HTMLIcHorizontalScrollElement: {
+        prototype: HTMLIcHorizontalScrollElement;
+        new (): HTMLIcHorizontalScrollElement;
     };
     interface HTMLIcInputComponentContainerElement extends Components.IcInputComponentContainer, HTMLStencilElement {
     }
@@ -2565,6 +3374,34 @@ declare global {
         prototype: HTMLIcMenuElement;
         new (): HTMLIcMenuElement;
     };
+    interface HTMLIcMenuGroupElement extends Components.IcMenuGroup, HTMLStencilElement {
+    }
+    var HTMLIcMenuGroupElement: {
+        prototype: HTMLIcMenuGroupElement;
+        new (): HTMLIcMenuGroupElement;
+    };
+    interface HTMLIcMenuItemElementEventMap {
+        "childBlur": void;
+        "handleMenuItemClick": HTMLIcMenuItemElement;
+        "icToggleChecked": {
+    checked: boolean;
+  };
+        "triggerPopoverMenuInstance": void;
+    }
+    interface HTMLIcMenuItemElement extends Components.IcMenuItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcMenuItemElementEventMap>(type: K, listener: (this: HTMLIcMenuItemElement, ev: IcMenuItemCustomEvent<HTMLIcMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcMenuItemElementEventMap>(type: K, listener: (this: HTMLIcMenuItemElement, ev: IcMenuItemCustomEvent<HTMLIcMenuItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcMenuItemElement: {
+        prototype: HTMLIcMenuItemElement;
+        new (): HTMLIcMenuItemElement;
+    };
     interface HTMLIcNavigationItemElementEventMap {
         "childBlur": void;
         "navItemClicked": void;
@@ -2624,6 +3461,86 @@ declare global {
         prototype: HTMLIcPaginationBarElement;
         new (): HTMLIcPaginationBarElement;
     };
+    interface HTMLIcPopoverMenuElementEventMap {
+        "icPopoverClosed": HTMLIcMenuItemElement;
+    }
+    interface HTMLIcPopoverMenuElement extends Components.IcPopoverMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcPopoverMenuElementEventMap>(type: K, listener: (this: HTMLIcPopoverMenuElement, ev: IcPopoverMenuCustomEvent<HTMLIcPopoverMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcPopoverMenuElementEventMap>(type: K, listener: (this: HTMLIcPopoverMenuElement, ev: IcPopoverMenuCustomEvent<HTMLIcPopoverMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcPopoverMenuElement: {
+        prototype: HTMLIcPopoverMenuElement;
+        new (): HTMLIcPopoverMenuElement;
+    };
+    interface HTMLIcRadioGroupElementEventMap {
+        "icChange": IcChangeEventDetail1;
+    }
+    interface HTMLIcRadioGroupElement extends Components.IcRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcRadioGroupElementEventMap>(type: K, listener: (this: HTMLIcRadioGroupElement, ev: IcRadioGroupCustomEvent<HTMLIcRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcRadioGroupElementEventMap>(type: K, listener: (this: HTMLIcRadioGroupElement, ev: IcRadioGroupCustomEvent<HTMLIcRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcRadioGroupElement: {
+        prototype: HTMLIcRadioGroupElement;
+        new (): HTMLIcRadioGroupElement;
+    };
+    interface HTMLIcRadioOptionElementEventMap {
+        "icCheck": IcValueEventDetail;
+        "icSelectedChange": void;
+    }
+    interface HTMLIcRadioOptionElement extends Components.IcRadioOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcRadioOptionElementEventMap>(type: K, listener: (this: HTMLIcRadioOptionElement, ev: IcRadioOptionCustomEvent<HTMLIcRadioOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcRadioOptionElementEventMap>(type: K, listener: (this: HTMLIcRadioOptionElement, ev: IcRadioOptionCustomEvent<HTMLIcRadioOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcRadioOptionElement: {
+        prototype: HTMLIcRadioOptionElement;
+        new (): HTMLIcRadioOptionElement;
+    };
+    interface HTMLIcSearchBarElementEventMap {
+        "icChange": IcValueEventDetail;
+        "icClear": void;
+        "icInput": IcValueEventDetail;
+        "icOptionSelect": IcOptionSelectEventDetail;
+        "icMenuChange": IcMenuChangeEventDetail;
+        "icClearBlur": IcBlurEventDetail;
+        "icRetryLoad": IcMultiValueEventDetail;
+        "icSubmitSearch": IcValueEventDetail;
+        "icSubmitSearchBlur": IcBlurEventDetail;
+        "icSearchBarBlur": IcSearchBarBlurEventDetail;
+        "icSearchBarFocus": IcValueEventDetail;
+        "icKeydown": { event: KeyboardEvent };
+    }
+    interface HTMLIcSearchBarElement extends Components.IcSearchBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcSearchBarElementEventMap>(type: K, listener: (this: HTMLIcSearchBarElement, ev: IcSearchBarCustomEvent<HTMLIcSearchBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcSearchBarElementEventMap>(type: K, listener: (this: HTMLIcSearchBarElement, ev: IcSearchBarCustomEvent<HTMLIcSearchBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcSearchBarElement: {
+        prototype: HTMLIcSearchBarElement;
+        new (): HTMLIcSearchBarElement;
+    };
     interface HTMLIcSectionContainerElement extends Components.IcSectionContainer, HTMLStencilElement {
     }
     var HTMLIcSectionContainerElement: {
@@ -2656,6 +3573,23 @@ declare global {
         prototype: HTMLIcSelectElement;
         new (): HTMLIcSelectElement;
     };
+    interface HTMLIcSideNavigationElementEventMap {
+        "icSideNavExpanded": IcExpandedDetail;
+    }
+    interface HTMLIcSideNavigationElement extends Components.IcSideNavigation, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcSideNavigationElementEventMap>(type: K, listener: (this: HTMLIcSideNavigationElement, ev: IcSideNavigationCustomEvent<HTMLIcSideNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcSideNavigationElementEventMap>(type: K, listener: (this: HTMLIcSideNavigationElement, ev: IcSideNavigationCustomEvent<HTMLIcSideNavigationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcSideNavigationElement: {
+        prototype: HTMLIcSideNavigationElement;
+        new (): HTMLIcSideNavigationElement;
+    };
     interface HTMLIcSkipLinkElement extends Components.IcSkipLink, HTMLStencilElement {
     }
     var HTMLIcSkipLinkElement: {
@@ -2667,6 +3601,87 @@ declare global {
     var HTMLIcStatusTagElement: {
         prototype: HTMLIcStatusTagElement;
         new (): HTMLIcStatusTagElement;
+    };
+    interface HTMLIcSwitchElementEventMap {
+        "icBlur": void;
+        "icChange": IcSwitchChangeEventDetail;
+        "icFocus": void;
+    }
+    interface HTMLIcSwitchElement extends Components.IcSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcSwitchElementEventMap>(type: K, listener: (this: HTMLIcSwitchElement, ev: IcSwitchCustomEvent<HTMLIcSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcSwitchElementEventMap>(type: K, listener: (this: HTMLIcSwitchElement, ev: IcSwitchCustomEvent<HTMLIcSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcSwitchElement: {
+        prototype: HTMLIcSwitchElement;
+        new (): HTMLIcSwitchElement;
+    };
+    interface HTMLIcTabElementEventMap {
+        "tabClick": IcTabClickEventDetail;
+        "tabCreated": HTMLIcTabElement;
+        "tabEnabled": void;
+        "tabFocus": IcTabClickEventDetail;
+        "tabRemoved": void;
+    }
+    interface HTMLIcTabElement extends Components.IcTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTabElementEventMap>(type: K, listener: (this: HTMLIcTabElement, ev: IcTabCustomEvent<HTMLIcTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTabElementEventMap>(type: K, listener: (this: HTMLIcTabElement, ev: IcTabCustomEvent<HTMLIcTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcTabElement: {
+        prototype: HTMLIcTabElement;
+        new (): HTMLIcTabElement;
+    };
+    interface HTMLIcTabContextElementEventMap {
+        "icTabSelect": IcTabSelectEventDetail;
+    }
+    interface HTMLIcTabContextElement extends Components.IcTabContext, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTabContextElementEventMap>(type: K, listener: (this: HTMLIcTabContextElement, ev: IcTabContextCustomEvent<HTMLIcTabContextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTabContextElementEventMap>(type: K, listener: (this: HTMLIcTabContextElement, ev: IcTabContextCustomEvent<HTMLIcTabContextElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcTabContextElement: {
+        prototype: HTMLIcTabContextElement;
+        new (): HTMLIcTabContextElement;
+    };
+    interface HTMLIcTabGroupElement extends Components.IcTabGroup, HTMLStencilElement {
+    }
+    var HTMLIcTabGroupElement: {
+        prototype: HTMLIcTabGroupElement;
+        new (): HTMLIcTabGroupElement;
+    };
+    interface HTMLIcTabPanelElementEventMap {
+        "tabPanelCreated": HTMLIcTabPanelElement;
+        "tabPanelRemoved": void;
+    }
+    interface HTMLIcTabPanelElement extends Components.IcTabPanel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTabPanelElementEventMap>(type: K, listener: (this: HTMLIcTabPanelElement, ev: IcTabPanelCustomEvent<HTMLIcTabPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTabPanelElementEventMap>(type: K, listener: (this: HTMLIcTabPanelElement, ev: IcTabPanelCustomEvent<HTMLIcTabPanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcTabPanelElement: {
+        prototype: HTMLIcTabPanelElement;
+        new (): HTMLIcTabPanelElement;
     };
     interface HTMLIcTableOfContentsElement extends Components.IcTableOfContents, HTMLStencilElement {
     }
@@ -2719,7 +3734,7 @@ declare global {
         "clockButtonClicked": { value: Date | null };
         "icBlur": { value: Date | null };
         "icTimeChange": {
-    value: Date | null;
+    value: string | null;
     timeObject: {
       hour: string | null;
       minute: string | null;
@@ -2789,7 +3804,7 @@ declare global {
         new (): HTMLIcToggleButtonElement;
     };
     interface HTMLIcToggleButtonGroupElementEventMap {
-        "icChange": IcChangeEventDetail1;
+        "icChange": IcChangeEventDetail2;
     }
     interface HTMLIcToggleButtonGroupElement extends Components.IcToggleButtonGroup, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcToggleButtonGroupElementEventMap>(type: K, listener: (this: HTMLIcToggleButtonGroupElement, ev: IcToggleButtonGroupCustomEvent<HTMLIcToggleButtonGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2878,6 +3893,8 @@ declare global {
         new (): HTMLIcTypographyElement;
     };
     interface HTMLElementTagNameMap {
+        "ic-accordion": HTMLIcAccordionElement;
+        "ic-action-chip": HTMLIcActionChipElement;
         "ic-badge": HTMLIcBadgeElement;
         "ic-button": HTMLIcButtonElement;
         "ic-calendar": HTMLIcCalendarElement;
@@ -2888,7 +3905,10 @@ declare global {
         "ic-data-table-title-bar": HTMLIcDataTableTitleBarElement;
         "ic-date-input": HTMLIcDateInputElement;
         "ic-date-picker": HTMLIcDatePickerElement;
+        "ic-drawer": HTMLIcDrawerElement;
         "ic-empty-state": HTMLIcEmptyStateElement;
+        "ic-footer": HTMLIcFooterElement;
+        "ic-horizontal-scroll": HTMLIcHorizontalScrollElement;
         "ic-input-component-container": HTMLIcInputComponentContainerElement;
         "ic-input-container": HTMLIcInputContainerElement;
         "ic-input-label": HTMLIcInputLabelElement;
@@ -2896,14 +3916,26 @@ declare global {
         "ic-link": HTMLIcLinkElement;
         "ic-loading-indicator": HTMLIcLoadingIndicatorElement;
         "ic-menu": HTMLIcMenuElement;
+        "ic-menu-group": HTMLIcMenuGroupElement;
+        "ic-menu-item": HTMLIcMenuItemElement;
         "ic-navigation-item": HTMLIcNavigationItemElement;
         "ic-page-header": HTMLIcPageHeaderElement;
         "ic-pagination": HTMLIcPaginationElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
+        "ic-popover-menu": HTMLIcPopoverMenuElement;
+        "ic-radio-group": HTMLIcRadioGroupElement;
+        "ic-radio-option": HTMLIcRadioOptionElement;
+        "ic-search-bar": HTMLIcSearchBarElement;
         "ic-section-container": HTMLIcSectionContainerElement;
         "ic-select": HTMLIcSelectElement;
+        "ic-side-navigation": HTMLIcSideNavigationElement;
         "ic-skip-link": HTMLIcSkipLinkElement;
         "ic-status-tag": HTMLIcStatusTagElement;
+        "ic-switch": HTMLIcSwitchElement;
+        "ic-tab": HTMLIcTabElement;
+        "ic-tab-context": HTMLIcTabContextElement;
+        "ic-tab-group": HTMLIcTabGroupElement;
+        "ic-tab-panel": HTMLIcTabPanelElement;
         "ic-table-of-contents": HTMLIcTableOfContentsElement;
         "ic-text-field": HTMLIcTextFieldElement;
         "ic-theme": HTMLIcThemeElement;
@@ -2919,6 +3951,115 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface IcAccordion {
+        /**
+          * If `true`, the accordion will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the accordion appears expanded.
+         */
+        "expanded"?: boolean;
+        /**
+          * The section header outlining section content.
+         */
+        "heading"?: string;
+        /**
+          * The main body message of the accordion.
+         */
+        "message"?: string;
+        "onAccordionClicked"?: (event: IcAccordionCustomEvent<{ id: string }>) => void;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+    }
+    interface IcActionChip {
+        /**
+          * If `true`, the chip will appear disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the user can save the linked URL instead of navigating to it.
+         */
+        "download"?: string | boolean;
+        /**
+          * The <form> element to associate the chip with.
+         */
+        "form"?: string;
+        /**
+          * The URL that processes the information submitted by the chip. It overrides the action attribute of the chip's form owner. Does nothing if there is no form owner.
+         */
+        "formaction"?: string;
+        /**
+          * The way the submitted form data is encoded.
+         */
+        "formenctype"?: string;
+        /**
+          * The HTTP method used to submit the form.
+         */
+        "formmethod"?: string;
+        /**
+          * If `true`, the form will not be validated when submitted.
+         */
+        "formnovalidate"?: boolean;
+        /**
+          * The place to display the response from submitting the form. It overrides the target attribute of the chip's form owner.
+         */
+        "formtarget"?: string;
+        /**
+          * The URL that the link points to. This will render the chip as an "a" tag.
+         */
+        "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The text rendered within the chip.
+         */
+        "label": string;
+        /**
+          * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * The size of the chip.
+         */
+        "size"?: IcSizes;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
+         */
+        "transparentBackground"?: boolean;
+        /**
+          * The type of the chip.
+         */
+        "type"?: IcButtonTypes;
+        /**
+          * The emphasis of the chip.
+         */
+        "variant"?: IcEmphasisType;
+    }
     interface IcBadge {
         /**
           * The accessible label of the badge component to provide context for screen reader users.
@@ -3806,6 +4947,60 @@ declare namespace LocalJSX {
          */
         "value"?: IcDateValueFormat;
     }
+    interface IcDrawer {
+        /**
+          * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
+         */
+        "boundary"?: IcDrawerBoundary;
+        /**
+          * The aria-label of the chevron button (displayed when `trigger="chevron"`). This will default to "Open drawer" / "Close drawer".
+         */
+        "chevronButtonAriaLabel"?: string;
+        /**
+          * The aria-label of the X (close) button (displayed when `trigger="controlled"`). This will default to "Close drawer".
+         */
+        "closeButtonAriaLabel"?: string;
+        /**
+          * If `true`, the drawer will close when the backdrop is clicked.
+         */
+        "closeOnBackdropClick"?: boolean;
+        /**
+          * If `true`, the drawer will display in an expanded state.
+         */
+        "expanded"?: boolean;
+        /**
+          * The heading of the drawer. This is required, unless a slotted heading is used.
+         */
+        "heading"?: string;
+        /**
+          * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
+         */
+        "hideCloseButton"?: boolean;
+        /**
+          * The body content of the drawer.
+         */
+        "message"?: string;
+        /**
+          * Emitted when the drawer is expanded and collapsed.
+         */
+        "onIcDrawerExpanded"?: (event: IcDrawerCustomEvent<IcDrawerExpandedDetail>) => void;
+        /**
+          * The position of the drawer.
+         */
+        "position"?: IcPosition;
+        /**
+          * The size of the expanded drawer.
+         */
+        "size"?: IcSizes1;
+        /**
+          * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode1;
+        /**
+          * The method in which the drawer is expanded.
+         */
+        "trigger"?: "chevron" | "controlled";
+    }
     interface IcEmptyState {
         /**
           * The alignment of the empty state container.
@@ -3834,6 +5029,46 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
+        "theme"?: IcThemeMode;
+    }
+    interface IcFooter {
+        /**
+          * The alignment of the section containers used within the footer.
+         */
+        "aligned"?: IcAlignment;
+        /**
+          * The screen size breakpoint at which to switch to the small layout.
+         */
+        "breakpoint"?: IcFooterBreakpoints;
+        /**
+          * The caption displayed at the bottom of the footer.
+         */
+        "caption"?: string;
+        /**
+          * If `true`, the footer will display the crown copyright at the bottom.
+         */
+        "copyright"?: boolean;
+        /**
+          * The text displayed for the copyright notice if `copyright` is `true`.
+         */
+        "copyrightText"?: string;
+        /**
+          * The description displayed at the top of the footer.
+         */
+        "description"?: string;
+        /**
+          * If `true`, the footer will be set up to handle link groups instead of standalone links.
+         */
+        "groupLinks"?: boolean;
+        "onFooterResized"?: (event: IcFooterCustomEvent<void>) => void;
+    }
+    interface IcHorizontalScroll {
+        /**
+          * The appearance of the horizontal scroll, e.g. dark, light or the default.
+         */
+        "appearance"?: IcBrandForeground;
+        "focusTrigger"?: string;
+        "monochrome"?: boolean;
         "theme"?: IcThemeMode;
     }
     interface IcInputComponentContainer {
@@ -4090,6 +5325,71 @@ declare namespace LocalJSX {
          */
         "valueField"?: string;
     }
+    interface IcMenuGroup {
+        /**
+          * The label to display as the title of the menu group.
+         */
+        "label"?: string;
+    }
+    interface IcMenuItem {
+        /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "checked"?: boolean;
+        /**
+          * The description displayed in the menu item, below the label.
+         */
+        "description"?: string;
+        /**
+          * If `true`, the menu item will be in disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * The URL that the link points to. This will render the menu item as an "a" tag.
+         */
+        "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The label describing the keyboard shortcut for a menu item's action.
+         */
+        "keyboardShortcutLabel"?: string;
+        /**
+          * The label to display in the menu item.
+         */
+        "label": string;
+        "onChildBlur"?: (event: IcMenuItemCustomEvent<void>) => void;
+        "onHandleMenuItemClick"?: (event: IcMenuItemCustomEvent<HTMLIcMenuItemElement>) => void;
+        /**
+          * Emitted when the user clicks a menu item that is set to the toggle variant.
+         */
+        "onIcToggleChecked"?: (event: IcMenuItemCustomEvent<{
+    checked: boolean;
+  }>) => void;
+        "onTriggerPopoverMenuInstance"?: (event: IcMenuItemCustomEvent<void>) => void;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * This references the popover menu instance that the menu item is a trigger for. If this prop is set, then the variant will always be default.
+         */
+        "submenuTriggerFor"?: string;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * The variant of the menu item.
+         */
+        "variant"?: IcMenuItemVariants;
+    }
     interface IcNavigationItem {
         "collapsedIconLabel"?: boolean;
         "displayNavigationTooltip"?: boolean;
@@ -4322,6 +5622,311 @@ declare namespace LocalJSX {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcPopoverMenu {
+        /**
+          * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
+         */
+        "anchor"?: string;
+        /**
+          * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+         */
+        "fixedPositioning"?: boolean;
+        /**
+          * Emitted when the popover menu is closed.
+         */
+        "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<HTMLIcMenuItemElement>) => void;
+        /**
+          * If `true`, the popover menu will be displayed.
+         */
+        "open"?: boolean | undefined;
+        "parentLabel"?: string;
+        "parentPopover"?: HTMLIcPopoverMenuElement;
+        /**
+          * The unique identifier for a popover submenu.
+         */
+        "submenuId"?: string;
+        "submenuLevel"?: number;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+    }
+    interface IcRadioGroup {
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText"?: string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * The label for the radio group to be displayed.
+         */
+        "label": string;
+        /**
+          * The name for the radio group to differentiate from other groups.
+         */
+        "name": string;
+        /**
+          * Emitted when a user selects a radio.
+         */
+        "onIcChange"?: (event: IcRadioGroupCustomEvent<IcChangeEventDetail1>) => void;
+        /**
+          * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
+         */
+        "orientation"?: IcOrientation;
+        /**
+          * If `true`, the radio group will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * The size of the radio group component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value of the `aria-live` attribute on the validation message.
+         */
+        "validationAriaLive"?: IcAriaLive1;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty1;
+        /**
+          * The text to display as the validation message.
+         */
+        "validationText"?: string;
+    }
+    interface IcRadioOption {
+        /**
+          * The style of additionalField that will be displayed if used.
+         */
+        "additionalFieldDisplay"?: IcAdditionalFieldTypes;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The text to be displayed when dynamic.
+         */
+        "dynamicText"?: string;
+        /**
+          * The <form> element to associate the radio with.
+         */
+        "form"?: string;
+        /**
+          * The group label for the radio option.
+         */
+        "groupLabel"?: string;
+        /**
+          * The label for the radio option.
+         */
+        "label"?: string;
+        /**
+          * The name for the radio option.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the radio option is selected.
+         */
+        "onIcCheck"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when the radio option is selected or deselected.
+         */
+        "onIcSelectedChange"?: (event: IcRadioOptionCustomEvent<void>) => void;
+        /**
+          * If `true`, the radio option will be displayed in a selected state.
+         */
+        "selected"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value for the radio option.
+         */
+        "value": string;
+    }
+    interface IcSearchBar {
+        /**
+          * The hint text for the hidden assistive description element.
+         */
+        "assistiveHintText"?: string;
+        /**
+          * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
+         */
+        "autocapitalize"?: string;
+        /**
+          * The state of autocompletion the browser can apply on the text value.
+         */
+        "autocomplete"?: IcAutocompleteTypes;
+        /**
+          * The state of autocorrection the browser can apply when the user is entering/editing the text value.
+         */
+        "autocorrect"?: IcAutocorrectStates;
+        /**
+          * If `true`, the form control will have input focus when the page loads.
+         */
+        "autofocus"?: boolean;
+        /**
+          * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
+         */
+        "charactersUntilSuggestion"?: number;
+        /**
+          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
+         */
+        "disableAutoFiltering"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The text displayed when there are no options in the option list.
+         */
+        "emptyOptionListText"?: string;
+        /**
+          * If `true`, the search bar will be focused when component loaded.
+         */
+        "focusOnLoad"?: boolean;
+        /**
+          * Specify whether the search bar fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText"?: string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * The label for the search bar.
+         */
+        "label": string;
+        /**
+          * The custom name for the label field to correspond with the IcMenuOption type.
+         */
+        "labelField"?: string;
+        /**
+          * Trigger loading state when fetching options asynchronously
+         */
+        "loading"?: boolean;
+        /**
+          * Change the message displayed when external loading times out.
+         */
+        "loadingErrorLabel"?: string;
+        /**
+          * Change the message displayed whilst the options are being loaded externally.
+         */
+        "loadingLabel"?: string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onIcChange"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when value is cleared with clear button
+         */
+        "onIcClear"?: (event: IcSearchBarCustomEvent<void>) => void;
+        "onIcClearBlur"?: (event: IcSearchBarCustomEvent<IcBlurEventDetail>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onIcInput"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when a keydown event occurred.
+         */
+        "onIcKeydown"?: (event: IcSearchBarCustomEvent<{ event: KeyboardEvent }>) => void;
+        /**
+          * Emitted when the state of the menu changes (i.e. open or close)
+         */
+        "onIcMenuChange"?: (event: IcSearchBarCustomEvent<IcMenuChangeEventDetail>) => void;
+        /**
+          * Emitted when option is highlighted within the menu
+         */
+        "onIcOptionSelect"?: (event: IcSearchBarCustomEvent<IcOptionSelectEventDetail>) => void;
+        /**
+          * Emitted when the 'retry loading' button is clicked
+         */
+        "onIcRetryLoad"?: (event: IcSearchBarCustomEvent<IcMultiValueEventDetail>) => void;
+        /**
+          * Emitted when blur is invoked from ic-search-bar
+         */
+        "onIcSearchBarBlur"?: (event: IcSearchBarCustomEvent<IcSearchBarBlurEventDetail>) => void;
+        /**
+          * Emitted when focus is invoked from ic-search-bar
+         */
+        "onIcSearchBarFocus"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when the search value has been submitted
+         */
+        "onIcSubmitSearch"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
+        "onIcSubmitSearchBlur"?: (event: IcSearchBarCustomEvent<IcBlurEventDetail>) => void;
+        /**
+          * The suggested search options.
+         */
+        "options"?: IcMenuOption[];
+        /**
+          * The placeholder value to display.
+         */
+        "placeholder"?: string;
+        /**
+          * If `true` the parent form will not submit when the icSubmitSearch event fires.
+         */
+        "preventFormSubmitOnSearch"?: boolean;
+        /**
+          * If `true`, the readonly state will be set.
+         */
+        "readonly"?: boolean;
+        /**
+          * If `true`, the search bar will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+         */
+        "searchMode"?: IcSearchBarSearchModes;
+        /**
+          * The size of the search bar component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * If `true`, the value of the search will have its spelling and grammar checked.
+         */
+        "spellcheck"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * If using external filtering, set a timeout for when loading takes too long.
+         */
+        "timeout"?: number;
+        /**
+          * The value of the search input.
+         */
+        "value"?: string;
+        /**
+          * The custom name for the value field to correspond with the IcMenuOption type.
+         */
+        "valueField"?: string;
+    }
     interface IcSectionContainer {
         /**
           * The alignment of the container.
@@ -4498,6 +6103,57 @@ declare namespace LocalJSX {
          */
         "value"?: string | string[] | null;
     }
+    interface IcSideNavigation {
+        /**
+          * The app title to be displayed. This is required, unless a slotted app title link is used.
+         */
+        "appTitle"?: string;
+        /**
+          * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+         */
+        "closeOnNavItemClick"?: boolean;
+        /**
+          * If `true`, the icon and label will appear when side navigation is collapsed.
+         */
+        "collapsedIconLabels"?: boolean;
+        /**
+          * If `true`, automatic parent wrapper styling will be disabled.
+         */
+        "disableAutoParentStyling"?: boolean;
+        /**
+          * If `true`, the side navigation will not display as a top bar on small devices.
+         */
+        "disableTopBarBehaviour"?: boolean;
+        /**
+          * If `true`, the side navigation will display in an expanded state.
+         */
+        "expanded"?: boolean;
+        /**
+          * The URL that the app title link points to.
+         */
+        "href"?: string;
+        "inline"?: boolean;
+        /**
+          * Emitted when the side navigation is collapsed and expanded.
+         */
+        "onIcSideNavExpanded"?: (event: IcSideNavigationCustomEvent<IcExpandedDetail>) => void;
+        /**
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
+         */
+        "shortAppTitle"?: string;
+        /**
+          * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
+         */
+        "static"?: boolean;
+        /**
+          * The status of the app to be displayed.
+         */
+        "status"?: string;
+        /**
+          * The version of the app to be displayed.
+         */
+        "version"?: string;
+    }
     interface IcSkipLink {
         /**
           * If `true`, the skip link will fill the width of the page.
@@ -4557,6 +6213,121 @@ declare namespace LocalJSX {
           * The emphasis of the status tag.
          */
         "variant"?: IcEmphasisType;
+    }
+    interface IcSwitch {
+        /**
+          * If `true`, the switch will display as checked.
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance.
+         */
+        "helperText"?: string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel"?: boolean;
+        /**
+          * The aria-label applied to the switch when no visual 'name' is provided.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the toggle loses focus.
+         */
+        "onIcBlur"?: (event: IcSwitchCustomEvent<void>) => void;
+        /**
+          * Emitted when the value property has changed.
+         */
+        "onIcChange"?: (event: IcSwitchCustomEvent<IcSwitchChangeEventDetail>) => void;
+        /**
+          * Emitted when the toggle has focus.
+         */
+        "onIcFocus"?: (event: IcSwitchCustomEvent<void>) => void;
+        /**
+          * The size of the switch component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The value of the toggle does not mean if it's checked or not, use the `checked` property for that.  The value of a toggle is analogous to the value of a `<input type="checkbox">`, it's only used when the toggle participates in a native `<form>`.
+         */
+        "value"?: string | null;
+    }
+    interface IcTab {
+        "contextId"?: string;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        "monochrome"?: boolean;
+        "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
+        "onTabCreated"?: (event: IcTabCustomEvent<HTMLIcTabElement>) => void;
+        "onTabEnabled"?: (event: IcTabCustomEvent<void>) => void;
+        "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
+        "onTabRemoved"?: (event: IcTabCustomEvent<void>) => void;
+        "selected"?: boolean;
+        "tabId": string;
+        "tabPosition": number;
+        "theme"?: IcThemeMode;
+    }
+    interface IcTabContext {
+        /**
+          * Determines whether tabs have to be manually activated (by pressing 'Enter' or 'Space') when they receive focus using keyboard navigation.
+         */
+        "activationType"?: IcActivationTypes;
+        /**
+          * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+         */
+        "contextId"?: string;
+        /**
+          * If `true`, the tabs will display as black in the light theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * Emitted when a user selects a tab.
+         */
+        "onIcTabSelect"?: (event: IcTabContextCustomEvent<IcTabSelectEventDetail>) => void;
+        /**
+          * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
+         */
+        "selectedTabIndex"?: number;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+    }
+    interface IcTabGroup {
+        /**
+          * If `true`, the tabs and tab panels will be positioned separately.
+         */
+        "inline"?: boolean;
+        /**
+          * The label to describe the purpose of the set of tabs to screen reader users.
+         */
+        "label": string;
+        "monochrome"?: boolean;
+        "theme"?: IcThemeMode;
+    }
+    interface IcTabPanel {
+        "active"?: boolean;
+        "monochrome"?: boolean;
+        "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
+        "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
+        "panelId"?: string;
+        "selectedTab"?: string;
+        "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTableOfContents {
         /**
@@ -4848,7 +6619,7 @@ declare namespace LocalJSX {
           * Emitted when the value has changed.
          */
         "onIcTimeChange"?: (event: IcTimeInputCustomEvent<{
-    value: Date | null;
+    value: string | null;
     timeObject: {
       hour: string | null;
       minute: string | null;
@@ -5033,7 +6804,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a toggle button is selected.
          */
-        "onIcChange"?: (event: IcToggleButtonGroupCustomEvent<IcChangeEventDetail1>) => void;
+        "onIcChange"?: (event: IcToggleButtonGroupCustomEvent<IcChangeEventDetail2>) => void;
         /**
           * If `true`, the toggle button group will display with an outline.
          */
@@ -5272,6 +7043,8 @@ declare namespace LocalJSX {
         "variant"?: IcTypographyVariants;
     }
     interface IntrinsicElements {
+        "ic-accordion": IcAccordion;
+        "ic-action-chip": IcActionChip;
         "ic-badge": IcBadge;
         "ic-button": IcButton;
         "ic-calendar": IcCalendar;
@@ -5282,7 +7055,10 @@ declare namespace LocalJSX {
         "ic-data-table-title-bar": IcDataTableTitleBar;
         "ic-date-input": IcDateInput;
         "ic-date-picker": IcDatePicker;
+        "ic-drawer": IcDrawer;
         "ic-empty-state": IcEmptyState;
+        "ic-footer": IcFooter;
+        "ic-horizontal-scroll": IcHorizontalScroll;
         "ic-input-component-container": IcInputComponentContainer;
         "ic-input-container": IcInputContainer;
         "ic-input-label": IcInputLabel;
@@ -5290,14 +7066,26 @@ declare namespace LocalJSX {
         "ic-link": IcLink;
         "ic-loading-indicator": IcLoadingIndicator;
         "ic-menu": IcMenu;
+        "ic-menu-group": IcMenuGroup;
+        "ic-menu-item": IcMenuItem;
         "ic-navigation-item": IcNavigationItem;
         "ic-page-header": IcPageHeader;
         "ic-pagination": IcPagination;
         "ic-pagination-bar": IcPaginationBar;
+        "ic-popover-menu": IcPopoverMenu;
+        "ic-radio-group": IcRadioGroup;
+        "ic-radio-option": IcRadioOption;
+        "ic-search-bar": IcSearchBar;
         "ic-section-container": IcSectionContainer;
         "ic-select": IcSelect;
+        "ic-side-navigation": IcSideNavigation;
         "ic-skip-link": IcSkipLink;
         "ic-status-tag": IcStatusTag;
+        "ic-switch": IcSwitch;
+        "ic-tab": IcTab;
+        "ic-tab-context": IcTabContext;
+        "ic-tab-group": IcTabGroup;
+        "ic-tab-panel": IcTabPanel;
         "ic-table-of-contents": IcTableOfContents;
         "ic-text-field": IcTextField;
         "ic-theme": IcTheme;
@@ -5316,6 +7104,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ic-accordion": LocalJSX.IcAccordion & JSXBase.HTMLAttributes<HTMLIcAccordionElement>;
+            "ic-action-chip": LocalJSX.IcActionChip & JSXBase.HTMLAttributes<HTMLIcActionChipElement>;
             "ic-badge": LocalJSX.IcBadge & JSXBase.HTMLAttributes<HTMLIcBadgeElement>;
             "ic-button": LocalJSX.IcButton & JSXBase.HTMLAttributes<HTMLIcButtonElement>;
             "ic-calendar": LocalJSX.IcCalendar & JSXBase.HTMLAttributes<HTMLIcCalendarElement>;
@@ -5326,7 +7116,10 @@ declare module "@stencil/core" {
             "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
             "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
+            "ic-drawer": LocalJSX.IcDrawer & JSXBase.HTMLAttributes<HTMLIcDrawerElement>;
             "ic-empty-state": LocalJSX.IcEmptyState & JSXBase.HTMLAttributes<HTMLIcEmptyStateElement>;
+            "ic-footer": LocalJSX.IcFooter & JSXBase.HTMLAttributes<HTMLIcFooterElement>;
+            "ic-horizontal-scroll": LocalJSX.IcHorizontalScroll & JSXBase.HTMLAttributes<HTMLIcHorizontalScrollElement>;
             "ic-input-component-container": LocalJSX.IcInputComponentContainer & JSXBase.HTMLAttributes<HTMLIcInputComponentContainerElement>;
             "ic-input-container": LocalJSX.IcInputContainer & JSXBase.HTMLAttributes<HTMLIcInputContainerElement>;
             "ic-input-label": LocalJSX.IcInputLabel & JSXBase.HTMLAttributes<HTMLIcInputLabelElement>;
@@ -5334,14 +7127,26 @@ declare module "@stencil/core" {
             "ic-link": LocalJSX.IcLink & JSXBase.HTMLAttributes<HTMLIcLinkElement>;
             "ic-loading-indicator": LocalJSX.IcLoadingIndicator & JSXBase.HTMLAttributes<HTMLIcLoadingIndicatorElement>;
             "ic-menu": LocalJSX.IcMenu & JSXBase.HTMLAttributes<HTMLIcMenuElement>;
+            "ic-menu-group": LocalJSX.IcMenuGroup & JSXBase.HTMLAttributes<HTMLIcMenuGroupElement>;
+            "ic-menu-item": LocalJSX.IcMenuItem & JSXBase.HTMLAttributes<HTMLIcMenuItemElement>;
             "ic-navigation-item": LocalJSX.IcNavigationItem & JSXBase.HTMLAttributes<HTMLIcNavigationItemElement>;
             "ic-page-header": LocalJSX.IcPageHeader & JSXBase.HTMLAttributes<HTMLIcPageHeaderElement>;
             "ic-pagination": LocalJSX.IcPagination & JSXBase.HTMLAttributes<HTMLIcPaginationElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
+            "ic-popover-menu": LocalJSX.IcPopoverMenu & JSXBase.HTMLAttributes<HTMLIcPopoverMenuElement>;
+            "ic-radio-group": LocalJSX.IcRadioGroup & JSXBase.HTMLAttributes<HTMLIcRadioGroupElement>;
+            "ic-radio-option": LocalJSX.IcRadioOption & JSXBase.HTMLAttributes<HTMLIcRadioOptionElement>;
+            "ic-search-bar": LocalJSX.IcSearchBar & JSXBase.HTMLAttributes<HTMLIcSearchBarElement>;
             "ic-section-container": LocalJSX.IcSectionContainer & JSXBase.HTMLAttributes<HTMLIcSectionContainerElement>;
             "ic-select": LocalJSX.IcSelect & JSXBase.HTMLAttributes<HTMLIcSelectElement>;
+            "ic-side-navigation": LocalJSX.IcSideNavigation & JSXBase.HTMLAttributes<HTMLIcSideNavigationElement>;
             "ic-skip-link": LocalJSX.IcSkipLink & JSXBase.HTMLAttributes<HTMLIcSkipLinkElement>;
             "ic-status-tag": LocalJSX.IcStatusTag & JSXBase.HTMLAttributes<HTMLIcStatusTagElement>;
+            "ic-switch": LocalJSX.IcSwitch & JSXBase.HTMLAttributes<HTMLIcSwitchElement>;
+            "ic-tab": LocalJSX.IcTab & JSXBase.HTMLAttributes<HTMLIcTabElement>;
+            "ic-tab-context": LocalJSX.IcTabContext & JSXBase.HTMLAttributes<HTMLIcTabContextElement>;
+            "ic-tab-group": LocalJSX.IcTabGroup & JSXBase.HTMLAttributes<HTMLIcTabGroupElement>;
+            "ic-tab-panel": LocalJSX.IcTabPanel & JSXBase.HTMLAttributes<HTMLIcTabPanelElement>;
             "ic-table-of-contents": LocalJSX.IcTableOfContents & JSXBase.HTMLAttributes<HTMLIcTableOfContentsElement>;
             "ic-text-field": LocalJSX.IcTextField & JSXBase.HTMLAttributes<HTMLIcTextFieldElement>;
             "ic-theme": LocalJSX.IcTheme & JSXBase.HTMLAttributes<HTMLIcThemeElement>;
