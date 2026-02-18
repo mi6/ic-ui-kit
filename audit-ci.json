@@ -160,6 +160,20 @@
         "notes": "requires upgrade to 'eslint', which requires major version(s) upgrade. This will be partly resolved by ticket #3588",
         "expiry": "28 February 2026"
       }
+    },
+    {
+      "GHSA-83g3-92jg-28cx": {
+        "active": true,
+        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
+        "expiry": "28 February 2026"
+      }
+    },
+    {
+      "GHSA-2g4f-4pwh-qvx6":{
+        "active": true,
+        "notes": "requires upgrade to 'ajv', which is a transitive dependency of commitlint.",
+        "expiry": "28 February 2026"
+      }
     }
   ]
 }
