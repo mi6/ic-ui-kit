@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.20.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.19.0...@ukic/react@3.20.0) (2026-02-18)
+
+### Features
+
+- **react:** add story for accessible button label slot on ic-accordion-group ([3d66d31](https://github.com/mi6/ic-ui-kit/commit/3d66d31c9cf4386f83ca348f630cae8fc41ec11b)), closes [#4239](https://github.com/mi6/ic-ui-kit/issues/4239)
+
 # [3.19.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.18.0...@ukic/react@3.19.0) (2026-02-04)
 
 ### Bug Fixes

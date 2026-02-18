@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.35...@ukic/canary-web-components@3.0.0-canary.36) (2026-02-18)
+
+### Bug Fixes
+
+- **canary-web-components:** round the corners of horizontal card images ([6513f9b](https://github.com/mi6/ic-ui-kit/commit/6513f9b778fe857ce91c043e1806747abb96062a))
+- **canary-web-components:** update canary-web-components Vite config to fix hot reloading ([3315307](https://github.com/mi6/ic-ui-kit/commit/3315307287cfb4942ee4a4e73c247328e18760ea))
+
+### Features
+
+- **canary-web-components:** create drawer component and add focus trap helper functions ([9c93b27](https://github.com/mi6/ic-ui-kit/commit/9c93b2730a1d10c7732bf0d7651e636ab05376b0)), closes [#750](https://github.com/mi6/ic-ui-kit/issues/750)
+- **canary-web-components:** replaces the date object with a string to display only the time ([6ddebd8](https://github.com/mi6/ic-ui-kit/commit/6ddebd8c994e5798558e00795e77d871e869c4a2))
+
 # [3.0.0-canary.35](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.34...@ukic/canary-web-components@3.0.0-canary.35) (2026-02-04)
 
 ### Bug Fixes

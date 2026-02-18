@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.20.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.19.0...@ukic/web-components@3.20.0) (2026-02-18)
+
+### Bug Fixes
+
+- **web-components:** update web-components Vite config to fix hot reloading ([6911f2d](https://github.com/mi6/ic-ui-kit/commit/6911f2d0c245673d5f722050f2e7aa658d56fd27))
+
+### Features
+
+- **web-components:** add focus trap helper functions and update dialog component to use them ([ebb0c2a](https://github.com/mi6/ic-ui-kit/commit/ebb0c2ad3c0f5ff01e909837c878c9d14e28fa5e)), closes [#750](https://github.com/mi6/ic-ui-kit/issues/750)
+- **web-components:** add slot equivalent for accessibleButtonLabel prop ([cefa6e4](https://github.com/mi6/ic-ui-kit/commit/cefa6e414e6a80f6ecb02a3168be446464d4c41e)), closes [#4239](https://github.com/mi6/ic-ui-kit/issues/4239)
+
 # [3.19.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.18.0...@ukic/web-components@3.19.0) (2026-02-04)
 
 ### Bug Fixes

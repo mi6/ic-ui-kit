@@ -1,6 +1,6 @@
 {
   "name": "@ukic/nextjs",
-  "version": "3.2.17",
+  "version": "3.2.18",
   "private": true,
   "description": "React-wrapped web components served on a nextjs storybook",
   "bugs": {
@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "@storybook/addon-a11y": "10.1.11",
-    "@ukic/react": "^3.19.0",
-    "@ukic/web-components": "^3.19.0"
+    "@ukic/react": "^3.20.0",
+    "@ukic/web-components": "^3.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
