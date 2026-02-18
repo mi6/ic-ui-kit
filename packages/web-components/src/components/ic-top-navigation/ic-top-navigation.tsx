@@ -353,6 +353,11 @@ export class TopNavigation {
       href: href,
     };
 
+    const buttonTheme =
+      foregroundColor === "default" || foregroundColor === "light"
+        ? "dark"
+        : "light";
+
     return (
       <Host
         class={{
@@ -457,7 +462,7 @@ export class TopNavigation {
                               monochrome
                               size={searchButtonSize}
                               aria-label={mobileSearchButtonTitle}
-                              theme={foregroundColor as IcThemeMode}
+                              theme={buttonTheme}
                               onClick={searchButtonClickHandler}
                             >
                               <slot name="toggle-icon">
@@ -488,7 +493,7 @@ export class TopNavigation {
                                 <ic-button
                                   id="menu-button"
                                   ref={(el) => (this.menuButtonEl = el)}
-                                  theme={foregroundColor as IcThemeMode}
+                                  theme={buttonTheme}
                                   variant="secondary"
                                   monochrome
                                   aria-expanded="false"
