@@ -34,6 +34,8 @@ import {
   scoped: true,
 })
 export class Divider {
+  private isSlottedInSideNav = false;
+
   @Element() el: HTMLIcDividerElement;
 
   @State() foregroundColor: IcBrandForeground = getBrandForegroundAppearance();
@@ -76,6 +78,18 @@ export class Divider {
     this.foregroundColor = ev.detail.mode;
   }
 
+  private getHostAttributes = (renderLabel: boolean) =>
+    this.isSlottedInSideNav
+      ? {
+          "aria-hidden": "true", // Prevent divider being included in screen reader count of items in side navigation
+          role: "listitem",
+        }
+      : (this.orientation === "vertical" ||
+          (renderLabel && !!isPropDefined(this.labelPlacement))) && {
+          "aria-orientation": this.orientation,
+          role: "separator",
+        };
+
   private updateMonochromeState(): void {
     const parentEl = this.el.parentElement;
     if (parentEl) {
@@ -83,10 +97,7 @@ export class Divider {
       const isBottomWrapper =
         parentEl.parentElement?.classList.contains("bottom-wrapper");
 
-      if (
-        parentEl.tagName === "IC-SIDE-NAVIGATION" ||
-        (isBottomSideNav && isBottomWrapper)
-      ) {
+      if (this.isSlottedInSideNav || (isBottomSideNav && isBottomWrapper)) {
         this.el.classList.add("ic-side-navigation-keyline");
         if (this.foregroundColor === "light") {
           this.theme = "dark";
@@ -98,6 +109,8 @@ export class Divider {
   }
 
   componentWillRender(): void {
+    this.isSlottedInSideNav =
+      this.el.parentElement?.tagName === "IC-SIDE-NAVIGATION";
     this.updateMonochromeState();
   }
 
@@ -174,11 +187,7 @@ export class Divider {
           [`ic-divider-label-${labelPlacement}`]:
             slotHasContent(this.el, "label") || !isEmptyString(label),
         }}
-        {...((orientation === "vertical" ||
-          (!!renderLabel() && !!isPropDefined(labelPlacement))) && {
-          "aria-orientation": orientation,
-          role: "separator",
-        })}
+        {...this.getHostAttributes(!!renderLabel())}
       >
         {orientation === "horizontal" &&
           (!renderLabel() || !isPropDefined(labelPlacement)) && <hr />}
