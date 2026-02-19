@@ -1,7 +1,7 @@
 {
-  "total": 892,
+  "total": 893,
   "totalPassed": 892,
-  "totalFailed": 0,
+  "totalFailed": 1,
   "totalSuites": 45,
   "suites": [
     {
@@ -8873,14 +8873,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/light-theme-monochrome.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcToggleButton.cy.tsx/dark-theme-monochrome",
-          "percentage": 0,
+          "percentage": 0.012649110640673518,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx/dark-theme-monochrome.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButton.cy.tsx/dark-theme-monochrome.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/dark-theme-monochrome.png"
         },
         {
@@ -9367,6 +9367,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/position-fixed.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/position-fixed.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/with-icon",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/with-icon.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/with-icon.png"
         },
         {
           "status": "pass",
@@ -10087,9 +10098,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-18T13:28:38.457Z",
-  "endedAt": "2026-02-18T13:47:54.411Z",
-  "duration": 1049930,
+  "startedAt": "2026-02-19T09:19:02.291Z",
+  "endedAt": "2026-02-19T09:37:59.602Z",
+  "duration": 1032181,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
