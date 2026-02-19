@@ -27,6 +27,7 @@ import {
   StaticSideNav,
   checkSideNavSize,
   ReactRouterSideNav,
+  SlottedDividerSideNav,
 } from "./IcSideNavigationTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -748,6 +749,17 @@ describe("IcSideNavigation", () => {
         cy.compareSnapshot({
           name: "/slotted-app-title-open-desktop",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+        });
+      });
+
+      it("should render with a slotted divider", () => {
+        mount(<SlottedDividerSideNav />);
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+        cy.checkA11yWithWait();
+        cy.compareSnapshot({
+          name: "/slotted-divider-desktop",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
         });
       });
 
