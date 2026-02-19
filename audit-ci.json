@@ -169,9 +169,16 @@
       }
     },
     {
-      "GHSA-2g4f-4pwh-qvx6":{
+      "GHSA-2g4f-4pwh-qvx6": {
         "active": true,
         "notes": "requires upgrade to 'ajv', which is a transitive dependency of commitlint.",
+        "expiry": "28 February 2026"
+      }
+    },
+    {
+      "GHSA-3ppc-4f35-3m26": {
+        "active": true,
+        "notes": "requires upgrade to 'minimatch', which is a transitive dependency of jest. Might be removable after jest upgrade.",
         "expiry": "28 February 2026"
       }
     }
