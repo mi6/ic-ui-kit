@@ -196,3 +196,10 @@ input {
     stroke: GrayText;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .ic-switch-toggle,
+  .ic-switch-toggle::before {
+    transition: none;
+  }
+}

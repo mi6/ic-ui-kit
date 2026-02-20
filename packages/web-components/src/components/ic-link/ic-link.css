@@ -160,3 +160,10 @@
     fill: currentcolor !important;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.ic-link) .link,
+  :host(.ic-link) ::slotted(a) {
+    transition: none;
+  }
+}

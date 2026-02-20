@@ -126,3 +126,9 @@ button:disabled {
     border: var(--ic-border-hc) !important;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  button:focus {
+    transition: none;
+  }
+}

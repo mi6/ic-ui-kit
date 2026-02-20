@@ -624,3 +624,44 @@ svg {
     fill: currentcolor;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.navigation-item) .link,
+  :host(.navigation-item) ::slotted(a),
+  :host(.navigation-item-side-menu) .link,
+  :host(.navigation-item-side-menu) ::slotted(a),
+  :host(.navigation-item-side-menu-selected) .link,
+  :host(.navigation-item-side-menu-selected) ::slotted(a),
+  :host(.navigation-item-top-nav-child) .link,
+  :host(.navigation-item-top-nav-child) ::slotted(a),
+  :host(.navigation-item-top-nav-child) .link:focus,
+  :host(.navigation-item-top-nav-child) ::slotted(a:focus),
+  :host(.navigation-item-top-nav-child) ::slotted(a.active)::before,
+  :host(.navigation-item-top-nav-child-selected) .link::before,
+  :host(.navigation-item-side-menu-selected) .link::before,
+  :host(.navigation-item-side-menu) ::slotted(a.active)::before,
+  :host(.navigation-item-side-menu-selected) .link:focus::before,
+  :host(.navigation-item-side-menu) ::slotted(a.active:focus)::before,
+  :host(.navigation-item-side-nav.navigation-item-top-nav-child) .link,
+  :host(.navigation-item-side-nav.navigation-item-top-nav-child) ::slotted(a),
+  :host(.navigation-item-side-nav) a.link ic-typography,
+  :host(.navigation-item-side-nav.navigation-item-top-nav-child)
+    a.link
+    ic-typography,
+  :host(.navigation-item-side-nav) div.link ic-typography,
+  :host(.navigation-item-side-nav.navigation-item-top-nav-child)
+    div.link
+    ic-typography,
+  .navigation-item-side-nav-slotted-text,
+  :host(.navigation-item-side-nav.navigation-item-selected) .link::before,
+  :host(.navigation-item-side-nav) ::slotted(a.active)::before,
+  :host(.navigation-item-page-header).link,
+  :host(.navigation-item-page-header) a,
+  :host(.navigation-item-page-header) ::slotted(a),
+  :host(.navigation-item-page-header.navigation-item-selected.with-transition)
+    .link,
+  :host(.navigation-item-page-header.navigation-item-selected.with-transition)
+    ::slotted(a.active) {
+    transition: none;
+  }
+}

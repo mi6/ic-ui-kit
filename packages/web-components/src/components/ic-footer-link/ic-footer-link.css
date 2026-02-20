@@ -117,3 +117,9 @@
     fill: currentcolor;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.footer-logo-link) {
+    transition: none;
+  }
+}

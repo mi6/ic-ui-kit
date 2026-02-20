@@ -208,27 +208,6 @@ slot[name="app-title"]::slotted(a) {
   font: var(--ic-font-subtitle-small);
 }
 
-@media screen and (min-width: 577px) {
-  :host(.sm-collapsed) slot[name="app-title"]::slotted(ic-typography),
-  :host(.sm-collapsed) slot[name="app-title"]::slotted(a) {
-    position: absolute;
-    left: -9999px;
-    opacity: 0;
-    transition: opacity var(--ic-easing-transition-slow);
-  }
-
-  :host(.sm-collapsed) slot[name="app-title"]:dir(rtl)::slotted(ic-typography),
-  :host(.sm-collapsed) slot[name="app-title"]:dir(rtl)::slotted(a) {
-    right: -9999px;
-  }
-
-  :host(.sm-expanded) slot[name="app-title"]::slotted(a) {
-    font: var(--ic-font-h3) !important;
-    font-weight: var(--ic-font-weight-semibold) !important;
-    margin-left: var(--ic-space-xs) !important;
-  }
-}
-
 :host .title-link:hover {
   border-radius: var(--ic-border-radius);
   background-color: var(--ic-side-navigation-hover);
@@ -680,6 +659,34 @@ slot[name="app-title"]::slotted(a) {
   }
 }
 
+@media screen and (min-width: 577px) {
+  :host(.sm-collapsed) slot[name="app-title"]::slotted(ic-typography),
+  :host(.sm-collapsed) slot[name="app-title"]::slotted(a) {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    transition: opacity var(--ic-easing-transition-slow);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :host(.sm-collapsed) slot[name="app-title"]::slotted(ic-typography),
+    :host(.sm-collapsed) slot[name="app-title"]::slotted(a) {
+      transition: none;
+    }
+  }
+
+  :host(.sm-collapsed) slot[name="app-title"]:dir(rtl)::slotted(ic-typography),
+  :host(.sm-collapsed) slot[name="app-title"]:dir(rtl)::slotted(a) {
+    right: -9999px;
+  }
+
+  :host(.sm-expanded) slot[name="app-title"]::slotted(a) {
+    font: var(--ic-font-h3) !important;
+    font-weight: var(--ic-font-weight-semibold) !important;
+    margin-left: var(--ic-space-xs) !important;
+  }
+}
+
 @media screen and (min-width: 993px) {
   :host(.side-display) {
     position: sticky;
@@ -705,5 +712,23 @@ slot[name="app-title"]::slotted(a) {
 
   slot[name="app-icon"]::slotted(svg) {
     fill: currentcolor;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.xs-menu-open) .side-navigation,
+  :host(.xs-menu-close) .side-navigation,
+  :host(.anchor-right.xs-menu-close) .side-navigation,
+  :host .title-link,
+  :host(.sm-collapsed.side-display),
+  :host(.sm-expanded.side-display),
+  :host(.sm-collapsed.side-display) .app-title-wrapper ic-typography,
+  :host(.sm-collapsed.side-display) :is(.side-navigation, .top-bar),
+  :host(.sm-expanded.side-display) :is(.side-navigation, .top-bar),
+  :host(.side-display) .bottom-side-nav .menu-expand-button,
+  :host(.sm-collapsed.side-display) .bottom-side-nav .menu-expand-button svg,
+  :host(.sm-expanded.side-display) .bottom-side-nav .menu-expand-button svg,
+  :host(.side-display) .collapsed-icon-labels-end {
+    transition: none;
   }
 }

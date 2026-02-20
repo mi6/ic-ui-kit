@@ -128,3 +128,9 @@
     color: inherit;
   }
 } */
+
+@media (prefers-reduced-motion: reduce) {
+  :host {
+    transition: none;
+  }
+}

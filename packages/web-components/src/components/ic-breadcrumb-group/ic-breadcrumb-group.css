@@ -36,3 +36,11 @@
 :host(.ic-breadcrumb-group-collapsed) ol ::slotted(ic-breadcrumb.fade) {
   opacity: 1;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.ic-breadcrumb-group-collapsed)
+    ol
+    ::slotted(ic-breadcrumb.visuallyhidden) {
+    transition: none;
+  }
+}

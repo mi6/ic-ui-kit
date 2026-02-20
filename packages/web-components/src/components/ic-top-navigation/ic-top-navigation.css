@@ -322,3 +322,9 @@ slot[name="toggle-icon"] svg {
     fill: currentcolor;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host .title-link {
+    transition: none;
+  }
+}

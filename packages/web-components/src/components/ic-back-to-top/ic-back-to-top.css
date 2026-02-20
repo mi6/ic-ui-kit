@@ -106,3 +106,10 @@ ic-button.by-footer {
     padding-left: calc(var(--ic-space-xs) - var(--ic-space-xxxs));
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  ic-button,
+  ic-button.show {
+    transition: none;
+  }
+}

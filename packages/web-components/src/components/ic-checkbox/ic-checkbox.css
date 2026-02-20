@@ -250,11 +250,6 @@
   /* Styles here only apply to Forced Colors Mode */
   .checkbox {
     appearance: revert;
-    transition: none;
-  }
-
-  .checkbox:checked {
-    transition: none;
   }
 
   .checkbox:focus-visible {
@@ -297,4 +292,11 @@
 
 .dynamic-container:dir(rtl) {
   margin: var(--ic-space-xxxs) var(--ic-space-sm) var(--ic-space-xxs) 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checkbox,
+  .checkbox:checked {
+    transition: none;
+  }
 }

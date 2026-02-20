@@ -209,3 +209,9 @@ input[type="search"].truncate-value {
     width: 100%;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .clear-button {
+    transition: none;
+  }
+}

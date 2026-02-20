@@ -51,8 +51,11 @@ export class NavigationItem {
   private isInitialRender = true;
   private itemEl?: HTMLElement;
   private hostMutationObserver: MutationObserver | null = null;
-  private ANIMATION_DURATION =
-    parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
+  private ANIMATION_DURATION = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches
+    ? 0
+    : parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
   private ARIA_LABEL_STRING = "aria-label";
   private isInSideNav = false;
 

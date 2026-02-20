@@ -213,3 +213,9 @@
     transform: scale(0);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.ic-badge-hide) {
+    transition: none;
+  }
+}

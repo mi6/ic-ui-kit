@@ -96,3 +96,9 @@
 :host(.ic-horizontal-scroll-light) .disabled ic-button > svg {
   color: var(--splitter-color) !important;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  ::slotted(*) {
+    scroll-behavior: auto;
+  }
+}

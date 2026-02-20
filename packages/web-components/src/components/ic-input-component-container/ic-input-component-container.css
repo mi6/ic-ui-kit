@@ -210,3 +210,10 @@ ic-input-component-container:focus {
     width: 100%;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  ic-input-component-container,
+  .focus-indicator {
+    transition: none;
+  }
+}

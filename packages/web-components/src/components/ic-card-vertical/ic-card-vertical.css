@@ -269,3 +269,10 @@ button {
     outline-color: Highlight;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .toggle-button {
+    transition: none;
+  }
+}

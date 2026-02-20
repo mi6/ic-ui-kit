@@ -218,3 +218,12 @@
   position: var(--navigation-group-title-position);
   left: var(--navigation-group-title-position-left);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host .navigation-group,
+  :host(:not(.in-side-menu)) .navigation-group:focus,
+  :host(.ic-navigation-group-expanded) .grouped-links-wrapper,
+  :host(.ic-navigation-group-collapsed) .grouped-links-wrapper {
+    transition: none;
+  }
+}
