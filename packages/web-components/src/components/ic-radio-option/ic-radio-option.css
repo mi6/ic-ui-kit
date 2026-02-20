@@ -284,3 +284,9 @@
 :host .dynamic-container:dir(rtl) {
   margin: var(--ic-space-xxxs) var(--ic-space-sm) var(--ic-space-xxs) 0;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host .checkmark {
+    transition: none;
+  }
+}

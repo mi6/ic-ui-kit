@@ -131,9 +131,15 @@ export class Accordion {
     property: string,
     delay: string
   ) => {
-    el.style.transitionDuration = `${duration}ms`;
-    el.style.transitionProperty = property;
-    el.style.transitionDelay = delay;
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.style.transitionDuration = `${duration}ms`;
+      el.style.transitionProperty = property;
+      el.style.transitionDelay = delay;
+    } else {
+      el.style.transitionDuration = "0ms";
+      el.style.transitionProperty = "none";
+      el.style.transitionDelay = "0ms";
+    }
   };
 
   private setExpandedContentStyle = (

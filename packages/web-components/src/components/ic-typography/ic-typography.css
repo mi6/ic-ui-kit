@@ -215,3 +215,9 @@
     color: var(--ic-typography-color);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .trunc-btn {
+    transition: none;
+  }
+}
