@@ -288,3 +288,10 @@
     background: Highlight !important;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .ic-time-selector-column:focus,
+  .ic-time-selector-item {
+    transition: none;
+  }
+}

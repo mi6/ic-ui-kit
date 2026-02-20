@@ -183,3 +183,10 @@ ic-input-validation {
     color: currentcolor;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .clear-button,
+  .calendar-button {
+    transition: none;
+  }
+}

@@ -133,7 +133,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   /* limit sidebar scroll animation */
-  .table-of-contents-sidebar {
+  .table-of-contents-sidebar,
+  .table-of-contents-item-content:focus,
+  .table-of-contents-item-content:active {
     transition: none;
   }
 }

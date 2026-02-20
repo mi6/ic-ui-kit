@@ -425,6 +425,10 @@
   :host .bottom-buttons {
     animation: none;
   }
+
+  :host .day-button {
+    transition: none;
+  }
 }
 
 @keyframes fade-in-buttons {
