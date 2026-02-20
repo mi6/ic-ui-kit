@@ -186,3 +186,10 @@
     --ic-typography-color: Highlight !important;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host .tree-item-content:focus,
+  ::slotted([slot="router-item"]:focus) {
+    transition: none;
+  }
+}
