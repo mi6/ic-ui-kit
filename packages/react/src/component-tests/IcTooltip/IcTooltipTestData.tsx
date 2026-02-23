@@ -21,6 +21,35 @@ export const Default = () => {
   );
 };
 
+export const WithIcon = () => {
+  return (
+    <div style={{ margin: "40px" }}>
+      <IcTooltip
+        label="This is a description of the button"
+        id="ic-tooltip-test-button-with-icon"
+        target="test-button-with-icon"
+      >
+        <svg
+          slot="tooltip-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="currentColor"
+        >
+          <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+        </svg>
+        <button
+          aria-describedby="ic-tooltip-test-button-with-icon"
+          id="test-button-with-icon"
+        >
+          With icon
+        </button>
+      </IcTooltip>
+    </div>
+  );
+};
+
 export const TopPlacement = () => {
   return (
     <div style={{ margin: "40px" }}>
