@@ -1,7 +1,7 @@
 {
   "total": 893,
-  "totalPassed": 892,
-  "totalFailed": 1,
+  "totalPassed": 893,
+  "totalFailed": 0,
   "totalSuites": 45,
   "suites": [
     {
@@ -8873,14 +8873,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/light-theme-monochrome.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButton.cy.tsx/dark-theme-monochrome",
-          "percentage": 0.012649110640673518,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx/dark-theme-monochrome.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButton.cy.tsx/dark-theme-monochrome.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/dark-theme-monochrome.png"
         },
         {
@@ -10098,9 +10098,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-19T09:19:02.291Z",
-  "endedAt": "2026-02-19T09:37:59.602Z",
-  "duration": 1032181,
+  "startedAt": "2026-02-23T12:07:17.308Z",
+  "endedAt": "2026-02-23T12:25:59.168Z",
+  "duration": 1018827,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
