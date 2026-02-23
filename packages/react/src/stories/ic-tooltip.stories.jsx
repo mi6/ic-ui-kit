@@ -13,6 +13,12 @@ const defaultArgs = {
   fixedPositioning: false,
 };
 
+const defaultWithIconArgs = {
+  ...defaultArgs,
+  iconSlot: "icon",
+  tooltipIconAltText: "Check mark icon",
+};
+
 export default {
   title: "Tooltip",
   component: IcTooltip,
@@ -280,6 +286,34 @@ export const LeftPlacements = {
   name: "Left placements",
 };
 
+export const TooltipWithSlottedIcon = {
+  render: () => (
+    <IcTooltip
+      label="This is a tooltip with a longer label and an icon to show how the text is aligned when there is an icon present."
+      id="ic-tooltip-with-icon"
+      icon-alt-text="Check mark icon"
+    >
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="currentColor"
+      >
+        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+      </svg>
+      <button 
+        aria-describedby="ic-tooltip-with-icon"
+      >
+        Icon on Tooltip
+      </button>
+    </IcTooltip>
+  ),
+
+  name: "With Icon",
+};
+
 export const Truncation = {
   render: () => (
     <IcTooltip
@@ -501,4 +535,106 @@ export const Playground = {
   },
 
   name: "Playground",
+};
+
+
+export const PlaygroundWithIcon = {
+  render:(args) => (
+    <div 
+      style={{margin: "250px",
+      }}
+    >
+      <IcTooltip
+        label={args.label}
+        icon-alt-text={args.tooltipIconAltText}
+        icon-slot={args.iconSlot}
+        placement={args.placement}
+        max-lines={args.maxLines}
+        disable-hover={args.disableHover}
+        id="ic-tooltip-1"
+        theme={args.theme}
+        fixed-positioning={args.fixedPositioning}
+      >
+        <svg
+          slot={args.iconSlot}
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.79502 15.875L4.62502 11.705L3.20502 13.115L8.79502 18.705L20.795 6.70501L19.385 5.29501L8.79502 15.875Z"
+          />
+        </svg>
+        <button aria-describedby="ic-tooltip-1">Native</button>
+      </IcTooltip>
+      <IcTooltip
+        label={args.label}
+        icon-alt-text={args.tooltipIconAltText}
+        icon-slot={args.iconSlot}
+        placement={args.placement}
+        max-lines={args.maxLines}
+        disable-hover={args.disableHover}
+        id="ic-tooltip-2"
+        theme={args.theme}
+        fixed-positioning={args.fixedPositioning}
+      >
+        <svg
+          slot={args.iconSlot}
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.79502 15.875L4.62502 11.705L3.20502 13.115L8.79502 18.705L20.795 6.70501L19.385 5.29501L8.79502 15.875Z"
+          />
+        </svg>
+        <IcButton aria-describedby="ic-tooltip-2"> ICDS </IcButton>
+      </IcTooltip>
+    </div> 
+  ),
+  args:defaultWithIconArgs,
+  
+  argTypes:{
+    placement:{
+      options:[
+        "bottom",
+        "top-start",
+        "top",
+        "top-end",
+        "right-start",
+        "right",
+        "right-end",
+        "bottom-end",
+        "bottom-start",
+        "left-end",
+        "left",
+        "left-start",
+      ],
+      control:{
+        type:"select",
+      },
+    },
+    theme:{
+      options:["inherit", "light", "dark"],
+      control:{
+        type:"inline-radio",
+      },
+    },
+    iconSlot:{
+      options:["icon", ""],
+      control:{
+        type:"select",
+      },
+    },
+    tooltipIconAltText: {
+      control: {
+        type: "text",
+      },
+    },
+  },
+  name:"Playground With Icon",
 };
