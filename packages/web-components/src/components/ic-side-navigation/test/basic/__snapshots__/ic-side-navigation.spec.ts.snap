@@ -165,9 +165,11 @@ exports[`ic-side-navigation should render with primary navigation items and coll
       <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              Home
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                Home
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -244,9 +246,11 @@ exports[`ic-side-navigation should render with primary navigation items: renders
       <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              Home
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                Home
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -323,9 +327,11 @@ exports[`ic-side-navigation should render with secondary navigation items: rende
       <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              a11y
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                a11y
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -402,9 +408,11 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
       <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              Daily Tippers
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                Daily Tippers
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -428,9 +436,11 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
       <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              a11y
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                a11y
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -507,9 +517,11 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
       <ic-tooltip class="ic-tooltip tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              Daily Tippers
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                Daily Tippers
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -533,9 +545,11 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
       <ic-tooltip class="ic-tooltip tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              a11y
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                a11y
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -603,9 +617,11 @@ exports[`ic-side-navigation should render with slotted navigation item: slotted-
       <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              Daily Tippers
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                Daily Tippers
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -694,9 +710,11 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
       <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              Daily Tippers
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                Daily Tippers
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
@@ -734,9 +752,11 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
         <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
           <template shadowrootmode="open">
             <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-              <ic-typography variant="caption">
-                Daily Tippers
-              </ic-typography>
+              <div class="ic-tooltip-content">
+                <ic-typography variant="caption">
+                  Daily Tippers
+                </ic-typography>
+              </div>
               <div class="ic-tooltip-arrow"></div>
             </div>
             <slot></slot>
@@ -761,9 +781,11 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
       <ic-tooltip class="ic-tooltip tooltip-navigation-item" target="navigation-item">
         <template shadowrootmode="open">
           <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-            <ic-typography variant="caption">
-              bar
-            </ic-typography>
+            <div class="ic-tooltip-content">
+              <ic-typography variant="caption">
+                bar
+              </ic-typography>
+            </div>
             <div class="ic-tooltip-arrow"></div>
           </div>
           <slot></slot>
