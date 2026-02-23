@@ -231,7 +231,9 @@ exports[`button component should render icon variant with a tooltip 1`] = `
     <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-          <ic-typography variant="caption"></ic-typography>
+          <div class="ic-tooltip-content">
+            <ic-typography variant="caption"></ic-typography>
+          </div>
           <div class="ic-tooltip-arrow"></div>
         </div>
         <slot></slot>
@@ -251,9 +253,11 @@ exports[`button component should render icon variant with a tooltip based on ari
     <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
         <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-          <ic-typography variant="caption">
-            Tooltip text
-          </ic-typography>
+          <div class="ic-tooltip-content">
+            <ic-typography variant="caption">
+              Tooltip text
+            </ic-typography>
+          </div>
           <div class="ic-tooltip-arrow"></div>
         </div>
         <slot></slot>
@@ -273,9 +277,11 @@ exports[`button component should render icon variant with a tooltip based on tit
     <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-          <ic-typography variant="caption">
-            Tooltip text
-          </ic-typography>
+          <div class="ic-tooltip-content">
+            <ic-typography variant="caption">
+              Tooltip text
+            </ic-typography>
+          </div>
           <div class="ic-tooltip-arrow"></div>
         </div>
         <slot></slot>
@@ -380,9 +386,11 @@ exports[`button component should update aria-label when attribute changed 1`] = 
     <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
         <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-          <ic-typography variant="caption">
-            Tooltip text
-          </ic-typography>
+          <div class="ic-tooltip-content">
+            <ic-typography variant="caption">
+              Tooltip text
+            </ic-typography>
+          </div>
           <div class="ic-tooltip-arrow"></div>
         </div>
         <slot></slot>
@@ -402,9 +410,11 @@ exports[`button component should update aria-label when attribute changed 2`] = 
     <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <template shadowrootmode="open">
         <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-          <ic-typography variant="caption">
-            New tooltip text
-          </ic-typography>
+          <div class="ic-tooltip-content">
+            <ic-typography variant="caption">
+              New tooltip text
+            </ic-typography>
+          </div>
           <div class="ic-tooltip-arrow"></div>
         </div>
         <slot></slot>
