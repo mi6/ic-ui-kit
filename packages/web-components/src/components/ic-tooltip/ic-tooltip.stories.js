@@ -7,8 +7,12 @@ const defaultArgs = {
   label: "This is a description of the button",
   theme: "inherit",
   fixedPositioning: false,
+};
+
+const defaultWithIconArgs = {
+  ...defaultArgs,
   tooltipIconSlot: "tooltip-icon",
-  tooltipIconAltText: "",
+  tooltipIconAltText: "Check mark icon",
 };
 
 export default {
@@ -400,6 +404,7 @@ export const PlaygroundWithIcon = {
       >
         <svg
           slot=${args.tooltipIconSlot}
+          aria-label=${args.tooltipIconAltText}
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -425,6 +430,7 @@ export const PlaygroundWithIcon = {
       >
         <svg
           slot=${args.tooltipIconSlot}
+          aria-label=${args.tooltipIconAltText}
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -438,7 +444,7 @@ export const PlaygroundWithIcon = {
         <ic-button aria-describedby="ic-tooltip-2"> ICDS </ic-button>
       </ic-tooltip>
     </div> `,
-  args: defaultArgs,
+  args: defaultWithIconArgs,
   argTypes: {
     placement: {
       options: [
@@ -469,6 +475,11 @@ export const PlaygroundWithIcon = {
       options: ["tooltip-icon", ""],
       control: {
         type: "select",
+      },
+    },
+    tooltipIconAltText: {
+      control: {
+        type: "text",
       },
     },
   },
