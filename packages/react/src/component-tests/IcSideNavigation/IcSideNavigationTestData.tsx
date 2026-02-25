@@ -7,6 +7,7 @@ import {
   IcSideNavigation,
   IcBadge,
   IcSectionContainer,
+  IcDivider,
 } from "../../components";
 import { SlottedSVG } from "../..";
 import { MemoryRouter, NavLink, Route, Routes } from "react-router-dom";
@@ -60,12 +61,13 @@ const AppIcon = (): ReactElement => (
   </SlottedSVG>
 );
 
-const SideNavChildren = (): ReactElement => (
+const SideNavChildren = ({ showDivider = false }): ReactElement => (
   <>
     <AppIcon />
     <IcNavigationItem slot="primary-navigation" href="/" label="Home">
       <ReusableSlottedIcon />
     </IcNavigationItem>
+    {showDivider && <IcDivider slot="primary-navigation" />}
     <IcNavigationItem
       slot="primary-navigation"
       href="/"
@@ -341,6 +343,18 @@ export const SlottedAppTitleSideNav = (): ReactElement => (
       Application Name
     </a>
     <SlottedNavItemsChildren />
+  </IcSideNavigation>
+);
+
+export const SlottedDividerSideNav = (): ReactElement => (
+  <IcSideNavigation
+    appTitle="ApplicationName"
+    shortAppTitle="ACME"
+    version="v0.0.0"
+    status="alpha"
+    disableAutoParentStyling
+  >
+    <SideNavChildren showDivider />
   </IcSideNavigation>
 );
 
