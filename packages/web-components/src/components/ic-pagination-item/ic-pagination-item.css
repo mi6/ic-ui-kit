@@ -179,3 +179,9 @@ ic-typography.dark {
     --ic-typography-color: GrayText;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .item-container:focus {
+    transition: none;
+  }
+}

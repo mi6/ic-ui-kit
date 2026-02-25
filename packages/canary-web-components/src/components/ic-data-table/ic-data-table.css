@@ -470,7 +470,10 @@ td.table-density-spacious {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .loading-overlay {
+  .loading-overlay,
+  .loading,
+  .table-row-container:focus,
+  .table-row-container {
     transition: none;
   }
 }

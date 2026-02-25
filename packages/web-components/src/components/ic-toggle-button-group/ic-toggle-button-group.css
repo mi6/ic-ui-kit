@@ -88,3 +88,9 @@
   --ic-toggle-button-unselected-border-monochrome: transparent;
   --ic-toggle-button-unselected-border-disabled-monochrome: transparent;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :host(:focus) {
+    transition: none;
+  }
+}

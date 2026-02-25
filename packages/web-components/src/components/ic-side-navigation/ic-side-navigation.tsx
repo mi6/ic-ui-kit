@@ -46,8 +46,11 @@ import { IcTopBar, IcExpandedDetail } from "./ic-side-navigation.types";
   shadow: true,
 })
 export class SideNavigation {
-  private ANIMATION_DURATION =
-    parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
+  private ANIMATION_DURATION = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches
+    ? 0
+    : parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
   private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
   private resizeObserver: ResizeObserver | null = null;
   private COLLAPSED_ICON_LABELS_END = "collapsed-icon-labels-end";
@@ -386,13 +389,17 @@ export class SideNavigation {
     if (menuExpanded) {
       icTypography.style.opacity = "1";
       icTypography.style.visibility = "visible";
-      icTypography.style.transition =
-        "visibility 0s, opacity var(--ic-easing-transition-slow)";
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        icTypography.style.transition =
+          "visibility 0s, opacity var(--ic-easing-transition-slow)";
+      }
     } else {
       icTypography.style.opacity = "0";
       icTypography.style.visibility = "hidden";
-      icTypography.style.transition =
-        "visibility 0s, opacity var(--ic-easing-transition-slow)";
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        icTypography.style.transition =
+          "visibility 0s, opacity var(--ic-easing-transition-slow)";
+      }
     }
   };
 
