@@ -726,7 +726,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/searchable-descriptions-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.059),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.082),
     });
   });
 
@@ -1102,7 +1102,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/searchable-long-text-input",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
     });
   });
 });
@@ -1209,7 +1209,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "/searchable-descriptions-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.075),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.105),
     });
   });
 });

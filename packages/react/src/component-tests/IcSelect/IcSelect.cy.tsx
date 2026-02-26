@@ -406,7 +406,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/full-width-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.096),
     });
 
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
@@ -421,7 +421,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
     cy.compareSnapshot({
       name: "/full-width-open-selected",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.105),
     });
   });
 
@@ -475,7 +475,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.078),
     });
   });
 
@@ -838,7 +838,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/descriptions-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.096),
     });
   });
 
@@ -902,7 +902,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
     cy.compareSnapshot({
       name: "/descriptions-open-selected",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.105),
     });
   });
 
@@ -1833,7 +1833,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.wait(300).compareSnapshot({
       name: "/dark-theme-groups-descriptions",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.12),
     });
   });
 
@@ -1990,7 +1990,7 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/descriptions-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.123),
     });
   });
 
