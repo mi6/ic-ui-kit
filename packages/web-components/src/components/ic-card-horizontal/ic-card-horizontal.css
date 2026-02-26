@@ -1,0 +1,285 @@
+@import "../../global/normalize.css";
+
+/**
+  * @prop --card-horizontal-width: Width of the horizontal card
+  */
+
+:host {
+  display: flex;
+
+  --card-max-width: 550px;
+  --image-size: 132px;
+  --message-max-lines: 2;
+}
+
+.card.small {
+  --card-max-width: 360px;
+  --image-size: calc(var(--ic-space-sm) * 10);
+}
+
+.card.small.spacious {
+  --image-size: 100px;
+}
+
+.card.large {
+  --card-max-width: 1130px;
+  --image-size: 164px;
+  --message-max-lines: 3;
+}
+
+.card.large .card-message {
+  margin-top: var(--ic-space-md);
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--ic-card-text-primary) !important;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: var(--ic-hc-focus-outline);
+  padding: 0;
+}
+
+.card,
+.card.clickable {
+  display: flex;
+  flex-direction: row;
+  border: var(--ic-space-1px) solid var(--ic-card-border-primary);
+  border-radius: var(--ic-border-radius);
+  box-sizing: border-box;
+  text-align: left;
+  color: var(--ic-card-text-primary);
+  transition: var(--ic-easing-transition-fast);
+  position: relative;
+  max-width: var(--card-max-width);
+  height: fit-content;
+  width: var(--card-horizontal-width, fit-content);
+}
+
+.dark.card,
+.dark.card.clickable {
+  border: var(--ic-border-width) solid
+    var(--ic-color-border-neutral-pressed-dark);
+}
+
+.card.clickable:hover {
+  background-color: var(--ic-card-background-hover);
+  border: var(--ic-space-1px) solid var(--ic-card-hover-border-color);
+  cursor: pointer;
+}
+
+.card.clickable:focus,
+.card.clickable.focussed {
+  background-color: var(--ic-card-background-hover);
+  box-shadow: var(--ic-border-focus);
+  outline: var(--ic-hc-focus-outline);
+  border: var(--ic-space-1px) solid var(--ic-card-pressed-border-color);
+}
+
+.card.clickable:active {
+  background-color: var(--ic-card-background-pressed);
+  box-shadow: var(--ic-border-focus);
+}
+
+.card.disabled {
+  border: var(--ic-space-1px) dashed var(--ic-card-disabled-border-color);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding-right: var(--ic-space-xs);
+}
+
+.card ::slotted(svg) {
+  fill: var(--ic-card-icon);
+}
+
+.card.disabled ::slotted(svg) {
+  fill: var(--ic-card-icon-disabled);
+}
+
+.card.clickable .card-title {
+  --ic-typography-color: var(--ic-card-clickable-text);
+
+  color: var(--ic-card-clickable-text);
+  text-decoration: underline;
+  text-decoration-thickness: var(--ic-space-1px);
+}
+
+.card.clickable:hover .card-title,
+.card.clickable:focus .card-title,
+.card.clickable.focussed .card-title {
+  display: inline-block;
+  border-bottom: 0.25rem solid !important;
+  margin-bottom: -0.25rem !important;
+  text-decoration: none;
+}
+
+.card.clickable:active .card-title {
+  text-decoration: none;
+}
+
+.card.disabled .card-title {
+  text-decoration: underline;
+  text-decoration-thickness: var(--ic-space-1px);
+  text-decoration-color: var(--ic-card-disabled-text);
+  color: var(--ic-card-disabled-text);
+
+  --ic-typography-color: var(--ic-card-disabled-text);
+}
+
+.card-message {
+  margin-top: var(--ic-space-xs);
+  align-items: left;
+}
+
+.card.disabled .card-message,
+.card.disabled .subheading {
+  --ic-typography-color: var(--ic-card-disabled-text);
+}
+
+.image {
+  display: flex;
+}
+
+.image ::slotted([slot="image-left"]),
+.image ::slotted([slot="image-right"]) {
+  height: var(--image-size);
+  width: var(--image-size);
+}
+
+.image ::slotted([slot="image-left"]) {
+  border-radius: var(--ic-space-1px) 0 0 var(--ic-space-1px);
+}
+
+.image ::slotted([slot="image-right"]) {
+  border-radius: 0 var(--ic-space-1px) var(--ic-space-1px) 0;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ic-space-md);
+}
+
+.card .card-title ::slotted([slot="heading"]),
+.card .card-title ic-typography p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: calc(var(--card-max-width) - var(--ic-space-xl));
+}
+
+.card.with-icon .card-title ::slotted([slot="heading"]),
+.card.with-icon .card-title ic-typography p {
+  max-width: calc(var(--card-max-width) - (2 * var(--ic-space-xl)));
+}
+
+.card.with-image .card-title ::slotted([slot="heading"]),
+.card.with-image .card-title ic-typography p {
+  max-width: calc(
+    var(--card-max-width) - var(--image-size) - var(--ic-space-xl)
+  );
+}
+
+.card.with-image.with-icon .card-title ::slotted([slot="heading"]),
+.card.with-image.with-icon .card-title ic-typography p {
+  max-width: calc(
+    var(--card-max-width) - var(--image-size) - (2 * var(--ic-space-xl))
+  );
+}
+
+.card .card-message ::slotted([slot="message"]),
+.card .card-message ic-typography {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: var(--message-max-lines, initial);
+  -webkit-line-clamp: var(--message-max-lines, initial);
+  overflow: hidden;
+}
+
+.card.spacious {
+  padding: var(--ic-space-md);
+}
+
+.card.spacious .card-content {
+  padding: 0;
+}
+
+.card.spacious .card-content.left-image {
+  padding: 0 0 0 var(--ic-space-md);
+}
+
+.card.spacious .card-content.right-image {
+  padding: 0 var(--ic-space-md) 0 0;
+}
+
+.card.spacious .image ::slotted([slot="image-left"]),
+.card.spacious .image ::slotted([slot="image-right"]) {
+  border-radius: var(--ic-border-radius);
+}
+
+.interaction-button {
+  margin-left: auto;
+}
+
+.adornment {
+  margin-top: var(--ic-space-xxs);
+}
+
+.subheading {
+  margin-top: var(--ic-space-xxs);
+}
+
+.card-title.with-interaction-button {
+  margin-right: var(--ic-space-md);
+}
+
+::slotted(p),
+::slotted(h1),
+::slotted(h2),
+::slotted(h3),
+::slotted(h4),
+::slotted(h5),
+::slotted(h6) {
+  line-height: normal;
+}
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  .card ::slotted(svg) {
+    fill: currentcolor;
+  }
+
+  .card.disabled ::slotted(svg) {
+    fill: GrayText !important;
+  }
+
+  .card.disabled {
+    border-color: GrayText !important;
+  }
+
+  .card.disabled .card-message,
+  .card.disabled .card-title,
+  .card.disabled .subheading {
+    color: GrayText;
+
+    --ic-typography-color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card.clickable {
+    transition: none;
+  }
+}
