@@ -7,8 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive as IcAriaLive1, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "../../web-components/src/utils/types";
 import { IcButtonTypes, IcButtonVariants } from "../../web-components/src/components/ic-button/ic-button.types";
-import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "../../web-components/src/components/ic-badge/ic-badge.types";
-import { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcPositionTopOrRight, IcSizes as IcSizes1, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
+import { IcAriaLive, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcPositionTopOrRight, IcSizes as IcSizes1, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcDrawerBoundary, IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 import { IcEmptyStateAlignment } from "../../web-components/src/components/ic-empty-state/ic-empty-state.types";
@@ -22,7 +21,6 @@ import { IcChangeEventDetail, IcPaginationAlignmentOptions, IcPaginationLabelTyp
 import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcChangeEventDetail as IcChangeEventDetail1 } from "../../web-components/src/components/ic-radio-group/ic-radio-group.types";
 import { IcExpandedDetail } from "../../web-components/src/components/ic-side-navigation/ic-side-navigation.types";
-import { IcStatusTagStatuses } from "../../web-components/src/components/ic-status-tag/ic-status-tag.types";
 import { IcSwitchChangeEventDetail } from "../../web-components/src/components/ic-switch/ic-switch.types";
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "../../web-components/src/components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldKeydownEventDetail, IcTextFieldTypes } from "../../web-components/src/components/ic-text-field/ic-text-field.types";
@@ -32,8 +30,7 @@ import { IcTooltipPlacements } from "../../web-components/src/components/ic-tool
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive as IcAriaLive1, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "../../web-components/src/utils/types";
 export { IcButtonTypes, IcButtonVariants } from "../../web-components/src/components/ic-button/ic-button.types";
-export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "../../web-components/src/components/ic-badge/ic-badge.types";
-export { IcAriaLive, IcCardDensity, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcPositionTopOrRight, IcSizes as IcSizes1, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
+export { IcAriaLive, IcDateFormat, IcDateValueFormat, IcDisableTimeSelection, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcPositionTopOrRight, IcSizes as IcSizes1, IcThemeMode as IcThemeMode1, IcTimeFormat, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcDrawerBoundary, IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 export { IcEmptyStateAlignment } from "../../web-components/src/components/ic-empty-state/ic-empty-state.types";
@@ -47,7 +44,6 @@ export { IcChangeEventDetail, IcPaginationAlignmentOptions, IcPaginationLabelTyp
 export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcChangeEventDetail as IcChangeEventDetail1 } from "../../web-components/src/components/ic-radio-group/ic-radio-group.types";
 export { IcExpandedDetail } from "../../web-components/src/components/ic-side-navigation/ic-side-navigation.types";
-export { IcStatusTagStatuses } from "../../web-components/src/components/ic-status-tag/ic-status-tag.types";
 export { IcSwitchChangeEventDetail } from "../../web-components/src/components/ic-switch/ic-switch.types";
 export { IcTabClickEventDetail, IcTabSelectEventDetail } from "../../web-components/src/components/ic-tab/ic-tab.types";
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldKeydownEventDetail, IcTextFieldTypes } from "../../web-components/src/components/ic-text-field/ic-text-field.types";
@@ -171,48 +167,6 @@ export namespace Components {
           * The emphasis of the chip.
          */
         "variant": IcEmphasisType;
-    }
-    interface IcBadge {
-        /**
-          * The accessible label of the badge component to provide context for screen reader users.
-         */
-        "accessibleLabel"?: string;
-        /**
-          * The custom badge colour. This will only style the badge component if variant="custom". Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
-         */
-        "customColor"?: IcColor;
-        /**
-          * The text displayed in the badge. This will only be displayed if type="text".
-         */
-        "label"?: string;
-        /**
-          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and label is not empty.
-         */
-        "maxNumber"?: number;
-        /**
-          * The positioning of the badge in reference to the parent element.
-         */
-        "position"?: IcBadgePositions;
-        /**
-          * The size of the badge to be displayed.
-         */
-        "size"?: IcSizes;
-        /**
-          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
-         */
-        "theme"?: IcThemeMode;
-        /**
-          * The type of badge to be displayed.
-         */
-        "type"?: IcBadgeTypes;
-        /**
-          * The variant of the badge to be displayed.
-         */
-        "variant"?: IcBadgeVariants;
-        /**
-          * If `true`, the badge will be displayed.
-         */
-        "visible"?: boolean;
     }
     interface IcButton {
         /**
@@ -408,64 +362,6 @@ export namespace Components {
           * The value of the calendar and the date visible when the calendar opens. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "value"?: IcDateValueFormat;
-    }
-    interface IcCardHorizontal {
-        /**
-          * If `true`, the horizontal card will be a clickable variant, instead of static.
-         */
-        "clickable": boolean;
-        /**
-          * The padding of the horizontal card.
-         */
-        "density": IcCardDensity;
-        /**
-          * If `true`, the horizontal card will be disabled if it is clickable.
-         */
-        "disabled": boolean;
-        /**
-          * The heading for the horizontal card. This is required, unless a slotted heading is used.
-         */
-        "heading"?: string;
-        /**
-          * The URL that the clickable horizontal card link points to. If set, the clickable horizontal card will render as an "a" tag, otherwise it will render as a button.
-         */
-        "href"?: string | undefined;
-        /**
-          * The human language of the linked URL.
-         */
-        "hreflang"?: string;
-        /**
-          * The main body message of the horizontal card.
-         */
-        "message"?: string;
-        /**
-          * How much of the referrer to send when following the link.
-         */
-        "referrerpolicy"?: ReferrerPolicy;
-        /**
-          * The relationship of the linked URL as space-separated link types.
-         */
-        "rel"?: string;
-        /**
-          * Sets focus on the card.
-         */
-        "setFocus": () => Promise<void>;
-        /**
-          * The size of the horizontal card.
-         */
-        "size": IcSizes1;
-        /**
-          * The subheading for the card.
-         */
-        "subheading"?: string;
-        /**
-          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
-         */
-        "target"?: string;
-        /**
-          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
-         */
-        "theme"?: IcThemeMode1;
     }
     interface IcCheckbox {
         /**
@@ -2125,36 +2021,6 @@ export namespace Components {
          */
         "transparentBackground": boolean;
     }
-    interface IcStatusTag {
-        /**
-          * If `true`, role='status' is added to the component and it will act as an 'aria-live' region. Screen readers will announce changes to the `label`, but not the initial value.
-         */
-        "announced"?: boolean;
-        /**
-          * The content rendered within the status tag.
-         */
-        "label": string;
-        /**
-          * The size of the status tag component.
-         */
-        "size"?: IcSizes;
-        /**
-          * The colour of the status tag.
-         */
-        "status"?: IcStatusTagStatuses;
-        /**
-          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
-         */
-        "theme"?: "dark" | "light" | "inherit";
-        /**
-          * The letter case of the status tag's label.
-         */
-        "uppercase"?: boolean;
-        /**
-          * The emphasis of the status tag.
-         */
-        "variant"?: IcEmphasisType;
-    }
     interface IcSwitch {
         /**
           * If `true`, the switch will display as checked.
@@ -3076,12 +2942,6 @@ declare global {
         prototype: HTMLIcActionChipElement;
         new (): HTMLIcActionChipElement;
     };
-    interface HTMLIcBadgeElement extends Components.IcBadge, HTMLStencilElement {
-    }
-    var HTMLIcBadgeElement: {
-        prototype: HTMLIcBadgeElement;
-        new (): HTMLIcBadgeElement;
-    };
     interface HTMLIcButtonElementEventMap {
         "icBlur": void;
         "icFileSelection": FileList;
@@ -3129,12 +2989,6 @@ declare global {
     var HTMLIcCalendarElement: {
         prototype: HTMLIcCalendarElement;
         new (): HTMLIcCalendarElement;
-    };
-    interface HTMLIcCardHorizontalElement extends Components.IcCardHorizontal, HTMLStencilElement {
-    }
-    var HTMLIcCardHorizontalElement: {
-        prototype: HTMLIcCardHorizontalElement;
-        new (): HTMLIcCardHorizontalElement;
     };
     interface HTMLIcCheckboxElementEventMap {
         "icCheck": void;
@@ -3596,12 +3450,6 @@ declare global {
         prototype: HTMLIcSkipLinkElement;
         new (): HTMLIcSkipLinkElement;
     };
-    interface HTMLIcStatusTagElement extends Components.IcStatusTag, HTMLStencilElement {
-    }
-    var HTMLIcStatusTagElement: {
-        prototype: HTMLIcStatusTagElement;
-        new (): HTMLIcStatusTagElement;
-    };
     interface HTMLIcSwitchElementEventMap {
         "icBlur": void;
         "icChange": IcSwitchChangeEventDetail;
@@ -3895,10 +3743,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "ic-accordion": HTMLIcAccordionElement;
         "ic-action-chip": HTMLIcActionChipElement;
-        "ic-badge": HTMLIcBadgeElement;
         "ic-button": HTMLIcButtonElement;
         "ic-calendar": HTMLIcCalendarElement;
-        "ic-card-horizontal": HTMLIcCardHorizontalElement;
         "ic-checkbox": HTMLIcCheckboxElement;
         "ic-chip": HTMLIcChipElement;
         "ic-data-table": HTMLIcDataTableElement;
@@ -3930,7 +3776,6 @@ declare global {
         "ic-select": HTMLIcSelectElement;
         "ic-side-navigation": HTMLIcSideNavigationElement;
         "ic-skip-link": HTMLIcSkipLinkElement;
-        "ic-status-tag": HTMLIcStatusTagElement;
         "ic-switch": HTMLIcSwitchElement;
         "ic-tab": HTMLIcTabElement;
         "ic-tab-context": HTMLIcTabContextElement;
@@ -4059,48 +3904,6 @@ declare namespace LocalJSX {
           * The emphasis of the chip.
          */
         "variant"?: IcEmphasisType;
-    }
-    interface IcBadge {
-        /**
-          * The accessible label of the badge component to provide context for screen reader users.
-         */
-        "accessibleLabel"?: string;
-        /**
-          * The custom badge colour. This will only style the badge component if variant="custom". Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
-         */
-        "customColor"?: IcColor;
-        /**
-          * The text displayed in the badge. This will only be displayed if type="text".
-         */
-        "label"?: string;
-        /**
-          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and label is not empty.
-         */
-        "maxNumber"?: number;
-        /**
-          * The positioning of the badge in reference to the parent element.
-         */
-        "position"?: IcBadgePositions;
-        /**
-          * The size of the badge to be displayed.
-         */
-        "size"?: IcSizes;
-        /**
-          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
-         */
-        "theme"?: IcThemeMode;
-        /**
-          * The type of badge to be displayed.
-         */
-        "type"?: IcBadgeTypes;
-        /**
-          * The variant of the badge to be displayed.
-         */
-        "variant"?: IcBadgeVariants;
-        /**
-          * If `true`, the badge will be displayed.
-         */
-        "visible"?: boolean;
     }
     interface IcButton {
         /**
@@ -4328,60 +4131,6 @@ declare namespace LocalJSX {
           * The value of the calendar and the date visible when the calendar opens. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "value"?: IcDateValueFormat;
-    }
-    interface IcCardHorizontal {
-        /**
-          * If `true`, the horizontal card will be a clickable variant, instead of static.
-         */
-        "clickable"?: boolean;
-        /**
-          * The padding of the horizontal card.
-         */
-        "density"?: IcCardDensity;
-        /**
-          * If `true`, the horizontal card will be disabled if it is clickable.
-         */
-        "disabled"?: boolean;
-        /**
-          * The heading for the horizontal card. This is required, unless a slotted heading is used.
-         */
-        "heading"?: string;
-        /**
-          * The URL that the clickable horizontal card link points to. If set, the clickable horizontal card will render as an "a" tag, otherwise it will render as a button.
-         */
-        "href"?: string | undefined;
-        /**
-          * The human language of the linked URL.
-         */
-        "hreflang"?: string;
-        /**
-          * The main body message of the horizontal card.
-         */
-        "message"?: string;
-        /**
-          * How much of the referrer to send when following the link.
-         */
-        "referrerpolicy"?: ReferrerPolicy;
-        /**
-          * The relationship of the linked URL as space-separated link types.
-         */
-        "rel"?: string;
-        /**
-          * The size of the horizontal card.
-         */
-        "size"?: IcSizes1;
-        /**
-          * The subheading for the card.
-         */
-        "subheading"?: string;
-        /**
-          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
-         */
-        "target"?: string;
-        /**
-          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
-         */
-        "theme"?: IcThemeMode1;
     }
     interface IcCheckbox {
         /**
@@ -6184,36 +5933,6 @@ declare namespace LocalJSX {
          */
         "transparentBackground"?: boolean;
     }
-    interface IcStatusTag {
-        /**
-          * If `true`, role='status' is added to the component and it will act as an 'aria-live' region. Screen readers will announce changes to the `label`, but not the initial value.
-         */
-        "announced"?: boolean;
-        /**
-          * The content rendered within the status tag.
-         */
-        "label": string;
-        /**
-          * The size of the status tag component.
-         */
-        "size"?: IcSizes;
-        /**
-          * The colour of the status tag.
-         */
-        "status"?: IcStatusTagStatuses;
-        /**
-          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
-         */
-        "theme"?: "dark" | "light" | "inherit";
-        /**
-          * The letter case of the status tag's label.
-         */
-        "uppercase"?: boolean;
-        /**
-          * The emphasis of the status tag.
-         */
-        "variant"?: IcEmphasisType;
-    }
     interface IcSwitch {
         /**
           * If `true`, the switch will display as checked.
@@ -7045,10 +6764,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ic-accordion": IcAccordion;
         "ic-action-chip": IcActionChip;
-        "ic-badge": IcBadge;
         "ic-button": IcButton;
         "ic-calendar": IcCalendar;
-        "ic-card-horizontal": IcCardHorizontal;
         "ic-checkbox": IcCheckbox;
         "ic-chip": IcChip;
         "ic-data-table": IcDataTable;
@@ -7080,7 +6797,6 @@ declare namespace LocalJSX {
         "ic-select": IcSelect;
         "ic-side-navigation": IcSideNavigation;
         "ic-skip-link": IcSkipLink;
-        "ic-status-tag": IcStatusTag;
         "ic-switch": IcSwitch;
         "ic-tab": IcTab;
         "ic-tab-context": IcTabContext;
@@ -7106,10 +6822,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ic-accordion": LocalJSX.IcAccordion & JSXBase.HTMLAttributes<HTMLIcAccordionElement>;
             "ic-action-chip": LocalJSX.IcActionChip & JSXBase.HTMLAttributes<HTMLIcActionChipElement>;
-            "ic-badge": LocalJSX.IcBadge & JSXBase.HTMLAttributes<HTMLIcBadgeElement>;
             "ic-button": LocalJSX.IcButton & JSXBase.HTMLAttributes<HTMLIcButtonElement>;
             "ic-calendar": LocalJSX.IcCalendar & JSXBase.HTMLAttributes<HTMLIcCalendarElement>;
-            "ic-card-horizontal": LocalJSX.IcCardHorizontal & JSXBase.HTMLAttributes<HTMLIcCardHorizontalElement>;
             "ic-checkbox": LocalJSX.IcCheckbox & JSXBase.HTMLAttributes<HTMLIcCheckboxElement>;
             "ic-chip": LocalJSX.IcChip & JSXBase.HTMLAttributes<HTMLIcChipElement>;
             "ic-data-table": LocalJSX.IcDataTable & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
@@ -7141,7 +6855,6 @@ declare module "@stencil/core" {
             "ic-select": LocalJSX.IcSelect & JSXBase.HTMLAttributes<HTMLIcSelectElement>;
             "ic-side-navigation": LocalJSX.IcSideNavigation & JSXBase.HTMLAttributes<HTMLIcSideNavigationElement>;
             "ic-skip-link": LocalJSX.IcSkipLink & JSXBase.HTMLAttributes<HTMLIcSkipLinkElement>;
-            "ic-status-tag": LocalJSX.IcStatusTag & JSXBase.HTMLAttributes<HTMLIcStatusTagElement>;
             "ic-switch": LocalJSX.IcSwitch & JSXBase.HTMLAttributes<HTMLIcSwitchElement>;
             "ic-tab": LocalJSX.IcTab & JSXBase.HTMLAttributes<HTMLIcTabElement>;
             "ic-tab-context": LocalJSX.IcTabContext & JSXBase.HTMLAttributes<HTMLIcTabContextElement>;
