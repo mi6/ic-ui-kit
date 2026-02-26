@@ -17,6 +17,7 @@ export const IcBadge = /*@__PURE__*/createReactComponent<JSX.IcBadge, HTMLIcBadg
 export const IcBreadcrumb = /*@__PURE__*/createReactComponent<JSX.IcBreadcrumb, HTMLIcBreadcrumbElement>('ic-breadcrumb');
 export const IcBreadcrumbGroup = /*@__PURE__*/createReactComponent<JSX.IcBreadcrumbGroup, HTMLIcBreadcrumbGroupElement>('ic-breadcrumb-group');
 export const IcButton = /*@__PURE__*/createReactComponent<JSX.IcButton, HTMLIcButtonElement>('ic-button');
+export const IcCardHorizontal = /*@__PURE__*/createReactComponent<JSX.IcCardHorizontal, HTMLIcCardHorizontalElement>('ic-card-horizontal');
 export const IcCardVertical = /*@__PURE__*/createReactComponent<JSX.IcCardVertical, HTMLIcCardVerticalElement>('ic-card-vertical');
 export const IcCheckbox = /*@__PURE__*/createReactComponent<JSX.IcCheckbox, HTMLIcCheckboxElement>('ic-checkbox');
 export const IcCheckboxGroup = /*@__PURE__*/createReactComponent<JSX.IcCheckboxGroup, HTMLIcCheckboxGroupElement>('ic-checkbox-group');
