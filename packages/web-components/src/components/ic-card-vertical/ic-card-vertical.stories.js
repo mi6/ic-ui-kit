@@ -21,7 +21,7 @@ const defaultArgs = {
 };
 
 export default {
-  title: "Web Components/Card",
+  title: "Web Components/Card Vertical",
   component: "ic-card-vertical",
 };
 

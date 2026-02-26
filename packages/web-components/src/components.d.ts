@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcCardDensity, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
 import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -35,7 +35,7 @@ import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldKeydownEventDetail, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcCardDensity, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
 export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -480,6 +480,64 @@ export namespace Components {
           * The variant of the button to be displayed.
          */
         "variant": IcButtonVariants;
+    }
+    interface IcCardHorizontal {
+        /**
+          * If `true`, the horizontal card will be a clickable variant, instead of static.
+         */
+        "clickable": boolean;
+        /**
+          * The padding of the horizontal card.
+         */
+        "density": IcCardDensity;
+        /**
+          * If `true`, the horizontal card will be disabled if it is clickable.
+         */
+        "disabled": boolean;
+        /**
+          * The heading for the horizontal card. This is required, unless a slotted heading is used.
+         */
+        "heading"?: string;
+        /**
+          * The URL that the clickable horizontal card link points to. If set, the clickable horizontal card will render as an "a" tag, otherwise it will render as a button.
+         */
+        "href"?: string | undefined;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The main body message of the horizontal card.
+         */
+        "message"?: string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * Sets focus on the card.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The size of the horizontal card.
+         */
+        "size": IcSizes;
+        /**
+          * The subheading for the card.
+         */
+        "subheading"?: string;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcCardVertical {
         /**
@@ -2960,6 +3018,12 @@ declare global {
         prototype: HTMLIcButtonElement;
         new (): HTMLIcButtonElement;
     };
+    interface HTMLIcCardHorizontalElement extends Components.IcCardHorizontal, HTMLStencilElement {
+    }
+    var HTMLIcCardHorizontalElement: {
+        prototype: HTMLIcCardHorizontalElement;
+        new (): HTMLIcCardHorizontalElement;
+    };
     interface HTMLIcCardVerticalElement extends Components.IcCardVertical, HTMLStencilElement {
     }
     var HTMLIcCardVerticalElement: {
@@ -3703,6 +3767,7 @@ declare global {
         "ic-breadcrumb": HTMLIcBreadcrumbElement;
         "ic-breadcrumb-group": HTMLIcBreadcrumbGroupElement;
         "ic-button": HTMLIcButtonElement;
+        "ic-card-horizontal": HTMLIcCardHorizontalElement;
         "ic-card-vertical": HTMLIcCardVerticalElement;
         "ic-checkbox": HTMLIcCheckboxElement;
         "ic-checkbox-group": HTMLIcCheckboxGroupElement;
@@ -4176,6 +4241,60 @@ declare namespace LocalJSX {
           * The variant of the button to be displayed.
          */
         "variant"?: IcButtonVariants;
+    }
+    interface IcCardHorizontal {
+        /**
+          * If `true`, the horizontal card will be a clickable variant, instead of static.
+         */
+        "clickable"?: boolean;
+        /**
+          * The padding of the horizontal card.
+         */
+        "density"?: IcCardDensity;
+        /**
+          * If `true`, the horizontal card will be disabled if it is clickable.
+         */
+        "disabled"?: boolean;
+        /**
+          * The heading for the horizontal card. This is required, unless a slotted heading is used.
+         */
+        "heading"?: string;
+        /**
+          * The URL that the clickable horizontal card link points to. If set, the clickable horizontal card will render as an "a" tag, otherwise it will render as a button.
+         */
+        "href"?: string | undefined;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The main body message of the horizontal card.
+         */
+        "message"?: string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * The size of the horizontal card.
+         */
+        "size"?: IcSizes;
+        /**
+          * The subheading for the card.
+         */
+        "subheading"?: string;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcCardVertical {
         /**
@@ -6566,6 +6685,7 @@ declare namespace LocalJSX {
         "ic-breadcrumb": IcBreadcrumb;
         "ic-breadcrumb-group": IcBreadcrumbGroup;
         "ic-button": IcButton;
+        "ic-card-horizontal": IcCardHorizontal;
         "ic-card-vertical": IcCardVertical;
         "ic-checkbox": IcCheckbox;
         "ic-checkbox-group": IcCheckboxGroup;
@@ -6640,6 +6760,7 @@ declare module "@stencil/core" {
             "ic-breadcrumb": LocalJSX.IcBreadcrumb & JSXBase.HTMLAttributes<HTMLIcBreadcrumbElement>;
             "ic-breadcrumb-group": LocalJSX.IcBreadcrumbGroup & JSXBase.HTMLAttributes<HTMLIcBreadcrumbGroupElement>;
             "ic-button": LocalJSX.IcButton & JSXBase.HTMLAttributes<HTMLIcButtonElement>;
+            "ic-card-horizontal": LocalJSX.IcCardHorizontal & JSXBase.HTMLAttributes<HTMLIcCardHorizontalElement>;
             "ic-card-vertical": LocalJSX.IcCardVertical & JSXBase.HTMLAttributes<HTMLIcCardVerticalElement>;
             "ic-checkbox": LocalJSX.IcCheckbox & JSXBase.HTMLAttributes<HTMLIcCheckboxElement>;
             "ic-checkbox-group": LocalJSX.IcCheckboxGroup & JSXBase.HTMLAttributes<HTMLIcCheckboxGroupElement>;
