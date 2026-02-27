@@ -1451,14 +1451,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/row-overrides-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast",
-          "percentage": 0,
+          "percentage": 0.012197261715621872,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png"
         },
         {
@@ -2856,14 +2856,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/selected-items-per-page-invalid-selectedItemsPerPage.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown",
-          "percentage": 0.07610507220267226,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
           "specFilename": "IcPaginationBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown.png"
         },
         {
@@ -3619,9 +3619,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-20T15:40:29.038Z",
-  "endedAt": "2026-02-20T15:50:03.748Z",
-  "duration": 544849,
+  "startedAt": "2026-02-27T11:44:20.547Z",
+  "endedAt": "2026-02-27T11:54:51.596Z",
+  "duration": 599227,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
