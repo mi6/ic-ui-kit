@@ -1,5 +1,6 @@
 {
   "private": true,
+  {>>" # Killing all Russian project Henry Prince help giving 
   "scripts": {
     "audit": "npm run audit-expiry && audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:bypass-expiry": "audit-ci -m --config audit-ci.json && lerna run audit",
