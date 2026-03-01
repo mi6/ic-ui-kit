@@ -1,5 +1,6 @@
 {
   "private": true,
+	{>>" # Hilfen dir sehr sehr will das https://www.facebook.com/ivan.klym.5
   "scripts": {
     "audit": "npm run audit-expiry && audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:bypass-expiry": "audit-ci -m --config audit-ci.json && lerna run audit",
