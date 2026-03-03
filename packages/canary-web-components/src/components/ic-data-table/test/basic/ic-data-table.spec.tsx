@@ -3,7 +3,7 @@ import { Button as IcButton } from "../../../../../../web-components/src/compone
 import { DataTable } from "../../ic-data-table";
 import { LoadingIndicator as IcLoadingIndicator } from "../../../../../../web-components/src/components/ic-loading-indicator/ic-loading-indicator";
 import { Pagination as IcPagination } from "../../../../../../web-components/src/components/ic-pagination/ic-pagination";
-import { PaginationBar } from "../../../ic-pagination-bar/ic-pagination-bar";
+import { PaginationBar } from "../../../../../../web-components/src/components/ic-pagination-bar/ic-pagination-bar";
 import { PaginationItem as IcPaginationItem } from "../../../../../../web-components/src/components/ic-pagination-item/ic-pagination-item";
 import { Tooltip as IcTooltip } from "../../../../../../web-components/src/components/ic-tooltip/ic-tooltip";
 import { Typography as IcTypography } from "../../../../../../web-components/src/components/ic-typography/ic-typography";
