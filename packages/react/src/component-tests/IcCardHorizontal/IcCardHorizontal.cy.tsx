@@ -4,13 +4,8 @@
 import React from "react";
 import { mount } from "cypress/react";
 import { IcCardHorizontal } from "../../components";
-import {
-  BE_VISIBLE,
-  HAVE_FOCUS,
-  NOT_BE_VISIBLE,
-  NOT_EXIST,
-} from "@ukic/react/src/component-tests/utils/constants";
-import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
+import { BE_VISIBLE, HAVE_FOCUS, NOT_EXIST } from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   Adornment,
   BasicCardHorizontal,

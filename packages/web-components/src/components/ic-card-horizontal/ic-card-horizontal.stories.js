@@ -1,36 +1,17 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { html } from "lit-html";
-import readme from "./readme.md";
 
 export default {
-  title: "Web Components/Horizontal Card",
-  component: "Horizontal Card",
-  parameters: {
-    componentAPI: {
-      data: readme,
-    },
-  },
+  title: "Web Components/Card Horizontal",
+  component: "ic-card-horizontal",
 };
 
-/**
- * Use a horizontal card to display a message or content in a horizontal layout.
- *
- * There is one required prop for a horizontal card:
- * - heading: `string`
- *
- * Click the 'Component API' tab to view all the available props and events for horizontal card.
- *
- * To use the horizontal card component, import `@ukic/canary-web-components` into your application.
- */
 export const Default = {
   render: () =>
     html`<ic-card-horizontal heading="Card heading"></ic-card-horizontal>`,
   name: "Default",
 };
 
-/**
- * Add more information to the horizontal card by including a message.
- */
 export const Message = {
   render: () =>
     html`<ic-card-horizontal
@@ -40,9 +21,6 @@ export const Message = {
   name: "Message",
 };
 
-/**
- * Add an icon to the horizontal card.
- */
 export const Icon = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -65,9 +43,6 @@ export const Icon = {
   name: "Icon",
 };
 
-/**
- * Add an interaction button to horizontal card.
- */
 export const InteractionButton = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -95,9 +70,6 @@ export const InteractionButton = {
   name: "Interaction button",
 };
 
-/**
- * Add a subheading to horizontal card either via prop or slot.
- */
 export const Subheading = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -121,9 +93,6 @@ export const SubheadingSlot = {
   name: "Subheading - slotted",
 };
 
-/**
- * Add an adornment to horizontal card.
- */
 export const Adornment = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -139,9 +108,6 @@ export const Adornment = {
   name: "Adornment",
 };
 
-/**
- * Add a badge to horizontal card.
- */
 export const Badge = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -152,9 +118,6 @@ export const Badge = {
   name: "Badge",
 };
 
-/**
- * Enable interaction by making the horizontal card clickable.
- */
 export const Clickable = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -178,9 +141,6 @@ export const Clickable = {
   name: "Clickable",
 };
 
-/**
- * Direct users to another page by making the horizontal card clickable with an href.
- */
 export const ClickableHref = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -205,9 +165,6 @@ export const ClickableHref = {
   name: "Clickable - href",
 };
 
-/**
- * Another method of making horizontal card clickable is wrapping it in a link.
- */
 export const WrappedByLink = {
   render: () => html`<a href="/">
     <ic-card-horizontal heading="Card heading" message="Card message">
@@ -228,9 +185,6 @@ export const WrappedByLink = {
   name: "Wrapped by link",
 };
 
-/**
- * Add an image to the horizontal card.
- */
 export const ImageLeft = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -313,12 +267,6 @@ export const ImageRight = {
   name: "With image - right",
 };
 
-/**
- * The horizontal card can be displayed in different sizes:
- * - `small`
- * - `medium`
- * - `large`
- */
 export const Sizes = {
   render: () => html`<div>
     <ic-card-horizontal
@@ -498,13 +446,6 @@ export const Sizes = {
   name: "Sizes",
 };
 
-/**
- * The horizontal card also has different density options:
- * - `default`
- * - `spacious`
- *
- * The spacious density option allows for a subheading and an adornment to be added to the horizontal card.
- */
 export const Density = {
   render: () => html`<div>
     <ic-card-horizontal
@@ -704,9 +645,6 @@ export const Density = {
   name: "Density - spacious",
 };
 
-/**
- * When there is too much text content for the horizontal card, the heading and message with truncate.
- */
 export const Truncation = {
   render: () => html`<div>
     <ic-card-horizontal
@@ -829,9 +767,6 @@ export const Truncation = {
   name: "Truncation",
 };
 
-/**
- * Disable the horizontal card to prevent users from interacting with it.
- */
 export const Disabled = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"
@@ -877,9 +812,6 @@ export const Disabled = {
   name: "Disabled",
 };
 
-/**
- * Slot custom content into a horizontal card using the `heading` and `message` slots.
- */
 export const SlottedContent = {
   render: () => html`<ic-card-horizontal>
     <h4 slot="heading">Card heading</h4>
@@ -901,9 +833,6 @@ export const SlottedContent = {
   name: "Slotted heading and message",
 };
 
-/**
- * Set the width of the horizontal card by using the `--card-horizontal-width` CSS custom property. The horizontal card will grow, but not exceed its maximum supported width.
- */
 export const CustomWidth = {
   render: () => html`<ic-card-horizontal
     heading="Card heading"

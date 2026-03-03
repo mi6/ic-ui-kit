@@ -1,13 +1,13 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { Card } from "../../ic-card-horizontal";
-import { Typography } from "../../../../../../web-components/src/components/ic-typography/ic-typography";
-import { Badge } from "../../../../../../web-components/src/components/ic-badge/ic-badge";
-import { Button } from "../../../../../../web-components/src/components/ic-button/ic-button";
+import { CardHorizontal } from "../../ic-card-horizontal";
+import { Typography } from "../../../ic-typography/ic-typography";
+import { Badge } from "../../../ic-badge/ic-badge";
+import { Button } from "../../../ic-button/ic-button";
 
 describe("ic-card-horizontal", () => {
   it("should render", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a static card"></ic-card-horizontal>`,
     });
 
@@ -16,7 +16,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render small", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a static card" size="small"></ic-card-horizontal>`,
     });
 
@@ -25,7 +25,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render large", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a static card" size="large"></ic-card-horizontal>`,
     });
 
@@ -34,7 +34,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render extra large", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a static card" size="extra large"></ic-card-horizontal>`,
     });
 
@@ -43,7 +43,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render as a button", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a clickable card rendered as a button" clickable=true></ic-card-horizontal>`,
     });
 
@@ -52,7 +52,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render as a link", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a clickable card rendered as a button" clickable=true href="/"></ic-card-horizontal>`,
     });
 
@@ -61,7 +61,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with a link parent", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<a href="/"><ic-card-horizontal heading="Card" message="This is a clickable card" clickable=true></ic-card-horizontal></a>`,
     });
 
@@ -70,7 +70,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render disabled", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a static card" disabled clickable></ic-card-horizontal>`,
     });
 
@@ -84,7 +84,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with spacious layout", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a static card" density="spacious"></ic-card-horizontal>`,
     });
 
@@ -93,7 +93,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with spacious layout and a subheading and adornment", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a static card" density="spacious" subheading="This is a subheading">
         <div slot="adornment">Adornment</div>
       </ic-card-horizontal>`,
@@ -104,7 +104,7 @@ describe("ic-card-horizontal", () => {
 
   it("should not render with a subheading and adornment with default density", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a static card" density="default" subheading="This is a subheading">
         <div slot="adornment">Adornment</div>
       </ic-card-horizontal>`,
@@ -119,7 +119,7 @@ describe("ic-card-horizontal", () => {
 
   it("should apply 'focussed' style when parent is focussed", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<a href="/"><ic-card-horizontal id="test-id" heading="Card" message="This is a clickable card" clickable=true></ic-card-horizontal></a>`,
     });
 
@@ -136,7 +136,7 @@ describe("ic-card-horizontal", () => {
 
   it("should lose 'focussed' style when parent loses focus", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<a href="/"><ic-card-horizontal id="test-card" heading="Card" message="This is a clickable card" clickable=true></ic-card-horizontal></a>`,
     });
 
@@ -157,7 +157,7 @@ describe("ic-card-horizontal", () => {
 
   it("should stop immediate propagation of a click event when disabled", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a clickable card" clickable=true disabled=true onclick="alert('test')"></ic-card-horizontal>`,
     });
 
@@ -174,7 +174,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with an image", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card"><div slot="image-left">Image placeholder</div></ic-card-horizontal>`,
     });
 
@@ -183,7 +183,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with an image on the right", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card"><div slot="image-right">Image placeholder</div></ic-card-horizontal>`,
     });
 
@@ -192,7 +192,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with an icon", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card"><div slot="icon">Image placeholder</div></ic-card-horizontal>`,
     });
 
@@ -201,7 +201,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with a slotted heading and message", async () => {
     const page = await newSpecPage({
-      components: [Card, Typography],
+      components: [CardHorizontal, Typography],
       html: `<ic-card-horizontal id="test-card">
       <ic-typography slot="heading">Heading</ic-typography>
       <ic-typography slot="message">Message</ic-typography>
@@ -213,7 +213,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with a badge", async () => {
     const page = await newSpecPage({
-      components: [Card, Badge],
+      components: [CardHorizontal, Badge],
       html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card">
       <ic-badge slot="badge">Badge</ic-badge>
     </ic-card-horizontal>`,
@@ -224,7 +224,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with an interaction button", async () => {
     const page = await newSpecPage({
-      components: [Card, Button],
+      components: [CardHorizontal, Button],
       html: `<ic-card-horizontal id="test-card" heading="Card" message="This is a card">
       <ic-button
         variant="icon-tertiary"
@@ -252,7 +252,7 @@ describe("ic-card-horizontal", () => {
 
   it("should render with a slotted heading, subheading and message in spacious layout", async () => {
     const page = await newSpecPage({
-      components: [Card, Typography],
+      components: [CardHorizontal, Typography],
       html: `<ic-card-horizontal id="test-card" density="spacious">
       <ic-typography slot="heading">Heading</ic-typography>
       <ic-typography slot="subheading">Subheading</ic-typography>
@@ -265,7 +265,7 @@ describe("ic-card-horizontal", () => {
 
   it("should call 'setFocus' when card as a button is focused", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a clickable card rendered as a button" clickable=true></ic-card-horizontal>`,
     });
 
@@ -275,7 +275,7 @@ describe("ic-card-horizontal", () => {
 
   it("should call 'setFocus' when card as a link is focused", async () => {
     const page = await newSpecPage({
-      components: [Card],
+      components: [CardHorizontal],
       html: `<ic-card-horizontal heading="Card" message="This is a clickable card rendered as a button" clickable=true href="/"></ic-card-horizontal>`,
     });
 
