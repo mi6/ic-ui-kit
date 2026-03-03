@@ -39,7 +39,12 @@
 
 .small {
   border-radius: calc(var(--ic-space-md) - var(--ic-space-xxxs));
-  padding: var(--ic-space-1px) var(--ic-space-xxxs);
+  padding: var(--ic-space-1px) var(--ic-space-xs);
+}
+
+.medium {
+  border-radius: var(--ic-space-md);
+  padding: calc(var(--ic-space-xxs) - var(--ic-space-1px)) var(--ic-space-xs);
 }
 
 .large {
@@ -145,7 +150,15 @@
   }
 }
 
-.label {
+.label.small {
+  padding: 0 var(--ic-space-xxs);
+}
+
+.label.medium {
+  padding: 0 calc(var(--ic-space-xs) - var(--ic-space-xxxs));
+}
+
+.label.large {
   padding: 0 var(--ic-space-xs);
 }
 

@@ -4,7 +4,7 @@ exports[`ic-action-chip component render with correct \`type\` when prop defined
 <ic-action-chip label="Medium" type="submit">
   <template shadowrootmode="open">
     <button class="chip filled medium" type="submit">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -18,7 +18,7 @@ exports[`ic-action-chip component should apply the \`theme\` and \`monochrome\` 
 <ic-action-chip class="ic-theme-dark" label="Medium" monochrome="true" theme="dark">
   <template shadowrootmode="open">
     <button class="chip filled medium monochrome" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -32,7 +32,7 @@ exports[`ic-action-chip component should ignore \`transparent-background\` when 
 <ic-action-chip label="Medium" transparent-background="false">
   <template shadowrootmode="open">
     <button class="chip filled medium" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -46,7 +46,7 @@ exports[`ic-action-chip component should render disabled 1`] = `
 <ic-action-chip disabled="true" label="Medium">
   <template shadowrootmode="open">
     <button class="chip disabled filled medium" disabled="" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -60,7 +60,7 @@ exports[`ic-action-chip component should render disabled: disabled-removed 1`] =
 <ic-action-chip label="Medium">
   <template shadowrootmode="open">
     <button class="chip filled medium" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -74,7 +74,7 @@ exports[`ic-action-chip component should render filled by default 1`] = `
 <ic-action-chip label="Medium">
   <template shadowrootmode="open">
     <button class="chip filled medium" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -88,7 +88,7 @@ exports[`ic-action-chip component should render large 1`] = `
 <ic-action-chip label="Large" size="large">
   <template shadowrootmode="open">
     <button class="chip filled large" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label large" variant="label">
         <span>
           Large
         </span>
@@ -102,7 +102,7 @@ exports[`ic-action-chip component should render outlined when supplying the \`va
 <ic-action-chip label="Medium" variant="outlined">
   <template shadowrootmode="open">
     <button class="chip medium outlined" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -116,7 +116,7 @@ exports[`ic-action-chip component should render small 1`] = `
 <ic-action-chip label="Small" size="small">
   <template shadowrootmode="open">
     <button class="chip filled small" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label small" variant="label">
         <span>
           Small
         </span>
@@ -130,7 +130,7 @@ exports[`ic-action-chip component should render with "a" tag when href is passed
 <ic-action-chip href="#" label="Medium">
   <template shadowrootmode="open">
     <a class="chip filled medium" href="#">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -144,7 +144,7 @@ exports[`ic-action-chip component should render with a badge 1`] = `
 <ic-action-chip label="Medium">
   <template shadowrootmode="open">
     <button class="chip filled medium" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -160,7 +160,7 @@ exports[`ic-action-chip component should render with a solid background when out
 <ic-action-chip label="Medium" transparent-background="false" variant="outlined">
   <template shadowrootmode="open">
     <button class="chip medium non-transparent outlined" type="button">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -177,7 +177,7 @@ exports[`ic-action-chip component should render with an icon 1`] = `
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -194,7 +194,7 @@ exports[`ic-action-chip component should render with defined "a" tag props 1`] =
 <ic-action-chip download="true" href="#" label="Medium" rel="nofollow" target="_blank">
   <template shadowrootmode="open">
     <a class="chip filled medium" download="true" href="#" rel="nofollow" target="_blank">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
@@ -211,7 +211,7 @@ exports[`ic-action-chip component should test button as submit button on form 1`
 <ic-action-chip form="new-form" id="form-submit-chip" label="Medium" type="submit">
   <template shadowrootmode="open">
     <button class="chip filled medium" form="new-form" type="submit">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Medium
         </span>
