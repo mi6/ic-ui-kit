@@ -1,7 +1,7 @@
 {
-  "total": 891,
-  "totalPassed": 888,
-  "totalFailed": 3,
+  "total": 893,
+  "totalPassed": 893,
+  "totalFailed": 0,
   "totalSuites": 45,
   "suites": [
     {
@@ -842,14 +842,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx/max-number.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx/position-near",
-          "percentage": 0.12851459061133877,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx/position-near.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx/position-near.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx/position-near.png"
         },
         {
@@ -2151,6 +2151,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/label-slot.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/label-slot.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCheckbox.cy.tsx/label-slot-group",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
+          "specFilename": "IcCheckbox.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx/label-slot-group.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx/label-slot-group.png"
         },
         {
           "status": "pass",
@@ -5974,14 +5985,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx/custom-elements-open.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSelect.cy.tsx/hidden-option-labels",
-          "percentage": 0.15325795248534413,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx/hidden-option-labels.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSelect.cy.tsx/hidden-option-labels.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx/hidden-option-labels.png"
         },
         {
@@ -7288,6 +7299,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx/slotted-app-title-open-desktop.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/slotted-app-title-open-desktop.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSideNavigation.cy.tsx/slotted-divider-desktop",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
+          "specFilename": "IcSideNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx/slotted-divider-desktop.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/slotted-divider-desktop.png"
         },
         {
           "status": "pass",
@@ -9325,14 +9347,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/truncated-text.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx/on-chip",
-          "percentage": 0.09618731725128839,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/on-chip.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx/on-chip.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/on-chip.png"
         },
         {
@@ -10076,9 +10098,9 @@
       ]
     }
   ],
-  "startedAt": "2026-02-23T15:00:16.803Z",
-  "endedAt": "2026-02-23T15:20:08.107Z",
-  "duration": 1086294,
+  "startedAt": "2026-03-03T09:14:50.576Z",
+  "endedAt": "2026-03-03T09:33:45.337Z",
+  "duration": 1036820,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
