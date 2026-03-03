@@ -45,8 +45,13 @@
 }
 
 .chip.small {
-  padding: var(--ic-space-1px) var(--ic-space-xxxs);
+  padding: var(--ic-space-xxxs) var(--ic-space-xs);
   border-radius: calc(var(--ic-space-md) - var(--ic-space-xxxs));
+}
+
+.chip.medium {
+  padding: calc(var(--ic-space-xxs) - var(--ic-space-1px)) var(--ic-space-xs);
+  border-radius: var(--ic-space-md);
 }
 
 .chip.large {
@@ -54,7 +59,15 @@
   border-radius: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 
-.label {
+.label.small {
+  padding: 0 var(--ic-space-xxs);
+}
+
+.label.medium {
+  padding: 0 calc(var(--ic-space-xs) - var(--ic-space-xxxs));
+}
+
+.label.large {
   padding: 0 var(--ic-space-xs);
 }
 
@@ -154,7 +167,6 @@ ic-tooltip:focus-within {
 
 .icon,
 ic-tooltip {
-  width: var(--ic-space-lg);
   height: var(--ic-space-lg);
 }
 

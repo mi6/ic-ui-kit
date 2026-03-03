@@ -239,12 +239,19 @@ export class ActionChip {
               <slot name="icon" />
             </div>
           )}
-          <ic-typography
-            variant="label"
-            class={{ label: true, "in-ag-grid": isElInAGGrid(this.el) }}
+          <div
+            class={{
+              label: true,
+              [`${size}`]: true,
+            }}
           >
-            <span>{label}</span>
-          </ic-typography>
+            <ic-typography
+              variant="label"
+              class={{ label: true, "in-ag-grid": isElInAGGrid(this.el) }}
+            >
+              <span>{label}</span>
+            </ic-typography>
+          </div>
           {!isButtonElement && target === "_blank" && (
             <span class="open-in-new-icon" innerHTML={OpenInNew} />
           )}

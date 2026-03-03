@@ -137,11 +137,13 @@ exports[`ic-badge should render slotted in a chip: should render slotted in a ch
 <ic-chip label="Badge">
   <template shadowrootmode="open">
     <div class="chip filled medium">
-      <ic-typography class="label" variant="label">
-        <span>
-          Badge
-        </span>
-      </ic-typography>
+      <div class="label medium">
+        <ic-typography class="label" variant="label">
+          <span>
+            Badge
+          </span>
+        </ic-typography>
+      </div>
       <slot name="badge"></slot>
     </div>
   </template>
