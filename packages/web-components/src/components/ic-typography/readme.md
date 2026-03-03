@@ -56,7 +56,7 @@
  - [ic-navigation-item](../ic-navigation-item)
  - [ic-navigation-menu](../ic-navigation-menu)
  - [ic-page-header](../ic-page-header)
- - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+ - [ic-pagination-bar](../ic-pagination-bar)
  - [ic-pagination-item](../ic-pagination-item)
  - [ic-popover-menu](../ic-popover-menu)
  - [ic-radio-option](../ic-radio-option)

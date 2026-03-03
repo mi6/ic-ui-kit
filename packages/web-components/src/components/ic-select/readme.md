@@ -93,7 +93,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [ic-data-table-title-bar](../../../../canary-web-components/src/components/ic-data-table-title-bar)
- - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+ - [ic-pagination-bar](../ic-pagination-bar)
 
 
 ### Depends on

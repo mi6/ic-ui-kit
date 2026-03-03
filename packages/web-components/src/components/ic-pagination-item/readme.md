@@ -24,9 +24,11 @@
 
  - [ic-pagination](../ic-pagination)
 
+
 ### Depends on
 
 - [ic-typography](../ic-typography)
+
 
 ### Graph
 ```mermaid
