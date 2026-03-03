@@ -99,7 +99,7 @@ Type: `Promise<void>`
  - [ic-navigation-button](../ic-navigation-button)
  - [ic-navigation-menu](../ic-navigation-menu)
  - [ic-pagination](../ic-pagination)
- - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+ - [ic-pagination-bar](../ic-pagination-bar)
  - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
  - [ic-side-navigation](../ic-side-navigation)
