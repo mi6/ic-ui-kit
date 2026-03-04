@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.36...@ukic/canary-react@3.0.0-canary.37) (2026-03-04)
+
+### Features
+
+- **canary-react:** remove IcCardHorizontal from canary components ([fa40d01](https://github.com/mi6/ic-ui-kit/commit/fa40d01c89456b6a5fcada9a6cfbf16a54db8933))
+
 # [3.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.35...@ukic/canary-react@3.0.0-canary.36) (2026-02-18)
 
 ### Bug Fixes
