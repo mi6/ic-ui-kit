@@ -116,8 +116,8 @@ export const ExpandedSideNav = (): ReactElement => (
   </IcSideNavigation>
 );
 
-export const DynamicExpandedSideNav = (): ReactElement => {
-  const [expanded, setExpanded] = useState(true);
+export const DynamicSideNav = ({ initialExpanded = false }): ReactElement => {
+  const [expanded, setExpanded] = useState(initialExpanded);
   const expandedClickHandler = () => {
     setExpanded(true);
   };
@@ -131,6 +131,7 @@ export const DynamicExpandedSideNav = (): ReactElement => {
         version="v0.0.0"
         status="BETA"
         expanded={expanded}
+        disableAutoParentStyling
       >
         <SlottedSVG
           slot="app-icon"
@@ -179,7 +180,14 @@ export const DynamicExpandedSideNav = (): ReactElement => {
           </SlottedSVG>
         </IcNavigationItem>
       </IcSideNavigation>
-      <main style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+      <main
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          paddingLeft: "3.5rem",
+        }}
+      >
         <IcButton
           id="expand-btn"
           variant="primary"
