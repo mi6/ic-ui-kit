@@ -24,7 +24,6 @@
 
 - [ic-typography](../ic-typography)
 
-
 ### Graph
 ```mermaid
 graph TD;

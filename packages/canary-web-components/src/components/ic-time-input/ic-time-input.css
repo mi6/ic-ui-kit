@@ -217,3 +217,10 @@ ic-input-validation {
     color: currentcolor;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .clear-button,
+  .clock-button {
+    transition: none;
+  }
+}

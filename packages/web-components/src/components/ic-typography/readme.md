@@ -30,7 +30,7 @@
  - [ic-badge](../ic-badge)
  - [ic-button](../ic-button)
  - [ic-calendar](../../../../canary-web-components/src/components/ic-calendar)
- - [ic-card-horizontal](../../../../canary-web-components/src/components/ic-card-horizontal)
+ - [ic-card-horizontal](../ic-card-horizontal)
  - [ic-card-vertical](../ic-card-vertical)
  - [ic-checkbox](../ic-checkbox)
  - [ic-chip](../ic-chip)

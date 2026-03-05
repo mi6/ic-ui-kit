@@ -294,3 +294,11 @@ select:not([disabled]) {
     fill: currentcolor;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .clear-button,
+  ic-input-validation.menu-open .status-icon,
+  ic-input-validation.menu-open .statustext {
+    transition: none;
+  }
+}

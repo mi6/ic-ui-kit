@@ -1213,6 +1213,13 @@ slot[name="router-item"]::slotted(a) {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  ::slotted(a) {
+    transition: none;
+  }
+}
+
 /** Pagination **/
 
 :host(.flip) ::slotted(svg) {

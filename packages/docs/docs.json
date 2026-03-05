@@ -3616,6 +3616,558 @@
       }
     },
     {
+      "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-card-horizontal",
+      "readme": "# ic-card-horizontal\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "heading - Content will be placed at the top of the horizontal card to the right of the icon."
+        },
+        {
+          "name": "slot",
+          "text": "message - Content will be placed in the main body of the horizontal card."
+        },
+        {
+          "name": "slot",
+          "text": "subheading - Content will be placed below the card heading. Only for `density=\"spacious\"`."
+        },
+        {
+          "name": "slot",
+          "text": "adornment - Content will be placed below the card subheading. Only for `density=\"spacious\"`."
+        },
+        {
+          "name": "slot",
+          "text": "image-left - Content will be placed to the left of all other content."
+        },
+        {
+          "name": "slot",
+          "text": "image-right - Content will be placed to the right of all other content."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content will be placed to the left of the horizontal card heading."
+        },
+        {
+          "name": "slot",
+          "text": "interaction-button - Content will be placed in the top right corner of the heading section."
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the horizontal card."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "clickable",
+          "reflectToAttr": false,
+          "docs": "If `true`, the horizontal card will be a clickable variant, instead of static.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "density",
+          "type": "\"default\" | \"spacious\"",
+          "complexType": {
+            "original": "IcCardDensity",
+            "resolved": "\"default\" | \"spacious\"",
+            "references": {
+              "IcCardDensity": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcCardDensity"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "density",
+          "reflectToAttr": false,
+          "docs": "The padding of the horizontal card.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "spacious",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the horizontal card will be disabled if it is clickable.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "heading",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "The heading for the horizontal card. This is required, unless a slotted heading is used.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "href",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string | undefined",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "The URL that the clickable horizontal card link points to. If set, the clickable horizontal card will render as an \"a\" tag, otherwise it will render as a button.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "hreflang",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hreflang",
+          "reflectToAttr": false,
+          "docs": "The human language of the linked URL.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "message",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "The main body message of the horizontal card.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "referrerpolicy",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
+          "complexType": {
+            "original": "ReferrerPolicy",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
+            "references": {
+              "ReferrerPolicy": {
+                "location": "global",
+                "id": "global::ReferrerPolicy"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "referrerpolicy",
+          "reflectToAttr": false,
+          "docs": "How much of the referrer to send when following the link.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "no-referrer",
+              "type": "string"
+            },
+            {
+              "value": "no-referrer-when-downgrade",
+              "type": "string"
+            },
+            {
+              "value": "origin",
+              "type": "string"
+            },
+            {
+              "value": "origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "same-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "unsafe-url",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "rel",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rel",
+          "reflectToAttr": false,
+          "docs": "The relationship of the linked URL as space-separated link types.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the horizontal card.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "subheading",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "subheading",
+          "reflectToAttr": false,
+          "docs": "The subheading for the card.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "target",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the card.",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": true,
+          "passive": false
+        },
+        {
+          "event": "brandChange",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [
+        {
+          "name": "--card-horizontal-width",
+          "annotation": "prop",
+          "docs": "Width of the horizontal card"
+        }
+      ],
+      "slots": [
+        {
+          "name": "adornment",
+          "docs": "Content will be placed below the card subheading. Only for `density=\"spacious\"`."
+        },
+        {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the horizontal card."
+        },
+        {
+          "name": "heading",
+          "docs": "Content will be placed at the top of the horizontal card to the right of the icon."
+        },
+        {
+          "name": "icon",
+          "docs": "Content will be placed to the left of the horizontal card heading."
+        },
+        {
+          "name": "image-left",
+          "docs": "Content will be placed to the left of all other content."
+        },
+        {
+          "name": "image-right",
+          "docs": "Content will be placed to the right of all other content."
+        },
+        {
+          "name": "interaction-button",
+          "docs": "Content will be placed in the top right corner of the heading section."
+        },
+        {
+          "name": "message",
+          "docs": "Content will be placed in the main body of the horizontal card."
+        },
+        {
+          "name": "subheading",
+          "docs": "Content will be placed below the card heading. Only for `density=\"spacious\"`."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-card-horizontal": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-card-vertical/ic-card-vertical.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-vertical",
@@ -4644,6 +5196,10 @@
         {
           "name": "slot",
           "text": "helper-text - Content is set as the helper text for the checkbox group."
+        },
+        {
+          "name": "slot",
+          "text": "label - Content is placed as the label text."
         }
       ],
       "usage": {},
@@ -5014,6 +5570,10 @@
         {
           "name": "helper-text",
           "docs": "Content is set as the helper text for the checkbox group."
+        },
+        {
+          "name": "label",
+          "docs": "Content is placed as the label text."
         }
       ],
       "parts": [],
@@ -8629,7 +9189,12 @@
       "tag": "ic-input-label",
       "readme": "# ic-input-label\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "label - Content is placed as the label text."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -8837,7 +9402,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "label",
+          "docs": "Content is placed as the label text."
+        }
+      ],
       "parts": [],
       "dependents": [
         "ic-checkbox-group",
@@ -23319,6 +23889,7 @@
         "ic-alert",
         "ic-badge",
         "ic-button",
+        "ic-card-horizontal",
         "ic-card-vertical",
         "ic-checkbox",
         "ic-chip",
@@ -23372,6 +23943,9 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography"
+        ],
+        "ic-card-horizontal": [
           "ic-typography"
         ],
         "ic-card-vertical": [
@@ -23577,6 +24151,11 @@
     },
     "src/utils/types.ts::IcTypographyVariants": {
       "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\"\n  | \"badge\"\n  | \"badge-small\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcCardDensity": {
+      "declaration": "export type IcCardDensity = \"default\" | \"spacious\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

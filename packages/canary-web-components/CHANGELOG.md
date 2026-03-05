@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.36...@ukic/canary-web-components@3.0.0-canary.37) (2026-03-05)
+
+### Bug Fixes
+
+- **canary-web-components:** update canary components to have no transitions when reducing motion ([3dc9a72](https://github.com/mi6/ic-ui-kit/commit/3dc9a721dd61854c00d856469b33e1ffcae2f2d2))
+
+### Features
+
+- **canary-web-components:** remove ic-card-horizontal from canary components ([9315c4d](https://github.com/mi6/ic-ui-kit/commit/9315c4d7644e6d4af4d21b0daa4ed40d7e9e2ae0))
+
 # [3.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.35...@ukic/canary-web-components@3.0.0-canary.36) (2026-02-18)
 
 ### Bug Fixes

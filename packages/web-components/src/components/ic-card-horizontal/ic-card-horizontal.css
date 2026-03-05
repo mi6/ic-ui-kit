@@ -276,3 +276,10 @@ button {
     --ic-typography-color: GrayText;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card.clickable {
+    transition: none;
+  }
+}

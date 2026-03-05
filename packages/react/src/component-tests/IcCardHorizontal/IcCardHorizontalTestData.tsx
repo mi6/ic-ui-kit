@@ -1,7 +1,12 @@
 import React, { ReactElement } from "react";
-import { IcCardHorizontal } from "../../components";
-import { IcButton, IcStatusTag, IcTypography, SlottedSVG } from "@ukic/react";
-import { IcThemeMode } from "../../../../web-components/dist/types/utils/types";
+import {
+  IcButton,
+  IcCardHorizontal,
+  IcStatusTag,
+  IcTypography,
+} from "../../components";
+import { SlottedSVG } from "../../";
+import { IcThemeMode } from "@ukic/web-components/dist/types/utils/types";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
 export const BasicCardHorizontal = (cardProps?: any): ReactElement => (
