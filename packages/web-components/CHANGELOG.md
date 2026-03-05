@@ -3,18 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.21.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.20.0...@ukic/web-components@3.21.0) (2026-03-04)
-
-### Bug Fixes
-
-- **web-components:** fix ic-divider causing accessibility errors when in an ic-side-navigation ([b3cc675](https://github.com/mi6/ic-ui-kit/commit/b3cc6759f2a17de118a0768e7365479ee2544f94)), closes [#3836](https://github.com/mi6/ic-ui-kit/issues/3836)
-- **web-components:** update components to have no transitions when reduced motion is preferred ([055abac](https://github.com/mi6/ic-ui-kit/commit/055abac84b0d7623f566798c86b5dabe374a0677)), closes [#4059](https://github.com/mi6/ic-ui-kit/issues/4059)
-
-### Features
-
-- **web-components:** addition of label slot to ic-input-label and ic-checkbox-group ([bb3339f](https://github.com/mi6/ic-ui-kit/commit/bb3339f2191ba5c95235783f0e2cc84a07b0dafa))
-- **web-components:** move ic-card-horizontal to core web components ([9194573](https://github.com/mi6/ic-ui-kit/commit/919457371be8c29c58dff3cc5e34ed3acd28eb56)), closes [#3387](https://github.com/mi6/ic-ui-kit/issues/3387)
-
 # [3.20.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.19.0...@ukic/web-components@3.20.0) (2026-02-18)
 
 ### Bug Fixes
