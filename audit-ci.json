@@ -155,6 +155,13 @@
       }
     },
     {
+      "GHSA-qffp-2rhf-9h96": {
+        "active": true,
+        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
       "GHSA-2g4f-4pwh-qvx6": {
         "active": true,
         "notes": "requires upgrade to 'ajv', which is a transitive dependency of commitlint.",
@@ -193,6 +200,20 @@
       "GHSA-5c6j-r48x-rmvq": {
         "active": true,
         "notes": "requires upgrade to 'serialize-javascript', which is a transitive dependency of webpack. Might be removable after webpack upgrade.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
+      "GHSA-v2wj-7wpq-c8vv": {
+        "active": true,
+        "notes": "requires upgrade to 'dompurify', which does not have a patched version as of 5/03/26",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
+      "GHSA-v8jm-5vwx-cfxm": {
+        "active": true,
+        "notes": "requires upgrade to 'dompurify', awaiting patch for above",
         "expiry": "27 March 2026"
       }
     }
