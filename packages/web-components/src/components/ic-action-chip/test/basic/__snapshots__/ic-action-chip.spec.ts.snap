@@ -2,7 +2,7 @@
 
 exports[`ic-action-chip component render with correct \`type\` when prop defined 1`] = `
 <ic-action-chip label="Medium" type="submit">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled medium" type="submit">
       <ic-typography class="label" variant="label">
         <span>
@@ -16,7 +16,7 @@ exports[`ic-action-chip component render with correct \`type\` when prop defined
 
 exports[`ic-action-chip component should apply the \`theme\` and \`monochrome\` props correctly 1`] = `
 <ic-action-chip class="ic-theme-dark" label="Medium" monochrome="true" theme="dark">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled medium monochrome" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -30,7 +30,7 @@ exports[`ic-action-chip component should apply the \`theme\` and \`monochrome\` 
 
 exports[`ic-action-chip component should ignore \`transparent-background\` when the variant is \`filled\` 1`] = `
 <ic-action-chip label="Medium" transparent-background="false">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled medium" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -44,7 +44,7 @@ exports[`ic-action-chip component should ignore \`transparent-background\` when 
 
 exports[`ic-action-chip component should render disabled 1`] = `
 <ic-action-chip disabled="true" label="Medium">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip disabled filled medium" disabled="" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -58,7 +58,7 @@ exports[`ic-action-chip component should render disabled 1`] = `
 
 exports[`ic-action-chip component should render disabled: disabled-removed 1`] = `
 <ic-action-chip label="Medium">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled medium" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -72,7 +72,7 @@ exports[`ic-action-chip component should render disabled: disabled-removed 1`] =
 
 exports[`ic-action-chip component should render filled by default 1`] = `
 <ic-action-chip label="Medium">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled medium" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -86,7 +86,7 @@ exports[`ic-action-chip component should render filled by default 1`] = `
 
 exports[`ic-action-chip component should render large 1`] = `
 <ic-action-chip label="Large" size="large">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled large" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -100,7 +100,7 @@ exports[`ic-action-chip component should render large 1`] = `
 
 exports[`ic-action-chip component should render outlined when supplying the \`variant\` prop 1`] = `
 <ic-action-chip label="Medium" variant="outlined">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip medium outlined" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -114,7 +114,7 @@ exports[`ic-action-chip component should render outlined when supplying the \`va
 
 exports[`ic-action-chip component should render small 1`] = `
 <ic-action-chip label="Small" size="small">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled small" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -128,7 +128,7 @@ exports[`ic-action-chip component should render small 1`] = `
 
 exports[`ic-action-chip component should render with "a" tag when href is passed 1`] = `
 <ic-action-chip href="#" label="Medium">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a class="chip filled medium" href="#">
       <ic-typography class="label" variant="label">
         <span>
@@ -142,7 +142,7 @@ exports[`ic-action-chip component should render with "a" tag when href is passed
 
 exports[`ic-action-chip component should render with a badge 1`] = `
 <ic-action-chip label="Medium">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled medium" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -158,7 +158,7 @@ exports[`ic-action-chip component should render with a badge 1`] = `
 
 exports[`ic-action-chip component should render with a solid background when outlined but \`transparent-background\` is \`false\` 1`] = `
 <ic-action-chip label="Medium" transparent-background="false" variant="outlined">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip medium non-transparent outlined" type="button">
       <ic-typography class="label" variant="label">
         <span>
@@ -172,7 +172,7 @@ exports[`ic-action-chip component should render with a solid background when out
 
 exports[`ic-action-chip component should render with an icon 1`] = `
 <ic-action-chip label="Medium">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled medium" type="button">
       <div class="icon">
         <slot name="icon"></slot>
@@ -192,7 +192,7 @@ exports[`ic-action-chip component should render with an icon 1`] = `
 
 exports[`ic-action-chip component should render with defined "a" tag props 1`] = `
 <ic-action-chip download="true" href="#" label="Medium" rel="nofollow" target="_blank">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <a class="chip filled medium" download="true" href="#" rel="nofollow" target="_blank">
       <ic-typography class="label" variant="label">
         <span>
@@ -209,7 +209,7 @@ exports[`ic-action-chip component should render with defined "a" tag props 1`] =
 
 exports[`ic-action-chip component should test button as submit button on form 1`] = `
 <ic-action-chip form="new-form" id="form-submit-chip" label="Medium" type="submit">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <button class="chip filled medium" form="new-form" type="submit">
       <ic-typography class="label" variant="label">
         <span>

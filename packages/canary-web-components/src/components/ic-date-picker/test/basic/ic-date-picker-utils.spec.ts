@@ -140,18 +140,24 @@ describe("ic-date-picker-date-helpers", () => {
   });
 
   describe("dateIsToday", () => {
-    const dateMatchesSpy = jest.spyOn(dateHelpers, "dateMatches");
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
 
     it("should test dateIsToday with matching dates", () => {
+      const dateMatchesSpy = jest.spyOn(dateHelpers, "dateMatches");
+
       expect(dateIsToday(new Date())).toBe(true);
       expect(dateMatchesSpy).toHaveBeenCalled();
-      dateMatchesSpy.mockClear();
     });
+
     it("should test dateIsToday with different dates", () => {
+      const dateMatchesSpy = jest.spyOn(dateHelpers, "dateMatches");
+
       expect(dateIsToday(new Date(2023, 0, 1))).toBe(false);
       expect(dateMatchesSpy).toHaveBeenCalledWith(
         new Date(2023, 0, 1),
-        new Date()
+        expect.any(Date)
       );
     });
   });

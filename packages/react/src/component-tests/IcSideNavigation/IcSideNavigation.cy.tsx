@@ -390,6 +390,8 @@ describe("IcSideNavigation", () => {
     it("should render collapsed when expanded state is externally controlled", () => {
       mount(<DynamicExpandedSideNav />);
 
+      cy.injectAxe();
+
       cy.get("#expand-btn").click();
       cy.get("#collapse-btn").click();
 

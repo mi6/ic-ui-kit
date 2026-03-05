@@ -2,6 +2,7 @@
 /// <reference types="@cypress-audit/lighthouse" />
 
 import "./component";
+import 'cypress-axe';
 import "cypress-real-events";
 
 import Commands from "./commands";
