@@ -133,6 +133,27 @@
   display: inline-block;
 }
 
+:host(.ic-tooltip.ic-tooltip-with-icon) .ic-tooltip-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--ic-space-xxs);
+  text-align: left;
+}
+
+:host(.ic-tooltip.ic-tooltip-with-icon) .ic-tooltip-icon-container {
+  width: var(--ic-space-md);
+  height: var(--ic-space-md);
+  color: var(--ic-tooltip-text);
+}
+
+:host(.ic-tooltip.ic-tooltip-with-icon) ::slotted([slot="tooltip-icon"]) {
+  width: var(--ic-space-md);
+  height: var(--ic-space-md);
+  display: inline-block;
+  margin-top: var(--ic-space-1px);
+}
+
 @media screen and (max-width: 576px) {
   :host(.ic-tooltip) .ic-tooltip-container {
     max-width: 18.875rem;

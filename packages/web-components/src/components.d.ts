@@ -2694,6 +2694,10 @@ export namespace Components {
           * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
          */
         "fixedPositioning": boolean;
+        /**
+          * The alt text to be used alongside a slotted icon.
+         */
+        "iconAltText"?: string;
         "isTooltipVisible": () => Promise<boolean>;
         /**
           * The text to display on the tooltip.
@@ -6571,6 +6575,10 @@ declare namespace LocalJSX {
           * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
          */
         "fixedPositioning"?: boolean;
+        /**
+          * The alt text to be used alongside a slotted icon.
+         */
+        "iconAltText"?: string;
         /**
           * The text to display on the tooltip.
          */

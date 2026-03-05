@@ -12,6 +12,7 @@
 | `disableClick`       | `disable-click`     | If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.                            | `boolean \| undefined`                                                                                                                                                            | `false`     |
 | `disableHover`       | `disable-hover`     | If `true`, the tooltip will not be displayed on hover, it will require a click.                                                      | `boolean \| undefined`                                                                                                                                                            | `false`     |
 | `fixedPositioning`   | `fixed-positioning` | Setting to `true` can help in situations where tooltip content is clipped by a parent element.                                       | `boolean`                                                                                                                                                                         | `false`     |
+| `iconAltText`        | `icon-alt-text`     | The alt text to be used alongside a slotted icon.                                                                                    | `string \| undefined`                                                                                                                                                             | `undefined` |
 | `label` _(required)_ | `label`             | The text to display on the tooltip.                                                                                                  | `string`                                                                                                                                                                          | `undefined` |
 | `maxLines`           | `max-lines`         | The number of lines to display before truncating the text.                                                                           | `number \| undefined`                                                                                                                                                             | `undefined` |
 | `placement`          | `placement`         | The position of the tooltip in relation to the parent element.                                                                       | `"bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start" \| undefined` | `"bottom"`  |
@@ -37,6 +38,13 @@ Method to programmatically show/hide the tooltip without needing to interact wit
 Type: `Promise<void>`
 
 
+
+
+## Slots
+
+| Slot             | Description                                            |
+| ---------------- | ------------------------------------------------------ |
+| `"tooltip-icon"` | Icon will be rendered to the left of the tooltip text. |
 
 
 ## CSS Custom Properties

@@ -13,8 +13,14 @@ import { IcTooltipPlacements } from "./ic-tooltip.types";
 import {
   isSafari,
   onComponentRequiredPropUndefined,
+  isSlotUsed,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import { IcThemeMode } from "../../utils/types";
+
+/**
+ * @slot tooltip-icon - Icon will be rendered to the left of the tooltip text.
+ */
 
 @Component({
   tag: "ic-tooltip",
@@ -35,6 +41,7 @@ export class Tooltip {
     !this.disableClick && "click",
   ];
   private toolTip: HTMLDivElement;
+  private hostMutationObserver?: MutationObserver;
 
   @Element() el: HTMLIcTooltipElement;
 
@@ -68,6 +75,11 @@ export class Tooltip {
    * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
    */
   @Prop() fixedPositioning: boolean = false;
+
+  /**
+   * The alt text to be used alongside a slotted icon.
+   */
+  @Prop() iconAltText?: string;
 
   /**
    * The number of lines to display before truncating the text.
@@ -138,7 +150,12 @@ export class Tooltip {
     }
     this.containerContentArea =
       container?.shadowRoot?.querySelector(".content-area") ?? null;
-
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, "tooltip-icon", this)
+    );
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
       "Tooltip"
@@ -155,7 +172,14 @@ export class Tooltip {
         "style",
         `--truncation-max-lines: ${this.maxLines}`
       );
+
+    if (this.iconAltText && !isSlotUsed(this.el, "tooltip-icon")) {
+      console.warn(
+        `Prop 'iconAltText' is provided without an icon slotted in the 'tooltip-icon' slot. Please provide an icon or remove the 'iconAltText' prop.`
+      );
+    }
   }
+
   /**
    * Method to programmatically show/hide the tooltip without needing to interact with an anchor element
    * @param show Whether to show or hide the tooltip
@@ -307,6 +331,7 @@ export class Tooltip {
         class={{
           "ic-tooltip": true,
           [`ic-theme-${theme}`]: theme !== "inherit",
+          "ic-tooltip-with-icon": isSlotUsed(this.el, "tooltip-icon"),
         }}
         aria-label={isSafari && label} // accessible name needs to be in light dom to be announced by VoiceOver. Replace in v4 as aria-label on element with no role is not well-supported
       >
@@ -316,9 +341,21 @@ export class Tooltip {
           class="ic-tooltip-container"
           aria-hidden={`${silent}`}
         >
-          <ic-typography maxLines={maxLines} variant="caption">
-            {label}
-          </ic-typography>
+          <div class="ic-tooltip-content">
+            {isSlotUsed(this.el, "tooltip-icon") && (
+              <div
+                class="ic-tooltip-icon-container"
+                aria-hidden={`${!this.iconAltText}`}
+                aria-label={this.iconAltText}
+                role="img"
+              >
+                <slot name="tooltip-icon" aria-hidden="true"></slot>
+              </div>
+            )}
+            <ic-typography maxLines={maxLines} variant="caption">
+              {label}
+            </ic-typography>
+          </div>
           <div
             ref={(el) => (this.arrow = el as HTMLDivElement)}
             class="ic-tooltip-arrow"
