@@ -103,6 +103,14 @@ const COMPONENTS = [
 
 const THEMES = ["light", "dark"];
 
+// Parse command line arguments
+const args = process.argv.slice(2);
+const batchIndex = args.indexOf("--batch");
+const totalBatchesIndex = args.indexOf("--total-batches");
+
+const currentBatch = batchIndex !== -1 ? parseInt(args[batchIndex + 1]) : 1;
+const totalBatches = totalBatchesIndex !== -1 ? parseInt(args[totalBatchesIndex + 1]) : 1;
+
 // Generate routes dynamically: each component × each theme
 const routes = [];
 for (const component of COMPONENTS) {
@@ -113,6 +121,12 @@ for (const component of COMPONENTS) {
     });
   }
 }
+
+// Filter routes for this batch
+const routesPerBatch = Math.ceil(routes.length / totalBatches);
+const startIndex = (currentBatch - 1) * routesPerBatch;
+const endIndex = Math.min(startIndex + routesPerBatch, routes.length);
+const batchRoutes = routes.slice(startIndex, endIndex);
 
 function generateConfigForRoute(route) {
   // Determine performance and accessibility thresholds: use component override if available, otherwise use global
@@ -189,7 +203,8 @@ async function runLhciForRoute(route) {
 }
 
 async function main() {
-  console.log("Starting LHCI Per-Route Runner\n");
+  console.log(`Starting LHCI Per-Route Runner - Batch ${currentBatch}/${totalBatches}\n`);
+  console.log(`Processing ${batchRoutes.length} of ${routes.length} routes\n`);
   
   // Create reports directory if it doesn't exist
   const reportsDir = path.join(__dirname, "lhci-reports");
@@ -200,8 +215,8 @@ async function main() {
   const results = [];
   let failedCount = 0;
 
-  // Run LHCI for each route sequentially
-  for (const route of routes) {
+  // Run LHCI for each route in this batch sequentially
+  for (const route of batchRoutes) {
     const result = await runLhciForRoute(route);
     results.push(result);
     if (result.status === "failed") {
@@ -211,7 +226,7 @@ async function main() {
 
   // Summary
   console.log(`\n${"=".repeat(60)}`);
-  console.log("LHCI Per-Route Summary");
+  console.log(`LHCI Per-Route Summary - Batch ${currentBatch}/${totalBatches}`);
   console.log(`${"=".repeat(60)}`);
   
   results.forEach(result => {
@@ -223,10 +238,10 @@ async function main() {
   console.log(`Total: ${results.length} | Passed: ${results.length - failedCount} | Failed: ${failedCount}\n`);
 
   if (failedCount > 0) {
-    console.error("❌ Some routes failed assertions. Check reports in ./lhci-reports/\n");
+    console.error(`❌ Batch ${currentBatch} - Some routes failed assertions. Check reports in ./lhci-reports/\n`);
     process.exit(1);
   } else {
-    console.log("✅ All routes passed assertions!\n");
+    console.log(`✅ Batch ${currentBatch} - All routes passed assertions!\n`);
     process.exit(0);
   }
 }
