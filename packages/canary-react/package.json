@@ -1,6 +1,6 @@
 {
   "name": "@ukic/canary-react",
-  "version": "3.0.0-canary.37",
+  "version": "3.0.0-canary.36",
   "description": "React-wrapped web components compiled using StencilJS",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit/issues",
@@ -47,9 +47,9 @@
     ]
   },
   "dependencies": {
-    "@ukic/canary-web-components": "^3.0.0-canary.37",
-    "@ukic/react": "^3.21.0",
-    "@ukic/web-components": "^3.21.0"
+    "@ukic/canary-web-components": "^3.0.0-canary.36",
+    "@ukic/react": "^3.20.0",
+    "@ukic/web-components": "^3.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
