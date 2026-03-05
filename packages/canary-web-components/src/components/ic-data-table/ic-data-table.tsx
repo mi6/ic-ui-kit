@@ -51,6 +51,10 @@ import "../../../../web-components/src/components/ic-link/ic-link";
 import "../../../../web-components/src/components/ic-empty-state/ic-empty-state";
 import "../../../../web-components/src/components/ic-checkbox/ic-checkbox";
 import "../../../../web-components/src/components/ic-tooltip/ic-tooltip";
+import "../../../../web-components/src/components/ic-pagination-bar/ic-pagination-bar";
+import "../../../../web-components/src/components/ic-pagination/ic-pagination";
+import "../../../../web-components/src/components/ic-pagination-item/ic-pagination-item";
+import "../../../../web-components/src/components/ic-text-field/ic-text-field";
 
 /**
  * @slot empty-state - Content is slotted below the table header when there is no data and the table is not loading.

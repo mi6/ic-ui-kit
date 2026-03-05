@@ -4683,7 +4683,11 @@
           "ic-typography"
         ],
         "ic-pagination": [
-          "ic-button"
+          "ic-button",
+          "ic-pagination-item"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
         ],
         "ic-text-field": [
           "ic-input-container",
@@ -11923,11 +11927,13 @@
         "ic-pagination-bar"
       ],
       "dependencies": [
-        "ic-button"
+        "ic-button",
+        "ic-pagination-item"
       ],
       "dependencyGraph": {
         "ic-pagination": [
-          "ic-button"
+          "ic-button",
+          "ic-pagination-item"
         ],
         "ic-button": [
           "ic-typography",
@@ -11940,13 +11946,16 @@
         "ic-tooltip": [
           "ic-typography"
         ],
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
         "ic-pagination-bar": [
           "ic-pagination"
         ]
       }
     },
     {
-      "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
+      "filePath": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
       "readme": "# ic-pagination-bar\n\n\n",
@@ -11990,7 +11999,7 @@
             "references": {
               "IcPaginationAlignmentOptions": {
                 "location": "import",
-                "path": "../../../../web-components/src/components/ic-pagination/ic-pagination.types",
+                "path": "../ic-pagination/ic-pagination.types",
                 "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions"
               }
             }
@@ -12273,7 +12282,7 @@
             "references": {
               "IcPaginationLabelTypes": {
                 "location": "import",
-                "path": "../../../../web-components/src/components/ic-pagination/ic-pagination.types",
+                "path": "../ic-pagination/ic-pagination.types",
                 "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationLabelTypes"
               }
             }
@@ -12443,7 +12452,7 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode"
               }
             }
           },
@@ -12507,7 +12516,7 @@
             "references": {
               "IcPaginationTypes": {
                 "location": "import",
-                "path": "../../../../web-components/src/components/ic-pagination/ic-pagination.types",
+                "path": "../ic-pagination/ic-pagination.types",
                 "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes"
               }
             }
@@ -12550,7 +12559,7 @@
               "IcItemsPerPageChangeEventDetail": {
                 "location": "import",
                 "path": "./ic-pagination-bar.types",
-                "id": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcItemsPerPageChangeEventDetail"
+                "id": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcItemsPerPageChangeEventDetail"
               }
             }
           },
@@ -12570,7 +12579,7 @@
               "IcPageChangeEventDetail": {
                 "location": "import",
                 "path": "./ic-pagination-bar.types",
-                "id": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail"
+                "id": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail"
               }
             }
           },
@@ -12642,7 +12651,11 @@
           "ic-typography"
         ],
         "ic-pagination": [
-          "ic-button"
+          "ic-button",
+          "ic-pagination-item"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
         ],
         "ic-text-field": [
           "ic-input-container",
@@ -12653,6 +12666,248 @@
         ],
         "ic-data-table": [
           "ic-pagination-bar"
+        ]
+      }
+    },
+    {
+      "filePath": "../web-components/src/components/ic-pagination-item/ic-pagination-item.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-pagination-item",
+      "readme": "# ic-pagination-item\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the pagination item will be disabled.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label for the pagination item (applicable when simple pagination is being used).",
+          "docsTags": [],
+          "default": "\"Page\"",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "monochrome",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the pagination item will display as black in the light theme, and white in dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "page",
+          "type": "number | undefined",
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "page",
+          "reflectToAttr": false,
+          "docs": "The current page number.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "selected",
+          "reflectToAttr": false,
+          "docs": "If `true`, the pagination item will be selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "\"ellipsis\" | \"page\" | \"simple-current\"",
+          "complexType": {
+            "original": "IcPaginationItemType",
+            "resolved": "\"ellipsis\" | \"page\" | \"simple-current\"",
+            "references": {
+              "IcPaginationItemType": {
+                "location": "import",
+                "path": "./ic-pagination-item.types",
+                "id": "../web-components/src/components/ic-pagination-item/ic-pagination-item.types.ts::IcPaginationItemType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of pagination item - 'page' or 'ellipsis'.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ellipsis",
+              "type": "string"
+            },
+            {
+              "value": "page",
+              "type": "string"
+            },
+            {
+              "value": "simple-current",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "ic-pagination"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
+        "ic-pagination": [
+          "ic-pagination-item"
         ]
       }
     },
@@ -23369,6 +23624,7 @@
         "ic-navigation-item",
         "ic-page-header",
         "ic-pagination-bar",
+        "ic-pagination-item",
         "ic-popover-menu",
         "ic-radio-option",
         "ic-select",
@@ -23442,6 +23698,9 @@
           "ic-typography"
         ],
         "ic-pagination-bar": [
+          "ic-typography"
+        ],
+        "ic-pagination-item": [
           "ic-typography"
         ],
         "ic-popover-menu": [
@@ -23569,6 +23828,91 @@
       "docstring": "",
       "path": "../web-components/node_modules/@popperjs/core/index.d.ts"
     },
+    "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions": {
+      "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-pagination/ic-pagination.types.ts"
+    },
+    "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes": {
+      "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-pagination/ic-pagination.types.ts"
+    },
+    "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationLabelTypes": {
+      "declaration": "export type IcPaginationLabelTypes = \"page\" | \"data\";",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-pagination/ic-pagination.types.ts"
+    },
+    "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
+      "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
+    },
+    "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcItemsPerPageChangeEventDetail": {
+      "declaration": "export interface IcItemsPerPageChangeEventDetail {\n  value: number;\n  isUserAction?: boolean;\n}",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
+    },
+    "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcChangeEventDetail": {
+      "declaration": "export interface IcChangeEventDetail {\n  value: number;\n}",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-pagination/ic-pagination.types.ts"
+    },
+    "../web-components/src/components/ic-pagination-item/ic-pagination-item.types.ts::IcPaginationItemType": {
+      "declaration": "export type IcPaginationItemType = \"page\" | \"ellipsis\" | \"simple-current\";",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-pagination-item/ic-pagination-item.types.ts"
+    },
+    "../web-components/src/components/ic-text-field/ic-text-field.types.ts::IcAriaAutocompleteTypes": {
+      "declaration": "export type IcAriaAutocompleteTypes = \"inline\" | \"list\" | undefined;",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-text-field/ic-text-field.types.ts"
+    },
+    "../web-components/src/utils/types.ts::IcAutocompleteTypes": {
+      "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
+      "docstring": "",
+      "path": "../web-components/src/utils/types.ts"
+    },
+    "../web-components/src/utils/types.ts::IcAutocorrectStates": {
+      "declaration": "export type IcAutocorrectStates = \"on\" | \"off\";",
+      "docstring": "",
+      "path": "../web-components/src/utils/types.ts"
+    },
+    "../web-components/src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldInputModes": {
+      "declaration": "export type IcTextFieldInputModes =\n  | \"none\"\n  | \"text\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\";",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-text-field/ic-text-field.types.ts"
+    },
+    "../web-components/src/utils/types.ts::IcSizesNoLarge": {
+      "declaration": "export type IcSizesNoLarge = \"medium\" | \"small\";",
+      "docstring": "",
+      "path": "../web-components/src/utils/types.ts"
+    },
+    "../web-components/src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldTypes": {
+      "declaration": "export type IcTextFieldTypes =\n  | \"email\"\n  | \"password\"\n  | \"tel\"\n  | \"text\"\n  | \"url\"\n  | \"number\"\n  | \"search\";",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-text-field/ic-text-field.types.ts"
+    },
+    "../web-components/src/utils/types.ts::IcValidationAriaLive": {
+      "declaration": "export type IcValidationAriaLive = \"default\" | \"polite\" | \"assertive\" | \"off\";",
+      "docstring": "",
+      "path": "../web-components/src/utils/types.ts"
+    },
+    "../web-components/src/utils/types.ts::IcInformationStatusOrEmpty": {
+      "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
+      "docstring": "",
+      "path": "../web-components/src/utils/types.ts"
+    },
+    "../web-components/src/utils/types.ts::IcValueEventDetail": {
+      "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
+      "docstring": "",
+      "path": "../web-components/src/utils/types.ts"
+    },
+    "../web-components/src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldKeydownEventDetail": {
+      "declaration": "export interface IcTextFieldKeydownEventDetail {\n  event: KeyboardEvent;\n  cursorPosition: number;\n  selectionEnd: number;\n}",
+      "docstring": "",
+      "path": "../web-components/src/components/ic-text-field/ic-text-field.types.ts"
+    },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
       "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: IcDataTableAlignmentOptions;\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n  excludeColumnFromSort?: boolean;\n  hidden?: boolean;\n  disableAutoSort?: boolean;\n}",
       "docstring": "",
@@ -23616,11 +23960,6 @@
     },
     "../web-components/src/utils/types.ts::IcAriaLive": {
       "declaration": "export type IcAriaLive = \"polite\" | \"assertive\" | \"off\";",
-      "docstring": "",
-      "path": "../web-components/src/utils/types.ts"
-    },
-    "../web-components/src/utils/types.ts::IcInformationStatusOrEmpty": {
-      "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
       "docstring": "",
       "path": "../web-components/src/utils/types.ts"
     },
@@ -23704,18 +24043,8 @@
       "docstring": "",
       "path": "../web-components/src/components/ic-menu-item/ic-menu-item.types.ts"
     },
-    "../web-components/src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
-      "docstring": "",
-      "path": "../web-components/src/utils/types.ts"
-    },
     "../web-components/src/utils/types.ts::IcOrientation": {
       "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
-      "docstring": "",
-      "path": "../web-components/src/utils/types.ts"
-    },
-    "../web-components/src/utils/types.ts::IcSizesNoLarge": {
-      "declaration": "export type IcSizesNoLarge = \"medium\" | \"small\";",
       "docstring": "",
       "path": "../web-components/src/utils/types.ts"
     },
@@ -23723,16 +24052,6 @@
       "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
       "docstring": "",
       "path": "../web-components/src/components/ic-radio-group/ic-radio-group.types.ts"
-    },
-    "../web-components/src/utils/types.ts::IcAutocompleteTypes": {
-      "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
-      "docstring": "",
-      "path": "../web-components/src/utils/types.ts"
-    },
-    "../web-components/src/utils/types.ts::IcAutocorrectStates": {
-      "declaration": "export type IcAutocorrectStates = \"on\" | \"off\";",
-      "docstring": "",
-      "path": "../web-components/src/utils/types.ts"
     },
     "../web-components/src/utils/types.ts::IcBlurEventDetail": {
       "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget | null;\n}",
@@ -23778,61 +24097,6 @@
       "declaration": "export interface IcDrawerExpandedDetail {\n  expanded: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-drawer/ic-drawer.types.tsx"
-    },
-    "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes": {
-      "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
-      "docstring": "",
-      "path": "../web-components/src/components/ic-pagination/ic-pagination.types.ts"
-    },
-    "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: number;\n}",
-      "docstring": "",
-      "path": "../web-components/src/components/ic-pagination/ic-pagination.types.ts"
-    },
-    "../web-components/src/components/ic-text-field/ic-text-field.types.ts::IcAriaAutocompleteTypes": {
-      "declaration": "export type IcAriaAutocompleteTypes = \"inline\" | \"list\" | undefined;",
-      "docstring": "",
-      "path": "../web-components/src/components/ic-text-field/ic-text-field.types.ts"
-    },
-    "../web-components/src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldInputModes": {
-      "declaration": "export type IcTextFieldInputModes =\n  | \"none\"\n  | \"text\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\";",
-      "docstring": "",
-      "path": "../web-components/src/components/ic-text-field/ic-text-field.types.ts"
-    },
-    "../web-components/src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldTypes": {
-      "declaration": "export type IcTextFieldTypes =\n  | \"email\"\n  | \"password\"\n  | \"tel\"\n  | \"text\"\n  | \"url\"\n  | \"number\"\n  | \"search\";",
-      "docstring": "",
-      "path": "../web-components/src/components/ic-text-field/ic-text-field.types.ts"
-    },
-    "../web-components/src/utils/types.ts::IcValidationAriaLive": {
-      "declaration": "export type IcValidationAriaLive = \"default\" | \"polite\" | \"assertive\" | \"off\";",
-      "docstring": "",
-      "path": "../web-components/src/utils/types.ts"
-    },
-    "../web-components/src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldKeydownEventDetail": {
-      "declaration": "export interface IcTextFieldKeydownEventDetail {\n  event: KeyboardEvent;\n  cursorPosition: number;\n  selectionEnd: number;\n}",
-      "docstring": "",
-      "path": "../web-components/src/components/ic-text-field/ic-text-field.types.ts"
-    },
-    "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions": {
-      "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
-      "docstring": "",
-      "path": "../web-components/src/components/ic-pagination/ic-pagination.types.ts"
-    },
-    "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationLabelTypes": {
-      "declaration": "export type IcPaginationLabelTypes = \"page\" | \"data\";",
-      "docstring": "",
-      "path": "../web-components/src/components/ic-pagination/ic-pagination.types.ts"
-    },
-    "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
-      "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
-      "docstring": "",
-      "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
-    },
-    "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcItemsPerPageChangeEventDetail": {
-      "declaration": "export interface IcItemsPerPageChangeEventDetail {\n  value: number;\n  isUserAction?: boolean;\n}",
-      "docstring": "",
-      "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
     "../web-components/src/utils/types.ts::IcDeviceSizes": {
       "declaration": "export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;",

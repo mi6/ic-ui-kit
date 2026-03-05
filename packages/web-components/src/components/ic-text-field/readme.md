@@ -92,7 +92,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+ - [ic-pagination-bar](../ic-pagination-bar)
 
 
 ### Depends on

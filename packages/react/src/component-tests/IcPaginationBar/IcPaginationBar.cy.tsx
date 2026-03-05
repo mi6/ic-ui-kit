@@ -13,8 +13,8 @@ import {
   NOT_BE_VISIBLE,
   NOT_EXIST,
   CONTAIN_TEXT,
-} from "@ukic/react/src/component-tests/utils/constants";
-import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
+} from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   PaginationBarItemsPerPage,
   PaginationBarItemsPerPageWithButtons,
