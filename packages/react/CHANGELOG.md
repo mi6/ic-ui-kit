@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.21.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.20.0...@ukic/react@3.21.0) (2026-03-05)
+
+### Features
+
+- **react:** adds story example to checkbox-group ([77762d8](https://github.com/mi6/ic-ui-kit/commit/77762d8acb05d807a27184339dd00791f4164bd9))
+- **react:** move IcCardHorizontal to core components ([1e1b699](https://github.com/mi6/ic-ui-kit/commit/1e1b699d52ca48cd5a558d185eba39021a3d0bf1))
+
 # [3.20.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.19.0...@ukic/react@3.20.0) (2026-02-18)
 
 ### Features
