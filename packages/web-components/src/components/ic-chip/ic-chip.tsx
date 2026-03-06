@@ -223,13 +223,20 @@ export class Chip {
                 <slot name="icon" />
               </div>
             )}
-            <ic-typography
-              variant="label"
-              apply-vertical-margins={false}
-              class={{ label: true, "in-ag-grid": isElInAGGrid(this.el) }}
+            <div
+              class={{
+                label: true,
+                [`${size}`]: true,
+              }}
             >
-              <span>{label}</span>
-            </ic-typography>
+              <ic-typography
+                variant="label"
+                apply-vertical-margins={false}
+                class={{ label: true, "in-ag-grid": isElInAGGrid(this.el) }}
+              >
+                <span>{label}</span>
+              </ic-typography>
+            </div>
             {dismissible && (
               <ic-tooltip
                 label={dismissLabel}
