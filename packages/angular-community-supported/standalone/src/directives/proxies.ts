@@ -15,6 +15,7 @@ import { defineCustomElement as defineIcBadge } from '@ukic/web-components/compo
 import { defineCustomElement as defineIcBreadcrumb } from '@ukic/web-components/components/ic-breadcrumb.js';
 import { defineCustomElement as defineIcBreadcrumbGroup } from '@ukic/web-components/components/ic-breadcrumb-group.js';
 import { defineCustomElement as defineIcButton } from '@ukic/web-components/components/ic-button.js';
+import { defineCustomElement as defineIcCardHorizontal } from '@ukic/web-components/components/ic-card-horizontal.js';
 import { defineCustomElement as defineIcCardVertical } from '@ukic/web-components/components/ic-card-vertical.js';
 import { defineCustomElement as defineIcCheckbox } from '@ukic/web-components/components/ic-checkbox.js';
 import { defineCustomElement as defineIcCheckboxGroup } from '@ukic/web-components/components/ic-checkbox-group.js';
@@ -308,6 +309,30 @@ export declare interface IcButton extends Components.IcButton {
    */
   icFocus: EventEmitter<CustomEvent<void>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineIcCardHorizontal,
+  inputs: ['clickable', 'density', 'disabled', 'heading', 'href', 'hreflang', 'message', 'referrerpolicy', 'rel', 'size', 'subheading', 'target', 'theme'],
+  methods: ['setFocus']
+})
+@Component({
+  selector: 'ic-card-horizontal',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['clickable', 'density', 'disabled', 'heading', 'href', 'hreflang', 'message', 'referrerpolicy', 'rel', 'size', 'subheading', 'target', 'theme'],
+})
+export class IcCardHorizontal {
+  protected el: HTMLIcCardHorizontalElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface IcCardHorizontal extends Components.IcCardHorizontal {}
 
 
 @ProxyCmp({
