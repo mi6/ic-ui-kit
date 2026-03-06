@@ -1,7 +1,7 @@
 {
   "total": 912,
-  "totalPassed": 911,
-  "totalFailed": 1,
+  "totalPassed": 912,
+  "totalFailed": 0,
   "totalSuites": 46,
   "suites": [
     {
@@ -5483,14 +5483,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/light-theme.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPopoverMenu.cy.tsx/dark-theme",
-          "percentage": 0.2749618155308115,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
           "specFilename": "IcPopoverMenu.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/dark-theme.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx/dark-theme.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/dark-theme.png"
         },
         {
@@ -10313,9 +10313,9 @@
       ]
     }
   ],
-  "startedAt": "2026-03-06T18:04:29.402Z",
-  "endedAt": "2026-03-06T18:24:37.332Z",
-  "duration": 1094008,
+  "startedAt": "2026-03-06T18:30:39.682Z",
+  "endedAt": "2026-03-06T18:50:59.251Z",
+  "duration": 1108500,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
