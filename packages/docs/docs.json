@@ -6100,6 +6100,33 @@
           "setter": false
         },
         {
+          "name": "customClassificationText",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "custom-classification-text",
+          "reflectToAttr": false,
+          "docs": "The custom text that will appear on the banner. If set, the `additionalSelectors`, `country` and `upTo` props are ignored.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "inline",
           "type": "boolean | undefined",
           "complexType": {
