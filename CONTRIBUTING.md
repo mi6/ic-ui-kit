@@ -129,9 +129,15 @@ Pull requests must have the approval of 2 reviewers before they can be merged in
 
 Pull requests must also ensure they tick off everything on the checklist. For more information on some of the checklist points, please read the available [checklist guide](CHECKLIST.md).
 
-### React & Angular
+### React
 
-Stencil provides [plugins](https://stenciljs.com/docs/overview), which outputs wrapped framework agnostic components. During the build stage, Native components for React and Angular are dynamically generated and are accessible from their respective packages.
+Stencil provides [plugins](https://stenciljs.com/docs/overview), which outputs wrapped framework agnostic components. During the build stage, React components are dynamically generated and are accessible from the React package.
+
+###  Angular
+
+Similarly to React, there is a Stencil plugin that outputs the web components wrapped in native Angular ones. This plugin has been enabled for the ICDS components, however the support and maintenance of this offering is provided by the Angular community and **not** the ICDS team.
+The Angular package will have a separate build process that will aim to keep itself aligned with the core web components, however errors with the community package will not block an ICDS release; so please be aware that there may be times where fixes will need to be implemented manually by the community and then built to ensure the package stays in line.
+These components can be found in the Angular Community Supported package.
 
 ## Coding standards and practices
 
