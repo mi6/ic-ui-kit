@@ -11,6 +11,7 @@ export const DIRECTIVES = [
   d.IcBreadcrumb,
   d.IcBreadcrumbGroup,
   d.IcButton,
+  d.IcCardHorizontal,
   d.IcCardVertical,
   d.IcCheckbox,
   d.IcCheckboxGroup,

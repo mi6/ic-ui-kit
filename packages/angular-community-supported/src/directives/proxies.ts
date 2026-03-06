@@ -244,6 +244,30 @@ export declare interface IcButton extends Components.IcButton {
 
 
 @ProxyCmp({
+  inputs: ['clickable', 'density', 'disabled', 'heading', 'href', 'hreflang', 'message', 'referrerpolicy', 'rel', 'size', 'subheading', 'target', 'theme'],
+  methods: ['setFocus']
+})
+@Component({
+  selector: 'ic-card-horizontal',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['clickable', 'density', 'disabled', 'heading', 'href', 'hreflang', 'message', 'referrerpolicy', 'rel', 'size', 'subheading', 'target', 'theme'],
+  standalone: false
+})
+export class IcCardHorizontal {
+  protected el: HTMLIcCardHorizontalElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface IcCardHorizontal extends Components.IcCardHorizontal {}
+
+
+@ProxyCmp({
   inputs: ['clickable', 'disabled', 'expandable', 'fullWidth', 'heading', 'href', 'hreflang', 'message', 'referrerpolicy', 'rel', 'subheading', 'target', 'theme'],
   methods: ['setFocus']
 })
