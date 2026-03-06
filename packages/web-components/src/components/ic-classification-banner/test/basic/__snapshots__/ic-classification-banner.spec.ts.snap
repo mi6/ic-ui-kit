@@ -66,6 +66,21 @@ exports[`ic-classification-banner component should render with additional select
 </ic-classification-banner>
 `;
 
+exports[`ic-classification-banner component should render with custom classification text only if supplied 1`] = `
+<ic-classification-banner additional-selectors="ukic" classification="official" country="uk" custom-classification-text="Custom classification text" up-to="true">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner official">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        Custom classification text
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
 exports[`ic-classification-banner component should render with default classification text when no classification set 1`] = `
 <ic-classification-banner>
   <template shadowrootmode="open">

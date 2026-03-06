@@ -28,6 +28,10 @@ export class ClassificationBanner {
    */
   @Prop() country?: string = "uk";
   /**
+   * The custom text that will appear on the banner. If set, the `additionalSelectors`, `country` and `upTo` props are ignored.
+   */
+  @Prop() customClassificationText?: string = "";
+  /**
    * If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.
    */
   @Prop() inline?: boolean = false;
@@ -40,7 +44,12 @@ export class ClassificationBanner {
     const { inline, upTo } = this;
 
     // In case of unrecognized props, fallback to default
-    let { country, additionalSelectors, classification } = this;
+    let {
+      country,
+      additionalSelectors,
+      classification,
+      customClassificationText,
+    } = this;
     if (!country) country = "";
     if (!additionalSelectors) additionalSelectors = "";
     if (
@@ -48,6 +57,7 @@ export class ClassificationBanner {
       (classification && !classificationText[classification])
     )
       classification = "default";
+    if (!customClassificationText) customClassificationText = "";
 
     return (
       <Host class={{ ["ic-classification-banner-inline"]: !!inline }}>
@@ -64,7 +74,9 @@ export class ClassificationBanner {
             </span>
           ) : null}
           <ic-typography variant="caption-uppercase">
-            {classification === "default"
+            {customClassificationText !== ""
+              ? customClassificationText
+              : classification === "default"
               ? classificationText[classification]
               : `${upTo ? "up to" : ""} 
                ${country} 
