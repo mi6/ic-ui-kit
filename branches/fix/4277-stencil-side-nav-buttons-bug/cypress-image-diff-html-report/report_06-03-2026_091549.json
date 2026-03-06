@@ -1,7 +1,7 @@
 {
   "total": 914,
-  "totalPassed": 914,
-  "totalFailed": 0,
+  "totalPassed": 913,
+  "totalFailed": 1,
   "totalSuites": 46,
   "suites": [
     {
@@ -7417,14 +7417,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/controlled-expanded.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSideNavigation.cy.tsx/controlled-collapsed",
-          "percentage": 0,
+          "percentage": 0.12060833705736074,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx/controlled-collapsed.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx/controlled-collapsed.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/controlled-collapsed.png"
         },
         {
@@ -10335,9 +10335,9 @@
       ]
     }
   ],
-  "startedAt": "2026-03-05T15:57:56.846Z",
-  "endedAt": "2026-03-05T16:19:14.810Z",
-  "duration": 1166880,
+  "startedAt": "2026-03-06T09:15:49.573Z",
+  "endedAt": "2026-03-06T09:35:21.357Z",
+  "duration": 1062709,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
