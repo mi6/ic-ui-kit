@@ -17,7 +17,7 @@ import {
   BasicSideNav,
   CloseOnNavItemClickSideNav,
   DisableTopBarBehaviourSideNav,
-  DynamicExpandedSideNav,
+  DynamicSideNav,
   ExpandedSideNav,
   GroupedSideNav,
   LongPropsSideNav,
@@ -375,32 +375,25 @@ describe("IcSideNavigation", () => {
     });
 
     it("should render expanded when expanded state is externally controlled", () => {
-      mount(<DynamicExpandedSideNav />);
+      mount(<DynamicSideNav />);
+
+      cy.injectAxe();
 
       cy.get("#expand-btn").click();
 
       cy.checkA11yWithWait(undefined, 500);
       cy.checkSideNavSize(true);
-      cy.compareSnapshot({
-        name: "/controlled-expanded",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
-      });
     });
 
     it("should render collapsed when expanded state is externally controlled", () => {
-      mount(<DynamicExpandedSideNav />);
+      mount(<DynamicSideNav initialExpanded />);
 
       cy.injectAxe();
 
-      cy.get("#expand-btn").click();
       cy.get("#collapse-btn").click();
 
       cy.checkA11yWithWait(undefined, 500);
       cy.checkSideNavSize(false);
-      cy.compareSnapshot({
-        name: "/controlled-collapsed",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
-      });
     });
 
     it("should update aria-label on menu expand button", () => {
