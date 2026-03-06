@@ -6,6 +6,7 @@ const defaultArgs = {
   additionalSelectors: "",
   classification: "official",
   country: "uk",
+  customClassificationText: "",
   inline: true,
   upTo: false,
 };
@@ -91,6 +92,19 @@ export const AdditionalSelectors = {
   name: "Additional selectors",
 };
 
+export const CustomClassificationStrings = {
+  render: () => (
+    <>
+      <IcClassificationBanner inline="true" customClassificationText="Custom Unknown classification" />
+      <IcClassificationBanner classification="official" inline="true" customClassificationText="Custom Official classification" />
+      <IcClassificationBanner classification="official-sensitive" inline="true" customClassificationText="Custom Official-Sensitive classification" />
+      <IcClassificationBanner classification="secret" inline="true" customClassificationText="Custom Secret classification" />
+      <IcClassificationBanner classification="top-secret" inline="true" customClassificationText="Custom Top Secret classification" />
+    </>
+  ),
+  name: "Custom Classifications",
+};
+
 export const Playground = {
   render: (args) => (
     <IcClassificationBanner
@@ -99,6 +113,7 @@ export const Playground = {
       up-to={args.upTo}
       country={args.country}
       additional-selectors={args.additionalSelectors}
+      custom-classification-text={args.customClassificationText}
     ></IcClassificationBanner>
   ),
 
