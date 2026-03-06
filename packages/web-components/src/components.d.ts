@@ -767,6 +767,10 @@ export namespace Components {
          */
         "country"?: string;
         /**
+          * The custom text that will appear on the banner. If set, the `additionalSelectors`, `country` and `upTo` props are ignored.
+         */
+        "customClassificationText"?: string;
+        /**
           * If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.
          */
         "inline"?: boolean;
@@ -4631,6 +4635,10 @@ declare namespace LocalJSX {
           * The optional text that will be displayed before classification to specify relevant country/countries.
          */
         "country"?: string;
+        /**
+          * The custom text that will appear on the banner. If set, the `additionalSelectors`, `country` and `upTo` props are ignored.
+         */
+        "customClassificationText"?: string;
         /**
           * If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.
          */
