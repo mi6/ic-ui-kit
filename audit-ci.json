@@ -216,6 +216,13 @@
         "notes": "requires upgrade to 'dompurify', awaiting patch for above",
         "expiry": "27 March 2026"
       }
+    },
+    {
+      "GHSA-345p-7cg4-v4c7": {
+        "active": true,
+        "notes": "need to use modelcontextprotocol/sdk v1.26 - currently dictated by @angular/cli",
+        "expiry": "05 March 2026"
+      }
     }
   ]
 }

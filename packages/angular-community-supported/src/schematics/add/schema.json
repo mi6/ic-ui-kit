@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "icdsNgAdd",
+  "title": "ICDS Add options",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "$default": {
+        "$source": "projectName"
+      }
+    }
+  },
+  "required": []
+}
