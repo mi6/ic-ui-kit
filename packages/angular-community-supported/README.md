@@ -19,17 +19,17 @@ but as the core components are written as standards-compliant web components, de
 
 The native component wrappers have been created as this will allow Angular developers a better way to interface with the UI Kit however and so this is the recommended approach.
 A list of the benefits of using the native components can be found [on Stencil's docs](https://stenciljs.com/docs/angular), 
-but to summarise here: they remove any idosyncrasies that might arise from having components that Angular needs to handle differently; therefore the components will now behave just the same as the rest of the app.
+but to summarise here: Trying to use non-angular components creates some minor friction or pain points that an app developer will need to deal with; by using these wrapped components that's no longer a concern.
 
-If you do want to use the vanilla web components instead you can do so by following the Getting Started guide for vanilla components here and also including `CUSTOM_ELEMENTS_SCHEMA` in the `schemas` key of either the
+If you would prefer to use the vanilla web components instead you can do so by following the [Getting Started guide](https://design.sis.gov.uk/get-started/development/install-components/angular/) for vanilla components here and also including `CUSTOM_ELEMENTS_SCHEMA` in the `schemas` key of either the
 Module or the Component declaration of any components that use the ICDS components.
 
 ### Versioning and Deprecations
 
 #### Version Compatibility
 
-This package will be kept up to date with the latest version of the ICDS web-components and we shall aim to ensure that it is tested against modern versions of angular going forward (v20+).
-If this becomes impractical or there is a breaking change that creates version specific dependencies then this section of the readme will get updated with the relevant versioning.
+This package will be kept up to date with the latest version of the ICDS web-components and we shall aim to ensure that it is tested against modern versions of Angular going forward (v20+).
+If this becomes impractical or there is a breaking change that creates version-specific dependencies, then this section of the README will be updated with the relevant versioning.
 
 #### Deprecation Policy
 
@@ -39,7 +39,7 @@ As requested by the ICDS team, if this package does not receive any updates with
 
 > Last tested with Angular 20.3.0 & 21.0.0
 
-To install the components you have a two different methods. Either using the ng add command to streamline the process or a manual install:
+To install the components you have a two different methods. Either using the `ng add` command to streamline the process or a manual install:
 
 ### Using ng add
 
@@ -93,11 +93,11 @@ If you would like to import these styles to apply them to the rest of your proje
 
 ### Step three
 
-Due to a conflicting issue with typescript you need to add `skipLibCheck: true` to your `tsconfig.json`.
+Due to a conflicting issue with TypeScript you need to add `skipLibCheck: true` to your `tsconfig.json`.
 
 ## Using the components in your app
 
-To use the ICDS components in angular your usage will vary based on if you are using a standalone project or using NgModules.
+To use the ICDS components in Angular your usage will vary based on if you are using a standalone project or using NgModules.
 
 > **NOTE:** There is currently no Angular-specific per-component documentation (this page is it) though using the the web components reference in combination with intellisense should work well.
 
@@ -201,7 +201,7 @@ Run `npm install`
 ng add @ukic/angular
 ```
 
-You'll now be able to add icds components to a vanilla Angular app setup [as above](#Using-the-components-in-your-app).
+You'll now be able to add ICDS components to a vanilla Angular app setup [as above](#Using-the-components-in-your-app).
 
 > **NOTE:** Once changes have been made and packaged as per step 1, the test app will need to have the @ukic packages updated/re-installed to pick up the latest changes.
 
