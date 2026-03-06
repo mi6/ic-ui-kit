@@ -51,6 +51,23 @@ Type: `Promise<void>`
 
 
 
+### `handleMenuKeyDown(event: KeyboardEvent) => Promise<void>`
+
+Used alongside activationType
+If menu is open and user navigates options via keyboard, emit optionSelect custom event.
+
+#### Parameters
+
+| Name    | Type            | Description                                                              |
+| ------- | --------------- | ------------------------------------------------------------------------ |
+| `event` | `KeyboardEvent` | The keyboard event which is available when handleMenuKeydown is invoked. |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## CSS Custom Properties
 

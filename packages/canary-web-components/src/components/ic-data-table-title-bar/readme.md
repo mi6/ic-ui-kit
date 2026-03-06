@@ -44,19 +44,19 @@
 graph TD;
   ic-data-table-title-bar --> ic-typography
   ic-data-table-title-bar --> ic-select
+  ic-select --> ic-button
+  ic-select --> ic-typography
   ic-select --> ic-input-container
   ic-select --> ic-input-label
   ic-select --> ic-input-component-container
-  ic-select --> ic-typography
-  ic-select --> ic-button
   ic-select --> ic-menu
   ic-select --> ic-input-validation
-  ic-input-label --> ic-typography
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
+  ic-input-label --> ic-typography
   ic-menu --> ic-loading-indicator
   ic-menu --> ic-typography
   ic-menu --> ic-button

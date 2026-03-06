@@ -119,11 +119,11 @@ graph TD;
   ic-pagination-bar --> ic-tooltip
   ic-pagination-bar --> ic-text-field
   ic-pagination-bar --> ic-button
+  ic-select --> ic-button
+  ic-select --> ic-typography
   ic-select --> ic-input-container
   ic-select --> ic-input-label
   ic-select --> ic-input-component-container
-  ic-select --> ic-typography
-  ic-select --> ic-button
   ic-select --> ic-menu
   ic-select --> ic-input-validation
   ic-input-label --> ic-typography
