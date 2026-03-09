@@ -1,8 +1,8 @@
 {
-  "total": 913,
-  "totalPassed": 908,
+  "total": 927,
+  "totalPassed": 922,
   "totalFailed": 5,
-  "totalSuites": 46,
+  "totalSuites": 47,
   "suites": [
     {
       "name": "AgGridWrapper.cy.tsx",
@@ -5457,6 +5457,155 @@
       ]
     },
     {
+      "name": "IcPaginationBar.cy.tsx",
+      "path": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcPaginationBar.cy.tsx/right-alignment",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/right-alignment.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/right-alignment.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPaginationBar.cy.tsx/left-alignment",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/left-alignment.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/left-alignment.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPaginationBar.cy.tsx/space-between-alignment",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/space-between-alignment.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/space-between-alignment.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPaginationBar.cy.tsx/go-to-page",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/go-to-page.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/go-to-page.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPaginationBar.cy.tsx/go-to-page-valid",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/go-to-page-valid.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/go-to-page-valid.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPaginationBar.cy.tsx/go-to-page-invalid-tooltip",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/go-to-page-invalid-tooltip.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/go-to-page-invalid-tooltip.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcPaginationBar.cy.tsx/hide-all-option",
+          "percentage": 0.06042073554007039,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/hide-all-option.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPaginationBar.cy.tsx/hide-all-option.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/hide-all-option.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcPaginationBar.cy.tsx/selected-items-per-page",
+          "percentage": 0.06369902923019935,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/selected-items-per-page.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPaginationBar.cy.tsx/selected-items-per-page.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/selected-items-per-page.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcPaginationBar.cy.tsx/selected-items-per-page-invalid-selectedItemsPerPage",
+          "percentage": 0.06369902923019935,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/selected-items-per-page-invalid-selectedItemsPerPage.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPaginationBar.cy.tsx/selected-items-per-page-invalid-selectedItemsPerPage.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/selected-items-per-page-invalid-selectedItemsPerPage.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown",
+          "percentage": 0.06369902923019935,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown-change",
+          "percentage": 0.06369902923019935,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown-change.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown-change.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/selected-items-per-page-arrowdown-change.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPaginationBar.cy.tsx/go-to-page-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/go-to-page-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/go-to-page-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPaginationBar.cy.tsx/go-to-page-invalid-tooltip-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx/go-to-page-invalid-tooltip-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx/go-to-page-invalid-tooltip-high-contrast.png"
+        }
+      ]
+    },
+    {
       "name": "IcPopoverMenu.cy.tsx",
       "path": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
       "tests": [
@@ -5935,14 +6084,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/hidden-label.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/options-no-filtering",
-          "percentage": 0.19788885769542455,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/options-no-filtering.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/options-no-filtering.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/options-no-filtering.png"
         },
         {
@@ -5957,25 +6106,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/empty-option-list-text.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/characters-until-suggestion-no-show",
-          "percentage": 0.008,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/characters-until-suggestion-no-show.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/characters-until-suggestion-no-show.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/characters-until-suggestion-no-show.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/characters-until-suggestion-show",
-          "percentage": 0.00938083151964686,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/characters-until-suggestion-show.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/characters-until-suggestion-show.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/characters-until-suggestion-show.png"
         },
         {
@@ -6002,6 +6151,17 @@
         },
         {
           "status": "pass",
+          "name": "IcSearchBar.cy.tsx/search-submit-tooltip",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/search-submit-tooltip.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/search-submit-tooltip.png"
+        },
+        {
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/readonly",
           "percentage": 0,
           "failureThreshold": 0,
@@ -6012,14 +6172,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/readonly.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/spellcheck",
-          "percentage": 0.00824621125123532,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/spellcheck.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/spellcheck.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/spellcheck.png"
         },
         {
@@ -6078,14 +6238,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/focused-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx/options-no-filtering-high-contrast",
-          "percentage": 0.16589153082662175,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx/options-no-filtering-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx/options-no-filtering-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx/options-no-filtering-high-contrast.png"
         }
       ]
@@ -10324,9 +10484,9 @@
       ]
     }
   ],
-  "startedAt": "2026-03-05T13:14:49.737Z",
-  "endedAt": "2026-03-05T13:41:30.862Z",
-  "duration": 1492764,
+  "startedAt": "2026-03-09T10:54:31.592Z",
+  "endedAt": "2026-03-09T11:14:49.974Z",
+  "duration": 1106754,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
