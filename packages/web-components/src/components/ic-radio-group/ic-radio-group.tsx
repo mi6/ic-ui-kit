@@ -21,7 +21,7 @@ import {
   IcAriaLive,
   IcInformationStatusOrEmpty,
   IcOrientation,
-  IcSizesNoLarge,
+  IcSizes,
   IcThemeMode,
   IcValueEventDetail,
 } from "../../utils/types";
@@ -96,7 +96,7 @@ export class RadioGroup {
   /**
    * The size of the radio group component.
    */
-  @Prop() size?: IcSizesNoLarge = "medium";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The value of the `aria-live` attribute on the validation message.
@@ -370,7 +370,7 @@ export class RadioGroup {
       <Host
         onKeyDown={handleKeyDown}
         class={{
-          "ic-radio-group-small": size === "small",
+          [`ic-radio-group-${size}`]: size !== "medium",
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
