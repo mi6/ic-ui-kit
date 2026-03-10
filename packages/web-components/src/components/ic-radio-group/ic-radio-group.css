@@ -32,6 +32,10 @@
   margin-top: calc(var(--ic-space-sm) / 2);
 }
 
+:host(.ic-radio-group-large) ic-input-validation.show-validation {
+  margin-top: var(--ic-space-md);
+}
+
 :host ic-input-label:not(.with-helper) .ic-typography-label,
 :host ic-input-label .helpertext {
   margin-bottom: var(--ic-space-sm);
@@ -42,6 +46,13 @@
   .ic-typography-label,
 :host(.ic-radio-group-small) ic-input-label .helpertext {
   margin-bottom: calc(var(--ic-space-sm) / 2);
+}
+
+:host(.ic-radio-group-large)
+  ic-input-label:not(.with-helper)
+  .ic-typography-label,
+:host(.ic-radio-group-large) ic-input-label .helpertext {
+  margin-bottom: var(--ic-space-md);
 }
 
 :host ic-input-label .helpertext {
@@ -56,6 +67,10 @@
 
 :host(.ic-radio-group-small) .radio-buttons-container {
   gap: var(--ic-space-xxxs);
+}
+
+:host(.ic-radio-group-large) .radio-buttons-container {
+  gap: var(--ic-space-xs);
 }
 
 :host .radio-buttons-container.horizontal {

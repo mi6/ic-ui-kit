@@ -291,9 +291,53 @@ export const HelperText = {
   name: "Helper text",
 };
 
-export const Small = {
+export const Sizes = {
   render: () => html`
-    <ic-radio-group label="This is a label" name="1" size="small">
+    <ic-radio-group
+      label="This is a radio group with small radio options"
+      name="1"
+      size="small"
+    >
+      <ic-radio-option
+        value="valueName1"
+        label="Unselected / Default"
+      ></ic-radio-option>
+      <ic-radio-option
+        value="valueName2"
+        label="Selected / Default"
+        selected
+      ></ic-radio-option>
+      <ic-radio-option
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
+      ></ic-radio-option>
+    </ic-radio-group>
+    <ic-radio-group
+      label="This is a radio group with default-sized radio options"
+      name="2"
+      size="medium"
+    >
+      <ic-radio-option
+        value="valueName1"
+        label="Unselected / Default"
+      ></ic-radio-option>
+      <ic-radio-option
+        value="valueName2"
+        label="Selected / Default"
+        selected
+      ></ic-radio-option>
+      <ic-radio-option
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
+      ></ic-radio-option>
+    </ic-radio-group>
+    <ic-radio-group
+      label="This is a radio group with large radio options"
+      name="3"
+      size="large"
+    >
       <ic-radio-option
         value="valueName1"
         label="Unselected / Default"
@@ -311,7 +355,7 @@ export const Small = {
     </ic-radio-group>
   `,
 
-  name: "Small",
+  name: "Sizes",
 };
 
 export const Validation = {
@@ -610,7 +654,7 @@ export const Playground = {
     },
 
     size: {
-      options: ["medium", "small"],
+      options: ["small", "medium", "large"],
 
       control: {
         type: inlineRadioSelector,
