@@ -13,6 +13,7 @@ import {
   Disabled,
   DisabledGroup,
   Small,
+  Large,
   Validation,
   ConditionalStatic,
   ConditionalDynamic,
@@ -25,7 +26,9 @@ import {
   StaticChildRadioGroup,
   HelperTextSlot,
   SmallConditionalStatic,
+  LargeConditionalStatic,
   SmallConditionalDynamic,
+  LargeConditionalDynamic,
 } from "./IcRadioTestData";
 import {
   HAVE_PROP,
@@ -538,6 +541,18 @@ describe("IcRadio visual regression and a11y tests", () => {
     });
   });
 
+  it("should render large IcRadio", () => {
+    mount(<Large />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/large",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+  });
+
   it("should render conditional static IcRadio in small variant", () => {
     mount(<SmallConditionalStatic />);
 
@@ -546,6 +561,18 @@ describe("IcRadio visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small-conditional-static",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render conditional static IcRadio in large variant", () => {
+    mount(<LargeConditionalStatic />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/large-conditional-static",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -559,6 +586,19 @@ describe("IcRadio visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small-conditional-dynamic",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render conditional dynamic IcRadio in large variant", () => {
+    mount(<LargeConditionalDynamic />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/large-conditional-dynamic",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
