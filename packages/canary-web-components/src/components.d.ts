@@ -1641,7 +1641,7 @@ export namespace Components {
         /**
           * The size of the radio group component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -5549,7 +5549,7 @@ declare namespace LocalJSX {
         /**
           * The size of the radio group component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
