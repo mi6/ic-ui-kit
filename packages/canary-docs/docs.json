@@ -35,7 +35,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the accordion will be disabled.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -62,7 +67,12 @@
           "attr": "expanded",
           "reflectToAttr": false,
           "docs": "If `true`, the accordion appears expanded.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -89,7 +99,12 @@
           "attr": "heading",
           "reflectToAttr": false,
           "docs": "The section header outlining section content.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -116,7 +131,12 @@
           "attr": "message",
           "reflectToAttr": false,
           "docs": "The main body message of the accordion.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -141,7 +161,8 @@
               "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcSizes"
+                "id": "../web-components/src/utils/types.ts::IcSizes",
+                "referenceLocation": "IcSizes"
               }
             }
           },
@@ -149,7 +170,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the accordion.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -183,7 +209,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -191,7 +218,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -294,7 +326,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the chip will appear disabled.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -318,7 +355,12 @@
           "attr": "download",
           "reflectToAttr": false,
           "docs": "If `true`, the user can save the linked URL instead of navigating to it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -576,7 +618,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the button will display as monochromatic in either `light` or `dark` theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -687,7 +734,8 @@
               "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcSizes"
+                "id": "../web-components/src/utils/types.ts::IcSizes",
+                "referenceLocation": "IcSizes"
               }
             }
           },
@@ -695,7 +743,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the chip.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -752,7 +805,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -760,7 +814,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the chip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -793,7 +852,12 @@
           "attr": "transparent-background",
           "reflectToAttr": false,
           "docs": "If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -815,7 +879,8 @@
               "IcButtonTypes": {
                 "location": "import",
                 "path": "../ic-button/ic-button.types",
-                "id": "../web-components/src/components/ic-button/ic-button.types.ts::IcButtonTypes"
+                "id": "../web-components/src/components/ic-button/ic-button.types.ts::IcButtonTypes",
+                "referenceLocation": "IcButtonTypes"
               }
             }
           },
@@ -823,7 +888,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of the chip.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"button\""
+            }
+          ],
           "default": "\"button\"",
           "values": [
             {
@@ -854,7 +924,8 @@
               "IcEmphasisType": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcEmphasisType"
+                "id": "../web-components/src/utils/types.ts::IcEmphasisType",
+                "referenceLocation": "IcEmphasisType"
               }
             }
           },
@@ -862,7 +933,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The emphasis of the chip.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"filled\""
+            }
+          ],
           "default": "\"filled\"",
           "values": [
             {
@@ -2570,7 +2646,11 @@
         "ic-toggle-button",
         "ic-top-navigation"
       ],
-      "dependencies": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-loading-indicator",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
         "ic-button": [
           "ic-typography",
@@ -3292,14 +3372,32 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-date-picker"],
-      "dependencies": ["ic-button", "ic-typography"],
+      "dependents": [
+        "ic-date-picker"
+      ],
+      "dependencies": [
+        "ic-button",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-calendar": ["ic-button", "ic-typography"],
-        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-date-picker": ["ic-calendar"]
+        "ic-calendar": [
+          "ic-button",
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-date-picker": [
+          "ic-calendar"
+        ]
       }
     },
     {
@@ -4395,11 +4493,19 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-data-table"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-data-table"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-checkbox": ["ic-typography"],
-        "ic-data-table": ["ic-checkbox"]
+        "ic-checkbox": [
+          "ic-typography"
+        ],
+        "ic-data-table": [
+          "ic-checkbox"
+        ]
       }
     },
     {
@@ -4558,7 +4664,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "Specify whether the chip fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4814,10 +4925,18 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-chip": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-chip": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -6015,11 +6134,23 @@
           "ic-empty-state",
           "ic-pagination-bar"
         ],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
-        "ic-checkbox": ["ic-typography"],
-        "ic-empty-state": ["ic-typography"],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-checkbox": [
+          "ic-typography"
+        ],
+        "ic-empty-state": [
+          "ic-typography"
+        ],
         "ic-pagination-bar": [
           "ic-typography",
           "ic-select",
@@ -6253,9 +6384,15 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-select"],
+      "dependencies": [
+        "ic-typography",
+        "ic-select"
+      ],
       "dependencyGraph": {
-        "ic-data-table-title-bar": ["ic-typography", "ic-select"],
+        "ic-data-table-title-bar": [
+          "ic-typography",
+          "ic-select"
+        ],
         "ic-select": [
           "ic-button",
           "ic-typography",
@@ -7292,7 +7429,9 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-date-picker"],
+      "dependents": [
+        "ic-date-picker"
+      ],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -7308,12 +7447,26 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-date-picker": ["ic-date-input"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-date-picker": [
+          "ic-date-input"
+        ]
       }
     },
     {
@@ -8488,9 +8641,15 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-date-input", "ic-calendar"],
+      "dependencies": [
+        "ic-date-input",
+        "ic-calendar"
+      ],
       "dependencyGraph": {
-        "ic-date-picker": ["ic-date-input", "ic-calendar"],
+        "ic-date-picker": [
+          "ic-date-input",
+          "ic-calendar"
+        ],
         "ic-date-input": [
           "ic-input-container",
           "ic-input-label",
@@ -8553,7 +8712,8 @@
               "IcDrawerBoundary": {
                 "location": "import",
                 "path": "./ic-drawer.types",
-                "id": "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerBoundary"
+                "id": "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerBoundary",
+                "referenceLocation": "IcDrawerBoundary"
               }
             }
           },
@@ -8561,7 +8721,12 @@
           "attr": "boundary",
           "reflectToAttr": false,
           "docs": "The area within which the drawer should be contained. When set to \"parent\", the value of the parent element's `position` CSS property must not be \"static\".",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"viewport\""
+            }
+          ],
           "default": "\"viewport\"",
           "values": [
             {
@@ -8642,7 +8807,12 @@
           "attr": "close-on-backdrop-click",
           "reflectToAttr": false,
           "docs": "If `true`, the drawer will close when the backdrop is clicked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -8666,7 +8836,12 @@
           "attr": "expanded",
           "reflectToAttr": true,
           "docs": "If `true`, the drawer will display in an expanded state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8716,7 +8891,12 @@
           "attr": "hide-close-button",
           "reflectToAttr": false,
           "docs": "If set to `true`, the X (close) button which is displayed when `trigger` is set to \"controlled\" will be hidden.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8764,7 +8944,8 @@
               "IcPosition": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcPosition"
+                "id": "src/utils/types.ts::IcPosition",
+                "referenceLocation": "IcPosition"
               }
             }
           },
@@ -8772,7 +8953,12 @@
           "attr": "position",
           "reflectToAttr": false,
           "docs": "The position of the drawer.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"right\""
+            }
+          ],
           "default": "\"right\"",
           "values": [
             {
@@ -8807,7 +8993,8 @@
               "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSizes"
+                "id": "src/utils/types.ts::IcSizes",
+                "referenceLocation": "IcSizes"
               }
             }
           },
@@ -8815,7 +9002,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the expanded drawer.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -8846,7 +9038,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeMode"
+                "id": "src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -8854,7 +9047,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the drawer to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -8887,7 +9085,12 @@
           "attr": "trigger",
           "reflectToAttr": false,
           "docs": "The method in which the drawer is expanded.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"chevron\""
+            }
+          ],
           "default": "\"chevron\"",
           "values": [
             {
@@ -8918,7 +9121,8 @@
               "IcDrawerExpandedDetail": {
                 "location": "import",
                 "path": "./ic-drawer.types",
-                "id": "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerExpandedDetail"
+                "id": "src/components/ic-drawer/ic-drawer.types.tsx::IcDrawerExpandedDetail",
+                "referenceLocation": "IcDrawerExpandedDetail"
               }
             }
           },
@@ -9348,7 +9552,8 @@
               "IcAlignment": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcAlignment"
+                "id": "../web-components/src/utils/types.ts::IcAlignment",
+                "referenceLocation": "IcAlignment"
               }
             }
           },
@@ -9356,7 +9561,12 @@
           "attr": "aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the section containers used within the footer.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"left\""
+            }
+          ],
           "default": "\"left\"",
           "values": [
             {
@@ -9390,7 +9600,8 @@
               "IcFooterBreakpoints": {
                 "location": "import",
                 "path": "./ic-footer.types",
-                "id": "../web-components/src/components/ic-footer/ic-footer.types.tsx::IcFooterBreakpoints"
+                "id": "../web-components/src/components/ic-footer/ic-footer.types.tsx::IcFooterBreakpoints",
+                "referenceLocation": "IcFooterBreakpoints"
               }
             }
           },
@@ -9398,7 +9609,12 @@
           "attr": "breakpoint",
           "reflectToAttr": false,
           "docs": "The screen size breakpoint at which to switch to the small layout.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -9468,7 +9684,12 @@
           "attr": "copyright",
           "reflectToAttr": false,
           "docs": "If `true`, the footer will display the crown copyright at the bottom.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -9495,7 +9716,12 @@
           "attr": "copyright-text",
           "reflectToAttr": false,
           "docs": "The text displayed for the copyright notice if `copyright` is `true`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"© Crown Copyright\""
+            }
+          ],
           "default": "\"© Crown Copyright\"",
           "values": [
             {
@@ -9548,7 +9774,12 @@
           "attr": "group-links",
           "reflectToAttr": false,
           "docs": "If `true`, the footer will be set up to handle link groups instead of standalone links.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -9625,7 +9856,8 @@
               "IcBrandForeground": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcBrandForeground"
+                "id": "../web-components/src/utils/types.ts::IcBrandForeground",
+                "referenceLocation": "IcBrandForeground"
               }
             }
           },
@@ -9633,7 +9865,12 @@
           "attr": "appearance",
           "reflectToAttr": false,
           "docs": "The appearance of the horizontal scroll, e.g. dark, light or the default.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -10446,7 +10683,9 @@
         "ic-text-field",
         "ic-time-input"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
         "ic-input-label": [
           "ic-typography"
@@ -10698,7 +10937,9 @@
         "ic-text-field",
         "ic-time-input"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
         "ic-input-validation": [
           "ic-typography"
@@ -11058,11 +11299,18 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-data-table", "ic-skip-link"],
+      "dependents": [
+        "ic-data-table",
+        "ic-skip-link"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-data-table": ["ic-link"],
-        "ic-skip-link": ["ic-link"]
+        "ic-data-table": [
+          "ic-link"
+        ],
+        "ic-skip-link": [
+          "ic-link"
+        ]
       }
     },
     {
@@ -11456,13 +11704,27 @@
           "docs": ""
         }
       ],
-      "dependents": ["ic-button", "ic-data-table", "ic-menu"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-button",
+        "ic-data-table",
+        "ic-menu"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator"],
-        "ic-data-table": ["ic-loading-indicator"],
-        "ic-menu": ["ic-loading-indicator"]
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator"
+        ],
+        "ic-data-table": [
+          "ic-loading-indicator"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator"
+        ]
       }
     },
     {
@@ -12128,7 +12390,12 @@
           "attr": "checked",
           "reflectToAttr": true,
           "docs": "If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -12181,7 +12448,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the menu item will be in disabled state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -12448,7 +12720,8 @@
               "IcMenuItemVariants": {
                 "location": "import",
                 "path": "./ic-menu-item.types",
-                "id": "../web-components/src/components/ic-menu-item/ic-menu-item.types.ts::IcMenuItemVariants"
+                "id": "../web-components/src/components/ic-menu-item/ic-menu-item.types.ts::IcMenuItemVariants",
+                "referenceLocation": "IcMenuItemVariants"
               }
             }
           },
@@ -12456,7 +12729,12 @@
           "attr": "variant",
           "reflectToAttr": true,
           "docs": "The variant of the menu item.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -12923,10 +13201,18 @@
         }
       ],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-navigation-item": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-navigation-item": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -13971,7 +14257,8 @@
               "IcPaginationAlignmentOptions": {
                 "location": "import",
                 "path": "../ic-pagination/ic-pagination.types",
-                "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions"
+                "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions",
+                "referenceLocation": "IcPaginationAlignmentOptions"
               }
             }
           },
@@ -14299,7 +14586,8 @@
               "IcPaginationLabelTypes": {
                 "location": "import",
                 "path": "../ic-pagination/ic-pagination.types",
-                "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationLabelTypes"
+                "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationLabelTypes",
+                "referenceLocation": "IcPaginationLabelTypes"
               }
             }
           },
@@ -14493,7 +14781,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -14563,7 +14852,8 @@
               "IcPaginationTypes": {
                 "location": "import",
                 "path": "../ic-pagination/ic-pagination.types",
-                "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes"
+                "id": "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes",
+                "referenceLocation": "IcPaginationTypes"
               }
             }
           },
@@ -14610,7 +14900,8 @@
               "IcItemsPerPageChangeEventDetail": {
                 "location": "import",
                 "path": "./ic-pagination-bar.types",
-                "id": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcItemsPerPageChangeEventDetail"
+                "id": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcItemsPerPageChangeEventDetail",
+                "referenceLocation": "IcItemsPerPageChangeEventDetail"
               }
             }
           },
@@ -14630,7 +14921,8 @@
               "IcPageChangeEventDetail": {
                 "location": "import",
                 "path": "./ic-pagination-bar.types",
-                "id": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail"
+                "id": "../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail",
+                "referenceLocation": "IcPageChangeEventDetail"
               }
             }
           },
@@ -14650,7 +14942,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-data-table"],
+      "dependents": [
+        "ic-data-table"
+      ],
       "dependencies": [
         "ic-typography",
         "ic-select",
@@ -14739,7 +15033,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination item will be disabled.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14766,7 +15065,12 @@
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The label for the pagination item (applicable when simple pagination is being used).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Page\""
+            }
+          ],
           "default": "\"Page\"",
           "values": [
             {
@@ -14793,7 +15097,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination item will display as black in the light theme, and white in dark theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14846,7 +15155,12 @@
           "attr": "selected",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination item will be selected.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14868,7 +15182,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -14876,7 +15191,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -14910,7 +15230,8 @@
               "IcPaginationItemType": {
                 "location": "import",
                 "path": "./ic-pagination-item.types",
-                "id": "../web-components/src/components/ic-pagination-item/ic-pagination-item.types.ts::IcPaginationItemType"
+                "id": "../web-components/src/components/ic-pagination-item/ic-pagination-item.types.ts::IcPaginationItemType",
+                "referenceLocation": "IcPaginationItemType"
               }
             }
           },
@@ -15007,7 +15328,12 @@
           "attr": "fixed-positioning",
           "reflectToAttr": false,
           "docs": "Setting to `true` can help in situations where tooltip content is clipped by a parent element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15031,7 +15357,12 @@
           "attr": "open",
           "reflectToAttr": true,
           "docs": "If `true`, the popover menu will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "undefined"
+            }
+          ],
           "default": "undefined",
           "values": [
             {
@@ -15082,7 +15413,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -15090,7 +15422,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -15232,7 +15569,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15285,7 +15627,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15356,7 +15703,8 @@
               "IcOrientation": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcOrientation"
+                "id": "../web-components/src/utils/types.ts::IcOrientation",
+                "referenceLocation": "IcOrientation"
               }
             }
           },
@@ -15364,7 +15712,12 @@
           "attr": "orientation",
           "reflectToAttr": false,
           "docs": "The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"vertical\""
+            }
+          ],
           "default": "\"vertical\"",
           "values": [
             {
@@ -15396,7 +15749,12 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the radio group will require a value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15421,7 +15779,8 @@
               "IcSizesNoLarge": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge"
+                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge",
+                "referenceLocation": "IcSizesNoLarge"
               }
             }
           },
@@ -15429,7 +15788,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the radio group component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -15459,7 +15823,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -15467,7 +15832,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -15501,7 +15871,8 @@
               "IcAriaLive": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcAriaLive"
+                "id": "../web-components/src/utils/types.ts::IcAriaLive",
+                "referenceLocation": "IcAriaLive"
               }
             }
           },
@@ -15509,7 +15880,12 @@
           "attr": "validation-aria-live",
           "reflectToAttr": false,
           "docs": "The value of the `aria-live` attribute on the validation message.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"polite\""
+            }
+          ],
           "default": "\"polite\"",
           "values": [
             {
@@ -15540,7 +15916,8 @@
               "IcInformationStatusOrEmpty": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcInformationStatusOrEmpty"
+                "id": "../web-components/src/utils/types.ts::IcInformationStatusOrEmpty",
+                "referenceLocation": "IcInformationStatusOrEmpty"
               }
             }
           },
@@ -15548,7 +15925,12 @@
           "attr": "validation-status",
           "reflectToAttr": false,
           "docs": "The validation status - e.g. 'error' | 'warning' | 'success'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -15587,7 +15969,12 @@
           "attr": "validation-text",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -15613,7 +16000,8 @@
               "IcChangeEventDetail": {
                 "location": "import",
                 "path": "./ic-radio-group.types",
-                "id": "../web-components/src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail"
+                "id": "../web-components/src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail",
+                "referenceLocation": "IcChangeEventDetail"
               }
             }
           },
@@ -15685,7 +16073,8 @@
               "IcAdditionalFieldTypes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcAdditionalFieldTypes"
+                "id": "../web-components/src/utils/types.ts::IcAdditionalFieldTypes",
+                "referenceLocation": "IcAdditionalFieldTypes"
               }
             }
           },
@@ -15693,7 +16082,12 @@
           "attr": "additional-field-display",
           "reflectToAttr": true,
           "docs": "The style of additionalField that will be displayed if used.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"static\""
+            }
+          ],
           "default": "\"static\"",
           "values": [
             {
@@ -15725,7 +16119,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15752,7 +16151,12 @@
           "attr": "dynamic-text",
           "reflectToAttr": false,
           "docs": "The text to be displayed when dynamic.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"This selection requires additional answers\""
+            }
+          ],
           "default": "\"This selection requires additional answers\"",
           "values": [
             {
@@ -15883,7 +16287,12 @@
           "attr": "selected",
           "reflectToAttr": true,
           "docs": "If `true`, the radio option will be displayed in a selected state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15908,7 +16317,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -15916,7 +16326,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -16000,7 +16415,8 @@
               "IcValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcValueEventDetail"
+                "id": "../web-components/src/utils/types.ts::IcValueEventDetail",
+                "referenceLocation": "IcValueEventDetail"
               }
             }
           },
@@ -16080,7 +16496,12 @@
           "attr": "assistive-hint-text",
           "reflectToAttr": false,
           "docs": "The hint text for the hidden assistive description element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"When autocomplete results are available use the up and down arrows to choose and press enter to select\""
+            }
+          ],
           "default": "\"When autocomplete results are available use the up and down arrows to choose and press enter to select\"",
           "values": [
             {
@@ -16104,7 +16525,12 @@
           "attr": "autocapitalize",
           "reflectToAttr": false,
           "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"off\""
+            }
+          ],
           "default": "\"off\"",
           "values": [
             {
@@ -16118,15 +16544,16 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"additional-name\" | \"address-level1\" | \"address-level2\" | \"address-level3\" | \"address-level4\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"cc-additional-name\" | \"cc-csc\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-family-name\" | \"cc-given-name\" | \"cc-name\" | \"cc-number\" | \"cc-type\" | \"country\" | \"country-name\" | \"current-password\" | \"email\" | \"family-name\" | \"given-name\" | \"honorific-prefix\" | \"honorific-suffix\" | \"impp\" | \"language\" | \"name\" | \"new-password\" | \"nickname\" | \"off\" | \"on\" | \"one-time-code\" | \"organization\" | \"organization-title\" | \"photo\" | \"postal-code\" | \"sex\" | \"street-address\" | \"tel\" | \"tel-area-code\" | \"tel-country-code\" | \"tel-extension\" | \"tel-local\" | \"tel-national\" | \"transaction-amount\" | \"transaction-currency\" | \"url\" | \"username\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"additional-name\" | \"address-level1\" | \"address-level2\" | \"address-level3\" | \"address-level4\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"cc-additional-name\" | \"cc-csc\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-family-name\" | \"cc-given-name\" | \"cc-name\" | \"cc-number\" | \"cc-type\" | \"country\" | \"country-name\" | \"current-password\" | \"email\" | \"family-name\" | \"given-name\" | \"honorific-prefix\" | \"honorific-suffix\" | \"impp\" | \"language\" | \"name\" | \"new-password\" | \"nickname\" | \"off\" | \"on\" | \"one-time-code\" | \"organization\" | \"organization-title\" | \"photo\" | \"postal-code\" | \"sex\" | \"street-address\" | \"tel\" | \"tel-area-code\" | \"tel-country-code\" | \"tel-extension\" | \"tel-local\" | \"tel-national\" | \"transaction-amount\" | \"transaction-currency\" | \"url\" | \"username\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcAutocompleteTypes"
+                "id": "../web-components/src/utils/types.ts::IcAutocompleteTypes",
+                "referenceLocation": "IcAutocompleteTypes"
               }
             }
           },
@@ -16134,75 +16561,32 @@
           "attr": "autocomplete",
           "reflectToAttr": false,
           "docs": "The state of autocompletion the browser can apply on the text value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"off\""
+            }
+          ],
           "default": "\"off\"",
           "values": [
-            {
-              "value": "on",
-              "type": "string"
-            },
-            {
-              "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "name",
-              "type": "string"
-            },
-            {
-              "value": "honorific-prefix",
-              "type": "string"
-            },
-            {
-              "value": "given-name",
-              "type": "string"
-            },
             {
               "value": "additional-name",
               "type": "string"
             },
             {
-              "value": "family-name",
+              "value": "address-level1",
               "type": "string"
             },
             {
-              "value": "honorific-suffix",
+              "value": "address-level2",
               "type": "string"
             },
             {
-              "value": "nickname",
+              "value": "address-level3",
               "type": "string"
             },
             {
-              "value": "email",
-              "type": "string"
-            },
-            {
-              "value": "username",
-              "type": "string"
-            },
-            {
-              "value": "new-password",
-              "type": "string"
-            },
-            {
-              "value": "current-password",
-              "type": "string"
-            },
-            {
-              "value": "one-time-code",
-              "type": "string"
-            },
-            {
-              "value": "organization-title",
-              "type": "string"
-            },
-            {
-              "value": "organization",
-              "type": "string"
-            },
-            {
-              "value": "street-address",
+              "value": "address-level4",
               "type": "string"
             },
             {
@@ -16215,86 +16599,6 @@
             },
             {
               "value": "address-line3",
-              "type": "string"
-            },
-            {
-              "value": "address-level4",
-              "type": "string"
-            },
-            {
-              "value": "address-level3",
-              "type": "string"
-            },
-            {
-              "value": "address-level2",
-              "type": "string"
-            },
-            {
-              "value": "address-level1",
-              "type": "string"
-            },
-            {
-              "value": "country",
-              "type": "string"
-            },
-            {
-              "value": "country-name",
-              "type": "string"
-            },
-            {
-              "value": "postal-code",
-              "type": "string"
-            },
-            {
-              "value": "cc-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-given-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-additional-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-family-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-number",
-              "type": "string"
-            },
-            {
-              "value": "cc-exp",
-              "type": "string"
-            },
-            {
-              "value": "cc-exp-month",
-              "type": "string"
-            },
-            {
-              "value": "cc-exp-year",
-              "type": "string"
-            },
-            {
-              "value": "cc-csc",
-              "type": "string"
-            },
-            {
-              "value": "cc-type",
-              "type": "string"
-            },
-            {
-              "value": "transaction-currency",
-              "type": "string"
-            },
-            {
-              "value": "transaction-amount",
-              "type": "string"
-            },
-            {
-              "value": "language",
               "type": "string"
             },
             {
@@ -16314,31 +16618,75 @@
               "type": "string"
             },
             {
-              "value": "sex",
+              "value": "cc-additional-name",
               "type": "string"
             },
             {
-              "value": "tel",
+              "value": "cc-csc",
               "type": "string"
             },
             {
-              "value": "tel-country-code",
+              "value": "cc-exp",
               "type": "string"
             },
             {
-              "value": "tel-national",
+              "value": "cc-exp-month",
               "type": "string"
             },
             {
-              "value": "tel-area-code",
+              "value": "cc-exp-year",
               "type": "string"
             },
             {
-              "value": "tel-local",
+              "value": "cc-family-name",
               "type": "string"
             },
             {
-              "value": "tel-extension",
+              "value": "cc-given-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-number",
+              "type": "string"
+            },
+            {
+              "value": "cc-type",
+              "type": "string"
+            },
+            {
+              "value": "country",
+              "type": "string"
+            },
+            {
+              "value": "country-name",
+              "type": "string"
+            },
+            {
+              "value": "current-password",
+              "type": "string"
+            },
+            {
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "family-name",
+              "type": "string"
+            },
+            {
+              "value": "given-name",
+              "type": "string"
+            },
+            {
+              "value": "honorific-prefix",
+              "type": "string"
+            },
+            {
+              "value": "honorific-suffix",
               "type": "string"
             },
             {
@@ -16346,11 +16694,95 @@
               "type": "string"
             },
             {
-              "value": "url",
+              "value": "language",
+              "type": "string"
+            },
+            {
+              "value": "name",
+              "type": "string"
+            },
+            {
+              "value": "new-password",
+              "type": "string"
+            },
+            {
+              "value": "nickname",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "on",
+              "type": "string"
+            },
+            {
+              "value": "one-time-code",
+              "type": "string"
+            },
+            {
+              "value": "organization",
+              "type": "string"
+            },
+            {
+              "value": "organization-title",
               "type": "string"
             },
             {
               "value": "photo",
+              "type": "string"
+            },
+            {
+              "value": "postal-code",
+              "type": "string"
+            },
+            {
+              "value": "sex",
+              "type": "string"
+            },
+            {
+              "value": "street-address",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "tel-area-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-country-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-extension",
+              "type": "string"
+            },
+            {
+              "value": "tel-local",
+              "type": "string"
+            },
+            {
+              "value": "tel-national",
+              "type": "string"
+            },
+            {
+              "value": "transaction-amount",
+              "type": "string"
+            },
+            {
+              "value": "transaction-currency",
+              "type": "string"
+            },
+            {
+              "value": "url",
+              "type": "string"
+            },
+            {
+              "value": "username",
               "type": "string"
             }
           ],
@@ -16361,32 +16793,26 @@
         },
         {
           "name": "autocorrect",
-          "type": "\"off\" | \"on\"",
+          "type": "boolean",
           "complexType": {
-            "original": "IcAutocorrectStates",
-            "resolved": "\"off\" | \"on\"",
-            "references": {
-              "IcAutocorrectStates": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcAutocorrectStates"
-              }
-            }
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
           },
           "mutable": false,
           "attr": "autocorrect",
           "reflectToAttr": false,
           "docs": "The state of autocorrection the browser can apply when the user is entering/editing the text value.",
-          "docsTags": [],
-          "default": "\"off\"",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
           "values": [
             {
-              "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "on",
-              "type": "string"
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -16406,7 +16832,12 @@
           "attr": "autofocus",
           "reflectToAttr": false,
           "docs": "If `true`, the form control will have input focus when the page loads.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16430,7 +16861,12 @@
           "attr": "characters-until-suggestion",
           "reflectToAttr": false,
           "docs": "The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "2"
+            }
+          ],
           "default": "2",
           "values": [
             {
@@ -16454,7 +16890,12 @@
           "attr": "debounce",
           "reflectToAttr": false,
           "docs": "The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -16478,7 +16919,12 @@
           "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\nIf `true`, all options provided will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16502,7 +16948,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16526,7 +16977,12 @@
           "attr": "empty-option-list-text",
           "reflectToAttr": false,
           "docs": "The text displayed when there are no options in the option list.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"No results found\""
+            }
+          ],
           "default": "\"No results found\"",
           "values": [
             {
@@ -16550,7 +17006,12 @@
           "attr": "focus-on-load",
           "reflectToAttr": false,
           "docs": "If `true`, the search bar will be focused when component loaded.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16574,7 +17035,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "Specify whether the search bar fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16598,7 +17064,12 @@
           "attr": "helper-text",
           "reflectToAttr": false,
           "docs": "The helper text that will be displayed for additional field guidance.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -16622,7 +17093,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16669,7 +17145,12 @@
           "attr": "label-field",
           "reflectToAttr": false,
           "docs": "The custom name for the label field to correspond with the IcMenuOption type.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"label\""
+            }
+          ],
           "default": "\"label\"",
           "values": [
             {
@@ -16693,7 +17174,12 @@
           "attr": "loading",
           "reflectToAttr": false,
           "docs": "Trigger loading state when fetching options asynchronously",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16717,7 +17203,12 @@
           "attr": "loading-error-label",
           "reflectToAttr": false,
           "docs": "Change the message displayed when external loading times out.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Loading Error\""
+            }
+          ],
           "default": "\"Loading Error\"",
           "values": [
             {
@@ -16741,7 +17232,12 @@
           "attr": "loading-label",
           "reflectToAttr": false,
           "docs": "Change the message displayed whilst the options are being loaded externally.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Loading...\""
+            }
+          ],
           "default": "\"Loading...\"",
           "values": [
             {
@@ -16765,7 +17261,12 @@
           "attr": "name",
           "reflectToAttr": false,
           "docs": "The name of the control, which is submitted with the form data.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "this.inputId"
+            }
+          ],
           "default": "this.inputId",
           "values": [
             {
@@ -16787,14 +17288,20 @@
               "IcMenuOption": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcMenuOption"
+                "id": "../web-components/src/utils/types.ts::IcMenuOption",
+                "referenceLocation": "IcMenuOption"
               }
             }
           },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "The suggested search options.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "[]"
+            }
+          ],
           "default": "[]",
           "values": [
             {
@@ -16818,7 +17325,12 @@
           "attr": "placeholder",
           "reflectToAttr": false,
           "docs": "The placeholder value to display.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Search\""
+            }
+          ],
           "default": "\"Search\"",
           "values": [
             {
@@ -16842,7 +17354,12 @@
           "attr": "prevent-form-submit-on-search",
           "reflectToAttr": false,
           "docs": "If `true` the parent form will not submit when the icSubmitSearch event fires.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16866,7 +17383,12 @@
           "attr": "readonly",
           "reflectToAttr": false,
           "docs": "If `true`, the readonly state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16890,7 +17412,12 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the search bar will require a value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16912,7 +17439,8 @@
               "IcSearchBarSearchModes": {
                 "location": "import",
                 "path": "./ic-search-bar.types",
-                "id": "../web-components/src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarSearchModes"
+                "id": "../web-components/src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarSearchModes",
+                "referenceLocation": "IcSearchBarSearchModes"
               }
             }
           },
@@ -16920,7 +17448,12 @@
           "attr": "search-mode",
           "reflectToAttr": false,
           "docs": "Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"navigation\""
+            }
+          ],
           "default": "\"navigation\"",
           "values": [
             {
@@ -16947,7 +17480,8 @@
               "IcSizesNoLarge": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge"
+                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge",
+                "referenceLocation": "IcSizesNoLarge"
               }
             }
           },
@@ -16955,7 +17489,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the search bar component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -16984,7 +17523,12 @@
           "attr": "spellcheck",
           "reflectToAttr": false,
           "docs": "If `true`, the value of the search will have its spelling and grammar checked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17006,7 +17550,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -17014,7 +17559,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -17073,7 +17623,12 @@
           "attr": "value",
           "reflectToAttr": true,
           "docs": "The value of the search input.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -17097,7 +17652,12 @@
           "attr": "value-field",
           "reflectToAttr": false,
           "docs": "The custom name for the value field to correspond with the IcMenuOption type.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"value\""
+            }
+          ],
           "default": "\"value\"",
           "values": [
             {
@@ -17146,7 +17706,8 @@
               "IcValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcValueEventDetail"
+                "id": "../web-components/src/utils/types.ts::IcValueEventDetail",
+                "referenceLocation": "IcValueEventDetail"
               }
             }
           },
@@ -17180,7 +17741,8 @@
               "IcValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcValueEventDetail"
+                "id": "../web-components/src/utils/types.ts::IcValueEventDetail",
+                "referenceLocation": "IcValueEventDetail"
               }
             }
           },
@@ -17219,7 +17781,8 @@
               "IcMenuChangeEventDetail": {
                 "location": "import",
                 "path": "../ic-menu/ic-menu.types",
-                "id": "../web-components/src/components/ic-menu/ic-menu.types.ts::IcMenuChangeEventDetail"
+                "id": "../web-components/src/components/ic-menu/ic-menu.types.ts::IcMenuChangeEventDetail",
+                "referenceLocation": "IcMenuChangeEventDetail"
               }
             }
           },
@@ -17239,7 +17802,8 @@
               "IcOptionSelectEventDetail": {
                 "location": "import",
                 "path": "../ic-menu/ic-menu.types",
-                "id": "../web-components/src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail"
+                "id": "../web-components/src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail",
+                "referenceLocation": "IcOptionSelectEventDetail"
               }
             }
           },
@@ -17259,7 +17823,8 @@
               "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcMultiValueEventDetail"
+                "id": "../web-components/src/utils/types.ts::IcMultiValueEventDetail",
+                "referenceLocation": "IcMultiValueEventDetail"
               }
             }
           },
@@ -17279,7 +17844,8 @@
               "IcSearchBarBlurEventDetail": {
                 "location": "import",
                 "path": "./ic-search-bar.types",
-                "id": "../web-components/src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail"
+                "id": "../web-components/src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail",
+                "referenceLocation": "IcSearchBarBlurEventDetail"
               }
             }
           },
@@ -17299,7 +17865,8 @@
               "IcValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcValueEventDetail"
+                "id": "../web-components/src/utils/types.ts::IcValueEventDetail",
+                "referenceLocation": "IcValueEventDetail"
               }
             }
           },
@@ -17319,7 +17886,8 @@
               "IcValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcValueEventDetail"
+                "id": "../web-components/src/utils/types.ts::IcValueEventDetail",
+                "referenceLocation": "IcValueEventDetail"
               }
             }
           },
@@ -17993,7 +18561,8 @@
               "IcSelectOption": {
                 "location": "import",
                 "path": "./ic-select.types",
-                "id": "../web-components/src/components/ic-select/ic-select.types.ts::IcSelectOption"
+                "id": "../web-components/src/components/ic-select/ic-select.types.ts::IcSelectOption",
+                "referenceLocation": "IcSelectOption"
               }
             }
           },
@@ -18360,7 +18929,12 @@
           "attr": "use-native-select-on-mobile",
           "reflectToAttr": false,
           "docs": "If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -18760,7 +19334,10 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-data-table-title-bar", "ic-pagination-bar"],
+      "dependents": [
+        "ic-data-table-title-bar",
+        "ic-pagination-bar"
+      ],
       "dependencies": [
         "ic-button",
         "ic-typography",
@@ -18874,7 +19451,12 @@
           "attr": "close-on-nav-item-click",
           "reflectToAttr": false,
           "docs": "If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18901,7 +19483,12 @@
           "attr": "collapsed-icon-labels",
           "reflectToAttr": false,
           "docs": "If `true`, the icon and label will appear when side navigation is collapsed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18928,7 +19515,12 @@
           "attr": "disable-auto-parent-styling",
           "reflectToAttr": false,
           "docs": "If `true`, automatic parent wrapper styling will be disabled.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18955,7 +19547,12 @@
           "attr": "disable-top-bar-behaviour",
           "reflectToAttr": false,
           "docs": "If `true`, the side navigation will not display as a top bar on small devices.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18982,7 +19579,12 @@
           "attr": "expanded",
           "reflectToAttr": false,
           "docs": "If `true`, the side navigation will display in an expanded state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -19009,7 +19611,12 @@
           "attr": "href",
           "reflectToAttr": false,
           "docs": "The URL that the app title link points to.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"/\""
+            }
+          ],
           "default": "\"/\"",
           "values": [
             {
@@ -19036,7 +19643,12 @@
           "attr": "short-app-title",
           "reflectToAttr": false,
           "docs": "The short title of the app to be displayed at small screen sizes in place of the app title.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -19063,7 +19675,12 @@
           "attr": "static",
           "reflectToAttr": false,
           "docs": "If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -19144,7 +19761,8 @@
               "IcExpandedDetail": {
                 "location": "import",
                 "path": "./ic-side-navigation.types",
-                "id": "../web-components/src/components/ic-side-navigation/ic-side-navigation.types.ts::IcExpandedDetail"
+                "id": "../web-components/src/components/ic-side-navigation/ic-side-navigation.types.ts::IcExpandedDetail",
+                "referenceLocation": "IcExpandedDetail"
               }
             }
           },
@@ -19470,9 +20088,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-link"],
+      "dependencies": [
+        "ic-link"
+      ],
       "dependencyGraph": {
-        "ic-skip-link": ["ic-link"]
+        "ic-skip-link": [
+          "ic-link"
+        ]
       }
     },
     {
@@ -20283,7 +20905,12 @@
           "attr": "checked",
           "reflectToAttr": false,
           "docs": "If `true`, the switch will display as checked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20310,7 +20937,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20337,7 +20969,12 @@
           "attr": "helper-text",
           "reflectToAttr": false,
           "docs": "The helper text that will be displayed for additional field guidance.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -20364,7 +21001,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20414,7 +21056,12 @@
           "attr": "name",
           "reflectToAttr": false,
           "docs": "The name of the control, which is submitted with the form data.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "this.inputId"
+            }
+          ],
           "default": "this.inputId",
           "values": [
             {
@@ -20439,7 +21086,8 @@
               "IcSizesNoLarge": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge"
+                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge",
+                "referenceLocation": "IcSizesNoLarge"
               }
             }
           },
@@ -20447,7 +21095,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the switch component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -20477,7 +21130,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -20485,7 +21139,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -20521,7 +21180,12 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of the toggle does not mean if it's checked or not, use the `checked`\nproperty for that.\n\nThe value of a toggle is analogous to the value of a `<input type=\"checkbox\">`,\nit's only used when the toggle participates in a native `<form>`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"on\""
+            }
+          ],
           "default": "\"on\"",
           "values": [
             {
@@ -20590,7 +21254,8 @@
               "IcSwitchChangeEventDetail": {
                 "location": "import",
                 "path": "./ic-switch.types",
-                "id": "../web-components/src/components/ic-switch/ic-switch.types.ts::IcSwitchChangeEventDetail"
+                "id": "../web-components/src/components/ic-switch/ic-switch.types.ts::IcSwitchChangeEventDetail",
+                "referenceLocation": "IcSwitchChangeEventDetail"
               }
             }
           },
@@ -20670,7 +21335,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20753,7 +21423,8 @@
               "IcActivationTypes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcActivationTypes"
+                "id": "../web-components/src/utils/types.ts::IcActivationTypes",
+                "referenceLocation": "IcActivationTypes"
               }
             }
           },
@@ -20761,7 +21432,12 @@
           "attr": "activation-type",
           "reflectToAttr": false,
           "docs": "Determines whether tabs have to be manually activated (by pressing 'Enter' or 'Space') when they receive focus using keyboard navigation.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"automatic\""
+            }
+          ],
           "default": "\"automatic\"",
           "values": [
             {
@@ -20793,7 +21469,12 @@
           "attr": "context-id",
           "reflectToAttr": true,
           "docs": "The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -20820,7 +21501,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the tabs will display as black in the light theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20871,7 +21557,8 @@
               "IcThemeMode": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcThemeMode"
+                "id": "../web-components/src/utils/types.ts::IcThemeMode",
+                "referenceLocation": "IcThemeMode"
               }
             }
           },
@@ -20879,7 +21566,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -20940,7 +21632,8 @@
               "IcTabSelectEventDetail": {
                 "location": "import",
                 "path": "../ic-tab/ic-tab.types",
-                "id": "../web-components/src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail"
+                "id": "../web-components/src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail",
+                "referenceLocation": "IcTabSelectEventDetail"
               }
             }
           },
@@ -21000,7 +21693,12 @@
           "attr": "inline",
           "reflectToAttr": true,
           "docs": "If `true`, the tabs and tab panels will be positioned separately.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -21387,14 +22085,20 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-tooltip", "ic-section-container", "ic-typography"],
+      "dependencies": [
+        "ic-tooltip",
+        "ic-section-container",
+        "ic-typography"
+      ],
       "dependencyGraph": {
         "ic-table-of-contents": [
           "ic-tooltip",
           "ic-section-container",
           "ic-typography"
         ],
-        "ic-tooltip": ["ic-typography"]
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -21702,18 +22406,11 @@
         },
         {
           "name": "autocorrect",
-          "type": "\"off\" | \"on\" | undefined",
+          "type": "boolean",
           "complexType": {
-            "original": "IcAutocorrectStates",
-            "resolved": "\"off\" | \"on\" | undefined",
-            "references": {
-              "IcAutocorrectStates": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcAutocorrectStates",
-                "referenceLocation": "IcAutocorrectStates"
-              }
-            }
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
           },
           "mutable": false,
           "attr": "autocorrect",
@@ -21722,24 +22419,16 @@
           "docsTags": [
             {
               "name": "default",
-              "text": "\"off\""
+              "text": "false"
             }
           ],
-          "default": "\"off\"",
+          "default": "false",
           "values": [
             {
-              "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "on",
-              "type": "string"
-            },
-            {
-              "type": "undefined"
+              "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -23005,7 +23694,9 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-pagination-bar"],
+      "dependents": [
+        "ic-pagination-bar"
+      ],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -23021,9 +23712,15 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-pagination-bar": ["ic-text-field"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-pagination-bar": [
+          "ic-text-field"
+        ]
       }
     },
     {
@@ -24097,12 +24794,26 @@
           "ic-toggle-button",
           "ic-input-validation"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-toggle-button": ["ic-button"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-toggle-button": [
+          "ic-button"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -24427,12 +25138,26 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-time-selector": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-time-selector": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -24934,14 +25659,30 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-time-input"],
-      "dependencies": ["ic-button"],
+      "dependents": [
+        "ic-time-input"
+      ],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-toggle-button": ["ic-button"],
-        "ic-button": ["ic-typography", "ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-time-input": ["ic-toggle-button"]
+        "ic-toggle-button": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-time-input": [
+          "ic-toggle-button"
+        ]
       }
     },
     {
@@ -25459,10 +26200,14 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-time-input"],
+      "dependents": [
+        "ic-time-input"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-time-input": ["ic-toggle-button-group"]
+        "ic-time-input": [
+          "ic-toggle-button-group"
+        ]
       }
     },
     {
@@ -25851,17 +26596,37 @@
         "ic-tree-item",
         "ic-tree-view"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-tooltip": ["ic-typography"],
-        "ic-button": ["ic-tooltip"],
-        "ic-chip": ["ic-tooltip"],
-        "ic-data-table": ["ic-tooltip"],
-        "ic-navigation-item": ["ic-tooltip"],
-        "ic-pagination-bar": ["ic-tooltip"],
-        "ic-table-of-contents": ["ic-tooltip"],
-        "ic-tree-item": ["ic-tooltip"],
-        "ic-tree-view": ["ic-tooltip"]
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-tooltip"
+        ],
+        "ic-chip": [
+          "ic-tooltip"
+        ],
+        "ic-data-table": [
+          "ic-tooltip"
+        ],
+        "ic-navigation-item": [
+          "ic-tooltip"
+        ],
+        "ic-pagination-bar": [
+          "ic-tooltip"
+        ],
+        "ic-table-of-contents": [
+          "ic-tooltip"
+        ],
+        "ic-tree-item": [
+          "ic-tooltip"
+        ],
+        "ic-tree-view": [
+          "ic-tooltip"
+        ]
       }
     },
     {
@@ -26809,10 +27574,18 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-tree-item": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-tree-item": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -27080,10 +27853,18 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-tooltip", "ic-typography"],
+      "dependencies": [
+        "ic-tooltip",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-tree-view": ["ic-tooltip", "ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-tree-view": [
+          "ic-tooltip",
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -27656,10 +28437,10 @@
       "docstring": "",
       "path": "../web-components/src/components/ic-tooltip/ic-tooltip.types.ts"
     },
-    "../web-components/node_modules/@popperjs/core/index.d.ts::Options": {
+    "../../node_modules/@popperjs/core/index.d.ts::Options": {
       "declaration": "any",
       "docstring": "",
-      "path": "../web-components/node_modules/@popperjs/core/index.d.ts"
+      "path": "../../node_modules/@popperjs/core/index.d.ts"
     },
     "../web-components/src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions": {
       "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
@@ -27703,11 +28484,6 @@
     },
     "../web-components/src/utils/types.ts::IcAutocompleteTypes": {
       "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
-      "docstring": "",
-      "path": "../web-components/src/utils/types.ts"
-    },
-    "../web-components/src/utils/types.ts::IcAutocorrectStates": {
-      "declaration": "export type IcAutocorrectStates = \"on\" | \"off\";",
       "docstring": "",
       "path": "../web-components/src/utils/types.ts"
     },
