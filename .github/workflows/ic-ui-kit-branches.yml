@@ -58,7 +58,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: Build core components
         if: ${{ needs.check-updates.outputs.canary == 'false' }}
@@ -124,7 +123,6 @@ jobs:
         run: |
           google-chrome --version
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: Cache Cypress Binary
         uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
@@ -133,8 +131,7 @@ jobs:
           key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Core Cypress
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        run: npm run cypress:install:react
+        run: npx cypress install
 
       - name: Core Cypress tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
@@ -154,10 +151,6 @@ jobs:
         with:
           folder: ./packages/react/cypress-image-diff-html-report
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
-
-      - name: Install Canary Cypress
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        run: npm run cypress:install:canary-react
 
       - name: Canary Cypress tests
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
@@ -222,7 +215,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: Build core components
         if: ${{ needs.check-updates.outputs.canary == 'false' }}

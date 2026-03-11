@@ -28,7 +28,6 @@ jobs:
         run: |
           google-chrome --version
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: Cypress performance tests
         id: core_cypress_performance_tests

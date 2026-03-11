@@ -48,7 +48,6 @@ jobs:
         run: |
           google-chrome --version
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: Core Cypress tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}

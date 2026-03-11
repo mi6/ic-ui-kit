@@ -22,13 +22,6 @@
       }
     },
     {
-      "GHSA-f5x3-32g6-xq36": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
       "GHSA-grv7-fg5c-xmjg": {
         "active": true,
         "notes": "requires upgrade to 'braces', which is a transitive dependency of storybook. Might be removable after storybook upgrade.",
@@ -53,20 +46,6 @@
       "GHSA-p6mc-m468-83gw": {
         "active": true,
         "notes": "requires upgrade to 'lodash.set', which is a transitive dependency of cypress-audit/lighthouse. We're on the latest version of cypress-audit (1.1.0) and there's no patched version for lodash.set.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-h5c3-5r3r-rr8q": {
-        "active": true,
-        "notes": "requires upgrade to '@octokit/plugin-paginate-rest', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-xx4v-prfh-6cgc": {
-        "active": true,
-        "notes": "requires upgrade to '@octokit/request-error', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
         "expiry": "27 April 2026"
       }
     },
@@ -99,37 +78,9 @@
       }
     },
     {
-      "GHSA-5j98-mcp5-4vw2": {
-        "active": true,
-        "notes": "requires upgrade to 'glob' v10.2.2 (the v7 dependencies seem okay), which is a transitive dependency of lerna. Might be removable after lerna upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
       "GHSA-8452-54wp-rmv6": {
         "active": true,
         "notes": "requires upgrade to 'storybook'. Might be removable after storybook upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-8qq5-rm4j-mr97": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-34x7-hfp2-rc4v": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-r6q2-hw4h-h46w": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
         "expiry": "27 April 2026"
       }
     },
@@ -144,27 +95,6 @@
       "GHSA-p5wg-g6qr-c7cg": {
         "active": true,
         "notes": "requires upgrade to 'eslint', which requires major version(s) upgrade. This will be partly resolved by ticket #3588",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-83g3-92jg-28cx": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-qffp-2rhf-9h96": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-9ppj-qmqm-q256": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
         "expiry": "27 April 2026"
       }
     },
@@ -264,6 +194,55 @@
         "active": true,
         "notes": "handlebars vulnerability via dev tooling (webpack/storybook). Flagged during per-package audit. No runtime exposure; expected to be resolved during toolchain upgrades.",
         "expiry": "27 April 2026"
+      }
+    },
+    {
+      "GHSA-9qr9-h5gf-34mp": {
+        "active": true,
+        "notes": "requires upgrade to 'next' to next major version.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
+      "GHSA-w37m-7fhw-fmv9": {
+        "active": true,
+        "notes": "requires upgrade to 'next' to next major version.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
+      "GHSA-mwv6-3258-q52c": {
+        "active": true,
+        "notes": "requires upgrade to 'next' to next major version.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
+      "GHSA-9g9p-9gw9-jx7f": {
+        "active": true,
+        "notes": "requires upgrade to 'next' to next major version.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
+      "GHSA-h25m-26qc-wcjf": {
+        "active": true,
+        "notes": "requires upgrade to 'next' to next major version.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
+      "GHSA-3x4c-7xq6-9pq8": {
+        "active": true,
+        "notes": "requires upgrade to 'next' to next major version.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
+      "GHSA-ggv3-7p47-pfv8": {
+        "active": true,
+        "notes": "requires upgrade to 'next' to next major version.",
+        "expiry": "27 March 2026"
       }
     }
   ]

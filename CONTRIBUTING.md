@@ -72,7 +72,6 @@ git remote add upstream git@github.com:mi6/ic-ui-kit.git
 **NPM**
 ```console
 npm install
-npm run bootstrap
 npm run build:all
 ```
 
@@ -80,7 +79,6 @@ npm run build:all
 ```console
 rm package-lock.json
 yarn install
-yarn run bootstrap
 yarn run build:all
 ```
 

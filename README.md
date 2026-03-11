@@ -56,7 +56,6 @@ This is a monorepo using [`lerna`](https://github.com/lerna/lerna). To get start
 
 ```console
 npm install
-npm run bootstrap
 npm run build
 ```
 
