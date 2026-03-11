@@ -22,7 +22,6 @@
     "dist/"
   ],
   "scripts": {
-    "audit": "echo 'Audit for: @ukic/react' && audit-ci -m --config ../../audit-ci.json",
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
     "build-storybook": "rimraf ./storybook-static && storybook build",
     "clean": "rimraf dist",
@@ -90,7 +89,7 @@
     "react-dom": "^16.14.0",
     "react-hook-form": "^7.38.0",
     "react-router-dom": "^6.30.3",
-    "storybook": "10.1.11",
+    "storybook": "^10.2.17",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.0",
     "typescript": "^5.3.3",
