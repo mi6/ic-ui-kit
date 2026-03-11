@@ -21,7 +21,6 @@
     "hydrate/"
   ],
   "scripts": {
-    "audit": "echo 'Audit for: @ukic/canary-web-components' && audit-ci -m --config ../../audit-ci.json",
     "build": "stencil build",
     "build:watch": "npm run build -- --watch",
     "build-storybook": "rimraf /storybook-static && storybook build",
@@ -70,7 +69,7 @@
     "react-markdown": "^8.0.7",
     "remark-gfm": "^3.0.1",
     "stencil-inline-svg": "^1.1.0",
-    "storybook": "10.1.11",
+    "storybook": "^10.2.17",
     "ts-jest": "^26.5.6"
   },
   "peerDependencies": {
