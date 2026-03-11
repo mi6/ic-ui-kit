@@ -15,7 +15,6 @@
     "dist"
   ],
   "scripts": {
-    "audit": "echo 'Audit for: @ukic/fonts' && audit-ci -m --config ../../audit-ci.json",
     "build": "rimraf ./dist && webpack --config .webpack/webpack.config.js"
   },
   "devDependencies": {
