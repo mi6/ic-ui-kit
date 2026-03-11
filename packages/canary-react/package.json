@@ -21,7 +21,6 @@
     "dist/"
   ],
   "scripts": {
-    "audit": "echo 'Audit for: @ukic/canary-react' && audit-ci -m --config ../../audit-ci.json",
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
     "build-storybook": "rimraf ./storybook-static && storybook build",
     "clean": "rimraf dist",
@@ -86,7 +85,7 @@
     "react-markdown": "^8.0.7",
     "react-router-dom": "^6.30.3",
     "remark-gfm": "^3.0.1",
-    "storybook": "10.1.11",
+    "storybook": "^10.2.17",
     "ts-loader": "^9.5.0",
     "typescript": "^5.3.3",
     "url-loader": "^4.1.1"
