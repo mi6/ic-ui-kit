@@ -23,7 +23,6 @@
     "vscode-data.json"
   ],
   "scripts": {
-    "audit": "echo 'Audit for: @ukic/web-components' & audit-ci -m --config ../../audit-ci.json",
     "build": "stencil build",
     "build:watch": "npm run build -- --watch",
     "build-storybook": "rimraf /storybook-static && storybook build",
@@ -78,7 +77,7 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "stencil-inline-svg": "^1.1.0",
-    "storybook": "10.1.11",
+    "storybook": "^10.2.17",
     "style-loader": "^4.0.0",
     "ts-jest": "^26.5.6"
   },

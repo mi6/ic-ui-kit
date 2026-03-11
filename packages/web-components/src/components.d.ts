@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcCardDensity, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcCardDensity, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
 import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -37,7 +37,7 @@ import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldKeydownEventDetail, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcCardDensity, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAriaLive, IcAutocompleteTypes, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcCardDensity, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValidationAriaLive, IcValueEventDetail } from "./utils/types";
 export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -558,14 +558,17 @@ export namespace Components {
     interface IcCardHorizontal {
         /**
           * If `true`, the horizontal card will be a clickable variant, instead of static.
+          * @default false
          */
         "clickable": boolean;
         /**
           * The padding of the horizontal card.
+          * @default "default"
          */
         "density": IcCardDensity;
         /**
           * If `true`, the horizontal card will be disabled if it is clickable.
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -578,10 +581,12 @@ export namespace Components {
         "href"?: string | undefined;
         /**
           * The human language of the linked URL.
+          * @default ""
          */
         "hreflang"?: string;
         /**
           * The main body message of the horizontal card.
+          * @default ""
          */
         "message"?: string;
         /**
@@ -598,6 +603,7 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         /**
           * The size of the horizontal card.
+          * @default "medium"
          */
         "size": IcSizes;
         /**
@@ -610,6 +616,7 @@ export namespace Components {
         "target"?: string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
@@ -826,6 +833,7 @@ export namespace Components {
         "dismissible": boolean;
         /**
           * Specify whether the chip fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+          * @default false
          */
         "fullWidth": boolean;
         /**
@@ -875,6 +883,7 @@ export namespace Components {
         "country"?: string;
         /**
           * The custom text that will appear on the banner. If set, the `additionalSelectors`, `country` and `upTo` props are ignored.
+          * @default ""
          */
         "customClassificationText"?: string;
         /**
@@ -1490,6 +1499,9 @@ export namespace Components {
           * @default "automatic"
          */
         "activationType": IcActivationTypes;
+        /**
+          * @default true
+         */
         "allowMenuFocus": boolean;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
@@ -1906,34 +1918,42 @@ export namespace Components {
     interface IcPaginationBar {
         /**
           * The accessible label passed down to the pagination component to provide context for screen reader users.
+          * @default "Pagination Navigation"
          */
         "accessibleLabel"?: string;
         /**
           * Sets the alignment of the items in the pagination bar.
+          * @default "right"
          */
         "alignment"?: IcPaginationAlignmentOptions;
         /**
           * The current page number to be displayed on the pagination bar.
+          * @default 1
          */
         "currentPage"?: number;
         /**
           * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+          * @default false
          */
         "hideAllFromItemsPerPage"?: boolean;
         /**
           * If `true`, the current page of the simple pagination will not be displayed.
+          * @default false
          */
         "hideCurrentPage"?: boolean;
         /**
           * If `true`, the first and last page buttons will not be displayed.
+          * @default false
          */
         "hideFirstAndLastPageButton"?: boolean;
         /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
+          * @default false
          */
         "hideRangeLabel"?: boolean;
         /**
           * The text which will be used in place of 'Item' on the pagination bar.
+          * @default "Item"
          */
         "itemLabel"?: string;
         /**
@@ -1945,18 +1965,22 @@ export namespace Components {
   }[];
         /**
           * If `true`, the pagination bar will display as black in the light theme, and white in dark theme.
+          * @default false
          */
         "monochrome"?: boolean;
         /**
           * The text which will be used in place of 'Page' on the pagination bar.
+          * @default "Page"
          */
         "pageLabel"?: string;
         /**
           * Whether total number of items and current item range or total number of pages and current page is displayed.
+          * @default "page"
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
         /**
           * If `false`, the value in the items per page control will be set immediately on ArrowUp and ArrowDown instead of when Enter is pressed.
+          * @default true
          */
         "selectItemsPerPageOnEnter": boolean;
         /**
@@ -1965,18 +1989,22 @@ export namespace Components {
         "selectedItemsPerPage"?: number;
         /**
           * If `true`, the pagination bar is set to the first page when the 'items per page' changes
+          * @default false
          */
         "setToFirstPageOnPaginationChange"?: boolean;
         /**
           * If `true`, the 'go to page' control should be displayed.
+          * @default false
          */
         "showGoToPageControl"?: boolean;
         /**
           * If `true`, the select input to control 'items per page' should be displayed.
+          * @default false
          */
         "showItemsPerPageControl"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -1985,6 +2013,7 @@ export namespace Components {
         "totalItems": number;
         /**
           * Whether the displayed pagination is simple or complex.
+          * @default "simple"
          */
         "type"?: IcPaginationTypes;
     }
@@ -2193,9 +2222,9 @@ export namespace Components {
         "autocomplete": IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
-          * @default "off"
+          * @default false
          */
-        "autocorrect": IcAutocorrectStates;
+        "autocorrect": boolean;
         /**
           * If `true`, the form control will have input focus when the page loads.
           * @default false
@@ -2490,6 +2519,7 @@ export namespace Components {
         "timeout"?: number;
         /**
           * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+          * @default true
          */
         "useNativeSelectOnMobile": boolean;
         /**
@@ -2901,9 +2931,9 @@ export namespace Components {
         "autocomplete"?: IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
-          * @default "off"
+          * @default false
          */
-        "autocorrect"?: IcAutocorrectStates;
+        "autocorrect": boolean;
         /**
           * If `true`, the form control will have input focus when the page loads.
           * @default false
@@ -4962,14 +4992,17 @@ declare namespace LocalJSX {
     interface IcCardHorizontal {
         /**
           * If `true`, the horizontal card will be a clickable variant, instead of static.
+          * @default false
          */
         "clickable"?: boolean;
         /**
           * The padding of the horizontal card.
+          * @default "default"
          */
         "density"?: IcCardDensity;
         /**
           * If `true`, the horizontal card will be disabled if it is clickable.
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -4982,10 +5015,12 @@ declare namespace LocalJSX {
         "href"?: string | undefined;
         /**
           * The human language of the linked URL.
+          * @default ""
          */
         "hreflang"?: string;
         /**
           * The main body message of the horizontal card.
+          * @default ""
          */
         "message"?: string;
         /**
@@ -4998,6 +5033,7 @@ declare namespace LocalJSX {
         "rel"?: string;
         /**
           * The size of the horizontal card.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
@@ -5010,6 +5046,7 @@ declare namespace LocalJSX {
         "target"?: string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
@@ -5226,6 +5263,7 @@ declare namespace LocalJSX {
         "dismissible"?: boolean;
         /**
           * Specify whether the chip fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+          * @default false
          */
         "fullWidth"?: boolean;
         /**
@@ -5275,6 +5313,7 @@ declare namespace LocalJSX {
         "country"?: string;
         /**
           * The custom text that will appear on the banner. If set, the `additionalSelectors`, `country` and `upTo` props are ignored.
+          * @default ""
          */
         "customClassificationText"?: string;
         /**
@@ -5894,6 +5933,9 @@ declare namespace LocalJSX {
           * @default "automatic"
          */
         "activationType"?: IcActivationTypes;
+        /**
+          * @default true
+         */
         "allowMenuFocus"?: boolean;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
@@ -6306,34 +6348,42 @@ declare namespace LocalJSX {
     interface IcPaginationBar {
         /**
           * The accessible label passed down to the pagination component to provide context for screen reader users.
+          * @default "Pagination Navigation"
          */
         "accessibleLabel"?: string;
         /**
           * Sets the alignment of the items in the pagination bar.
+          * @default "right"
          */
         "alignment"?: IcPaginationAlignmentOptions;
         /**
           * The current page number to be displayed on the pagination bar.
+          * @default 1
          */
         "currentPage"?: number;
         /**
           * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+          * @default false
          */
         "hideAllFromItemsPerPage"?: boolean;
         /**
           * If `true`, the current page of the simple pagination will not be displayed.
+          * @default false
          */
         "hideCurrentPage"?: boolean;
         /**
           * If `true`, the first and last page buttons will not be displayed.
+          * @default false
          */
         "hideFirstAndLastPageButton"?: boolean;
         /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
+          * @default false
          */
         "hideRangeLabel"?: boolean;
         /**
           * The text which will be used in place of 'Item' on the pagination bar.
+          * @default "Item"
          */
         "itemLabel"?: string;
         /**
@@ -6345,6 +6395,7 @@ declare namespace LocalJSX {
   }[];
         /**
           * If `true`, the pagination bar will display as black in the light theme, and white in dark theme.
+          * @default false
          */
         "monochrome"?: boolean;
         /**
@@ -6357,14 +6408,17 @@ declare namespace LocalJSX {
         "onIcPageChange"?: (event: IcPaginationBarCustomEvent<IcPageChangeEventDetail>) => void;
         /**
           * The text which will be used in place of 'Page' on the pagination bar.
+          * @default "Page"
          */
         "pageLabel"?: string;
         /**
           * Whether total number of items and current item range or total number of pages and current page is displayed.
+          * @default "page"
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
         /**
           * If `false`, the value in the items per page control will be set immediately on ArrowUp and ArrowDown instead of when Enter is pressed.
+          * @default true
          */
         "selectItemsPerPageOnEnter"?: boolean;
         /**
@@ -6373,18 +6427,22 @@ declare namespace LocalJSX {
         "selectedItemsPerPage"?: number;
         /**
           * If `true`, the pagination bar is set to the first page when the 'items per page' changes
+          * @default false
          */
         "setToFirstPageOnPaginationChange"?: boolean;
         /**
           * If `true`, the 'go to page' control should be displayed.
+          * @default false
          */
         "showGoToPageControl"?: boolean;
         /**
           * If `true`, the select input to control 'items per page' should be displayed.
+          * @default false
          */
         "showItemsPerPageControl"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -6393,6 +6451,7 @@ declare namespace LocalJSX {
         "totalItems": number;
         /**
           * Whether the displayed pagination is simple or complex.
+          * @default "simple"
          */
         "type"?: IcPaginationTypes;
     }
@@ -6603,9 +6662,9 @@ declare namespace LocalJSX {
         "autocomplete"?: IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
-          * @default "off"
+          * @default false
          */
-        "autocorrect"?: IcAutocorrectStates;
+        "autocorrect"?: boolean;
         /**
           * If `true`, the form control will have input focus when the page loads.
           * @default false
@@ -6974,6 +7033,7 @@ declare namespace LocalJSX {
         "timeout"?: number;
         /**
           * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+          * @default true
          */
         "useNativeSelectOnMobile"?: boolean;
         /**
@@ -7395,9 +7455,9 @@ declare namespace LocalJSX {
         "autocomplete"?: IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
-          * @default "off"
+          * @default false
          */
-        "autocorrect"?: IcAutocorrectStates;
+        "autocorrect"?: boolean;
         /**
           * If `true`, the form control will have input focus when the page loads.
           * @default false
