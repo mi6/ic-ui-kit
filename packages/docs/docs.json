@@ -14589,16 +14589,13 @@
           "ic-button"
         ],
         "ic-select": [
+          "ic-button",
+          "ic-typography",
           "ic-input-container",
           "ic-input-label",
           "ic-input-component-container",
-          "ic-typography",
-          "ic-button",
           "ic-menu",
           "ic-input-validation"
-        ],
-        "ic-input-label": [
-          "ic-typography"
         ],
         "ic-button": [
           "ic-typography",
@@ -14609,6 +14606,9 @@
           "ic-typography"
         ],
         "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-input-label": [
           "ic-typography"
         ],
         "ic-menu": [
