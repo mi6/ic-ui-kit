@@ -45,7 +45,6 @@ import { IcSearchBarSearchModes } from "../ic-search-bar/ic-search-bar.types";
   styleUrl: "ic-menu.css",
   scoped: true,
 })
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Menu {
   private ACTIVE_DESCENDANT = "aria-activedescendant";
   private CLEAR_BUTTON_ID = "clear-button";

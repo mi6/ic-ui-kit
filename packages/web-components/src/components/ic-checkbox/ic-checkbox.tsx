@@ -36,7 +36,6 @@ import {
     delegatesFocus: true,
   },
 })
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Checkbox {
   private additionalFieldContainer?: HTMLDivElement;
   private checkboxEl?: HTMLInputElement;
