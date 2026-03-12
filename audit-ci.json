@@ -162,6 +162,13 @@
       }
     },
     {
+      "GHSA-9ppj-qmqm-q256": {
+        "active": true,
+        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
+        "expiry": "27 March 2026"
+      }
+    },
+    {
       "GHSA-2g4f-4pwh-qvx6": {
         "active": true,
         "notes": "requires upgrade to 'ajv', which is a transitive dependency of commitlint.",
