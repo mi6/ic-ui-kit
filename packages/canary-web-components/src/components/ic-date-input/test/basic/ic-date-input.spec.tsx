@@ -890,7 +890,6 @@ describe("ic-date-input component", () => {
 
     it("should set day, month and year input values from paste event with 2000/01/01", async () => {
       const { componentInstance, dayInput, monthInput, yearInput } =
-        // eslint-disable-next-line sonarjs/no-duplicate-string
         await createDateInputEnv("YYYY/MM/DD");
 
       componentInstance.handlePaste(clipboardEvent("2000/01/01"));
@@ -1422,7 +1421,6 @@ describe("ic-date-input component", () => {
   });
 
   describe("preventInput", () => {
-    // eslint-disable-next-line sonarjs/no-duplicate-string
     it("should return undefined if isInputPrevented is false", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1477,7 +1475,6 @@ describe("ic-date-input component", () => {
   });
 
   describe("handleHostBlur", () => {
-    // eslint-disable-next-line sonarjs/no-duplicate-string
     it("should return undefined if isInputPrevented is false", async () => {
       const { componentInstance, component } = await createDateInputEnv();
       const eventSpy = jest.fn();
@@ -1492,7 +1489,6 @@ describe("ic-date-input component", () => {
   });
 
   describe("handleHostFocus", () => {
-    // eslint-disable-next-line sonarjs/no-duplicate-string
     it("should return undefined if isInputPrevented is false", async () => {
       const { componentInstance, component } = await createDateInputEnv();
       const eventSpy = jest.fn();
