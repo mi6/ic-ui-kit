@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/jsx-no-bind */
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import {
   IcBadge,
   IcButton,
   IcDivider,
+  IcFooter,
+  IcFooterLink,
   IcNavigationGroup,
   IcNavigationItem,
   IcSectionContainer,
@@ -13,6 +15,20 @@ import {
   IcTheme,
   IcTypography,
 } from "../components";
+import { SlottedSVG } from "../react-component-lib/slottedSVG";
+import {
+  mdiAccount, 
+  mdiArrowLeft,
+  mdiCoffee,
+  mdiCoffeeOutline,
+  mdiCookieOutline,
+  mdiCupcake,
+  mdiCupOutline,
+  mdiFoodCroissant,
+  mdiMapMarkerOutline,
+  mdiSilverwareForkKnife,
+  mdiTeaOutline
+} from "@mdi/js";
 
 import { MemoryRouter, NavLink, Route, Routes } from "react-router-dom";
 
@@ -1254,6 +1270,383 @@ export const CloseOnNavItemClick = {
   ),
 
   name: "Close on nav item click",
+};
+
+const navItemsConfig = [
+  {
+    name: "Hot drinks",
+    type: "Order",
+    icon: mdiCoffeeOutline,
+    brandColor: "rgb(92, 9, 72)",
+    childPages: [
+      {
+        name: "Flat white",
+        icon: mdiCoffeeOutline,
+        path: "/hot-drinks/flat-white",
+      },
+      {
+        name: "Latte",
+        icon: mdiCoffeeOutline,
+        path: "/hot-drinks/latte",
+      },
+      {
+        name: "Cinnamon bun matcha",
+        icon: mdiCupOutline,
+        path: "/hot-drinks/cinnamon-bun-matcha",
+      },
+      {
+        name: "Mixed berry tea",
+        icon: mdiTeaOutline,
+        path: "/hot-drinks/berry-tea",
+      },
+    ],
+  },
+  {
+    name: "Food",
+    type: "Order",
+    icon: mdiSilverwareForkKnife,
+    brandColor: "#043735",
+    childPages: [
+      {
+        name: "Croissant",
+        icon: mdiFoodCroissant,
+        path: "/food/croissant",
+      },
+      {
+        name: "Victoria sponge cake",
+        icon: mdiCupcake,
+        path: "/food/victoria-sponge-cake",
+      },
+      {
+        name: "Triple chocolate chip cookie",
+        icon: mdiCookieOutline,
+        path: "/food/triple-choc-chip-cookie",
+      },
+    ],
+  },
+  {
+    name: "Birmingham",
+    type: "Find a coffee shop",
+    icon: mdiMapMarkerOutline,
+    brandColor: "#39096D",
+  },
+  {
+    name: "Bristol",
+    type: "Find a coffee shop",
+    icon: mdiMapMarkerOutline,
+    brandColor: "#82b2c0",
+  },
+  {
+    name: "London",
+    type: "Find a coffee shop",
+    icon: mdiMapMarkerOutline,
+    brandColor: "#004869",
+  },
+  {
+    name: "Manchester",
+    type: "Find a coffee shop",
+    icon: mdiMapMarkerOutline,
+    brandColor: "#ffce1b",
+  },
+];
+
+const SideNavigation = () => {
+  const [brandColor, setBrandColor] = useState("#1B3C79");
+
+  const [currentPage, setCurrentPage] = useState("Home");
+
+  const handlePageChange = (pageName) => {
+    setCurrentPage(pageName);
+    const color = navItemsConfig.find((page) => page.name === pageName)?.brandColor;
+    if (color && setBrandColor) setBrandColor(color);
+  };
+
+  const HomeNavItems = () => {
+    const groupedPages = navItemsConfig.reduce((acc, page) => {
+      const { type } = page;
+      if (!acc[type]) {
+        acc[type] = [];
+      }
+      acc[type].push(page);
+      return acc;
+    }, {});
+
+    return (
+      <>
+        {Object.entries(groupedPages).map(([type, pages], index) => (
+          <Fragment key={type}>
+            <IcNavigationGroup slot="primary-navigation" label={type} expandable>
+              {pages.map((page) => (
+                <IcNavigationItem
+                  key={page.name}
+                  onClick={() => handlePageChange(page.name)}
+                >
+                  <NavLink
+                    to={`/${page.name.toLowerCase()}`}
+                    slot="navigation-item"
+                  >
+                    <SlottedSVG
+                      slot="icon"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      path={page.icon}
+                      fill="currentcolor"
+                    />
+                    {page.name}
+                  </NavLink>
+                </IcNavigationItem>
+              ))}
+            </IcNavigationGroup>
+            {index < Object.entries(groupedPages).length - 1 && (
+              <IcDivider slot="primary-navigation" />
+            )}
+          </Fragment>
+        ))}
+      </>
+    );
+  };
+
+  const childPageNavItems = (selectedPage) => {
+    const page = navItemsConfig.find((p) => p.name === selectedPage);
+    return (
+      <>
+        <BackButton />
+        {page?.childPages?.map((child) => (
+          <IcNavigationItem slot="primary-navigation" key={child.name}>
+            <NavLink viewTransition to={child.path} slot="navigation-item">
+              <SlottedSVG
+                slot="icon"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                path={child.icon}
+                fill="currentcolor"
+              />
+              {child.name}
+            </NavLink>
+          </IcNavigationItem>
+        ))}
+      </>
+    );
+  };
+
+  const BackButton = () => {
+    const handleBackButtonClick = () => {
+      setCurrentPage("Home");
+      if (setBrandColor) setBrandColor("#1B3C79");
+    };
+    return (
+      <>
+        <IcNavigationItem
+          slot="primary-navigation"
+          onClick={handleBackButtonClick}
+        >
+          <NavLink to="/" viewTransition>
+            <SlottedSVG
+              slot="icon"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              path={mdiArrowLeft}
+              fill="currentcolor"
+            />
+            Back to Home
+          </NavLink>
+        </IcNavigationItem>
+        <IcDivider slot="primary-navigation" />
+      </>
+    );
+  };
+
+  return (
+    <IcTheme brandColor={brandColor} style={{ display: "flex", height: "100%" }}>
+      <IcSideNavigation
+        expanded
+        appTitle={currentPage === 'Home' ? 'Barista Coffee' : currentPage}
+      >
+        <SlottedSVG
+          slot="app-icon"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          path={
+            currentPage === 'Home'
+              ? mdiCoffee
+              : navItemsConfig.find((page) => currentPage === page.name)?.icon
+          }
+        />
+        {currentPage !== 'Home' ? (
+          childPageNavItems(currentPage)
+        ) : (
+          <HomeNavItems />
+        )}
+        <IcNavigationItem
+          slot="secondary-navigation"
+          label="Jane Doe"
+          href="#"
+        >
+          <SlottedSVG
+            slot="icon"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            path={mdiAccount}
+          />
+        </IcNavigationItem>
+      </IcSideNavigation>
+      <div
+        className="content-wrapper"
+        style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}
+      >
+        <main>
+          <IcSectionContainer>
+            <IcTypography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              vestibulum venenatis facilisis. Nam tortor felis, auctor vel
+              ante quis, tempor interdum libero. In dictum sodales velit, eu
+              egestas arcu dignissim ac. Aliquam facilisis eros dolor, id
+              laoreet orci sagittis ut. Sed tempus, lacus in pretium molestie,
+              lectus magna interdum risus, vel fringilla libero ex eu dui.
+              Suspendisse ullamcorper vehicula lacinia. Phasellus congue velit
+              nisl, vitae congue ligula rutrum id.
+              <br />
+              Etiam in suscipit metus. Duis semper, sapien a molestie semper,
+              ex nibh porttitor tellus, vel molestie justo odio vel purus.
+              Curabitur porttitor, tortor sed semper sollicitudin, odio odio
+              congue tortor, eget pulvinar tellus nisl ac lacus. In ultricies
+              commodo lorem, a laoreet diam. Ut a mauris at tellus tincidunt
+              ullamcorper sit amet in metus. Aenean facilisis placerat dictum.
+              Phasellus mattis ante sollicitudin luctus iaculis. Nam porttitor
+              lobortis rhoncus. Nam nec malesuada purus, at pulvinar mauris.
+              Nam non lorem ante.
+              <br />
+              Donec aliquam eget mauris condimentum cursus. Nullam tempus a
+              urna in commodo. Proin mauris augue, viverra id finibus id,
+              vulputate in ante. Aliquam volutpat hendrerit tellus vitae
+              tristique. Donec pellentesque enim arcu, at feugiat mauris
+              venenatis vitae. Sed iaculis ut elit et ultrices. Donec diam
+              eros, iaculis ac est nec, tempus feugiat nisl. Suspendisse eget
+              interdum lorem. Phasellus pretium urna id elit pharetra
+              hendrerit.
+              <br />
+              Mauris blandit, mi ut posuere dapibus, est ante porttitor sem,
+              quis pretium velit ante nec felis. Vivamus efficitur scelerisque
+              dapibus. Nunc lacinia finibus laoreet. Praesent commodo augue
+              orci, congue rutrum velit malesuada gravida. Nunc magna mauris,
+              ornare nec nisl vel, faucibus euismod orci. Proin in augue vitae
+              nunc gravida consectetur. Pellentesque id malesuada ex, sit amet
+              imperdiet est. Duis erat nibh, lacinia vitae faucibus non,
+              aliquam in dolor. Nam interdum felis vitae feugiat posuere. Cras
+              volutpat molestie ipsum, sed auctor quam volutpat vitae. Vivamus
+              lobortis scelerisque libero vel scelerisque.
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Praesent eget orci condimentum, tempus tortor posuere, lacinia
+              ex. Curabitur bibendum suscipit turpis vitae mollis. Ut laoreet
+              orci a risus facilisis porta. Orci varius natoque penatibus et
+              magnis dis parturient montes, nascetur ridiculus mus. Curabitur
+              a porttitor neque, ac dignissim velit. Morbi quis malesuada
+              massa, vitae sodales tellus. Aenean laoreet mattis lobortis. In
+              mauris erat, tincidunt in placerat sed, pretium ac tortor. Morbi
+              blandit lacus a leo vehicula aliquet.
+              <br />
+              Pellentesque aliquam risus vel eros maximus, at pellentesque mi
+              pretium. Etiam nec velit at orci varius porttitor. Aliquam
+              facilisis, elit non cursus fringilla, metus metus malesuada
+              lacus, at blandit nibh augue aliquet orci. Duis aliquam, est
+              eget sodales ullamcorper, eros turpis euismod nulla, sed
+              sollicitudin diam massa semper purus. Vivamus vel turpis ipsum.
+              Interdum et malesuada fames ac ante ipsum primis in faucibus.
+              Morbi euismod turpis dapibus quam fermentum condimentum. Mauris
+              ex orci, consequat quis tempor eu, finibus vitae eros. Ut eu
+              erat eu ipsum pulvinar cursus vel at dui. Etiam tincidunt quam
+              porta nulla suscipit vestibulum. Sed iaculis enim leo, et
+              aliquam justo feugiat in. Vivamus in ornare nulla, at tempor
+              massa. Sed et aliquam nisi.
+              <br />
+              Mauris tempus accumsan libero non tincidunt. Curabitur et leo
+              orci. Suspendisse molestie posuere leo vitae posuere. Cras
+              lacinia urna non erat gravida sagittis. Quisque dapibus arcu nec
+              sem pharetra convallis. Nullam sed arcu mollis, posuere elit at,
+              condimentum ligula. Nullam maximus nulla quam, ut euismod est
+              feugiat at. Quisque ut venenatis ex, in facilisis sapien.
+              Pellentesque in orci vitae metus iaculis venenatis. Nunc
+              porttitor tellus arcu, in posuere quam vulputate nec. Aenean in
+              venenatis ligula, non mollis quam. Suspendisse nec enim vel
+              massa finibus pretium et a urna. Etiam suscipit semper est, id
+              efficitur diam sollicitudin nec. Nullam nibh sapien, condimentum
+              ut laoreet et, euismod ac mi. Vestibulum tristique odio non
+              risus ullamcorper, et aliquam turpis varius. Nunc metus ex,
+              tempus a augue sit amet, interdum vulputate libero.
+              <br />
+              Aenean convallis libero id magna congue pellentesque. Nulla
+              iaculis interdum porta. Aenean laoreet scelerisque nulla vel
+              molestie. Class aptent taciti sociosqu ad litora torquent per
+              conubia nostra, per inceptos himenaeos. Integer sollicitudin in
+              felis vitae rhoncus. Sed eu elementum massa. Cras ut accumsan
+              risus. Donec nec augue justo. Aenean sagittis luctus leo egestas
+              consectetur. Sed sit amet nisl quis felis volutpat facilisis ac
+              vitae tellus. Curabitur pharetra commodo consequat. Aliquam
+              consequat ipsum lacus, sed faucibus sapien mollis vel.
+            </IcTypography>
+          </IcSectionContainer>
+        </main>
+        <IcFooter
+          description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch."
+          caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
+        >
+          <IcFooterLink slot="link" href="/">
+            Get Started
+          </IcFooterLink>
+          <IcFooterLink slot="link" href="/">
+            Accessibility
+          </IcFooterLink>
+          <IcFooterLink slot="link" href="/">
+            Styles
+          </IcFooterLink>
+          <IcFooterLink slot="link" href="/">
+            Components
+          </IcFooterLink>
+          <IcFooterLink slot="link" href="/">
+            Patterns
+          </IcFooterLink>
+          <IcFooterLink slot="link" href="/">
+            Design toolkit
+          </IcFooterLink>
+          <div
+            slot="logo"
+            style={{
+              width: '100px',
+              height: '100px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'var(--ic-brand-color-primary)',
+              color: 'var(--ic-brand-text-color)',
+            }}
+          >
+            Logo
+          </div>
+        </IcFooter>
+      </div>
+    </IcTheme>
+  );
+};
+
+export const MultiLevelSideNav = {
+  render: () => <SideNavigation />,
+  name: "Multi-level side navigation with React Router",
+  parameters: {
+    layout: "fullscreen",
+  },
+  decorators: [
+    (Story) => (
+      <MemoryRouter initialEntries={["/"]}>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 };
 
 export const Playground = {
