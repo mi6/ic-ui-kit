@@ -28,6 +28,7 @@ import {
   checkSideNavSize,
   ReactRouterSideNav,
   SlottedDividerSideNav,
+  MultiLevelSideNav,
 } from "./IcSideNavigationTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -818,6 +819,59 @@ describe("IcSideNavigation", () => {
           name: "/small-screen-height-desktop",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
         });
+      });
+
+      it("should dynamically render navigation items", () => {
+        mount(<MultiLevelSideNav />);
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+        cy.checkA11yWithWait();
+
+        cy.compareSnapshot({
+          name: "/multi-level-first-level",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        });
+
+        cy.wait(500);
+
+        cy.findShadowEl(
+          SIDE_NAV_SELECTOR,
+          "#side-navigation > div.bottom-wrapper > div > button[aria-label='Expand side navigation']"
+        ).click();
+
+        cy.get(SIDE_NAV_SELECTOR)
+          .find("ic-navigation-item[label='Change nav']")
+          .click();
+
+        cy.wait(500);
+
+        cy.compareSnapshot({
+          name: "/multi-level-second-level-expanded",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+        });
+
+        cy.wait(500);
+
+        cy.findShadowEl(
+          SIDE_NAV_SELECTOR,
+          "#side-navigation > div.bottom-wrapper > div > button[aria-label='Collapse side navigation']"
+        ).click();
+
+        // cy.compareSnapshot({
+        //   name: "/multi-level-second-level-collapsed",
+        //   testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
+        // });
+
+        cy.wait(500);
+
+        cy.get(SIDE_NAV_SELECTOR)
+          .find("ic-navigation-item:nth-child(1)")
+          .click();
+
+        // cy.compareSnapshot({
+        //   name: "/multi-level-first-level",
+        //   testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        // });
       });
     });
   });
