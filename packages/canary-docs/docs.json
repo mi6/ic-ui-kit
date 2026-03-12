@@ -24030,11 +24030,6 @@
       "docstring": "",
       "path": "../web-components/src/utils/types.ts"
     },
-    "../web-components/src/utils/types.ts::IcInformationStatusOrEmpty": {
-      "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
-      "docstring": "",
-      "path": "../web-components/src/utils/types.ts"
-    },
     "../web-components/src/components/ic-select/ic-select.types.ts::IcSelectOption": {
       "declaration": "export type IcSelectOption =\n  | IcSelectOptionBase\n  | IcSelectOptionGroup\n  | IcSelectOptionLoading\n  | IcSelectOptionTimedOut;",
       "docstring": "",
