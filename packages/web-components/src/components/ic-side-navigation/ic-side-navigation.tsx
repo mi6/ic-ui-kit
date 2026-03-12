@@ -25,6 +25,7 @@ import {
   onComponentRequiredPropUndefined,
   isEmptyString,
   isPropDefined,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import {
   IcBrand,
@@ -51,11 +52,14 @@ export class SideNavigation {
   ).matches
     ? 0
     : parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
-  private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
-  private resizeObserver: ResizeObserver | null = null;
   private COLLAPSED_ICON_LABELS_END = "collapsed-icon-labels-end";
   private COLLAPSED_ICON_LABELS_START = "collapsed-icon-labels-start";
+  private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
+
   private menuButton?: HTMLIcButtonElement;
+
+  private hostMutationObserver: MutationObserver | null = null;
+  private resizeObserver: ResizeObserver | null = null;
 
   @Element() el: HTMLIcSideNavigationElement;
 
@@ -172,12 +176,26 @@ export class SideNavigation {
         [{ prop: this.appTitle, propName: "app-title" }],
         "Side Navigation"
       );
+
+    this.hostMutationObserver = new MutationObserver((mutationList) => {
+      renderDynamicChildSlots(
+        mutationList,
+        ["primary-navigation", "secondary-navigation"],
+        this
+      );
+      this.arrangeSlottedNavigationItem(this.menuExpanded);
+    });
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
   }
 
   disconnectedCallback(): void {
     if (this.resizeObserver !== null) {
       this.resizeObserver.disconnect();
     }
+
+    this.hostMutationObserver?.disconnect();
 
     this.el?.removeEventListener("transitionend", this.transitionEndHandler);
 

@@ -57,7 +57,6 @@ let inputIds = 0;
     delegatesFocus: true,
   },
 })
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class SearchBar {
   private anchorEl?: HTMLElement;
   private assistiveHintEl?: HTMLSpanElement;
