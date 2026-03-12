@@ -1376,7 +1376,6 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          // eslint-disable-next-line react/jsx-no-bind
           variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
@@ -1394,7 +1393,6 @@ describe(icDataTable, () => {
           columns={columns}
           data={data}
           globalRowHeight={80}
-          // eslint-disable-next-line react/jsx-no-bind
           variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
@@ -1417,7 +1415,6 @@ describe(icDataTable, () => {
           columns={columns}
           data={data}
           globalRowHeight={80}
-          // eslint-disable-next-line react/jsx-no-bind
           variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
@@ -1579,7 +1576,6 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          // eslint-disable-next-line react/jsx-no-bind
           variableRowHeight={({ index }) => (index % 2 === 0 ? "auto" : null)}
         ></ic-data-table>
       ),
