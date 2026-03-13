@@ -7722,7 +7722,7 @@
         {
           "status": "fail",
           "name": "IcSideNavigation.cy.tsx/multi-level-second-level-collapsed",
-          "percentage": 0.1612389030940354,
+          "percentage": 0.13447303563104374,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
@@ -10517,9 +10517,9 @@
       ]
     }
   ],
-  "startedAt": "2026-03-13T13:10:17.524Z",
-  "endedAt": "2026-03-13T13:29:53.913Z",
-  "duration": 1066295,
+  "startedAt": "2026-03-13T14:35:44.747Z",
+  "endedAt": "2026-03-13T14:54:44.582Z",
+  "duration": 1039592,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
