@@ -1,3 +1,0 @@
-import{j as t,M as n,a,S as i}from"./blocks-HwKQvPfJ.js";import{useMDXComponents as m}from"./index-Cu5dKXXo.js";import{N as s,a as p}from"./readme-BNbu3W2k.js";import{I as u}from"./ic-top-navigation.stories-Cp8h0Wot.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-Dzw3SrX3.js";import"./index-BEenS-yL.js";import"./index-D9JZd7xD.js";const c=""+new URL("readme-g0-6e7TU.md",import.meta.url).href,d=""+new URL("readme-Cn1sgCla.md",import.meta.url).href;function e(o){return t.jsxs(t.Fragment,{children:[t.jsx(n,{of:u}),`
-`,t.jsx(a,{children:c+s+p+d}),`
-`,t.jsx(i,{})]})}function N(o={}){const{wrapper:r}={...m(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(e,{...o})}):e()}export{N as default};
