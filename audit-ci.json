@@ -223,6 +223,13 @@
         "notes": "requires upgrade to 'dompurify', awaiting patch for above",
         "expiry": "27 March 2026"
       }
+    },
+    {
+      "GHSA-gmq8-994r-jv83": {
+        "active": true,
+        "notes": "caused by a dependency of cypress-audit. We are on the latest version of cypress-audit (1.1.0). Might be removeable after migration to lighthouse",
+        "expiry": "14 April 2026"
+      }
     }
   ]
 }
