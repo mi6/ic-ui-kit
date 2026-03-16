@@ -223,6 +223,13 @@
         "notes": "requires upgrade to 'dompurify', awaiting patch for above",
         "expiry": "27 March 2026"
       }
+    },
+    {
+      "GHSA-gmq8-994r-jv83": {
+        "active": true,
+        "notes": "requires upgrade to 'yauzl', which is a transitive dependency of cypress-audit. Might be removable after cypress-audit upgrade.",
+        "expiry": "27 March 2026"
+      }
     }
   ]
 }
