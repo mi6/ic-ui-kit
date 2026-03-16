@@ -5,6 +5,7 @@ exports[`ic-drawer should apply custom chevron button aria-label to chevron butt
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-22" label="Test aria-label" placement="bottom" silent="" target="ic-button-with-tooltip-22">
@@ -46,6 +47,7 @@ exports[`ic-drawer should apply custom chevron button aria-label to chevron butt
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -56,6 +58,7 @@ exports[`ic-drawer should apply custom close button aria-label to close button 1
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="controlled drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <div class="inner-drawer-panel" style="min-width: 0px;">
         <div class="drawer-header">
           <div class="heading-area">
@@ -97,6 +100,7 @@ exports[`ic-drawer should apply custom close button aria-label to close button 1
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -107,6 +111,7 @@ exports[`ic-drawer should render as expanded 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div aria-labelledby="drawer-heading" class="drawer-panel medium" id="drawer-panel" role="dialog" tabindex="-1">
+      <div tabindex="0"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-8" label="Close drawer" placement="bottom" silent="" target="ic-button-with-tooltip-8">
@@ -148,6 +153,7 @@ exports[`ic-drawer should render as expanded 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="0"></div>
     </div>
   </template>
 </ic-drawer>
@@ -158,6 +164,7 @@ exports[`ic-drawer should render at the bottom 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-6" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-6">
@@ -202,6 +209,7 @@ exports[`ic-drawer should render at the bottom 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -212,6 +220,7 @@ exports[`ic-drawer should render at the top 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-4" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-4">
@@ -256,6 +265,7 @@ exports[`ic-drawer should render at the top 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -266,6 +276,7 @@ exports[`ic-drawer should render large 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel large" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-12" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-12">
@@ -307,6 +318,7 @@ exports[`ic-drawer should render large 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -317,6 +329,7 @@ exports[`ic-drawer should render on the left 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-2" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-2">
@@ -358,6 +371,7 @@ exports[`ic-drawer should render on the left 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -368,6 +382,7 @@ exports[`ic-drawer should render on the right 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-0" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-0">
@@ -409,6 +424,7 @@ exports[`ic-drawer should render on the right 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -419,6 +435,7 @@ exports[`ic-drawer should render small 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel small" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-10" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-10">
@@ -460,6 +477,7 @@ exports[`ic-drawer should render small 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -470,6 +488,7 @@ exports[`ic-drawer should render with boundary prop set to 'parent' 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-14" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-14">
@@ -511,6 +530,7 @@ exports[`ic-drawer should render with boundary prop set to 'parent' 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -521,6 +541,7 @@ exports[`ic-drawer should render with hidden close button when trigger prop is s
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="controlled drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <div class="inner-drawer-panel" style="min-width: 0px;">
         <div class="drawer-header">
           <div class="heading-area">
@@ -552,6 +573,7 @@ exports[`ic-drawer should render with hidden close button when trigger prop is s
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -562,6 +584,7 @@ exports[`ic-drawer should render with slotted content 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-28" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-28">
@@ -599,6 +622,7 @@ exports[`ic-drawer should render with slotted content 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
   <svg slot="heading-adornment" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -634,6 +658,7 @@ exports[`ic-drawer should render with theme prop set to 'dark' 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-20" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-20">
@@ -675,6 +700,7 @@ exports[`ic-drawer should render with theme prop set to 'dark' 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -685,6 +711,7 @@ exports[`ic-drawer should render with theme prop set to 'light' 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <ic-button class="chevron-btn ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-light" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-18" label="Open drawer" placement="bottom" silent="" target="ic-button-with-tooltip-18">
@@ -726,6 +753,7 @@ exports[`ic-drawer should render with theme prop set to 'light' 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
@@ -736,6 +764,7 @@ exports[`ic-drawer should render with trigger prop set to 'controlled' 1`] = `
   <template shadowrootmode="open">
     <div class="overlay"></div>
     <div class="controlled drawer-panel medium" id="drawer-panel" tabindex="-1">
+      <div tabindex="-1"></div>
       <div class="inner-drawer-panel" style="min-width: 0px;">
         <div class="drawer-header">
           <div class="heading-area">
@@ -777,6 +806,7 @@ exports[`ic-drawer should render with trigger prop set to 'controlled' 1`] = `
           </div>
         </div>
       </div>
+      <div tabindex="-1"></div>
     </div>
   </template>
 </ic-drawer>
