@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
 import { mount } from "cypress/react";
@@ -139,7 +138,7 @@ describe("IcTextField end-to-end tests", () => {
 
     cy.get(IC_TEXTFIELD).invoke("on", "icKeydown", cy.stub().as("icKeydown"));
 
-    let testString = "Hello, World!";
+    const testString = "Hello, World!";
 
     cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).type(testString + "{enter}");
 
@@ -322,7 +321,7 @@ describe("IcTextField end-to-end tests", () => {
 
     cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).click();
     cy.get(IC_TEXTFIELD).should(HAVE_FOCUS);
-    cy.get(IC_TEXTFIELD).blur();
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).blur();
     cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
     cy.get("@icBlur").should(HAVE_BEEN_CALLED_ONCE);
   });
@@ -370,7 +369,7 @@ describe("IcTextField end-to-end tests", () => {
   it("should update any attributes inherited from the root element when they are mutated", () => {
     mount(<SimpleTextField />);
 
-    let input = cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT);
+    const input = cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT);
 
     input.should(NOT_HAVE_ATTR, "title");
 

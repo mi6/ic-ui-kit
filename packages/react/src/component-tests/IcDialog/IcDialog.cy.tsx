@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types="cypress" />
 
 import React from "react";
@@ -112,7 +111,7 @@ describe("IcDialog end-to-end tests", () => {
     cy.get("ic-button#hide-btn").click();
 
     cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button").focus();
-    cy.focused().next().next().should(NOT_EXIST);
+    cy.focused().parent().next().next().should(NOT_EXIST);
   });
 
   it("should tab through slotted content", () => {
