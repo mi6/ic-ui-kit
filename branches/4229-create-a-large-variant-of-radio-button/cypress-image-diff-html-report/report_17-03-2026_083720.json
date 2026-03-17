@@ -730,14 +730,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/tooltip-truncation.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDataTable.cy.tsx/tooltip-truncation-sort",
-          "percentage": 0,
+          "percentage": 0.04469485206858047,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/tooltip-truncation-sort.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx/tooltip-truncation-sort.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/tooltip-truncation-sort.png"
         },
         {
@@ -1214,14 +1214,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/row-overrides-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast",
-          "percentage": 0.012197261715621872,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png"
         },
         {
@@ -3233,9 +3233,9 @@
       ]
     }
   ],
-  "startedAt": "2026-03-16T15:04:07.218Z",
-  "endedAt": "2026-03-16T15:13:26.018Z",
-  "duration": 532652,
+  "startedAt": "2026-03-17T08:37:20.335Z",
+  "endedAt": "2026-03-17T08:46:27.542Z",
+  "duration": 521394,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
