@@ -310,8 +310,6 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
       "Control",
       "End",
     ]);
-    //menu currently closes (in cypress only) so need to reopen to check selections
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
@@ -336,8 +334,6 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
       "Control",
       "Home",
     ]);
-    //menu currently closes (in cypress only) so need to reopen to check selections
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({

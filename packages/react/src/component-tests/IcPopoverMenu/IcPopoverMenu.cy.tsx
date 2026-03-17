@@ -283,7 +283,9 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     // navigate to submenu trigger and open submenu
     Cypress._.times(2, () => cy.realPress("ArrowDown"));
     cy.focused().as("activeElement");
-    cy.get("@activeElement").should(HAVE_ATTR, "label", "Actions");
+    cy.get("@activeElement")
+      .invoke("attr", "aria-label")
+      .should("match", /^Actions/);
     cy.realPress("Enter");
     cy.get(POPOVER_SELECTOR + '[submenu-id="actions"]').should(BE_VISIBLE);
     cy.get("@triggerPopoverMenuInstance").should(HAVE_BEEN_CALLED_ONCE);

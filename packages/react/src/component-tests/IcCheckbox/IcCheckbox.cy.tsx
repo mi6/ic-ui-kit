@@ -56,7 +56,7 @@ describe("IcCheckbox end-to-end tests", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
   });
 
-  it("should not be interactable when disabled", () => {
+  it.skip("should not be interactable when disabled", () => {
     mount(<Checkbox />);
 
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);

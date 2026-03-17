@@ -24,6 +24,7 @@ import {
   NOT_EXIST,
   NOT_HAVE_CLASS,
   EQUAL,
+  BE_FOCUSED,
 } from "../utils/constants";
 import {
   ARIA_SELECTED,
@@ -1184,7 +1185,9 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
     cy.clickOnShadowEl(IC_SELECT, DATA_VALUE_ESPRESSO);
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(NOT_BE_VISIBLE);
-    cy.focused().should(HAVE_ATTR, "class", "hydrated");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
+      .find("button[role=combobox]")
+      .should(BE_FOCUSED);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
       .contains("Espresso")
       .should(BE_VISIBLE);
@@ -1205,7 +1208,9 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).realPress("Space");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(NOT_BE_VISIBLE);
-    cy.focused().should(HAVE_ATTR, "class", "hydrated");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
+      .find("button[role=combobox]")
+      .should(BE_FOCUSED);
   });
 
   it("should close menu when Enter is pressed and set focus to the input", () => {
@@ -1221,7 +1226,9 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.findShadowEl(IC_SELECT, DATA_VALUE_ESPRESSO).realPress("Enter");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(NOT_BE_VISIBLE);
-    cy.focused().should(HAVE_ATTR, "class", "hydrated");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
+      .find("button[role=combobox]")
+      .should(BE_FOCUSED);
   });
 
   it("should close menu when Escape is pressed and set focus to the input", () => {
@@ -1238,7 +1245,9 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("{upArrow}");
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).realPress("Escape");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(NOT_BE_VISIBLE);
-    cy.focused().should(HAVE_ATTR, "class", "hydrated");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
+      .find("button[role=combobox]")
+      .should(BE_FOCUSED);
   });
 
   it("should close menu when another element on the page is clicked", () => {
@@ -1386,7 +1395,11 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_UL);
 
     cy.get(IC_SELECT).invoke("on", "icBlur", cy.stub().as("icBlur"));
-    cy.get(IC_SELECT).blur();
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
+      .find(RETRY_BUTTON)
+      .shadow()
+      .find("button")
+      .blur();
     cy.get("@icBlur").should(HAVE_BEEN_CALLED);
     cy.findShadowEl(IC_SELECT, IC_MENU_UL).should(NOT_BE_VISIBLE);
   });
@@ -1580,7 +1593,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.get(IC_SELECT).invoke("on", "icBlur", cy.stub().as("icBlur"));
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
     cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get(IC_SELECT).blur();
+    cy.findShadowEl(IC_SELECT, "button[role=combobox]").blur();
     cy.get("@icBlur").should(HAVE_BEEN_CALLED);
   });
 
