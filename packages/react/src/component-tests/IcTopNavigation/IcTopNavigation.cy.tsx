@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types='Cypress' />
 
 import { mount } from "cypress/react";
@@ -127,7 +126,8 @@ describe("IcTopNavigation end-to-end tests", () => {
 
       cy.findShadowEl(TOP_NAV_SELECTOR, "ic-button").first().click();
       cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "40px");
-      cy.get(SEARCH_BAR_SELECTOR).should(BE_VISIBLE).should(HAVE_FOCUS).blur();
+      cy.get(SEARCH_BAR_SELECTOR).should(BE_VISIBLE);
+      cy.findShadowEl(SEARCH_BAR_SELECTOR, "input").should(HAVE_FOCUS).blur();
       cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "0px");
     });
   });
