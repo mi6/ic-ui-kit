@@ -273,7 +273,15 @@ describe("IcTimeInput e2e tests", () => {
       cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
         .find("ic-toggle-button")
         .eq(1)
-        .should(HAVE_CLASS, "ic-toggle-button-checked")
+        .should(HAVE_CLASS, "ic-toggle-button-checked");
+
+      cy.findShadowEl(TIME_INPUT, AM_PM_TOGGLE)
+        .find("ic-toggle-button")
+        .shadow()
+        .find("ic-button")
+        .shadow()
+        .find("button")
+        .eq(1)
         .focus();
 
       cy.realPress(["ArrowLeft"]);
