@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
   Component,
   Prop,
@@ -21,15 +20,7 @@ import {
   IcPaginationAlignmentOptions,
   IcPaginationLabelTypes,
   IcPaginationTypes,
-} from "../../../../web-components/src/components/ic-pagination/ic-pagination.types";
-
-import "../../../../web-components/src/components/ic-pagination/ic-pagination";
-import "../../../../web-components/src/components/ic-select/ic-select";
-import "../../../../web-components/src/components/ic-menu/ic-menu";
-import "../../../../web-components/src/components/ic-text-field/ic-text-field";
-import "../../../../web-components/src/components/ic-typography/ic-typography";
-import "../../../../web-components/src/components/ic-button/ic-button";
-import "../../../../web-components/src/components/ic-tooltip/ic-tooltip";
+} from "../ic-pagination/ic-pagination.types";
 
 @Component({
   tag: "ic-pagination-bar",

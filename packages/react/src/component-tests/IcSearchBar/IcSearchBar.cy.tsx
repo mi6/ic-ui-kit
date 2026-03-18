@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types="cypress" />
 
 import { mount } from "cypress/react";
@@ -422,7 +421,7 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.realPress("Tab");
     cy.get("@icFocus").should(HAVE_BEEN_CALLED);
     cy.checkShadowElVisible(SEARCH_SELECTOR, IC_MENU_LI);
-    cy.get(SEARCH_SELECTOR).blur();
+    cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).eq(0).blur();
     cy.get("@icBlur").should(HAVE_BEEN_CALLED);
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
   });
@@ -540,6 +539,7 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("Enter");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "espresso");
+    cy.get("body").click("bottomRight");
     cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).click();
     cy.realPress("ArrowDown");
     cy.realPress("Enter");

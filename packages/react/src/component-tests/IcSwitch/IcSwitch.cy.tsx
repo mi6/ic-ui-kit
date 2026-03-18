@@ -84,7 +84,7 @@ describe("IcSwitch end-to-end tests", () => {
 
     cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).focus();
     cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get(SWITCH_SELECTOR).blur();
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).blur();
     cy.get("@icBlur").should(HAVE_BEEN_CALLED_ONCE);
   });
 

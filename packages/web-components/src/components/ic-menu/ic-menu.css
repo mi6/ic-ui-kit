@@ -216,6 +216,11 @@
   fill: currentcolor;
 }
 
+:first-child > .option-group-title {
+  padding: var(--ic-space-xs) calc(var(--ic-space-xs) - var(--ic-space-1px))
+    var(--ic-space-xs);
+}
+
 .option-group-title {
   padding: var(--ic-space-lg) calc(var(--ic-space-xs) - var(--ic-space-1px))
     var(--ic-space-xs);
@@ -288,7 +293,7 @@
 }
 
 @media (forced-colors: active) {
-  .focused-option:focus {
+  .focused-option {
     outline: none;
     border: 0.125rem solid transparent;
   }

@@ -226,7 +226,11 @@ export class Chip {
             <ic-typography
               variant="label"
               apply-vertical-margins={false}
-              class={{ label: true, "in-ag-grid": isElInAGGrid(this.el) }}
+              class={{
+                label: true,
+                [`${size}`]: true,
+                "in-ag-grid": isElInAGGrid(this.el),
+              }}
             >
               <span>{label}</span>
             </ic-typography>

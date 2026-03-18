@@ -182,7 +182,8 @@
     "FOIA",
     "scrollability",
     "exemple",
-    "français"
+    "français",
+    "unflatten"
   ],
   "dictionaries": [
     "npm",

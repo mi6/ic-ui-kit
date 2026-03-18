@@ -93,7 +93,7 @@ Type: `Promise<void>`
 - [ic-button](../../../../web-components/src/components/ic-button)
 - [ic-checkbox](../../../../web-components/src/components/ic-checkbox)
 - [ic-empty-state](../../../../web-components/src/components/ic-empty-state)
-- [ic-pagination-bar](../ic-pagination-bar)
+- [ic-pagination-bar](../../../../web-components/src/components/ic-pagination-bar)
 
 ### Graph
 ```mermaid
@@ -119,11 +119,11 @@ graph TD;
   ic-pagination-bar --> ic-tooltip
   ic-pagination-bar --> ic-text-field
   ic-pagination-bar --> ic-button
+  ic-select --> ic-button
+  ic-select --> ic-typography
   ic-select --> ic-input-container
   ic-select --> ic-input-label
   ic-select --> ic-input-component-container
-  ic-select --> ic-typography
-  ic-select --> ic-button
   ic-select --> ic-menu
   ic-select --> ic-input-validation
   ic-input-label --> ic-typography
@@ -132,6 +132,8 @@ graph TD;
   ic-menu --> ic-button
   ic-input-validation --> ic-typography
   ic-pagination --> ic-button
+  ic-pagination --> ic-pagination-item
+  ic-pagination-item --> ic-typography
   ic-text-field --> ic-input-container
   ic-text-field --> ic-input-label
   ic-text-field --> ic-input-component-container

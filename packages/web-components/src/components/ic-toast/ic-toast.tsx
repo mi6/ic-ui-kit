@@ -259,7 +259,8 @@ export class Toast {
       );
       return null;
     } else {
-      window.setTimeout(() => this.interactiveElements[0].setFocus(), 200);
+      this.interactiveElements[0] &&
+        window.setTimeout(() => this.interactiveElements[0].setFocus(), 200);
       return document.activeElement as HTMLElement;
     }
   }

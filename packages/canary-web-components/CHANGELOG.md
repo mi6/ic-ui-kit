@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.38](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.37...@ukic/canary-web-components@3.0.0-canary.38) (2026-03-18)
+
+### Features
+
+- **canary-web-components:** remove ic-pagination-bar from canary components ([d85c75b](https://github.com/mi6/ic-ui-kit/commit/d85c75bf7436c1b7181af0620bd37fe2a4ef86ed))
+
 # [3.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.36...@ukic/canary-web-components@3.0.0-canary.37) (2026-03-05)
 
 ### Bug Fixes

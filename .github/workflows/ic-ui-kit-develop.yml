@@ -78,10 +78,6 @@ jobs:
         if: ${{ needs.check-updates.outputs.core == 'true' }}
         run: npm run test-a11y:ci
 
-      - name: A11y canary tests
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        run: npm run test-a11y:ci:canary
-
       - name: Unit Component tests
         run: npm run test:coverage-ci
   

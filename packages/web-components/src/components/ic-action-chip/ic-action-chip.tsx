@@ -241,7 +241,11 @@ export class ActionChip {
           )}
           <ic-typography
             variant="label"
-            class={{ label: true, "in-ag-grid": isElInAGGrid(this.el) }}
+            class={{
+              label: true,
+              [`${size}`]: true,
+              "in-ag-grid": isElInAGGrid(this.el),
+            }}
           >
             <span>{label}</span>
           </ic-typography>

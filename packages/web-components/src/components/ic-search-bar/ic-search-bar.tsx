@@ -57,7 +57,6 @@ let inputIds = 0;
     delegatesFocus: true,
   },
 })
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class SearchBar {
   private anchorEl?: HTMLElement;
   private assistiveHintEl?: HTMLSpanElement;
@@ -367,9 +366,7 @@ export class SearchBar {
       if (this.disableAutoFiltering === false) {
         const rawFilteredOptions = getFilteredMenuOptions(
           this.options,
-          false,
           this.value,
-          "anywhere",
           this.labelField
         );
 

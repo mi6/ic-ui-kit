@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
 import { mount } from "cypress/react";
@@ -246,7 +245,7 @@ describe("IcButton end-to-end tests", () => {
     cy.get(IC_BUTTON_SELECTOR).invoke("on", "icBlur", cy.stub().as("icBlur"));
     cy.get(IC_BUTTON_SELECTOR).shadow().find("button").focus();
     cy.get(IC_BUTTON_SELECTOR).should(HAVE_FOCUS);
-    cy.get(IC_BUTTON_SELECTOR).blur();
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "button").blur();
     cy.get("@icBlur").should(HAVE_BEEN_CALLED_ONCE);
   });
 

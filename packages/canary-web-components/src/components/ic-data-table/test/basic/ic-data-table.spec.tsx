@@ -3,7 +3,7 @@ import { Button as IcButton } from "../../../../../../web-components/src/compone
 import { DataTable } from "../../ic-data-table";
 import { LoadingIndicator as IcLoadingIndicator } from "../../../../../../web-components/src/components/ic-loading-indicator/ic-loading-indicator";
 import { Pagination as IcPagination } from "../../../../../../web-components/src/components/ic-pagination/ic-pagination";
-import { PaginationBar } from "../../../ic-pagination-bar/ic-pagination-bar";
+import { PaginationBar } from "../../../../../../web-components/src/components/ic-pagination-bar/ic-pagination-bar";
 import { PaginationItem as IcPaginationItem } from "../../../../../../web-components/src/components/ic-pagination-item/ic-pagination-item";
 import { Tooltip as IcTooltip } from "../../../../../../web-components/src/components/ic-tooltip/ic-tooltip";
 import { Typography as IcTypography } from "../../../../../../web-components/src/components/ic-typography/ic-typography";
@@ -1376,7 +1376,6 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          // eslint-disable-next-line react/jsx-no-bind
           variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
@@ -1394,7 +1393,6 @@ describe(icDataTable, () => {
           columns={columns}
           data={data}
           globalRowHeight={80}
-          // eslint-disable-next-line react/jsx-no-bind
           variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
@@ -1417,7 +1415,6 @@ describe(icDataTable, () => {
           columns={columns}
           data={data}
           globalRowHeight={80}
-          // eslint-disable-next-line react/jsx-no-bind
           variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
@@ -1579,7 +1576,6 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          // eslint-disable-next-line react/jsx-no-bind
           variableRowHeight={({ index }) => (index % 2 === 0 ? "auto" : null)}
         ></ic-data-table>
       ),

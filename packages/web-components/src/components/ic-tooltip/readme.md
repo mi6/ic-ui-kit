@@ -55,7 +55,7 @@ Type: `Promise<void>`
  - [ic-chip](../ic-chip)
  - [ic-data-table](../../../../canary-web-components/src/components/ic-data-table)
  - [ic-navigation-item](../ic-navigation-item)
- - [ic-pagination-bar](../../../../canary-web-components/src/components/ic-pagination-bar)
+ - [ic-pagination-bar](../ic-pagination-bar)
  - [ic-table-of-contents](../../../../canary-web-components/src/components/ic-table-of-contents)
  - [ic-tree-item](../../../../canary-web-components/src/components/ic-tree-item)
  - [ic-tree-view](../../../../canary-web-components/src/components/ic-tree-view)

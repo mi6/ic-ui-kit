@@ -42,13 +42,14 @@ To install the components, no additional configuration is needed for internal sy
 
 * Install the [web component package](packages/web-components/README.md) for use standalone, or with [Svelte](https://design.sis.gov.uk/get-started/install-components/svelte), [Vue](https://design.sis.gov.uk/get-started/install-components/vue) and other web component-compatible frameworks.
 * Install the [React component package](packages/react/README.md) for React-based projects.
+* Install the [NextJS component package](packages/nextjs/README.md) for NextJS projects.
 
 ## Developing
 
 You can optionally install [nvm](https://github.com/nvm-sh/nvm) to use the correct node version. After installing nvm on your machine, install the suitable node version:
 
 ```console
-nvm i
+nvm install
 ```
 
 This is a monorepo using [`lerna`](https://github.com/lerna/lerna). To get started is simple:
@@ -151,7 +152,7 @@ We have a couple of resources to help you with contributing.
 - Make sure to also read our [coding standards and technical instructions](CONTRIBUTING.md).
 - [IC Design System guidance site repository](https://github.com/mi6/ic-design-system) contains the code and content for the Design System guidance site.
 - [IC UI Kit repository](https://github.com/mi6/ic-ui-kit) contains the code and content for the web components.
-- Look for the label [`good first issue`](https://github.com/mi6/ic-ui-kit/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+- Look for the label [`good first issue`](https://github.com/mi6/ic-ui-kit/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22).
 
 ### Security
 
@@ -166,10 +167,10 @@ Visit our websites to learn more about:
 - The [Secret Intelligence Service (MI6)](https://www.sis.gov.uk).
 - The [Government Communications Headquarters (GCHQ)](https://www.gchq.gov.uk).
 - The [Security Service (MI5)](https://www.mi5.gov.uk).
-- [His Majesty's Government Communications Centre (HMGCC)](https://www.hmgcc.gov.uk)- our national security partner.
+- [His Majesty's Government Communications Centre (HMGCC)](https://www.hmgcc.gov.uk) - our national security partner.
 
 ## License
 
 Unless stated otherwise, the codebase is released under the [MIT License](https://opensource.org/licenses/MIT). This covers both the codebase and any sample code in the documentation. The documentation is and available under the terms of the [Open Government License v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
-© Crown copyright 2022
+© Crown copyright 2022-present

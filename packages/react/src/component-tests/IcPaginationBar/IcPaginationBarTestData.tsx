@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { IcPaginationBar } from "../../components";
-import { IcButton } from "@ukic/react";
+import { IcPaginationBar, IcButton } from "../../components";
 
 export const PaginationBarItemsPerPage = (props) => (
   <IcPaginationBar

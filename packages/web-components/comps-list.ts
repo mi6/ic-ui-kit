@@ -42,6 +42,7 @@ export const excludeComps = [
   "ic-navigation-menu",
   "ic-page-header",
   "ic-pagination",
+  "ic-pagination-bar",
   "ic-pagination-item",
   "ic-popover-menu",
   "ic-radio-group",

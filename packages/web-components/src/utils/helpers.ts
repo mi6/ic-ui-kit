@@ -9,7 +9,6 @@ import {
   IcMenuOption,
   IcNavParentDetails,
   IcPropObject,
-  IcSearchMatchPositions,
   IcColorRGBA,
   IcDeviceSizes,
   IcColor,
@@ -28,7 +27,6 @@ import {
 } from "./constants";
 
 const DARK_MODE_THRESHOLD = 133.3505;
-const ANYWHERE_SEARCH_POSITION = "anywhere";
 const icInput = "ic-input";
 
 /**
@@ -337,32 +335,19 @@ export const getLabelFromValue = (
 /**
  * Filters the options based on the search string.
  * @param options - array of options
- * @param includeDescriptions - determines whether option descriptions are included when filtering options
  * @param searchString - string used to filter the options
- * @param position - whether the search string matches the start of or anywhere in the options
  * @returns filtered array of options
  */
 export const getFilteredMenuOptions = (
   options: IcMenuOption[],
-  includeDescriptions: boolean,
   searchString: string,
-  position: IcSearchMatchPositions = ANYWHERE_SEARCH_POSITION,
   labelField = "label"
 ): IcMenuOption[] =>
   options.filter((option) => {
     const label: string = option[labelField].toLowerCase();
-    const description = option.description?.toLowerCase();
     const lowerSearchString = searchString.toLowerCase();
 
-    return position === ANYWHERE_SEARCH_POSITION
-      ? includeDescriptions
-        ? label.includes(lowerSearchString) ||
-          description?.includes(lowerSearchString)
-        : label.includes(lowerSearchString)
-      : includeDescriptions
-      ? label.startsWith(lowerSearchString) ||
-        description?.startsWith(lowerSearchString)
-      : label.startsWith(lowerSearchString);
+    return label.includes(lowerSearchString);
   });
 
 /**

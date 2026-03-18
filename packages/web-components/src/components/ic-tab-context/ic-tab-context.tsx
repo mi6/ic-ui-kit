@@ -298,7 +298,6 @@ export class TabContext {
     if (this.selectedTabIndex === undefined) {
       this.selectedTab = newIndex;
     } else {
-      /* eslint-disable no-unexpected-multiline */
       this.icTabSelect.emit({
         tabIndex: newIndex,
         tabLabel:

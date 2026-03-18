@@ -7,7 +7,7 @@ exports[`ic-chip component renders label should render disabled 1`] = `
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>
@@ -33,7 +33,7 @@ exports[`ic-chip component renders label should render disabled: disabled-remove
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>
@@ -59,7 +59,7 @@ exports[`ic-chip component renders label should render dismissible 1`] = `
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>
@@ -82,7 +82,7 @@ exports[`ic-chip component renders label should render outlined variant 1`] = `
 <ic-chip label="Label" variant="outlined">
   <template shadowrootmode="open">
     <div class="chip medium outlined">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>
@@ -96,7 +96,7 @@ exports[`ic-chip component renders label should render outlined variant with sol
 <ic-chip label="Label" transparent-background="false" variant="outlined">
   <template shadowrootmode="open">
     <div class="chip medium non-transparent outlined">
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>
@@ -113,7 +113,7 @@ exports[`ic-chip component renders label should render small 1`] = `
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label small" variant="label">
         <span>
           Label
         </span>
@@ -139,7 +139,7 @@ exports[`ic-chip component renders label should render static 1`] = `
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>
@@ -159,7 +159,7 @@ exports[`ic-chip component renders label should render with custom colour 1`] = 
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>
@@ -179,7 +179,7 @@ exports[`ic-chip component renders label should render with custom colour that s
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>
@@ -199,7 +199,7 @@ exports[`ic-chip component renders label should render with custom rgb colour 1`
       <div class="icon">
         <slot name="icon"></slot>
       </div>
-      <ic-typography class="label" variant="label">
+      <ic-typography class="label medium" variant="label">
         <span>
           Label
         </span>

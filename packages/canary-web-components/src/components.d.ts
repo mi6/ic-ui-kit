@@ -18,8 +18,10 @@ import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEvent
 import { Options } from "@popperjs/core";
 import { IcMenuItemVariants } from "../../web-components/src/components/ic-menu-item/ic-menu-item.types";
 import { IcChangeEventDetail, IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "../../web-components/src/components/ic-pagination/ic-pagination.types";
-import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+import { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "../../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types";
+import { IcPaginationItemType } from "../../web-components/src/components/ic-pagination-item/ic-pagination-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail1 } from "../../web-components/src/components/ic-radio-group/ic-radio-group.types";
+import { IcSelectOption } from "../../web-components/src/components/ic-select/ic-select.types";
 import { IcExpandedDetail } from "../../web-components/src/components/ic-side-navigation/ic-side-navigation.types";
 import { IcSwitchChangeEventDetail } from "../../web-components/src/components/ic-switch/ic-switch.types";
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "../../web-components/src/components/ic-tab/ic-tab.types";
@@ -41,8 +43,10 @@ export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEvent
 export { Options } from "@popperjs/core";
 export { IcMenuItemVariants } from "../../web-components/src/components/ic-menu-item/ic-menu-item.types";
 export { IcChangeEventDetail, IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "../../web-components/src/components/ic-pagination/ic-pagination.types";
-export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+export { IcItemsPerPageChangeEventDetail, IcPageChangeEventDetail } from "../../web-components/src/components/ic-pagination-bar/ic-pagination-bar.types";
+export { IcPaginationItemType } from "../../web-components/src/components/ic-pagination-item/ic-pagination-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail1 } from "../../web-components/src/components/ic-radio-group/ic-radio-group.types";
+export { IcSelectOption } from "../../web-components/src/components/ic-select/ic-select.types";
 export { IcExpandedDetail } from "../../web-components/src/components/ic-side-navigation/ic-side-navigation.types";
 export { IcSwitchChangeEventDetail } from "../../web-components/src/components/ic-switch/ic-switch.types";
 export { IcTabClickEventDetail, IcTabSelectEventDetail } from "../../web-components/src/components/ic-tab/ic-tab.types";
@@ -1180,6 +1184,7 @@ export namespace Components {
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
          */
         "activationType": IcActivationTypes;
+        "allowMenuFocus": boolean;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
@@ -1199,6 +1204,11 @@ export namespace Components {
           * @param event The keyboard event which is available when handleKeyboardOpen is invoked.
          */
         "handleKeyboardOpen": (event: KeyboardEvent) => Promise<void>;
+        /**
+          * Used alongside activationType If menu is open and user navigates options via keyboard, emit optionSelect custom event.
+          * @param event The keyboard event which is available when handleMenuKeydown is invoked.
+         */
+        "handleMenuKeyDown": (event: KeyboardEvent) => Promise<void>;
         "handleSetFirstOption": () => Promise<void>;
         "initPopperJs": (anchor: HTMLElement) => Promise<void>;
         /**
@@ -1524,7 +1534,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -1533,6 +1543,36 @@ export namespace Components {
           * Whether the displayed pagination is simple or complex.
          */
         "type"?: IcPaginationTypes;
+    }
+    interface IcPaginationItem {
+        /**
+          * If `true`, the pagination item will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * The label for the pagination item (applicable when simple pagination is being used).
+         */
+        "label"?: string;
+        /**
+          * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * The current page number.
+         */
+        "page"?: number;
+        /**
+          * If `true`, the pagination item will be selected.
+         */
+        "selected": boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The type of pagination item - 'page' or 'ellipsis'.
+         */
+        "type": IcPaginationItemType;
     }
     interface IcPopoverMenu {
         /**
@@ -1878,7 +1918,7 @@ export namespace Components {
         /**
           * The possible selection options.
          */
-        "options": IcMenuOption[];
+        "options": IcSelectOption[];
         /**
           * The placeholder value to be displayed.
          */
@@ -1904,7 +1944,7 @@ export namespace Components {
          */
         "selectOnEnter": boolean;
         /**
-          * Sets focus on the input box.
+          * Sets focus on the select component.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1923,6 +1963,10 @@ export namespace Components {
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
+        /**
+          * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+         */
+        "useNativeSelectOnMobile": boolean;
         /**
           * The value of the `aria-live` attribute on the validation message.
          */
@@ -2842,6 +2886,10 @@ export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
 }
+export interface IcPaginationItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcPaginationItemElement;
+}
 export interface IcPopoverMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPopoverMenuElement;
@@ -3315,6 +3363,23 @@ declare global {
         prototype: HTMLIcPaginationBarElement;
         new (): HTMLIcPaginationBarElement;
     };
+    interface HTMLIcPaginationItemElementEventMap {
+        "paginationItemClick": { page: number | null };
+    }
+    interface HTMLIcPaginationItemElement extends Components.IcPaginationItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcPaginationItemElementEventMap>(type: K, listener: (this: HTMLIcPaginationItemElement, ev: IcPaginationItemCustomEvent<HTMLIcPaginationItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcPaginationItemElementEventMap>(type: K, listener: (this: HTMLIcPaginationItemElement, ev: IcPaginationItemCustomEvent<HTMLIcPaginationItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcPaginationItemElement: {
+        prototype: HTMLIcPaginationItemElement;
+        new (): HTMLIcPaginationItemElement;
+    };
     interface HTMLIcPopoverMenuElementEventMap {
         "icPopoverClosed": HTMLIcMenuItemElement;
     }
@@ -3768,6 +3833,7 @@ declare global {
         "ic-page-header": HTMLIcPageHeaderElement;
         "ic-pagination": HTMLIcPaginationElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
+        "ic-pagination-item": HTMLIcPaginationItemElement;
         "ic-popover-menu": HTMLIcPopoverMenuElement;
         "ic-radio-group": HTMLIcRadioGroupElement;
         "ic-radio-option": HTMLIcRadioOptionElement;
@@ -5003,6 +5069,7 @@ declare namespace LocalJSX {
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
          */
         "activationType"?: IcActivationTypes;
+        "allowMenuFocus"?: boolean;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
@@ -5361,7 +5428,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -5370,6 +5437,37 @@ declare namespace LocalJSX {
           * Whether the displayed pagination is simple or complex.
          */
         "type"?: IcPaginationTypes;
+    }
+    interface IcPaginationItem {
+        /**
+          * If `true`, the pagination item will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * The label for the pagination item (applicable when simple pagination is being used).
+         */
+        "label"?: string;
+        /**
+          * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        "onPaginationItemClick"?: (event: IcPaginationItemCustomEvent<{ page: number | null }>) => void;
+        /**
+          * The current page number.
+         */
+        "page"?: number;
+        /**
+          * If `true`, the pagination item will be selected.
+         */
+        "selected"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * The type of pagination item - 'page' or 'ellipsis'.
+         */
+        "type"?: IcPaginationItemType;
     }
     interface IcPopoverMenu {
         /**
@@ -5794,7 +5892,7 @@ declare namespace LocalJSX {
         /**
           * The possible selection options.
          */
-        "options"?: IcMenuOption[];
+        "options"?: IcSelectOption[];
         /**
           * The placeholder value to be displayed.
          */
@@ -5835,6 +5933,10 @@ declare namespace LocalJSX {
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
+        /**
+          * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+         */
+        "useNativeSelectOnMobile"?: boolean;
         /**
           * The value of the `aria-live` attribute on the validation message.
          */
@@ -6789,6 +6891,7 @@ declare namespace LocalJSX {
         "ic-page-header": IcPageHeader;
         "ic-pagination": IcPagination;
         "ic-pagination-bar": IcPaginationBar;
+        "ic-pagination-item": IcPaginationItem;
         "ic-popover-menu": IcPopoverMenu;
         "ic-radio-group": IcRadioGroup;
         "ic-radio-option": IcRadioOption;
@@ -6847,6 +6950,7 @@ declare module "@stencil/core" {
             "ic-page-header": LocalJSX.IcPageHeader & JSXBase.HTMLAttributes<HTMLIcPageHeaderElement>;
             "ic-pagination": LocalJSX.IcPagination & JSXBase.HTMLAttributes<HTMLIcPaginationElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
+            "ic-pagination-item": LocalJSX.IcPaginationItem & JSXBase.HTMLAttributes<HTMLIcPaginationItemElement>;
             "ic-popover-menu": LocalJSX.IcPopoverMenu & JSXBase.HTMLAttributes<HTMLIcPopoverMenuElement>;
             "ic-radio-group": LocalJSX.IcRadioGroup & JSXBase.HTMLAttributes<HTMLIcRadioGroupElement>;
             "ic-radio-option": LocalJSX.IcRadioOption & JSXBase.HTMLAttributes<HTMLIcRadioOptionElement>;

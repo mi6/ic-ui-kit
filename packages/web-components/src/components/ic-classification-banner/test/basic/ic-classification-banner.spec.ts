@@ -109,4 +109,13 @@ describe("ic-classification-banner component", () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  it("should render with custom classification text only if supplied", async () => {
+    const page = await newSpecPage({
+      components: [ClassificationBanner],
+      html: `<ic-classification-banner classification="official" custom-classification-text="Custom classification text" additional-selectors="ukic" up-to=true country="uk"></ic-classification-banner>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
 });

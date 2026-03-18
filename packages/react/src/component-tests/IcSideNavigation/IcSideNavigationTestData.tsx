@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import {
   IcButton,
   IcNavigationGroup,
@@ -566,5 +566,184 @@ export const ReactRouterSideNav = () => {
         </main>
       </div>
     </MemoryRouter>
+  );
+};
+
+export const MultiLevelSideNav = () => {
+  const [primaryNavItems, setPrimaryNavItems] = useState(
+    <FirstLevelPrimaryNavItems />
+  );
+  const [secondaryNavItems, setSecondaryNavItems] = useState(null);
+
+  useEffect(() => {
+    if (!secondaryNavItems) {
+      setSecondaryNavItems(
+        <FirstLevelSecondaryNavItems
+          setPrimaryNavItems={setPrimaryNavItems}
+          setSecondaryNavItems={setSecondaryNavItems}
+        />
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setPrimaryNavItems, setSecondaryNavItems]);
+
+  return (
+    <MemoryRouter initialEntries={["/"]}>
+      <IcSideNavigation
+        version="v0.0.7"
+        status="Alpha"
+        appTitle="ACME coffee shop"
+      >
+        {primaryNavItems}
+        {secondaryNavItems}
+      </IcSideNavigation>
+    </MemoryRouter>
+  );
+};
+export const FirstLevelPrimaryNavItems = () => {
+  return (
+    <>
+      <IcNavigationItem slot="primary-navigation" href="/" label="Home">
+        <ReusableSlottedIcon />
+      </IcNavigationItem>
+      <IcDivider slot="primary-navigation" />
+      <IcNavigationItem slot="primary-navigation">
+        <NavLink to="/drinks" slot="navigation-item">
+          <SlottedSVG
+            slot="icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+              fill="currentColor"
+            />
+          </SlottedSVG>
+          Drinks
+        </NavLink>
+      </IcNavigationItem>
+    </>
+  );
+};
+
+export const FirstLevelSecondaryNavItems = (props: {
+  setPrimaryNavItems?: any;
+  setSecondaryNavItems?: any;
+}) => {
+  const { setPrimaryNavItems, setSecondaryNavItems } = props;
+
+  const changeNavHandler = () => {
+    setPrimaryNavItems(
+      <SecondLevelPrimaryNavItems
+        setPrimaryNavItems={setPrimaryNavItems}
+        setSecondaryNavItems={setSecondaryNavItems}
+      />
+    );
+    setSecondaryNavItems(<SecondLevelSecondaryNavItems />);
+  };
+
+  return (
+    <>
+      <IcNavigationItem
+        slot="secondary-navigation"
+        href="/settings"
+        label="Settings"
+      >
+        <ReusableSlottedIcon />
+      </IcNavigationItem>
+      <IcNavigationItem
+        slot="secondary-navigation"
+        label="Change nav"
+        onClick={changeNavHandler}
+      >
+        <SlottedSVG
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z" />
+        </SlottedSVG>
+      </IcNavigationItem>
+    </>
+  );
+};
+
+export const SecondLevelPrimaryNavItems = (props: {
+  setPrimaryNavItems: any;
+  setSecondaryNavItems: any;
+}) => {
+  const { setPrimaryNavItems, setSecondaryNavItems } = props;
+
+  const changeNavHandler = () => {
+    setPrimaryNavItems(<FirstLevelPrimaryNavItems />);
+    setSecondaryNavItems(<FirstLevelSecondaryNavItems />);
+  };
+  return (
+    <>
+      <BackButton onClick={changeNavHandler} />
+      <IcNavigationItem slot="primary-navigation">
+        <NavLink to="/drinks/coffee" slot="navigation-item">
+          <ReusableSlottedIcon />
+          Coffee
+        </NavLink>
+      </IcNavigationItem>
+      <IcNavigationItem
+        slot="primary-navigation"
+        href="/drinks/tea"
+        label="Tea"
+      >
+        <ReusableSlottedIcon />
+      </IcNavigationItem>
+      <IcNavigationItem
+        slot="primary-navigation"
+        href="/drinks/water"
+        label="Water"
+      >
+        <ReusableSlottedIcon />
+      </IcNavigationItem>
+    </>
+  );
+};
+
+export const SecondLevelSecondaryNavItems = () => {
+  return (
+    <>
+      <IcNavigationItem
+        slot="secondary-navigation"
+        href="/settings"
+        label="Settings"
+      >
+        <NavLink to="/settings" slot="navigation-item">
+          Settings
+        </NavLink>
+        <ReusableSlottedIcon />
+      </IcNavigationItem>
+      <IcDivider slot="secondary-navigation" />
+      <IcNavigationItem
+        slot="secondary-navigation"
+        href="/account"
+        label="Account"
+      >
+        <ReusableSlottedIcon />
+      </IcNavigationItem>
+    </>
+  );
+};
+
+const BackButton = (props: { onClick: () => void }) => {
+  const { onClick } = props;
+  return (
+    <>
+      <IcNavigationItem onClick={onClick} slot="primary-navigation">
+        <NavLink to="/" viewTransition>
+          <ReusableSlottedIcon />
+          Back to Home
+        </NavLink>
+      </IcNavigationItem>
+      <IcDivider slot="primary-navigation" />
+    </>
   );
 };

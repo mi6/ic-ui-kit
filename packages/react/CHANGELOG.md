@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.22.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.21.0...@ukic/react@3.22.0) (2026-03-18)
+
+### Bug Fixes
+
+- **react:** add story and test to demonstrate a multi-level side navigation ([1faeda9](https://github.com/mi6/ic-ui-kit/commit/1faeda96edc6b03410274fab48e4fdd2d143cf84)), closes [#3778](https://github.com/mi6/ic-ui-kit/issues/3778)
+
+### Features
+
+- **react:** adds ability to set custom classification text ([9323aef](https://github.com/mi6/ic-ui-kit/commit/9323aefc834b703c1638da898d603813db622179))
+- **react:** move IcPaginationBar to core components ([a931c31](https://github.com/mi6/ic-ui-kit/commit/a931c31f1b73c99b5a1039f0a9e1a577f9ba408f))
+
 # [3.21.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.20.0...@ukic/react@3.21.0) (2026-03-05)
 
 ### Features

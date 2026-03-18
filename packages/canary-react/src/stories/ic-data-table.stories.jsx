@@ -7,6 +7,7 @@ import {
   IcEmptyState,
   IcLink,
   IcMenuItem,
+  IcPaginationBar,
   IcPopoverMenu,
   IcTypography,
   SlottedSVG,
@@ -43,8 +44,7 @@ import {
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 import {
   IcDataTable,
-  IcDataTableTitleBar,
-  IcPaginationBar,
+  IcDataTableTitleBar
 } from "../components";
 
 export default {
