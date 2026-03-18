@@ -569,7 +569,11 @@ export const ReactRouterSideNav = () => {
   );
 };
 
-export const MultiLevelSideNav = () => {
+export const MultiLevelSideNav = ({
+  collapsedIconLabels = false,
+}: {
+  collapsedIconLabels?: boolean;
+}) => {
   const [primaryNavItems, setPrimaryNavItems] = useState(
     <FirstLevelPrimaryNavItems />
   );
@@ -593,6 +597,7 @@ export const MultiLevelSideNav = () => {
         version="v0.0.7"
         status="Alpha"
         appTitle="ACME coffee shop"
+        collapsedIconLabels={collapsedIconLabels}
       >
         {primaryNavItems}
         {secondaryNavItems}

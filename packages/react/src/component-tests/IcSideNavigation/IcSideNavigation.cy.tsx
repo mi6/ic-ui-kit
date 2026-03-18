@@ -869,6 +869,54 @@ describe("IcSideNavigation", () => {
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
         });
       });
+
+      it("should dynamically render navigation items with collapsed icon labels", () => {
+        mount(<MultiLevelSideNav collapsedIconLabels />);
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+        cy.checkA11yWithWait();
+
+        cy.compareSnapshot({
+          name: "/multi-level-collapsed-icon-labels-first-level",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        });
+
+        cy.findShadowEl(
+          SIDE_NAV_SELECTOR,
+          "#side-navigation > div.bottom-wrapper > div > button[aria-label='Expand side navigation']"
+        ).click();
+
+        cy.get(SIDE_NAV_SELECTOR)
+          .find("ic-navigation-item[label='Change nav']")
+          .click();
+
+        cy.compareSnapshot({
+          name: "/multi-level-collapsed-icon-labels-second-level-expanded",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        });
+
+        cy.findShadowEl(
+          SIDE_NAV_SELECTOR,
+          "#side-navigation > div.bottom-wrapper > div > button[aria-label='Collapse side navigation']"
+        ).click();
+
+        // Wait time to account for time taken for animation
+        cy.wait(DEFAULT_WAIT_TIME);
+
+        cy.compareSnapshot({
+          name: "/multi-level-collapsed-icon-labels-second-level-collapsed",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        });
+
+        cy.get(SIDE_NAV_SELECTOR)
+          .find("ic-navigation-item:nth-child(1)")
+          .click();
+
+        cy.compareSnapshot({
+          name: "/multi-level-collapsed-icon-labels-first-level",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        });
+      });
     });
   });
 });
