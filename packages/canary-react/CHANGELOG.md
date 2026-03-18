@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.38](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.37...@ukic/canary-react@3.0.0-canary.38) (2026-03-18)
+
+### Features
+
+- **canary-react:** remove IcPaginationBar from canary components ([0e93da0](https://github.com/mi6/ic-ui-kit/commit/0e93da087829c0e53decffe0bedffe58f46d7aea))
+
 # [3.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.36...@ukic/canary-react@3.0.0-canary.37) (2026-03-05)
 
 ### Features
