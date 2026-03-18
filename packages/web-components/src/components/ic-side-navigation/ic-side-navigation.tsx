@@ -183,6 +183,9 @@ export class SideNavigation {
         ["primary-navigation", "secondary-navigation"],
         this
       );
+      if (this.collapsedIconLabels) {
+        this.setCollapsedIconLabels();
+      }
       this.arrangeSlottedNavigationItem(this.menuExpanded);
     });
     this.hostMutationObserver.observe(this.el, {

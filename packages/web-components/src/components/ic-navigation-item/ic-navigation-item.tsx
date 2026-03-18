@@ -444,7 +444,7 @@ export class NavigationItem {
           class={{
             "tooltip-navigation-item": true,
             "tooltip-navigation-item-side-nav-collapsed":
-              displayNavigationTooltip && isInSideNav,
+              (!sideNavExpanded || displayNavigationTooltip) && isInSideNav,
             "tooltip-long-label-navigation-item-side-nav-expanded":
               this.el.hasAttribute("[display-navigation-tooltip = 'true']"),
           }}
