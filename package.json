@@ -28,6 +28,7 @@
     "release-check": "lerna version --no-push --no-git-tag-version",
     "static-analysis": "npm run lint && npm run prettier && npm run audit",
     "storybook": "lerna run storybook --stream --parallel",
+    "storybook:core": "lerna run storybook --scope=@ukic/web-components --scope=@ukic/react --stream --parallel",
     "storybook:canary": "lerna run storybook --scope=@ukic/canary-* --stream --parallel",
     "test": "lerna run test --scope=@ukic/web-components --stream",
     "test:ci": "lerna run test:ci --scope=@ukic/web-components --stream",
