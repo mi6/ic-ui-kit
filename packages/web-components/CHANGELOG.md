@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.22.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.21.0...@ukic/web-components@3.22.0) (2026-03-18)
+
+### Bug Fixes
+
+- **web-components:** add a mutation observer to check for dynamically render nav items in side nav ([fed768e](https://github.com/mi6/ic-ui-kit/commit/fed768eb36444584486e412ec9ac4629efdeea19)), closes [#3778](https://github.com/mi6/ic-ui-kit/issues/3778)
+- **web-components:** change padding on ic-chip component to match figma designs ([f51ec98](https://github.com/mi6/ic-ui-kit/commit/f51ec980251413fed9397b47ad2093afa38cfa44))
+- **web-components:** fixes console error in toast component ([92e9d7a](https://github.com/mi6/ic-ui-kit/commit/92e9d7aed008e310a0dcf277c1aabeedd7e7e2a9))
+
+### Features
+
+- **web-components:** adds ability to set custom classification text ([5f75034](https://github.com/mi6/ic-ui-kit/commit/5f75034c8a25799dbc4a2a71452c82e4f7fc0473))
+- **web-components:** move ic-pagination-bar to core web components ([04b6f59](https://github.com/mi6/ic-ui-kit/commit/04b6f5966880ec1a23d538c1610ca45fd6c9d0dc)), closes [#4116](https://github.com/mi6/ic-ui-kit/issues/4116)
+
 # [3.21.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.20.0...@ukic/web-components@3.21.0) (2026-03-05)
 
 ### Bug Fixes
