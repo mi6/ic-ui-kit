@@ -5,21 +5,23 @@
 
 Changes:
 
-- @ukic/canary-docs: 3.0.0-canary.29 => 3.0.0-canary.30
+- @ukic/canary-docs: 3.0.0-canary.30 => 3.0.0-canary.31
 
-- @ukic/canary-react: 3.0.0-canary.36 => 3.0.0-canary.37
+- @ukic/canary-react: 3.0.0-canary.37 => 3.0.0-canary.38
 
-- @ukic/canary-web-components: 3.0.0-canary.36 => 3.0.0-canary.37
+- @ukic/canary-web-components: 3.0.0-canary.37 => 3.0.0-canary.38
 
-- @ukic/docs: 3.4.10 => 3.4.11
+- @ukic/codemod: 1.2.10 => 1.2.11
 
-- @ukic/fonts: 3.2.8 => 3.2.9
+- @ukic/docs: 3.4.11 => 3.4.12
 
-- @ukic/nextjs: 3.2.18 => 3.2.19 (private)
+- @ukic/fonts: 3.2.9 => 3.2.10
 
-- @ukic/react: 3.20.0 => 3.21.0
+- @ukic/nextjs: 3.2.19 => 3.2.20 (private)
 
-- @ukic/web-components: 3.20.0 => 3.21.0
+- @ukic/react: 3.21.0 => 3.22.0
+
+- @ukic/web-components: 3.21.0 => 3.22.0
 
 ? Are you sure you want to create these versions? (ynH) [56D[56C[2K[G? Are you sure you want to create these versions? (ynH) y
 >> Yes[1A[6D[57C[1B[2K[1A[2K[G? Are you sure you want to create these versions? Yes[53D[53C
