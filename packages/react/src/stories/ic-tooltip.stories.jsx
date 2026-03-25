@@ -394,6 +394,37 @@ export const PositioningStrategy = {
   name: "Positioning strategy",
 };
 
+export const IcShowTooltipEvent = {
+  render: () => (
+    <>
+      <IcTooltip
+        label="This is a description of the button"
+        id="ic-tooltip-test-button-event"
+        onIcTooltipShow={(ev) => console.log("tooltip shown")}
+      >
+        <button
+          aria-describedby="ic-tooltip-test-button-event"
+        >
+          Default
+        </button>
+      </IcTooltip>
+      <IcTooltip
+        label="This is a description of the button"
+        id="ic-tooltip-test-button-event-1"
+        onIcTooltipShow={() => console.log("tooltip shown")}
+      >
+        <IcButton
+          aria-describedby="ic-tooltip-test-button-event-1"
+        >
+          Default
+        </IcButton>
+      </IcTooltip>
+    </>
+  ),
+
+  name: "IcShowTooltip event",
+};
+
 export const Playground = {
   render: (args) => (
     <div
