@@ -44,6 +44,7 @@ export const DIRECTIVES = [
   d.IcNavigationMenu,
   d.IcPageHeader,
   d.IcPagination,
+  d.IcPaginationBar,
   d.IcPaginationItem,
   d.IcPopoverMenu,
   d.IcRadioGroup,

@@ -386,14 +386,14 @@ export declare interface IcChip extends Components.IcChip {
 
 
 @ProxyCmp({
-  inputs: ['additionalSelectors', 'classification', 'country', 'inline', 'upTo']
+  inputs: ['additionalSelectors', 'classification', 'country', 'customClassificationText', 'inline', 'upTo']
 })
 @Component({
   selector: 'ic-classification-banner',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['additionalSelectors', 'classification', 'country', 'inline', 'upTo'],
+  inputs: ['additionalSelectors', 'classification', 'country', 'customClassificationText', 'inline', 'upTo'],
   standalone: false
 })
 export class IcClassificationBanner {
@@ -848,7 +848,7 @@ export declare interface IcLoadingIndicator extends Components.IcLoadingIndicato
 
 @ProxyCmp({
   inputs: ['activationType', 'anchorEl', 'closeOnSelect', 'fullWidth', 'inputEl', 'inputLabel', 'labelField', 'menuId', 'open', 'options', 'searchMode', 'size', 'value', 'valueField'],
-  methods: ['handleKeyboardOpen']
+  methods: ['handleKeyboardOpen', 'handleMenuKeyDown']
 })
 @Component({
   selector: 'ic-menu',
@@ -1082,6 +1082,45 @@ export declare interface IcPagination extends Components.IcPagination {
 
 
 @ProxyCmp({
+  inputs: ['accessibleLabel', 'alignment', 'currentPage', 'hideAllFromItemsPerPage', 'hideCurrentPage', 'hideFirstAndLastPageButton', 'hideRangeLabel', 'itemLabel', 'itemsPerPageOptions', 'monochrome', 'pageLabel', 'rangeLabelType', 'selectItemsPerPageOnEnter', 'selectedItemsPerPage', 'setToFirstPageOnPaginationChange', 'showGoToPageControl', 'showItemsPerPageControl', 'theme', 'totalItems', 'type']
+})
+@Component({
+  selector: 'ic-pagination-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['accessibleLabel', 'alignment', 'currentPage', 'hideAllFromItemsPerPage', 'hideCurrentPage', 'hideFirstAndLastPageButton', 'hideRangeLabel', 'itemLabel', 'itemsPerPageOptions', 'monochrome', 'pageLabel', 'rangeLabelType', 'selectItemsPerPageOnEnter', 'selectedItemsPerPage', 'setToFirstPageOnPaginationChange', 'showGoToPageControl', 'showItemsPerPageControl', 'theme', { name: 'totalItems', required: true }, 'type'],
+  outputs: ['icPageChange', 'icItemsPerPageChange'],
+  standalone: false
+})
+export class IcPaginationBar {
+  protected el: HTMLIcPaginationBarElement;
+  @Output() icPageChange = new EventEmitter<CustomEvent<IIcPaginationBarIcPageChangeEventDetail>>();
+  @Output() icItemsPerPageChange = new EventEmitter<CustomEvent<IIcPaginationBarIcItemsPerPageChangeEventDetail>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+import type { IcPageChangeEventDetail as IIcPaginationBarIcPageChangeEventDetail } from '@ukic/web-components';
+import type { IcItemsPerPageChangeEventDetail as IIcPaginationBarIcItemsPerPageChangeEventDetail } from '@ukic/web-components';
+
+export declare interface IcPaginationBar extends Components.IcPaginationBar {
+  /**
+   * Emitted when a page is navigated to via the 'go to' input.
+The `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.
+   */
+  icPageChange: EventEmitter<CustomEvent<IIcPaginationBarIcPageChangeEventDetail>>;
+  /**
+   * Emitted when the items per page option is changed.
+   */
+  icItemsPerPageChange: EventEmitter<CustomEvent<IIcPaginationBarIcItemsPerPageChangeEventDetail>>;
+}
+
+
+@ProxyCmp({
   inputs: ['disabled', 'label', 'monochrome', 'page', 'selected', 'theme', 'type']
 })
 @Component({
@@ -1310,7 +1349,7 @@ export declare interface IcSectionContainer extends Components.IcSectionContaine
 
 
 @ProxyCmp({
-  inputs: ['debounce', 'disableAutoFiltering', 'disabled', 'emptyOptionListText', 'form', 'fullWidth', 'helperText', 'hideLabel', 'includeDescriptionsInSearch', 'includeGroupTitlesInSearch', 'label', 'loading', 'loadingErrorLabel', 'loadingLabel', 'multiple', 'name', 'options', 'placeholder', 'readonly', 'required', 'searchMatchPosition', 'searchable', 'selectOnEnter', 'showClearButton', 'size', 'theme', 'timeout', 'validationAriaLive', 'validationStatus', 'validationText', 'value'],
+  inputs: ['debounce', 'disableAutoFiltering', 'disabled', 'emptyOptionListText', 'form', 'fullWidth', 'helperText', 'hideLabel', 'includeDescriptionsInSearch', 'includeGroupTitlesInSearch', 'label', 'loading', 'loadingErrorLabel', 'loadingLabel', 'multiple', 'name', 'options', 'placeholder', 'readonly', 'required', 'searchMatchPosition', 'searchable', 'selectOnEnter', 'showClearButton', 'size', 'theme', 'timeout', 'useNativeSelectOnMobile', 'validationAriaLive', 'validationStatus', 'validationText', 'value'],
   methods: ['setFocus']
 })
 @Component({
@@ -1318,7 +1357,7 @@ export declare interface IcSectionContainer extends Components.IcSectionContaine
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['debounce', 'disableAutoFiltering', 'disabled', 'emptyOptionListText', 'form', 'fullWidth', 'helperText', 'hideLabel', 'includeDescriptionsInSearch', 'includeGroupTitlesInSearch', { name: 'label', required: true }, 'loading', 'loadingErrorLabel', 'loadingLabel', 'multiple', 'name', 'options', 'placeholder', 'readonly', 'required', 'searchMatchPosition', 'searchable', 'selectOnEnter', 'showClearButton', 'size', 'theme', 'timeout', 'validationAriaLive', 'validationStatus', 'validationText', 'value'],
+  inputs: ['debounce', 'disableAutoFiltering', 'disabled', 'emptyOptionListText', 'form', 'fullWidth', 'helperText', 'hideLabel', 'includeDescriptionsInSearch', 'includeGroupTitlesInSearch', { name: 'label', required: true }, 'loading', 'loadingErrorLabel', 'loadingLabel', 'multiple', 'name', 'options', 'placeholder', 'readonly', 'required', 'searchMatchPosition', 'searchable', 'selectOnEnter', 'showClearButton', 'size', 'theme', 'timeout', 'useNativeSelectOnMobile', 'validationAriaLive', 'validationStatus', 'validationText', 'value'],
   outputs: ['icBlur', 'icChange', 'icClear', 'icClose', 'icFocus', 'icInput', 'icOpen', 'icOptionSelect', 'icOptionDeselect', 'icRetryLoad'],
   standalone: false
 })
