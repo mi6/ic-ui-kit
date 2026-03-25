@@ -267,10 +267,66 @@
       }
     },
     {
-      "GHSA-3vhc-576x-3qv4": {
+      "GHSA-rf6f-7fwh-wjgh": {
+        "active": true,
+        "notes": "flatted - appears to be a dependency of eslint and stylelint, hopefully an update to these will pull in the fixed version (3.4.2)",
+        "expiry": "14 April 2026"
+      }
+    },
+    {
+      "GHSA-25h7-pfq9-p65f": {
+        "active": true,
+        "notes": "flatted - appears to be a dependency of eslint and stylelint, hopefully an update to these will pull in the fixed version (3.4.2)",
+        "expiry": "14 April 2026"
+      }
+    },
+    {
+      "GHSA-345p-7cg4-v4c7": {
         "active": true,
         "notes": "need to use modelcontextprotocol/sdk v1.26 - currently dictated by @angular/cli",
-        "expiry": "05 March 2026"
+        "expiry": "20 April 2026"
+      }
+    },
+    {
+      "GHSA-f269-vfmq-vjvj": {
+        "active": true,
+        "notes": "undici needs uodating to 7.24 - managed as a dependency of @angular/devkit and latest isn't high enough",
+        "expiry": "20 April 2026"
+      }
+    },
+    {
+      "GHSA-2mjp-6q6p-2qxm": {
+        "active": true,
+        "notes": "undici needs uodating to 7.24 - managed as a dependency of @angular/devkit and latest isn't high enough",
+        "expiry": "20 April 2026"
+      }
+    },
+    {
+      "GHSA-v9p9-hfj2-hcw8": {
+        "active": true,
+        "notes": "undici needs uodating to 7.24 - managed as a dependency of @angular/devkit and latest isn't high enough",
+        "expiry": "20 April 2026"
+      }
+    },
+    {
+      "GHSA-phc3-fgpg-7m6h": {
+        "active": true,
+        "notes": "undici needs uodating to 7.24 - managed as a dependency of @angular/devkit and latest isn't high enough",
+        "expiry": "20 April 2026"
+      }
+    },
+    {
+      "GHSA-vrm6-8vpv-qv8q": {
+        "active": true,
+        "notes": "undici needs uodating to 7.24 - managed as a dependency of @angular/devkit and latest isn't high enough",
+        "expiry": "20 April 2026"
+      }
+    },
+    {
+      "GHSA-4992-7rv2-5pvq": {
+        "active": true,
+        "notes": "undici needs uodating to 7.24 - managed as a dependency of @angular/devkit and latest isn't high enough",
+        "expiry": "20 April 2026"
       }
     }
   ]
