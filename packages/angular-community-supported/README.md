@@ -19,7 +19,7 @@ but as the core components are written as standards-compliant web components, de
 
 The native component wrappers have been created as this will allow Angular developers a better way to interface with the UI Kit however and so this is the recommended approach.
 A list of the benefits of using the native components can be found [on Stencil's docs](https://stenciljs.com/docs/angular), 
-but to summarise here: Trying to use non-angular components creates some minor friction or pain points that an app developer will need to deal with; by using these wrapped components that's no longer a concern.
+but to summarise here: Trying to use non-Angular components creates some minor friction or pain points that an app developer will need to deal with; by using these wrapped components that's no longer a concern.
 
 If you would prefer to use the vanilla web components instead you can do so by following the [Getting Started guide](https://design.sis.gov.uk/get-started/development/install-components/angular/) for vanilla components here and also including `CUSTOM_ELEMENTS_SCHEMA` in the `schemas` key of either the
 Module or the Component declaration of any components that use the ICDS components.
@@ -39,14 +39,14 @@ As requested by the ICDS team, if this package does not receive any updates with
 
 > Last tested with Angular 20.3.0 & 21.0.0
 
-To install the components you have a two different methods. Either using the `ng add` command to streamline the process or a manual install:
+To install the components you have two different methods. Either using the `ng add` command to streamline the process or a manual install:
 
 ### Using ng add
 
 This will install all the necessary packages and setup your project. In the root of your project:
 
 ```shell
-ng add @ukic/angular
+ng add @ukic/angular-community-supported
 ```
 
 ### Manual setup
@@ -55,16 +55,16 @@ ng add @ukic/angular
 
 ```shell
 # using npm
-npm install @ukic/angular @ukic/fonts
+npm install @ukic/angular-community-supported @ukic/fonts
 
 # using yarn
 rm package-lock.json
-yarn add @ukic/angular @ukic/fonts
+yarn add @ukic/angular-community-supported @ukic/fonts
 ```
 
 ### Step two
 
-To get the correct styling with the ICDS components, you will need to import the core CSS file and the fonts css file.
+To get the correct styling with the ICDS components, you will need to import the core CSS file and the fonts CSS file.
 
 Add the following into your angular.json file in the build styles config
 
@@ -73,7 +73,7 @@ Add the following into your angular.json file in the build styles config
     "styles": [
         ...
         "node_modules/@ukic/fonts/dist/fonts.css",
-        "node_modules/@ukic/angular/css/core.css"
+        "node_modules/@ukic/angular-community-supported/css/core.css"
     ]
 }
 ```
@@ -86,7 +86,7 @@ If you would like to import these styles to apply them to the rest of your proje
 {
     "styles": [
         ...
-        "node_modules/@ukic/angular/css/normalize.css"
+        "node_modules/@ukic/angular-community-supported/css/normalize.css"
     ]
 }
 ```
@@ -99,17 +99,17 @@ Due to a conflicting issue with TypeScript you need to add `skipLibCheck: true` 
 
 To use the ICDS components in Angular your usage will vary based on if you are using a standalone project or using NgModules.
 
-> **NOTE:** There is currently no Angular-specific per-component documentation (this page is it) though using the the web components reference in combination with intellisense should work well.
+> **NOTE:** There is currently no Angular-specific per-component documentation (this page is it) though using the web components reference in combination with intellisense should work well.
 
 ### NgModule application
 
-You will need to import the `ICDSModule` from `@ukic/angular` into your NgModule. This will import all of the components and make them available and then you can follow the web component documentation.
+You will need to import the `ICDSModule` from `@ukic/angular-community-supported` into your NgModule. This will import all of the components and make them available and then you can follow the web component documentation.
 
 ```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { ICDSModule } from '@ukic/angular';
+import { ICDSModule } from '@ukic/angular-community-supported';
 
 @NgModule({
   declarations: [
@@ -127,11 +127,11 @@ export class AppModule { }
 
 ### Standalone application
 
-You will need to import each component as you need it into your components from `@ukic/angular/standalone`. If you are using a form control you will need to also import `ICDSValueAccessorModule` into your component. Once you've imported it you can then you can follow the web component documentation.
+You will need to import each component as you need it into your components from `@ukic/angular-community-supported/standalone`. If you are using a form control you will need to also import `ICDSValueAccessorModule` into your component. Once you've imported it you can then you can follow the web component documentation.
 
 ```typescript
 import { Component } from '@angular/core';
-import { IcButton } from '@ukic/angular/standalone';
+import { IcButton } from '@ukic/angular-community-supported/standalone';
 
 @Component({
   selector: 'app-root',
@@ -145,7 +145,7 @@ export class AppComponent {}
 ```typescript
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IcTextField, ICDSValueAccessorModule } from '@ukic/angular/standalone';
+import { IcTextField, ICDSValueAccessorModule } from '@ukic/angular-community-supported/standalone';
 
 @Component({
   selector: 'app-root',
@@ -166,8 +166,8 @@ export class FormControlsComponent {
 
 ## Testing locally
 
-To test the current angular output of your local repo there are numerous approaches. The following guide will likely be the simplest approach.
-This is useful for testing that changes made to the web components are accurately reflected in the angular wrappers and also to ensure the "add" schematic is functioning properly.
+To test the current Angular output of your local repo there are numerous approaches. The following guide will likely be the simplest approach.
+This is useful for testing that changes made to the web components are accurately reflected in the Angular wrappers and also to ensure the "add" schematic is functioning properly.
 
 ### 1 - Prep the source
 
@@ -175,8 +175,8 @@ From the root of ic-ui-kit
 - Build the components: `npm run build`
 - Pack them: `./pack-all-tars.sh`
 
-Whenever changes are made to the components or angular output config this step will need to be run again.
-They can be prepped more efficiently by sitting in the web-components or angular package folders and running the `npm [build|pack]` commands.
+Whenever changes are made to the components or Angular output config this step will need to be run again.
+They can be prepped more efficiently by sitting in the web-components or Angular package folders and running the `npm [build|pack]` commands.
 
 ### 2 - Create the test app
 
@@ -197,8 +197,8 @@ Run `npm install`
 
 ### 4 - Run the schematic
 
-```bash
-ng add @ukic/angular
+```shell
+ng add @ukic/angular-community-supported
 ```
 
 You'll now be able to add ICDS components to a vanilla Angular app setup [as above](#Using-the-components-in-your-app).
