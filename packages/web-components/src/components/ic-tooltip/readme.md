@@ -19,6 +19,13 @@
 | `theme`              | `theme`             | Sets the tooltip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined`                                                                                                                                     | `"inherit"` |
 
 
+## Events
+
+| Event           | Description                               | Type                |
+| --------------- | ----------------------------------------- | ------------------- |
+| `icTooltipShow` | Emitted when the tooltip becomes visible. | `CustomEvent<void>` |
+
+
 ## Methods
 
 ### `displayTooltip(show: boolean, persistTooltip?: boolean) => Promise<void>`
