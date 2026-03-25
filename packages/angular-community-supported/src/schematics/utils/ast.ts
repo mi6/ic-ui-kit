@@ -24,13 +24,13 @@ export function addICDSModuleImportToNgModule(
 ): void {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const moduleSource = getSourceFile(host, modulePath) as any;
-  if (!isImported(moduleSource, "ICDSModule", "@ukic/angular")) {
+  if (!isImported(moduleSource, "ICDSModule", "@ukic/angular-community-supported")) {
     const recorder = host.beginUpdate(modulePath);
     const icdsModuleChange = insertImport(
       moduleSource,
       modulePath,
       "ICDSModule",
-      "@ukic/angular",
+      "@ukic/angular-community-supported",
     );
 
     if (icdsModuleChange) {
