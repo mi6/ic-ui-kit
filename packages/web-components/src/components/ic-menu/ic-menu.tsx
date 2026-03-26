@@ -479,40 +479,35 @@ export class Menu {
   };
 
   private setNextOptionValue = (selectedOptionIndex: number): void => {
-    if (this.ungroupedOptions[selectedOptionIndex + 1]) {
-      this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex + 1][this.valueField],
-        optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex + 1][this.valueField]
-        ),
+    const nextIndex = selectedOptionIndex % this.ungroupedOptions.length;
+    const nextOption = this.ungroupedOptions[nextIndex];
+    this.setHighlightedOption(nextIndex);
+
+    if (nextOption.disabled) {
+      this.menuOptionId.emit({
+        optionId: this.getOptionId(nextOption[this.valueField]),
       });
     } else {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[0][this.valueField],
-        optionId: this.getOptionId(this.ungroupedOptions[0][this.valueField]),
+        value: nextOption[this.valueField],
+        optionId: this.getOptionId(nextOption[this.valueField]),
       });
     }
   };
 
   private setPreviousOptionValue = (selectedOptionIndex: number): void => {
-    if (this.ungroupedOptions[selectedOptionIndex - 1]) {
-      this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex - 1][this.valueField],
-        optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex - 1][this.valueField]
-        ),
+    const prevIndex = selectedOptionIndex % this.ungroupedOptions.length;
+    const prevOption = this.ungroupedOptions[prevIndex];
+    this.setHighlightedOption(prevIndex);
+
+    if (prevOption.disabled) {
+      this.menuOptionId.emit({
+        optionId: this.getOptionId(prevOption[this.valueField]),
       });
     } else {
       this.menuOptionSelect.emit({
-        value:
-          this.ungroupedOptions[this.ungroupedOptions.length - 1][
-            this.valueField
-          ],
-        optionId: this.getOptionId(
-          this.ungroupedOptions[this.ungroupedOptions.length - 1][
-            this.valueField
-          ]
-        ),
+        value: prevOption[this.valueField],
+        optionId: this.getOptionId(prevOption[this.valueField]),
       });
     }
   };
@@ -554,7 +549,7 @@ export class Menu {
           selectedOptionIndex < this.ungroupedOptions.length - 1
             ? selectedOptionIndex + 1
             : 0;
-        this.setNextOptionValue(selectedOptionIndex);
+        this.setNextOptionValue(nextIndex);
         this.emitOptionId(nextIndex);
         break;
       }
@@ -565,7 +560,7 @@ export class Menu {
           selectedOptionIndex > 0
             ? selectedOptionIndex - 1
             : this.ungroupedOptions.length - 1;
-        this.setPreviousOptionValue(selectedOptionIndex);
+        this.setPreviousOptionValue(prevIndex);
         this.emitOptionId(prevIndex);
         break;
       }
@@ -613,6 +608,7 @@ export class Menu {
             options[highlightedOptionIndex].disabled === true
           ) {
             this.disabledOptionSelected = true;
+            this.optionHighlighted = undefined;
           } else {
             this.setInputValue(highlightedOptionIndex);
           }
@@ -889,15 +885,18 @@ export class Menu {
   private setInputValue = (highlightedOptionIndex: number) => {
     const menuOptions = this.getMenuOptions();
 
-    if (menuOptions[highlightedOptionIndex] !== undefined) {
+    if (
+      menuOptions[highlightedOptionIndex] !== undefined &&
+      !menuOptions[highlightedOptionIndex].disabled
+    ) {
       this.menuOptionSelect.emit({
         value: menuOptions[highlightedOptionIndex][this.valueField],
       });
+    }
 
-      if (this.closeOnSelect) {
-        this.optionHighlighted = undefined;
-        this.menuOptionId.emit({ optionId: undefined });
-      }
+    if (this.closeOnSelect) {
+      this.optionHighlighted = undefined;
+      this.menuOptionId.emit({ optionId: undefined });
     }
 
     if (this.closeOnSelect) {
@@ -1110,12 +1109,14 @@ export class Menu {
   private emitSelectAllEvents = () => {
     // Select all if there is either no value or not all options are selected
     // 'true' means select all, 'false' means clear all
+    const enabledOptionsCount = this.ungroupedOptions.filter(
+      (option) => !option.disabled
+    ).length;
     this.menuOptionSelectAll.emit({
-      select:
-        !this.value || !(this.value?.length === this.ungroupedOptions.length),
+      select: !this.value || !(this.value?.length === enabledOptionsCount),
     });
-    // Emit clear event if all options are selected
-    if (this.value?.length === this.ungroupedOptions.length) {
+    // Emit clear event if all non-disabled options are selected
+    if (this.value?.length === enabledOptionsCount) {
       this.icClear.emit();
     }
   };
@@ -1129,9 +1130,14 @@ export class Menu {
   // and menu is focused
   private autoSetValueOnMenuKeyDown = (event: KeyboardEvent): void => {
     event.cancelBubble = true;
-    const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option[this.valueField] === this.value
-    );
+    const highlightedOptionIndex = this.getOptionHighlightedIndex();
+
+    const selectedOptionIndex =
+      highlightedOptionIndex >= 0
+        ? highlightedOptionIndex
+        : this.ungroupedOptions.findIndex(
+            (option) => option[this.valueField] === this.value
+          );
 
     const isSearchableSelect =
       !!this.inputEl && this.inputEl.tagName === "INPUT";
@@ -1145,24 +1151,25 @@ export class Menu {
       case "ArrowUp":
         if (!this.hasTimedOut) {
           event.preventDefault();
-          this.setPreviousOptionValue(selectedOptionIndex);
-          this.emitOptionId(
+          const prevIndex =
             selectedOptionIndex > 0
               ? selectedOptionIndex - 1
-              : this.ungroupedOptions.length - 1
-          );
+              : this.ungroupedOptions.length - 1;
+
+          this.setPreviousOptionValue(prevIndex);
+          this.emitOptionId(prevIndex);
           this.keyboardNav = true;
         }
         break;
       case "ArrowDown":
         if (!this.hasTimedOut) {
           event.preventDefault();
-          this.setNextOptionValue(selectedOptionIndex);
-          this.emitOptionId(
+          const nextIndex =
             selectedOptionIndex < this.ungroupedOptions.length - 1
               ? selectedOptionIndex + 1
-              : 0
-          );
+              : 0;
+          this.setNextOptionValue(nextIndex);
+          this.emitOptionId(nextIndex);
           this.keyboardNav = true;
         }
         break;
@@ -1287,7 +1294,7 @@ export class Menu {
           option.children.map(
             (option) => !option.disabled && this.ungroupedOptions.push(option)
           );
-        } else if (!option.disabled) {
+        } else {
           this.ungroupedOptions.push(option);
         }
       });
@@ -1343,6 +1350,10 @@ export class Menu {
           class={{
             "option-text-container": true,
             "show-check-icon": showCheckIcon,
+            "focus-border":
+              (this.keyboardNav || this.initialOptionsListRender) &&
+              option[this.valueField] === this.optionHighlighted &&
+              !!option.disabled,
           }}
         >
           {(option.icon || !option.hideLabel) && (
@@ -1411,8 +1422,18 @@ export class Menu {
           option: true,
           "focused-option": isManualMode
             ? (keyboardNav || initialOptionsListRender) &&
-              option[this.valueField] === optionHighlighted
-            : keyboardNav && selected,
+              option[this.valueField] === optionHighlighted &&
+              !option.disabled
+            : keyboardNav &&
+              option[this.valueField] === optionHighlighted &&
+              !option.disabled,
+          "focus-disabled": isManualMode
+            ? (keyboardNav || initialOptionsListRender) &&
+              option[this.valueField] === optionHighlighted &&
+              !!option.disabled
+            : keyboardNav &&
+              option[this.valueField] === optionHighlighted &&
+              !!option.disabled,
           "last-recommended-option": !!(
             option.recommended &&
             options[index + 1] &&
@@ -1500,8 +1521,12 @@ export class Menu {
       multiSelect,
     } = this;
 
+    const enabledOptionsCount = this.ungroupedOptions.filter(
+      (option) => !option.disabled
+    ).length;
+
     const selectAllButtonText = `${
-      value?.length === this.ungroupedOptions.length ? "Clear" : "Select"
+      value?.length === enabledOptionsCount ? "Clear" : "Select"
     } all`;
 
     const hasNoResults = this.host.classList.contains("no-results");
