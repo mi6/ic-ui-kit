@@ -87,6 +87,16 @@
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.57.1"
   },
+  "_dependencyNotes": {
+    "picomatch": "Security override: fixes vulnerability in transitive deps (chokidar v3 / cspell). Remove once remark-cli/stylelint are upgraded.",
+    "yaml": "Security override: fixes transitive vulnerability (patched in 1.10.3 / 2.8.3). Sources: lerna v6, stylelint v14."
+  },
+  "overrides": {
+    "picomatch@^2.2.1": "2.3.2",
+    "picomatch@^4.0.0": "4.0.4",
+    "yaml@^1.0.0": "1.10.3",
+    "yaml@^2.0.0": "2.8.3"
+  },
   "packageManager": "^npm@10.9.2",
   "engines": {
     "node": ">=16.3.0"
