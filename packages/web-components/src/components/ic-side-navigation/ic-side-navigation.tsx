@@ -183,6 +183,13 @@ export class SideNavigation {
         ["primary-navigation", "secondary-navigation"],
         this
       );
+
+      // keep state in sync with dynamic slot content
+      const hasSecondary = isSlotUsed(this.el, "secondary-navigation");
+      if (this.hasSecondaryNavigation !== hasSecondary) {
+        this.hasSecondaryNavigation = hasSecondary;
+      }
+
       this.arrangeSlottedNavigationItem(this.menuExpanded);
     });
     this.hostMutationObserver.observe(this.el, {
