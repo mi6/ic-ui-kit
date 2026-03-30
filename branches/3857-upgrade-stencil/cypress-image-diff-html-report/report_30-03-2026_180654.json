@@ -1,7 +1,7 @@
 {
   "total": 288,
-  "totalPassed": 287,
-  "totalFailed": 1,
+  "totalPassed": 288,
+  "totalFailed": 0,
   "totalSuites": 10,
   "suites": [
     {
@@ -2123,14 +2123,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/position-above.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDatePicker.cy.tsx/clear-button-focused-theme-dark",
-          "percentage": 0.008280786712108251,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/clear-button-focused-theme-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDatePicker.cy.tsx/clear-button-focused-theme-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/clear-button-focused-theme-dark.png"
         },
         {
@@ -3233,9 +3233,9 @@
       ]
     }
   ],
-  "startedAt": "2026-03-30T16:21:24.914Z",
-  "endedAt": "2026-03-30T16:31:38.166Z",
-  "duration": 587664,
+  "startedAt": "2026-03-30T18:06:54.463Z",
+  "endedAt": "2026-03-30T18:16:37.678Z",
+  "duration": 557677,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
