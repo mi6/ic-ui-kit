@@ -1649,6 +1649,14 @@ export class DateInput {
       this.disabled
     );
 
+    const clearButtonTheme =
+      this.clearButtonFocused && this.theme !== "inherit"
+        ? this.theme
+        : "inherit";
+
+    const calendarTheme =
+      this.calendarFocused && this.theme !== "inherit" ? this.theme : "inherit";
+
     return (
       <Host
         class={{
@@ -1714,7 +1722,7 @@ export class DateInput {
                     onFocus={this.handleClearFocus}
                     onBlur={this.handleClearBlur}
                     variant="icon-tertiary"
-                    theme={this.clearButtonFocused ? "light" : "dark"}
+                    theme={clearButtonTheme}
                     size={size}
                   ></ic-button>
                 )}
@@ -1736,7 +1744,7 @@ export class DateInput {
                       size={size}
                       onFocus={this.handleCalendarFocus}
                       onBlur={this.handleCalendarBlur}
-                      theme={this.calendarFocused ? "light" : "dark"}
+                      theme={calendarTheme}
                     ></ic-button>
                   </div>
                 )}

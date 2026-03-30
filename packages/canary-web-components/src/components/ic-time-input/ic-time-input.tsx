@@ -1559,6 +1559,14 @@ export class TimeInput {
       this.showAmPmToggle = false;
     }
 
+    const clearButtonTheme =
+      this.clearButtonFocused && this.theme !== "inherit"
+        ? this.theme
+        : "inherit";
+
+    const clockButtonTheme =
+      this.clockFocused && this.theme !== "inherit" ? this.theme : "inherit";
+
     return (
       <Host
         class={{
@@ -1639,7 +1647,7 @@ export class TimeInput {
                       onFocus={this.handleClearFocus}
                       onBlur={this.handleClearBlur}
                       variant="icon-tertiary"
-                      theme={this.clearButtonFocused ? "light" : "dark"}
+                      theme={clearButtonTheme}
                       size={size}
                     ></ic-button>
                   )}
@@ -1657,7 +1665,7 @@ export class TimeInput {
                         size={size}
                         onFocus={this.handleClockFocus}
                         onBlur={this.handleClockBlur}
-                        theme={this.clockFocused ? "light" : "dark"}
+                        theme={clockButtonTheme}
                       ></ic-button>
                     </div>
                   )}
