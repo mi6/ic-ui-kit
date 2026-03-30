@@ -757,22 +757,57 @@ export class DataTable {
     this.densityUpdate = false;
   };
 
-  private typographyScrollHeightExceedsContainerHeight = (
+  private typographyScrollHeightExceedsContainerHeight(
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement
-  ) => cellContainer && typographyEl.scrollHeight > cellContainer.clientHeight;
-
-  private cellContainerMinusLineHeightIsGreaterThanTruncWrapperScrollHeight = (
-    typographyEl: HTMLIcTypographyElement,
-    cellContainer: HTMLElement
-  ) => {
-    const truncWrapper = this.getTruncWrapper(typographyEl);
-    return (
-      truncWrapper &&
-      cellContainer.clientHeight - this.DEFAULT_LINE_HEIGHT >
-        truncWrapper.scrollHeight
+  ): boolean {
+    const description = cellContainer.querySelector(
+      this.CELL_DESCRIPTION_STRING
     );
-  };
+    const descriptionHeight = description
+      ? this.getDescriptionHeight(description)
+      : 0;
+
+    const iconHeight =
+      deviceSizeMatches(IC_DEVICE_SIZES.XS) &&
+      cellContainer.querySelector(".icon")
+        ? cellContainer.querySelector(".icon")!.clientHeight
+        : 0;
+
+    const availableTextHeight =
+      cellContainer.clientHeight - descriptionHeight - iconHeight;
+
+    return typographyEl.scrollHeight > availableTextHeight;
+  }
+
+  private cellContainerMinusLineHeightIsGreaterThanTruncWrapperScrollHeight(
+    typographyEl: HTMLIcTypographyElement,
+    cellContainer: HTMLElement
+  ) {
+    const truncWrapper = this.getTruncWrapper(typographyEl);
+    if (!truncWrapper) return false;
+
+    const description = cellContainer.querySelector(
+      this.CELL_DESCRIPTION_STRING
+    );
+    const descriptionHeight = description
+      ? this.getDescriptionHeight(description)
+      : 0;
+
+    const iconHeight =
+      deviceSizeMatches(IC_DEVICE_SIZES.XS) &&
+      cellContainer.querySelector(".icon")
+        ? cellContainer.querySelector(".icon")!.clientHeight
+        : 0;
+
+    const availableTextHeight =
+      cellContainer.clientHeight -
+      descriptionHeight -
+      iconHeight -
+      this.DEFAULT_LINE_HEIGHT;
+
+    return truncWrapper.scrollHeight <= availableTextHeight;
+  }
 
   private truncatePatternUpdated = () => {
     if (this.truncationPattern === this.TOOLTIP_STRING) {
@@ -2105,7 +2140,10 @@ export class DataTable {
     }
 
     if (
-      typographyEl?.scrollHeight > cellContainer?.clientHeight &&
+      this.typographyScrollHeightExceedsContainerHeight(
+        typographyEl,
+        cellContainer
+      ) &&
       this.truncationPattern === this.TOOLTIP_STRING
     ) {
       if (
