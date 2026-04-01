@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-tooltip component should render correctly when on a dialog 1`] = `
+exports[`ic-tooltip component should render correctly when in a drawer 1`] = `
 <ic-tooltip class="ic-tooltip ic-tooltip-in-container" label="tooltip">
   <template shadowrootmode="open">
     <div aria-hidden="false" class="ic-tooltip-container" data-show role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0;">
@@ -14,7 +14,7 @@ exports[`ic-tooltip component should render correctly when on a dialog 1`] = `
 </ic-tooltip>
 `;
 
-exports[`ic-tooltip component should render correctly when in a drawer 1`] = `
+exports[`ic-tooltip component should render correctly when on a dialog 1`] = `
 <ic-tooltip class="ic-tooltip ic-tooltip-in-container" label="tooltip">
   <template shadowrootmode="open">
     <div aria-hidden="false" class="ic-tooltip-container" data-show role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0;">

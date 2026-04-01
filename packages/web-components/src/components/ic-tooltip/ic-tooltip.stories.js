@@ -301,6 +301,38 @@ export const PositioningStrategy = {
   name: "Positioning strategy",
 };
 
+export const IcShowTooltipEvent = {
+  render: () =>
+    html`<script>
+        document
+          .querySelector("#ic-tooltip-event-1")
+          .addEventListener("icTooltipShow", tooltipShowHandler);
+        document
+          .querySelector("#ic-tooltip-event-2")
+          .addEventListener("icTooltipShow", tooltipShowHandler);
+        function tooltipShowHandler() {
+          console.log("tooltip shown");
+        }
+      </script>
+      <ic-tooltip
+        label="This is a description of the button"
+        id="ic-tooltip-event-1"
+        ><button aria-describedby="ic-tooltip-event-1">
+          Default
+        </button></ic-tooltip
+      >
+      <ic-tooltip
+        label="This is a description of the button"
+        id="ic-tooltip-event-2"
+        ><ic-button aria-describedby="ic-tooltip-event-2">
+          Default
+        </ic-button></ic-tooltip
+      > `,
+
+  name: "IcShowTooltip event",
+  height: "100px",
+};
+
 export const Playground = {
   render: (args) =>
     html`<div style="margin: 250px">

@@ -23936,7 +23936,22 @@
           ]
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "event": "icTooltipShow",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the tooltip becomes visible.",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [
         {
