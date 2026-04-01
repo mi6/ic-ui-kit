@@ -2,7 +2,12 @@ export type IcStepVariants = "default" | "compact";
 
 export type IcStepStatuses = "optional" | "required";
 
-export type IcStepTypes = "active" | "current" | "completed" | "disabled";
+export type IcStepTypes =
+  | "active"
+  | "current"
+  | "completed"
+  | "disabled"
+  | "error";
 
 export type IcStepI18n = {
   next: string;
@@ -14,4 +19,5 @@ export type IcStepI18n = {
   notRequired: string;
   required: string;
   optional: string;
+  error: string;
 };

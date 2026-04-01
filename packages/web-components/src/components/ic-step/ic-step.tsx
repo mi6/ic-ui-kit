@@ -1,6 +1,7 @@
 import { Component, Host, h, Prop, Element, Watch } from "@stencil/core";
 import checkIcon from "../../assets/check-icon.svg";
 import warningIcon from "../../assets/warning-icon-outline.svg";
+import errorIcon from "../../assets/error-icon.svg";
 import {
   IcStepVariants,
   IcStepStatuses,
@@ -44,6 +45,7 @@ export class Step {
     notRequired: "Not required",
     required: "Required",
     optional: "Optional",
+    error: "Error",
   };
 
   /**
@@ -139,6 +141,8 @@ export class Step {
       ariaLabel = `. ${icI18n.completed}`;
     } else if (type === "disabled") {
       ariaLabel = `. ${icI18n.notRequired}`;
+    } else if (type === "error") {
+      ariaLabel = `. ${icI18n.error}`;
     } else if (status === "required") {
       ariaLabel = `. ${icI18n.required}`;
     } else if (status === "optional") {
@@ -157,6 +161,8 @@ export class Step {
       stepType = icI18n.notRequired;
     } else if (compactStepStyling === "completed") {
       stepType = icI18n.completed;
+    } else if (type === "error" || compactStepStyling === "error") {
+      stepType = icI18n.error;
     }
 
     // STATUS ICON FOR COMPACT STEP
@@ -177,6 +183,14 @@ export class Step {
           innerHTML={warningIcon}
         ></span>
       );
+    } else if (type === "error" || compactStepStyling === "error") {
+      statusIcon = (
+        <span
+          class="error-icon step-icon"
+          aria-hidden="true"
+          innerHTML={errorIcon}
+        ></span>
+      );
     }
 
     // COMPACT STEP COMPONENT
@@ -188,6 +202,7 @@ export class Step {
           [`compact-step-${compactStepStyling}`]: !!compactStepStyling,
           ["disabled"]:
             type === "disabled" || compactStepStyling === "disabled",
+          ["error"]: type === "error" || compactStepStyling === "error",
         }}
       >
         <ic-loading-indicator
@@ -195,6 +210,7 @@ export class Step {
             "compact-step-progress-indicator": true,
             "not-required":
               type === "disabled" || compactStepStyling === "disabled",
+            error: type === "error" || compactStepStyling === "error",
           }}
           aria-hidden="true"
           size="small"
@@ -217,6 +233,7 @@ export class Step {
             {(this.subheading ||
               type === "completed" ||
               type === "disabled" ||
+              type === "error" ||
               (this.variant === "compact" &&
                 !!compactStepStyling &&
                 compactStepStyling !== "active") ||
@@ -232,7 +249,10 @@ export class Step {
                           compactStepStyling === "disabled") ||
                         type === "completed" ||
                         (variant === "compact" &&
-                          compactStepStyling === "completed")
+                          compactStepStyling === "completed") ||
+                        type === "error" ||
+                        (variant === "compact" &&
+                          compactStepStyling === "error")
                       ? stepType
                       : status && stepStatus}
                   </ic-typography>
@@ -259,19 +279,25 @@ export class Step {
 
     // ICON FOR DEFAULT STEP
     let icon;
-    if (type !== "completed") {
+    if (type === "completed") {
+      icon = (
+        <div class="step-icon-inner" aria-hidden="true">
+          <span class="check-icon" innerHTML={checkIcon}></span>
+        </div>
+      );
+    } else if (type === "error") {
+      icon = (
+        <div class="step-icon-inner" aria-hidden="true">
+          <span class="error-icon" innerHTML={errorIcon}></span>
+        </div>
+      );
+    } else {
       icon = (
         <ic-typography variant="subtitle-small">
           <span class="step-icon-inner" aria-hidden="true">
             {this.stepNum}
           </span>
         </ic-typography>
-      );
-    } else {
-      icon = (
-        <div class="step-icon-inner" aria-hidden="true">
-          <span class="check-icon" innerHTML={checkIcon}></span>
-        </div>
       );
     }
 

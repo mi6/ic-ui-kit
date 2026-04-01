@@ -107,6 +107,15 @@
   color: var(--ic-stepper-compact-step-requirement-text-disabled);
 }
 
+.compact-step-error .step-status {
+  color: var(--ic-status-error-default-color);
+}
+
+:host(.ic-step-compact) .error .heading,
+:host(.ic-step-compact) .error ::slotted([slot="heading"]) {
+  color: var(--ic-stepper-compact-step-title);
+}
+
 .step-num {
   color: var(--ic-stepper-compact-step-stage-text);
   white-space: nowrap;
@@ -189,6 +198,11 @@
   color: var(--ic-step-title-disabled);
 }
 
+.error .heading,
+.error ::slotted([slot="heading"]) {
+  color: var(--ic-status-error-default-color);
+}
+
 .subheading {
   color: var(--ic-step-title-status-text-inactive);
 }
@@ -199,6 +213,10 @@
 
 .disabled .subheading {
   color: var(--ic-step-title-status-text-disabled);
+}
+
+.error .subheading {
+  color: var(--ic-status-error-default-color);
 }
 
 :host(.ic-step-default) .completed {
@@ -236,6 +254,11 @@
   border-radius: 100%;
 }
 
+.error .step-icon-inner {
+  background-color: var(--ic-status-error-default-color);
+  color: var(--ic-color-text-inverted);
+}
+
 :host(.ic-step-default) .current .step-icon {
   border: var(--ic-space-xxxs) solid var(--ic-step-number-current-outline);
   padding: var(--ic-space-xxxs);
@@ -269,6 +292,10 @@
   background-color: var(--ic-stepper-connector-success);
 }
 
+.error .step-connect {
+  background-color: var(--ic-status-error-default-color);
+}
+
 .step-connect-inner {
   width: 70%;
   display: flex;
@@ -291,6 +318,19 @@
   fill: var(--ic-step-number-icon-success);
 }
 
+.step-icon-inner .error-icon {
+  padding-top: var(--ic-space-xxs);
+}
+
+.step-icon-inner .error-icon svg {
+  width: var(--ic-space-md);
+  height: auto;
+}
+
+.step-icon-inner .error-icon > svg > path {
+  fill: var(--ic-color-text-inverted);
+}
+
 /** High Contrast **/
 @media (forced-colors: active) {
   /* COMPACT STEP */
@@ -305,7 +345,8 @@
 
   .active .step-icon-inner,
   .completed .step-icon-inner,
-  .current .step-icon-inner {
+  .current .step-icon-inner,
+  .error .step-icon-inner {
     forced-color-adjust: none;
     box-shadow: inset canvastext 0 0 0 0.125rem;
     background-color: transparent;
@@ -332,5 +373,9 @@
 
   .step-icon-inner .check-icon > svg > path {
     fill: canvastext;
+  }
+
+  .step-icon-inner .error-icon > svg > path {
+  fill: canvastext;
   }
 }

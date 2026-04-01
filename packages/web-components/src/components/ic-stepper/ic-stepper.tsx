@@ -59,6 +59,7 @@ export class Stepper {
     notRequired: "Not required",
     required: "Required",
     optional: "Optional",
+    error: "Error",
   };
 
   /**
