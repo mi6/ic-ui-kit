@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.23.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.22.0...@ukic/web-components@3.23.0) (2026-04-01)
+
+### Features
+
+- **web-components:** adds icTooltipShow event ([c72f6c3](https://github.com/mi6/ic-ui-kit/commit/c72f6c396f51fb294bdcc52fdf9a68cfad12c472))
+
 # [3.22.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.21.0...@ukic/web-components@3.22.0) (2026-03-18)
 
 ### Bug Fixes
