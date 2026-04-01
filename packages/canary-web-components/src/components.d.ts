@@ -2954,6 +2954,10 @@ export interface IcToggleButtonGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcToggleButtonGroupElement;
 }
+export interface IcTooltipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTooltipElement;
+}
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcTopNavigationElement;
@@ -3733,7 +3737,18 @@ declare global {
         prototype: HTMLIcToggleButtonGroupElement;
         new (): HTMLIcToggleButtonGroupElement;
     };
+    interface HTMLIcTooltipElementEventMap {
+        "icTooltipShow": void;
+    }
     interface HTMLIcTooltipElement extends Components.IcTooltip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTooltipElementEventMap>(type: K, listener: (this: HTMLIcTooltipElement, ev: IcTooltipCustomEvent<HTMLIcTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTooltipElementEventMap>(type: K, listener: (this: HTMLIcTooltipElement, ev: IcTooltipCustomEvent<HTMLIcTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcTooltipElement: {
         prototype: HTMLIcTooltipElement;
@@ -6676,6 +6691,10 @@ declare namespace LocalJSX {
           * The number of lines to display before truncating the text.
          */
         "maxLines"?: number;
+        /**
+          * Emitted when the tooltip becomes visible.
+         */
+        "onIcTooltipShow"?: (event: IcTooltipCustomEvent<void>) => void;
         /**
           * The position of the tooltip in relation to the parent element.
          */
