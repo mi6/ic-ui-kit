@@ -14,6 +14,7 @@ const ICI18N = {
   notRequired: "Nicht erforderlich",
   required: "erforderlich",
   optional: "wahlweise",
+  error: "fehler",
 };
 
 const defaultArgs = {
@@ -355,6 +356,102 @@ export const SlottedHeading = {
   name: "Slotted heading",
 };
 
+export const ErrorState = {
+  render: (args) => (
+    <>
+      <IcStepper
+        variant={args.variant}
+        id={args.variant === "compact" ? "error-state-compact" : "error-state-default"}
+      >
+        {args.variant === "compact" ? (
+          <>
+            <IcStep heading="Create" type="completed" />
+            <IcStep heading="Read" type="current" />
+            <IcStep heading="Update" />
+            <IcStep heading="Delete" />
+          </>
+        ) : (
+          <>
+            <IcStep heading="Create" type="completed" />
+            <IcStep heading="Read" type="error" />
+            <IcStep heading="Update" />
+            <IcStep heading="Delete" />
+          </>
+        )}
+      </IcStepper>
+      {args.variant === "compact" && (
+        <>
+          <IcButton
+            class="back-btn-error-state-compact"
+            style={{ marginRight: "var(--ic-space-lg)" }}
+            onClick={() => {
+              const backBtn = document.querySelector(".back-btn-error-state-compact");
+              const nextBtn = document.querySelector(".next-btn-error-state-compact");
+              const steps = document.querySelectorAll("#error-state-compact > ic-step");
+              const compactStepTypes = ["completed", "error", "active", "active"];
+              for (let i = steps.length - 1; i > 0; i--) {
+                if (steps[i].type === "current") {
+                  steps[i].type = compactStepTypes[i];
+                  steps[i - 1].type = "current";
+                  i--;
+                }
+              }
+              if (steps[steps.length - 2].type === "current") {
+                nextBtn.setAttribute("disabled", "false");
+              }
+              if (steps[0].type === "current") {
+                backBtn.setAttribute("disabled", "true");
+              }
+            }}
+          >
+            Back
+          </IcButton>
+          <IcButton
+            class="next-btn-error-state-compact"
+            onClick={() => {
+              const backBtn = document.querySelector(".back-btn-error-state-compact");
+              const nextBtn = document.querySelector(".next-btn-error-state-compact");
+              const steps = document.querySelectorAll("#error-state-compact > ic-step");
+              const compactStepTypes = ["completed", "error", "active", "active"];
+              for (let i = 0; i < steps.length - 1; i++) {
+                if (steps[i].type === "current") {
+                  steps[i].type = compactStepTypes[i];
+                  steps[i + 1].type = "current";
+                  i++;
+                }
+              }
+              if (steps[1].type === "current") {
+                backBtn.setAttribute("disabled", "false");
+              }
+              if (steps[steps.length - 1].type === "current") {
+                nextBtn.setAttribute("disabled", "true");
+              }
+            }}
+          >
+            Next
+          </IcButton>
+        </>
+      )}
+    </>
+  ),
+
+  name: "Error state",
+
+  args: {
+    variant: "default",
+  },
+
+  argTypes: {
+    variant: {
+      options: ["default", "compact"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+  },
+};
+
+
 export const Playground = {
   render: (args) => (
     <div>
@@ -422,7 +519,7 @@ export const Playground = {
     },
 
     type: {
-      options: ["active", "completed", "disabled"],
+      options: ["active", "completed", "disabled", "error"],
 
       control: {
         type: "inline-radio",
