@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.23.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.22.0...@ukic/react@3.23.0) (2026-04-01)
+
+### Bug Fixes
+
+- **react:** update dependencies to satisfy audit ([2c2a67b](https://github.com/mi6/ic-ui-kit/commit/2c2a67b097cae3cf6fe5255382411ffcca7740d9))
+
+### Features
+
+- **react:** adds icTooltipShow event ([3785a33](https://github.com/mi6/ic-ui-kit/commit/3785a33adfe075a641f3ba1e965273b79822c889))
+
 # [3.22.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.21.0...@ukic/react@3.22.0) (2026-03-18)
 
 ### Bug Fixes

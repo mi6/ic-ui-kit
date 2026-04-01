@@ -316,4 +316,20 @@ describe("ic-tooltip component", () => {
 
     expect(page.rootInstance.updateTooltipEvents).toHaveBeenCalled();
   });
+
+  it("should emit icTooltipShow event when tooltip is shown", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip target="test-button" label="tooltip"><button id="test-button">Click</button></ic-tooltip>`,
+    });
+
+    const eventSpy = jest.fn();
+
+    page.root!.addEventListener("icTooltipShow", eventSpy);
+
+    await page.rootInstance.show(page.rootInstance.popperInstance);
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
+  });
 });

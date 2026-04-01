@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   Host,
   Prop,
   h,
@@ -106,6 +108,11 @@ export class Tooltip {
   }
 
   @State() popperProps: Partial<Options> = {};
+
+  /**
+   * Emitted when the tooltip becomes visible.
+   */
+  @Event() icTooltipShow: EventEmitter<void>;
 
   /**
    * @internal This method allows props to be added to the PopperJS createPopper instance outside of tooltip
@@ -223,6 +230,7 @@ export class Tooltip {
         ],
         ...this.popperProps,
       });
+      this.icTooltipShow.emit();
     } else {
       console.warn(`Tooltip can't display without prop 'label' set`);
     }
