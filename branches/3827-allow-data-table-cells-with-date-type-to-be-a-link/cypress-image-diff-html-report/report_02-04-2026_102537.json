@@ -1,7 +1,7 @@
 {
   "total": 288,
-  "totalPassed": 282,
-  "totalFailed": 6,
+  "totalPassed": 284,
+  "totalFailed": 4,
   "totalSuites": 10,
   "suites": [
     {
@@ -697,25 +697,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/pagination-uncontrolled.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx/pagination-with-select",
-          "percentage": 0.296919969867066,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/pagination-with-select.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx/pagination-with-select.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/pagination-with-select.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx/pagination-with-popover",
-          "percentage": 0.3069390466674786,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/pagination-with-popover.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx/pagination-with-popover.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/pagination-with-popover.png"
         },
         {
@@ -3233,9 +3233,9 @@
       ]
     }
   ],
-  "startedAt": "2026-04-02T08:59:47.814Z",
-  "endedAt": "2026-04-02T09:10:01.784Z",
-  "duration": 588870,
+  "startedAt": "2026-04-02T10:25:37.017Z",
+  "endedAt": "2026-04-02T10:35:48.539Z",
+  "duration": 585672,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
