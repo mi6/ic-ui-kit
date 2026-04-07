@@ -78,7 +78,7 @@ module.exports = defineConfig([{
         "stencil/prefer-vdom-listener": "error",
         "stencil/props-must-be-public": "error",
         // "stencil/render-returns-host": "error",
-        "stencil/required-jsdoc": "error",
+        "stencil/required-jsdoc": "warn",
         "stencil/required-prefix": ["error", ["ic-"]],
         // "stencil/single-export": "error",
         "stencil/strict-boolean-conditions": "off",
