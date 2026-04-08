@@ -510,7 +510,9 @@ export class SearchBar {
   handleKeyDown(event: KeyboardEvent): void {
     this.icKeydown.emit({ event });
     if (this.menu && this.open) {
-      this.menu.handleKeyboardOpen(event);
+      requestAnimationFrame(() => {
+        this.menu?.handleKeyboardOpen(event);
+      });
     }
   }
 

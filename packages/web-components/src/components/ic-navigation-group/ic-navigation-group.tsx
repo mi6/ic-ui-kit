@@ -320,9 +320,9 @@ export class NavigationGroup {
       this.hideDropdown();
     } else {
       this.mouseGate = false;
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         this.dropdownOpen ? this.hideDropdown() : null;
-      }, 500);
+      });
     }
   };
 
@@ -334,9 +334,9 @@ export class NavigationGroup {
       this.showDropdown();
     } else if (!this.dropdownOpen && !this.mouseGate) {
       this.mouseGate = true;
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         if (this.mouseGate) this.showDropdown();
-      }, 500);
+      });
     }
   };
 

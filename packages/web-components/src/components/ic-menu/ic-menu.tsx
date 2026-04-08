@@ -312,8 +312,11 @@ export class Menu {
 
         if (highlightedEl) {
           this.menu.setAttribute(this.ACTIVE_DESCENDANT, highlightedEl.id);
+
           if (this.allowMenuFocus) {
-            highlightedEl.focus();
+            requestAnimationFrame(() => {
+              highlightedEl.focus();
+            });
           }
         }
       } else if (

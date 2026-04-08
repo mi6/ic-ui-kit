@@ -553,9 +553,9 @@ export class SideNavigation {
       this.deviceSize > DEVICE_SIZES.S &&
       this.menuExpanded
     ) {
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         this.toggleMenuExpanded(false);
-      }, 0);
+      });
     }
   };
 

@@ -318,7 +318,11 @@ export class NavigationItem {
     }
   };
 
-  private handleClick = () => this.navItemClicked.emit();
+  private handleClick = () => {
+    requestAnimationFrame(() => {
+      this.navItemClicked.emit();
+    });
+  };
 
   // triggered when attributes of host element change
   private hostMutationCallback = (mutationList: MutationRecord[]) => {

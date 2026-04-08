@@ -259,9 +259,11 @@ export class Dialog {
     }, 10);
 
     setTimeout(() => {
-      this.getInteractiveElements();
-      this.setInitialFocus();
-      checkResizeObserver(this.runResizeObserver);
+      requestAnimationFrame(() => {
+        this.getInteractiveElements();
+        this.setInitialFocus();
+        checkResizeObserver(this.runResizeObserver);
+      });
     }, 75);
 
     setTimeout(() => {
