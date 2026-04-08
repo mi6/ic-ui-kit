@@ -1,7 +1,7 @@
 {
   "total": 928,
-  "totalPassed": 927,
-  "totalFailed": 1,
+  "totalPassed": 928,
+  "totalFailed": 0,
   "totalSuites": 47,
   "suites": [
     {
@@ -8057,14 +8057,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx/i18n-compact.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcStepper.cy.tsx/full-width",
-          "percentage": 0.04956845014724588,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx/full-width.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcStepper.cy.tsx/full-width.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx/full-width.png"
         },
         {
@@ -10495,9 +10495,9 @@
       ]
     }
   ],
-  "startedAt": "2026-04-08T13:02:49.097Z",
-  "endedAt": "2026-04-08T13:23:40.784Z",
-  "duration": 1140599,
+  "startedAt": "2026-04-08T13:34:54.489Z",
+  "endedAt": "2026-04-08T13:54:55.710Z",
+  "duration": 1091834,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
