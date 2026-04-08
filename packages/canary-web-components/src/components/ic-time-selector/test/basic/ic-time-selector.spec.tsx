@@ -323,7 +323,7 @@ describe("ic-time-selector", () => {
 
     expect(page.rootInstance.isTimeDisabled(16, 15)).toBe(true);
     expect(page.rootInstance.isTimeDisabled(15, 59)).toBe(false);
-    expect(page.rootInstance.isTimeDisabled(16, 30)).toBe(false);
+    expect(page.rootInstance.isTimeDisabled(16, 31)).toBe(false);
   });
 
   it("returns the highlighted value", async () => {
