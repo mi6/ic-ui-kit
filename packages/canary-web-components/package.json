@@ -70,7 +70,7 @@
     "react-markdown": "^8.0.7",
     "remark-gfm": "^3.0.1",
     "stencil-inline-svg": "^1.1.0",
-    "storybook": "10.1.11",
+    "storybook": "^10.3.5",
     "ts-jest": "^26.5.6"
   },
   "peerDependencies": {
