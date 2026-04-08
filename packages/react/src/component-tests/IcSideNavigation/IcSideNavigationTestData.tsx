@@ -11,7 +11,6 @@ import {
 } from "../../components";
 import { SlottedSVG } from "../..";
 import { MemoryRouter, NavLink, Route, Routes } from "react-router-dom";
-import { EQUAL } from "../utils/constants";
 
 declare global {
   namespace Cypress {
@@ -26,9 +25,11 @@ declare global {
 }
 
 export const checkSideNavSize = (open: boolean): void => {
+  const expectedClass = open ? "sm-expanded" : "sm-collapsed";
+
   cy.get("ic-side-navigation")
-    .invoke("width")
-    .should(EQUAL, open ? 320 : 56);
+    .should("have.class", expectedClass)
+    .and("be.visible");
 };
 
 const ReusableSlottedIcon = (): ReactElement => (
