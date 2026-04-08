@@ -519,7 +519,12 @@ export class SearchBar {
   @Listen("keyup", {})
   handleKeyUp(ev: KeyboardEvent): void {
     if (ev.key === "Enter") {
-      if (this.preventSubmit || this.isSubmitDisabled()) {
+      if (
+        this.preventSubmit ||
+        this.isSubmitDisabled() ||
+        this.retryViaKeyPress ||
+        this.retryButtonClick
+      ) {
         return;
       }
 
