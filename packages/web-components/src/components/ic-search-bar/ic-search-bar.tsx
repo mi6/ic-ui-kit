@@ -599,6 +599,10 @@ export class SearchBar {
   private handleRetry = (ev: CustomEvent<IcMultiValueEventDetail>) => {
     this.retryViaKeyPress = ev.detail.keyPressed === "Enter";
     this.icRetryLoad.emit({ value: ev.detail.value });
+
+    // Ensure menu remains open during retry loading
+    this.setMenuChange(true);
+
     this.triggerLoading();
     this.retryButtonClick = true;
   };
