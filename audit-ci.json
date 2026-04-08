@@ -106,13 +106,6 @@
       }
     },
     {
-      "GHSA-8452-54wp-rmv6": {
-        "active": true,
-        "notes": "requires upgrade to 'storybook'. Might be removable after storybook upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
       "GHSA-8qq5-rm4j-mr97": {
         "active": true,
         "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
@@ -130,13 +123,6 @@
       "GHSA-r6q2-hw4h-h46w": {
         "active": true,
         "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-xxjr-mmjv-4gpg": {
-        "active": true,
-        "notes": "requires upgrade to 'lodash' dependency in root packages (all components package-locks have been updated).",
         "expiry": "27 April 2026"
       }
     },
@@ -197,13 +183,6 @@
       }
     },
     {
-      "GHSA-mjf5-7g4m-gx5w": {
-        "active": true,
-        "notes": "requires upgrade to 'storybook'. The upgrade to storybook then requires a breaking change update to typescript. Might be removeable after typescript upgrade.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
       "GHSA-5c6j-r48x-rmvq": {
         "active": true,
         "notes": "requires upgrade to 'serialize-javascript', which is a transitive dependency of webpack. Might be removable after webpack upgrade.",
@@ -211,58 +190,9 @@
       }
     },
     {
-      "GHSA-v2wj-7wpq-c8vv": {
-        "active": true,
-        "notes": "requires upgrade to 'dompurify', which does not have a patched version as of 5/03/26",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-v8jm-5vwx-cfxm": {
-        "active": true,
-        "notes": "requires upgrade to 'dompurify', awaiting patch for above",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
       "GHSA-gmq8-994r-jv83": {
         "active": true,
         "notes": "caused by a dependency of cypress-audit. We are on the latest version of cypress-audit (1.1.0). Might be removeable after migration to lighthouse",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-f886-m6hf-6m8v": {
-        "active": true,
-        "notes": "brace-expansion advisory flagged via minimatch, but all resolved versions are patched (1.1.13 / 2.0.3 / 5.0.5). False positive due to audit tooling limitations; verified via npm ls.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-3v7f-55p6-f55p": {
-        "active": true,
-        "notes": "Picomatch advisory flagged during per-package audit. Root dependency graph is patched via overrides (2.3.2 / 4.0.4). Expected to resolve once lerna upgrade and workspaces migration completes.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-c2c7-rcm5-vvqj": {
-        "active": true,
-        "notes": "Picomatch advisory flagged during per-package audit. Root dependency graph is patched via overrides (2.3.2 / 4.0.4). Expected to resolve once lerna upgrade and workspaces migration completes.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-48c2-rrv3-qjmp": {
-        "active": true,
-        "notes": "yaml advisory flagged during per-package audit. Root dependency graph is patched via override (yaml@2.8.3). Expected to resolve once lerna upgrade and workspaces migration completes.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
-      "GHSA-2qvq-rjwj-gvw9": {
-        "active": true,
-        "notes": "handlebars vulnerability via dev tooling (webpack/storybook). Flagged during per-package audit. No runtime exposure; expected to be resolved during toolchain upgrades.",
         "expiry": "27 April 2026"
       }
     }
