@@ -509,9 +509,7 @@ export class SearchBar {
   handleKeyDown(event: KeyboardEvent): void {
     this.icKeydown.emit({ event });
     if (this.menu && this.open) {
-      requestAnimationFrame(() => {
-        this.menu?.handleKeyboardOpen(event);
-      });
+      this.menu?.handleKeyboardOpen(event);
     }
   }
 
@@ -831,8 +829,9 @@ export class SearchBar {
     }
 
     const hasSuggestedSearch =
-      (!!value || this.showMenuWithNoInput() || this.loading) &&
-      this.hasOptionsOrFilterDisabled();
+      this.loading ||
+      ((!!value || this.showMenuWithNoInput()) &&
+        this.hasOptionsOrFilterDisabled());
 
     const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
 
