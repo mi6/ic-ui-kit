@@ -553,9 +553,7 @@ export class SideNavigation {
       this.deviceSize > DEVICE_SIZES.S &&
       this.menuExpanded
     ) {
-      requestAnimationFrame(() => {
-        this.toggleMenuExpanded(false);
-      });
+      this.toggleMenuExpanded(false);
     }
   };
 

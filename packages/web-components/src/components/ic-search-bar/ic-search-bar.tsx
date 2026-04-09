@@ -70,11 +70,10 @@ export class SearchBar {
   private preLoad = true;
   private preventSubmit = false;
   private prevNoOption = false;
-  private retryButtonClick = false;
-  private retryViaKeyPress = false;
   private timeoutTimer?: number;
   private truncateValue = false;
   private searchSubmitButton?: HTMLIcButtonElement;
+  private suppressNextEnter = false;
 
   @Element() el: HTMLIcSearchBarElement;
 
@@ -519,12 +518,16 @@ export class SearchBar {
   @Listen("keyup", {})
   handleKeyUp(ev: KeyboardEvent): void {
     if (ev.key === "Enter") {
-      if (
-        this.preventSubmit ||
-        this.isSubmitDisabled() ||
-        this.retryViaKeyPress ||
-        this.retryButtonClick
-      ) {
+      if (this.suppressNextEnter) {
+        this.suppressNextEnter = false;
+        return;
+      }
+
+      if (this.open) {
+        return;
+      }
+
+      if (this.preventSubmit || this.isSubmitDisabled()) {
         return;
       }
 
@@ -546,8 +549,6 @@ export class SearchBar {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.retryViaKeyPress = false;
-    this.retryButtonClick = false;
     this.inputEl?.focus();
   }
 
@@ -602,14 +603,16 @@ export class SearchBar {
   };
 
   private handleRetry = (ev: CustomEvent<IcMultiValueEventDetail>) => {
-    this.retryViaKeyPress = ev.detail.keyPressed === "Enter";
+    if (ev.detail.keyPressed === "Enter") {
+      this.suppressNextEnter = true;
+    }
+
     this.icRetryLoad.emit({ value: ev.detail.value });
 
     // Ensure menu remains open during retry loading
     this.setMenuChange(true);
 
     this.triggerLoading();
-    this.retryButtonClick = true;
   };
 
   private triggerLoading = () => {
@@ -683,18 +686,8 @@ export class SearchBar {
   };
 
   private handleHostBlur = ({ relatedTarget }: FocusEvent) => {
-    if (
-      this.open &&
-      this.options &&
-      relatedTarget !== this.menu &&
-      !this.retryViaKeyPress &&
-      !this.retryButtonClick
-    ) {
+    if (this.open && this.options && relatedTarget !== this.menu) {
       this.setMenuChange(false);
-    }
-
-    if (this.retryButtonClick || this.retryViaKeyPress) {
-      this.inputEl?.focus();
     }
 
     this.showClearButton = false;
@@ -704,8 +697,6 @@ export class SearchBar {
       relatedTarget,
       value: this.value,
     });
-    this.retryViaKeyPress = false;
-    this.retryButtonClick = false;
     this.showMenuWithNoInput() && this.updateSearchResultAriaLive();
   };
 
