@@ -609,8 +609,9 @@ export class SearchBar {
 
     this.icRetryLoad.emit({ value: ev.detail.value });
 
-    // Ensure menu remains open during retry loading
     this.setMenuChange(true);
+
+    this.loading = true;
 
     this.triggerLoading();
   };

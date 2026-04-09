@@ -240,9 +240,9 @@ export class TopNavigation {
     this.hasFullWidthSearchBar = this.mobileSearchBarVisible;
     this.searchBar.fullWidth = this.mobileSearchBarVisible;
     if (this.mobileSearchBarVisible) {
-      setTimeout(() => {
-        this.searchBar?.focus();
-      }, 100);
+      requestAnimationFrame(() => {
+        this.searchBar?.setFocus();
+      });
     }
   };
 
