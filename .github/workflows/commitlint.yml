@@ -37,6 +37,7 @@ jobs:
           echo "$COMMIT_MESSAGE" | npx commitlint
 
       - name: Validate changed files in commit scope
+        if: github.event.pull_request.user.login != 'dependabot[bot]'
         env:
           BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
         run: node .github/scripts/scope-check.js
