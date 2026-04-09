@@ -188,7 +188,7 @@ export class SearchBar {
   @Prop({ mutable: true }) loading = false;
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
-    if (newValue && !this.hasTimedOut) {
+    if (newValue) {
       this.preLoad = false;
       this.triggerLoading();
     }
@@ -508,8 +508,14 @@ export class SearchBar {
   @Listen("keydown", {})
   handleKeyDown(event: KeyboardEvent): void {
     this.icKeydown.emit({ event });
-    if (this.menu && this.open) {
-      this.menu?.handleKeyboardOpen(event);
+    if (this.menu) {
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        requestAnimationFrame(() => {
+          this.menu?.handleKeyboardOpen(event);
+        });
+      } else {
+        this.menu?.handleKeyboardOpen(event);
+      }
     }
   }
 
@@ -685,7 +691,12 @@ export class SearchBar {
   };
 
   private handleHostBlur = ({ relatedTarget }: FocusEvent) => {
-    if (this.open && this.options && relatedTarget !== this.menu) {
+    if (
+      this.open &&
+      this.options &&
+      !this.loading &&
+      relatedTarget !== this.menu
+    ) {
       this.setMenuChange(false);
     }
 
