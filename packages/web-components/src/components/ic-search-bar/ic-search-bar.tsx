@@ -830,10 +830,13 @@ export class SearchBar {
     }
 
     const hasSuggestedSearch =
-      (!!value || this.showMenuWithNoInput()) &&
+      (!!value || this.showMenuWithNoInput() || this.loading) &&
       this.hasOptionsOrFilterDisabled();
+
     const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
-    const menuRendered = menuOpen && value.length >= charactersUntilSuggestion;
+
+    const menuRendered =
+      menuOpen && (value.length >= charactersUntilSuggestion || this.loading);
 
     const labelValue = getLabelFromValue(
       value,
