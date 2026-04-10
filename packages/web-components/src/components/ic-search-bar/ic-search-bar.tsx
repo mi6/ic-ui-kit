@@ -527,6 +527,12 @@ export class SearchBar {
         return;
       }
 
+      if (this.open && this.highlightedValue) {
+        this.value = this.highlightedValue;
+        this.setMenuChange(false);
+        return;
+      }
+
       if (this.open) {
         return;
       }
