@@ -687,6 +687,30 @@ export class DataTable {
               return;
             }
           }
+
+          // If content no longer exceeds the available container height,
+          // ensure any existing truncation (tooltip or show/hide) is removed
+          if (
+            !this.typographyScrollHeightExceedsContainerHeight(
+              typographyEl,
+              cellContainer
+            )
+          ) {
+            if (this.truncationPattern === this.TOOLTIP_STRING && tooltipEl) {
+              this.removeTooltip(cellContainer, typographyEl, tooltipEl);
+              typographyEl.setAttribute(
+                "style",
+                `${this.LINE_CLAMP_CSS_VARIABLE}: 0`
+              );
+            }
+
+            if (this.truncationPattern === this.SHOW_HIDE_STRING) {
+              this.resetSingleShowHideTruncation(typographyEl, cellContainer);
+            }
+
+            return;
+          }
+
           this.truncate(typographyEl, cellContainer, tooltipEl);
         } else {
           this.updateSetRowHeight(typographyEl);
@@ -774,15 +798,8 @@ export class DataTable {
         ? cellContainer.querySelector(".icon")!.clientHeight
         : 0;
 
-    const rowHeightAttr = cellContainer.getAttribute(
-      this.DATA_ROW_HEIGHT_STRING
-    );
-
-    const baseHeight = rowHeightAttr
-      ? this.getRowHeight(cellContainer)
-      : cellContainer.clientHeight;
-
-    const availableTextHeight = baseHeight - descriptionHeight - iconHeight;
+    const availableTextHeight =
+      cellContainer.clientHeight - descriptionHeight - iconHeight;
 
     return typographyEl.scrollHeight > availableTextHeight;
   }
