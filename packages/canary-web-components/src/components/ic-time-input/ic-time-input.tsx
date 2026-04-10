@@ -1008,6 +1008,10 @@ export class TimeInput {
   };
 
   private handleClear = () => {
+    this.value = null;
+    this.selectedTime = null;
+    this.previousSelectedTime = null;
+
     this.clearInput = true;
     if (this.hourInputEl) {
       this.hourInputEl.value = "";

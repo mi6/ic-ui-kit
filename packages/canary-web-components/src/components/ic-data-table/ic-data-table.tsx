@@ -774,8 +774,15 @@ export class DataTable {
         ? cellContainer.querySelector(".icon")!.clientHeight
         : 0;
 
-    const availableTextHeight =
-      cellContainer.clientHeight - descriptionHeight - iconHeight;
+    const rowHeightAttr = cellContainer.getAttribute(
+      this.DATA_ROW_HEIGHT_STRING
+    );
+
+    const baseHeight = rowHeightAttr
+      ? this.getRowHeight(cellContainer)
+      : cellContainer.clientHeight;
+
+    const availableTextHeight = baseHeight - descriptionHeight - iconHeight;
 
     return typographyEl.scrollHeight > availableTextHeight;
   }
