@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-menu in isolation should apply custom option props to the associated <li> element 1`] = `
-Object {
+{
   "body": <body>
   <ic-menu class="ic-menu-medium ic-menu-no-focus ic-menu-open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
     <ul aria-label="input-label pop-up" aria-multiselectable="false" class="menu" id="menu-id" role="listbox" tabindex="-1">
@@ -20,7 +20,7 @@ Object {
     </ul>
   </ic-menu>
 </body>,
-  "build": Object {
+  "build": {
     "allRenderFn": true,
     "appendChildSlotFix": false,
     "asyncLoading": true,
@@ -115,7 +115,7 @@ Object {
 `;
 
 exports[`ic-menu in isolation should render 1`] = `
-Object {
+{
   "body": <body>
   <ic-menu class="ic-menu-medium ic-menu-no-focus ic-menu-open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
     <ul aria-label="input-label pop-up" aria-multiselectable="false" class="menu" id="menu-id" role="listbox" tabindex="-1">
@@ -223,7 +223,7 @@ Object {
     </ul>
   </ic-menu>
 </body>,
-  "build": Object {
+  "build": {
     "allRenderFn": true,
     "appendChildSlotFix": false,
     "asyncLoading": true,

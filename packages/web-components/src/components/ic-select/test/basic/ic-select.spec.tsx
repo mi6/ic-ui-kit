@@ -6,7 +6,6 @@ import * as helpers from "../../../../utils/helpers";
 import { Button } from "../../../ic-button/ic-button";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { InputComponentContainer } from "../../../ic-input-component-container/ic-input-component-container";
-import { isMobileOrTablet } from "../../../../utils/helpers";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -669,30 +668,41 @@ describe("ic-select", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
-  it("should return true when running on a mobile or tablet device", async () => {
+
+  it("should return true when running on a mobile or tablet device", () => {
     // Mock the navigator object
-    Object.defineProperty(window, "navigator", {
-      value: {
-        maxTouchPoints: 255,
-        userAgent: "iPhone",
-      },
+    Object.defineProperty(globalThis, "navigator", {
+      configurable: true,
       writable: true,
+      value: {
+        userAgent: "iPhone",
+        maxTouchPoints: 255,
+      },
     });
 
-    expect(isMobileOrTablet()).toBe(true);
+    jest.isolateModules(() => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { isMobileOrTablet } = require("../../../../utils/helpers");
+      expect(isMobileOrTablet()).toBe(true);
+    });
   });
 
   it("should return false when running on a desktop device", async () => {
     // Mock the navigator object
-    Object.defineProperty(window, "navigator", {
-      value: {
-        maxTouchPoints: 0,
-        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-      },
+    Object.defineProperty(globalThis, "navigator", {
+      configurable: true,
       writable: true,
+      value: {
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        maxTouchPoints: 0,
+      },
     });
 
-    expect(isMobileOrTablet()).toBe(false);
+    jest.isolateModules(() => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { isMobileOrTablet } = require("../../../../utils/helpers");
+      expect(isMobileOrTablet()).toBe(false);
+    });
   });
 });
 
