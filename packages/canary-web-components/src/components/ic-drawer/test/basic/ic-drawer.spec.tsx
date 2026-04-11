@@ -9,7 +9,9 @@ const DELAY_MS = 300;
 
 describe("ic-drawer", () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    // Legacy fake timers used because Stencil relies on requestAnimationFrame-based scheduling
+    // which does not work reliably with Jest 27+ modern fake timers.
+    jest.useFakeTimers({ legacyFakeTimers: true });
   });
 
   afterAll(() => {
