@@ -43,13 +43,6 @@
       }
     },
     {
-      "GHSA-952p-6rrq-rcjv": {
-        "active": true,
-        "notes": "requires upgrade to 'micromatch', which is a transitive dependency of jest, storybook, http-proxy-middleware, ts-loader, np, stylelint, and commitizen.",
-        "expiry": "27 April 2026"
-      }
-    },
-    {
       "GHSA-p6mc-m468-83gw": {
         "active": true,
         "notes": "requires upgrade to 'lodash.set', which is a transitive dependency of cypress-audit/lighthouse. We're on the latest version of cypress-audit (1.1.0) and there's no patched version for lodash.set.",
