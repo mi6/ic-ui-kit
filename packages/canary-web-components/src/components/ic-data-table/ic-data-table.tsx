@@ -632,6 +632,8 @@ export class DataTable {
   private truncateRowHeightSet = () => {
     // This function recalculates the tooltip truncation when the rowHeight has been set.
     // This is in componentDidUpdate so a setTimeout is not used to wait for the render to be complete
+    
+    this.updateCellHeightsWithDescriptions();
 
     this.getTypographyElements().forEach((typographyEl) => {
       const cellContainer = this.getCellContainer(typographyEl);
