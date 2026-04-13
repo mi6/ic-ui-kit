@@ -13407,15 +13407,15 @@
         },
         {
           "name": "size",
-          "type": "\"medium\" | \"small\" | undefined",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
-            "original": "IcSizesNoLarge",
-            "resolved": "\"medium\" | \"small\" | undefined",
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
-              "IcSizesNoLarge": {
+              "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge"
+                "id": "../web-components/src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -13427,15 +13427,16 @@
           "default": "\"medium\"",
           "values": [
             {
+              "value": "large",
+              "type": "string"
+            },
+            {
               "value": "medium",
               "type": "string"
             },
             {
               "value": "small",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
           "optional": true,

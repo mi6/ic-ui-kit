@@ -276,6 +276,9 @@ export class RadioOption {
           ["ic-radio-option-small"]:
             this.el.parentElement?.tagName === "IC-RADIO-GROUP" &&
             this.el.parentElement?.className.includes("ic-radio-group-small"),
+          ["ic-radio-option-large"]:
+            this.el.parentElement?.tagName === "IC-RADIO-GROUP" &&
+            this.el.parentElement?.className.includes("ic-radio-group-large"),
         }}
       >
         <div class={{ "radio-option-container": true, disabled: !!disabled }}>
