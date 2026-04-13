@@ -827,11 +827,13 @@ export class TimeInput {
         this.setValueAndEmitChange(this.selectedTime);
         this.notifyScreenReaderSelectedTime();
       } else if (
-        !(this.selectedTime === null && this.previousSelectedTime === null) &&
-        this.selectedTimeInfoEl
+        !(this.selectedTime === null && this.previousSelectedTime === null)
       ) {
         this.setValueAndEmitChange(null, true);
-        this.selectedTimeInfoEl.textContent = "";
+
+        if (this.selectedTimeInfoEl) {
+          this.selectedTimeInfoEl.textContent = "";
+        }
       }
       this.previousSelectedTime = this.selectedTime;
       if (!this.isTimeSetFromKeyboardEvent) {
