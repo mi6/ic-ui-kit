@@ -13407,10 +13407,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -13437,6 +13437,9 @@
             {
               "value": "small",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
