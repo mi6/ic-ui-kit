@@ -1043,7 +1043,8 @@ export class TimeInput {
           }
         });
     }
-    this.handleTimeChange(true);
+    this.setValueAndEmitChange(null, true);
+    this.previousSelectedTime = null;
     this.inputsInOrder.forEach((input) => {
       input.classList.remove(this.FIT_TO_VALUE);
       this.setPreventInput(input, false);
