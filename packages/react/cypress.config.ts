@@ -20,7 +20,6 @@ export const config: Cypress.ConfigOptions = {
         launchActions.preferences.height = 1080;
         return launchActions;
       });
-      config.browsers = config.browsers.filter((b) => b.name == 'electron')
       return config;
     },
     supportFile: "./cypress/support/index.ts",

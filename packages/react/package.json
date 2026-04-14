@@ -31,7 +31,7 @@
     "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css",
     "cypress": "cypress run --component --headed",
     "cypress:ci": "cross-env CYPRESS_CI=true npm run cypress:component",
-    "cypress:component": "cypress run --component --headless",
+    "cypress:component": "cypress run --component --browser chrome --headless",
     "cypress:open": "cypress open",
     "cypress:performance": "cypress run --e2e --headless --browser=chrome",
     "lint:cypress": "eslint --config ./cypress/.eslintrc.json ./src/component-tests",
