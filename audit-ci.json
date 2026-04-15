@@ -328,6 +328,13 @@
         "notes": "undici needs uodating to 7.24 - managed as a dependency of @angular/devkit and latest isn't high enough",
         "expiry": "20 April 2026"
       }
+    },
+    {
+      "GHSA-r4q5-vmmm-2653": {
+        "active": true,
+        "notes": "found during angular work, but unrelated to this package, adding acknowledgement to allow comitting, ICDS team to address",
+        "espiry": "16 April 2026"
+      }
     }
   ]
 }

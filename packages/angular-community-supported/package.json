@@ -1,6 +1,6 @@
 {
   "name": "@ukic/angular-community-supported",
-  "version": "3.21.0",
+  "version": "3.23.0",
   "description": "Angular specific wrappers for @ukic/web-components provided by the wider community",
   "license": "MIT",
   "author": "mi6",
@@ -51,7 +51,7 @@
   "module": "./dist/types/ukic-angular-community-supported.d.ts",
   "types": "./dist/types/ukic-angular-community-supported.d.ts",
   "dependencies": {
-    "@ukic/web-components": "^3.22.0",
+    "@ukic/web-components": "^3.23.0",
     "jsonc-parser": "^3.0.0",
     "tslib": "^2.8.1"
   },
