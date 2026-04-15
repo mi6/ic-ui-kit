@@ -1,0 +1,746 @@
+var v=Object.freeze,B=Object.defineProperty;var f=(e,x)=>v(B(e,"raw",{value:v(x||e.slice())}));import{x as n}from"./lit-html-CWQq0DyO.js";const y=""+new URL("example-background-B9YauEB2.png",import.meta.url).href,w={title:"Web Components/Hero",component:"ic-hero"},S={aligned:"left",backgroundImage:y,contentAligned:"left",disableBackgroundParallax:!1,heading:"Hero heading",secondaryHeading:"Secondary Heading",secondarySubheading:"This is a secondary description.",size:"medium",subheading:"Hero description. This is a Hero component, it should be used as a page heading.",showSecondary:!1,theme:"inherit"},t={render:e=>n` <ic-hero
+    aligned=${e.aligned}
+    background-image=${e.backgroundImage}
+    content-aligned=${e.contentAligned}
+    disable-background-parallax=${e.disableBackgroundParallax}
+    heading=${e.heading}
+    secondary-heading=${e.secondaryHeading}
+    secondary-subheading=${e.secondarySubheading}
+    size=${e.size}
+    subheading=${e.subheading}
+    theme=${e.theme}
+  >
+    <ic-button variant="primary" slot="interaction"> Button </ic-button>
+    <ic-button variant="secondary" slot="interaction"> Button </ic-button>
+    ${e.showSecondary&&n`
+      <ic-card-vertical
+        heading="Latest announcement"
+        message="This is some example text that can be included in the card copy."
+        slot="secondary"
+      />
+    `}
+    <ic-text-field
+      slot="interaction"
+      label="Input"
+      helper-text="This is an input"
+      placeholder="Please enter…"
+    />
+  </ic-hero>`,args:S,name:"Playground",parameters:{layout:"fullscreen"},argTypes:{aligned:{options:["center","full-width","left"],control:{type:"select"}},contentAligned:{options:["center","left"],control:{type:"select"}},size:{options:["medium","small"],control:{type:"select"}},theme:{options:["inherit","light","dark"],control:{type:"inline-radio"}}}},a={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+    </ic-hero>`,name:"Left aligned",parameters:{layout:"fullscreen"}},i={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+    </ic-hero>`,name:"Center aligned",parameters:{layout:"fullscreen"}},o={render:()=>n`<ic-hero>
+      <ic-typography slot="heading" variant="h1">Slotted heading</ic-typography>
+      <ic-typography slot="subheading">Slotted subheading</ic-typography>
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+    </ic-hero>`,name:"Slotted heading and subheading",parameters:{layout:"fullscreen"}},r={render:()=>n`<ic-hero
+      heading="Hero heading. This is a Hero component, it should be used as a page heading."
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+      <ic-card-vertical
+        heading="Latest announcement"
+        message="This is some example text that can be included in the card copy."
+        slot="secondary"
+      ></ic-card-vertical>
+    </ic-hero>`,name:"Long heading",parameters:{layout:"fullscreen"}},c={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="full-width"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+    </ic-hero>`,name:"Full width",parameters:{layout:"fullscreen"}},s={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+      content-aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+    </ic-hero>`,name:"Content center aligned",parameters:{layout:"fullscreen"}},l={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+      size="small"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+    </ic-hero>`,name:"Small",parameters:{layout:"fullscreen"}},d={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      secondary-heading="Secondary Heading"
+      secondary-subheading="This is a secondary description."
+      aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+    </ic-hero>`,name:"Secondary heading",parameters:{layout:"fullscreen"}},h={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+    >
+      <ic-search-bar
+        slot="interaction"
+        full-width
+        style="max-width: 322px;"
+      ></ic-search-bar>
+    </ic-hero>`,name:"Search bar interaction",parameters:{layout:"fullscreen"}},g={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="full-width"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-card-vertical
+        heading="Latest announcement"
+        message="This is some example text that can be included in the card copy."
+        slot="secondary"
+      ></ic-card-vertical>
+    </ic-hero>`,name:"Card right content",parameters:{layout:"fullscreen"}},u={render:()=>n`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <svg
+        slot="secondary"
+        style="width:300px;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1600 900"
+      >
+        <rect fill="#ff7700" width="1600" height="900" />
+        <polygon fill="#cc0000" points="957 450 539 900 1396 900" />
+        <polygon fill="#aa0000" points="957 450 872.9 900 1396 900" />
+        <polygon fill="#c50022" points="-60 900 398 662 816 900" />
+        <polygon fill="#a3001b" points="337 900 398 662 816 900" />
+        <polygon fill="#be0044" points="1203 546 1552 900 876 900" />
+        <polygon fill="#9c0036" points="1203 546 1552 900 1162 900" />
+        <polygon fill="#b80066" points="641 695 886 900 367 900" />
+        <polygon fill="#960052" points="587 900 641 695 886 900" />
+        <polygon fill="#b10088" points="1710 900 1401 632 1096 900" />
+        <polygon fill="#8f006d" points="1710 900 1401 632 1365 900" />
+        <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
+        <polygon fill="#880088" points="943 900 1210 900 971 687" />
+      </svg>
+    </ic-hero>`,name:"Image right content",parameters:{layout:"fullscreen"}};var H;const p={render:()=>n(H||(H=f([`<ic-theme
+        brand-color="rgb(255, 201, 60)"
+        id="brand-story-ic-theme"
+      ></ic-theme>
+      <ic-hero
+        heading="Hero heading"
+        subheading="Hero description. This is a Hero component, it should be used as a page heading."
+        aligned="center"
+      >
+        <div slot="interaction" style="display: flex">
+          <ic-text-field
+            placeholder="Filter display"
+            label="Filter display"
+            hide-label
+            full-width="true"
+          ></ic-text-field>
+          <ic-button variant="primary" style="margin-left: var(--ic-space-md)"
+            >Filter</ic-button
+          >
+        </div>
+        <ic-card-vertical
+          heading="Latest announcement"
+          message="This is some example text that can be included in the card copy."
+          slot="secondary"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-card-vertical>
+      </ic-hero>
+      <br />
+      <ic-button variant="primary" id="default-btn" onClick="changeBrand()">
+        Default brand
+      </ic-button>
+      <ic-button
+        variant="primary"
+        id="custom-btn"
+        onClick="changeSunriseBrand()"
+      >
+        Sunrise brand
+      </ic-button>
+      <script>
+        var theme = document.querySelector("#brand-story-ic-theme");
+        function changeBrand() {
+          theme.brandColor = "rgb(27, 60, 121)";
+        }
+        function changeSunriseBrand() {
+          theme.brandColor = "rgb(255, 201, 60)";
+        }
+      <\/script>`]))),name:"Brand",parameters:{layout:"fullscreen"}},m={render:()=>n`<ic-theme brand-color="rgb(27, 60, 121)"></ic-theme>
+      <ic-top-navigation app-title="Application Name">
+        <svg
+          slot="app-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+          />
+        </svg>
+      </ic-top-navigation>
+      <ic-hero
+        heading="Hero heading"
+        subheading="Hero description. This is a Hero component, it should be used as a page heading."
+        background-image="${y}"
+      >
+        <div slot="interaction">
+          <ic-button variant="primary" style="margin-right: var(--ic-space-md)"
+            >Button</ic-button
+          >
+          <ic-button
+            variant="secondary"
+            style="margin-right: var(--ic-space-md)"
+            >Button</ic-button
+          >
+          <ic-link
+            href="https://google.com"
+            style="margin-top: var(--ic-space-sm)"
+            >Help</ic-link
+          >
+        </div>
+      </ic-hero>
+      <br />
+      <ic-typography>You can scroll.</ic-typography>
+      <ic-button
+        variant="primary"
+        id="default-btn"
+        onClick="document.querySelector('ic-theme').brandColor='rgb(27, 60, 121)'"
+        style="margin-bottom:1300px"
+      >
+        Reset theme
+      </ic-button>`,name:"With background image (parallax effect)",parameters:{layout:"fullscreen"}},b={render:()=>n`<ic-theme brand-color="rgb(27, 60, 121)"></ic-theme>
+      <ic-top-navigation app-title="Application Name">
+        <svg
+          slot="app-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+          />
+        </svg>
+      </ic-top-navigation>
+      <ic-hero
+        heading="Hero heading"
+        subheading="Hero description. This is a Hero component, it should be used as a page heading."
+        background-image="${y}"
+        disable-background-parallax
+      >
+        <div slot="interaction">
+          <ic-button variant="primary" style="margin-right: var(--ic-space-md)"
+            >Button</ic-button
+          >
+          <ic-button
+            variant="secondary"
+            style="margin-right: var(--ic-space-md)"
+            >Button</ic-button
+          >
+          <ic-link
+            href="https://google.com"
+            style="margin-top: var(--ic-space-sm)"
+            >Help</ic-link
+          >
+        </div>
+      </ic-hero>
+      <br />
+      <ic-typography>You can scroll.</ic-typography>
+      <ic-button
+        variant="primary"
+        id="default-btn"
+        onClick="document.querySelector('ic-theme').brandColor='rgb(27, 60, 121)'"
+        style="margin-bottom:1300px"
+      >
+        Reset theme
+      </ic-button>`,name:"With background image (no parallax effect)",parameters:{layout:"fullscreen"}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  render: args => html\` <ic-hero
+    aligned=\${args.aligned}
+    background-image=\${args.backgroundImage}
+    content-aligned=\${args.contentAligned}
+    disable-background-parallax=\${args.disableBackgroundParallax}
+    heading=\${args.heading}
+    secondary-heading=\${args.secondaryHeading}
+    secondary-subheading=\${args.secondarySubheading}
+    size=\${args.size}
+    subheading=\${args.subheading}
+    theme=\${args.theme}
+  >
+    <ic-button variant="primary" slot="interaction"> Button </ic-button>
+    <ic-button variant="secondary" slot="interaction"> Button </ic-button>
+    \${args.showSecondary && html\`
+      <ic-card-vertical
+        heading="Latest announcement"
+        message="This is some example text that can be included in the card copy."
+        slot="secondary"
+      />
+    \`}
+    <ic-text-field
+      slot="interaction"
+      label="Input"
+      helper-text="This is an input"
+      placeholder="Please enter…"
+    />
+  </ic-hero>\`,
+  args: defaultArgs,
+  name: "Playground",
+  parameters: {
+    layout: "fullscreen"
+  },
+  argTypes: {
+    aligned: {
+      options: ["center", "full-width", "left"],
+      control: {
+        type: "select"
+      }
+    },
+    contentAligned: {
+      options: ["center", "left"],
+      control: {
+        type: "select"
+      }
+    },
+    size: {
+      options: ["medium", "small"],
+      control: {
+        type: "select"
+      }
+    },
+    theme: {
+      options: ["inherit", "light", "dark"],
+      control: {
+        type: "inline-radio"
+      }
+    }
+  }
+}`,...t.parameters?.docs?.source}}};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+    </ic-hero>\`,
+  name: "Left aligned",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...a.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+    </ic-hero>\`,
+  name: "Center aligned",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...i.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero>
+      <ic-typography slot="heading" variant="h1">Slotted heading</ic-typography>
+      <ic-typography slot="subheading">Slotted subheading</ic-typography>
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+    </ic-hero>\`,
+  name: "Slotted heading and subheading",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...o.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading. This is a Hero component, it should be used as a page heading."
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+      <ic-card-vertical
+        heading="Latest announcement"
+        message="This is some example text that can be included in the card copy."
+        slot="secondary"
+      ></ic-card-vertical>
+    </ic-hero>\`,
+  name: "Long heading",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...r.parameters?.docs?.source}}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="full-width"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+    </ic-hero>\`,
+  name: "Full width",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...c.parameters?.docs?.source}}};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+      content-aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+    </ic-hero>\`,
+  name: "Content center aligned",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...s.parameters?.docs?.source}}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+      size="small"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+    </ic-hero>\`,
+  name: "Small",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...l.parameters?.docs?.source}}};d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      secondary-heading="Secondary Heading"
+      secondary-subheading="This is a secondary description."
+      aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+    </ic-hero>\`,
+  name: "Secondary heading",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...d.parameters?.docs?.source}}};h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+    >
+      <ic-search-bar
+        slot="interaction"
+        full-width
+        style="max-width: 322px;"
+      ></ic-search-bar>
+    </ic-hero>\`,
+  name: "Search bar interaction",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...h.parameters?.docs?.source}}};g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="full-width"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <ic-card-vertical
+        heading="Latest announcement"
+        message="This is some example text that can be included in the card copy."
+        slot="secondary"
+      ></ic-card-vertical>
+    </ic-hero>\`,
+  name: "Card right content",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...g.parameters?.docs?.source}}};u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
+    >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
+      <svg
+        slot="secondary"
+        style="width:300px;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1600 900"
+      >
+        <rect fill="#ff7700" width="1600" height="900" />
+        <polygon fill="#cc0000" points="957 450 539 900 1396 900" />
+        <polygon fill="#aa0000" points="957 450 872.9 900 1396 900" />
+        <polygon fill="#c50022" points="-60 900 398 662 816 900" />
+        <polygon fill="#a3001b" points="337 900 398 662 816 900" />
+        <polygon fill="#be0044" points="1203 546 1552 900 876 900" />
+        <polygon fill="#9c0036" points="1203 546 1552 900 1162 900" />
+        <polygon fill="#b80066" points="641 695 886 900 367 900" />
+        <polygon fill="#960052" points="587 900 641 695 886 900" />
+        <polygon fill="#b10088" points="1710 900 1401 632 1096 900" />
+        <polygon fill="#8f006d" points="1710 900 1401 632 1365 900" />
+        <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
+        <polygon fill="#880088" points="943 900 1210 900 971 687" />
+      </svg>
+    </ic-hero>\`,
+  name: "Image right content",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...u.parameters?.docs?.source}}};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-theme
+        brand-color="rgb(255, 201, 60)"
+        id="brand-story-ic-theme"
+      ></ic-theme>
+      <ic-hero
+        heading="Hero heading"
+        subheading="Hero description. This is a Hero component, it should be used as a page heading."
+        aligned="center"
+      >
+        <div slot="interaction" style="display: flex">
+          <ic-text-field
+            placeholder="Filter display"
+            label="Filter display"
+            hide-label
+            full-width="true"
+          ></ic-text-field>
+          <ic-button variant="primary" style="margin-left: var(--ic-space-md)"
+            >Filter</ic-button
+          >
+        </div>
+        <ic-card-vertical
+          heading="Latest announcement"
+          message="This is some example text that can be included in the card copy."
+          slot="secondary"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-card-vertical>
+      </ic-hero>
+      <br />
+      <ic-button variant="primary" id="default-btn" onClick="changeBrand()">
+        Default brand
+      </ic-button>
+      <ic-button
+        variant="primary"
+        id="custom-btn"
+        onClick="changeSunriseBrand()"
+      >
+        Sunrise brand
+      </ic-button>
+      <script>
+        var theme = document.querySelector("#brand-story-ic-theme");
+        function changeBrand() {
+          theme.brandColor = "rgb(27, 60, 121)";
+        }
+        function changeSunriseBrand() {
+          theme.brandColor = "rgb(255, 201, 60)";
+        }
+      <\/script>\`,
+  name: "Brand",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...p.parameters?.docs?.source}}};m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-theme brand-color="rgb(27, 60, 121)"></ic-theme>
+      <ic-top-navigation app-title="Application Name">
+        <svg
+          slot="app-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+          />
+        </svg>
+      </ic-top-navigation>
+      <ic-hero
+        heading="Hero heading"
+        subheading="Hero description. This is a Hero component, it should be used as a page heading."
+        background-image="\${image}"
+      >
+        <div slot="interaction">
+          <ic-button variant="primary" style="margin-right: var(--ic-space-md)"
+            >Button</ic-button
+          >
+          <ic-button
+            variant="secondary"
+            style="margin-right: var(--ic-space-md)"
+            >Button</ic-button
+          >
+          <ic-link
+            href="https://google.com"
+            style="margin-top: var(--ic-space-sm)"
+            >Help</ic-link
+          >
+        </div>
+      </ic-hero>
+      <br />
+      <ic-typography>You can scroll.</ic-typography>
+      <ic-button
+        variant="primary"
+        id="default-btn"
+        onClick="document.querySelector('ic-theme').brandColor='rgb(27, 60, 121)'"
+        style="margin-bottom:1300px"
+      >
+        Reset theme
+      </ic-button>\`,
+  name: "With background image (parallax effect)",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...m.parameters?.docs?.source}}};b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  render: () => html\`<ic-theme brand-color="rgb(27, 60, 121)"></ic-theme>
+      <ic-top-navigation app-title="Application Name">
+        <svg
+          slot="app-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+          />
+        </svg>
+      </ic-top-navigation>
+      <ic-hero
+        heading="Hero heading"
+        subheading="Hero description. This is a Hero component, it should be used as a page heading."
+        background-image="\${image}"
+        disable-background-parallax
+      >
+        <div slot="interaction">
+          <ic-button variant="primary" style="margin-right: var(--ic-space-md)"
+            >Button</ic-button
+          >
+          <ic-button
+            variant="secondary"
+            style="margin-right: var(--ic-space-md)"
+            >Button</ic-button
+          >
+          <ic-link
+            href="https://google.com"
+            style="margin-top: var(--ic-space-sm)"
+            >Help</ic-link
+          >
+        </div>
+      </ic-hero>
+      <br />
+      <ic-typography>You can scroll.</ic-typography>
+      <ic-button
+        variant="primary"
+        id="default-btn"
+        onClick="document.querySelector('ic-theme').brandColor='rgb(27, 60, 121)'"
+        style="margin-bottom:1300px"
+      >
+        Reset theme
+      </ic-button>\`,
+  name: "With background image (no parallax effect)",
+  parameters: {
+    layout: "fullscreen"
+  }
+}`,...b.parameters?.docs?.source}}};const k=["Playground","LeftAligned","CenterAligned","SlottedHeadingAndSubheading","LongHeading","FullWidth","ContentCenterAligned","Small","SecondaryHeading","SearchBarInteraction","CardRightContent","ImageRightContent","Brand","WithBackgroundImageParallaxEffect","WithBackgroundImageNoParallaxEffect"],z=Object.freeze(Object.defineProperty({__proto__:null,Brand:p,CardRightContent:g,CenterAligned:i,ContentCenterAligned:s,FullWidth:c,ImageRightContent:u,LeftAligned:a,LongHeading:r,Playground:t,SearchBarInteraction:h,SecondaryHeading:d,SlottedHeadingAndSubheading:o,Small:l,WithBackgroundImageNoParallaxEffect:b,WithBackgroundImageParallaxEffect:m,__namedExportsOrder:k,default:w},Symbol.toStringTag,{value:"Module"}));export{z as I};
