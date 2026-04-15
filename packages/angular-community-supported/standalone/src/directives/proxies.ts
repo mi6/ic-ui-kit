@@ -2007,9 +2007,11 @@ export declare interface IcToggleButtonGroup extends Components.IcToggleButtonGr
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['disableClick', 'disableHover', 'fixedPositioning', { name: 'label', required: true }, 'maxLines', 'placement', 'target', 'theme'],
+  outputs: ['icTooltipShow'],
 })
 export class IcTooltip {
   protected el: HTMLIcTooltipElement;
+  @Output() icTooltipShow = new EventEmitter<CustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -2017,7 +2019,12 @@ export class IcTooltip {
 }
 
 
-export declare interface IcTooltip extends Components.IcTooltip {}
+export declare interface IcTooltip extends Components.IcTooltip {
+  /**
+   * Emitted when the tooltip becomes visible.
+   */
+  icTooltipShow: EventEmitter<CustomEvent<void>>;
+}
 
 
 @ProxyCmp({
