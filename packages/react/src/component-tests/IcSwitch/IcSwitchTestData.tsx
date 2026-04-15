@@ -80,6 +80,14 @@ export const Small = () => {
   );
 };
 
+export const Large = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSwitch size="large" label="Label" />
+    </div>
+  );
+};
+
 export const RightAdornment = () => {
   return (
     <div style={{ padding: "10px" }}>
