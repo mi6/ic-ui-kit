@@ -24,7 +24,7 @@
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
     "tsc": "tsc -p .",
     "validate": "npm i && npm run build",
-    "audit": "echo 'Audit for: @ukic/angular-community-supported' & audit-ci -m --config ../../audit-ci.json"
+    "audit:manual": "echo 'Audit for: @ukic/angular-community-supported' & audit-ci -m --config ../../audit-ci.json"
   },
   "exports": {
     "./css/*": {
@@ -34,10 +34,12 @@
       "default": "./package.json"
     },
     ".": {
+      "default": "./dist/fesm2022/ukic-angular-community-supported.mjs",
       "import": "./dist/fesm2022/ukic-angular-community-supported.mjs",
       "types": "./dist/types/ukic-angular-community-supported.d.ts"
     },
     "./standalone": {
+      "default": "./dist/fesm2022/ukic-angular-community-supported-standalone.mjs",
       "import": "./dist/fesm2022/ukic-angular-community-supported-standalone.mjs",
       "types": "./dist/types/ukic-angular-community-supported-standalone.d.ts"
     }
