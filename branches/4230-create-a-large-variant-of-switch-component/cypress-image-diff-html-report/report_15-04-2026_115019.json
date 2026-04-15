@@ -22,7 +22,7 @@
         {
           "status": "fail",
           "name": "AgGridWrapper.cy.tsx/ag-grid-dark",
-          "percentage": 0.11692679333668567,
+          "percentage": 0.11685064432611009,
           "failureThreshold": 0,
           "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
           "specFilename": "AgGridWrapper.cy.tsx",
@@ -10561,9 +10561,9 @@
       ]
     }
   ],
-  "startedAt": "2026-04-14T20:55:33.526Z",
-  "endedAt": "2026-04-14T21:16:00.837Z",
-  "duration": 1116346,
+  "startedAt": "2026-04-15T11:50:19.641Z",
+  "endedAt": "2026-04-15T12:09:56.989Z",
+  "duration": 1067738,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
