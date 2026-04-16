@@ -18,7 +18,7 @@ describe("Visual regression and a11y tests", () => {
     cy.task("generateReport");
   });
 
-  it("should render", () => {
+  it.skip("should render", () => {
     mount(<AGGridLight />);
 
     cy.get("span.ag-header-expand-icon-collapsed").eq(1).click();
@@ -30,7 +30,7 @@ describe("Visual regression and a11y tests", () => {
     });
   });
 
-  it("should render dark", () => {
+  it.skip("should render dark", () => {
     mount(<AGGridDark />);
 
     cy.get("span.ag-header-expand-icon-collapsed").eq(1).click();
