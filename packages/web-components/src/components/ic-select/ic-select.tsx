@@ -674,7 +674,9 @@ export class Select {
       if (filteredOptions.length > 0) {
         const firstOption = filteredOptions[0];
         if ("children" in firstOption) {
-          this.value = firstOption.children[0].value;
+          if (firstOption.children) {
+            this.value = firstOption.children[0].value;
+          }
         } else {
           this.value = firstOption.value;
         }
@@ -950,7 +952,7 @@ export class Select {
           {placeholder}
         </option>
         {options.map((option) =>
-          "children" in option ? (
+          "children" in option && option.children ? (
             <optgroup label={option.label}>
               {option.children.map((child) =>
                 this.renderNativeOption(child as IcSelectOptionBase)

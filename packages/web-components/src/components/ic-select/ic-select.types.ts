@@ -1,9 +1,12 @@
+import { IcMenuOption } from "../../components";
+
 // Compatible with IcMenuOption, but stricter
 export type IcSelectOption =
   | IcSelectOptionBase
   | IcSelectOptionGroup
   | IcSelectOptionLoading
-  | IcSelectOptionTimedOut;
+  | IcSelectOptionTimedOut
+  | IcMenuOption;
 
 type IcSelectOptionElement = {
   component: any;
