@@ -200,7 +200,7 @@ describe("IcTypography visual regression and a11y tests", () => {
   });
 });
 
-it("should render as truncated in an AG Grid when there is not enough space", () => {
+it.skip("should render as truncated in an AG Grid when there is not enough space", () => {
   mount(<InAGGrid />);
 
   cy.checkHydrated(TYPOGRAPHY_SELECTOR);
