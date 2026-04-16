@@ -747,17 +747,14 @@ export const focusElement = (
     return;
   }
 
-  let newFocusedElementIndex = focusedElementIndex;
-
   if (shouldSkipElement(element)) {
-    newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
-      newFocusedElementIndex,
-      shiftKey
-    );
-    newFocusedElementIndex = getLoopedNextFocusIndexIfLastElement(
-      newFocusedElementIndex,
-      interactiveElementList
-    );
+    const nextIndex = shiftKey
+      ? focusedElementIndex - 1
+      : focusedElementIndex + 1;
+    const newFocusedElementIndex =
+      nextIndex < 0
+        ? interactiveElementList.length - 1
+        : nextIndex % interactiveElementList.length;
     return focusElement(
       newFocusAttemptCount,
       newFocusedElementIndex,
@@ -777,112 +774,12 @@ export const focusElement = (
       default:
         element.focus();
     }
-    return { newFocusAttemptCount, newFocusedElementIndex };
-  }
-};
-
-/**
- * Gets the index of the currently focused element. Used for focus trapping.
- * @param el - host element of the component
- * @param interactiveElementList - list of interactive elements
- */
-export const getFocusedElementIndex = (
-  el: HTMLElement,
-  interactiveElementList: HTMLElement[]
-) => {
-  for (let i = 0; i < interactiveElementList.length; i++) {
-    if (
-      (interactiveElementList[i] as HTMLElement) ===
-      (el.shadowRoot?.activeElement || document.activeElement)
-    ) {
-      return i;
-    }
-  }
-  return null;
-};
-
-/**
- * Gets the next focusable element index based on whether the shift key is pressed. Used for focus trapping.
- * @param focusedElementIndex - current focused element index
- * @param shiftKey - whether the shift key is pressed
- */
-export const getFocusIndexBasedOnShiftKey = (
-  focusedElementIndex: number,
-  shiftKey: boolean
-) => (shiftKey ? (focusedElementIndex -= 1) : (focusedElementIndex += 1));
-
-/**
- * Gets the next focusable element index, looping back to the start or end if necessary. Used for focus trapping.
- * @param focusedElementIndex - current focused element index
- * @param interactiveElementList - list of interactive elements
- */
-export const getLoopedNextFocusIndexIfLastElement = (
-  focusedElementIndex: number,
-  interactiveElementList: HTMLElement[]
-): number => {
-  if (focusedElementIndex > interactiveElementList.length - 1) {
-    return 0;
-  } else if (focusedElementIndex < 0) {
-    return interactiveElementList.length - 1;
-  }
-  return focusedElementIndex;
-};
-
-/**
- * Handles tab key press for focus trapping.
- * @param el - host element of the component
- * @param focusAttemptCount - number of focus attempts that have been made
- * @param focusedElementIndex - current focused element index
- * @param interactiveElementList - list of interactive elements
- * @param shiftKey - whether the shift key is pressed
- */
-export function handleFocusTrapTabKeyPress(
-  el: HTMLElement,
-  focusAttemptCount: number,
-  focusedElementIndex: number,
-  interactiveElementList: HTMLElement[],
-  shiftKey: boolean
-): {
-  newFocusAttemptCount: number;
-  newFocusedElementIndex: number;
-  preventDefault: boolean;
-} {
-  let newFocusAttemptCount = focusAttemptCount;
-
-  let newFocusedElementIndex =
-    getFocusedElementIndex(el, interactiveElementList) || focusedElementIndex;
-
-  if (interactiveElementList[focusedElementIndex]?.tagName === IC_SEARCH_BAR) {
     return {
       newFocusAttemptCount,
-      newFocusedElementIndex,
-      preventDefault: false,
+      newFocusedElementIndex: focusedElementIndex,
     };
   }
-
-  newFocusedElementIndex = getFocusIndexBasedOnShiftKey(
-    newFocusedElementIndex,
-    shiftKey
-  );
-  newFocusedElementIndex = getLoopedNextFocusIndexIfLastElement(
-    newFocusedElementIndex,
-    interactiveElementList
-  );
-
-  newFocusAttemptCount = 0;
-  const focusElementResult = focusElement(
-    newFocusAttemptCount,
-    newFocusedElementIndex,
-    interactiveElementList,
-    shiftKey
-  );
-  if (focusElementResult) {
-    newFocusedElementIndex = focusElementResult.newFocusedElementIndex;
-    newFocusAttemptCount = focusElementResult.newFocusAttemptCount;
-  }
-
-  return { newFocusAttemptCount, newFocusedElementIndex, preventDefault: true };
-}
+};
 
 /**
  * Sets up listener and mutation observer to refresh interactive elements on slot changes. Used for focus trapping.

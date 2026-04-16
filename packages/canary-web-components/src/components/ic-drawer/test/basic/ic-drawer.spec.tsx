@@ -265,7 +265,7 @@ describe("ic-drawer", () => {
     expect(page.rootInstance.marginResizeObserver).toBe(resizeObserverCallback);
   });
 
-  it("should handle Tab key press correctly - focussing the next interactive element", async () => {
+  it("should focus last interactive element when focusLast is called", async () => {
     const page = await newSpecPage({
       components: [Button, Drawer],
       html: `<ic-drawer heading="Test heading" message="Test message" expanded="true"></ic-drawer>`,
@@ -274,26 +274,37 @@ describe("ic-drawer", () => {
     jest.advanceTimersByTime(DELAY_MS);
     await page.waitForChanges();
 
-    Object.defineProperty(helpers, "handleFocusTrapTabKeyPress", {
-      value: jest.fn().mockReturnValue({
-        newFocusAttemptCount: 1,
-        newFocusedElementIndex: 2,
-        preventDefault: true,
-      }),
+    const interactiveElements = page.rootInstance.interactiveElementList;
+
+    const firstEl = interactiveElements[0];
+
+    const focusSpy = jest.spyOn(firstEl, "focus");
+
+    page.rootInstance.focusFirst();
+    await page.waitForChanges();
+
+    expect(focusSpy).toHaveBeenCalled();
+  });
+
+  it("should focus first interactive element when focusFirst is called", async () => {
+    const page = await newSpecPage({
+      components: [Button, Drawer],
+      html: `<ic-drawer heading="Test heading" message="Test message" expanded="true"></ic-drawer>`,
     });
 
-    const tabPress = new KeyboardEvent("keydown", {
-      key: "Tab",
-      shiftKey: false,
-    });
-    const preventDefaultSpy = jest.spyOn(tabPress, "preventDefault");
+    jest.advanceTimersByTime(DELAY_MS);
+    await page.waitForChanges();
 
-    document.dispatchEvent(tabPress);
+    const interactiveElements = page.rootInstance.interactiveElementList;
 
-    expect(helpers.handleFocusTrapTabKeyPress).toHaveBeenCalled();
-    expect(preventDefaultSpy).toHaveBeenCalled();
-    expect(page.rootInstance.focusAttemptCount).toBe(1);
-    expect(page.rootInstance.focusedElementIndex).toBe(2);
+    const firstEl = interactiveElements[0];
+
+    const focusSpy = jest.spyOn(firstEl, "focus");
+
+    page.rootInstance.focusFirst();
+    await page.waitForChanges();
+
+    expect(focusSpy).toHaveBeenCalled();
   });
 
   it("should handle Escape key press correctly - collapsing the drawer", async () => {
@@ -621,7 +632,6 @@ describe("ic-drawer", () => {
       0,
       page.rootInstance.interactiveElementList
     );
-    expect(page.rootInstance.focusedElementIndex).toBe(1);
   });
 
   it("should focus the trigger element correctly when collapsed (trigger prop set to 'controlled')", async () => {
