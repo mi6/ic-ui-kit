@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.4.13...@ukic/docs@3.4.14) (2026-04-20)
+
+**Note:** Version bump only for package @ukic/docs
+
 ## [3.4.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.4.12...@ukic/docs@3.4.13) (2026-04-01)
 
 **Note:** Version bump only for package @ukic/docs

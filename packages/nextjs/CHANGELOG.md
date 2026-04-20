@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.2.21...@ukic/nextjs@3.2.22) (2026-04-20)
+
+### Bug Fixes
+
+- **nextjs:** update package-lock.json via npm audit fix ([2e3ea40](https://github.com/mi6/ic-ui-kit/commit/2e3ea40c940064f57c4906f559871d7baf1b14e9))
+
 ## [3.2.21](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.2.20...@ukic/nextjs@3.2.21) (2026-04-01)
 
 **Note:** Version bump only for package @ukic/nextjs

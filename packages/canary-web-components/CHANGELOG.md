@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.40](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.39...@ukic/canary-web-components@3.0.0-canary.40) (2026-04-20)
+
+### Bug Fixes
+
+- **canary-web-components:** fix slotted tabs not working with focus trap in ic-drawer ([cae17d5](https://github.com/mi6/ic-ui-kit/commit/cae17d5f8fa63e01cfd723de1ae162908a14d090)), closes [#4246](https://github.com/mi6/ic-ui-kit/issues/4246)
+- **canary-web-components:** update package-lock.json via npm audit fix ([8f61230](https://github.com/mi6/ic-ui-kit/commit/8f6123086e5733b671f2d77fcd585b6da4c5be62))
+
 # [3.0.0-canary.39](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.38...@ukic/canary-web-components@3.0.0-canary.39) (2026-04-01)
 
 **Note:** Version bump only for package @ukic/canary-web-components
