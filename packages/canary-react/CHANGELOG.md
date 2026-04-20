@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.40](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.39...@ukic/canary-react@3.0.0-canary.40) (2026-04-20)
+
+### Bug Fixes
+
+- **canary-react:** update package-lock.json via npm audit fix ([1da8b68](https://github.com/mi6/ic-ui-kit/commit/1da8b68d5950544f4ec276ab254fb148141fca65))
+
 # [3.0.0-canary.39](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.38...@ukic/canary-react@3.0.0-canary.39) (2026-04-01)
 
 ### Bug Fixes
