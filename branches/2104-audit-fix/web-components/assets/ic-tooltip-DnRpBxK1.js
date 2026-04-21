@@ -1,0 +1,3 @@
+import{j as t,M as n,a as s,S as m}from"./blocks-BASXx9c9.js";import{useMDXComponents as a}from"./index-Da6l1DCG.js";import{I as i}from"./ic-tooltip.stories-BeNh3Fi_.js";import"./preload-helper-PPVm8Dsz.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-BxKs4iXC.js";import"./lit-html-CWQq0DyO.js";const p=""+new URL("readme-BkHz-L2o.md",import.meta.url).href;function e(o){return t.jsxs(t.Fragment,{children:[t.jsx(n,{of:i}),`
+`,t.jsx(s,{children:p}),`
+`,t.jsx(m,{})]})}function l(o={}){const{wrapper:r}={...a(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(e,{...o})}):e()}export{l as default};
