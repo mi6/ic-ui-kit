@@ -10,7 +10,8 @@ export type IcDataTableColumnDataTypes =
   | "number"
   | "address"
   | "element"
-  | "date";
+  | "date"
+  | "datetime";
 
 export type IcDataTableColumnWidthTypes = {
   width?: string;
