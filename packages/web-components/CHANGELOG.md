@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.24.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.23.0...@ukic/web-components@3.24.0) (2026-04-22)
+
+### Bug Fixes
+
+- **web-components:** fix slotted tabs in dialog not working with focus trap ([6881f1d](https://github.com/mi6/ic-ui-kit/commit/6881f1d6525c30c21bbe1cf688834d642c28a2da)), closes [#4246](https://github.com/mi6/ic-ui-kit/issues/4246)
+- **web-components:** remove normalise.css import ([1baf82d](https://github.com/mi6/ic-ui-kit/commit/1baf82d927df3ebc9549c2bf0f336e9d3c6dde86))
+- **web-components:** update package-lock.json via npm audit fix ([46d3fa9](https://github.com/mi6/ic-ui-kit/commit/46d3fa927309d23132648e53f726eb09c0735f3f))
+- **web-components:** update SelectOption type to be more permissive and revert breaking change ([146775f](https://github.com/mi6/ic-ui-kit/commit/146775f17e276944e33316413802ac58d4ea2c2e))
+
+### Features
+
+- **web-components:** add 'large' size variant to ic-radio components ([d011c23](https://github.com/mi6/ic-ui-kit/commit/d011c23096cab5a94f078721da4864f3f88005fd)), closes [#4229](https://github.com/mi6/ic-ui-kit/issues/4229)
+
 # [3.23.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.22.0...@ukic/web-components@3.23.0) (2026-04-01)
 
 ### Features
