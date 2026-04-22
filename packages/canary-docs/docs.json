@@ -24050,7 +24050,7 @@
       "path": "../web-components/src/utils/types.ts"
     },
     "../web-components/src/components/ic-select/ic-select.types.ts::IcSelectOption": {
-      "declaration": "export type IcSelectOption =\n  | IcSelectOptionBase\n  | IcSelectOptionGroup\n  | IcSelectOptionLoading\n  | IcSelectOptionTimedOut;",
+      "declaration": "export type IcSelectOption =\n  | IcSelectOptionBase\n  | IcSelectOptionGroup\n  | IcSelectOptionLoading\n  | IcSelectOptionTimedOut\n  | IcMenuOption;",
       "docstring": "",
       "path": "../web-components/src/components/ic-select/ic-select.types.ts"
     },
