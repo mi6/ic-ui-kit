@@ -25240,7 +25240,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-select/ic-select.types.ts::IcSelectOption": {
-      "declaration": "export type IcSelectOption =\n  | IcSelectOptionBase\n  | IcSelectOptionGroup\n  | IcSelectOptionLoading\n  | IcSelectOptionTimedOut;",
+      "declaration": "export type IcSelectOption =\n  | IcSelectOptionBase\n  | IcSelectOptionGroup\n  | IcSelectOptionLoading\n  | IcSelectOptionTimedOut\n  | IcMenuOption;",
       "docstring": "",
       "path": "src/components/ic-select/ic-select.types.ts"
     },
