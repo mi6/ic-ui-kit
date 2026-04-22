@@ -17,7 +17,6 @@ import closeIcon from "../../assets/close-icon.svg";
 
 import {
   focusElement,
-  handleFocusTrapTabKeyPress,
   isSlotUsed,
   refreshInteractiveElementsOnSlotChange,
   removeInteractiveElementSlotChangeListener,
@@ -71,7 +70,6 @@ export class Drawer {
   private contentAreaSlot?: HTMLSlotElement | null;
   private drawerPanelEl?: HTMLDivElement;
   private focusAttemptCount = 0;
-  private focusedElementIndex = 0;
   private hostMutationObserver: MutationObserver | null = null;
   private innerDrawerPanelEl?: HTMLDivElement;
   private innerPanelResizeObserver?: ResizeObserver;
@@ -176,23 +174,6 @@ export class Drawer {
   handleKeyDown(ev: KeyboardEvent): void {
     if (this.expanded) {
       switch (ev.key) {
-        case "Tab": {
-          const tabKeyPressHandlerResult = handleFocusTrapTabKeyPress(
-            this.el,
-            this.focusAttemptCount,
-            this.focusedElementIndex,
-            this.interactiveElementList,
-            ev.shiftKey
-          );
-          this.focusAttemptCount =
-            tabKeyPressHandlerResult.newFocusAttemptCount;
-          this.focusedElementIndex =
-            tabKeyPressHandlerResult.newFocusedElementIndex;
-          if (tabKeyPressHandlerResult.preventDefault) {
-            ev.preventDefault();
-          }
-          break;
-        }
         case "Escape":
           this.handleDrawerExpanded(false, ev);
           break;
@@ -491,13 +472,11 @@ export class Drawer {
         if (this.interactiveElementList.length > 0) {
           const focusElementResult = focusElement(
             this.focusAttemptCount,
-            this.focusedElementIndex,
+            0,
             this.interactiveElementList
           );
           if (focusElementResult) {
             this.focusAttemptCount = focusElementResult.newFocusAttemptCount;
-            this.focusedElementIndex =
-              focusElementResult?.newFocusedElementIndex;
           }
         }
       }, this.TRANSITION_DURATION);
@@ -513,8 +492,23 @@ export class Drawer {
           this.chevronButton?.setFocus();
         }
       }, this.TRANSITION_DURATION);
+    }
+  };
 
-      this.focusedElementIndex = 0; // Reset to first element in case drawer is reopened
+  private focusLast = () => {
+    if (this.interactiveElementList.length > 0) {
+      focusElement(
+        this.focusAttemptCount,
+        this.interactiveElementList.length - 1,
+        this.interactiveElementList,
+        true
+      );
+    }
+  };
+
+  private focusFirst = () => {
+    if (this.interactiveElementList.length > 0) {
+      focusElement(this.focusAttemptCount, 0, this.interactiveElementList);
     }
   };
 
@@ -560,6 +554,7 @@ export class Drawer {
             !expanded ? this.handleDrawerExpanded(false, ev) : undefined
           }
         >
+          <div tabindex={expanded ? 0 : -1} onFocus={this.focusLast} />
           {this.isChevronTrigger() && this.renderChevronButton()}
           <div
             ref={(el) => (this.innerDrawerPanelEl = el)}
@@ -622,6 +617,7 @@ export class Drawer {
               )}
             </div>
           </div>
+          <div tabindex={expanded ? 0 : -1} onFocus={this.focusFirst} />
         </div>
       </Host>
     );

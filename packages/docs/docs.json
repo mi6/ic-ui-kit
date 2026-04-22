@@ -15330,15 +15330,15 @@
         },
         {
           "name": "size",
-          "type": "\"medium\" | \"small\" | undefined",
+          "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
-            "original": "IcSizesNoLarge",
-            "resolved": "\"medium\" | \"small\" | undefined",
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
             "references": {
-              "IcSizesNoLarge": {
+              "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSizesNoLarge"
+                "id": "src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -15349,6 +15349,10 @@
           "docsTags": [],
           "default": "\"medium\"",
           "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
             {
               "value": "medium",
               "type": "string"
@@ -25236,7 +25240,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-select/ic-select.types.ts::IcSelectOption": {
-      "declaration": "export type IcSelectOption =\n  | IcSelectOptionBase\n  | IcSelectOptionGroup\n  | IcSelectOptionLoading\n  | IcSelectOptionTimedOut;",
+      "declaration": "export type IcSelectOption =\n  | IcSelectOptionBase\n  | IcSelectOptionGroup\n  | IcSelectOptionLoading\n  | IcSelectOptionTimedOut\n  | IcMenuOption;",
       "docstring": "",
       "path": "src/components/ic-select/ic-select.types.ts"
     },

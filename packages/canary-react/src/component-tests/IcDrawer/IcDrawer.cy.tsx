@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
 import React, { ReactElement, useState } from "react";
@@ -1031,8 +1030,7 @@ describe("IcDrawer", () => {
     chevronButton.should(HAVE_FOCUS);
   });
 
-  // Focus trap not currently working in this test - https://github.com/mi6/ic-ui-kit/issues/4247 raised
-  it.skip("should focus interactive content and trap focus - search bar", () => {
+  it("should focus interactive content and trap focus - search bar", () => {
     mount(
       <IcDrawer heading="Test heading" message="Test message" expanded>
         <IcSearchBar slot="message" label="Test search bar" />
@@ -1104,15 +1102,13 @@ describe("IcDrawer", () => {
 
     chevronButton.should(HAVE_FOCUS);
 
-    // Shift + Tab not currently working - https://github.com/mi6/ic-ui-kit/issues/4246 raised
+    cy.realPress(["Shift", "Tab"]);
 
-    // cy.realPress(["Shift", "Tab"]);
+    tab.should(HAVE_FOCUS);
 
-    // tab.should(HAVE_FOCUS);
+    cy.realPress(["Shift", "Tab"]);
 
-    // cy.realPress(["Shift", "Tab"]);
-
-    // chevronButton.should(HAVE_FOCUS);
+    chevronButton.should(HAVE_FOCUS);
   });
 
   it("should focus interactive content and trap focus - text field", () => {

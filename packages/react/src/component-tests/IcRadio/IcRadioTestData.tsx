@@ -300,6 +300,24 @@ export const Small = () => {
   );
 };
 
+export const Large = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcRadioGroup size="large" label="This is a label" name="radio-group-1">
+        {threeOptions.map((option, index) => (
+          <IcRadioOption
+            key={index + option.value}
+            value={option.value}
+            label={option.label}
+            selected={option.selected}
+            disabled={option.disabled}
+          />
+        ))}
+      </IcRadioGroup>
+    </div>
+  );
+};
+
 export const SmallConditionalStatic = () => {
   return (
     <div style={{ padding: "10px" }}>
@@ -323,6 +341,29 @@ export const SmallConditionalStatic = () => {
   );
 };
 
+export const LargeConditionalStatic = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcRadioGroup size="large" label="This is a label" name="radio-group-1">
+        <IcRadioOption
+          additionalFieldDisplay="static"
+          value="valueName1"
+          label="Option 1"
+        >
+          <IcTextField
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+            size="medium"
+          />
+        </IcRadioOption>
+        <IcRadioOption value="valueName2" label="Option 2" />
+        <IcRadioOption value="valueName3" label="Option 3" />
+      </IcRadioGroup>
+    </div>
+  );
+};
+
 export const SmallConditionalDynamic = () => {
   return (
     <div style={{ padding: "10px" }}>
@@ -337,6 +378,29 @@ export const SmallConditionalDynamic = () => {
             placeholder="Placeholder"
             label="What's your favourite type of coffee?"
             size="small"
+          />
+        </IcRadioOption>
+        <IcRadioOption value="valueName2" label="Option 2" />
+        <IcRadioOption value="valueName3" label="Option 3" />
+      </IcRadioGroup>
+    </div>
+  );
+};
+
+export const LargeConditionalDynamic = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcRadioGroup size="large" label="This is a label" name="radio-group-1">
+        <IcRadioOption
+          additionalFieldDisplay="dynamic"
+          value="valueName1"
+          label="Option 1"
+        >
+          <IcTextField
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+            size="medium"
           />
         </IcRadioOption>
         <IcRadioOption value="valueName2" label="Option 2" />

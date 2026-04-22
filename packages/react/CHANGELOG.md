@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.24.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.23.0...@ukic/react@3.24.0) (2026-04-22)
+
+### Bug Fixes
+
+- **react:** update package-lock.json via npm audit fix ([6a6b505](https://github.com/mi6/ic-ui-kit/commit/6a6b5054c5cd17bd35d53a5ec19105bf908470f1))
+
+### Features
+
+- **react:** add 'large' size variant to ic-radio-group component ([aaf3e66](https://github.com/mi6/ic-ui-kit/commit/aaf3e66f19a840bc9cdfb9cbdb9af3e0abe98a0e)), closes [#4229](https://github.com/mi6/ic-ui-kit/issues/4229)
+
 # [3.23.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.22.0...@ukic/react@3.23.0) (2026-04-01)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@ukic/react",
-  "version": "3.23.0",
+  "version": "3.24.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit",
@@ -47,7 +47,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@ukic/web-components": "^3.23.0"
+    "@ukic/web-components": "^3.24.0"
   },
   "devDependencies": {
     "@ag-grid-community/styles": "^33.0.3",
@@ -63,7 +63,7 @@
     "@storybook/addon-a11y": "10.1.11",
     "@storybook/addon-docs": "10.1.11",
     "@storybook/addon-links": "10.1.11",
-    "@storybook/react-vite": "^10.1.11",
+    "@storybook/react-vite": "10.1.11",
     "@types/node": "^20.11.20",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",

@@ -143,6 +143,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small">
   <template shadowrootmode="open">
     <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
           <div class="label">
@@ -173,6 +174,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
           Confirm
         </ic-button>
       </div>
+      <div tabindex="0"></div>
     </dialog>
   </template>
   <ic-button id="anchorEl"></ic-button>

@@ -17,7 +17,6 @@ import {
   isSlotUsed,
   checkResizeObserver,
   focusElement,
-  handleFocusTrapTabKeyPress,
   onComponentRequiredPropUndefined,
   refreshInteractiveElementsOnSlotChange,
   slottedInteractiveElements,
@@ -44,7 +43,6 @@ export class Dialog {
   private dialogEl?: HTMLDialogElement;
   private dialogHeight: number = 0;
   private focusAttemptCount = 0;
-  private focusedElementIndex = 0;
   private interactiveElementList: HTMLElement[] = [];
   private resizeObserver: ResizeObserver | null = null;
   private resizeTimeout: number;
@@ -185,23 +183,6 @@ export class Dialog {
   handleKeyboard(ev: KeyboardEvent): void {
     if (this.dialogRendered) {
       switch (ev.key) {
-        case "Tab": {
-          const tabKeyPressHandlerResult = handleFocusTrapTabKeyPress(
-            this.el,
-            this.focusAttemptCount,
-            this.focusedElementIndex,
-            this.interactiveElementList,
-            ev.shiftKey
-          );
-          this.focusAttemptCount =
-            tabKeyPressHandlerResult.newFocusAttemptCount;
-          this.focusedElementIndex =
-            tabKeyPressHandlerResult.newFocusedElementIndex;
-          if (tabKeyPressHandlerResult.preventDefault) {
-            ev.preventDefault();
-          }
-          break;
-        }
         case "Escape":
           if (!ev.repeat) {
             this.open = false;
@@ -332,6 +313,23 @@ export class Dialog {
     }
   };
 
+  private focusLast = () => {
+    if (this.interactiveElementList.length > 0) {
+      focusElement(
+        this.focusAttemptCount,
+        this.interactiveElementList.length - 1,
+        this.interactiveElementList,
+        true
+      );
+    }
+  };
+
+  private focusFirst = () => {
+    if (this.interactiveElementList.length > 0) {
+      focusElement(this.focusAttemptCount, 0, this.interactiveElementList);
+    }
+  };
+
   private setInitialFocus = () => {
     this.sourceElement = document.activeElement as HTMLElement;
 
@@ -346,23 +344,22 @@ export class Dialog {
       return;
     }
 
-    this.focusedElementIndex = this.interactiveElementList.findIndex(
-      (element) => element.hasAttribute(this.DATA_GETS_FOCUS)
+    let focusedElementIndex = this.interactiveElementList.findIndex((element) =>
+      element.hasAttribute(this.DATA_GETS_FOCUS)
     );
 
-    if (this.focusedElementIndex === -1) {
-      this.focusedElementIndex = 0;
+    if (focusedElementIndex === -1) {
+      focusedElementIndex = 0;
     }
 
-    if (this.interactiveElementList[this.focusedElementIndex]) {
+    if (this.interactiveElementList[focusedElementIndex]) {
       const focusElementResult = focusElement(
         this.focusAttemptCount,
-        this.focusedElementIndex,
+        focusedElementIndex,
         this.interactiveElementList
       );
       if (focusElementResult) {
         this.focusAttemptCount = focusElementResult.newFocusAttemptCount;
-        this.focusedElementIndex = focusElementResult.newFocusedElementIndex;
       }
     }
   };
@@ -376,25 +373,35 @@ export class Dialog {
       this.el.shadowRoot?.querySelectorAll("ic-button") || []
     );
 
-    const interactiveElements = slottedInteractiveElements(this.el);
+    const slottedElements = slottedInteractiveElements(this.el);
 
-    if (interactiveElements.length > 0) {
-      if (interactiveElements[0].slot !== this.DIALOG_CONTROLS) {
-        interactiveElements[0].setAttribute(this.DATA_GETS_FOCUS, "");
+    if (slottedElements.length > 0) {
+      if (slottedElements[0].slot !== this.DIALOG_CONTROLS) {
+        slottedElements[0].setAttribute(this.DATA_GETS_FOCUS, "");
       } else if (!this.destructive) {
-        interactiveElements[interactiveElements.length - 1].setAttribute(
+        slottedElements[slottedElements.length - 1].setAttribute(
           this.DATA_GETS_FOCUS,
           ""
         );
       }
     }
 
-    for (let i = 0; i < interactiveElements.length; i++) {
-      this.interactiveElementList.splice(
-        1 + i,
-        0,
-        interactiveElements[i] as HTMLElement
-      );
+    // insert the slotted interactive elements after the close button in the focus order
+    if (slottedElements.length > 0 && this.interactiveElementList.length > 0) {
+      if (this.interactiveElementList[0].classList.contains("close-icon")) {
+        // if there is a close button, insert slotted interactive elements after it in the focus order
+        this.interactiveElementList = [
+          this.interactiveElementList[0],
+          ...slottedElements,
+          ...this.interactiveElementList.slice(1),
+        ] as HTMLElement[];
+      } else {
+        // if there is no close button, slotted interactive elements should be first in the focus order
+        this.interactiveElementList = [
+          ...slottedElements,
+          ...this.interactiveElementList,
+        ] as HTMLElement[];
+      }
     }
   };
 
@@ -427,6 +434,7 @@ export class Dialog {
         aria-describedby="dialog-alert dialog-content"
         ref={(el) => (this.dialogEl = el)}
       >
+        <div tabindex="0" onFocus={this.focusLast} />
         <div class="heading-area">
           <div class="heading-content">
             <div class="label">
@@ -495,6 +503,7 @@ export class Dialog {
             )}
           </div>
         )}
+        <div tabindex="0" onFocus={this.focusFirst} />
       </dialog>
     );
   };

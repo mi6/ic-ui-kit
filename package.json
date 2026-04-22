@@ -80,18 +80,22 @@
     "remark-lint": "^9.1.0",
     "remark-preset-lint-recommended": "^6.1.1",
     "rimraf": "^3.0.2",
+    "storybook": "10.1.11",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^24.0.0"
+    "stylelint-config-standard": "^24.0.0",
+    "typescript": "4.9.5"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.57.1"
   },
   "_dependencyNotes": {
+    "lodash": "Security override: fixes advisory requiring >=4.18.0 (transitive via commitizen/lerna). Remove once upstream deps unpin 4.17.21.",
     "picomatch": "Security override: fixes vulnerability in transitive deps (chokidar v3 / cspell). Remove once remark-cli/stylelint are upgraded.",
     "yaml": "Security override: fixes transitive vulnerability (patched in 1.10.3 / 2.8.3). Sources: lerna v6, stylelint v14."
   },
   "overrides": {
+    "lodash": "^4.18.1",
     "picomatch@^2.2.1": "2.3.2",
     "picomatch@^4.0.0": "4.0.4",
     "yaml@^1.0.0": "1.10.3",
