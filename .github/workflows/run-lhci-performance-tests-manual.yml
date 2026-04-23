@@ -26,10 +26,13 @@ jobs:
 
   ic-ui-kit-performance-tests:
     needs: [check-updates]
-    name: "Performance tests"
+    name: "Performance tests - Batch ${{ matrix.batch }}"
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    strategy:
+      matrix:
+        batch: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
@@ -47,14 +50,16 @@ jobs:
           npm ci
           npm run bootstrap -- -- --ci
 
-      - name: Cypress performance tests
+      - name: LHCI performance tests - Batch ${{ matrix.batch }}
         if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_cypress_performance_tests
-        run: npm run test-cypress-perf:ci
+        id: lhci_performance_tests
+        run: |
+            npm run build
+            node packages/react/scripts/lhci-run-per-route.js --batch ${{ matrix.batch }} --total-batches 4
 
       - name: Upload lighthouse performance reports
         if: always()
         uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
         with:
-          folder: ./packages/react/cypress-lighthouse-reports
-          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-lighthouse-reports
+          folder: ./packages/react/lhci-reports
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/lhci-reports/batch-${{ matrix.batch }}
