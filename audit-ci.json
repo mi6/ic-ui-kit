@@ -1,13 +1,6 @@
 {
   "allowlist": [
     {
-      "GHSA-pfrx-2q88-qq97": {
-        "active": true,
-        "notes": "requires upgrade to 'got', which is a transitive dependency of cypress-audit. We're on the latest version of cypress-audit (1.1.0).",
-        "expiry": "27 May 2026"
-      }
-    },
-    {
       "GHSA-c2qf-rxjj-qqgw": {
         "active": true,
         "notes": "requires upgrade to 'semver', which is a transitive dependency of lerna. Might be removable after a lerna upgrade, which is a breaking change (for us) as it removes the bootstrap command.",
@@ -43,13 +36,6 @@
       }
     },
     {
-      "GHSA-p6mc-m468-83gw": {
-        "active": true,
-        "notes": "requires upgrade to 'lodash.set', which is a transitive dependency of cypress-audit/lighthouse. We're on the latest version of cypress-audit (1.1.0) and there's no patched version for lodash.set.",
-        "expiry": "27 May 2026"
-      }
-    },
-    {
       "GHSA-h5c3-5r3r-rr8q": {
         "active": true,
         "notes": "requires upgrade to '@octokit/plugin-paginate-rest', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
@@ -60,27 +46,6 @@
       "GHSA-xx4v-prfh-6cgc": {
         "active": true,
         "notes": "requires upgrade to '@octokit/request-error', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 May 2026"
-      }
-    },
-    {
-      "GHSA-pq67-2wwv-3xjx": {
-        "active": true,
-        "notes": "requires upgrade to 'tar-fs', which is a transitive dependency of cypress-audit. We're on the latest version of cypress-audit (1.1.0).",
-        "expiry": "27 May 2026"
-      }
-    },
-    {
-      "GHSA-8cj5-5rvv-wf4v": {
-        "active": true,
-        "notes": "requires upgrade to 'tar-fs', which is a transitive dependency of cypress-audit. We're on the latest version of cypress-audit (1.1.0).",
-        "expiry": "27 May 2026"
-      }
-    },
-    {
-      "GHSA-vj76-c3g6-qr5v": {
-        "active": true,
-        "notes": "requires upgrade to 'tar-fs', which is a transitive dependency of cypress-audit. We're on the latest version of cypress-audit (1.1.0).",
         "expiry": "27 May 2026"
       }
     },
@@ -214,13 +179,6 @@
       "GHSA-v8jm-5vwx-cfxm": {
         "active": true,
         "notes": "requires upgrade to 'dompurify', awaiting patch for above",
-        "expiry": "27 May 2026"
-      }
-    },
-    {
-      "GHSA-gmq8-994r-jv83": {
-        "active": true,
-        "notes": "caused by a dependency of cypress-audit. We are on the latest version of cypress-audit (1.1.0). Might be removeable after migration to lighthouse",
         "expiry": "27 May 2026"
       }
     },

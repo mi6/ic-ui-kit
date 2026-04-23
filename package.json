@@ -42,8 +42,8 @@
     "test-cypress:ci:all": "npm run build:all && npm run test-cypress:headless && npm run test-cypress:canary:headless",
     "test-cypress:ci:canary": "npm run build:all && npm run test-cypress:canary:headless",
     "test-cypress:headless": "lerna run cypress:ci --scope=@ukic/react --stream",
-    "test-cypress-perf:ci": "npm run build && npm run test-cypress-perf:headless",
-    "test-cypress-perf:headless": "lerna run test:performance --scope=@ukic/react --stream"
+    "test-lhci-perf:ci": "npm run build && npm run test-lhci-perf:headless",
+    "test-lhci-perf:headless": "lerna run test:performance-lhci --scope=@ukic/react --stream"
   },
   "config": {
     "commitizen": {
