@@ -18,6 +18,7 @@ import {
   LargeLabel,
   ChangingLabel,
   PositioningStrategy,
+  WithIcon,
 } from "./IcTooltipTestData";
 import {
   BE_VISIBLE,
@@ -580,6 +581,20 @@ describe("IcTooltip visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
+
+  it("should render a tooltip with an icon", () => {
+    mount(<WithIcon />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+    cy.get("button").realHover("mouse");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/with-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      delay: 200,
+    });
+  });
 });
 
 describe("IcTooltip visual regression tests in high contrast mode", () => {
@@ -617,6 +632,19 @@ describe("IcTooltip visual regression tests in high contrast mode", () => {
     cy.compareSnapshot({
       name: "/left-placement-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      delay: 200,
+    });
+  });
+
+  it("should render a tooltip with an icon in high contrast mode", () => {
+    mount(<WithIcon />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+    cy.get("button").realHover("mouse");
+
+    cy.compareSnapshot({
+      name: "/with-icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
       delay: 200,
     });
   });
