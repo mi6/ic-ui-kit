@@ -265,6 +265,13 @@
         "notes": "handlebars vulnerability via dev tooling (webpack/storybook). Flagged during per-package audit. No runtime exposure; expected to be resolved during toolchain upgrades.",
         "expiry": "27 April 2026"
       }
+    },
+    {
+      "GHSA-w5hq-g745-h8pq": {
+        "active": true,
+        "notes": "requires upgrade to 'uuid', which is a transitive dependency of lerna. Might be removable after lerna upgrade.",
+        "expiry": "27 April 2026"
+      }
     }
   ]
 }
