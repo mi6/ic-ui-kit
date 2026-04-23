@@ -68,7 +68,6 @@
     "eslint-plugin-cypress": "^2.15.1",
     "github-markdown-css": "^5.5.0",
     "mkdirp": "^1.0.4",
-    "np": "^7.6.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-hook-form": "^7.38.0",
