@@ -945,6 +945,11 @@ export const COLS_ELEMENTS: IcDataTableColumnObject[] = [
     title: "Address",
     dataType: "address",
   },
+  {
+    key: "date",
+    title: "Date",
+    dataType: "datetime",
+  },
 ];
 
 export const COLS_ELEMENTS_SINGLE_ACTION: IcDataTableColumnObject[] = [
@@ -987,6 +992,12 @@ export const DATA_ELEMENTS = [
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
+    date: {
+      data: "2024-01-01",
+      href: "https://www.example.com",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
   },
   {
     firstName: {
@@ -996,24 +1007,33 @@ export const DATA_ELEMENTS = [
     age: 28,
     jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
+    date: {
+      data: "2024-02-01T10:30:30Z",
+      href: "https://www.example.org",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
   },
   {
     firstName: "Mark",
     age: 45,
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
+    date: "2027-03-01T10:30:30Z",
   },
   {
     firstName: "Naomi",
     age: 32,
     jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
+    date: "2024-04-01T10:30:30Z",
   },
   {
     firstName: "Luke",
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
+    date: "2024-05-01",
   },
 ];
 
@@ -1099,6 +1119,12 @@ export const DATA_REACT_ELEMENTS = [
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
+    date: {
+      data: "2024-01-01",
+      href: "https://www.example.com",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
   },
   {
     firstName: {
@@ -1108,24 +1134,33 @@ export const DATA_REACT_ELEMENTS = [
     age: 28,
     jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
+    date: {
+      data: "2024-02-01T10:30:30Z",
+      href: "https://www.example.org",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
   },
   {
     firstName: "Mark",
     age: 45,
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
+    date: "2027-03-01T10:30:30Z",
   },
   {
     firstName: "Naomi",
     age: 32,
     jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
+    date: "2024-04-01T10:30:30Z",
   },
   {
     firstName: "Luke",
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
+    date: "2024-05-01",
   },
 ];
 
