@@ -1,7 +1,9 @@
 import { TimeSelector } from "../../ic-time-selector";
 import { newSpecPage } from "@stencil/core/testing";
 
-jest.useFakeTimers();
+// Legacy fake timers used because Stencil relies on requestAnimationFrame-based scheduling
+// which does not work reliably with Jest 27+ modern fake timers.
+jest.useFakeTimers({ legacyFakeTimers: true });
 
 function createMockElement({
   top,
