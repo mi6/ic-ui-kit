@@ -44,7 +44,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Cache dependencies
         uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
@@ -102,7 +102,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
@@ -204,7 +204,7 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Cache dependencies
         uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
