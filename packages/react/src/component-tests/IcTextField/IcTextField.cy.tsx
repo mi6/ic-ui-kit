@@ -397,6 +397,20 @@ describe("IcTextField end-to-end tests", () => {
 
     cy.get(IC_TEXTFIELD).find('input[type="hidden"]').should(NOT_EXIST);
   });
+
+  it("should emit icScroll when textarea is scrolled", () => {
+    mount(<MultiLineTextAreaWithResize />);
+
+    cy.checkHydrated(IC_TEXTFIELD);
+
+    cy.get(IC_TEXTFIELD).invoke("on", "icScroll", cy.stub().as("icScroll"));
+
+    cy.findShadowEl(IC_TEXTFIELD, "textarea").type(
+      "Line 1{enter}Line 2{enter}Line 3{enter}Line 4{enter}Line 5{enter}Line 6{enter}Line 7"
+    );
+    cy.findShadowEl(IC_TEXTFIELD, "textarea").scrollTo("bottom");
+    cy.get("@icScroll").should(HAVE_BEEN_CALLED);
+  });
 });
 
 describe("IcTextField visual regression tests", () => {
