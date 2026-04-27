@@ -43,6 +43,15 @@ describe("ic-switch component", () => {
     expect(page.root).toMatchSnapshot("renders-small");
   });
 
+  it("should render large", async () => {
+    const page = await newSpecPage({
+      components: [Switch],
+      html: `<ic-switch label="Custom title" checked=true size="large"></ic-switch>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-large");
+  });
+
   it("should focus", async () => {
     const page = await newSpecPage({
       components: [Switch],

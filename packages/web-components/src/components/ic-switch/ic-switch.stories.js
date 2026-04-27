@@ -30,9 +30,13 @@ export const Checked = {
   name: "Checked",
 };
 
-export const Small = {
-  render: () => html` <ic-switch size="small" label="Label"></ic-switch> `,
-  name: "Small",
+export const Sizes = {
+  render: () => html`
+    <ic-switch size="small" label="Label"></ic-switch>
+    <ic-switch label="Label"></ic-switch>
+    <ic-switch size="large" label="Label"></ic-switch>
+  `,
+  name: "Sizes",
 };
 
 export const Disabled = {
@@ -136,7 +140,7 @@ export const Playground = {
 
   argTypes: {
     size: {
-      options: ["medium", "small"],
+      options: ["small", "medium", "large"],
 
       control: {
         type: "inline-radio",

@@ -17466,15 +17466,15 @@
         },
         {
           "name": "size",
-          "type": "\"medium\" | \"small\" | undefined",
+          "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
-            "original": "IcSizesNoLarge",
-            "resolved": "\"medium\" | \"small\" | undefined",
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
             "references": {
-              "IcSizesNoLarge": {
+              "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge"
+                "id": "../web-components/src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -17485,6 +17485,10 @@
           "docsTags": [],
           "default": "\"medium\"",
           "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
             {
               "value": "medium",
               "type": "string"

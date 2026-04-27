@@ -8,6 +8,7 @@ import {
   Checked,
   Disabled,
   Small,
+  Large,
   RightAdornment,
   HelperText,
   HiddenLabel,
@@ -201,6 +202,18 @@ describe("IcSwitch visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
+  });
+
+  it("should render a large switch", () => {
+    mount(<Large />);
+
+    cy.checkHydrated(SWITCH_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
