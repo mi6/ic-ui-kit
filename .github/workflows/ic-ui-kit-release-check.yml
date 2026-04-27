@@ -19,7 +19,7 @@ jobs:
           fetch-tags: true
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
-          node-version: 20
+          node-version: 24
       - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
       - name: Install dependencies
         run: |
