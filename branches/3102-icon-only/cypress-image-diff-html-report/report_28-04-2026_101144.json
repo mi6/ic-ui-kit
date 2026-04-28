@@ -9591,276 +9591,6 @@
       ]
     },
     {
-      "name": "IcTooltip.cy.tsx",
-      "path": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-      "tests": [
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/default",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/default.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/default.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/very-large-label",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/very-large-label.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/very-large-label.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/top-placement-start",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/top-placement-start.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/top-placement-start.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/top-placement",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/top-placement.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/top-placement.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/top-placement-end",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/top-placement-end.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/top-placement-end.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/bottom-placement-start",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/bottom-placement-start.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/bottom-placement-start.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/bottom-placement",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/bottom-placement.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/bottom-placement.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/bottom-placement-end",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/bottom-placement-end.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/bottom-placement-end.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/right-placement-start",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/right-placement-start.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/right-placement-start.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/right-placement",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/right-placement.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/right-placement.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/right-placement-end",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/right-placement-end.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/right-placement-end.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/left-placement-start",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/left-placement-start.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/left-placement-start.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/left-placement",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/left-placement.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/left-placement.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/left-placement-end",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/left-placement-end.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/left-placement-end.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/dark-background",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/dark-background.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/dark-background.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/truncated-text",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/truncated-text.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/truncated-text.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/on-chip",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/on-chip.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/on-chip.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/changing-label",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/changing-label.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/changing-label.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/position-absolute",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/position-absolute.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/position-absolute.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/position-fixed",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/position-fixed.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/position-fixed.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/with-icon",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/with-icon.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/with-icon.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/default-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/default-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/default-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/left-placement-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/left-placement-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/left-placement-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTooltip.cy.tsx/with-icon-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
-          "specFilename": "IcTooltip.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/with-icon-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/with-icon-high-contrast.png"
-        }
-      ]
-    },
-    {
       "name": "IcTopNavigation.cy.tsx",
       "path": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
       "tests": [
@@ -10351,6 +10081,276 @@
       ]
     },
     {
+      "name": "IcTooltip.cy.tsx",
+      "path": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/default",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/default.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/default.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/very-large-label",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/very-large-label.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/very-large-label.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/top-placement-start",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/top-placement-start.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/top-placement-start.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/top-placement",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/top-placement.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/top-placement.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/top-placement-end",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/top-placement-end.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/top-placement-end.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/bottom-placement-start",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/bottom-placement-start.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/bottom-placement-start.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/bottom-placement",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/bottom-placement.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/bottom-placement.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/bottom-placement-end",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/bottom-placement-end.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/bottom-placement-end.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/right-placement-start",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/right-placement-start.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/right-placement-start.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/right-placement",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/right-placement.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/right-placement.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/right-placement-end",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/right-placement-end.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/right-placement-end.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/left-placement-start",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/left-placement-start.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/left-placement-start.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/left-placement",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/left-placement.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/left-placement.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/left-placement-end",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/left-placement-end.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/left-placement-end.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/dark-background",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/dark-background.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/dark-background.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/truncated-text",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/truncated-text.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/truncated-text.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/on-chip",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/on-chip.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/on-chip.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/changing-label",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/changing-label.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/changing-label.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/position-absolute",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/position-absolute.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/position-absolute.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/position-fixed",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/position-fixed.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/position-fixed.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/with-icon",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/with-icon.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/with-icon.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/default-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/default-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/default-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/left-placement-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/left-placement-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/left-placement-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTooltip.cy.tsx/with-icon-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
+          "specFilename": "IcTooltip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx/with-icon-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx/with-icon-high-contrast.png"
+        }
+      ]
+    },
+    {
       "name": "IcTypography.cy.tsx",
       "path": "src/component-tests/IcTypography/IcTypography.cy.tsx",
       "tests": [
@@ -10533,9 +10533,9 @@
       ]
     }
   ],
-  "startedAt": "2026-04-28T09:26:44.343Z",
-  "endedAt": "2026-04-28T09:44:07.143Z",
-  "duration": 951342,
+  "startedAt": "2026-04-28T10:11:44.740Z",
+  "endedAt": "2026-04-28T10:31:14.675Z",
+  "duration": 1061569,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
