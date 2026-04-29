@@ -14,7 +14,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **web-components:** add 'large' size variant to ic-radio components ([064d9be](https://github.com/mi6/ic-ui-kit/commit/064d9beb710cb41516f5e4aa50696bae9955804a)), closes [#4229](https://github.com/mi6/ic-ui-kit/issues/4229)
 - **web-components:** add large size variant to ic-switch ([6009eec](https://github.com/mi6/ic-ui-kit/commit/6009eec06b0d9397708e7789e1289a74b90328a1)), closes [#4230](https://github.com/mi6/ic-ui-kit/issues/4230)
 - **web-components:** add slot for icon on tooltip ([e205135](https://github.com/mi6/ic-ui-kit/commit/e205135ae157851c72325c916d7776a15e6dcb45))
 
