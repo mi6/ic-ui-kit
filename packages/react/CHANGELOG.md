@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.25.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.23.0...@ukic/react@3.25.0) (2026-04-29)
+
+### Bug Fixes
+
+- **react:** update package-lock.json via npm audit fix ([cb6adea](https://github.com/mi6/ic-ui-kit/commit/cb6adeaf3ea0ff1990bf7bc1c73213bc35da7907))
+
+### Features
+
+- **react:** add 'large' size variant to ic-radio-group component ([de6574f](https://github.com/mi6/ic-ui-kit/commit/de6574f4ff56945a2a16447c2525c100a05cfea6)), closes [#4229](https://github.com/mi6/ic-ui-kit/issues/4229)
+- **react:** add large size variant to ic-switch ([6e15647](https://github.com/mi6/ic-ui-kit/commit/6e15647032572fa518e8814d0aab3eecdf6e712b)), closes [#4230](https://github.com/mi6/ic-ui-kit/issues/4230)
+- **react:** add react stories and cypress tests for tooltip icon ([a679d33](https://github.com/mi6/ic-ui-kit/commit/a679d33dcc606b335b3b765fb0283730a52c14ec))
+
 # [3.24.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.23.0...@ukic/react@3.24.0) (2026-04-22)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.2.11...@ukic/codemod@1.2.13) (2026-04-29)
+
+### Bug Fixes
+
+- **codemod:** update package-lock.json via npm audit fix ([d487aa5](https://github.com/mi6/ic-ui-kit/commit/d487aa54f4ff45606d7347ec8c4da1a0f1a4574c))
+
 ## [1.2.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.2.11...@ukic/codemod@1.2.12) (2026-04-22)
 
 ### Bug Fixes
