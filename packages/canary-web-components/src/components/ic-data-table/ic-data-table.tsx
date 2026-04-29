@@ -789,7 +789,6 @@ export class DataTable {
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement
   ): boolean {
-
     const iconHeight =
       deviceSizeMatches(IC_DEVICE_SIZES.XS) &&
       cellContainer.querySelector(".icon")

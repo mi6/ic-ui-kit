@@ -59,18 +59,22 @@ export namespace Components {
     interface IcAccordion {
         /**
           * If `true`, the accordion will be disabled.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * If `true`, the accordion appears expanded.
+          * @default false
          */
         "expanded"?: boolean;
         /**
           * The section header outlining section content.
+          * @default ""
          */
         "heading"?: string;
         /**
           * The main body message of the accordion.
+          * @default ""
          */
         "message"?: string;
         /**
@@ -79,20 +83,24 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         /**
           * The size of the accordion.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
     interface IcActionChip {
         /**
           * If `true`, the chip will appear disabled.
+          * @default false
          */
         "disabled": boolean;
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
+          * @default false
          */
         "download": string | boolean;
         /**
@@ -133,6 +141,7 @@ export namespace Components {
         "label": string;
         /**
           * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+          * @default false
          */
         "monochrome": boolean;
         /**
@@ -149,6 +158,7 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         /**
           * The size of the chip.
+          * @default "medium"
          */
         "size": IcSizes;
         /**
@@ -157,18 +167,22 @@ export namespace Components {
         "target"?: string;
         /**
           * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme": IcThemeMode;
         /**
           * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
+          * @default true
          */
         "transparentBackground": boolean;
         /**
           * The type of the chip.
+          * @default "button"
          */
         "type": IcButtonTypes;
         /**
           * The emphasis of the chip.
+          * @default "filled"
          */
         "variant": IcEmphasisType;
     }
@@ -494,6 +508,7 @@ export namespace Components {
         "dismissible": boolean;
         /**
           * Specify whether the chip fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+          * @default false
          */
         "fullWidth": boolean;
         /**
@@ -1004,6 +1019,7 @@ export namespace Components {
     interface IcDrawer {
         /**
           * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
+          * @default "viewport"
          */
         "boundary": IcDrawerBoundary;
         /**
@@ -1016,10 +1032,12 @@ export namespace Components {
         "closeButtonAriaLabel"?: string;
         /**
           * If `true`, the drawer will close when the backdrop is clicked.
+          * @default true
          */
         "closeOnBackdropClick": boolean;
         /**
           * If `true`, the drawer will display in an expanded state.
+          * @default false
          */
         "expanded": boolean;
         /**
@@ -1028,6 +1046,7 @@ export namespace Components {
         "heading"?: string;
         /**
           * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
+          * @default false
          */
         "hideCloseButton": boolean;
         /**
@@ -1036,18 +1055,22 @@ export namespace Components {
         "message"?: string;
         /**
           * The position of the drawer.
+          * @default "right"
          */
         "position": IcPosition;
         /**
           * The size of the expanded drawer.
+          * @default "medium"
          */
         "size": IcSizes1;
         /**
           * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme": IcThemeMode1;
         /**
           * The method in which the drawer is expanded.
+          * @default "chevron"
          */
         "trigger": "chevron" | "controlled";
     }
@@ -1087,10 +1110,12 @@ export namespace Components {
     interface IcFooter {
         /**
           * The alignment of the section containers used within the footer.
+          * @default "left"
          */
         "aligned"?: IcAlignment;
         /**
           * The screen size breakpoint at which to switch to the small layout.
+          * @default "medium"
          */
         "breakpoint"?: IcFooterBreakpoints;
         /**
@@ -1099,10 +1124,12 @@ export namespace Components {
         "caption"?: string;
         /**
           * If `true`, the footer will display the crown copyright at the bottom.
+          * @default true
          */
         "copyright"?: boolean;
         /**
           * The text displayed for the copyright notice if `copyright` is `true`.
+          * @default "© Crown Copyright"
          */
         "copyrightText"?: string;
         /**
@@ -1111,17 +1138,28 @@ export namespace Components {
         "description"?: string;
         /**
           * If `true`, the footer will be set up to handle link groups instead of standalone links.
+          * @default false
          */
         "groupLinks"?: boolean;
     }
     interface IcHorizontalScroll {
         /**
           * The appearance of the horizontal scroll, e.g. dark, light or the default.
+          * @default "default"
          */
         "appearance"?: IcBrandForeground;
+        /**
+          * @default "focus"
+         */
         "focusTrigger"?: string;
+        /**
+          * @default false
+         */
         "monochrome"?: boolean;
         "scrollItemIntoView": (itemPosition: number) => Promise<void>;
+        /**
+          * @default "inherit"
+         */
         "theme"?: IcThemeMode;
     }
     interface IcInputComponentContainer {
@@ -1345,6 +1383,9 @@ export namespace Components {
           * @default "automatic"
          */
         "activationType": IcActivationTypes;
+        /**
+          * @default true
+         */
         "allowMenuFocus": boolean;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
@@ -1452,6 +1493,7 @@ export namespace Components {
     interface IcMenuItem {
         /**
           * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -1460,6 +1502,7 @@ export namespace Components {
         "description"?: string;
         /**
           * If `true`, the menu item will be in disabled state.
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -1496,6 +1539,7 @@ export namespace Components {
         "target"?: string;
         /**
           * The variant of the menu item.
+          * @default "default"
          */
         "variant"?: IcMenuItemVariants;
     }
@@ -1778,14 +1822,17 @@ export namespace Components {
     interface IcPaginationItem {
         /**
           * If `true`, the pagination item will be disabled.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The label for the pagination item (applicable when simple pagination is being used).
+          * @default "Page"
          */
         "label"?: string;
         /**
           * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+          * @default false
          */
         "monochrome"?: boolean;
         /**
@@ -1794,10 +1841,12 @@ export namespace Components {
         "page"?: number;
         /**
           * If `true`, the pagination item will be selected.
+          * @default false
          */
         "selected": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -1816,10 +1865,12 @@ export namespace Components {
         "closeMenu": (setFocusToAnchor?: boolean, menuElement?: HTMLIcMenuItemElement) => Promise<void>;
         /**
           * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+          * @default false
          */
         "fixedPositioning": boolean;
         /**
           * If `true`, the popover menu will be displayed.
+          * @default undefined
          */
         "open"?: boolean | undefined;
         "openFromChild": () => Promise<void>;
@@ -1834,15 +1885,20 @@ export namespace Components {
           * The unique identifier for a popover submenu.
          */
         "submenuId"?: string;
+        /**
+          * @default 1
+         */
         "submenuLevel"?: number;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
     interface IcRadioGroup {
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -1851,6 +1907,7 @@ export namespace Components {
         "helperText"?: string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
@@ -1863,44 +1920,54 @@ export namespace Components {
         "name": string;
         /**
           * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
+          * @default "vertical"
          */
         "orientation"?: IcOrientation;
         /**
           * If `true`, the radio group will require a value.
+          * @default false
          */
         "required"?: boolean;
         /**
           * The size of the radio group component.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
           * The value of the `aria-live` attribute on the validation message.
+          * @default "polite"
          */
         "validationAriaLive": IcAriaLive1;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
+          * @default ""
          */
         "validationStatus"?: IcInformationStatusOrEmpty1;
         /**
           * The text to display as the validation message.
+          * @default ""
          */
         "validationText": string;
     }
     interface IcRadioOption {
         /**
           * The style of additionalField that will be displayed if used.
+          * @default "static"
          */
         "additionalFieldDisplay"?: IcAdditionalFieldTypes;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The text to be displayed when dynamic.
+          * @default "This selection requires additional answers"
          */
         "dynamicText"?: string;
         /**
@@ -1921,6 +1988,7 @@ export namespace Components {
         "name"?: string;
         /**
           * If `true`, the radio option will be displayed in a selected state.
+          * @default false
          */
         "selected"?: boolean;
         /**
@@ -1930,6 +1998,7 @@ export namespace Components {
         "setTabIndex": (value: number) => Promise<void>;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -1940,58 +2009,72 @@ export namespace Components {
     interface IcSearchBar {
         /**
           * The hint text for the hidden assistive description element.
+          * @default "When autocomplete results are available use the up and down arrows to choose and press enter to select"
          */
         "assistiveHintText": string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
+          * @default "off"
          */
         "autocapitalize": string;
         /**
           * The state of autocompletion the browser can apply on the text value.
+          * @default "off"
          */
         "autocomplete": IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
+          * @default "off"
          */
         "autocorrect": IcAutocorrectStates;
         /**
           * If `true`, the form control will have input focus when the page loads.
+          * @default false
          */
         "autofocus": boolean;
         /**
           * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
+          * @default 2
          */
         "charactersUntilSuggestion": number;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * @default 0
          */
         "debounce": number;
         /**
           * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
+          * @default false
          */
         "disableAutoFiltering": boolean;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled": boolean;
         /**
           * The text displayed when there are no options in the option list.
+          * @default "No results found"
          */
         "emptyOptionListText": string;
         /**
           * If `true`, the search bar will be focused when component loaded.
+          * @default false
          */
         "focusOnLoad": boolean;
         /**
           * Specify whether the search bar fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+          * @default false
          */
         "fullWidth": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
+          * @default ""
          */
         "helperText": string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+          * @default false
          */
         "hideLabel": boolean;
         /**
@@ -2000,46 +2083,57 @@ export namespace Components {
         "label": string;
         /**
           * The custom name for the label field to correspond with the IcMenuOption type.
+          * @default "label"
          */
         "labelField": string;
         /**
           * Trigger loading state when fetching options asynchronously
+          * @default false
          */
         "loading": boolean;
         /**
           * Change the message displayed when external loading times out.
+          * @default "Loading Error"
          */
         "loadingErrorLabel": string;
         /**
           * Change the message displayed whilst the options are being loaded externally.
+          * @default "Loading..."
          */
         "loadingLabel": string;
         /**
           * The name of the control, which is submitted with the form data.
+          * @default this.inputId
          */
         "name": string;
         /**
           * The suggested search options.
+          * @default []
          */
         "options": IcMenuOption[];
         /**
           * The placeholder value to display.
+          * @default "Search"
          */
         "placeholder": string;
         /**
           * If `true` the parent form will not submit when the icSubmitSearch event fires.
+          * @default false
          */
         "preventFormSubmitOnSearch": boolean;
         /**
           * If `true`, the readonly state will be set.
+          * @default false
          */
         "readonly": boolean;
         /**
           * If `true`, the search bar will require a value.
+          * @default false
          */
         "required": boolean;
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+          * @default "navigation"
          */
         "searchMode": IcSearchBarSearchModes;
         /**
@@ -2048,14 +2142,17 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         /**
           * The size of the search bar component.
+          * @default "medium"
          */
         "size": IcSizesNoLarge;
         /**
           * If `true`, the value of the search will have its spelling and grammar checked.
+          * @default false
          */
         "spellcheck": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme": IcThemeMode;
         /**
@@ -2064,10 +2161,12 @@ export namespace Components {
         "timeout"?: number;
         /**
           * The value of the search input.
+          * @default ""
          */
         "value": string;
         /**
           * The custom name for the value field to correspond with the IcMenuOption type.
+          * @default "value"
          */
         "valueField": string;
     }
@@ -2222,6 +2321,7 @@ export namespace Components {
         "timeout"?: number;
         /**
           * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+          * @default true
          */
         "useNativeSelectOnMobile": boolean;
         /**
@@ -2252,35 +2352,46 @@ export namespace Components {
         "appTitle"?: string;
         /**
           * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+          * @default false
          */
         "closeOnNavItemClick"?: boolean;
         /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
+          * @default false
          */
         "collapsedIconLabels"?: boolean;
         /**
           * If `true`, automatic parent wrapper styling will be disabled.
+          * @default false
          */
         "disableAutoParentStyling"?: boolean;
         /**
           * If `true`, the side navigation will not display as a top bar on small devices.
+          * @default false
          */
         "disableTopBarBehaviour"?: boolean;
         /**
           * If `true`, the side navigation will display in an expanded state.
+          * @default false
          */
         "expanded"?: boolean;
         /**
           * The URL that the app title link points to.
+          * @default "/"
          */
         "href"?: string;
+        /**
+          * @default false
+         */
         "inline"?: boolean;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
+          * @default ""
          */
         "shortAppTitle"?: string;
         /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
+          * @default false
          */
         "static"?: boolean;
         /**
@@ -2335,18 +2446,22 @@ export namespace Components {
     interface IcSwitch {
         /**
           * If `true`, the switch will display as checked.
+          * @default false
          */
         "checked"?: boolean;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
+          * @default ""
          */
         "helperText"?: string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
@@ -2355,6 +2470,7 @@ export namespace Components {
         "label": string;
         /**
           * The name of the control, which is submitted with the form data.
+          * @default this.inputId
          */
         "name"?: string;
         /**
@@ -2363,24 +2479,37 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         /**
           * The size of the switch component.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
           * The value of the toggle does not mean if it's checked or not, use the `checked` property for that.  The value of a toggle is analogous to the value of a `<input type="checkbox">`, it's only used when the toggle participates in a native `<form>`.
+          * @default "on"
          */
         "value"?: string | null;
     }
     interface IcTab {
+        /**
+          * @default "default"
+         */
         "contextId"?: string;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "monochrome"?: boolean;
+        /**
+          * @default false
+         */
         "selected"?: boolean;
         /**
           * Sets focus on the tab.
@@ -2388,19 +2517,25 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         "tabId": string;
         "tabPosition": number;
+        /**
+          * @default "inherit"
+         */
         "theme"?: IcThemeMode;
     }
     interface IcTabContext {
         /**
           * Determines whether tabs have to be manually activated (by pressing 'Enter' or 'Space') when they receive focus using keyboard navigation.
+          * @default "automatic"
          */
         "activationType"?: IcActivationTypes;
         /**
           * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+          * @default "default"
          */
         "contextId"?: string;
         /**
           * If `true`, the tabs will display as black in the light theme.
+          * @default false
          */
         "monochrome"?: boolean;
         /**
@@ -2414,27 +2549,44 @@ export namespace Components {
         "tabRemovedHandler": (hadFocus?: boolean) => Promise<void>;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
     interface IcTabGroup {
         /**
           * If `true`, the tabs and tab panels will be positioned separately.
+          * @default false
          */
         "inline"?: boolean;
         /**
           * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
+        /**
+          * @default false
+         */
         "monochrome"?: boolean;
+        /**
+          * @default "inherit"
+         */
         "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
+        /**
+          * @default false
+         */
         "active": boolean;
+        /**
+          * @default false
+         */
         "monochrome"?: boolean;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;
+        /**
+          * @default "inherit"
+         */
         "theme"?: IcThemeMode;
     }
     interface IcTableOfContents {
@@ -4302,40 +4454,50 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
     interface IcAccordion {
         /**
           * If `true`, the accordion will be disabled.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * If `true`, the accordion appears expanded.
+          * @default false
          */
         "expanded"?: boolean;
         /**
           * The section header outlining section content.
+          * @default ""
          */
         "heading"?: string;
         /**
           * The main body message of the accordion.
+          * @default ""
          */
         "message"?: string;
         "onAccordionClicked"?: (event: IcAccordionCustomEvent<{ id: string }>) => void;
         /**
           * The size of the accordion.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
     interface IcActionChip {
         /**
           * If `true`, the chip will appear disabled.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
+          * @default false
          */
         "download"?: string | boolean;
         /**
@@ -4376,6 +4538,7 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+          * @default false
          */
         "monochrome"?: boolean;
         /**
@@ -4388,6 +4551,7 @@ declare namespace LocalJSX {
         "rel"?: string;
         /**
           * The size of the chip.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
@@ -4396,18 +4560,22 @@ declare namespace LocalJSX {
         "target"?: string;
         /**
           * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
           * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
+          * @default true
          */
         "transparentBackground"?: boolean;
         /**
           * The type of the chip.
+          * @default "button"
          */
         "type"?: IcButtonTypes;
         /**
           * The emphasis of the chip.
+          * @default "filled"
          */
         "variant"?: IcEmphasisType;
     }
@@ -4765,6 +4933,7 @@ declare namespace LocalJSX {
         "dismissible"?: boolean;
         /**
           * Specify whether the chip fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+          * @default false
          */
         "fullWidth"?: boolean;
         /**
@@ -5329,6 +5498,7 @@ declare namespace LocalJSX {
     interface IcDrawer {
         /**
           * The area within which the drawer should be contained. When set to "parent", the value of the parent element's `position` CSS property must not be "static".
+          * @default "viewport"
          */
         "boundary"?: IcDrawerBoundary;
         /**
@@ -5341,10 +5511,12 @@ declare namespace LocalJSX {
         "closeButtonAriaLabel"?: string;
         /**
           * If `true`, the drawer will close when the backdrop is clicked.
+          * @default true
          */
         "closeOnBackdropClick"?: boolean;
         /**
           * If `true`, the drawer will display in an expanded state.
+          * @default false
          */
         "expanded"?: boolean;
         /**
@@ -5353,6 +5525,7 @@ declare namespace LocalJSX {
         "heading"?: string;
         /**
           * If set to `true`, the X (close) button which is displayed when `trigger` is set to "controlled" will be hidden.
+          * @default false
          */
         "hideCloseButton"?: boolean;
         /**
@@ -5365,18 +5538,22 @@ declare namespace LocalJSX {
         "onIcDrawerExpanded"?: (event: IcDrawerCustomEvent<IcDrawerExpandedDetail>) => void;
         /**
           * The position of the drawer.
+          * @default "right"
          */
         "position"?: IcPosition;
         /**
           * The size of the expanded drawer.
+          * @default "medium"
          */
         "size"?: IcSizes1;
         /**
           * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode1;
         /**
           * The method in which the drawer is expanded.
+          * @default "chevron"
          */
         "trigger"?: "chevron" | "controlled";
     }
@@ -5416,10 +5593,12 @@ declare namespace LocalJSX {
     interface IcFooter {
         /**
           * The alignment of the section containers used within the footer.
+          * @default "left"
          */
         "aligned"?: IcAlignment;
         /**
           * The screen size breakpoint at which to switch to the small layout.
+          * @default "medium"
          */
         "breakpoint"?: IcFooterBreakpoints;
         /**
@@ -5428,10 +5607,12 @@ declare namespace LocalJSX {
         "caption"?: string;
         /**
           * If `true`, the footer will display the crown copyright at the bottom.
+          * @default true
          */
         "copyright"?: boolean;
         /**
           * The text displayed for the copyright notice if `copyright` is `true`.
+          * @default "© Crown Copyright"
          */
         "copyrightText"?: string;
         /**
@@ -5440,6 +5621,7 @@ declare namespace LocalJSX {
         "description"?: string;
         /**
           * If `true`, the footer will be set up to handle link groups instead of standalone links.
+          * @default false
          */
         "groupLinks"?: boolean;
         "onFooterResized"?: (event: IcFooterCustomEvent<void>) => void;
@@ -5447,10 +5629,20 @@ declare namespace LocalJSX {
     interface IcHorizontalScroll {
         /**
           * The appearance of the horizontal scroll, e.g. dark, light or the default.
+          * @default "default"
          */
         "appearance"?: IcBrandForeground;
+        /**
+          * @default "focus"
+         */
         "focusTrigger"?: string;
+        /**
+          * @default false
+         */
         "monochrome"?: boolean;
+        /**
+          * @default "inherit"
+         */
         "theme"?: IcThemeMode;
     }
     interface IcInputComponentContainer {
@@ -5670,6 +5862,9 @@ declare namespace LocalJSX {
           * @default "automatic"
          */
         "activationType"?: IcActivationTypes;
+        /**
+          * @default true
+         */
         "allowMenuFocus"?: boolean;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
@@ -5772,6 +5967,7 @@ declare namespace LocalJSX {
     interface IcMenuItem {
         /**
           * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -5780,6 +5976,7 @@ declare namespace LocalJSX {
         "description"?: string;
         /**
           * If `true`, the menu item will be in disabled state.
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -5825,6 +6022,7 @@ declare namespace LocalJSX {
         "target"?: string;
         /**
           * The variant of the menu item.
+          * @default "default"
          */
         "variant"?: IcMenuItemVariants;
     }
@@ -6112,14 +6310,17 @@ declare namespace LocalJSX {
     interface IcPaginationItem {
         /**
           * If `true`, the pagination item will be disabled.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The label for the pagination item (applicable when simple pagination is being used).
+          * @default "Page"
          */
         "label"?: string;
         /**
           * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+          * @default false
          */
         "monochrome"?: boolean;
         "onPaginationItemClick"?: (event: IcPaginationItemCustomEvent<{ page: number | null }>) => void;
@@ -6129,10 +6330,12 @@ declare namespace LocalJSX {
         "page"?: number;
         /**
           * If `true`, the pagination item will be selected.
+          * @default false
          */
         "selected"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -6147,6 +6350,7 @@ declare namespace LocalJSX {
         "anchor"?: string;
         /**
           * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
+          * @default false
          */
         "fixedPositioning"?: boolean;
         /**
@@ -6155,6 +6359,7 @@ declare namespace LocalJSX {
         "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<HTMLIcMenuItemElement>) => void;
         /**
           * If `true`, the popover menu will be displayed.
+          * @default undefined
          */
         "open"?: boolean | undefined;
         "parentLabel"?: string;
@@ -6163,15 +6368,20 @@ declare namespace LocalJSX {
           * The unique identifier for a popover submenu.
          */
         "submenuId"?: string;
+        /**
+          * @default 1
+         */
         "submenuLevel"?: number;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
     interface IcRadioGroup {
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -6180,6 +6390,7 @@ declare namespace LocalJSX {
         "helperText"?: string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
@@ -6196,44 +6407,54 @@ declare namespace LocalJSX {
         "onIcChange"?: (event: IcRadioGroupCustomEvent<IcChangeEventDetail1>) => void;
         /**
           * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
+          * @default "vertical"
          */
         "orientation"?: IcOrientation;
         /**
           * If `true`, the radio group will require a value.
+          * @default false
          */
         "required"?: boolean;
         /**
           * The size of the radio group component.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
           * The value of the `aria-live` attribute on the validation message.
+          * @default "polite"
          */
         "validationAriaLive"?: IcAriaLive1;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
+          * @default ""
          */
         "validationStatus"?: IcInformationStatusOrEmpty1;
         /**
           * The text to display as the validation message.
+          * @default ""
          */
         "validationText"?: string;
     }
     interface IcRadioOption {
         /**
           * The style of additionalField that will be displayed if used.
+          * @default "static"
          */
         "additionalFieldDisplay"?: IcAdditionalFieldTypes;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The text to be displayed when dynamic.
+          * @default "This selection requires additional answers"
          */
         "dynamicText"?: string;
         /**
@@ -6262,10 +6483,12 @@ declare namespace LocalJSX {
         "onIcSelectedChange"?: (event: IcRadioOptionCustomEvent<void>) => void;
         /**
           * If `true`, the radio option will be displayed in a selected state.
+          * @default false
          */
         "selected"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -6276,58 +6499,72 @@ declare namespace LocalJSX {
     interface IcSearchBar {
         /**
           * The hint text for the hidden assistive description element.
+          * @default "When autocomplete results are available use the up and down arrows to choose and press enter to select"
          */
         "assistiveHintText"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
+          * @default "off"
          */
         "autocapitalize"?: string;
         /**
           * The state of autocompletion the browser can apply on the text value.
+          * @default "off"
          */
         "autocomplete"?: IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
+          * @default "off"
          */
         "autocorrect"?: IcAutocorrectStates;
         /**
           * If `true`, the form control will have input focus when the page loads.
+          * @default false
          */
         "autofocus"?: boolean;
         /**
           * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
+          * @default 2
          */
         "charactersUntilSuggestion"?: number;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * @default 0
          */
         "debounce"?: number;
         /**
           * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
+          * @default false
          */
         "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The text displayed when there are no options in the option list.
+          * @default "No results found"
          */
         "emptyOptionListText"?: string;
         /**
           * If `true`, the search bar will be focused when component loaded.
+          * @default false
          */
         "focusOnLoad"?: boolean;
         /**
           * Specify whether the search bar fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
+          * @default false
          */
         "fullWidth"?: boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
+          * @default ""
          */
         "helperText"?: string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
@@ -6336,22 +6573,27 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * The custom name for the label field to correspond with the IcMenuOption type.
+          * @default "label"
          */
         "labelField"?: string;
         /**
           * Trigger loading state when fetching options asynchronously
+          * @default false
          */
         "loading"?: boolean;
         /**
           * Change the message displayed when external loading times out.
+          * @default "Loading Error"
          */
         "loadingErrorLabel"?: string;
         /**
           * Change the message displayed whilst the options are being loaded externally.
+          * @default "Loading..."
          */
         "loadingLabel"?: string;
         /**
           * The name of the control, which is submitted with the form data.
+          * @default this.inputId
          */
         "name"?: string;
         /**
@@ -6398,38 +6640,47 @@ declare namespace LocalJSX {
         "onIcSubmitSearchBlur"?: (event: IcSearchBarCustomEvent<IcBlurEventDetail>) => void;
         /**
           * The suggested search options.
+          * @default []
          */
         "options"?: IcMenuOption[];
         /**
           * The placeholder value to display.
+          * @default "Search"
          */
         "placeholder"?: string;
         /**
           * If `true` the parent form will not submit when the icSubmitSearch event fires.
+          * @default false
          */
         "preventFormSubmitOnSearch"?: boolean;
         /**
           * If `true`, the readonly state will be set.
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * If `true`, the search bar will require a value.
+          * @default false
          */
         "required"?: boolean;
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+          * @default "navigation"
          */
         "searchMode"?: IcSearchBarSearchModes;
         /**
           * The size of the search bar component.
+          * @default "medium"
          */
         "size"?: IcSizesNoLarge;
         /**
           * If `true`, the value of the search will have its spelling and grammar checked.
+          * @default false
          */
         "spellcheck"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
@@ -6438,10 +6689,12 @@ declare namespace LocalJSX {
         "timeout"?: number;
         /**
           * The value of the search input.
+          * @default ""
          */
         "value"?: string;
         /**
           * The custom name for the value field to correspond with the IcMenuOption type.
+          * @default "value"
          */
         "valueField"?: string;
     }
@@ -6632,6 +6885,7 @@ declare namespace LocalJSX {
         "timeout"?: number;
         /**
           * If `true` and on a mobile or tablet device, the native select element will be used instead of the custom select component for better usability.
+          * @default true
          */
         "useNativeSelectOnMobile"?: boolean;
         /**
@@ -6662,28 +6916,37 @@ declare namespace LocalJSX {
         "appTitle"?: string;
         /**
           * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+          * @default false
          */
         "closeOnNavItemClick"?: boolean;
         /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
+          * @default false
          */
         "collapsedIconLabels"?: boolean;
         /**
           * If `true`, automatic parent wrapper styling will be disabled.
+          * @default false
          */
         "disableAutoParentStyling"?: boolean;
         /**
           * If `true`, the side navigation will not display as a top bar on small devices.
+          * @default false
          */
         "disableTopBarBehaviour"?: boolean;
         /**
           * If `true`, the side navigation will display in an expanded state.
+          * @default false
          */
         "expanded"?: boolean;
         /**
           * The URL that the app title link points to.
+          * @default "/"
          */
         "href"?: string;
+        /**
+          * @default false
+         */
         "inline"?: boolean;
         /**
           * Emitted when the side navigation is collapsed and expanded.
@@ -6691,10 +6954,12 @@ declare namespace LocalJSX {
         "onIcSideNavExpanded"?: (event: IcSideNavigationCustomEvent<IcExpandedDetail>) => void;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
+          * @default ""
          */
         "shortAppTitle"?: string;
         /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
+          * @default false
          */
         "static"?: boolean;
         /**
@@ -6745,18 +7010,22 @@ declare namespace LocalJSX {
     interface IcSwitch {
         /**
           * If `true`, the switch will display as checked.
+          * @default false
          */
         "checked"?: boolean;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
+          * @default ""
          */
         "helperText"?: string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+          * @default false
          */
         "hideLabel"?: boolean;
         /**
@@ -6765,6 +7034,7 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * The name of the control, which is submitted with the form data.
+          * @default this.inputId
          */
         "name"?: string;
         /**
@@ -6781,45 +7051,64 @@ declare namespace LocalJSX {
         "onIcFocus"?: (event: IcSwitchCustomEvent<void>) => void;
         /**
           * The size of the switch component.
+          * @default "medium"
          */
         "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
         /**
           * The value of the toggle does not mean if it's checked or not, use the `checked` property for that.  The value of a toggle is analogous to the value of a `<input type="checkbox">`, it's only used when the toggle participates in a native `<form>`.
+          * @default "on"
          */
         "value"?: string | null;
     }
     interface IcTab {
+        /**
+          * @default "default"
+         */
         "contextId"?: string;
         /**
           * If `true`, the disabled state will be set.
+          * @default false
          */
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "monochrome"?: boolean;
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabCreated"?: (event: IcTabCustomEvent<HTMLIcTabElement>) => void;
         "onTabEnabled"?: (event: IcTabCustomEvent<void>) => void;
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabRemoved"?: (event: IcTabCustomEvent<void>) => void;
+        /**
+          * @default false
+         */
         "selected"?: boolean;
         "tabId": string;
         "tabPosition": number;
+        /**
+          * @default "inherit"
+         */
         "theme"?: IcThemeMode;
     }
     interface IcTabContext {
         /**
           * Determines whether tabs have to be manually activated (by pressing 'Enter' or 'Space') when they receive focus using keyboard navigation.
+          * @default "automatic"
          */
         "activationType"?: IcActivationTypes;
         /**
           * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+          * @default "default"
          */
         "contextId"?: string;
         /**
           * If `true`, the tabs will display as black in the light theme.
+          * @default false
          */
         "monochrome"?: boolean;
         /**
@@ -6832,29 +7121,46 @@ declare namespace LocalJSX {
         "selectedTabIndex"?: number;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+          * @default "inherit"
          */
         "theme"?: IcThemeMode;
     }
     interface IcTabGroup {
         /**
           * If `true`, the tabs and tab panels will be positioned separately.
+          * @default false
          */
         "inline"?: boolean;
         /**
           * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
+        /**
+          * @default false
+         */
         "monochrome"?: boolean;
+        /**
+          * @default "inherit"
+         */
         "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
+        /**
+          * @default false
+         */
         "active"?: boolean;
+        /**
+          * @default false
+         */
         "monochrome"?: boolean;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
         "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;
+        /**
+          * @default "inherit"
+         */
         "theme"?: IcThemeMode;
     }
     interface IcTableOfContents {
@@ -7732,119 +8038,868 @@ declare namespace LocalJSX {
          */
         "variant"?: IcTypographyVariants;
     }
+
+    interface IcAccordionAttributes {
+        "disabled": boolean;
+        "expanded": boolean;
+        "heading": string;
+        "message": string;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+    }
+    interface IcActionChipAttributes {
+        "disabled": boolean;
+        "download": string;
+        "form": string;
+        "formaction": string;
+        "formenctype": string;
+        "formmethod": string;
+        "formnovalidate": boolean;
+        "formtarget": string;
+        "href": string;
+        "hreflang": string;
+        "label": string;
+        "monochrome": boolean;
+        "referrerpolicy": ReferrerPolicy;
+        "rel": string;
+        "size": IcSizes;
+        "target": string;
+        "theme": IcThemeMode;
+        "transparentBackground": boolean;
+        "type": IcButtonTypes;
+        "variant": IcEmphasisType;
+    }
+    interface IcButtonAttributes {
+        "accept": string;
+        "ariaControlsId": string;
+        "ariaOwnsId": string;
+        "disabled": boolean;
+        "disableTooltip": boolean;
+        "download": string;
+        "dropdown": boolean;
+        "dropdownExpanded": boolean;
+        "fileUpload": boolean;
+        "fileInputName": string;
+        "form": string;
+        "formaction": string;
+        "formenctype": string;
+        "formmethod": string;
+        "formnovalidate": boolean;
+        "formtarget": string;
+        "fullWidth": boolean;
+        "href": string;
+        "hreflang": string;
+        "loading": boolean;
+        "monochrome": boolean;
+        "multiple": boolean;
+        "referrerpolicy": ReferrerPolicy;
+        "rel": string;
+        "size": IcSizes;
+        "target": string;
+        "theme": IcThemeMode;
+        "tooltipFixedPositioning": boolean;
+        "tooltipPlacement": IcButtonTooltipPlacement;
+        "transparentBackground": boolean;
+        "type": IcButtonTypes;
+        "variant": IcButtonVariants;
+    }
+    interface IcCalendarAttributes {
+        "dateFormat": IcDateFormat;
+        "disabled": boolean;
+        "disableFuture": boolean;
+        "disablePast": boolean;
+        "max": string | Date;
+        "min": string | Date;
+        "openAtDate": string | Date;
+        "showClearButton": boolean;
+        "showDaysOutsideMonth": boolean;
+        "showTodayButton": boolean;
+        "size": IcSizes;
+        "startOfWeek": IcWeekDays;
+        "theme": IcThemeMode;
+        "value": IcDateValueFormat;
+    }
+    interface IcCheckboxAttributes {
+        "additionalFieldDisplay": IcAdditionalFieldTypes;
+        "checked": boolean;
+        "disabled": boolean;
+        "dynamicText": string;
+        "form": string;
+        "groupLabel": string;
+        "hideLabel": boolean;
+        "indeterminate": boolean;
+        "label": string;
+        "name": string;
+        "nativeIndeterminateBehaviour": boolean;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "value": string;
+    }
+    interface IcChipAttributes {
+        "customColor": IcColor;
+        "disabled": boolean;
+        "dismissible": boolean;
+        "dismissLabel": string;
+        "fullWidth": boolean;
+        "label": string;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "transparentBackground": boolean;
+        "variant": IcEmphasisType;
+    }
+    interface IcDataTableAttributes {
+        "caption": string;
+        "columnHeaderTruncation": boolean;
+        "disableAutoSort": boolean;
+        "density": IcDataTableDensityOptions;
+        "embedded": boolean;
+        "globalRowHeight": string;
+        "height": string;
+        "hideColumnHeaders": boolean;
+        "loading": boolean;
+        "maxWidth": string;
+        "minWidth": string;
+        "minimumLoadingDisplayDuration": number;
+        "rowSelection": boolean;
+        "showPagination": boolean;
+        "sortable": boolean;
+        "stickyColumnHeaders": boolean;
+        "stickyRowHeaders": boolean;
+        "tableLayout": "fixed" | "auto";
+        "theme": IcThemeMode;
+        "truncationPattern": IcDataTableTruncationTypes;
+        "updating": boolean;
+        "width": string;
+    }
+    interface IcDataTableTitleBarAttributes {
+        "description": string;
+        "heading": string;
+        "hideDensitySelect": boolean;
+        "metadata": string;
+    }
+    interface IcDateInputAttributes {
+        "dateFormat": IcDateFormat;
+        "emitDatePartChange": boolean;
+        "disabled": boolean;
+        "disableDaysMessage": string;
+        "disableFuture": boolean;
+        "disableFutureMessage": string;
+        "disablePast": boolean;
+        "disablePastMessage": string;
+        "helperText": string | null;
+        "hideHelperText": boolean;
+        "hideLabel": boolean;
+        "inputId": string;
+        "invalidDateMessage": string;
+        "label": string;
+        "max": string | Date;
+        "min": string | Date;
+        "name": string;
+        "required": boolean;
+        "showCalendarButton": boolean;
+        "showClearButton": boolean;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "value": IcDateValueFormat;
+        "validationAriaLive": IcAriaLive;
+        "validationStatus": IcInformationStatusOrEmpty;
+        "validationText": string;
+    }
+    interface IcDatePickerAttributes {
+        "dateFormat": IcDateFormat;
+        "disabled": boolean;
+        "disableDaysMessage": string;
+        "disableFuture": boolean;
+        "disableFutureMessage": string;
+        "disablePast": boolean;
+        "disablePastMessage": string;
+        "emitDatePartChange": boolean;
+        "helperText": string;
+        "hideHelperText": boolean;
+        "hideLabel": boolean;
+        "inputId": string;
+        "invalidDateMessage": string;
+        "label": string;
+        "max": string | Date;
+        "min": string | Date;
+        "name": string;
+        "openAtDate": string | Date;
+        "required": boolean;
+        "showDaysOutsideMonth": boolean;
+        "showClearButton": boolean;
+        "showPickerClearButton": boolean;
+        "showPickerTodayButton": boolean;
+        "size": IcSizes;
+        "startOfWeek": IcWeekDays;
+        "theme": IcThemeMode;
+        "validationAriaLive": IcAriaLive;
+        "validationStatus": IcInformationStatusOrEmpty;
+        "validationText": string;
+        "value": IcDateValueFormat;
+    }
+    interface IcDrawerAttributes {
+        "boundary": IcDrawerBoundary;
+        "chevronButtonAriaLabel": string;
+        "closeButtonAriaLabel": string;
+        "closeOnBackdropClick": boolean;
+        "expanded": boolean;
+        "heading": string;
+        "message": string;
+        "position": IcPosition;
+        "hideCloseButton": boolean;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "trigger": "chevron" | "controlled";
+    }
+    interface IcEmptyStateAttributes {
+        "aligned": IcEmptyStateAlignment;
+        "body": string;
+        "maxLines": number;
+        "heading": string;
+        "imageSize": IcSizes;
+        "subheading": string;
+        "theme": IcThemeMode;
+    }
+    interface IcFooterAttributes {
+        "aligned": IcAlignment;
+        "breakpoint": IcFooterBreakpoints;
+        "caption": string;
+        "copyright": boolean;
+        "copyrightText": string;
+        "description": string;
+        "groupLinks": boolean;
+    }
+    interface IcHorizontalScrollAttributes {
+        "appearance": IcBrandForeground;
+        "monochrome": boolean;
+        "theme": IcThemeMode;
+        "focusTrigger": string;
+    }
+    interface IcInputComponentContainerAttributes {
+        "disabled": boolean;
+        "fullWidth": boolean;
+        "multiLine": boolean;
+        "readonly": boolean;
+        "size": IcSizes;
+        "validationInline": boolean;
+        "validationStatus": IcInformationStatusOrEmpty;
+    }
+    interface IcInputContainerAttributes {
+        "disabled": boolean;
+        "readonly": boolean;
+    }
+    interface IcInputLabelAttributes {
+        "disabled": boolean;
+        "for": string;
+        "helperText": string;
+        "hideLabel": boolean;
+        "label": string;
+        "readonly": boolean;
+        "required": boolean;
+        "status": "error" | "";
+        "useLabelTag": boolean;
+    }
+    interface IcInputValidationAttributes {
+        "ariaLiveMode": IcAriaLive;
+        "for": string;
+        "fullWidth": boolean;
+        "message": string;
+        "status": IcInformationStatusOrEmpty;
+    }
+    interface IcLinkAttributes {
+        "download": string;
+        "href": string;
+        "hreflang": string;
+        "monochrome": boolean;
+        "referrerpolicy": ReferrerPolicy;
+        "rel": string;
+        "target": string;
+        "theme": IcThemeMode;
+    }
+    interface IcLoadingIndicatorAttributes {
+        "description": string;
+        "fullWidth": boolean;
+        "innerLabel": number;
+        "label": string | string[];
+        "labelDuration": number;
+        "max": number;
+        "min": number;
+        "monochrome": boolean;
+        "progress": number;
+        "size": IcLoadingSizes;
+        "theme": IcThemeMode;
+        "type": IcLoadingTypes;
+    }
+    interface IcMenuAttributes {
+        "activationType": IcActivationTypes;
+        "autofocusOnSelected": boolean;
+        "closeOnSelect": boolean;
+        "fullWidth": boolean;
+        "inputLabel": string;
+        "labelField": string;
+        "menuId": string;
+        "multiSelect": boolean;
+        "open": boolean;
+        "searchableSelect": boolean;
+        "searchBar": boolean;
+        "searchMode": IcSearchBarSearchModes;
+        "selectOnEnter": boolean;
+        "size": IcSizes;
+        "value": string | string[];
+        "valueField": string;
+        "allowMenuFocus": boolean;
+    }
+    interface IcMenuGroupAttributes {
+        "label": string;
+    }
+    interface IcMenuItemAttributes {
+        "checked": boolean;
+        "description": string;
+        "disabled": boolean;
+        "href": string;
+        "hreflang": string;
+        "keyboardShortcutLabel": string;
+        "label": string;
+        "referrerpolicy": ReferrerPolicy;
+        "rel": string;
+        "submenuTriggerFor": string;
+        "target": string;
+        "variant": IcMenuItemVariants;
+    }
+    interface IcNavigationItemAttributes {
+        "collapsedIconLabel": boolean;
+        "displayNavigationTooltip": boolean;
+        "download": string;
+        "expandable": boolean;
+        "href": string;
+        "hreflang": string;
+        "label": string;
+        "rel": string;
+        "referrerpolicy": ReferrerPolicy;
+        "selected": boolean;
+        "target": string;
+        "theme": IcThemeMode;
+    }
+    interface IcPageHeaderAttributes {
+        "aligned": IcAlignment;
+        "border": boolean;
+        "heading": string;
+        "reverseOrder": boolean;
+        "size": IcSizesNoLarge;
+        "sticky": boolean;
+        "stickyDesktopOnly": boolean;
+        "subheading": string;
+        "theme": IcThemeMode;
+    }
+    interface IcPaginationAttributes {
+        "accessibleLabel": string;
+        "adjacentPageCount": number;
+        "boundaryPageCount": number;
+        "defaultPage": number;
+        "disabled": boolean;
+        "hideCurrentPage": boolean;
+        "hideFirstAndLastPageButton": boolean;
+        "label": string;
+        "monochrome": boolean;
+        "pages": number;
+        "theme": IcThemeMode;
+        "type": IcPaginationTypes;
+        "currentPage": number;
+    }
+    interface IcPaginationBarAttributes {
+        "accessibleLabel": string;
+        "alignment": IcPaginationAlignmentOptions;
+        "currentPage": number;
+        "selectedItemsPerPage": number;
+        "hideAllFromItemsPerPage": boolean;
+        "hideCurrentPage": boolean;
+        "hideFirstAndLastPageButton": boolean;
+        "itemLabel": string;
+        "monochrome": boolean;
+        "theme": IcThemeMode;
+        "type": IcPaginationTypes;
+        "rangeLabelType": IcPaginationLabelTypes;
+        "pageLabel": string;
+        "showGoToPageControl": boolean;
+        "hideRangeLabel": boolean;
+        "selectItemsPerPageOnEnter": boolean;
+        "showItemsPerPageControl": boolean;
+        "totalItems": number;
+        "setToFirstPageOnPaginationChange": boolean;
+    }
+    interface IcPaginationItemAttributes {
+        "disabled": boolean;
+        "label": string;
+        "monochrome": boolean;
+        "page": number;
+        "selected": boolean;
+        "theme": IcThemeMode;
+        "type": IcPaginationItemType;
+    }
+    interface IcPopoverMenuAttributes {
+        "anchor": string;
+        "fixedPositioning": boolean;
+        "parentLabel": string;
+        "submenuId": string;
+        "submenuLevel": number;
+        "theme": IcThemeMode;
+        "open": boolean | undefined;
+    }
+    interface IcRadioGroupAttributes {
+        "disabled": boolean;
+        "helperText": string;
+        "hideLabel": boolean;
+        "label": string;
+        "name": string;
+        "orientation": IcOrientation;
+        "required": boolean;
+        "size": IcSizes;
+        "validationAriaLive": IcAriaLive;
+        "validationStatus": IcInformationStatusOrEmpty;
+        "validationText": string;
+        "theme": IcThemeMode;
+    }
+    interface IcRadioOptionAttributes {
+        "additionalFieldDisplay": IcAdditionalFieldTypes;
+        "disabled": boolean;
+        "dynamicText": string;
+        "form": string;
+        "groupLabel": string;
+        "label": string;
+        "name": string;
+        "theme": IcThemeMode;
+        "value": string;
+        "selected": boolean;
+    }
+    interface IcSearchBarAttributes {
+        "autocapitalize": string;
+        "autocomplete": IcAutocompleteTypes;
+        "autocorrect": IcAutocorrectStates;
+        "autofocus": boolean;
+        "charactersUntilSuggestion": number;
+        "disabled": boolean;
+        "disableAutoFiltering": boolean;
+        "debounce": number;
+        "emptyOptionListText": string;
+        "focusOnLoad": boolean;
+        "fullWidth": boolean;
+        "helperText": string;
+        "hideLabel": boolean;
+        "assistiveHintText": string;
+        "label": string;
+        "labelField": string;
+        "loading": boolean;
+        "loadingErrorLabel": string;
+        "loadingLabel": string;
+        "name": string;
+        "placeholder": string;
+        "preventFormSubmitOnSearch": boolean;
+        "readonly": boolean;
+        "required": boolean;
+        "searchMode": IcSearchBarSearchModes;
+        "size": IcSizesNoLarge;
+        "spellcheck": boolean;
+        "theme": IcThemeMode;
+        "timeout": number;
+        "valueField": string;
+        "value": string;
+    }
+    interface IcSectionContainerAttributes {
+        "aligned": IcAlignment;
+        "fullHeight": boolean;
+    }
+    interface IcSelectAttributes {
+        "disabled": boolean;
+        "disableAutoFiltering": boolean;
+        "emptyOptionListText": string;
+        "form": string;
+        "fullWidth": boolean;
+        "helperText": string;
+        "hideLabel": boolean;
+        "includeDescriptionsInSearch": boolean;
+        "includeGroupTitlesInSearch": boolean;
+        "label": string;
+        "loadingErrorLabel": string;
+        "loadingLabel": string;
+        "multiple": boolean;
+        "name": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "required": boolean;
+        "searchable": boolean;
+        "searchMatchPosition": IcSearchMatchPositions;
+        "selectOnEnter": boolean;
+        "showClearButton": boolean;
+        "size": IcSizes;
+        "timeout": number;
+        "theme": IcThemeMode;
+        "validationAriaLive": IcAriaLive;
+        "validationStatus": IcInformationStatusOrEmpty;
+        "validationText": string;
+        "useNativeSelectOnMobile": boolean;
+        "loading": boolean;
+        "debounce": number;
+        "value": string | string[] | null;
+    }
+    interface IcSideNavigationAttributes {
+        "appTitle": string;
+        "closeOnNavItemClick": boolean;
+        "collapsedIconLabels": boolean;
+        "disableAutoParentStyling": boolean;
+        "disableTopBarBehaviour": boolean;
+        "expanded": boolean;
+        "href": string;
+        "inline": boolean;
+        "shortAppTitle": string;
+        "static": boolean;
+        "status": string;
+        "version": string;
+    }
+    interface IcSkipLinkAttributes {
+        "fullWidth": boolean;
+        "inline": boolean;
+        "label": string;
+        "monochrome": boolean;
+        "target": string;
+        "theme": IcThemeMode;
+        "transparentBackground": boolean;
+    }
+    interface IcSwitchAttributes {
+        "checked": boolean;
+        "disabled": boolean;
+        "helperText": string;
+        "hideLabel": boolean;
+        "label": string;
+        "name": string;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "value": string | null;
+    }
+    interface IcTabAttributes {
+        "contextId": string;
+        "disabled": boolean;
+        "monochrome": boolean;
+        "selected": boolean;
+        "tabId": string;
+        "tabPosition": number;
+        "theme": IcThemeMode;
+    }
+    interface IcTabContextAttributes {
+        "activationType": IcActivationTypes;
+        "contextId": string;
+        "selectedTabIndex": number;
+        "monochrome": boolean;
+        "theme": IcThemeMode;
+    }
+    interface IcTabGroupAttributes {
+        "inline": boolean;
+        "label": string;
+        "monochrome": boolean;
+        "theme": IcThemeMode;
+    }
+    interface IcTabPanelAttributes {
+        "active": boolean;
+        "monochrome": boolean;
+        "panelId": string;
+        "selectedTab": string;
+        "tabPosition": number;
+        "theme": IcThemeMode;
+    }
+    interface IcTableOfContentsAttributes {
+        "heading": string;
+        "maximumHeadingLevel": number;
+        "monochrome": boolean;
+        "position": IcPositionTopOrRight;
+        "setScrollHeight": number;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "truncate": boolean;
+    }
+    interface IcTextFieldAttributes {
+        "ariaActiveDescendant": string;
+        "ariaAutocomplete": IcAriaAutocompleteTypes;
+        "ariaExpanded": string | null;
+        "ariaOwns": string;
+        "autocapitalize": string;
+        "autocomplete": IcAutocompleteTypes;
+        "autocorrect": IcAutocorrectStates;
+        "autofocus": boolean;
+        "disabled": boolean;
+        "fullWidth": boolean;
+        "helperText": string;
+        "hideCharCount": boolean;
+        "hideLabel": boolean;
+        "hiddenInput": boolean;
+        "inputId": string;
+        "inputmode": IcTextFieldInputModes;
+        "label": string;
+        "max": string;
+        "maxCharacters": number;
+        "maxCharactersMessage": string;
+        "maxMessage": string;
+        "min": string;
+        "minCharacters": number;
+        "minCharactersMessage": string;
+        "minMessage": string;
+        "name": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "required": boolean;
+        "resize": boolean;
+        "role": string | null;
+        "rows": number;
+        "size": IcSizesNoLarge;
+        "spellcheck": boolean;
+        "theme": IcThemeMode;
+        "truncateValue": boolean;
+        "type": IcTextFieldTypes;
+        "validationAriaLive": IcValidationAriaLive;
+        "validationInline": boolean;
+        "validationInlineInternal": boolean;
+        "validationStatus": IcInformationStatusOrEmpty;
+        "validationText": string;
+        "debounce": number;
+        "value": string;
+    }
+    interface IcThemeAttributes {
+        "brandColor": IcColor | null;
+        "theme": IcThemeSettings;
+    }
+    interface IcTimeInputAttributes {
+        "disabled": boolean;
+        "emitTimePartChange": boolean;
+        "helperText": string | null;
+        "hideHelperText": boolean;
+        "hideLabel": boolean;
+        "inputId": string;
+        "invalidTimeMessage": string;
+        "label": string;
+        "max": string | Date;
+        "min": string | Date;
+        "name": string;
+        "required": boolean;
+        "showAmPmToggle": boolean;
+        "showClearButton": boolean;
+        "showClockButton": boolean;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "timeFormat": IcTimeFormat;
+        "timePeriod": "12" | "24";
+        "value": IcDateValueFormat;
+        "validationAriaLive": IcAriaLive;
+        "validationStatus": IcInformationStatusOrEmpty;
+        "validationText": string;
+    }
+    interface IcTimeSelectorAttributes {
+        "min": string | Date;
+        "max": string | Date;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "timePeriod": "12" | "24";
+        "value": string | Date | null | undefined;
+    }
+    interface IcToggleButtonAttributes {
+        "accessibleLabel": string;
+        "checked": boolean;
+        "disabled": boolean;
+        "fullWidth": boolean;
+        "iconPlacement": IcIconPlacementOptions;
+        "label": string;
+        "loading": boolean;
+        "monochrome": boolean;
+        "outline": boolean;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "tooltipPlacement": IcButtonTooltipPlacement;
+        "variant": "default" | "icon";
+    }
+    interface IcToggleButtonGroupAttributes {
+        "accessibleLabel": string;
+        "disabled": boolean;
+        "fullWidth": boolean;
+        "iconPlacement": IcIconPlacementOptions;
+        "loading": boolean;
+        "monochrome": boolean;
+        "outline": boolean;
+        "selectMethod": IcSelectMethodTypes;
+        "selectType": IcSelectTypes;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "tooltipPlacement": IcButtonTooltipPlacement;
+        "variant": "default" | "icon";
+    }
+    interface IcTooltipAttributes {
+        "disableClick": boolean;
+        "disableHover": boolean;
+        "fixedPositioning": boolean;
+        "iconAltText": string;
+        "maxLines": number;
+        "placement": IcTooltipPlacements;
+        "silent": boolean;
+        "target": string;
+        "theme": IcThemeMode;
+        "label": string;
+    }
+    interface IcTopNavigationAttributes {
+        "contentAligned": IcAlignment;
+        "customMobileBreakpoint": IcDeviceSizes;
+        "href": string;
+        "inline": boolean;
+        "shortAppTitle": string;
+        "status": string;
+        "theme": IcThemeMode;
+        "version": string;
+        "appTitle": string;
+    }
+    interface IcTreeItemAttributes {
+        "disabled": boolean;
+        "expanded": boolean;
+        "hasParentExpanded": boolean;
+        "href": string | undefined;
+        "hreflang": string;
+        "isParent": boolean;
+        "label": string;
+        "previousTruncateTreeItem": boolean;
+        "referrerpolicy": ReferrerPolicy;
+        "rel": string;
+        "selected": boolean;
+        "size": IcSizes;
+        "target": string;
+        "treeItemId": string;
+        "theme": IcThemeMode;
+        "truncateTreeItem": boolean;
+    }
+    interface IcTreeViewAttributes {
+        "heading": string;
+        "size": IcSizes;
+        "theme": IcThemeMode;
+        "truncateHeading": boolean;
+        "truncateTreeItems": boolean;
+    }
+    interface IcTypographyAttributes {
+        "applyVerticalMargins": boolean;
+        "bold": boolean;
+        "italic": boolean;
+        "maxLines": number;
+        "strikethrough": boolean;
+        "theme": IcThemeMode;
+        "underline": boolean;
+        "variant": IcTypographyVariants;
+    }
+
     interface IntrinsicElements {
-        "ic-accordion": IcAccordion;
-        "ic-action-chip": IcActionChip;
-        "ic-button": IcButton;
-        "ic-calendar": IcCalendar;
-        "ic-checkbox": IcCheckbox;
-        "ic-chip": IcChip;
-        "ic-data-table": IcDataTable;
-        "ic-data-table-title-bar": IcDataTableTitleBar;
-        "ic-date-input": IcDateInput;
-        "ic-date-picker": IcDatePicker;
-        "ic-drawer": IcDrawer;
-        "ic-empty-state": IcEmptyState;
-        "ic-footer": IcFooter;
-        "ic-horizontal-scroll": IcHorizontalScroll;
-        "ic-input-component-container": IcInputComponentContainer;
-        "ic-input-container": IcInputContainer;
-        "ic-input-label": IcInputLabel;
-        "ic-input-validation": IcInputValidation;
-        "ic-link": IcLink;
-        "ic-loading-indicator": IcLoadingIndicator;
-        "ic-menu": IcMenu;
-        "ic-menu-group": IcMenuGroup;
-        "ic-menu-item": IcMenuItem;
-        "ic-navigation-item": IcNavigationItem;
-        "ic-page-header": IcPageHeader;
-        "ic-pagination": IcPagination;
-        "ic-pagination-bar": IcPaginationBar;
-        "ic-pagination-item": IcPaginationItem;
-        "ic-popover-menu": IcPopoverMenu;
-        "ic-radio-group": IcRadioGroup;
-        "ic-radio-option": IcRadioOption;
-        "ic-search-bar": IcSearchBar;
-        "ic-section-container": IcSectionContainer;
-        "ic-select": IcSelect;
-        "ic-side-navigation": IcSideNavigation;
-        "ic-skip-link": IcSkipLink;
-        "ic-switch": IcSwitch;
-        "ic-tab": IcTab;
-        "ic-tab-context": IcTabContext;
-        "ic-tab-group": IcTabGroup;
-        "ic-tab-panel": IcTabPanel;
-        "ic-table-of-contents": IcTableOfContents;
-        "ic-text-field": IcTextField;
-        "ic-theme": IcTheme;
-        "ic-time-input": IcTimeInput;
-        "ic-time-selector": IcTimeSelector;
-        "ic-toggle-button": IcToggleButton;
-        "ic-toggle-button-group": IcToggleButtonGroup;
-        "ic-tooltip": IcTooltip;
-        "ic-top-navigation": IcTopNavigation;
-        "ic-tree-item": IcTreeItem;
-        "ic-tree-view": IcTreeView;
-        "ic-typography": IcTypography;
+        "ic-accordion": Omit<IcAccordion, keyof IcAccordionAttributes> & { [K in keyof IcAccordion & keyof IcAccordionAttributes]?: IcAccordion[K] } & { [K in keyof IcAccordion & keyof IcAccordionAttributes as `attr:${K}`]?: IcAccordionAttributes[K] } & { [K in keyof IcAccordion & keyof IcAccordionAttributes as `prop:${K}`]?: IcAccordion[K] };
+        "ic-action-chip": Omit<IcActionChip, keyof IcActionChipAttributes> & { [K in keyof IcActionChip & keyof IcActionChipAttributes]?: IcActionChip[K] } & { [K in keyof IcActionChip & keyof IcActionChipAttributes as `attr:${K}`]?: IcActionChipAttributes[K] } & { [K in keyof IcActionChip & keyof IcActionChipAttributes as `prop:${K}`]?: IcActionChip[K] } & OneOf<"label", IcActionChip["label"], IcActionChipAttributes["label"]>;
+        "ic-button": Omit<IcButton, keyof IcButtonAttributes> & { [K in keyof IcButton & keyof IcButtonAttributes]?: IcButton[K] } & { [K in keyof IcButton & keyof IcButtonAttributes as `attr:${K}`]?: IcButtonAttributes[K] } & { [K in keyof IcButton & keyof IcButtonAttributes as `prop:${K}`]?: IcButton[K] };
+        "ic-calendar": Omit<IcCalendar, keyof IcCalendarAttributes> & { [K in keyof IcCalendar & keyof IcCalendarAttributes]?: IcCalendar[K] } & { [K in keyof IcCalendar & keyof IcCalendarAttributes as `attr:${K}`]?: IcCalendarAttributes[K] } & { [K in keyof IcCalendar & keyof IcCalendarAttributes as `prop:${K}`]?: IcCalendar[K] };
+        "ic-checkbox": Omit<IcCheckbox, keyof IcCheckboxAttributes> & { [K in keyof IcCheckbox & keyof IcCheckboxAttributes]?: IcCheckbox[K] } & { [K in keyof IcCheckbox & keyof IcCheckboxAttributes as `attr:${K}`]?: IcCheckboxAttributes[K] } & { [K in keyof IcCheckbox & keyof IcCheckboxAttributes as `prop:${K}`]?: IcCheckbox[K] } & OneOf<"label", IcCheckbox["label"], IcCheckboxAttributes["label"]>;
+        "ic-chip": Omit<IcChip, keyof IcChipAttributes> & { [K in keyof IcChip & keyof IcChipAttributes]?: IcChip[K] } & { [K in keyof IcChip & keyof IcChipAttributes as `attr:${K}`]?: IcChipAttributes[K] } & { [K in keyof IcChip & keyof IcChipAttributes as `prop:${K}`]?: IcChip[K] } & OneOf<"label", IcChip["label"], IcChipAttributes["label"]>;
+        "ic-data-table": Omit<IcDataTable, keyof IcDataTableAttributes> & { [K in keyof IcDataTable & keyof IcDataTableAttributes]?: IcDataTable[K] } & { [K in keyof IcDataTable & keyof IcDataTableAttributes as `attr:${K}`]?: IcDataTableAttributes[K] } & { [K in keyof IcDataTable & keyof IcDataTableAttributes as `prop:${K}`]?: IcDataTable[K] } & OneOf<"caption", IcDataTable["caption"], IcDataTableAttributes["caption"]>;
+        "ic-data-table-title-bar": Omit<IcDataTableTitleBar, keyof IcDataTableTitleBarAttributes> & { [K in keyof IcDataTableTitleBar & keyof IcDataTableTitleBarAttributes]?: IcDataTableTitleBar[K] } & { [K in keyof IcDataTableTitleBar & keyof IcDataTableTitleBarAttributes as `attr:${K}`]?: IcDataTableTitleBarAttributes[K] } & { [K in keyof IcDataTableTitleBar & keyof IcDataTableTitleBarAttributes as `prop:${K}`]?: IcDataTableTitleBar[K] };
+        "ic-date-input": Omit<IcDateInput, keyof IcDateInputAttributes> & { [K in keyof IcDateInput & keyof IcDateInputAttributes]?: IcDateInput[K] } & { [K in keyof IcDateInput & keyof IcDateInputAttributes as `attr:${K}`]?: IcDateInputAttributes[K] } & { [K in keyof IcDateInput & keyof IcDateInputAttributes as `prop:${K}`]?: IcDateInput[K] } & OneOf<"label", IcDateInput["label"], IcDateInputAttributes["label"]>;
+        "ic-date-picker": Omit<IcDatePicker, keyof IcDatePickerAttributes> & { [K in keyof IcDatePicker & keyof IcDatePickerAttributes]?: IcDatePicker[K] } & { [K in keyof IcDatePicker & keyof IcDatePickerAttributes as `attr:${K}`]?: IcDatePickerAttributes[K] } & { [K in keyof IcDatePicker & keyof IcDatePickerAttributes as `prop:${K}`]?: IcDatePicker[K] } & OneOf<"label", IcDatePicker["label"], IcDatePickerAttributes["label"]>;
+        "ic-drawer": Omit<IcDrawer, keyof IcDrawerAttributes> & { [K in keyof IcDrawer & keyof IcDrawerAttributes]?: IcDrawer[K] } & { [K in keyof IcDrawer & keyof IcDrawerAttributes as `attr:${K}`]?: IcDrawerAttributes[K] } & { [K in keyof IcDrawer & keyof IcDrawerAttributes as `prop:${K}`]?: IcDrawer[K] };
+        "ic-empty-state": Omit<IcEmptyState, keyof IcEmptyStateAttributes> & { [K in keyof IcEmptyState & keyof IcEmptyStateAttributes]?: IcEmptyState[K] } & { [K in keyof IcEmptyState & keyof IcEmptyStateAttributes as `attr:${K}`]?: IcEmptyStateAttributes[K] } & { [K in keyof IcEmptyState & keyof IcEmptyStateAttributes as `prop:${K}`]?: IcEmptyState[K] };
+        "ic-footer": Omit<IcFooter, keyof IcFooterAttributes> & { [K in keyof IcFooter & keyof IcFooterAttributes]?: IcFooter[K] } & { [K in keyof IcFooter & keyof IcFooterAttributes as `attr:${K}`]?: IcFooterAttributes[K] } & { [K in keyof IcFooter & keyof IcFooterAttributes as `prop:${K}`]?: IcFooter[K] };
+        "ic-horizontal-scroll": Omit<IcHorizontalScroll, keyof IcHorizontalScrollAttributes> & { [K in keyof IcHorizontalScroll & keyof IcHorizontalScrollAttributes]?: IcHorizontalScroll[K] } & { [K in keyof IcHorizontalScroll & keyof IcHorizontalScrollAttributes as `attr:${K}`]?: IcHorizontalScrollAttributes[K] } & { [K in keyof IcHorizontalScroll & keyof IcHorizontalScrollAttributes as `prop:${K}`]?: IcHorizontalScroll[K] };
+        "ic-input-component-container": Omit<IcInputComponentContainer, keyof IcInputComponentContainerAttributes> & { [K in keyof IcInputComponentContainer & keyof IcInputComponentContainerAttributes]?: IcInputComponentContainer[K] } & { [K in keyof IcInputComponentContainer & keyof IcInputComponentContainerAttributes as `attr:${K}`]?: IcInputComponentContainerAttributes[K] } & { [K in keyof IcInputComponentContainer & keyof IcInputComponentContainerAttributes as `prop:${K}`]?: IcInputComponentContainer[K] };
+        "ic-input-container": Omit<IcInputContainer, keyof IcInputContainerAttributes> & { [K in keyof IcInputContainer & keyof IcInputContainerAttributes]?: IcInputContainer[K] } & { [K in keyof IcInputContainer & keyof IcInputContainerAttributes as `attr:${K}`]?: IcInputContainerAttributes[K] } & { [K in keyof IcInputContainer & keyof IcInputContainerAttributes as `prop:${K}`]?: IcInputContainer[K] };
+        "ic-input-label": Omit<IcInputLabel, keyof IcInputLabelAttributes> & { [K in keyof IcInputLabel & keyof IcInputLabelAttributes]?: IcInputLabel[K] } & { [K in keyof IcInputLabel & keyof IcInputLabelAttributes as `attr:${K}`]?: IcInputLabelAttributes[K] } & { [K in keyof IcInputLabel & keyof IcInputLabelAttributes as `prop:${K}`]?: IcInputLabel[K] } & OneOf<"label", IcInputLabel["label"], IcInputLabelAttributes["label"]>;
+        "ic-input-validation": Omit<IcInputValidation, keyof IcInputValidationAttributes> & { [K in keyof IcInputValidation & keyof IcInputValidationAttributes]?: IcInputValidation[K] } & { [K in keyof IcInputValidation & keyof IcInputValidationAttributes as `attr:${K}`]?: IcInputValidationAttributes[K] } & { [K in keyof IcInputValidation & keyof IcInputValidationAttributes as `prop:${K}`]?: IcInputValidation[K] };
+        "ic-link": Omit<IcLink, keyof IcLinkAttributes> & { [K in keyof IcLink & keyof IcLinkAttributes]?: IcLink[K] } & { [K in keyof IcLink & keyof IcLinkAttributes as `attr:${K}`]?: IcLinkAttributes[K] } & { [K in keyof IcLink & keyof IcLinkAttributes as `prop:${K}`]?: IcLink[K] };
+        "ic-loading-indicator": Omit<IcLoadingIndicator, keyof IcLoadingIndicatorAttributes> & { [K in keyof IcLoadingIndicator & keyof IcLoadingIndicatorAttributes]?: IcLoadingIndicator[K] } & { [K in keyof IcLoadingIndicator & keyof IcLoadingIndicatorAttributes as `attr:${K}`]?: IcLoadingIndicatorAttributes[K] } & { [K in keyof IcLoadingIndicator & keyof IcLoadingIndicatorAttributes as `prop:${K}`]?: IcLoadingIndicator[K] };
+        "ic-menu": Omit<IcMenu, keyof IcMenuAttributes> & { [K in keyof IcMenu & keyof IcMenuAttributes]?: IcMenu[K] } & { [K in keyof IcMenu & keyof IcMenuAttributes as `attr:${K}`]?: IcMenuAttributes[K] } & { [K in keyof IcMenu & keyof IcMenuAttributes as `prop:${K}`]?: IcMenu[K] } & OneOf<"inputLabel", IcMenu["inputLabel"], IcMenuAttributes["inputLabel"]> & OneOf<"menuId", IcMenu["menuId"], IcMenuAttributes["menuId"]> & OneOf<"open", IcMenu["open"], IcMenuAttributes["open"]> & OneOf<"value", IcMenu["value"], IcMenuAttributes["value"]>;
+        "ic-menu-group": Omit<IcMenuGroup, keyof IcMenuGroupAttributes> & { [K in keyof IcMenuGroup & keyof IcMenuGroupAttributes]?: IcMenuGroup[K] } & { [K in keyof IcMenuGroup & keyof IcMenuGroupAttributes as `attr:${K}`]?: IcMenuGroupAttributes[K] } & { [K in keyof IcMenuGroup & keyof IcMenuGroupAttributes as `prop:${K}`]?: IcMenuGroup[K] };
+        "ic-menu-item": Omit<IcMenuItem, keyof IcMenuItemAttributes> & { [K in keyof IcMenuItem & keyof IcMenuItemAttributes]?: IcMenuItem[K] } & { [K in keyof IcMenuItem & keyof IcMenuItemAttributes as `attr:${K}`]?: IcMenuItemAttributes[K] } & { [K in keyof IcMenuItem & keyof IcMenuItemAttributes as `prop:${K}`]?: IcMenuItem[K] } & OneOf<"label", IcMenuItem["label"], IcMenuItemAttributes["label"]>;
+        "ic-navigation-item": Omit<IcNavigationItem, keyof IcNavigationItemAttributes> & { [K in keyof IcNavigationItem & keyof IcNavigationItemAttributes]?: IcNavigationItem[K] } & { [K in keyof IcNavigationItem & keyof IcNavigationItemAttributes as `attr:${K}`]?: IcNavigationItemAttributes[K] } & { [K in keyof IcNavigationItem & keyof IcNavigationItemAttributes as `prop:${K}`]?: IcNavigationItem[K] };
+        "ic-page-header": Omit<IcPageHeader, keyof IcPageHeaderAttributes> & { [K in keyof IcPageHeader & keyof IcPageHeaderAttributes]?: IcPageHeader[K] } & { [K in keyof IcPageHeader & keyof IcPageHeaderAttributes as `attr:${K}`]?: IcPageHeaderAttributes[K] } & { [K in keyof IcPageHeader & keyof IcPageHeaderAttributes as `prop:${K}`]?: IcPageHeader[K] };
+        "ic-pagination": Omit<IcPagination, keyof IcPaginationAttributes> & { [K in keyof IcPagination & keyof IcPaginationAttributes]?: IcPagination[K] } & { [K in keyof IcPagination & keyof IcPaginationAttributes as `attr:${K}`]?: IcPaginationAttributes[K] } & { [K in keyof IcPagination & keyof IcPaginationAttributes as `prop:${K}`]?: IcPagination[K] } & OneOf<"pages", IcPagination["pages"], IcPaginationAttributes["pages"]>;
+        "ic-pagination-bar": Omit<IcPaginationBar, keyof IcPaginationBarAttributes> & { [K in keyof IcPaginationBar & keyof IcPaginationBarAttributes]?: IcPaginationBar[K] } & { [K in keyof IcPaginationBar & keyof IcPaginationBarAttributes as `attr:${K}`]?: IcPaginationBarAttributes[K] } & { [K in keyof IcPaginationBar & keyof IcPaginationBarAttributes as `prop:${K}`]?: IcPaginationBar[K] } & OneOf<"totalItems", IcPaginationBar["totalItems"], IcPaginationBarAttributes["totalItems"]>;
+        "ic-pagination-item": Omit<IcPaginationItem, keyof IcPaginationItemAttributes> & { [K in keyof IcPaginationItem & keyof IcPaginationItemAttributes]?: IcPaginationItem[K] } & { [K in keyof IcPaginationItem & keyof IcPaginationItemAttributes as `attr:${K}`]?: IcPaginationItemAttributes[K] } & { [K in keyof IcPaginationItem & keyof IcPaginationItemAttributes as `prop:${K}`]?: IcPaginationItem[K] };
+        "ic-popover-menu": Omit<IcPopoverMenu, keyof IcPopoverMenuAttributes> & { [K in keyof IcPopoverMenu & keyof IcPopoverMenuAttributes]?: IcPopoverMenu[K] } & { [K in keyof IcPopoverMenu & keyof IcPopoverMenuAttributes as `attr:${K}`]?: IcPopoverMenuAttributes[K] } & { [K in keyof IcPopoverMenu & keyof IcPopoverMenuAttributes as `prop:${K}`]?: IcPopoverMenu[K] };
+        "ic-radio-group": Omit<IcRadioGroup, keyof IcRadioGroupAttributes> & { [K in keyof IcRadioGroup & keyof IcRadioGroupAttributes]?: IcRadioGroup[K] } & { [K in keyof IcRadioGroup & keyof IcRadioGroupAttributes as `attr:${K}`]?: IcRadioGroupAttributes[K] } & { [K in keyof IcRadioGroup & keyof IcRadioGroupAttributes as `prop:${K}`]?: IcRadioGroup[K] } & OneOf<"label", IcRadioGroup["label"], IcRadioGroupAttributes["label"]> & OneOf<"name", IcRadioGroup["name"], IcRadioGroupAttributes["name"]>;
+        "ic-radio-option": Omit<IcRadioOption, keyof IcRadioOptionAttributes> & { [K in keyof IcRadioOption & keyof IcRadioOptionAttributes]?: IcRadioOption[K] } & { [K in keyof IcRadioOption & keyof IcRadioOptionAttributes as `attr:${K}`]?: IcRadioOptionAttributes[K] } & { [K in keyof IcRadioOption & keyof IcRadioOptionAttributes as `prop:${K}`]?: IcRadioOption[K] } & OneOf<"value", IcRadioOption["value"], IcRadioOptionAttributes["value"]>;
+        "ic-search-bar": Omit<IcSearchBar, keyof IcSearchBarAttributes> & { [K in keyof IcSearchBar & keyof IcSearchBarAttributes]?: IcSearchBar[K] } & { [K in keyof IcSearchBar & keyof IcSearchBarAttributes as `attr:${K}`]?: IcSearchBarAttributes[K] } & { [K in keyof IcSearchBar & keyof IcSearchBarAttributes as `prop:${K}`]?: IcSearchBar[K] } & OneOf<"label", IcSearchBar["label"], IcSearchBarAttributes["label"]>;
+        "ic-section-container": Omit<IcSectionContainer, keyof IcSectionContainerAttributes> & { [K in keyof IcSectionContainer & keyof IcSectionContainerAttributes]?: IcSectionContainer[K] } & { [K in keyof IcSectionContainer & keyof IcSectionContainerAttributes as `attr:${K}`]?: IcSectionContainerAttributes[K] } & { [K in keyof IcSectionContainer & keyof IcSectionContainerAttributes as `prop:${K}`]?: IcSectionContainer[K] };
+        "ic-select": Omit<IcSelect, keyof IcSelectAttributes> & { [K in keyof IcSelect & keyof IcSelectAttributes]?: IcSelect[K] } & { [K in keyof IcSelect & keyof IcSelectAttributes as `attr:${K}`]?: IcSelectAttributes[K] } & { [K in keyof IcSelect & keyof IcSelectAttributes as `prop:${K}`]?: IcSelect[K] } & OneOf<"label", IcSelect["label"], IcSelectAttributes["label"]>;
+        "ic-side-navigation": Omit<IcSideNavigation, keyof IcSideNavigationAttributes> & { [K in keyof IcSideNavigation & keyof IcSideNavigationAttributes]?: IcSideNavigation[K] } & { [K in keyof IcSideNavigation & keyof IcSideNavigationAttributes as `attr:${K}`]?: IcSideNavigationAttributes[K] } & { [K in keyof IcSideNavigation & keyof IcSideNavigationAttributes as `prop:${K}`]?: IcSideNavigation[K] };
+        "ic-skip-link": Omit<IcSkipLink, keyof IcSkipLinkAttributes> & { [K in keyof IcSkipLink & keyof IcSkipLinkAttributes]?: IcSkipLink[K] } & { [K in keyof IcSkipLink & keyof IcSkipLinkAttributes as `attr:${K}`]?: IcSkipLinkAttributes[K] } & { [K in keyof IcSkipLink & keyof IcSkipLinkAttributes as `prop:${K}`]?: IcSkipLink[K] } & OneOf<"target", IcSkipLink["target"], IcSkipLinkAttributes["target"]>;
+        "ic-switch": Omit<IcSwitch, keyof IcSwitchAttributes> & { [K in keyof IcSwitch & keyof IcSwitchAttributes]?: IcSwitch[K] } & { [K in keyof IcSwitch & keyof IcSwitchAttributes as `attr:${K}`]?: IcSwitchAttributes[K] } & { [K in keyof IcSwitch & keyof IcSwitchAttributes as `prop:${K}`]?: IcSwitch[K] } & OneOf<"label", IcSwitch["label"], IcSwitchAttributes["label"]>;
+        "ic-tab": Omit<IcTab, keyof IcTabAttributes> & { [K in keyof IcTab & keyof IcTabAttributes]?: IcTab[K] } & { [K in keyof IcTab & keyof IcTabAttributes as `attr:${K}`]?: IcTabAttributes[K] } & { [K in keyof IcTab & keyof IcTabAttributes as `prop:${K}`]?: IcTab[K] } & OneOf<"tabId", IcTab["tabId"], IcTabAttributes["tabId"]> & OneOf<"tabPosition", IcTab["tabPosition"], IcTabAttributes["tabPosition"]>;
+        "ic-tab-context": Omit<IcTabContext, keyof IcTabContextAttributes> & { [K in keyof IcTabContext & keyof IcTabContextAttributes]?: IcTabContext[K] } & { [K in keyof IcTabContext & keyof IcTabContextAttributes as `attr:${K}`]?: IcTabContextAttributes[K] } & { [K in keyof IcTabContext & keyof IcTabContextAttributes as `prop:${K}`]?: IcTabContext[K] };
+        "ic-tab-group": Omit<IcTabGroup, keyof IcTabGroupAttributes> & { [K in keyof IcTabGroup & keyof IcTabGroupAttributes]?: IcTabGroup[K] } & { [K in keyof IcTabGroup & keyof IcTabGroupAttributes as `attr:${K}`]?: IcTabGroupAttributes[K] } & { [K in keyof IcTabGroup & keyof IcTabGroupAttributes as `prop:${K}`]?: IcTabGroup[K] } & OneOf<"label", IcTabGroup["label"], IcTabGroupAttributes["label"]>;
+        "ic-tab-panel": Omit<IcTabPanel, keyof IcTabPanelAttributes> & { [K in keyof IcTabPanel & keyof IcTabPanelAttributes]?: IcTabPanel[K] } & { [K in keyof IcTabPanel & keyof IcTabPanelAttributes as `attr:${K}`]?: IcTabPanelAttributes[K] } & { [K in keyof IcTabPanel & keyof IcTabPanelAttributes as `prop:${K}`]?: IcTabPanel[K] };
+        "ic-table-of-contents": Omit<IcTableOfContents, keyof IcTableOfContentsAttributes> & { [K in keyof IcTableOfContents & keyof IcTableOfContentsAttributes]?: IcTableOfContents[K] } & { [K in keyof IcTableOfContents & keyof IcTableOfContentsAttributes as `attr:${K}`]?: IcTableOfContentsAttributes[K] } & { [K in keyof IcTableOfContents & keyof IcTableOfContentsAttributes as `prop:${K}`]?: IcTableOfContents[K] };
+        "ic-text-field": Omit<IcTextField, keyof IcTextFieldAttributes> & { [K in keyof IcTextField & keyof IcTextFieldAttributes]?: IcTextField[K] } & { [K in keyof IcTextField & keyof IcTextFieldAttributes as `attr:${K}`]?: IcTextFieldAttributes[K] } & { [K in keyof IcTextField & keyof IcTextFieldAttributes as `prop:${K}`]?: IcTextField[K] } & OneOf<"label", IcTextField["label"], IcTextFieldAttributes["label"]>;
+        "ic-theme": Omit<IcTheme, keyof IcThemeAttributes> & { [K in keyof IcTheme & keyof IcThemeAttributes]?: IcTheme[K] } & { [K in keyof IcTheme & keyof IcThemeAttributes as `attr:${K}`]?: IcThemeAttributes[K] } & { [K in keyof IcTheme & keyof IcThemeAttributes as `prop:${K}`]?: IcTheme[K] };
+        "ic-time-input": Omit<IcTimeInput, keyof IcTimeInputAttributes> & { [K in keyof IcTimeInput & keyof IcTimeInputAttributes]?: IcTimeInput[K] } & { [K in keyof IcTimeInput & keyof IcTimeInputAttributes as `attr:${K}`]?: IcTimeInputAttributes[K] } & { [K in keyof IcTimeInput & keyof IcTimeInputAttributes as `prop:${K}`]?: IcTimeInput[K] } & OneOf<"label", IcTimeInput["label"], IcTimeInputAttributes["label"]>;
+        "ic-time-selector": Omit<IcTimeSelector, keyof IcTimeSelectorAttributes> & { [K in keyof IcTimeSelector & keyof IcTimeSelectorAttributes]?: IcTimeSelector[K] } & { [K in keyof IcTimeSelector & keyof IcTimeSelectorAttributes as `attr:${K}`]?: IcTimeSelectorAttributes[K] } & { [K in keyof IcTimeSelector & keyof IcTimeSelectorAttributes as `prop:${K}`]?: IcTimeSelector[K] };
+        "ic-toggle-button": Omit<IcToggleButton, keyof IcToggleButtonAttributes> & { [K in keyof IcToggleButton & keyof IcToggleButtonAttributes]?: IcToggleButton[K] } & { [K in keyof IcToggleButton & keyof IcToggleButtonAttributes as `attr:${K}`]?: IcToggleButtonAttributes[K] } & { [K in keyof IcToggleButton & keyof IcToggleButtonAttributes as `prop:${K}`]?: IcToggleButton[K] };
+        "ic-toggle-button-group": Omit<IcToggleButtonGroup, keyof IcToggleButtonGroupAttributes> & { [K in keyof IcToggleButtonGroup & keyof IcToggleButtonGroupAttributes]?: IcToggleButtonGroup[K] } & { [K in keyof IcToggleButtonGroup & keyof IcToggleButtonGroupAttributes as `attr:${K}`]?: IcToggleButtonGroupAttributes[K] } & { [K in keyof IcToggleButtonGroup & keyof IcToggleButtonGroupAttributes as `prop:${K}`]?: IcToggleButtonGroup[K] };
+        "ic-tooltip": Omit<IcTooltip, keyof IcTooltipAttributes> & { [K in keyof IcTooltip & keyof IcTooltipAttributes]?: IcTooltip[K] } & { [K in keyof IcTooltip & keyof IcTooltipAttributes as `attr:${K}`]?: IcTooltipAttributes[K] } & { [K in keyof IcTooltip & keyof IcTooltipAttributes as `prop:${K}`]?: IcTooltip[K] } & OneOf<"label", IcTooltip["label"], IcTooltipAttributes["label"]>;
+        "ic-top-navigation": Omit<IcTopNavigation, keyof IcTopNavigationAttributes> & { [K in keyof IcTopNavigation & keyof IcTopNavigationAttributes]?: IcTopNavigation[K] } & { [K in keyof IcTopNavigation & keyof IcTopNavigationAttributes as `attr:${K}`]?: IcTopNavigationAttributes[K] } & { [K in keyof IcTopNavigation & keyof IcTopNavigationAttributes as `prop:${K}`]?: IcTopNavigation[K] };
+        "ic-tree-item": Omit<IcTreeItem, keyof IcTreeItemAttributes> & { [K in keyof IcTreeItem & keyof IcTreeItemAttributes]?: IcTreeItem[K] } & { [K in keyof IcTreeItem & keyof IcTreeItemAttributes as `attr:${K}`]?: IcTreeItemAttributes[K] } & { [K in keyof IcTreeItem & keyof IcTreeItemAttributes as `prop:${K}`]?: IcTreeItem[K] };
+        "ic-tree-view": Omit<IcTreeView, keyof IcTreeViewAttributes> & { [K in keyof IcTreeView & keyof IcTreeViewAttributes]?: IcTreeView[K] } & { [K in keyof IcTreeView & keyof IcTreeViewAttributes as `attr:${K}`]?: IcTreeViewAttributes[K] } & { [K in keyof IcTreeView & keyof IcTreeViewAttributes as `prop:${K}`]?: IcTreeView[K] };
+        "ic-typography": Omit<IcTypography, keyof IcTypographyAttributes> & { [K in keyof IcTypography & keyof IcTypographyAttributes]?: IcTypography[K] } & { [K in keyof IcTypography & keyof IcTypographyAttributes as `attr:${K}`]?: IcTypographyAttributes[K] } & { [K in keyof IcTypography & keyof IcTypographyAttributes as `prop:${K}`]?: IcTypography[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ic-accordion": LocalJSX.IcAccordion & JSXBase.HTMLAttributes<HTMLIcAccordionElement>;
-            "ic-action-chip": LocalJSX.IcActionChip & JSXBase.HTMLAttributes<HTMLIcActionChipElement>;
-            "ic-button": LocalJSX.IcButton & JSXBase.HTMLAttributes<HTMLIcButtonElement>;
-            "ic-calendar": LocalJSX.IcCalendar & JSXBase.HTMLAttributes<HTMLIcCalendarElement>;
-            "ic-checkbox": LocalJSX.IcCheckbox & JSXBase.HTMLAttributes<HTMLIcCheckboxElement>;
-            "ic-chip": LocalJSX.IcChip & JSXBase.HTMLAttributes<HTMLIcChipElement>;
-            "ic-data-table": LocalJSX.IcDataTable & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
-            "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
-            "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
-            "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
-            "ic-drawer": LocalJSX.IcDrawer & JSXBase.HTMLAttributes<HTMLIcDrawerElement>;
-            "ic-empty-state": LocalJSX.IcEmptyState & JSXBase.HTMLAttributes<HTMLIcEmptyStateElement>;
-            "ic-footer": LocalJSX.IcFooter & JSXBase.HTMLAttributes<HTMLIcFooterElement>;
-            "ic-horizontal-scroll": LocalJSX.IcHorizontalScroll & JSXBase.HTMLAttributes<HTMLIcHorizontalScrollElement>;
-            "ic-input-component-container": LocalJSX.IcInputComponentContainer & JSXBase.HTMLAttributes<HTMLIcInputComponentContainerElement>;
-            "ic-input-container": LocalJSX.IcInputContainer & JSXBase.HTMLAttributes<HTMLIcInputContainerElement>;
-            "ic-input-label": LocalJSX.IcInputLabel & JSXBase.HTMLAttributes<HTMLIcInputLabelElement>;
-            "ic-input-validation": LocalJSX.IcInputValidation & JSXBase.HTMLAttributes<HTMLIcInputValidationElement>;
-            "ic-link": LocalJSX.IcLink & JSXBase.HTMLAttributes<HTMLIcLinkElement>;
-            "ic-loading-indicator": LocalJSX.IcLoadingIndicator & JSXBase.HTMLAttributes<HTMLIcLoadingIndicatorElement>;
-            "ic-menu": LocalJSX.IcMenu & JSXBase.HTMLAttributes<HTMLIcMenuElement>;
-            "ic-menu-group": LocalJSX.IcMenuGroup & JSXBase.HTMLAttributes<HTMLIcMenuGroupElement>;
-            "ic-menu-item": LocalJSX.IcMenuItem & JSXBase.HTMLAttributes<HTMLIcMenuItemElement>;
-            "ic-navigation-item": LocalJSX.IcNavigationItem & JSXBase.HTMLAttributes<HTMLIcNavigationItemElement>;
-            "ic-page-header": LocalJSX.IcPageHeader & JSXBase.HTMLAttributes<HTMLIcPageHeaderElement>;
-            "ic-pagination": LocalJSX.IcPagination & JSXBase.HTMLAttributes<HTMLIcPaginationElement>;
-            "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
-            "ic-pagination-item": LocalJSX.IcPaginationItem & JSXBase.HTMLAttributes<HTMLIcPaginationItemElement>;
-            "ic-popover-menu": LocalJSX.IcPopoverMenu & JSXBase.HTMLAttributes<HTMLIcPopoverMenuElement>;
-            "ic-radio-group": LocalJSX.IcRadioGroup & JSXBase.HTMLAttributes<HTMLIcRadioGroupElement>;
-            "ic-radio-option": LocalJSX.IcRadioOption & JSXBase.HTMLAttributes<HTMLIcRadioOptionElement>;
-            "ic-search-bar": LocalJSX.IcSearchBar & JSXBase.HTMLAttributes<HTMLIcSearchBarElement>;
-            "ic-section-container": LocalJSX.IcSectionContainer & JSXBase.HTMLAttributes<HTMLIcSectionContainerElement>;
-            "ic-select": LocalJSX.IcSelect & JSXBase.HTMLAttributes<HTMLIcSelectElement>;
-            "ic-side-navigation": LocalJSX.IcSideNavigation & JSXBase.HTMLAttributes<HTMLIcSideNavigationElement>;
-            "ic-skip-link": LocalJSX.IcSkipLink & JSXBase.HTMLAttributes<HTMLIcSkipLinkElement>;
-            "ic-switch": LocalJSX.IcSwitch & JSXBase.HTMLAttributes<HTMLIcSwitchElement>;
-            "ic-tab": LocalJSX.IcTab & JSXBase.HTMLAttributes<HTMLIcTabElement>;
-            "ic-tab-context": LocalJSX.IcTabContext & JSXBase.HTMLAttributes<HTMLIcTabContextElement>;
-            "ic-tab-group": LocalJSX.IcTabGroup & JSXBase.HTMLAttributes<HTMLIcTabGroupElement>;
-            "ic-tab-panel": LocalJSX.IcTabPanel & JSXBase.HTMLAttributes<HTMLIcTabPanelElement>;
-            "ic-table-of-contents": LocalJSX.IcTableOfContents & JSXBase.HTMLAttributes<HTMLIcTableOfContentsElement>;
-            "ic-text-field": LocalJSX.IcTextField & JSXBase.HTMLAttributes<HTMLIcTextFieldElement>;
-            "ic-theme": LocalJSX.IcTheme & JSXBase.HTMLAttributes<HTMLIcThemeElement>;
-            "ic-time-input": LocalJSX.IcTimeInput & JSXBase.HTMLAttributes<HTMLIcTimeInputElement>;
-            "ic-time-selector": LocalJSX.IcTimeSelector & JSXBase.HTMLAttributes<HTMLIcTimeSelectorElement>;
-            "ic-toggle-button": LocalJSX.IcToggleButton & JSXBase.HTMLAttributes<HTMLIcToggleButtonElement>;
-            "ic-toggle-button-group": LocalJSX.IcToggleButtonGroup & JSXBase.HTMLAttributes<HTMLIcToggleButtonGroupElement>;
-            "ic-tooltip": LocalJSX.IcTooltip & JSXBase.HTMLAttributes<HTMLIcTooltipElement>;
-            "ic-top-navigation": LocalJSX.IcTopNavigation & JSXBase.HTMLAttributes<HTMLIcTopNavigationElement>;
-            "ic-tree-item": LocalJSX.IcTreeItem & JSXBase.HTMLAttributes<HTMLIcTreeItemElement>;
-            "ic-tree-view": LocalJSX.IcTreeView & JSXBase.HTMLAttributes<HTMLIcTreeViewElement>;
-            "ic-typography": LocalJSX.IcTypography & JSXBase.HTMLAttributes<HTMLIcTypographyElement>;
+            "ic-accordion": LocalJSX.IntrinsicElements["ic-accordion"] & JSXBase.HTMLAttributes<HTMLIcAccordionElement>;
+            "ic-action-chip": LocalJSX.IntrinsicElements["ic-action-chip"] & JSXBase.HTMLAttributes<HTMLIcActionChipElement>;
+            "ic-button": LocalJSX.IntrinsicElements["ic-button"] & JSXBase.HTMLAttributes<HTMLIcButtonElement>;
+            "ic-calendar": LocalJSX.IntrinsicElements["ic-calendar"] & JSXBase.HTMLAttributes<HTMLIcCalendarElement>;
+            "ic-checkbox": LocalJSX.IntrinsicElements["ic-checkbox"] & JSXBase.HTMLAttributes<HTMLIcCheckboxElement>;
+            "ic-chip": LocalJSX.IntrinsicElements["ic-chip"] & JSXBase.HTMLAttributes<HTMLIcChipElement>;
+            "ic-data-table": LocalJSX.IntrinsicElements["ic-data-table"] & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
+            "ic-data-table-title-bar": LocalJSX.IntrinsicElements["ic-data-table-title-bar"] & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
+            "ic-date-input": LocalJSX.IntrinsicElements["ic-date-input"] & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
+            "ic-date-picker": LocalJSX.IntrinsicElements["ic-date-picker"] & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
+            "ic-drawer": LocalJSX.IntrinsicElements["ic-drawer"] & JSXBase.HTMLAttributes<HTMLIcDrawerElement>;
+            "ic-empty-state": LocalJSX.IntrinsicElements["ic-empty-state"] & JSXBase.HTMLAttributes<HTMLIcEmptyStateElement>;
+            "ic-footer": LocalJSX.IntrinsicElements["ic-footer"] & JSXBase.HTMLAttributes<HTMLIcFooterElement>;
+            "ic-horizontal-scroll": LocalJSX.IntrinsicElements["ic-horizontal-scroll"] & JSXBase.HTMLAttributes<HTMLIcHorizontalScrollElement>;
+            "ic-input-component-container": LocalJSX.IntrinsicElements["ic-input-component-container"] & JSXBase.HTMLAttributes<HTMLIcInputComponentContainerElement>;
+            "ic-input-container": LocalJSX.IntrinsicElements["ic-input-container"] & JSXBase.HTMLAttributes<HTMLIcInputContainerElement>;
+            "ic-input-label": LocalJSX.IntrinsicElements["ic-input-label"] & JSXBase.HTMLAttributes<HTMLIcInputLabelElement>;
+            "ic-input-validation": LocalJSX.IntrinsicElements["ic-input-validation"] & JSXBase.HTMLAttributes<HTMLIcInputValidationElement>;
+            "ic-link": LocalJSX.IntrinsicElements["ic-link"] & JSXBase.HTMLAttributes<HTMLIcLinkElement>;
+            "ic-loading-indicator": LocalJSX.IntrinsicElements["ic-loading-indicator"] & JSXBase.HTMLAttributes<HTMLIcLoadingIndicatorElement>;
+            "ic-menu": LocalJSX.IntrinsicElements["ic-menu"] & JSXBase.HTMLAttributes<HTMLIcMenuElement>;
+            "ic-menu-group": LocalJSX.IntrinsicElements["ic-menu-group"] & JSXBase.HTMLAttributes<HTMLIcMenuGroupElement>;
+            "ic-menu-item": LocalJSX.IntrinsicElements["ic-menu-item"] & JSXBase.HTMLAttributes<HTMLIcMenuItemElement>;
+            "ic-navigation-item": LocalJSX.IntrinsicElements["ic-navigation-item"] & JSXBase.HTMLAttributes<HTMLIcNavigationItemElement>;
+            "ic-page-header": LocalJSX.IntrinsicElements["ic-page-header"] & JSXBase.HTMLAttributes<HTMLIcPageHeaderElement>;
+            "ic-pagination": LocalJSX.IntrinsicElements["ic-pagination"] & JSXBase.HTMLAttributes<HTMLIcPaginationElement>;
+            "ic-pagination-bar": LocalJSX.IntrinsicElements["ic-pagination-bar"] & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
+            "ic-pagination-item": LocalJSX.IntrinsicElements["ic-pagination-item"] & JSXBase.HTMLAttributes<HTMLIcPaginationItemElement>;
+            "ic-popover-menu": LocalJSX.IntrinsicElements["ic-popover-menu"] & JSXBase.HTMLAttributes<HTMLIcPopoverMenuElement>;
+            "ic-radio-group": LocalJSX.IntrinsicElements["ic-radio-group"] & JSXBase.HTMLAttributes<HTMLIcRadioGroupElement>;
+            "ic-radio-option": LocalJSX.IntrinsicElements["ic-radio-option"] & JSXBase.HTMLAttributes<HTMLIcRadioOptionElement>;
+            "ic-search-bar": LocalJSX.IntrinsicElements["ic-search-bar"] & JSXBase.HTMLAttributes<HTMLIcSearchBarElement>;
+            "ic-section-container": LocalJSX.IntrinsicElements["ic-section-container"] & JSXBase.HTMLAttributes<HTMLIcSectionContainerElement>;
+            "ic-select": LocalJSX.IntrinsicElements["ic-select"] & JSXBase.HTMLAttributes<HTMLIcSelectElement>;
+            "ic-side-navigation": LocalJSX.IntrinsicElements["ic-side-navigation"] & JSXBase.HTMLAttributes<HTMLIcSideNavigationElement>;
+            "ic-skip-link": LocalJSX.IntrinsicElements["ic-skip-link"] & JSXBase.HTMLAttributes<HTMLIcSkipLinkElement>;
+            "ic-switch": LocalJSX.IntrinsicElements["ic-switch"] & JSXBase.HTMLAttributes<HTMLIcSwitchElement>;
+            "ic-tab": LocalJSX.IntrinsicElements["ic-tab"] & JSXBase.HTMLAttributes<HTMLIcTabElement>;
+            "ic-tab-context": LocalJSX.IntrinsicElements["ic-tab-context"] & JSXBase.HTMLAttributes<HTMLIcTabContextElement>;
+            "ic-tab-group": LocalJSX.IntrinsicElements["ic-tab-group"] & JSXBase.HTMLAttributes<HTMLIcTabGroupElement>;
+            "ic-tab-panel": LocalJSX.IntrinsicElements["ic-tab-panel"] & JSXBase.HTMLAttributes<HTMLIcTabPanelElement>;
+            "ic-table-of-contents": LocalJSX.IntrinsicElements["ic-table-of-contents"] & JSXBase.HTMLAttributes<HTMLIcTableOfContentsElement>;
+            "ic-text-field": LocalJSX.IntrinsicElements["ic-text-field"] & JSXBase.HTMLAttributes<HTMLIcTextFieldElement>;
+            "ic-theme": LocalJSX.IntrinsicElements["ic-theme"] & JSXBase.HTMLAttributes<HTMLIcThemeElement>;
+            "ic-time-input": LocalJSX.IntrinsicElements["ic-time-input"] & JSXBase.HTMLAttributes<HTMLIcTimeInputElement>;
+            "ic-time-selector": LocalJSX.IntrinsicElements["ic-time-selector"] & JSXBase.HTMLAttributes<HTMLIcTimeSelectorElement>;
+            "ic-toggle-button": LocalJSX.IntrinsicElements["ic-toggle-button"] & JSXBase.HTMLAttributes<HTMLIcToggleButtonElement>;
+            "ic-toggle-button-group": LocalJSX.IntrinsicElements["ic-toggle-button-group"] & JSXBase.HTMLAttributes<HTMLIcToggleButtonGroupElement>;
+            "ic-tooltip": LocalJSX.IntrinsicElements["ic-tooltip"] & JSXBase.HTMLAttributes<HTMLIcTooltipElement>;
+            "ic-top-navigation": LocalJSX.IntrinsicElements["ic-top-navigation"] & JSXBase.HTMLAttributes<HTMLIcTopNavigationElement>;
+            "ic-tree-item": LocalJSX.IntrinsicElements["ic-tree-item"] & JSXBase.HTMLAttributes<HTMLIcTreeItemElement>;
+            "ic-tree-view": LocalJSX.IntrinsicElements["ic-tree-view"] & JSXBase.HTMLAttributes<HTMLIcTreeViewElement>;
+            "ic-typography": LocalJSX.IntrinsicElements["ic-typography"] & JSXBase.HTMLAttributes<HTMLIcTypographyElement>;
         }
     }
 }
