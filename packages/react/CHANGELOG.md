@@ -11,7 +11,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **react:** add 'large' size variant to ic-radio-group component ([de6574f](https://github.com/mi6/ic-ui-kit/commit/de6574f4ff56945a2a16447c2525c100a05cfea6)), closes [#4229](https://github.com/mi6/ic-ui-kit/issues/4229)
 - **react:** add large size variant to ic-switch ([6e15647](https://github.com/mi6/ic-ui-kit/commit/6e15647032572fa518e8814d0aab3eecdf6e712b)), closes [#4230](https://github.com/mi6/ic-ui-kit/issues/4230)
 - **react:** add react stories and cypress tests for tooltip icon ([a679d33](https://github.com/mi6/ic-ui-kit/commit/a679d33dcc606b335b3b765fb0283730a52c14ec))
 
