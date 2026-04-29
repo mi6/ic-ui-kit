@@ -442,7 +442,9 @@ it("should update any attributes that are inherited from the root element", asyn
 });
 
 it("should autofocus", async () => {
-  jest.useFakeTimers();
+  // Legacy fake timers used because Stencil relies on requestAnimationFrame-based scheduling
+  // which does not work reliably with Jest 27+ modern fake timers.
+  jest.useFakeTimers({ legacyFakeTimers: true });
   const page = await newSpecPage({
     components: [TextField, InputContainer, InputLabel, Typography],
     html: `<ic-text-field label="Test label" autofocus>

@@ -19,7 +19,7 @@ import {
   removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcSwitchChangeEventDetail } from "./ic-switch.types";
-import { IcSizesNoLarge, IcThemeMode } from "../../utils/types";
+import { IcSizes, IcThemeMode } from "../../utils/types";
 
 let inputIds = 0;
 
@@ -84,7 +84,7 @@ export class Switch {
   /**
    * The size of the switch component.
    */
-  @Prop() size?: IcSizesNoLarge = "medium";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -174,8 +174,6 @@ export class Switch {
       theme,
     } = this;
 
-    const isSmall = size === "small";
-
     renderHiddenInput(this.el, checkedState ? value : "", name, disabled);
 
     return (
@@ -188,7 +186,7 @@ export class Switch {
           class={{
             "ic-switch-container": true,
             "ic-switch-disabled": !!disabled,
-            "ic-switch-small": isSmall,
+            [`ic-switch-${size}`]: true,
           }}
           htmlFor={inputId}
         >
@@ -201,7 +199,6 @@ export class Switch {
               disabled={disabled}
               class={{
                 "ic-switch-label": true,
-                "ic-switch-label-small": isSmall,
               }}
             >
               <slot name="helper-text" slot="helper-text"></slot>
@@ -229,34 +226,22 @@ export class Switch {
             onChange={this.handleChange}
           />
           <span class="ic-switch-toggle">
+            <span class="ic-switch-icon-line" aria-hidden="true"></span>
             <svg
               class="ic-switch-icon"
               aria-hidden="true"
               focusable="false"
-              viewBox="0 0 10 10"
+              viewBox="0 0 8 8"
               xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                class="ic-switch-icon-line"
-                x1="9"
-                y1={isSmall ? "2" : "1"}
-                x2="9"
-                y2={isSmall ? "8" : "9"}
-              />
-            </svg>
-            <svg
-              class="ic-switch-icon"
-              aria-hidden="true"
-              focusable="false"
-              viewBox="0 0 10 10"
-              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
             >
               <circle
                 class="ic-switch-icon-circle"
                 fill="none"
-                cx="5"
-                cy="5"
-                r={isSmall ? "3.335" : "4.445"}
+                cx="4"
+                cy="4"
+                r="3.5"
+                vector-effect="non-scaling-stroke"
               />
             </svg>
           </span>

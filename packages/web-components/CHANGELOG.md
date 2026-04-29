@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.25.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.23.0...@ukic/web-components@3.25.0) (2026-04-29)
+
+### Bug Fixes
+
+- **web-components:** fix slotted tabs in dialog not working with focus trap ([c54cc1e](https://github.com/mi6/ic-ui-kit/commit/c54cc1ec78d4f6be810d09909bf5fc1e44829e98)), closes [#4246](https://github.com/mi6/ic-ui-kit/issues/4246)
+- **web-components:** remove normalise.css import ([6bf07f3](https://github.com/mi6/ic-ui-kit/commit/6bf07f379285ecfbc2549d7a270a72cfa168c595))
+- **web-components:** update package-lock.json via npm audit fix ([3229f86](https://github.com/mi6/ic-ui-kit/commit/3229f8688322683f438eb005c6e743f0ca2b1ff5))
+- **web-components:** update SelectOption type to be more permissive and revert breaking change ([17ba089](https://github.com/mi6/ic-ui-kit/commit/17ba08949afdace3d5d408c832671288b0fcfd09))
+
+### Features
+
+- **web-components:** add large size variant to ic-switch ([6009eec](https://github.com/mi6/ic-ui-kit/commit/6009eec06b0d9397708e7789e1289a74b90328a1)), closes [#4230](https://github.com/mi6/ic-ui-kit/issues/4230)
+- **web-components:** add slot for icon on tooltip ([e205135](https://github.com/mi6/ic-ui-kit/commit/e205135ae157851c72325c916d7776a15e6dcb45))
+
 # [3.24.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.23.0...@ukic/web-components@3.24.0) (2026-04-22)
 
 ### Bug Fixes

@@ -317,19 +317,42 @@ describe("ic-tooltip component", () => {
     expect(page.rootInstance.updateTooltipEvents).toHaveBeenCalled();
   });
 
-  it("should emit icTooltipShow event when tooltip is shown", async () => {
+  it("should render an icon next to the label text and show it to screen readers when alt text is given", async () => {
     const page = await newSpecPage({
-      components: [Tooltip],
-      html: `<ic-tooltip target="test-button" label="tooltip"><button id="test-button">Click</button></ic-tooltip>`,
+      components: [Tooltip, Typography],
+      html: `<ic-tooltip target="test-button" label="This is a tooltip with an icon and quite a large label to to show the icon aligns with the first line of text." icon-alt-text="an icon"><button id="test-button">Click</button><svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="currentColor"
+        >
+          <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+        </svg>
+        </ic-tooltip>`,
     });
 
-    const eventSpy = jest.fn();
+    expect(page.root).toMatchSnapshot();
+  });
 
-    page.root!.addEventListener("icTooltipShow", eventSpy);
+  it("should render an icon next to the label text and hide it from screen readers when no alt text is given", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip, Typography],
+      html: `<ic-tooltip target="test-button" label="This is a tooltip with an icon and quite a large label to to show the icon aligns with the first line of text."><button id="test-button">Click</button><svg
+       <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="currentColor"
+        >
+          <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+        </svg>
+        </ic-tooltip>`,
+    });
 
-    await page.rootInstance.show(page.rootInstance.popperInstance);
-    await page.waitForChanges();
-
-    expect(eventSpy).toHaveBeenCalledTimes(1);
+    expect(page.root).toMatchSnapshot();
   });
 });

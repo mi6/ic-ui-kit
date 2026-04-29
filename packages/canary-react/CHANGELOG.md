@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.41](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.39...@ukic/canary-react@3.0.0-canary.41) (2026-04-29)
+
+### Bug Fixes
+
+- **canary-react:** update package-lock.json via npm audit fix ([e38a400](https://github.com/mi6/ic-ui-kit/commit/e38a400c289e919aecaaf0f9a0cf6d3e0215ee72))
+
+### Features
+
+- **canary-react:** remove Jest-related packages from canary-react package ([a91c0b7](https://github.com/mi6/ic-ui-kit/commit/a91c0b73d0125357de7cbf14d18727f77d452b52)), closes [#4191](https://github.com/mi6/ic-ui-kit/issues/4191)
+
 # [3.0.0-canary.40](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.39...@ukic/canary-react@3.0.0-canary.40) (2026-04-22)
 
 ### Bug Fixes

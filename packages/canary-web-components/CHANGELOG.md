@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.41](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.39...@ukic/canary-web-components@3.0.0-canary.41) (2026-04-29)
+
+### Bug Fixes
+
+- **canary-web-components:** fix slotted tabs not working with focus trap in ic-drawer ([f7624e1](https://github.com/mi6/ic-ui-kit/commit/f7624e11c19ff817f7233b60d55bb0245b6c3155)), closes [#4246](https://github.com/mi6/ic-ui-kit/issues/4246)
+- **canary-web-components:** provide a "datetime" type for data table cells ([16fbcce](https://github.com/mi6/ic-ui-kit/commit/16fbccea6b6b2d930b905454701a16aee1dcabc6)), closes [#3827](https://github.com/mi6/ic-ui-kit/issues/3827)
+- **canary-web-components:** update package-lock.json via npm audit fix ([95bb4b2](https://github.com/mi6/ic-ui-kit/commit/95bb4b26710b3aa0bc006358e5c23a20ed8e7fdc))
+
+### Features
+
+- **canary-web-components:** update components.d.ts following addition of large size variant to ic-switch ([0ac210d](https://github.com/mi6/ic-ui-kit/commit/0ac210dea336b603bc5feb07af7976c469dca770)), closes [#4230](https://github.com/mi6/ic-ui-kit/issues/4230)
+- **canary-web-components:** upgrade Jest to v29 ([b0dd73b](https://github.com/mi6/ic-ui-kit/commit/b0dd73b8739e9e03a9282b0b81a506fc51e196a6)), closes [#4191](https://github.com/mi6/ic-ui-kit/issues/4191)
+
 # [3.0.0-canary.40](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.39...@ukic/canary-web-components@3.0.0-canary.40) (2026-04-22)
 
 ### Bug Fixes

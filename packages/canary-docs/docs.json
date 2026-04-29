@@ -17466,15 +17466,15 @@
         },
         {
           "name": "size",
-          "type": "\"medium\" | \"small\" | undefined",
+          "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
-            "original": "IcSizesNoLarge",
-            "resolved": "\"medium\" | \"small\" | undefined",
+            "original": "IcSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
             "references": {
-              "IcSizesNoLarge": {
+              "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "../web-components/src/utils/types.ts::IcSizesNoLarge"
+                "id": "../web-components/src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -17485,6 +17485,10 @@
           "docsTags": [],
           "default": "\"medium\"",
           "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
             {
               "value": "medium",
               "type": "string"
@@ -21844,7 +21848,12 @@
       "tag": "ic-tooltip",
       "readme": "# ic-tooltip\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon - Icon will be rendered to the left of the tooltip text."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -21921,6 +21930,32 @@
             }
           ],
           "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "iconAltText",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "icon-alt-text",
+          "reflectToAttr": false,
+          "docs": "The alt text to be used alongside a slotted icon.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false
@@ -22200,7 +22235,12 @@
           "docs": "z-index of tooltip"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "icon",
+          "docs": "Icon will be rendered to the left of the tooltip text."
+        }
+      ],
       "parts": [],
       "dependents": [
         "ic-button",

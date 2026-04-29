@@ -2097,7 +2097,7 @@ export namespace Components {
         /**
           * The size of the switch component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -2631,6 +2631,10 @@ export namespace Components {
           * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
          */
         "fixedPositioning": boolean;
+        /**
+          * The alt text to be used alongside a slotted icon.
+         */
+        "iconAltText"?: string;
         "isTooltipVisible": () => Promise<boolean>;
         /**
           * The text to display on the tooltip.
@@ -6090,7 +6094,7 @@ declare namespace LocalJSX {
         /**
           * The size of the switch component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -6683,6 +6687,10 @@ declare namespace LocalJSX {
           * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
          */
         "fixedPositioning"?: boolean;
+        /**
+          * The alt text to be used alongside a slotted icon.
+         */
+        "iconAltText"?: string;
         /**
           * The text to display on the tooltip.
          */
