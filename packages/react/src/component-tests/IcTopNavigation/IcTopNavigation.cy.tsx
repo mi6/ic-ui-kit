@@ -36,6 +36,7 @@ import {
   WithSlottedNavItems,
   WithSlottedNavGroup,
   TopNavHorizontalScroll,
+  IconOnly,
 } from "./IcTopNavigationTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.01;
@@ -220,6 +221,17 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/app-icon-title",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render app icon only", () => {
+    mount(<IconOnly />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/app-icon-only-with-title-hidden",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -568,6 +580,25 @@ describe("IcTopNavigation mobile visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/mobile-app-icon-title",
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.014
+      ),
+    });
+  });
+
+  it("should render app icon only", () => {
+    mount(
+      <div>
+        <IcTheme brandColor="rgb(27, 60, 121)">
+          <IconOnly />
+        </IcTheme>
+      </div>
+    );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/mobile-app-icon-only-with-title-hidden",
       testThreshold: setThresholdBasedOnEnv(
         DEFAULT_TEST_THRESHOLD_MOBILE + 0.014
       ),
