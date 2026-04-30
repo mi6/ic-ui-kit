@@ -100,6 +100,14 @@ export const IconAndTitle = (): ReactElement => {
   );
 };
 
+export const IconOnly = (): ReactElement => {
+  return (
+    <IcTopNavigation hideAppTitle appTitle="ApplicationName">
+      <ReusableAppIcon />
+    </IcTopNavigation>
+  );
+};
+
 export const IconButtons = (): ReactElement => {
   return (
     <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
