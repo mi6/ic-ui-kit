@@ -82,7 +82,7 @@ export class TopNavigation {
    */
   @Prop() customMobileBreakpoint: IcDeviceSizes = DEVICE_SIZES.L;
   /**
-   *  The URL to navigate to when the app title is clicked.
+   *  The URL to navigate to when the app title or app icon is clicked.
    */
   @Prop() href = "/";
 
@@ -110,6 +110,10 @@ export class TopNavigation {
    * The version info to be displayed.
    */
   @Prop() version = "";
+
+  /** If `true`, the app title will be hidden, but still accessible to screen readers.
+   */
+  @Prop() hideAppTitle: boolean = false;
 
   /**
    * The app title to be displayed. This is required, unless a slotted app title link is used.
@@ -296,6 +300,7 @@ export class TopNavigation {
   render() {
     const {
       appTitle,
+      hideAppTitle,
       contentAligned,
       customMobileBreakpoint,
       deviceSize,
@@ -364,40 +369,45 @@ export class TopNavigation {
               <div class="top-panel-container">
                 <div class="app-details-container">
                   {(hasTitle || hasAppTitleSlot) && (
-                    <Component class="title-link" {...attrs}>
+                    <Component
+                      class="title-link"
+                      {...attrs}
+                      aria-label={hideAppTitle ? `${appTitle}` : undefined}
+                    >
                       {hasAppIcon && (
-                        <div class="app-icon-container">
+                        <div class="app-icon-container" aria-hidden="true">
                           <slot name="app-icon" />
                         </div>
                       )}
-                      {isSmallDeviceSize &&
-                      (!isEmptyString(shortAppTitle) || shortAppTitleSlot) ? (
-                        <ic-typography
-                          variant="subtitle-small"
-                          aria-label={
-                            (!hasAppTitleSlot || !shortAppTitleSlot) &&
-                            `${appTitle} (${shortAppTitle})`
-                          }
-                        >
-                          <h1>
-                            {shortAppTitleSlot ? (
-                              <slot name="short-app-title"></slot>
-                            ) : (
-                              shortAppTitle
-                            )}
-                          </h1>
-                        </ic-typography>
-                      ) : (
-                        <ic-typography variant={appTitleVariant}>
-                          <h1 class="title-wrap">
-                            {hasAppTitleSlot ? (
-                              <slot name="app-title"></slot>
-                            ) : (
-                              appTitle
-                            )}
-                          </h1>
-                        </ic-typography>
-                      )}
+                      {!hideAppTitle &&
+                        (isSmallDeviceSize &&
+                        (!isEmptyString(shortAppTitle) || shortAppTitleSlot) ? (
+                          <ic-typography
+                            variant="subtitle-small"
+                            aria-label={
+                              (!hasAppTitleSlot || !shortAppTitleSlot) &&
+                              `${appTitle} (${shortAppTitle})`
+                            }
+                          >
+                            <h1>
+                              {shortAppTitleSlot ? (
+                                <slot name="short-app-title"></slot>
+                              ) : (
+                                shortAppTitle
+                              )}
+                            </h1>
+                          </ic-typography>
+                        ) : (
+                          <ic-typography variant={appTitleVariant}>
+                            <h1 class="title-wrap">
+                              {hasAppTitleSlot ? (
+                                <slot name="app-title"></slot>
+                              ) : (
+                                appTitle
+                              )}
+                            </h1>
+                          </ic-typography>
+                        ))}
                     </Component>
                   )}
                   {hasStatus && (
