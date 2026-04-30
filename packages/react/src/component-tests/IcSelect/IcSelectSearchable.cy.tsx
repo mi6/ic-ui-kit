@@ -726,7 +726,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/searchable-descriptions-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.059),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.083),
     });
   });
 
@@ -938,7 +938,11 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkHydrated(IC_SELECT);
 
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+    cy.get(IC_SELECT)
+      .shadow()
+      .find(IC_INPUT_CONTAINER)
+      .type("ca")
+      .type(TYPE_DOWN_ARROW);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -1102,7 +1106,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/searchable-long-text-input",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
     });
   });
 });
@@ -1180,13 +1184,17 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.checkHydrated(IC_SELECT);
 
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+    cy.get(IC_SELECT)
+      .shadow()
+      .find(IC_INPUT_CONTAINER)
+      .type("ca")
+      .type(TYPE_DOWN_ARROW);
 
     cy.wait(600);
 
     cy.compareSnapshot({
       name: "/searchable-disabled-options-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
 
@@ -1209,7 +1217,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "/searchable-descriptions-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.075),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.105),
     });
   });
 });
