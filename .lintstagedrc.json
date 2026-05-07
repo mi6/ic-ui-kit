@@ -1,6 +1,6 @@
 {
   "*.{ts,tsx,json}": [
-    "eslint --fix --",
+    "eslint --fix --ignore-pattern \"**/packages/angular*/**/proxies.ts\" --",
     "prettier --config ./.prettierrc.json --write"
   ],
   "*.css": "stylelint --fix",

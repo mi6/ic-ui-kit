@@ -184,7 +184,11 @@
     "exemple",
     "français",
     "unflatten",
-    "buttonborder"
+    "buttonborder",
+    "packagr",
+    "ngFactory",
+    "ngSummary",
+    "codegen"
   ],
   "dictionaries": [
     "npm",
