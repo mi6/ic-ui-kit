@@ -1,7 +1,7 @@
 {
   "total": 930,
-  "totalPassed": 928,
-  "totalFailed": 2,
+  "totalPassed": 929,
+  "totalFailed": 1,
   "totalSuites": 46,
   "suites": [
     {
@@ -4904,14 +4904,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPageHeader.cy.tsx/sticky-variant.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPageHeader.cy.tsx/desktop-only-after-scroll",
-          "percentage": 0.46320539904686037,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPageHeader/IcPageHeader.cy.tsx",
           "specFilename": "IcPageHeader.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPageHeader.cy.tsx/desktop-only-after-scroll.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPageHeader.cy.tsx/desktop-only-after-scroll.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPageHeader.cy.tsx/desktop-only-after-scroll.png"
         },
         {
@@ -9933,7 +9933,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx/navigation-item-with-focus-indicator",
-          "percentage": 0.045697594490083336,
+          "percentage": 0.06759965797309488,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -10511,10 +10511,10 @@
       ]
     }
   ],
-  "startedAt": "2026-05-05T15:23:30.987Z",
-  "endedAt": "2026-05-05T15:39:05.731Z",
-  "duration": 831624,
-  "browserName": "chrome",
-  "browserVersion": "147.0.7727.55",
+  "startedAt": "2026-05-07T10:53:40.358Z",
+  "endedAt": "2026-05-07T11:13:36.270Z",
+  "duration": 1083766,
+  "browserName": "electron",
+  "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
 }
