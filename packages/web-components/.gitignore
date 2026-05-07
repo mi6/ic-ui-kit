@@ -1,6 +1,7 @@
 dist/
 www/
 loader/
+components/
 hydrate/
 vscode-data.json
 
