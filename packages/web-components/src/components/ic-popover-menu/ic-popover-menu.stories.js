@@ -34,13 +34,19 @@ export const Default = {
       }
     </script>
     <div>
-      <ic-popover-menu anchor="button-1" aria-label="popover">
+      <ic-popover-menu
+        anchor="button-1"
+        aria-label="popover"
+        close-on-item-select="toggle"
+      >
         <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
         <ic-menu-group label="View">
           <ic-menu-item
             label="Zoom in"
             keyboard-shortcut-label="Cmd+"
+            close-menu-on-click="false"
           ></ic-menu-item>
+          <ic-menu-item label="toggle me" variant="toggle"></ic-menu-item>
           <ic-menu-item
             label="Zoom out"
             keyboard-shortcut-label="Cmd-"
