@@ -24188,6 +24188,30 @@
           "setter": false
         },
         {
+          "name": "hideAppTitle",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-app-title",
+          "reflectToAttr": false,
+          "docs": "If `true`, the app title will be hidden, but still accessible to screen readers.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "href",
           "type": "string",
           "complexType": {
@@ -24198,7 +24222,7 @@
           "mutable": false,
           "attr": "href",
           "reflectToAttr": false,
-          "docs": "The URL to navigate to when the app title is clicked.",
+          "docs": "The URL to navigate to when the app title or app icon is clicked.",
           "docsTags": [],
           "default": "\"/\"",
           "values": [

@@ -238,7 +238,7 @@ exports[`ic-badge should render slotted in a top navigation: should render slott
           <div class="top-panel-container">
             <div class="app-details-container">
               <a class="title-link" href="/">
-                <div class="app-icon-container">
+                <div aria-hidden="true" class="app-icon-container">
                   <slot name="app-icon"></slot>
                 </div>
                 <ic-typography variant="h3">
