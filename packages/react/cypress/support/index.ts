@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-/// <reference types="@cypress-audit/lighthouse" />
 
 import "./component";
 import "cypress-real-events";

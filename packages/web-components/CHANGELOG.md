@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.25.0...@ukic/web-components@3.26.0) (2026-05-13)
+
+### Bug Fixes
+
+- **web-components:** top nav able to have only icon ([ae1d87f](https://github.com/mi6/ic-ui-kit/commit/ae1d87fd8aeddb17ac623b5661371096c73b6092))
+
+### Features
+
+- **web-components:** update story name to push a feat commit ([3d33289](https://github.com/mi6/ic-ui-kit/commit/3d33289c6d9c85df09a9b5736928ed063234c478))
+
 # [3.25.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.23.0...@ukic/web-components@3.25.0) (2026-04-29)
 
 ### Bug Fixes

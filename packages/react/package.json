@@ -1,6 +1,6 @@
 {
   "name": "@ukic/react",
-  "version": "3.25.0",
+  "version": "3.26.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit",
@@ -35,19 +35,16 @@
     "cypress:open": "cypress open",
     "cypress:performance": "cypress run --e2e --headless --browser=chrome",
     "lint:cypress": "eslint --config ./cypress/.eslintrc.json ./src/component-tests",
-    "perf:build": "webpack build --config ./.webpack/webpack.perf.config.js --mode production",
-    "perf:clean": "rimraf dist-perf",
-    "perf:lighthouse": "node ./scripts/lighthouse-runner.js",
-    "perf:local": "webpack serve --config ./.webpack/webpack.perf.config.js --mode development",
+    "perf:lhci": "node ./scripts/lhci-run-per-route.js",
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
     "rollup": "rollup -c",
     "storybook": "storybook dev -p 6007",
-    "test:performance": "npm run perf:clean && npm run perf:build && npm run perf:lighthouse",
+    "test:performance-lhci": "npm run perf:lhci",
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@ukic/web-components": "^3.25.0"
+    "@ukic/web-components": "^3.26.0"
   },
   "devDependencies": {
     "@ag-grid-community/styles": "^33.0.3",
@@ -55,9 +52,9 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.26.0",
-    "@cypress-audit/lighthouse": "^1.4.2",
     "@cypress/react": "^8.0.0",
     "@cypress/webpack-preprocessor": "^6.0.0",
+    "@lhci/cli": "^0.15.1",
     "@mdi/js": "^7.2.96",
     "@stencil/react-output-target": "^0.5.3",
     "@storybook/addon-a11y": "10.1.11",
@@ -75,7 +72,6 @@
     "cross-port-killer": "^1.4.0",
     "css-loader": "^6.11.0",
     "cypress": "^13.6.2",
-    "cypress-audit": "^1.1.0",
     "cypress-axe": "^1.5.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-image-diff-html-report": "^2.2.0",
@@ -84,8 +80,8 @@
     "eslint-plugin-cypress": "^2.15.1",
     "html-webpack-plugin": "^5.6.0",
     "http-proxy-middleware": "^2.0.7",
+    "lighthouse": "^13.0.3",
     "mkdirp": "^1.0.4",
-    "np": "^7.6.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-hook-form": "^7.38.0",

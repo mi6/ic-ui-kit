@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-text-field should not have a validation status if disabled: no-validation-status-if-disabled 1`] = `
+exports[`ic-text-field input should not have a validation status if disabled: no-validation-status-if-disabled 1`] = `
 <ic-text-field class="ic-text-field-disabled" disabled="" label="Test label" validation-status="error" validation-text="error text" value="test value">
   <template shadowrootmode="open">
     <ic-input-container disabled="">
@@ -17,7 +17,7 @@ exports[`ic-text-field should not have a validation status if disabled: no-valid
 </ic-text-field>
 `;
 
-exports[`ic-text-field should render disabled: disabled-removed 1`] = `
+exports[`ic-text-field input should render disabled: disabled-removed 1`] = `
 <ic-text-field label="Test label" value="test value">
   <template shadowrootmode="open">
     <ic-input-container>
@@ -34,7 +34,7 @@ exports[`ic-text-field should render disabled: disabled-removed 1`] = `
 </ic-text-field>
 `;
 
-exports[`ic-text-field should render disabled: renders-disabled 1`] = `
+exports[`ic-text-field input should render disabled: renders-disabled 1`] = `
 <ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" value="test value">
   <template shadowrootmode="open">
     <ic-input-container disabled="">
@@ -51,7 +51,7 @@ exports[`ic-text-field should render disabled: renders-disabled 1`] = `
 </ic-text-field>
 `;
 
-exports[`ic-text-field should render readonly: renders-readonly 1`] = `
+exports[`ic-text-field input should render readonly: renders-readonly 1`] = `
 <ic-text-field class="ic-text-field-disabled" label="Test label" readonly="" value="test value">
   <template shadowrootmode="open">
     <ic-input-container disabled="" readonly="">
@@ -68,7 +68,7 @@ exports[`ic-text-field should render readonly: renders-readonly 1`] = `
 </ic-text-field>
 `;
 
-exports[`ic-text-field should render with a custom max characters message: renders-with-max-characters-custom-message 1`] = `
+exports[`ic-text-field input should render with a custom max characters message: renders-with-max-characters-custom-message 1`] = `
 <ic-text-field label="Test label" max-characters-message="Custom message" value="">
   <template shadowrootmode="open">
     <ic-input-container>
@@ -85,7 +85,7 @@ exports[`ic-text-field should render with a custom max characters message: rende
 </ic-text-field>
 `;
 
-exports[`ic-text-field should render with a custom min characters message: renders-with-min-characters-custom-message 1`] = `
+exports[`ic-text-field input should render with a custom min characters message: renders-with-min-characters-custom-message 1`] = `
 <ic-text-field label="Test label" min-characters-message="Custom message" value="">
   <template shadowrootmode="open">
     <ic-input-container>
@@ -102,360 +102,7 @@ exports[`ic-text-field should render with a custom min characters message: rende
 </ic-text-field>
 `;
 
-exports[`ic-text-field should render with autoprops: renders-with-autoprops 1`] = `
-<ic-text-field autocapitalize="on" autocomplete="on" autocorrect="on" label="Test label" value="test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-4" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="on" autocomplete="on" id="ic-text-field-input-4" inputmode="text" name="ic-text-field-input-4" placeholder="" type="text" value="test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-4" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-4" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with error validation: renders-with-error-validation 1`] = `
-<ic-text-field label="Test label" validation-status="error" validation-text="error text" value="test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-19" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-19-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-19" inputmode="text" name="ic-text-field-input-19" placeholder="" type="text" value="test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-19" message="error text" status="error"></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-19" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with helperText, required and small: renders-with-helpertext 1`] = `
-<ic-text-field helper-text="helper text value" label="Test label" required="true" size="small" value="">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-3" helpertext="helper text value" label="Test label" required="">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="small" validationstatus="">
-        <input aria-describedby="ic-text-field-input-3-helper-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-3" inputmode="text" name="ic-text-field-input-3" placeholder="" required="" type="text" value="">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-3" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-3" type="hidden" value="">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with hidden label: renders-with-hidden-label 1`] = `
-<ic-text-field hide-label="true" label="Test label" value="test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-5" inputmode="text" name="ic-text-field-input-5" placeholder="" type="text" value="test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-5" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-5" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with icon: renders-with-icon 1`] = `
-<ic-text-field label="Test label" value="">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-6" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <span slot="left-icon">
-          <slot name="icon"></slot>
-        </span>
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-6" inputmode="text" name="ic-text-field-input-6" placeholder="" type="text" value="">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-6" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"></path>
-  </svg>
-  <input class="ic-input" name="ic-text-field-input-6" type="hidden" value="">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with inline success validation: renders-with-inline-success-validation 1`] = `
-<ic-text-field label="Test label" validation-inline="true" validation-status="success" validation-text="Good choice!" value="test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-20" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationinline="" validationstatus="success">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-20" inputmode="text" name="ic-text-field-input-20" placeholder="" type="text" value="test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-20" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-20" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with max characters and a value set which exceeds the max number of characters: renders-with-max-characters-long-value 1`] = `
-<ic-text-field label="Test label" max-characters="25" value="A long value which exceed">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-11" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-11-char-count-desc ic-text-field-input-11-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-11" inputmode="text" maxlength="25" name="ic-text-field-input-11" placeholder="" type="text" value="A long value which exceed">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-11" message="" status="">
-        <div slot="validation-message-adornment">
-          <ic-typography class="char-count-text" variant="caption">
-            <span class="char-count">
-              25/25
-            </span>
-          </ic-typography>
-          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-11-remaining-char-count-desc">
-            0 characters remaining.
-          </span>
-          <span hidden="" id="ic-text-field-input-11-char-count-desc">
-            Field can contain a maximum of 25 characters.
-          </span>
-        </div>
-      </ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-11" type="hidden" value="A long value which exceed">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with max characters and a value set which exceeds the max number of characters: renders-with-max-characters-long-value 2`] = `
-<ic-text-field label="Test label" max-characters="25" value="A long value which exceed">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-13" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-13-char-count-desc ic-text-field-input-13-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-13" inputmode="text" maxlength="25" name="ic-text-field-input-13" placeholder="" type="text" value="A long value which exceed">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-13" message="" status="">
-        <div slot="validation-message-adornment">
-          <ic-typography class="char-count-text" variant="caption">
-            <span class="char-count">
-              25/25
-            </span>
-          </ic-typography>
-          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-13-remaining-char-count-desc">
-            0 characters remaining.
-          </span>
-          <span hidden="" id="ic-text-field-input-13-char-count-desc">
-            Field can contain a maximum of 25 characters.
-          </span>
-        </div>
-      </ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-13" type="hidden" value="A long value which exceed">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with max characters and hidden character count: renders-with-hidden-char-count 1`] = `
-<ic-text-field hide-char-count="" label="Test label" max-characters="25" value="Test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-10" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-10-char-count-desc ic-text-field-input-10-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-10" inputmode="text" name="ic-text-field-input-10" placeholder="" type="text" value="Test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-10" message="" status="">
-        <div slot="validation-message-adornment">
-          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-10-remaining-char-count-desc">
-            15 characters remaining.
-          </span>
-          <span hidden="" id="ic-text-field-input-10-char-count-desc">
-            Field can contain a maximum of 25 characters.
-          </span>
-        </div>
-      </ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-10" type="hidden" value="Test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with max characters and hidden character count: renders-with-hidden-char-count 2`] = `
-<ic-text-field hide-char-count="" label="Test label" max-characters="25" value="Test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-12" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-12-char-count-desc ic-text-field-input-12-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-12" inputmode="text" name="ic-text-field-input-12" placeholder="" type="text" value="Test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-12" message="" status="">
-        <div slot="validation-message-adornment">
-          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-12-remaining-char-count-desc">
-            15 characters remaining.
-          </span>
-          <span hidden="" id="ic-text-field-input-12-char-count-desc">
-            Field can contain a maximum of 25 characters.
-          </span>
-        </div>
-      </ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-12" type="hidden" value="Test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with max characters: renders-with-max-characters 1`] = `
-<ic-text-field label="Test label" max-characters="25" value="Test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-9" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-9-char-count-desc ic-text-field-input-9-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-9" inputmode="text" name="ic-text-field-input-9" placeholder="" type="text" value="Test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-9" message="" status="">
-        <div slot="validation-message-adornment">
-          <ic-typography class="char-count-text" variant="caption">
-            <span class="char-count">
-              10/25
-            </span>
-          </ic-typography>
-          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-9-remaining-char-count-desc">
-            15 characters remaining.
-          </span>
-          <span hidden="" id="ic-text-field-input-9-char-count-desc">
-            Field can contain a maximum of 25 characters.
-          </span>
-        </div>
-      </ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-9" type="hidden" value="Test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with name & full width: renders-with-name-full-width 1`] = `
-<ic-text-field class="ic-text-field-full-width" full-width="true" label="Test label" name="mycontrolname" value="test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-16" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container fullwidth="" size="medium" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-16" inputmode="text" name="mycontrolname" placeholder="" type="text" value="test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-16" fullwidth="" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="mycontrolname" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with placeholder: renders-with-placeholder 1`] = `
-<ic-text-field label="Test label" placeholder="placeholder" rows="0" value="">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="placeholder" type="text" value="">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-1" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-1" type="hidden" value="">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with success validation: renders-with-success-validation 1`] = `
-<ic-text-field label="Test label" validation-status="success" validation-text="Good choice!" value="test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-17" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="success">
-        <input aria-describedby="ic-text-field-input-17-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-17" inputmode="text" name="ic-text-field-input-17" placeholder="" type="text" value="test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-17" message="Good choice!" status="success"></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-17" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with validation-aria-live: renders-with-validation-aria-live 1`] = `
-<ic-text-field label="Test label" validation-aria-live="assertive" value="">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-22" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-22" inputmode="text" name="ic-text-field-input-22" placeholder="" type="text" value="">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-22" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-22" type="hidden" value="">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with value: renders-with-value 1`] = `
-<ic-text-field label="Test label" value="test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-2" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="" type="text" value="test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-2" message="" status=""></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-2" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with warning validation: renders-with-warning-validation 1`] = `
-<ic-text-field label="Test label" validation-status="warning" validation-text="warning text" value="test value">
-  <template shadowrootmode="open">
-    <ic-input-container>
-      <ic-input-label for="ic-text-field-input-18" helpertext="" label="Test label">
-        <slot name="helper-text" slot="helper-text"></slot>
-      </ic-input-label>
-      <ic-input-component-container size="medium" validationstatus="warning">
-        <input aria-describedby="ic-text-field-input-18-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-18" inputmode="text" name="ic-text-field-input-18" placeholder="" type="text" value="test value">
-      </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-18" message="warning text" status="warning"></ic-input-validation>
-    </ic-input-container>
-  </template>
-  <input class="ic-input" name="ic-text-field-input-18" type="hidden" value="test value">
-</ic-text-field>
-`;
-
-exports[`ic-text-field should render with aria-describedby set to the correct order: renders-with-validation-aria-live 1`] = `
+exports[`ic-text-field input should render with aria-describedby set to the correct order: renders-with-validation-aria-live 1`] = `
 <ic-text-field helper-text="Test helper text" label="Test label" max-characters="2" validation-status="error" validation-text="Test error" value="">
   <template shadowrootmode="open">
     <ic-input-container>
@@ -486,24 +133,258 @@ exports[`ic-text-field should render with aria-describedby set to the correct or
 </ic-text-field>
 `;
 
-exports[`ic-text-field should render: renders 1`] = `
-<ic-text-field label="Test label" rows="1" value="">
+exports[`ic-text-field input should render with autoprops: renders-with-autoprops 1`] = `
+<ic-text-field autocapitalize="on" autocomplete="on" autocorrect="on" label="Test label" value="test value">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-0" helpertext="" label="Test label">
+      <ic-input-label for="ic-text-field-input-4" helpertext="" label="Test label">
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" type="text" value="">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="on" autocomplete="on" id="ic-text-field-input-4" inputmode="text" name="ic-text-field-input-4" placeholder="" type="text" value="test value">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-4" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
+  <input class="ic-input" name="ic-text-field-input-4" type="hidden" value="test value">
 </ic-text-field>
 `;
 
-exports[`should render with max validation and a custom validation message: renders-with-max-custom-message 1`] = `
+exports[`ic-text-field input should render with error validation: renders-with-error-validation 1`] = `
+<ic-text-field label="Test label" validation-status="error" validation-text="error text" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-19" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="error">
+        <input aria-describedby="ic-text-field-input-19-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-19" inputmode="text" name="ic-text-field-input-19" placeholder="" type="text" value="test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-19" message="error text" status="error"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-19" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with helperText, required and small: renders-with-helpertext 1`] = `
+<ic-text-field helper-text="helper text value" label="Test label" required="true" size="small" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-3" helpertext="helper text value" label="Test label" required="">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="small" validationstatus="">
+        <input aria-describedby="ic-text-field-input-3-helper-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-3" inputmode="text" name="ic-text-field-input-3" placeholder="" required="" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-3" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-3" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with hidden label: renders-with-hidden-label 1`] = `
+<ic-text-field hide-label="true" label="Test label" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-5" inputmode="text" name="ic-text-field-input-5" placeholder="" type="text" value="test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-5" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-5" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with icon: renders-with-icon 1`] = `
+<ic-text-field label="Test label" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-6" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <span slot="left-icon">
+          <slot name="icon"></slot>
+        </span>
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-6" inputmode="text" name="ic-text-field-input-6" placeholder="" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-6" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"></path>
+  </svg>
+  <input class="ic-input" name="ic-text-field-input-6" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with inline success validation: renders-with-inline-success-validation 1`] = `
+<ic-text-field label="Test label" validation-inline="true" validation-status="success" validation-text="Good choice!" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-20" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationinline="" validationstatus="success">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-20" inputmode="text" name="ic-text-field-input-20" placeholder="" type="text" value="test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-20" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-20" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with max characters and a value set which exceeds the max number of characters: renders-with-max-characters-long-value 1`] = `
+<ic-text-field label="Test label" max-characters="25" value="A long value which exceed">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-11" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="ic-text-field-input-11-char-count-desc ic-text-field-input-11-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-11" inputmode="text" maxlength="25" name="ic-text-field-input-11" placeholder="" type="text" value="A long value which exceed">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-11" message="" status="">
+        <div slot="validation-message-adornment">
+          <ic-typography class="char-count-text" variant="caption">
+            <span class="char-count">
+              25/25
+            </span>
+          </ic-typography>
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-11-remaining-char-count-desc">
+            0 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-11-char-count-desc">
+            Field can contain a maximum of 25 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-11" type="hidden" value="A long value which exceed">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with max characters and a value set which exceeds the max number of characters: renders-with-max-characters-long-value 2`] = `
+<ic-text-field label="Test label" max-characters="25" value="A long value which exceed">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-13" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="ic-text-field-input-13-char-count-desc ic-text-field-input-13-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-13" inputmode="text" maxlength="25" name="ic-text-field-input-13" placeholder="" type="text" value="A long value which exceed">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-13" message="" status="">
+        <div slot="validation-message-adornment">
+          <ic-typography class="char-count-text" variant="caption">
+            <span class="char-count">
+              25/25
+            </span>
+          </ic-typography>
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-13-remaining-char-count-desc">
+            0 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-13-char-count-desc">
+            Field can contain a maximum of 25 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-13" type="hidden" value="A long value which exceed">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with max characters and hidden character count: renders-with-hidden-char-count 1`] = `
+<ic-text-field hide-char-count="" label="Test label" max-characters="25" value="Test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-10" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="ic-text-field-input-10-char-count-desc ic-text-field-input-10-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-10" inputmode="text" name="ic-text-field-input-10" placeholder="" type="text" value="Test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-10" message="" status="">
+        <div slot="validation-message-adornment">
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-10-remaining-char-count-desc">
+            15 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-10-char-count-desc">
+            Field can contain a maximum of 25 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-10" type="hidden" value="Test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with max characters and hidden character count: renders-with-hidden-char-count 2`] = `
+<ic-text-field hide-char-count="" label="Test label" max-characters="25" value="Test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-12" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="ic-text-field-input-12-char-count-desc ic-text-field-input-12-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-12" inputmode="text" name="ic-text-field-input-12" placeholder="" type="text" value="Test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-12" message="" status="">
+        <div slot="validation-message-adornment">
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-12-remaining-char-count-desc">
+            15 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-12-char-count-desc">
+            Field can contain a maximum of 25 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-12" type="hidden" value="Test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with max characters: renders-with-max-characters 1`] = `
+<ic-text-field label="Test label" max-characters="25" value="Test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-9" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="ic-text-field-input-9-char-count-desc ic-text-field-input-9-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-9" inputmode="text" name="ic-text-field-input-9" placeholder="" type="text" value="Test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-9" message="" status="">
+        <div slot="validation-message-adornment">
+          <ic-typography class="char-count-text" variant="caption">
+            <span class="char-count">
+              10/25
+            </span>
+          </ic-typography>
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-9-remaining-char-count-desc">
+            15 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-9-char-count-desc">
+            Field can contain a maximum of 25 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-9" type="hidden" value="Test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with max validation and a custom validation message: renders-with-max-custom-message 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="1" max-message="Custom message" type="number" value="2">
   <template shadowrootmode="open">
     <ic-input-container>
@@ -520,7 +401,7 @@ exports[`should render with max validation and a custom validation message: rend
 </ic-text-field>
 `;
 
-exports[`should render with min validation and a custom validation message: renders-with-min-custom-message 1`] = `
+exports[`ic-text-field input should render with min validation and a custom validation message: renders-with-min-custom-message 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" min="1" min-message="Custom message" type="number" value="0">
   <template shadowrootmode="open">
     <ic-input-container>
@@ -537,7 +418,7 @@ exports[`should render with min validation and a custom validation message: rend
 </ic-text-field>
 `;
 
-exports[`should render with min/max and max validation: renders-with-max 1`] = `
+exports[`ic-text-field input should render with min/max and max validation: renders-with-max 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="4" min="1" rows="1" type="number" value="6">
   <template shadowrootmode="open">
     <ic-input-container>
@@ -554,7 +435,7 @@ exports[`should render with min/max and max validation: renders-with-max 1`] = `
 </ic-text-field>
 `;
 
-exports[`should render with min/max and min validation: renders-with-min 1`] = `
+exports[`ic-text-field input should render with min/max and min validation: renders-with-min 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="4" min="1" rows="1" type="number" value="0">
   <template shadowrootmode="open">
     <ic-input-container>
@@ -568,5 +449,407 @@ exports[`should render with min/max and min validation: renders-with-min 1`] = `
     </ic-input-container>
   </template>
   <input class="ic-input" name="ic-text-field-input-30" type="hidden" value="0">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with name & full width: renders-with-name-full-width 1`] = `
+<ic-text-field class="ic-text-field-full-width" full-width="true" label="Test label" name="mycontrolname" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-16" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container fullwidth="" size="medium" validationstatus="">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-16" inputmode="text" name="mycontrolname" placeholder="" type="text" value="test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-16" fullwidth="" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="mycontrolname" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with placeholder: renders-with-placeholder 1`] = `
+<ic-text-field label="Test label" placeholder="placeholder" rows="0" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="placeholder" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-1" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-1" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with success validation: renders-with-success-validation 1`] = `
+<ic-text-field label="Test label" validation-status="success" validation-text="Good choice!" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-17" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="success">
+        <input aria-describedby="ic-text-field-input-17-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-17" inputmode="text" name="ic-text-field-input-17" placeholder="" type="text" value="test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-17" message="Good choice!" status="success"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-17" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with validation-aria-live: renders-with-validation-aria-live 1`] = `
+<ic-text-field label="Test label" validation-aria-live="assertive" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-22" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-22" inputmode="text" name="ic-text-field-input-22" placeholder="" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-22" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-22" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with value: renders-with-value 1`] = `
+<ic-text-field label="Test label" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-2" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="" type="text" value="test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-2" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-2" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render with warning validation: renders-with-warning-validation 1`] = `
+<ic-text-field label="Test label" validation-status="warning" validation-text="warning text" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-18" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="warning">
+        <input aria-describedby="ic-text-field-input-18-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-18" inputmode="text" name="ic-text-field-input-18" placeholder="" type="text" value="test value">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-18" message="warning text" status="warning"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-18" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field input should render: renders 1`] = `
+<ic-text-field label="Test label" rows="1" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-0" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-0" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render a textarea 1`] = `
+<ic-text-field label="Test label" rows="6" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-38" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-38" inputmode="text" name="ic-text-field-input-38" placeholder="" rows="6" value=""></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-38" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-38" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea disabled 1`] = `
+<ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" rows="6" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container disabled="">
+      <ic-input-label disabled="" for="ic-text-field-input-45" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container disabled="" multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" disabled="" id="ic-text-field-input-45" inputmode="text" name="ic-text-field-input-45" placeholder="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-45" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" disabled="" name="ic-text-field-input-45" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea readonly 1`] = `
+<ic-text-field class="ic-text-field-disabled" label="Test label" readonly="" rows="6" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container disabled="" readonly="">
+      <ic-input-label for="ic-text-field-input-46" helpertext="" label="Test label" readonly="">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container disabled="" multiline="" readonly="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-left-pad no-resize readonly" disabled="" id="ic-text-field-input-46" inputmode="text" name="ic-text-field-input-46" placeholder="" readonly="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-46" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" disabled="" name="ic-text-field-input-46" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with autoprops 1`] = `
+<ic-text-field autocapitalize="on" autocomplete="on" autocorrect="on" autofocus="true" label="Test label" rows="6" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-42" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="on" autocomplete="on" class="no-resize" id="ic-text-field-input-42" inputmode="text" name="ic-text-field-input-42" placeholder="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-42" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-42" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with error validation 1`] = `
+<ic-text-field label="Test label" rows="6" validation-status="error" validation-text="error text" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-52" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus="error"><textarea aria-describedby="ic-text-field-input-52-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-52" inputmode="text" name="ic-text-field-input-52" placeholder="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" class="show-validation" for="ic-text-field-input-52" message="error text" status="error"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-52" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with helperText, required and small 1`] = `
+<ic-text-field helper-text="helper text value" label="Test label" required="true" rows="6" size="small" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-41" helpertext="helper text value" label="Test label" required="">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="small" validationstatus=""><textarea aria-describedby="ic-text-field-input-41-helper-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-41" inputmode="text" name="ic-text-field-input-41" placeholder="" required="" rows="6" value=""></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-41" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-41" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with hidden label 1`] = `
+<ic-text-field hide-label="true" label="Test label" rows="6" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-43" inputmode="text" name="ic-text-field-input-43" placeholder="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-43" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-43" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with icon 1`] = `
+<ic-text-field label="Test label" rows="6" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-44" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus="">
+        <span slot="left-icon">
+          <slot name="icon"></slot>
+        </span><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-44" inputmode="text" name="ic-text-field-input-44" placeholder="" rows="6" value=""></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-44" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"></path>
+  </svg>
+  <input class="ic-input" name="ic-text-field-input-44" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with max characters 1`] = `
+<ic-text-field label="Test label" max-characters="25" rows="6" value="Test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-47" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="ic-text-field-input-47-char-count-desc ic-text-field-input-47-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-47" inputmode="text" name="ic-text-field-input-47" placeholder="" rows="6" value="Test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-47" message="" status="">
+        <div slot="validation-message-adornment">
+          <ic-typography class="char-count-text" variant="caption">
+            <span class="char-count">
+              10/25
+            </span>
+          </ic-typography>
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-47-remaining-char-count-desc">
+            15 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-47-char-count-desc">
+            Field can contain a maximum of 25 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-47" type="hidden" value="Test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with name & full width 1`] = `
+<ic-text-field class="ic-text-field-full-width" full-width="true" label="Test label" name="mycontrolname" rows="2" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-49" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container fullwidth="" multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-49" inputmode="text" name="mycontrolname" placeholder="" rows="2" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-49" fullwidth="" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="mycontrolname" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with placeholder 1`] = `
+<ic-text-field label="Test label" placeholder="placeholder" rows="6" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-39" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-39" inputmode="text" name="ic-text-field-input-39" placeholder="placeholder" rows="6" value=""></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-39" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-39" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with resize 1`] = `
+<ic-text-field label="Test label" resize="true" rows="6" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-53" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-53" inputmode="text" name="ic-text-field-input-53" placeholder="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-53" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-53" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with success validation 1`] = `
+<ic-text-field label="Test label" rows="6" validation-status="success" validation-text="Good choice!" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-50" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus="success"><textarea aria-describedby="ic-text-field-input-50-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-50" inputmode="text" name="ic-text-field-input-50" placeholder="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-50" message="Good choice!" status="success"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-50" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with value 1`] = `
+<ic-text-field label="Test label" rows="6" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-40" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-40" inputmode="text" name="ic-text-field-input-40" placeholder="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-40" message="" status=""></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-40" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render textarea with warning validation 1`] = `
+<ic-text-field label="Test label" rows="6" validation-status="warning" validation-text="warning text" value="test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-51" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus="warning"><textarea aria-describedby="ic-text-field-input-51-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-51" inputmode="text" name="ic-text-field-input-51" placeholder="" rows="6" value="test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-51" message="warning text" status="warning"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-51" type="hidden" value="test value">
+</ic-text-field>
+`;
+
+exports[`ic-text-field textarea should render with max characters and hidden character count 1`] = `
+<ic-text-field hide-char-count="" label="Test label" max-characters="25" rows="6" value="Test value">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-48" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
+      <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="ic-text-field-input-48-char-count-desc ic-text-field-input-48-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-resize" id="ic-text-field-input-48" inputmode="text" name="ic-text-field-input-48" placeholder="" rows="6" value="Test value"></textarea>
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="polite" class="show-validation" for="ic-text-field-input-48" message="" status="">
+        <div slot="validation-message-adornment">
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-48-remaining-char-count-desc">
+            15 characters remaining.
+          </span>
+          <span hidden="" id="ic-text-field-input-48-char-count-desc">
+            Field can contain a maximum of 25 characters.
+          </span>
+        </div>
+      </ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-48" type="hidden" value="Test value">
 </ic-text-field>
 `;

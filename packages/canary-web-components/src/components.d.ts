@@ -2676,7 +2676,11 @@ export namespace Components {
          */
         "customMobileBreakpoint": IcDeviceSizes;
         /**
-          * The URL to navigate to when the app title is clicked.
+          * If `true`, the app title will be hidden, but still accessible to screen readers.
+         */
+        "hideAppTitle": boolean;
+        /**
+          * The URL to navigate to when the app title or app icon is clicked.
          */
         "href": string;
         /**
@@ -6731,7 +6735,11 @@ declare namespace LocalJSX {
          */
         "customMobileBreakpoint"?: IcDeviceSizes;
         /**
-          * The URL to navigate to when the app title is clicked.
+          * If `true`, the app title will be hidden, but still accessible to screen readers.
+         */
+        "hideAppTitle"?: boolean;
+        /**
+          * The URL to navigate to when the app title or app icon is clicked.
          */
         "href"?: string;
         /**
