@@ -14883,7 +14883,12 @@
       "tag": "ic-popover-menu",
       "readme": "# ic-popover-menu\n\nThis is a wrapper component to be placed around one or more ic-menu-item components.\n",
       "docs": "This is a wrapper component to be placed around one or more ic-menu-item components.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "anchor - The default anchor element for the popover menu. This will take precedence over the `anchor` prop."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -15094,7 +15099,12 @@
           "docs": "Default width of the popover menu."
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "anchor",
+          "docs": "The default anchor element for the popover menu. This will take precedence over the `anchor` prop."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
