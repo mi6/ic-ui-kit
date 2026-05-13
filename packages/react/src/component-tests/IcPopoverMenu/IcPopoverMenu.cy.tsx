@@ -5,7 +5,6 @@ import { mount } from "cypress/react";
 import {
   HAVE_BEEN_CALLED_ONCE,
   NOT_BE_CALLED_ONCE,
-  HAVE_ATTR,
   BE_VISIBLE,
   NOT_BE_VISIBLE,
   NOT_HAVE_BEEN_CALLED,
@@ -20,6 +19,7 @@ import {
   PopoverTheme,
   PopoverWithMenuGroups,
   PositioningStrategy,
+  SlottedAnchor,
 } from "./IcPopoverMenuData";
 import { IcTheme } from "../../components";
 import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
@@ -57,6 +57,19 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/default-after-click-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+    });
+  });
+
+  it("should render with slotted anchor", () => {
+    mount(<SlottedAnchor />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.wait(500);
+
+    cy.compareSnapshot({
+      name: "/slotted-anchor",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 

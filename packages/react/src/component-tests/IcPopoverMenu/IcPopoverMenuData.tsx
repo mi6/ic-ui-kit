@@ -6,6 +6,7 @@ import {
   IcMenuGroup,
 } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import "./IcPopoverMenuData.css";
 
 export const PopoverDropdown = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -250,7 +251,7 @@ export const MaxHeight = () => {
         aria-label="popover"
         onIcPopoverClosed={() => handleClose()}
         ref={popoverEl}
-        style={{ maxHeight: "100px", overflowY: "auto" }}
+        class="max-height-popover"
       >
         <IcMenuItem label="Copy code"></IcMenuItem>
         <IcMenuItem label="Paste code"></IcMenuItem>
@@ -363,6 +364,46 @@ export const PositioningStrategy = ({ fixed }) => {
         <IcMenuItem label="Find" />
         <IcMenuItem label="Delete" variant="destructive" />
       </IcPopoverMenu>
+    </div>
+  );
+};
+
+export const SlottedAnchor = () => {
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const togglePopoverOpen = () => setPopoverOpen((value) => !value);
+  const closePopover = () => setPopoverOpen(false);
+
+  return (
+    <div style={{ padding: "1rem" }}>
+      <>
+        <IcPopoverMenu
+          aria-label="popover"
+          onIcPopoverClosed={closePopover}
+          open={popoverOpen}
+        >
+          <IcButton
+            dropdown
+            variant="primary"
+            slot="anchor"
+            onClick={togglePopoverOpen}
+            dropdownExpanded={popoverOpen}
+          >
+            Button
+          </IcButton>
+          <IcMenuItem label="Copy code"></IcMenuItem>
+          <IcMenuItem label="Paste code"></IcMenuItem>
+          <IcMenuItem
+            label="Actions"
+            submenuTriggerFor="actions"
+            id="submenu-trigger-actions"
+          />
+        </IcPopoverMenu>
+        <IcPopoverMenu submenuId="actions" aria-label="popover">
+          <IcMenuItem label="Edit" />
+          <IcMenuItem label="Find" />
+          <IcMenuItem label="Delete" variant="destructive" />
+        </IcPopoverMenu>
+      </>
     </div>
   );
 };
