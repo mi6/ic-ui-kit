@@ -64,7 +64,7 @@ export const AppIconOnly = {
       </svg>
     </ic-top-navigation>`,
 
-  name: "App Icon Only",
+  name: "App icon only",
 
   parameters: {
     layout: "fullscreen",
