@@ -11,7 +11,11 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
-import { getSlotElements, isPropDefined } from "../../utils/helpers";
+import {
+  getSlotElements,
+  isPropDefined,
+  isSlotUsed,
+} from "../../utils/helpers";
 import {
   createPopper,
   Instance as PopperInstance,
@@ -21,6 +25,9 @@ import { IcThemeMode } from "../../utils/types";
 
 const MENU_SELECTOR = "div.menu-body";
 
+/**
+ * @slot anchor - The default anchor element for the popover menu. This will take precedence over the `anchor` prop.
+ */
 @Component({
   tag: "ic-popover-menu",
   styleUrl: "ic-popover-menu.css",
@@ -35,6 +42,7 @@ export class PopoverMenu {
   private currentFocus: number;
   private popoverMenuEls: HTMLIcMenuItemElement[] = [];
   private popperInstance: PopperInstance | null;
+  private menuAriaLabel?: string;
 
   @Element() el: HTMLIcPopoverMenuElement;
 
@@ -154,7 +162,15 @@ export class PopoverMenu {
   }
 
   componentWillRender(): void {
-    this.anchorEl = this.findAnchorEl(this.anchor);
+    const slottedAnchor = this.el.querySelector(
+      '[slot="anchor"]'
+    ) as HTMLElement | null;
+
+    if (slottedAnchor) {
+      this.anchorEl = slottedAnchor;
+    } else {
+      this.anchorEl = this.findAnchorEl(this.anchor);
+    }
   }
 
   componentDidRender(): void {
@@ -277,8 +293,11 @@ export class PopoverMenu {
   };
 
   private isNotPopoverMenuEl = (ev: Event) => {
-    const { id, tagName } = ev.target as HTMLElement;
+    const target = ev.target as HTMLElement;
+    const { id, tagName } = target;
+    const isAnchor = this.anchorEl && target === this.anchorEl;
     return (
+      !isAnchor &&
       id !== this.anchor &&
       tagName !== "IC-MENU-ITEM" &&
       tagName !== "IC-MENU-GROUP" &&
@@ -355,8 +374,14 @@ export class PopoverMenu {
   };
 
   private getMenuAriaLabel = (): string | null => {
-    const ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
-
+    let ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
+    if (ariaLabel) {
+      this.menuAriaLabel = ariaLabel;
+      this.el.removeAttribute(this.ARIA_LABEL);
+    } else if (this.menuAriaLabel) {
+      ariaLabel = this.menuAriaLabel;
+    }
+    if (!ariaLabel) return null;
     if (isPropDefined(this.submenuId)) {
       return `${ariaLabel}, within nested level ${this.submenuLevel} ${this.parentLabel} submenu,`;
     } else {
@@ -370,8 +395,11 @@ export class PopoverMenu {
   };
 
   private initPopperJS = () => {
+    const popoverMenu = this.el.shadowRoot?.querySelector(
+      ".ic-popover-menu"
+    ) as HTMLElement;
     if (this.anchorEl) {
-      this.popperInstance = createPopper(this.anchorEl, this.el, {
+      this.popperInstance = createPopper(this.anchorEl, popoverMenu, {
         strategy: this.fixedPositioning ? "fixed" : "absolute",
         placement: "bottom-start",
         modifiers: [
@@ -398,63 +426,70 @@ export class PopoverMenu {
     return (
       <Host
         class={{
-          ["ic-popover-menu-open"]: !!this.open,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >
+        {isSlotUsed(this.el, "anchor") && <slot name="anchor"></slot>}
         <div
-          id={
-            this.parentPopover === undefined
-              ? `ic-popover-submenu-${this.submenuId}`
-              : ""
-          }
           class={{
-            menu: true,
+            ["ic-popover-menu"]: true,
+            ["ic-popover-menu-open"]: !!this.open,
           }}
         >
-          <span
+          <div
+            id={
+              this.parentPopover === undefined
+                ? `ic-popover-submenu-${this.submenuId}`
+                : ""
+            }
             class={{
-              "opening-from-parent": this.openingFromParent,
-              "opening-from-child": this.openingFromChild,
+              menu: true,
             }}
           >
-            {isPropDefined(this.submenuId) && (
-              <span>
-                <span role="menu">
-                  <ic-menu-item
-                    class="ic-popover-submenu-back-button"
-                    ref={(el) => (this.backButton = el)}
-                    label="Back"
-                    onClick={this.handleBackButtonClick}
-                    id={`ic-popover-submenu-back-button-${this.submenuLevel}`}
-                  >
-                    <svg
-                      slot="icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="submenu-back-icon"
-                    >
-                      <path
-                        d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </ic-menu-item>
-                </span>
-                <ic-typography variant="subtitle-small" class="parent-label">
-                  {this.parentLabel}
-                </ic-typography>
-              </span>
-            )}
-            <div
-              class="menu-body"
-              aria-label={this.getMenuAriaLabel()}
-              role="menu"
+            <span
+              class={{
+                "opening-from-parent": this.openingFromParent,
+                "opening-from-child": this.openingFromChild,
+              }}
             >
-              <slot></slot>
-            </div>
-          </span>
+              {isPropDefined(this.submenuId) && (
+                <span>
+                  <span role="menu">
+                    <ic-menu-item
+                      class="ic-popover-submenu-back-button"
+                      ref={(el) => (this.backButton = el)}
+                      label="Back"
+                      onClick={this.handleBackButtonClick}
+                      id={`ic-popover-submenu-back-button-${this.submenuLevel}`}
+                    >
+                      <svg
+                        slot="icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="submenu-back-icon"
+                      >
+                        <path
+                          d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </ic-menu-item>
+                  </span>
+                  <ic-typography variant="subtitle-small" class="parent-label">
+                    {this.parentLabel}
+                  </ic-typography>
+                </span>
+              )}
+              <div
+                class="menu-body"
+                aria-label={this.getMenuAriaLabel()}
+                role="menu"
+              >
+                <slot></slot>
+              </div>
+            </span>
+          </div>
         </div>
       </Host>
     );
