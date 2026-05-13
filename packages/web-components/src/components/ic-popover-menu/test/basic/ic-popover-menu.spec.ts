@@ -4,6 +4,7 @@ import { PopoverMenu } from "../../ic-popover-menu";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { MenuGroup } from "../../../ic-menu-group/ic-menu-group";
 import { Dialog } from "../../../ic-dialog/ic-dialog";
+import { Button } from "../../../ic-button/ic-button";
 
 describe("ic-popover-menu", () => {
   it("should render with anchor", async () => {
@@ -24,6 +25,15 @@ describe("ic-popover-menu", () => {
     expect(page.root).toMatchSnapshot(
       "should render when target starts with #"
     );
+  });
+
+  it("should render with slotted anchor", async () => {
+    const page = await newSpecPage({
+      components: [PopoverMenu, MenuItem, Button],
+      html: `<ic-popover-menu aria-label="popover-menu"><ic-button slot="anchor"></ic-button><ic-menu-item label="Button 1"></ic-menu-item></ic-popover-menu>`,
+    });
+
+    expect(page.root).toMatchSnapshot("should render with slotted anchor");
   });
 
   it("should render a menu item and menu group", async () => {
