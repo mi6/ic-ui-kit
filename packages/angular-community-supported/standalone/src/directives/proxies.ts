@@ -2029,14 +2029,14 @@ export declare interface IcTooltip extends Components.IcTooltip {
 
 @ProxyCmp({
   defineCustomElementFn: defineIcTopNavigation,
-  inputs: ['appTitle', 'contentAligned', 'customMobileBreakpoint', 'href', 'inline', 'shortAppTitle', 'status', 'theme', 'version']
+  inputs: ['appTitle', 'contentAligned', 'customMobileBreakpoint', 'hideAppTitle', 'href', 'inline', 'shortAppTitle', 'status', 'theme', 'version']
 })
 @Component({
   selector: 'ic-top-navigation',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['appTitle', 'contentAligned', 'customMobileBreakpoint', 'href', 'inline', 'shortAppTitle', 'status', 'theme', 'version'],
+  inputs: ['appTitle', 'contentAligned', 'customMobileBreakpoint', 'hideAppTitle', 'href', 'inline', 'shortAppTitle', 'status', 'theme', 'version'],
   outputs: ['icTopNavResized'],
 })
 export class IcTopNavigation {
