@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.25.0...@ukic/react@3.26.0) (2026-05-13)
+
+### Features
+
+- **react:** react storybook updated ([ce0f178](https://github.com/mi6/ic-ui-kit/commit/ce0f17889278c2d20cf9b43a471298d327c89b4c))
+
 # [3.25.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.23.0...@ukic/react@3.25.0) (2026-04-29)
 
 ### Bug Fixes
