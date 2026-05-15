@@ -41,6 +41,7 @@
     "rollup": "rollup -c",
     "storybook": "storybook dev -p 6007",
     "test:performance-lhci": "npm run perf:lhci",
+    "build:perf": "vite build --config vite.config.perf.ts",
     "tsc": "tsc -p ."
   },
   "dependencies": {
