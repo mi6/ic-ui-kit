@@ -1,6 +1,6 @@
 {
-  "total": 931,
-  "totalPassed": 928,
+  "total": 935,
+  "totalPassed": 932,
   "totalFailed": 3,
   "totalSuites": 46,
   "suites": [
@@ -5572,17 +5572,6 @@
       "tests": [
         {
           "status": "pass",
-          "name": "IcPopoverMenu.cy.tsx/default-after-click-button",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
-          "specFilename": "IcPopoverMenu.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/default-after-click-button.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/default-after-click-button.png"
-        },
-        {
-          "status": "pass",
           "name": "IcPopoverMenu.cy.tsx/slotted-anchor",
           "percentage": 0,
           "failureThreshold": 0,
@@ -5627,6 +5616,39 @@
         },
         {
           "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/description",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/description.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/description.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/disabled",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/disabled.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/disabled.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/disabled-focused",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/disabled-focused.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/disabled-focused.png"
+        },
+        {
+          "status": "pass",
           "name": "IcPopoverMenu.cy.tsx/variants",
           "percentage": 0,
           "failureThreshold": 0,
@@ -5657,6 +5679,28 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/max-height.png",
           "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx/max-height.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/max-height.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/submenu-focused",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/submenu-focused.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/submenu-focused.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/default-after-click-button",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/default-after-click-button.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/default-after-click-button.png"
         },
         {
           "status": "fail",
@@ -10522,9 +10566,9 @@
       ]
     }
   ],
-  "startedAt": "2026-05-13T13:19:55.928Z",
-  "endedAt": "2026-05-13T13:41:06.283Z",
-  "duration": 1158200,
+  "startedAt": "2026-05-15T11:46:25.806Z",
+  "endedAt": "2026-05-15T12:06:39.281Z",
+  "duration": 1103749,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
