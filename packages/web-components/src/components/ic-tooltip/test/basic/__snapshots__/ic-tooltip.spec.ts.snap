@@ -59,13 +59,13 @@ exports[`ic-tooltip component should render an icon next to the label text and s
 exports[`ic-tooltip component should render correctly when in a drawer 1`] = `
 <ic-tooltip class="ic-tooltip ic-tooltip-in-container" label="tooltip">
   <template shadowrootmode="open">
-    <div aria-hidden="false" class="ic-tooltip-container" data-show role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0;">
+    <div aria-hidden="false" class="ic-tooltip-container" data-popper-placement="bottom" data-popper-reference-hidden data-show role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
       <div class="ic-tooltip-content">
         <ic-typography variant="caption">
           tooltip
         </ic-typography>
       </div>
-      <div class="ic-tooltip-arrow" style="position: absolute;"></div>
+      <div class="ic-tooltip-arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
     </div>
     <slot></slot>
   </template>
@@ -75,13 +75,13 @@ exports[`ic-tooltip component should render correctly when in a drawer 1`] = `
 exports[`ic-tooltip component should render correctly when on a dialog 1`] = `
 <ic-tooltip class="ic-tooltip ic-tooltip-in-container" label="tooltip">
   <template shadowrootmode="open">
-    <div aria-hidden="false" class="ic-tooltip-container" data-show role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0;">
+    <div aria-hidden="false" class="ic-tooltip-container" data-popper-placement="bottom" data-popper-reference-hidden data-show role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
       <div class="ic-tooltip-content">
         <ic-typography variant="caption">
           tooltip
         </ic-typography>
       </div>
-      <div class="ic-tooltip-arrow" style="position: absolute;"></div>
+      <div class="ic-tooltip-arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
     </div>
     <slot></slot>
   </template>

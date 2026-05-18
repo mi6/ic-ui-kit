@@ -242,7 +242,7 @@ exports[`ic-card-horizontal should render with a badge 1`] = `
     </div>
   </template>
   <ic-badge class="ic-badge-far ic-badge-medium ic-badge-neutral ic-badge-show ic-badge-text" role="status" slot="badge">
-    <template shadowrootmode="open"></template>
+    <template shadowrootmode="open" shadowrootdelegatesfocus></template>
     Badge
   </ic-badge>
 </ic-card-horizontal>
@@ -493,7 +493,7 @@ exports[`ic-card-horizontal should render with an interaction button 1`] = `
     </div>
   </template>
   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary" exportparts="button" slot="interaction-button" variant="icon-tertiary">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-0" label="More information" placement="bottom" target="ic-button-with-tooltip-0">
         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-0" class="button" part="button" tabindex="0" type="button">
           <slot></slot>

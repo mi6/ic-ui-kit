@@ -4,7 +4,7 @@ exports[`ic-tab-context component should render tab context with custom contextI
 <ic-tab-context context-id="custom-context">
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="custom-context" label="Example tab group" role="tablist">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="inherit">
         <div class="tabs-container">
           <slot></slot>
@@ -73,7 +73,7 @@ exports[`ic-tab-context component should render tab context with tabs - manual a
 <ic-tab-context activation-type="manual" context-id="default">
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="inherit">
         <div class="tabs-container">
           <slot></slot>
@@ -142,7 +142,7 @@ exports[`ic-tab-context component should render tab context with tabs - selected
 <ic-tab-context context-id="default" selected-tab-index="2">
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="inherit">
         <div class="tabs-container">
           <slot></slot>
@@ -211,7 +211,7 @@ exports[`ic-tab-context component should render tab context with tabs - theme da
 <ic-tab-context context-id="default" theme="dark">
   <!---->
   <ic-tab-group aria-label="Example tab group" class="ic-theme-dark" context-id="default" label="Example tab group" role="tablist" theme="dark">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="dark">
         <div class="tabs-container">
           <slot></slot>
@@ -280,7 +280,7 @@ exports[`ic-tab-context component should render tab context with tabs 1`] = `
 <ic-tab-context context-id="default">
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
-    <template shadowrootmode="open">
+    <template shadowrootmode="open" shadowrootdelegatesfocus>
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="inherit">
         <div class="tabs-container">
           <slot></slot>

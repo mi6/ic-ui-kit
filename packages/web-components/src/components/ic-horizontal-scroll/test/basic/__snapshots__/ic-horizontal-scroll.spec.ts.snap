@@ -19,7 +19,7 @@ exports[`ic-horizontal-scroll should render dark: renders 1`] = `
   </template>
   <div>
     <ic-navigation-item class="light navigation-item" label="Test nav item 1" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 1" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -30,7 +30,7 @@ exports[`ic-horizontal-scroll should render dark: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 2" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 2" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -41,7 +41,7 @@ exports[`ic-horizontal-scroll should render dark: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 3" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 3" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -52,7 +52,7 @@ exports[`ic-horizontal-scroll should render dark: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 4" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 4" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -63,7 +63,7 @@ exports[`ic-horizontal-scroll should render dark: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 5" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 5" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -74,7 +74,7 @@ exports[`ic-horizontal-scroll should render dark: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 6" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 6" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -107,7 +107,7 @@ exports[`ic-horizontal-scroll should render light: renders 1`] = `
   </template>
   <div>
     <ic-navigation-item class="light navigation-item" label="Test nav item 1" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 1" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -118,7 +118,7 @@ exports[`ic-horizontal-scroll should render light: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 2" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 2" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -129,7 +129,7 @@ exports[`ic-horizontal-scroll should render light: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 3" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 3" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -140,7 +140,7 @@ exports[`ic-horizontal-scroll should render light: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 4" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 4" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -151,7 +151,7 @@ exports[`ic-horizontal-scroll should render light: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 5" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 5" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -162,7 +162,7 @@ exports[`ic-horizontal-scroll should render light: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 6" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 6" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -195,7 +195,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
   </template>
   <div>
     <ic-navigation-item class="light navigation-item" label="Test nav item 1" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 1" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -206,7 +206,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 2" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 2" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -217,7 +217,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 3" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 3" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -228,7 +228,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 4" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 4" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -239,7 +239,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 5" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 5" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -250,7 +250,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 6" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 6" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -283,7 +283,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
   </template>
   <div>
     <ic-navigation-item class="light navigation-item" label="Test nav item 1" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 1" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -294,7 +294,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 2" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 2" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -305,7 +305,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 3" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 3" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -316,7 +316,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 4" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 4" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -327,7 +327,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 5" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 5" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
@@ -338,7 +338,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
       </template>
     </ic-navigation-item>
     <ic-navigation-item class="light navigation-item" label="Test nav item 6" role="listitem">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 6" placement="right" target="navigation-item">
           <div class="link" tabindex="0">
             <ic-typography variant="label">
