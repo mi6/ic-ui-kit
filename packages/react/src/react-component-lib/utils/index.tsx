@@ -1,5 +1,5 @@
 import React from 'react';
-
+import type { PropsWithoutRef, ForwardRefRenderFunction } from 'react';
 import type { StyleReactProps } from '../interfaces';
 
 export type StencilReactExternalProps<PropType, ElementType> = PropType &
@@ -28,15 +28,17 @@ export const mergeRefs = (
   };
 };
 
-export const createForwardRef = <PropType, ElementType>(ReactComponent: any, displayName: string) => {
-  const forwardRef = (
-    props: StencilReactExternalProps<PropType, ElementType>,
-    ref: StencilReactForwardedRef<ElementType>
-  ) => {
+export const createForwardRef = <PropType, ElementType>(
+  ReactComponent: React.ComponentType<any>,
+  displayName: string
+) => {
+  const forwardRef: ForwardRefRenderFunction<
+    ElementType,
+    PropsWithoutRef<StencilReactExternalProps<PropType, ElementType>>
+  > = (props, ref) => {
     return <ReactComponent {...props} forwardedRef={ref} />;
   };
-  forwardRef.displayName = displayName;
-
+  (forwardRef as React.FunctionComponent).displayName = displayName;
   return React.forwardRef(forwardRef);
 };
 

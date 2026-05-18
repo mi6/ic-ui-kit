@@ -23,7 +23,7 @@ const IcDataListSinglePage: React.FC<PageProps> = ({ theme }) => {
         </IcTypography>
         <IcDataList
           heading="Order details"
-          style={{ "--data-row-label-width": "30rem" }}
+          style={{ ["--data-row-label-width" as any]: "30rem" }}
         >
           <IcDataRow label="Order name" value="Michael">
             <IcLink href="#" slot="end-component">

@@ -1,23 +1,22 @@
 import { Config } from "@stencil/core";
-import { JsonDocs } from "@stencil/core/internal";
 import autoprefixer from "autoprefixer";
 import { inlineSvg } from "stencil-inline-svg";
 import { postcss } from "@stencil/postcss";
 import { reactOutputTarget } from "@stencil/react-output-target";
 
 // If timestamp is undefined, it deletes timestamp from the json doc instead of empty string
-interface StencilOverride extends Omit<JsonDocs, "timestamp"> {
-  timestamp: string | undefined;
+interface DocsJson {
+  timestamp?: string;
+  [key: string]: any;
 }
+
 
 export const config: Config = {
   namespace: "core",
   globalStyle: "src/global/icds.css",
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: "@ukic/web-components",
-      proxiesFile: "../react/src/components.ts",
-      includeDefineCustomElements: true,
+      outDir: "../react/src",
     }),
     {
       type: "dist-hydrate-script",
@@ -40,8 +39,9 @@ export const config: Config = {
         },
       ],
     },
-    {
+    { 
       type: "dist-custom-elements",
+      externalRuntime: false,
     },
     {
       type: "docs-readme",
@@ -53,7 +53,7 @@ export const config: Config = {
     },
     {
       type: "docs-custom",
-      generator: (docs: StencilOverride): void => {
+      generator: (docs: DocsJson): void => {
         docs.timestamp = undefined;
       },
     },

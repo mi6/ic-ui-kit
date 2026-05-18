@@ -34,7 +34,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@storybook/addon-a11y": "10.1.11",
+    "@storybook/addon-a11y": "10.2.10",
     "@ukic/react": "^3.26.0",
     "@ukic/web-components": "^3.26.0"
   },
@@ -43,9 +43,9 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.26.0",
-    "@storybook/addon-docs": "10.1.11",
-    "@storybook/addon-links": "10.1.11",
-    "@storybook/nextjs-vite": "10.1.11",
+    "@storybook/addon-docs": "10.2.10",
+    "@storybook/addon-links": "10.2.10",
+    "@storybook/nextjs-vite": "10.2.10",
     "@types/node": "^20.11.20",
     "babel-loader": "^8.3.0",
     "css-loader": "^6.8.1",
@@ -53,7 +53,7 @@
     "next": "15.4.7",
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0",
-    "storybook": "10.1.11",
+    "storybook": "10.2.10",
     "ts-loader": "^9.5.0",
     "ts-node": "^10.9.2",
     "typescript": "^4.9.5",
