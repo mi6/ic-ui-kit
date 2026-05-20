@@ -29,7 +29,6 @@
  - [ic-alert](../ic-alert)
  - [ic-badge](../ic-badge)
  - [ic-button](../ic-button)
- - [ic-calendar](../../../../canary-web-components/src/components/ic-calendar)
  - [ic-card-horizontal](../ic-card-horizontal)
  - [ic-card-vertical](../ic-card-vertical)
  - [ic-checkbox](../ic-checkbox)
@@ -37,11 +36,8 @@
  - [ic-classification-banner](../ic-classification-banner)
  - [ic-data-list](../ic-data-list)
  - [ic-data-row](../ic-data-row)
- - [ic-data-table](../../../../canary-web-components/src/components/ic-data-table)
- - [ic-data-table-title-bar](../../../../canary-web-components/src/components/ic-data-table-title-bar)
  - [ic-dialog](../ic-dialog)
  - [ic-divider](../ic-divider)
- - [ic-drawer](../../../../canary-web-components/src/components/ic-drawer)
  - [ic-empty-state](../ic-empty-state)
  - [ic-footer](../ic-footer)
  - [ic-footer-link-group](../ic-footer-link-group)
@@ -65,15 +61,10 @@
  - [ic-status-tag](../ic-status-tag)
  - [ic-step](../ic-step)
  - [ic-tab](../ic-tab)
- - [ic-table-of-contents](../../../../canary-web-components/src/components/ic-table-of-contents)
  - [ic-text-field](../ic-text-field)
- - [ic-time-selector](../../../../canary-web-components/src/components/ic-time-selector)
  - [ic-toast](../ic-toast)
  - [ic-tooltip](../ic-tooltip)
  - [ic-top-navigation](../ic-top-navigation)
- - [ic-tree-item](../../../../canary-web-components/src/components/ic-tree-item)
- - [ic-tree-view](../../../../canary-web-components/src/components/ic-tree-view)
-
 
 ### Graph
 ```mermaid
@@ -84,7 +75,6 @@ graph TD;
   ic-alert --> ic-typography
   ic-badge --> ic-typography
   ic-button --> ic-typography
-  ic-calendar --> ic-typography
   ic-card-horizontal --> ic-typography
   ic-card-vertical --> ic-typography
   ic-checkbox --> ic-typography
@@ -92,11 +82,8 @@ graph TD;
   ic-classification-banner --> ic-typography
   ic-data-list --> ic-typography
   ic-data-row --> ic-typography
-  ic-data-table --> ic-typography
-  ic-data-table-title-bar --> ic-typography
   ic-dialog --> ic-typography
   ic-divider --> ic-typography
-  ic-drawer --> ic-typography
   ic-empty-state --> ic-typography
   ic-footer --> ic-typography
   ic-footer-link-group --> ic-typography
@@ -120,14 +107,10 @@ graph TD;
   ic-status-tag --> ic-typography
   ic-step --> ic-typography
   ic-tab --> ic-typography
-  ic-table-of-contents --> ic-typography
   ic-text-field --> ic-typography
-  ic-time-selector --> ic-typography
   ic-toast --> ic-typography
   ic-tooltip --> ic-typography
   ic-top-navigation --> ic-typography
-  ic-tree-item --> ic-typography
-  ic-tree-view --> ic-typography
   style ic-typography fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

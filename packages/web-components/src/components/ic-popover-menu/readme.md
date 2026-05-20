@@ -39,7 +39,6 @@ This is a wrapper component to be placed around one or more ic-menu-item compone
 - [ic-menu-item](../ic-menu-item)
 - [ic-typography](../ic-typography)
 
-
 ### Graph
 ```mermaid
 graph TD;
@@ -47,6 +46,11 @@ graph TD;
   ic-popover-menu --> ic-typography
   ic-menu-item --> ic-typography
   ic-menu-item --> ic-button
+  ic-button --> ic-typography
+  ic-button --> ic-loading-indicator
+  ic-button --> ic-tooltip
+  ic-loading-indicator --> ic-typography
+  ic-tooltip --> ic-typography
   style ic-popover-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

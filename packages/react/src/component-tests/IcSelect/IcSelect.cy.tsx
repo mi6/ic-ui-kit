@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { mount } from "@cypress/react";
+import { mount } from "cypress/react18";
 import React from "react";
 import { IcSelect, IcTypography } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";

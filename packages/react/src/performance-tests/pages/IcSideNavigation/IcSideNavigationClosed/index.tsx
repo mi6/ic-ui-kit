@@ -46,7 +46,7 @@ const IcSideNavigationPage: React.FC<PageProps> = ({ theme }) => {
           appTitle="ACME"
           version="v0.0.0"
           status="BETA"
-          onIcSideNavExpanded={(ev) =>
+          onIcSideNavExpanded={(ev: any) =>
             console.log("Side nav expanded: ", ev.detail.sideNavExpanded)
           }
         >

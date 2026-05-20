@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import {
   HAVE_BEEN_CALLED_ONCE,
   NOT_BE_CALLED_ONCE,

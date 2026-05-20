@@ -2,7 +2,7 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { IcCardHorizontal } from "../../components";
 import { BE_VISIBLE, HAVE_FOCUS, NOT_EXIST } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";

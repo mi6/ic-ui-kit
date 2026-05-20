@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import React, { ReactElement } from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { IcTreeView, IcTreeItem } from "../../components";
 import { SlottedSVG } from "@ukic/react";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";

@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import {
   Checkbox,
   CheckboxForm,

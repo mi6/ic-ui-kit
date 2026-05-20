@@ -2,7 +2,7 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import {
   HAVE_CLASS,
   NOT_HAVE_CLASS,

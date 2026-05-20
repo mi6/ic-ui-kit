@@ -1,5 +1,4 @@
 import { Config } from "@stencil/core";
-import { JsonDocs } from "@stencil/core/internal";
 import autoprefixer from "autoprefixer";
 import { inlineSvg } from "stencil-inline-svg";
 import { postcss } from "@stencil/postcss";
@@ -7,8 +6,9 @@ import { reactOutputTarget } from "@stencil/react-output-target";
 import { excludeComps } from "../web-components/comps-list";
 
 // If timestamp is undefined, it deletes timestamp from the json doc instead of empty string
-interface StencilOverride extends Omit<JsonDocs, "timestamp"> {
-  timestamp: string | undefined
+interface DocsJson {
+  timestamp?: string;
+  [key: string]: any;
 }
 
 export const config: Config = {
@@ -16,9 +16,7 @@ export const config: Config = {
   globalStyle: "../web-components/src/global/icds.css",
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: "@ukic/canary-web-components",
-      proxiesFile: "../canary-react/src/components.ts",
-      includeDefineCustomElements: true, // TODO: Is this required or can guidance be provided to import @ukic/web-component as a dep
+      outDir: "../canary-react/src", // TODO: Is this required or can guidance be provided to import @ukic/web-component as a dep
       excludeComponents: excludeComps,
     }),
     {
@@ -36,6 +34,7 @@ export const config: Config = {
     },
     {
       type: "dist-custom-elements",
+      externalRuntime: false,
     },
     {
       type: "www",
@@ -51,7 +50,7 @@ export const config: Config = {
     },
     {
       type: "docs-custom",
-      generator: (docs: StencilOverride) => {
+      generator: (docs: DocsJson) => {
         docs.timestamp = undefined;
       }
     },

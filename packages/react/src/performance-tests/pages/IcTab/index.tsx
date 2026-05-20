@@ -22,7 +22,7 @@ const IcTabPage: React.FC<PageProps> = ({ theme }) => {
           <h1>Tab Page</h1>
         </IcTypography>
         <IcTabContext
-          onIcTabSelect={(ev) =>
+          onIcTabSelect={(ev: any) =>
             console.log({
               tabIndex: ev.detail.tabIndex,
               tabLabel: ev.detail.tabLabel,
@@ -77,7 +77,7 @@ const IcTabPage: React.FC<PageProps> = ({ theme }) => {
           <IcTabPanel>
             <IcTabContext
               contextId="context-nested"
-              onIcTabSelect={(ev) =>
+              onIcTabSelect={(ev: any) =>
                 console.log({
                   tabIndex: ev.detail.tabIndex,
                   tabLabel: ev.detail.tabLabel,

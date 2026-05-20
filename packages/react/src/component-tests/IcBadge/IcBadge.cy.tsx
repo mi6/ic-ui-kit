@@ -2,7 +2,7 @@
 
 import React from "react";
 import { HAVE_ATTR, HAVE_CLASS, NOT_HAVE_ATTR } from "../utils/constants";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import {
   ShowHideBadge,
   BadgeTypes,

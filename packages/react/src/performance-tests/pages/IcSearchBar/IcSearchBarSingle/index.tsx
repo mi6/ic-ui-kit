@@ -27,9 +27,9 @@ const IcSearchBarSinglePage: React.FC<PageProps> = ({ theme }) => {
             { label: "Americano", value: "americano" },
             { label: "Mocha", value: "mocha" },
           ]}
-          onIcChange={(ev) => console.log("Value changed: ", ev.detail.value)}
+          onIcChange={(ev: any) => console.log("Value changed: ", ev.detail.value)}
           onIcClear={() => console.log("Value cleared")}
-          onIcInput={(ev) => console.log("icInput: ", ev.detail.value)}
+          onIcInput={(ev: any) => console.log("icInput: ", ev.detail.value)}
           onIcOptionSelect={(ev: any) =>
             console.log("Option selected: ", ev.detail.value)
           }

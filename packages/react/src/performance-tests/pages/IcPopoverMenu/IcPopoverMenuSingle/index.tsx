@@ -36,7 +36,7 @@ const IcPopoverMenuSinglePage: React.FC<PageProps> = ({ theme }) => {
           anchor="button-1"
           aria-label="popover"
           open={popoverOpen}
-          onIcPopoverClosed={(event) => {
+          onIcPopoverClosed={(event: any) => {
             handlePopoverClosed();
             console.log("Popover menu closed: ", event);
           }}
@@ -74,7 +74,7 @@ const IcPopoverMenuSinglePage: React.FC<PageProps> = ({ theme }) => {
           <IcMenuItem
             label="Show found results"
             variant="toggle"
-            onIcToggleChecked={(event) => console.log(event.detail.checked)}
+            onIcToggleChecked={(event: any) => console.log(event.detail.checked)}
           />
         </IcPopoverMenu>
       </div>

@@ -31,14 +31,14 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
   const willDismissEventName = `on${displayName}WillDismiss`;
   const willPresentEventName = `on${displayName}WillPresent`;
 
-  type Props = OverlayComponent &
-    ReactOverlayProps & {
-      forwardedRef?: StencilReactForwardedRef<OverlayType>;
-    };
+type Props = OverlayComponent &
+  ReactOverlayProps & {
+    _forwardedRef?: StencilReactForwardedRef<OverlayType>;
+  };
 
   let isDismissing = false;
 
-  class Overlay extends React.Component<Props> {
+class Overlay extends React.Component<Props> {
     overlay?: OverlayType;
     el!: HTMLDivElement;
 
@@ -66,12 +66,12 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
       }
     }
 
-    handleDismiss(event: CustomEvent<OverlayEventDetail<any>>) {
-      if (this.props.onDidDismiss) {
-        this.props.onDidDismiss(event);
-      }
-      setRef(this.props.forwardedRef, null);
+  handleDismiss(event: CustomEvent<OverlayEventDetail<any>>) {
+    if (this.props.onDidDismiss) {
+      this.props.onDidDismiss(event);
     }
+      setRef(this.props._forwardedRef, null);
+  }
 
     shouldComponentUpdate(nextProps: Props) {
       // Check if the overlay component is about to dismiss
@@ -103,11 +103,11 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
       }
     }
 
-    async present(prevProps?: Props) {
-      const { children, isOpen, onDidDismiss, onDidPresent, onWillDismiss, onWillPresent, ...cProps } = this.props;
-      const elementProps = {
-        ...cProps,
-        ref: this.props.forwardedRef,
+  async present(prevProps?: Props) {
+    const { children, isOpen, onDidDismiss, onDidPresent, onWillDismiss, onWillPresent, _forwardedRef, ...cProps } = this.props;
+    const elementProps = {
+      ...cProps,
+      ref: _forwardedRef,
         [didDismissEventName]: this.handleDismiss,
         [didPresentEventName]: (e: CustomEvent) => this.props.onDidPresent && this.props.onDidPresent(e),
         [willDismissEventName]: (e: CustomEvent) => this.props.onWillDismiss && this.props.onWillDismiss(e),
@@ -120,8 +120,8 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
         componentProps: {},
       });
 
-      setRef(this.props.forwardedRef, this.overlay);
-      attachProps(this.overlay, elementProps, prevProps);
+      setRef(_forwardedRef, this.overlay);
+  attachProps(this.overlay, elementProps, prevProps);
 
       await this.overlay.present();
     }
@@ -136,7 +136,7 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
     }
   }
 
-  return React.forwardRef<OverlayType, Props>((props, ref) => {
-    return <Overlay {...props} forwardedRef={ref} />;
+  return React.forwardRef<OverlayType, OverlayComponent & ReactOverlayProps>((props, ref) => {
+  return <Overlay {...(props as Props)} _forwardedRef={ref} />;
   });
 };

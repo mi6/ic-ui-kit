@@ -2,8 +2,6 @@
 import { defineConfig } from "cypress";
 import webpackConfig from "./.webpack/webpack.config";
 
-const fs = require("fs");
-
 export const config: Cypress.ConfigOptions = {
   component: {
     devServer: {

@@ -63,7 +63,7 @@ const IcPopoverMenuNotRenderedPage: React.FC<PageProps> = ({ theme }) => {
                 anchor={`button-${idx}`}
                 aria-label={`popover-${idx}`}
                 open={popoverOpen[idx]}
-                onIcPopoverClosed={(event) => {
+                onIcPopoverClosed={(event: any) => {
                   handlePopoverClosed(idx);
                   console.log("Popover menu closed: ", event);
                 }}

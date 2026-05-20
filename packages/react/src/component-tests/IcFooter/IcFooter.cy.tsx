@@ -2,7 +2,7 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { BE_VISIBLE, EQUAL, HAVE_ATTR, HAVE_LENGTH } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import React from "react";
 import { EQUAL, HAVE_TEXT } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";

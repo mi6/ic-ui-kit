@@ -43,7 +43,7 @@ const IcSideNavigationExpandedPage: React.FC<PageProps> = ({ theme }) => {
         version="v0.0.0"
         status="BETA"
         expanded={true}
-        onIcSideNavExpanded={(event) =>
+        onIcSideNavExpanded={(event: any) =>
           console.log("Side nav expanded: ", event.detail.sideNavExpanded)
         }
       >

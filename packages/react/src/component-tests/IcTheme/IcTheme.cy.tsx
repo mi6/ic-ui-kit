@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import React from "react";
 import {
   ComponentsWithInheritThemeProp,

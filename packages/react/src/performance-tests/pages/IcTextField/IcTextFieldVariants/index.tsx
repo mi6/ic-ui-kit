@@ -62,7 +62,7 @@ const IcTextFieldVariantsPage: React.FC<PageProps> = ({ theme }) => {
             placeholder="Please enter…"
             helperText="Give as much detail as you like"
             {...textFieldEvents}
-            onIcScroll={(ev) => console.log("Scroll event: ", ev)}
+            onIcScroll={(ev: any) => console.log("Scroll event: ", ev)}
           />
           <IcTextField {...defaultProps} autofocus />
           <IcTextField {...defaultProps}>{reusableIcon()}</IcTextField>

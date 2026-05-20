@@ -41,36 +41,24 @@
 
 ## Dependencies
 
-### Used by
-
- - [ic-data-table](../../../../canary-web-components/src/components/ic-data-table)
-
-
 ### Depends on
 
-- [ic-button](../ic-button)
-- [ic-pagination](../ic-pagination)
-- [ic-select](../ic-select)
-- [ic-text-field](../ic-text-field)
-- [ic-tooltip](../ic-tooltip)
 - [ic-typography](../ic-typography)
-
+- [ic-select](../ic-select)
+- [ic-pagination](../ic-pagination)
+- [ic-tooltip](../ic-tooltip)
+- [ic-text-field](../ic-text-field)
+- [ic-button](../ic-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-pagination-bar --> ic-button
-  ic-pagination-bar --> ic-pagination
-  ic-pagination-bar --> ic-select
-  ic-pagination-bar --> ic-text-field
-  ic-pagination-bar --> ic-tooltip
   ic-pagination-bar --> ic-typography
-  ic-data-table --> ic-pagination-bar
-  ic-button --> ic-typography
-  ic-button --> ic-loading-indicator
-  ic-button --> ic-tooltip
-  ic-pagination --> ic-button
-  ic-pagination --> ic-pagination-item
+  ic-pagination-bar --> ic-select
+  ic-pagination-bar --> ic-pagination
+  ic-pagination-bar --> ic-tooltip
+  ic-pagination-bar --> ic-text-field
+  ic-pagination-bar --> ic-button
   ic-select --> ic-button
   ic-select --> ic-typography
   ic-select --> ic-input-container
@@ -78,12 +66,24 @@ graph TD;
   ic-select --> ic-input-component-container
   ic-select --> ic-menu
   ic-select --> ic-input-validation
+  ic-button --> ic-typography
+  ic-button --> ic-loading-indicator
+  ic-button --> ic-tooltip
+  ic-loading-indicator --> ic-typography
+  ic-tooltip --> ic-typography
+  ic-input-label --> ic-typography
+  ic-menu --> ic-loading-indicator
+  ic-menu --> ic-typography
+  ic-menu --> ic-button
+  ic-input-validation --> ic-typography
+  ic-pagination --> ic-button
+  ic-pagination --> ic-pagination-item
+  ic-pagination-item --> ic-typography
   ic-text-field --> ic-input-container
   ic-text-field --> ic-input-label
   ic-text-field --> ic-input-component-container
   ic-text-field --> ic-input-validation
   ic-text-field --> ic-typography
-  ic-tooltip --> ic-typography
   style ic-pagination-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

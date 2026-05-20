@@ -4,7 +4,7 @@
 import React from "react";
 import { IcBadge, IcToggleButton } from "../../components";
 import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import {
   HAVE_BEEN_CALLED_ONCE,
   HAVE_CLASS,

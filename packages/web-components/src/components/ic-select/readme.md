@@ -93,41 +93,39 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [ic-data-table-title-bar](../../../../canary-web-components/src/components/ic-data-table-title-bar)
  - [ic-pagination-bar](../ic-pagination-bar)
-
 
 ### Depends on
 
 - [ic-button](../ic-button)
-- [ic-input-component-container](../ic-input-component-container)
+- [ic-typography](../ic-typography)
 - [ic-input-container](../ic-input-container)
 - [ic-input-label](../ic-input-label)
-- [ic-input-validation](../ic-input-validation)
+- [ic-input-component-container](../ic-input-component-container)
 - [ic-menu](../ic-menu)
-- [ic-typography](../ic-typography)
-
+- [ic-input-validation](../ic-input-validation)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-select --> ic-button
-  ic-select --> ic-input-component-container
+  ic-select --> ic-typography
   ic-select --> ic-input-container
   ic-select --> ic-input-label
-  ic-select --> ic-input-validation
+  ic-select --> ic-input-component-container
   ic-select --> ic-menu
-  ic-select --> ic-typography
-  ic-data-table-title-bar --> ic-select
-  ic-pagination-bar --> ic-select
+  ic-select --> ic-input-validation
   ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
+  ic-loading-indicator --> ic-typography
+  ic-tooltip --> ic-typography
   ic-input-label --> ic-typography
-  ic-input-validation --> ic-typography
   ic-menu --> ic-loading-indicator
   ic-menu --> ic-typography
   ic-menu --> ic-button
+  ic-input-validation --> ic-typography
+  ic-pagination-bar --> ic-select
   style ic-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

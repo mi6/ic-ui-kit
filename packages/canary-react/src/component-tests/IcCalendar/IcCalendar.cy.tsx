@@ -2,7 +2,7 @@
 /// <reference types="Cypress" />
 import "./IcCalendar.css";
 import React from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { IcCalendar } from "../../components";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 

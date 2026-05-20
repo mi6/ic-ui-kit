@@ -2,7 +2,7 @@
 /// <reference types="Cypress" />
 import "./IcDatePicker.css";
 import React from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { IcDatePicker } from "../../components";
 import { IcLink, IcTypography } from "@ukic/react";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";

@@ -3,7 +3,7 @@
 
 import React from "react";
 import { IcClassificationBanner } from "../../components";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.015;

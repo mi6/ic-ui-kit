@@ -44,7 +44,6 @@ Type: `Promise<void>`
 
 - [ic-link](../ic-link)
 
-
 ### Graph
 ```mermaid
 graph TD;

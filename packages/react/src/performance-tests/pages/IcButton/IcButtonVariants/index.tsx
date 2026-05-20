@@ -98,7 +98,7 @@ const IcButtonVariantsPage: React.FC<PageProps> = ({ theme }) => {
           variant="primary"
           fileUpload
           accept=".doc, text/plain, .json, .png"
-          onIcFileSelection={(event) =>
+          onIcFileSelection={(event: CustomEvent<FileList>) =>
             console.log("Single file upload", event.detail)
           }
         >
@@ -109,7 +109,7 @@ const IcButtonVariantsPage: React.FC<PageProps> = ({ theme }) => {
           fileUpload
           multiple
           accept=".doc, text/plain, .json, .png"
-          onIcFileSelection={(event) =>
+          onIcFileSelection={(event: CustomEvent<FileList>) =>
             console.log("Multiple files upload", event.detail)
           }
         >

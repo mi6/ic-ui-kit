@@ -2,7 +2,7 @@
 /// <reference types="cypress" />
 
 import React, { ReactElement, useState } from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { IcDataTable, IcDataTableTitleBar } from "../../components";
 import {
   IcButton,

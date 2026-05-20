@@ -55,21 +55,14 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - [ic-data-table](../../../../canary-web-components/src/components/ic-data-table)
-
-
 ### Depends on
 
 - [ic-typography](../ic-typography)
-
 
 ### Graph
 ```mermaid
 graph TD;
   ic-checkbox --> ic-typography
-  ic-data-table --> ic-checkbox
   style ic-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { IcPagination } from "../../components";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import {
   NOT_BE_CALLED_ONCE,
   NOT_EXIST,

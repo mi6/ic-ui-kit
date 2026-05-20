@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import {
   BasicTableOfContents,

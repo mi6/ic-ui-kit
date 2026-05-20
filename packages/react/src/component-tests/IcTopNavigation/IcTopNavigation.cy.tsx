@@ -1,6 +1,6 @@
 /// <reference types='Cypress' />
 
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import React from "react";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import { IcSearchBar, IcTheme, IcTopNavigation } from "../../components";

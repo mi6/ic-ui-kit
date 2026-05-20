@@ -2,7 +2,7 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { IcDataTableTitleBar } from "../../components";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import { IcLink, IcTypography } from "@ukic/react";

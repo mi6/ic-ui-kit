@@ -17,7 +17,7 @@ const IcTopNavigationBasicPage: React.FC<PageProps> = ({ theme }) => {
         appTitle="ApplicationName"
         status="alpha"
         version="v0.0.7"
-        onIcTopNavResized={(event) =>
+        onIcTopNavResized={(event: any) =>
           console.log("Top nav resized: ", event.detail.size)
         }
       >

@@ -3,7 +3,7 @@
 
 import React from "react";
 import { IcLink, IcTypography } from "../../components";
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import { HAVE_ATTR } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 

@@ -61,14 +61,14 @@ const IcSelectMultiSinglePage: React.FC<PageProps> = ({ theme }) => {
           multiple
           showClearButton
           helperText="Select one or more options from the list"
-          onIcChange={(ev) => console.log(`icChange: ${ev.detail.value}`)}
+          onIcChange={(ev: any) => console.log(`icChange: ${ev.detail.value}`)}
           onIcBlur={() => console.log("Select blurred")}
           onIcFocus={() => console.log("Select focused")}
-          onIcInput={(ev) => console.log(`icInput: ${ev.detail.value}`)}
-          onIcOptionSelect={(ev) =>
+          onIcInput={(ev: any) => console.log(`icInput: ${ev.detail.value}`)}
+          onIcOptionSelect={(ev: any) =>
             console.log(`icOptionSelect: ${ev.detail.value}`)
           }
-          onIcOptionDeselect={(ev) =>
+          onIcOptionDeselect={(ev: any) =>
             console.log(`icOptionDeselect: ${ev.detail.value}`)
           }
           onIcOpen={() => console.log("select dropdown opened")}

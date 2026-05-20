@@ -19,11 +19,11 @@ const IcTextFieldSinglePage: React.FC<PageProps> = ({ theme }) => {
           required
           placeholder="Please enter…"
           helperText="Such as Arabica, Robusta or Liberica"
-          onIcChange={(ev) => console.log("Value changed: ", ev.detail.value)}
-          onIcInput={(ev) => console.log("icInput: ", ev.detail.value)}
+          onIcChange={(ev: any) => console.log("Value changed: ", ev.detail.value)}
+          onIcInput={(ev: any) => console.log("icInput: ", ev.detail.value)}
           onIcBlur={() => console.log("Text field blurred")}
           onIcFocus={() => console.log("Text field focused")}
-          onIcKeydown={(ev) => console.log("Key down: ", ev)}
+          onIcKeydown={(ev: any) => console.log("Key down: ", ev)}
         />
       </div>
     </IcTheme>
