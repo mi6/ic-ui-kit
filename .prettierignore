@@ -9,3 +9,5 @@ packages/react/src/stories
 packages/canary-react/src/react-component-lib
 packages/canary-react/src/components.ts
 packages/canary-react/src/stories
+
+packages/angular-community-supported/**/directives
