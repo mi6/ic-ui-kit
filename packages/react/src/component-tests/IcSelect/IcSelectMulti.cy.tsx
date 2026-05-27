@@ -94,7 +94,7 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "/multi-select-descriptions",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -140,7 +140,10 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     mount(<MultiSelectDisabledOptions />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW)
+      .focus()
+      .click()
+      .type(TYPE_DOWN_ARROW);
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({

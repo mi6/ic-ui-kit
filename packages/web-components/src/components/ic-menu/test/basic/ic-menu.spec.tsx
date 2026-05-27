@@ -38,6 +38,7 @@ const menuOptions = [
 ];
 
 const menuIdEspresso = "menu-id-espresso";
+const menuIdDoubleEspresso = "menu-id-doubleespresso";
 const menuIdMocha = "menu-id-mocha";
 const IcSearchBar = "IC-SEARCH-BAR";
 
@@ -157,7 +158,6 @@ describe("ic-menu in isolation", () => {
     page.rootInstance.manualSetInputValueKeyboardOpen(
       keyboardEvent("ArrowDown")
     );
-
     await page.waitForChanges();
 
     expect(eventSpy).toHaveBeenCalledWith(
@@ -197,7 +197,7 @@ describe("ic-menu in isolation", () => {
 
     document.addEventListener("menuOptionSelect", eventSpy);
 
-    page.rootInstance.setNextOptionValue(15);
+    page.rootInstance.setNextOptionValue(0);
 
     await page.waitForChanges();
 
@@ -225,7 +225,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          value: "cappuccino",
+          value: "americano",
         }),
       })
     );
@@ -290,7 +290,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: menuIdEspresso,
+          optionId: menuIdDoubleEspresso,
         }),
       })
     );

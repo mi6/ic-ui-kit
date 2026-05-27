@@ -246,6 +246,25 @@
   pointer-events: none;
 }
 
+.focus-border {
+  border-radius: var(--ic-border-radius);
+  padding: var(--ic-space-xxs);
+  border: var(--ic-space-xxxs) dashed transparent;
+  border-color: var(--ic-popover-menu-border);
+  background-color: var(--ic-color-focus-inner) !important;
+
+  --icon-height: auto;
+}
+
+.focus-disabled {
+  background-color: var(--ic-color-focus-inner) !important;
+  padding: calc(var(--ic-space-xs) - var(--ic-space-xxxs) - var(--ic-space-xxs))
+    calc(
+      var(--ic-space-xs) - var(--ic-space-1px) - var(--ic-space-xxxs) -
+        var(--ic-space-xxs)
+    );
+}
+
 .focused-option,
 .focused-option .option-description {
   background-color: var(--ic-color-focus-inner) !important;

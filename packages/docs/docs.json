@@ -25149,7 +25149,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail": {
-      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string | undefined;\n  label?: string;\n  optionId?: string;\n}",
+      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string | undefined;\n  label?: string;\n  optionId?: string;\n  disabled?: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },

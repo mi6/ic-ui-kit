@@ -2,6 +2,7 @@ export interface IcOptionSelectEventDetail {
   value: string | undefined;
   label?: string;
   optionId?: string;
+  disabled?: boolean;
 }
 
 export interface IcMenuChangeEventDetail {
