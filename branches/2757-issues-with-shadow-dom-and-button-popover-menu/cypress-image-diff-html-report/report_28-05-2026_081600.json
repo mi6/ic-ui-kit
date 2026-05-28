@@ -1,7 +1,7 @@
 {
   "total": 935,
-  "totalPassed": 932,
-  "totalFailed": 3,
+  "totalPassed": 934,
+  "totalFailed": 1,
   "totalSuites": 46,
   "suites": [
     {
@@ -5670,14 +5670,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/menu-group.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPopoverMenu.cy.tsx/max-height",
-          "percentage": 0.16243152403397562,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
           "specFilename": "IcPopoverMenu.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/max-height.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx/max-height.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/max-height.png"
         },
         {
@@ -5703,14 +5703,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/default-after-click-button.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPopoverMenu.cy.tsx/position-absolute",
-          "percentage": 0.17605680901345452,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
           "specFilename": "IcPopoverMenu.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/position-absolute.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx/position-absolute.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/position-absolute.png"
         },
         {
@@ -10566,9 +10566,9 @@
       ]
     }
   ],
-  "startedAt": "2026-05-22T09:09:34.237Z",
-  "endedAt": "2026-05-22T09:29:44.514Z",
-  "duration": 1106659,
+  "startedAt": "2026-05-28T08:16:00.571Z",
+  "endedAt": "2026-05-28T08:36:17.555Z",
+  "duration": 1105954,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
