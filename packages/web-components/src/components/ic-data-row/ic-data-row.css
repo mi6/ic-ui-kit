@@ -38,7 +38,7 @@ slot[name="value"]::slotted(ic-text-field[readonly][hide-label]) {
   margin-top: calc(var(--ic-space-xs) * -1);
 }
 
-slot[name="value"]::slotted(ic-text-field[small][readonly][hide-label]) {
+slot[name="value"]::slotted(ic-text-field[size="small"][readonly][hide-label]) {
   margin-top: calc(var(--ic-space-xxs) * -1);
 }
 
