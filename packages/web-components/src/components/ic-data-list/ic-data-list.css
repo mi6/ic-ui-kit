@@ -40,6 +40,10 @@
   margin-bottom: var(--ic-space-xs);
 }
 
+:host(.ic-data-list-small) .divider.divider-no-heading {
+  margin-top: 0;
+}
+
 @media (forced-colors: active) {
   .divider {
     background-color: canvastext;
