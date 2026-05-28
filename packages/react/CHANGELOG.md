@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.25.0...@ukic/react@3.27.0) (2026-05-28)
+
+### Bug Fixes
+
+- **react:** update tests for ic-select fix ([135c55b](https://github.com/mi6/ic-ui-kit/commit/135c55b19aaae444c31238e73318ba2ac4b07936))
+
+### Features
+
+- **react:** react storybook updated ([95224bd](https://github.com/mi6/ic-ui-kit/commit/95224bdad8ab6e8566b270a7c323ba9fadb0bb61))
+
 # [3.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.25.0...@ukic/react@3.26.0) (2026-05-13)
 
 ### Features

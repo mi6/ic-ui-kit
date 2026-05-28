@@ -1,6 +1,6 @@
 {
   "name": "@ukic/web-components",
-  "version": "3.26.0",
+  "version": "3.27.0",
   "description": "A web component UI library compiled with StencilJS",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit",
@@ -55,8 +55,8 @@
     "@jest/types": "^29.6.3",
     "@mdx-js/react": "^1.6.22",
     "@open-wc/testing-helpers": "^2.0.2",
-    "@stencil/postcss": "^2.1.0",
     "@stencil/angular-output-target": "^1.1.1",
+    "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.5.3",
     "@storybook/addon-a11y": "10.1.11",
     "@storybook/addon-docs": "10.1.11",
