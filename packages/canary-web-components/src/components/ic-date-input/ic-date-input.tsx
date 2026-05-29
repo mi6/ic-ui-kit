@@ -41,7 +41,7 @@ import {
   renderHiddenInput,
   stringEnumToArray,
 } from "../../utils/helpers";
-import Clear from "../../assets/clear-icon.svg";
+import Clear from "../../assets/close-icon.svg";
 import Calendar from "../../assets/calendar.svg";
 
 import "../../../../web-components/src/components/ic-input-container/ic-input-container";
