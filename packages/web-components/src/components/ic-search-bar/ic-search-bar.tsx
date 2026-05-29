@@ -41,7 +41,7 @@ import {
   IcOptionSelectEventDetail,
 } from "../ic-menu/ic-menu.types";
 
-import clearIcon from "../../assets/clear-icon.svg";
+import clearIcon from "../../assets/close-icon.svg";
 import searchIcon from "../../assets/search-icon.svg";
 import { IcButtonTypes } from "../ic-button/ic-button.types";
 
