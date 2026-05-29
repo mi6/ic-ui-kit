@@ -350,6 +350,7 @@ export const DisabledOptions = {
       <script>
         var select = document.querySelector("#select-disabled-options");
         select.options = [
+          { label: "Mocha", value: "Moc", disabled: true },
           { label: "Cappuccino", value: "Cap" },
           { label: "Latte", value: "Lat", disabled: true },
           { label: "Americano", value: "Ame" },
@@ -357,9 +358,62 @@ export const DisabledOptions = {
         select.addEventListener("icChange", function (event) {
           console.log("icChange: " + event.detail.value);
         });
+        select.addEventListener("icOptionSelect", function (event) {
+          console.log("icOptionSelect: " + event.detail.value);
+        });
+        select.addEventListener("icOptionSelect", function (event) {
+          console.log("icOptionSelect disabled: " + event.detail.disabled);
+        });
+        select.addEventListener("icOptionSelect", function (event) {
+          console.log("icOptionSelect detail: " + JSON.stringify(event.detail));
+        });
+        select.addEventListener("icOpen", function () {
+          console.log("select dropdown opened");
+        });
+        select.addEventListener("icClose", function () {
+          console.log("select dropdown closed");
+        });
       </script>`,
 
   name: "Disabled options",
+};
+
+export const DisabledOptionsSelectOnEnter = {
+  render: () =>
+    html`<ic-select
+        id="select-disabled-options"
+        label="What is your favourite coffee?"
+        select-on-enter
+      ></ic-select>
+      <script>
+        var select = document.querySelector("#select-disabled-options");
+        select.options = [
+          { label: "Mocha", value: "Moc", disabled: true },
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat", disabled: true },
+          { label: "Americano", value: "Ame" },
+        ];
+        select.addEventListener("icChange", function (event) {
+          console.log("icChange: " + event.detail.value);
+        });
+        select.addEventListener("icOptionSelect", function (event) {
+          console.log("icOptionSelect: " + event.detail.value);
+        });
+        select.addEventListener("icOptionSelect", function (event) {
+          console.log("icOptionSelect disabled: " + event.detail.disabled);
+        });
+        select.addEventListener("icOptionSelect", function (event) {
+          console.log("icOptionSelect detail: " + JSON.stringify(event.detail));
+        });
+        select.addEventListener("icOpen", function () {
+          console.log("select dropdown opened");
+        });
+        select.addEventListener("icClose", function () {
+          console.log("select dropdown closed");
+        });
+      </script>`,
+
+  name: "Disabled options select on enter",
 };
 
 export const FullWidth = {

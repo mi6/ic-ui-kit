@@ -8,8 +8,9 @@
     "audit-expiry": "node check-audit-expiry.mjs",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build --scope=@ukic/web-components --scope=@ukic/fonts --scope=@ukic/docs --stream  && lerna run build --scope=@ukic/react --stream && node scripts/combine-canary-core-readme.js",
-    "build:all": "npm run build && npm run build:canary",
+    "build:all": "npm run build && npm run build:canary && npm run build:community",
     "build:canary": "lerna run build --scope=@ukic/canary-web-components --scope=@ukic/canary-docs --stream  && lerna run build --scope=@ukic/canary-react --stream && node scripts/combine-canary-core-readme.js",
+    "build:community": "lerna run build --scope=@ukic/angular-community-supported --stream",
     "build-storybook:canary-react": "lerna run build-storybook --scope @ukic/canary-react",
     "build-storybook:canary-web-components": "lerna run build-storybook --scope @ukic/canary-web-components",
     "build-storybook:nextjs": "lerna run build-storybook --scope @ukic/nextjs",
@@ -42,7 +43,8 @@
     "test-cypress:ci:all": "npm run build:all && npm run test-cypress:headless && npm run test-cypress:canary:headless",
     "test-cypress:ci:canary": "npm run build:all && npm run test-cypress:canary:headless",
     "test-cypress:headless": "lerna run cypress:ci --scope=@ukic/react --stream",
-    "test-lhci-perf:ci": "npm run build && npm run test-lhci-perf:headless",
+    "build:performance-tests": "lerna run build:perf --scope=@ukic/react --stream",
+    "test-lhci-perf:ci": "npm run build && npm run build:performance-tests && npm run test-lhci-perf:headless",
     "test-lhci-perf:headless": "lerna run test:performance-lhci --scope=@ukic/react --stream"
   },
   "config": {

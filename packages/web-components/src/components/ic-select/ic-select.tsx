@@ -674,10 +674,10 @@ export class Select {
       if (filteredOptions.length > 0) {
         const firstOption = filteredOptions[0];
         if ("children" in firstOption) {
-          if (firstOption.children) {
+          if (firstOption.children && !firstOption.children[0].disabled) {
             this.value = firstOption.children[0].value;
           }
-        } else {
+        } else if (!("disabled" in firstOption) || !firstOption.disabled) {
           this.value = firstOption.value;
         }
       }

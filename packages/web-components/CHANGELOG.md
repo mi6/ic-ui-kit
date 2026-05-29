@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.25.0...@ukic/web-components@3.27.0) (2026-05-28)
+
+### Bug Fixes
+
+- **web-components:** add fix for focus on disabled options in ic-select ([7884011](https://github.com/mi6/ic-ui-kit/commit/78840112dcc049ce101a15319be948354efb4e0f))
+- **web-components:** top nav able to have only icon ([05a9126](https://github.com/mi6/ic-ui-kit/commit/05a912683dc9b7ac5f5d0d351c3555db3d8c183c))
+
+### Features
+
+- **web-components:** update story name to push a feat commit ([1ff5314](https://github.com/mi6/ic-ui-kit/commit/1ff53140fbd6e3dd15f230f43643b69977cea079))
+- **web-components:** updates the core ICDS package to output angular wrapped components ([08fa5e9](https://github.com/mi6/ic-ui-kit/commit/08fa5e9e31947de28d2f3552c7bbdd35daee1444)), closes [#3933](https://github.com/mi6/ic-ui-kit/issues/3933)
+
 # [3.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.25.0...@ukic/web-components@3.26.0) (2026-05-13)
 
 ### Bug Fixes

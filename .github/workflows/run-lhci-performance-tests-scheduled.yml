@@ -37,6 +37,7 @@ jobs:
         id: lhci_performance_tests
         run: |
             npm run build
+            npm run build:performance-tests
             node packages/react/scripts/lhci-run-per-route.js --batch ${{ matrix.batch }} --total-batches 4
 
       - name: Upload lighthouse performance reports

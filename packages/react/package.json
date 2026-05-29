@@ -1,6 +1,6 @@
 {
   "name": "@ukic/react",
-  "version": "3.26.0",
+  "version": "3.27.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit",
@@ -41,10 +41,11 @@
     "rollup": "rollup -c",
     "storybook": "storybook dev -p 6007",
     "test:performance-lhci": "npm run perf:lhci",
+    "build:perf": "vite build --config vite.config.perf.ts",
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@ukic/web-components": "^3.26.0"
+    "@ukic/web-components": "^3.27.0"
   },
   "devDependencies": {
     "@ag-grid-community/styles": "^33.0.3",
