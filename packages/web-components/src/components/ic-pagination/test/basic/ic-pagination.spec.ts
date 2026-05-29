@@ -184,6 +184,14 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(page.root).toMatchSnapshot();
   });
+  it("should render with custom page label when label prop is provided", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination label="Section"></ic-pagination>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
 });
 describe("ic-pagination complex type", () => {
   it("should render as complex type", async () => {

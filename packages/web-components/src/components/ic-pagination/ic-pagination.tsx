@@ -338,7 +338,7 @@ export class Pagination {
     return (
       <ic-button
         id="first-page-button"
-        aria-label="Go to first page"
+        aria-label={`Go to first ${this.label?.toLowerCase()}`}
         theme={this.theme}
         onClick={this.handleClickFirst}
         class="page-button first-last"
@@ -354,7 +354,7 @@ export class Pagination {
     return (
       <ic-button
         id="previous-page-button"
-        aria-label="Go to previous page"
+        aria-label={`Go to previous ${this.label?.toLowerCase()}`}
         theme={this.theme}
         onClick={this.handleClickPrevious}
         class="page-button next-previous flip"
@@ -370,7 +370,7 @@ export class Pagination {
     return (
       <ic-button
         id="next-page-button"
-        aria-label="Go to next page"
+        aria-label={`Go to next ${this.label?.toLowerCase()}`}
         theme={this.theme}
         onClick={this.handleClickNext}
         class="page-button next-previous"
@@ -386,7 +386,7 @@ export class Pagination {
     return (
       <ic-button
         id="last-page-button"
-        aria-label="Go to last page"
+        aria-label={`Go to last ${this.label?.toLowerCase()}`}
         theme={this.theme}
         onClick={this.handleClickLast}
         class="page-button first-last flip"
