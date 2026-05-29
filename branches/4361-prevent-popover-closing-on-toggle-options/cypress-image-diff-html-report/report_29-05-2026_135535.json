@@ -1,7 +1,7 @@
 {
-  "total": 934,
+  "total": 935,
   "totalPassed": 934,
-  "totalFailed": 0,
+  "totalFailed": 1,
   "totalSuites": 46,
   "suites": [
     {
@@ -5681,6 +5681,17 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/submenu-focused.png"
         },
         {
+          "status": "fail",
+          "name": "IcPopoverMenu.cy.tsx/popover-close-on-click",
+          "percentage": 0.0327414110874898,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/popover-close-on-click.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx/popover-close-on-click.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/popover-close-on-click.png"
+        },
+        {
           "status": "pass",
           "name": "IcPopoverMenu.cy.tsx/default-after-click-button",
           "percentage": 0,
@@ -10555,9 +10566,9 @@
       ]
     }
   ],
-  "startedAt": "2026-05-29T12:43:17.441Z",
-  "endedAt": "2026-05-29T13:03:20.320Z",
-  "duration": 1092902,
+  "startedAt": "2026-05-29T13:55:35.015Z",
+  "endedAt": "2026-05-29T14:15:01.970Z",
+  "duration": 1059486,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
