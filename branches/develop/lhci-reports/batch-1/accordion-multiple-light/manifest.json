@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:3001/#/accordion-multiple?theme=light",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/accordion-multiple-light/localhost--2026_05_30_03_23_12.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/accordion-multiple-light/localhost--2026_05_30_03_23_12.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 0.9
+    }
+  }
+]
