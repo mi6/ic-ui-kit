@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:3001/#/pagination-bar?theme=light",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/pagination-bar-light/localhost--2026_05_30_03_21_36.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/pagination-bar-light/localhost--2026_05_30_03_21_36.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 0.9
+    }
+  }
+]
