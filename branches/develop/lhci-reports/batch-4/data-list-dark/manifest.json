@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:3001/#/data-list?theme=dark",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-dark/localhost--2026_05_31_03_23_43.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-dark/localhost--2026_05_31_03_23_43.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 0.9
+    }
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:3001/#/toggle-button-group-variants?theme=light",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-group-variants-light/localhost--2026_05_31_03_19_49.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-group-variants-light/localhost--2026_05_31_03_19_49.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 0.9
+    }
+  }
+]
