@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:3001/#/select-multiple?theme=dark",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-multiple-dark/localhost--2026_05_31_03_22_01.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-multiple-dark/localhost--2026_05_31_03_22_01.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 0.9
+    }
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:3001/#/searchable-select?theme=light",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchable-select-light/localhost--2026_05_31_03_22_16.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchable-select-light/localhost--2026_05_31_03_22_16.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 0.9
+    }
+  }
+]
