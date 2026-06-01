@@ -5683,7 +5683,7 @@
         {
           "status": "fail",
           "name": "IcPopoverMenu.cy.tsx/popover-close-on-click",
-          "percentage": 0.07381056834898374,
+          "percentage": 0.05106858133921482,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
           "specFilename": "IcPopoverMenu.cy.tsx",
@@ -10566,9 +10566,9 @@
       ]
     }
   ],
-  "startedAt": "2026-06-01T08:06:44.035Z",
-  "endedAt": "2026-06-01T08:26:57.581Z",
-  "duration": 1105270,
+  "startedAt": "2026-06-01T08:34:55.873Z",
+  "endedAt": "2026-06-01T08:54:38.546Z",
+  "duration": 1075693,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
