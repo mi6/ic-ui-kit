@@ -1,0 +1,3 @@
+import{j as t,M as n,a as i,S as a}from"./blocks-Bjj1no4J.js";import{useMDXComponents as m}from"./index-BPWRfGIS.js";import{N as s,a as p}from"./readme-BNbu3W2k.js";import{I as c}from"./ic-side-navigation.stories-BhYCOk8L.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-C1GMBoj_.js";import"./index-CFGNyoP1.js";import"./slottedSVG-BM-LAcLs.js";import"./mdi-CplHG-zz.js";import"./index-Cyq1QY3v.js";const d=""+new URL("readme-12FZ0lQi.md",import.meta.url).href;function e(o){return t.jsxs(t.Fragment,{children:[t.jsx(n,{of:c}),`
+`,t.jsx(i,{children:d+s+p}),`
+`,t.jsx(a,{})]})}function v(o={}){const{wrapper:r}={...m(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(e,{...o})}):e()}export{v as default};
