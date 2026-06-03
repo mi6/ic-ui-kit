@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/radio?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-dark/localhost--2026_05_30_03_16_14.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-dark/localhost--2026_05_30_03_16_14.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-dark/localhost--2026_06_03_03_20_47.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-dark/localhost--2026_06_03_03_20_47.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
