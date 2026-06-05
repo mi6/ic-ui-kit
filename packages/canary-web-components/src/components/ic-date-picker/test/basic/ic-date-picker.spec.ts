@@ -10,11 +10,17 @@ import {
 } from "../../../../testspec.setup";
 import { dateIsToday, dateMatches } from "../../../../utils/date-helpers";
 import { InputLabel } from "../../../../../../web-components/src/components/ic-input-label/ic-input-label";
+import timekeeper from "timekeeper";
 
 const DELAY_MS = 350;
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
+  timekeeper.freeze(new Date("2026-01-01"));
+});
+
+afterAll(() => {
+  timekeeper.reset();
 });
 
 describe("ic-date-picker", () => {
