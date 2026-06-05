@@ -1,7 +1,7 @@
 {
   "total": 935,
-  "totalPassed": 934,
-  "totalFailed": 1,
+  "totalPassed": 935,
+  "totalFailed": 0,
   "totalSuites": 46,
   "suites": [
     {
@@ -3902,6 +3902,177 @@
       ]
     },
     {
+      "name": "IcLayoutGrid.cy.tsx",
+      "path": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/default-left-aligned",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/default-left-aligned.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/default-left-aligned.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/center-aligned",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/center-aligned.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/center-aligned.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/full-width",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/full-width.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/full-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/full-height",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/full-height.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/full-height.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/default-column-width",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/default-column-width.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/default-column-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/default-column-span",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/default-column-span.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/default-column-span.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/responsive-4-columns",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-4-columns.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-4-columns.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/responsive-2-columns",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-2-columns.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-2-columns.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/responsive-1-column",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-1-column.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-1-column.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/responsive-col-span-1",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-col-span-1.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-col-span-1.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/responsive-col-span-2",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-col-span-2.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-col-span-2.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/responsive-col-span-4",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-col-span-4.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-col-span-4.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/with-rows",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/with-rows.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/with-rows.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/with-layout-grid-items",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/with-layout-grid-items.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/with-layout-grid-items.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLayoutGrid.cy.tsx/with-layout-grid-items-hidden-in-mobile-mode",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
+          "specFilename": "IcLayoutGrid.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/with-layout-grid-items-hidden-in-mobile-mode.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/with-layout-grid-items-hidden-in-mobile-mode.png"
+        }
+      ]
+    },
+    {
       "name": "IcHero.cy.tsx",
       "path": "src/component-tests/IcHero/IcHero.cy.tsx",
       "tests": [
@@ -4102,177 +4273,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx/background-image-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx/background-image-high-contrast.png"
-        }
-      ]
-    },
-    {
-      "name": "IcLayoutGrid.cy.tsx",
-      "path": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-      "tests": [
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/default-left-aligned",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/default-left-aligned.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/default-left-aligned.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/center-aligned",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/center-aligned.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/center-aligned.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/full-width",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/full-width.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/full-width.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/full-height",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/full-height.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/full-height.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/default-column-width",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/default-column-width.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/default-column-width.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/default-column-span",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/default-column-span.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/default-column-span.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/responsive-4-columns",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-4-columns.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-4-columns.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/responsive-2-columns",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-2-columns.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-2-columns.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/responsive-1-column",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-1-column.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-1-column.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/responsive-col-span-1",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-col-span-1.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-col-span-1.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/responsive-col-span-2",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-col-span-2.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-col-span-2.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/responsive-col-span-4",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/responsive-col-span-4.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/responsive-col-span-4.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/with-rows",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/with-rows.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/with-rows.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/with-layout-grid-items",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/with-layout-grid-items.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/with-layout-grid-items.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLayoutGrid.cy.tsx/with-layout-grid-items-hidden-in-mobile-mode",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLayoutGrid/IcLayoutGrid.cy.tsx",
-          "specFilename": "IcLayoutGrid.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLayoutGrid.cy.tsx/with-layout-grid-items-hidden-in-mobile-mode.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLayoutGrid.cy.tsx/with-layout-grid-items-hidden-in-mobile-mode.png"
         }
       ]
     },
@@ -9975,14 +9975,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/navigation-items.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx/navigation-item-with-focus-indicator",
-          "percentage": 0.06759965797309488,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/navigation-item-with-focus-indicator.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx/navigation-item-with-focus-indicator.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/navigation-item-with-focus-indicator.png"
         },
         {
@@ -10566,9 +10566,9 @@
       ]
     }
   ],
-  "startedAt": "2026-06-05T12:32:01.974Z",
-  "endedAt": "2026-06-05T12:51:56.459Z",
-  "duration": 1085539,
+  "startedAt": "2026-06-05T12:56:08.493Z",
+  "endedAt": "2026-06-05T13:15:35.047Z",
+  "duration": 1059821,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
