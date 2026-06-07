@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/data-list?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-dark/localhost--2026_06_05_03_25_37.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-dark/localhost--2026_06_05_03_25_37.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-dark/localhost--2026_06_07_03_25_10.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-dark/localhost--2026_06_07_03_25_10.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
