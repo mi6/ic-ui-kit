@@ -32,9 +32,11 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -53,9 +55,11 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -628,9 +632,11 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -649,9 +655,11 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -1224,9 +1232,11 @@ exports[`ic-date-picker should open at specified date 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -1245,9 +1255,11 @@ exports[`ic-date-picker should open at specified date 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -1820,9 +1832,11 @@ exports[`ic-date-picker should render as required field 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -1841,9 +1855,11 @@ exports[`ic-date-picker should render as required field 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -1905,9 +1921,11 @@ exports[`ic-date-picker should render default size 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -1926,9 +1944,11 @@ exports[`ic-date-picker should render default size 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -2503,9 +2523,11 @@ exports[`ic-date-picker should render disabled 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -2524,9 +2546,11 @@ exports[`ic-date-picker should render disabled 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -2588,9 +2612,11 @@ exports[`ic-date-picker should render large datepicker 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -2609,9 +2635,11 @@ exports[`ic-date-picker should render large datepicker 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -3186,9 +3214,11 @@ exports[`ic-date-picker should render small datepicker 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -3207,9 +3237,11 @@ exports[`ic-date-picker should render small datepicker 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -3784,9 +3816,11 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -3805,9 +3839,11 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -3960,7 +3996,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 1 January 2026" class="day-button" tabindex="-1">
+                      <button aria-current="date" aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 1 January 2026" class="day-button focussed today" tabindex="0">
                         <ic-typography variant="subtitle-small">
                           1
                         </ic-typography>
@@ -4072,7 +4108,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-current="date" aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 13 January 2026" class="day-button focussed today" tabindex="0">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 13 January 2026" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           13
                         </ic-typography>
@@ -4393,9 +4429,11 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -4414,9 +4452,11 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -4569,7 +4609,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 1 January 2026" class="day-button" tabindex="-1">
+                      <button aria-current="date" aria-disabled="false" aria-hidden="false" aria-label="Choose Thursday, 1 January 2026" class="day-button focussed today" tabindex="0">
                         <ic-typography variant="subtitle-small">
                           1
                         </ic-typography>
@@ -4681,7 +4721,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </td>
                   <td>
                     <div class="day-button-container">
-                      <button aria-current="date" aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 13 January 2026" class="day-button focussed today" tabindex="0">
+                      <button aria-disabled="false" aria-hidden="false" aria-label="Choose Tuesday, 13 January 2026" class="day-button" tabindex="-1">
                         <ic-typography variant="subtitle-small">
                           13
                         </ic-typography>
@@ -4991,9 +5031,11 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -5012,9 +5054,11 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -5589,9 +5633,11 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -5610,9 +5656,11 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -5674,9 +5722,11 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -5695,9 +5745,11 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -5759,9 +5811,11 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -5780,9 +5834,11 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -6357,9 +6413,11 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -6378,9 +6436,11 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
@@ -6938,9 +6998,11 @@ exports[`ic-date-picker should render with validation-aria-live 1`] = `
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <template shadowrootmode="open">
                           <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                            <ic-typography variant="caption">
-                              Clear input
-                            </ic-typography>
+                            <div class="ic-tooltip-content">
+                              <ic-typography variant="caption">
+                                Clear input
+                              </ic-typography>
+                            </div>
                             <div class="ic-tooltip-arrow"></div>
                           </div>
                           <slot></slot>
@@ -6959,9 +7021,11 @@ exports[`ic-date-picker should render with validation-aria-live 1`] = `
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <template shadowrootmode="open">
                             <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
-                              <ic-typography variant="caption">
-                                Display calendar
-                              </ic-typography>
+                              <div class="ic-tooltip-content">
+                                <ic-typography variant="caption">
+                                  Display calendar
+                                </ic-typography>
+                              </div>
                               <div class="ic-tooltip-arrow"></div>
                             </div>
                             <slot></slot>
