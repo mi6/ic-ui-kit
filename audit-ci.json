@@ -188,6 +188,13 @@
         "notes": "requires upgrade to 'qs', which is a transitive dependency of cypress. Might be removable after cypress upgrade.",
         "expiry": "27 June 2026"
       }
+    },
+    {
+      "GHSA-w5hq-g745-h8pq": {
+        "active": true,
+        "notes": "transitive dependency of @angular-devkit, which has been upgraded to latest minor patch. May fix on future upgrade",
+        "expiry": "27 June 2026"
+      }
     }
   ]
 }
