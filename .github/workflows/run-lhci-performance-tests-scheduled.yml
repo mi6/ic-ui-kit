@@ -46,3 +46,5 @@ jobs:
         with:
           folder: ./packages/react/lhci-reports
           target-folder: ./branches/develop/lhci-reports/batch-${{ matrix.batch }}
+          force: false
+          attempt-limit: 10
