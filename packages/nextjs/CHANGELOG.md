@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.2.25...@ukic/nextjs@3.3.0) (2026-06-10)
+
+### Features
+
+- **nextjs:** upgrade nextjs to version 16 ([47540f9](https://github.com/mi6/ic-ui-kit/commit/47540f91b3e5cd8b2675a8f190476f3736814d37)), closes [#4315](https://github.com/mi6/ic-ui-kit/issues/4315)
+
 ## [3.2.25](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.2.23...@ukic/nextjs@3.2.25) (2026-05-28)
 
 **Note:** Version bump only for package @ukic/nextjs

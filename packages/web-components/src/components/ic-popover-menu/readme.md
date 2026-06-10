@@ -23,6 +23,13 @@ This is a wrapper component to be placed around one or more ic-menu-item compone
 | `icPopoverClosed` | Emitted when the popover menu is closed. | `CustomEvent<HTMLIcMenuItemElement>` |
 
 
+## Slots
+
+| Slot       | Description                                                                                        |
+| ---------- | -------------------------------------------------------------------------------------------------- |
+| `"anchor"` | The default anchor element for the popover menu. This will take precedence over the `anchor` prop. |
+
+
 ## CSS Custom Properties
 
 | Name                   | Description                         |

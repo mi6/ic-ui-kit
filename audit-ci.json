@@ -15,13 +15,6 @@
       }
     },
     {
-      "GHSA-f5x3-32g6-xq36": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 June 2026"
-      }
-    },
-    {
       "GHSA-grv7-fg5c-xmjg": {
         "active": true,
         "notes": "requires upgrade to 'braces', which is a transitive dependency of storybook. Might be removable after storybook upgrade.",
@@ -71,27 +64,6 @@
       }
     },
     {
-      "GHSA-8qq5-rm4j-mr97": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 June 2026"
-      }
-    },
-    {
-      "GHSA-34x7-hfp2-rc4v": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 June 2026"
-      }
-    },
-    {
-      "GHSA-r6q2-hw4h-h46w": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 June 2026"
-      }
-    },
-    {
       "GHSA-xxjr-mmjv-4gpg": {
         "active": true,
         "notes": "requires upgrade to 'lodash' dependency in root packages (all components package-locks have been updated).",
@@ -102,27 +74,6 @@
       "GHSA-p5wg-g6qr-c7cg": {
         "active": true,
         "notes": "requires upgrade to 'eslint', which requires major version(s) upgrade. This will be partly resolved by ticket #3588",
-        "expiry": "27 June 2026"
-      }
-    },
-    {
-      "GHSA-83g3-92jg-28cx": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 June 2026"
-      }
-    },
-    {
-      "GHSA-qffp-2rhf-9h96": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 June 2026"
-      }
-    },
-    {
-      "GHSA-9ppj-qmqm-q256": {
-        "active": true,
-        "notes": "requires upgrade to 'tar', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
         "expiry": "27 June 2026"
       }
     },
@@ -232,16 +183,16 @@
       }
     },
     {
-      "GHSA-ph9p-34f9-6g65": {
+      "GHSA-q8mj-m7cp-5q26": {
         "active": true,
-        "notes": "requires upgrade to 'tmp', which is a transitive dependency of commitizen. Might be removable after commitizen upgrade.",
+        "notes": "requires upgrade to 'qs', which is a transitive dependency of cypress. Might be removable after cypress upgrade.",
         "expiry": "27 June 2026"
       }
     },
     {
-      "GHSA-q8mj-m7cp-5q26": {
+      "GHSA-w5hq-g745-h8pq": {
         "active": true,
-        "notes": "requires upgrade to 'qs', which is a transitive dependency of cypress. Might be removable after cypress upgrade.",
+        "notes": "transitive dependency of @angular-devkit, which has been upgraded to latest minor patch. May fix on future upgrade",
         "expiry": "27 June 2026"
       }
     }

@@ -1,5 +1,5 @@
-// import "../dist/core/normalize.css";
-// import "../dist/core/core.css";
+import "@ukic/react/dist/core/normalize.css";
+import "@ukic/react/dist/core/core.css";
 import "@ukic/fonts/dist/fonts.css";
 import "./storybook.css";
 
