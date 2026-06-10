@@ -64,3 +64,5 @@ jobs:
         with:
           folder: ./packages/react/lhci-reports
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/lhci-reports/batch-${{ matrix.batch }}
+          force: false
+          attempt-limit: 10
