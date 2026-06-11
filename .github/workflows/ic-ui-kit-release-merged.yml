@@ -118,7 +118,7 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
-          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          ref: ${{ github.ref }}
           fetch-depth: 0
           fetch-tags: true
           token: ${{ secrets.PUBLISH_PAT }}
