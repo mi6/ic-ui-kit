@@ -117,12 +117,14 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
           fetch-depth: 0
           fetch-tags: true
-          TOKEN: ${{ secrets.PUBLISH_PAT }}
+          token: ${{ secrets.PUBLISH_PAT }}
+
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
-          node-version: 24
+          node-version: 20
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
