@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.27.0...@ukic/web-components@3.28.0) (2026-06-10)
+# [3.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.27.0...@ukic/web-components@3.28.0) (2026-06-12)
 
 ### Bug Fixes
 
