@@ -901,14 +901,14 @@ export declare interface IcMenuGroup extends Components.IcMenuGroup {}
 
 
 @ProxyCmp({
-  inputs: ['checked', 'description', 'disabled', 'href', 'hreflang', 'keyboardShortcutLabel', 'label', 'referrerpolicy', 'rel', 'submenuTriggerFor', 'target', 'variant']
+  inputs: ['checked', 'closeMenuOnSelect', 'description', 'disabled', 'href', 'hreflang', 'keyboardShortcutLabel', 'label', 'referrerpolicy', 'rel', 'submenuTriggerFor', 'target', 'variant']
 })
 @Component({
   selector: 'ic-menu-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'description', 'disabled', 'href', 'hreflang', 'keyboardShortcutLabel', { name: 'label', required: true }, 'referrerpolicy', 'rel', 'submenuTriggerFor', 'target', 'variant'],
+  inputs: ['checked', 'closeMenuOnSelect', 'description', 'disabled', 'href', 'hreflang', 'keyboardShortcutLabel', { name: 'label', required: true }, 'referrerpolicy', 'rel', 'submenuTriggerFor', 'target', 'variant'],
   outputs: ['icToggleChecked'],
   standalone: false
 })
@@ -1144,14 +1144,14 @@ export declare interface IcPaginationItem extends Components.IcPaginationItem {}
 
 
 @ProxyCmp({
-  inputs: ['anchor', 'fixedPositioning', 'open', 'submenuId', 'theme']
+  inputs: ['anchor', 'closeOnItemSelect', 'fixedPositioning', 'open', 'submenuId', 'theme']
 })
 @Component({
   selector: 'ic-popover-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['anchor', 'fixedPositioning', 'open', 'submenuId', 'theme'],
+  inputs: ['anchor', 'closeOnItemSelect', 'fixedPositioning', 'open', 'submenuId', 'theme'],
   outputs: ['icPopoverClosed'],
   standalone: false
 })
