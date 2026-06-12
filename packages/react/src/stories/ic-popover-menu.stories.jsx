@@ -85,6 +85,131 @@ export const Default = {
   name: "Default",
 };
 
+export const MenuOnToggle = {
+  render: () => {
+    function buttonClick() {
+      document.querySelector("ic-popover-menu").open =
+        !document.querySelector("ic-popover-menu").open;
+    }
+
+    return (
+      <>
+        <IcButton id="button-1" onClick={buttonClick}>
+          Show/Hide popover
+        </IcButton>
+        <IcPopoverMenu
+          anchor="button-1"
+          aria-label="popover"
+          onIcPopoverClosed={(event) => console.log("icPopoverClosed: ", event)}
+          closeOnItemSelect="toggle"
+        >
+          <IcMenuItem label="Copy code" disabled />
+          <IcMenuGroup label="View">
+            <IcMenuItem
+              label="Zoom in"
+              keyboardShortcutLabel="Cmd+"
+            />
+            <IcMenuItem label="Full Screen Mode" variant="toggle" />
+            <IcMenuItem label="Zoom out" keyboardShortcutLabel="Cmd-" />
+          </IcMenuGroup>
+          <IcMenuItem label="Actions" submenuTriggerFor="abc" />
+          <IcMenuItem label="Logout" variant="destructive" disabled />
+        </IcPopoverMenu>
+        <IcPopoverMenu submenuId="abc" closeOnItemSelect="toggle">
+          <IcMenuItem label="Edit" />
+          <IcMenuItem label="Auto-save" variant="toggle" />
+          <IcMenuItem label="Find" submenuTriggerFor="abc123" closeOnItemSelect="toggle" />
+          <IcMenuItem label="Delete" variant="destructive" />
+        </IcPopoverMenu>
+        <IcPopoverMenu submenuId="abc123">
+          <IcMenuItem
+            label="Search the web"
+            disabled
+            description="This will search the web to find the thing you are looking for."
+          />
+          <IcMenuItem label="Find..." />
+          <IcMenuItem label="Find icons">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+            </svg>
+          </IcMenuItem>
+          <IcMenuItem label="Show found results" variant="toggle" />
+        </IcPopoverMenu>
+      </>
+    );
+  },
+
+  name: "Menu On Toggle",
+};
+
+export const MenuNeverCloses = {
+  render: () => {
+    function buttonClick() {
+      document.querySelector("ic-popover-menu").open =
+        !document.querySelector("ic-popover-menu").open;
+    }
+
+    return (
+      <>
+        <IcButton id="button-1" onClick={buttonClick}>
+          Show/Hide popover
+        </IcButton>
+        <IcPopoverMenu
+          anchor="button-1"
+          aria-label="popover"
+          onIcPopoverClosed={(event) => console.log("icPopoverClosed: ", event)}
+          closeOnItemSelect="never"
+        >
+          <IcMenuItem label="Copy code" disabled />
+          <IcMenuGroup label="View">
+            <IcMenuItem label="Zoom in" keyboardShortcutLabel="Cmd+" />
+            <IcMenuItem label="Full Screen Mode" variant="toggle" />
+            <IcMenuItem label="Zoom out" keyboardShortcutLabel="Cmd-" />
+          </IcMenuGroup>
+          <IcMenuItem label="Actions" submenuTriggerFor="abc" />
+          <IcMenuItem label="Logout" variant="destructive" disabled />
+        </IcPopoverMenu>
+        <IcPopoverMenu submenuId="abc" closeOnItemSelect="never">
+          <IcMenuItem label="Edit" />
+          <IcMenuItem label="Auto-save" variant="toggle" />
+          <IcMenuItem label="Find" submenuTriggerFor="abc123" />
+          <IcMenuItem label="Delete" variant="destructive" />
+        </IcPopoverMenu>
+        <IcPopoverMenu submenuId="abc123" closeOnItemSelect="never">
+          <IcMenuItem
+            label="Search the web"
+            disabled
+            description="This will search the web to find the thing you are looking for."
+          />
+          <IcMenuItem label="Find..." />
+          <IcMenuItem label="Find icons">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+            </svg>
+          </IcMenuItem>
+          <IcMenuItem label="Show found results" variant="toggle" />
+        </IcPopoverMenu>
+      </>
+    );
+  },
+
+  name: "Menu Never Closes",
+};
+
 export const LeftPlacement = {
   render: () => {
     function buttonClick() {

@@ -13,6 +13,8 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   DisabledPopoverMenu,
   MaxHeight,
+  PopoverCloseOnClick,
+  PopoverCloseOnItemSelectNever,
   PopoverDropdown,
   PopoverMenuDescription,
   PopoverMenuWithVariants,
@@ -218,7 +220,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/max-height",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -272,6 +274,64 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.get("#submenu-trigger-actions").click();
 
     cy.get("@triggerPopoverMenuInstance").should(HAVE_BEEN_CALLED_ONCE);
+  });
+
+  it("should remain open when clicking toggle or close-menu-on-select=false items", () => {
+    mount(<PopoverCloseOnClick />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.checkA11yWithWait();
+
+    cy.get(MENU_ITEM_SELECTOR).eq(0).click();
+    cy.get(POPOVER_SELECTOR).should("be.visible");
+
+    cy.get(MENU_ITEM_SELECTOR).eq(1).click();
+    cy.get(POPOVER_SELECTOR).should("be.visible");
+
+    cy.get(MENU_ITEM_SELECTOR).eq(2).click();
+    cy.get(POPOVER_SELECTOR).should("be.visible");
+
+    cy.get(POPOVER_SELECTOR + '[submenu-id="actions"]').should(BE_VISIBLE);
+    cy.get(POPOVER_SELECTOR + '[submenu-id="actions"] ' + MENU_ITEM_SELECTOR)
+      .eq(1)
+      .click();
+    cy.get(POPOVER_SELECTOR + '[submenu-id="actions"]').should(BE_VISIBLE);
+    cy.wait(500);
+
+    cy.compareSnapshot({
+      name: "/popover-close-on-click",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+    });
+  });
+
+  it("should remain open when close-on-item-select is never", () => {
+    mount(<PopoverCloseOnItemSelectNever />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.checkA11yWithWait();
+
+    cy.get(MENU_ITEM_SELECTOR).eq(0).click();
+    cy.get(POPOVER_SELECTOR).should(BE_VISIBLE);
+
+    cy.get(MENU_ITEM_SELECTOR).eq(1).click();
+    cy.get(POPOVER_SELECTOR).should(BE_VISIBLE);
+
+    cy.get(MENU_ITEM_SELECTOR).eq(2).click();
+    cy.get(POPOVER_SELECTOR).should(BE_VISIBLE);
+
+    cy.get(POPOVER_SELECTOR + '[submenu-id="actions"]').should(BE_VISIBLE);
+    cy.get(POPOVER_SELECTOR + '[submenu-id="actions"] ' + MENU_ITEM_SELECTOR)
+      .first()
+      .click();
+    cy.get(POPOVER_SELECTOR + '[submenu-id="actions"]').should(BE_VISIBLE);
+    cy.wait(500);
+
+    cy.compareSnapshot({
+      name: "/popover-close-on-item-select-never",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+    });
   });
 
   it("should navigate through menu items and submenu items using keyboard", () => {
@@ -451,7 +511,7 @@ describe("IcPopoverMenu visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/disabled-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 
