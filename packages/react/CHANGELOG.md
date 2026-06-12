@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.27.0...@ukic/react@3.28.0) (2026-06-12)
+
+### Features
+
+- **react:** add anchor slot to popover menu ([3f28536](https://github.com/mi6/ic-ui-kit/commit/3f285369e2f8a6d7f810489a89e1d06d45b3fe33))
+
 # [3.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.25.0...@ukic/react@3.27.0) (2026-05-28)
 
 ### Bug Fixes
