@@ -10335,6 +10335,33 @@
           "setter": false
         },
         {
+          "name": "closeMenuOnSelect",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "close-menu-on-select",
+          "reflectToAttr": false,
+          "docs": "If `true`, the menu will close when this menu item is clicked.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "description",
           "type": "string | undefined",
           "complexType": {
@@ -12990,6 +13017,39 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "closeOnItemSelect",
+          "type": "\"always\" | \"never\" | \"toggle\"",
+          "complexType": {
+            "original": "\"always\" | \"toggle\" | \"never\"",
+            "resolved": "\"always\" | \"never\" | \"toggle\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "close-on-item-select",
+          "reflectToAttr": false,
+          "docs": "If `always`, the popover menu will close when any menu item is clicked. If `toggle`, the popover menu will close when a non-toggle menu item is clicked. If `never`, the popover menu will not close when any menu item is clicked.",
+          "docsTags": [],
+          "default": "\"always\"",
+          "values": [
+            {
+              "value": "always",
+              "type": "string"
+            },
+            {
+              "value": "never",
+              "type": "string"
+            },
+            {
+              "value": "toggle",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
