@@ -91,6 +91,11 @@ export class PopoverMenu {
   @Prop({ reflect: true, mutable: true }) open?: boolean | undefined =
     undefined;
 
+  /**
+   * If `always`, the popover menu will close when any menu item is clicked. If `toggle`, the popover menu will close when a non-toggle menu item is clicked. If `never`, the popover menu will not close when any menu item is clicked.
+   */
+  @Prop() closeOnItemSelect: "always" | "toggle" | "never" = "always";
+
   @Watch("open")
   watchOpenHandler(): void {
     const popoverArr = this.el.parentElement?.querySelectorAll(
@@ -182,6 +187,17 @@ export class PopoverMenu {
   @Listen("handleMenuItemClick")
   handleMenuItemClick(ev: CustomEvent<HTMLIcMenuItemElement>): void {
     if (!ev.detail.submenuTriggerFor && ev.detail.label !== "Back") {
+      if (
+        this.closeOnItemSelect === "never" ||
+        (ev.detail.variant === "toggle" &&
+          this.closeOnItemSelect === "toggle") ||
+        ev.detail.closeMenuOnSelect === false
+      ) {
+        this.currentFocus = this.popoverMenuEls.findIndex(
+          (menuItem) => menuItem === ev.detail
+        );
+        return;
+      }
       this.closeMenu(false, ev.detail);
     }
   }

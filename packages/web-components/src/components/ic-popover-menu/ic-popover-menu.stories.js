@@ -34,12 +34,20 @@ export const Default = {
       }
     </script>
     <div>
-      <ic-popover-menu anchor="button-1" aria-label="popover">
+      <ic-popover-menu
+        anchor="button-1"
+        aria-label="popover"
+        close-on-item-select="toggle"
+      >
         <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
         <ic-menu-group label="View">
           <ic-menu-item
             label="Zoom in"
             keyboard-shortcut-label="Cmd+"
+          ></ic-menu-item>
+          <ic-menu-item
+            label="Full Screen Mode"
+            variant="toggle"
           ></ic-menu-item>
           <ic-menu-item
             label="Zoom out"
@@ -88,6 +96,166 @@ export const Default = {
   `,
 
   name: "Default",
+};
+
+export const MenuOnToggle = {
+  render: () => html`
+    <ic-button id="button-1" onclick="buttonClick()"
+      >Show/Hide popover</ic-button
+    >
+    <script>
+      var icPopover = document.querySelector("ic-popover-menu");
+      function buttonClick() {
+        icPopover.open = !icPopover.open;
+      }
+      icPopover.addEventListener("icPopoverClosed", handleClosed);
+      function handleClosed(event) {
+        console.log("icPopoverClosed: ", event);
+      }
+    </script>
+    <div>
+      <ic-popover-menu
+        anchor="button-1"
+        aria-label="popover"
+        close-on-item-select="toggle"
+      >
+        <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
+        <ic-menu-group label="View">
+          <ic-menu-item
+            label="Zoom in"
+            keyboard-shortcut-label="Cmd+"
+          ></ic-menu-item>
+          <ic-menu-item
+            label="Full Screen Mode"
+            variant="toggle"
+          ></ic-menu-item>
+          <ic-menu-item
+            label="Zoom out"
+            keyboard-shortcut-label="Cmd-"
+          ></ic-menu-item>
+        </ic-menu-group>
+        <ic-menu-item label="Actions" submenu-trigger-for="abc"></ic-menu-item>
+        <ic-menu-item
+          label="Logout"
+          variant="destructive"
+          disabled="true"
+        ></ic-menu-item>
+      </ic-popover-menu>
+      <ic-popover-menu submenu-id="abc" close-on-item-select="toggle">
+        <ic-menu-item label="Edit"></ic-menu-item>
+        <ic-menu-item label="Auto-save" variant="toggle"></ic-menu-item>
+        <ic-menu-item label="Find" submenu-trigger-for="abc123"></ic-menu-item>
+        <ic-menu-item label="Delete" variant="destructive"></ic-menu-item>
+      </ic-popover-menu>
+      <ic-popover-menu submenu-id="abc123" close-on-item-select="toggle">
+        <ic-menu-item
+          disabled="true"
+          label="Search the web"
+          description="This will search the web to find the thing you are looking for."
+        ></ic-menu-item>
+        <ic-menu-item label="Find..."></ic-menu-item>
+        <ic-menu-item label="Find icons">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-menu-item>
+        <ic-menu-item
+          label="Show found results"
+          variant="toggle"
+        ></ic-menu-item>
+      </ic-popover-menu>
+    </div>
+  `,
+  name: "Menu On Toggle",
+};
+
+export const MenuNeverCloses = {
+  render: () => html`
+    <ic-button id="button-1" onclick="buttonClick()"
+      >Show/Hide popover</ic-button
+    >
+    <script>
+      var icPopover = document.querySelector("ic-popover-menu");
+      function buttonClick() {
+        icPopover.open = !icPopover.open;
+      }
+      icPopover.addEventListener("icPopoverClosed", handleClosed);
+      function handleClosed(event) {
+        console.log("icPopoverClosed: ", event);
+      }
+    </script>
+    <div>
+      <ic-popover-menu
+        anchor="button-1"
+        aria-label="popover"
+        close-on-item-select="never"
+      >
+        <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
+        <ic-menu-group label="View">
+          <ic-menu-item
+            label="Zoom in"
+            keyboard-shortcut-label="Cmd+"
+          ></ic-menu-item>
+          <ic-menu-item
+            label="Full Screen Mode"
+            variant="toggle"
+          ></ic-menu-item>
+          <ic-menu-item
+            label="Zoom out"
+            keyboard-shortcut-label="Cmd-"
+          ></ic-menu-item>
+        </ic-menu-group>
+        <ic-menu-item label="Actions" submenu-trigger-for="abc"></ic-menu-item>
+        <ic-menu-item
+          label="Logout"
+          variant="destructive"
+          disabled="true"
+        ></ic-menu-item>
+      </ic-popover-menu>
+      <ic-popover-menu submenu-id="abc" close-on-item-select="never">
+        <ic-menu-item label="Edit"></ic-menu-item>
+        <ic-menu-item label="Auto-save" variant="toggle"></ic-menu-item>
+        <ic-menu-item label="Find" submenu-trigger-for="abc123"></ic-menu-item>
+        <ic-menu-item label="Delete" variant="destructive"></ic-menu-item>
+      </ic-popover-menu>
+      <ic-popover-menu submenu-id="abc123" close-on-item-select="never">
+        <ic-menu-item
+          disabled="true"
+          label="Search the web"
+          description="This will search the web to find the thing you are looking for."
+        ></ic-menu-item>
+        <ic-menu-item label="Find..."></ic-menu-item>
+        <ic-menu-item label="Find icons">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-menu-item>
+        <ic-menu-item
+          label="Show found results"
+          variant="toggle"
+        ></ic-menu-item>
+      </ic-popover-menu>
+    </div>
+  `,
+  name: "Menu Never Closes",
 };
 
 export const MaxHeight = {
