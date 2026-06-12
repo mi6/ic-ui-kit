@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/checkbox-multiple?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-multiple-light/localhost--2026_06_11_03_18_38.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-multiple-light/localhost--2026_06_11_03_18_38.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-multiple-light/localhost--2026_06_12_03_21_22.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-multiple-light/localhost--2026_06_12_03_21_22.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
