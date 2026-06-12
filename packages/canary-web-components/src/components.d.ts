@@ -1273,6 +1273,10 @@ export namespace Components {
          */
         "checked"?: boolean;
         /**
+          * If `true`, the menu will close when this menu item is clicked.
+         */
+        "closeMenuOnSelect"?: boolean;
+        /**
           * The description displayed in the menu item, below the label.
          */
         "description"?: string;
@@ -1583,6 +1587,10 @@ export namespace Components {
           * @param setFocusToAnchor when true return focus to anchor element when menu is closed
          */
         "closeMenu": (setFocusToAnchor?: boolean, menuElement?: HTMLIcMenuItemElement) => Promise<void>;
+        /**
+          * If `always`, the popover menu will close when any menu item is clicked. If `toggle`, the popover menu will close when a non-toggle menu item is clicked. If `never`, the popover menu will not close when any menu item is clicked.
+         */
+        "closeOnItemSelect": "always" | "toggle" | "never";
         /**
           * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
          */
@@ -5176,6 +5184,10 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
+          * If `true`, the menu will close when this menu item is clicked.
+         */
+        "closeMenuOnSelect"?: boolean;
+        /**
           * The description displayed in the menu item, below the label.
          */
         "description"?: string;
@@ -5497,6 +5509,10 @@ declare namespace LocalJSX {
           * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
          */
         "anchor"?: string;
+        /**
+          * If `always`, the popover menu will close when any menu item is clicked. If `toggle`, the popover menu will close when a non-toggle menu item is clicked. If `never`, the popover menu will not close when any menu item is clicked.
+         */
+        "closeOnItemSelect"?: "always" | "toggle" | "never";
         /**
           * Setting to `true` can help in situations where tooltip content is clipped by a parent element.
          */
