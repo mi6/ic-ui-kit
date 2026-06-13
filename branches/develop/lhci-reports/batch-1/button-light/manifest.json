@@ -2,10 +2,10 @@
   {
     "url": "http://localhost:3001/#/button?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-light/localhost--2026_06_12_03_18_51.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-light/localhost--2026_06_12_03_18_51.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-light/localhost--2026_06_13_03_18_07.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-light/localhost--2026_06_13_03_18_07.report.json",
     "summary": {
-      "performance": 1,
+      "performance": 0.93,
       "accessibility": 1,
       "best-practices": 0.96,
       "seo": 0.9
