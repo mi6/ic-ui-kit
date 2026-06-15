@@ -5,6 +5,7 @@ permissions:
   id-token: write
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - closed
@@ -117,12 +118,14 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
+          ref: ${{ github.ref }}
           fetch-depth: 0
           fetch-tags: true
-          TOKEN: ${{ secrets.PUBLISH_PAT }}
+          token: ${{ secrets.PUBLISH_PAT }}
+
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
-          node-version: 24
+          node-version: 22
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
@@ -139,7 +142,7 @@ jobs:
           git config --global user.name ${{ secrets.USERNAME }}
           git config --global user.email ${{ secrets.EMAIL }}
           git checkout packages/docs/docs.json packages/canary-docs/docs.json
-          npx lerna publish --no-commit-hooks -y
+          npx lerna publish --no-commit-hooks --ignore-scripts -y
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

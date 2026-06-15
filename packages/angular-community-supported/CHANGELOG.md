@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.26.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/angular-community-supported@3.26.0...@ukic/angular-community-supported@3.26.1) (2026-06-10)
+## [3.26.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/angular-community-supported@3.26.0...@ukic/angular-community-supported@3.26.1) (2026-06-12)
 
 **Note:** Version bump only for package @ukic/angular-community-supported
 
