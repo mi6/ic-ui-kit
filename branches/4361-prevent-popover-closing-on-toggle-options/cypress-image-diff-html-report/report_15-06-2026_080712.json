@@ -1,7 +1,7 @@
 {
-  "total": 935,
+  "total": 937,
   "totalPassed": 935,
-  "totalFailed": 0,
+  "totalFailed": 2,
   "totalSuites": 46,
   "suites": [
     {
@@ -5692,6 +5692,28 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/submenu-focused.png"
         },
         {
+          "status": "fail",
+          "name": "IcPopoverMenu.cy.tsx/popover-close-on-click",
+          "percentage": 0.09191300234460846,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/popover-close-on-click.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx/popover-close-on-click.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/popover-close-on-click.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcPopoverMenu.cy.tsx/popover-close-on-item-select-never",
+          "percentage": 0.09228217596047461,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/popover-close-on-item-select-never.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx/popover-close-on-item-select-never.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/popover-close-on-item-select-never.png"
+        },
+        {
           "status": "pass",
           "name": "IcPopoverMenu.cy.tsx/default-after-click-button",
           "percentage": 0,
@@ -8615,6 +8637,89 @@
       ]
     },
     {
+      "name": "IcTheme.cy.tsx",
+      "path": "src/component-tests/IcTheme/IcTheme.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcTheme.cy.tsx/ic-theme-light-with-dark-mode-component-overrides",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
+          "specFilename": "IcTheme.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-light-with-dark-mode-component-overrides.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-light-with-dark-mode-component-overrides.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
+          "specFilename": "IcTheme.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTheme.cy.tsx/ic-theme-system-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
+          "specFilename": "IcTheme.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-system-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-system-dark.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTheme.cy.tsx/ic-theme-system-light",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
+          "specFilename": "IcTheme.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-system-light.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-system-light.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTheme.cy.tsx/ic-theme-inherit-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
+          "specFilename": "IcTheme.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-inherit-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-inherit-dark.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTheme.cy.tsx/ic-theme-inherit-light",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
+          "specFilename": "IcTheme.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-inherit-light.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-inherit-light.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTheme.cy.tsx/sunrise-brand",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
+          "specFilename": "IcTheme.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/sunrise-brand.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/sunrise-brand.png"
+        }
+      ]
+    },
+    {
       "name": "IcTextField.cy.tsx",
       "path": "src/component-tests/IcTextField/IcTextField.cy.tsx",
       "tests": [
@@ -8826,89 +8931,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx/validation-text-field-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx/validation-text-field-high-contrast.png"
-        }
-      ]
-    },
-    {
-      "name": "IcTheme.cy.tsx",
-      "path": "src/component-tests/IcTheme/IcTheme.cy.tsx",
-      "tests": [
-        {
-          "status": "pass",
-          "name": "IcTheme.cy.tsx/ic-theme-light-with-dark-mode-component-overrides",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
-          "specFilename": "IcTheme.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-light-with-dark-mode-component-overrides.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-light-with-dark-mode-component-overrides.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
-          "specFilename": "IcTheme.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTheme.cy.tsx/ic-theme-system-dark",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
-          "specFilename": "IcTheme.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-system-dark.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-system-dark.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTheme.cy.tsx/ic-theme-system-light",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
-          "specFilename": "IcTheme.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-system-light.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-system-light.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTheme.cy.tsx/ic-theme-inherit-dark",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
-          "specFilename": "IcTheme.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-inherit-dark.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-inherit-dark.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTheme.cy.tsx/ic-theme-inherit-light",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
-          "specFilename": "IcTheme.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-inherit-light.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-inherit-light.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcTheme.cy.tsx/sunrise-brand",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
-          "specFilename": "IcTheme.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/sunrise-brand.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/sunrise-brand.png"
         }
       ]
     },
@@ -10566,9 +10588,9 @@
       ]
     }
   ],
-  "startedAt": "2026-06-12T14:06:09.325Z",
-  "endedAt": "2026-06-12T14:25:57.034Z",
-  "duration": 1081666,
+  "startedAt": "2026-06-15T08:07:12.740Z",
+  "endedAt": "2026-06-15T08:27:52.210Z",
+  "duration": 1129874,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
