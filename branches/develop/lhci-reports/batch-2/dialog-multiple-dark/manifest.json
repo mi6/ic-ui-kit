@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/dialog-multiple?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-multiple-dark/localhost--2026_06_14_03_20_50.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-multiple-dark/localhost--2026_06_14_03_20_50.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-multiple-dark/localhost--2026_06_15_03_22_08.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-multiple-dark/localhost--2026_06_15_03_22_08.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
