@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/classification-banner?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/classification-banner-light/localhost--2026_06_14_03_27_31.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/classification-banner-light/localhost--2026_06_14_03_27_31.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/classification-banner-light/localhost--2026_06_15_03_28_35.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/classification-banner-light/localhost--2026_06_15_03_28_35.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
