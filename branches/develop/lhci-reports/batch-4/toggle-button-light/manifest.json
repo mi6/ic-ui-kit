@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/toggle-button?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-light/localhost--2026_06_15_03_22_02.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-light/localhost--2026_06_15_03_22_02.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-light/localhost--2026_06_16_03_20_09.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-light/localhost--2026_06_16_03_20_09.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
