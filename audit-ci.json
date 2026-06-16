@@ -195,6 +195,13 @@
         "notes": "transitive dependency of @angular-devkit, which has been upgraded to latest minor patch. May fix on future upgrade",
         "expiry": "27 June 2026"
       }
+    },
+    {
+      "GHSA-96hv-2xvq-fx4p": {
+        "active": true,
+        "notes": "requires upgrade to 'ws', which is a transitive dependency of storybook. Might be removable after storybook upgrade.",
+        "expiry": "27 June 2026"
+      }
     }
   ]
 }
