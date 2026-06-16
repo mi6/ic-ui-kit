@@ -78,6 +78,10 @@
   "peerDependencies": {
     "@ukic/fonts": "^3.1.0"
   },
+  "overrides": {
+    "esbuild": "0.28.1",
+    "js-yaml": "4.2.0"
+  },
   "packageManager": "^npm@10.9.2",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
