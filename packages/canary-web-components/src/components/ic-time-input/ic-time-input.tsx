@@ -633,19 +633,35 @@ export class TimeInput {
     const inputEvent = event as InputEvent;
     const input = event.target as HTMLInputElement;
     if (input === this.millisecondInputEl && this.isSSSFormat()) {
-      this.setInputValue(input);
-      this.setPreventInput(input, false);
       this.setFitToValueStyling(input);
-      if (input.value.length === 3) {
-        this.moveToNextInput(input);
-        this.setPreventInput(input, true);
-      } else {
-        this.setPreventInput(input, false);
+
+      switch (input.value.length) {
+        case 0: {
+          this.setInputValue(input, true);
+          this.setValidationMessage();
+          break;
+        }
+
+        case 1:
+        case 2: {
+          this.setPreventInput(input, false);
+          break;
+        }
+
+        case 3: {
+          this.setInputValue(input);
+          this.moveToNextInput(input);
+          this.setPreventInput(input, true);
+          break;
+        }
+
+        default: {
+          console.warn(
+            `Unexpected millisecond input length: ${input.value.length}`
+          );
+        }
       }
-      if (input.value.length === 0) {
-        this.setInputValue(input, true);
-        this.setValidationMessage();
-      }
+
       this.notifyScreenReader(input);
     } else if (input !== this.hourInputEl) {
       if (

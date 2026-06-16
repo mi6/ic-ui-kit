@@ -169,6 +169,27 @@ describe("ic-time-input component", () => {
     expect(spySetPreventInput).toHaveBeenCalled();
   });
 
+  it("should not call setInputValue for millisecond input until all 3 digits are typed", async () => {
+    const { componentInstance, millisecondInput } = await createTimeInputEnv(
+      MILLISECOND_FORMAT
+    );
+    const spySetInputValue = jest.spyOn(componentInstance, "setInputValue");
+
+    millisecondInput.value = "1";
+    componentInstance.handleInput(handleEvent(millisecondInput));
+    expect(spySetInputValue).not.toHaveBeenCalled();
+
+    spySetInputValue.mockClear();
+    millisecondInput.value = "12";
+    componentInstance.handleInput(handleEvent(millisecondInput));
+    expect(spySetInputValue).not.toHaveBeenCalled();
+
+    spySetInputValue.mockClear();
+    millisecondInput.value = "123";
+    componentInstance.handleInput(handleEvent(millisecondInput));
+    expect(spySetInputValue).toHaveBeenCalledWith(millisecondInput);
+  });
+
   it("should call setInputValue and moveToNextInput when formatting is true and event is ArrowRight key", async () => {
     const { componentInstance, hourInput } = await createTimeInputEnv();
 
