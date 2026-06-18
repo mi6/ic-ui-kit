@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/button-variants?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-variants-light/localhost--2026_06_17_03_19_18.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-variants-light/localhost--2026_06_17_03_19_18.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-variants-light/localhost--2026_06_18_03_18_38.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-variants-light/localhost--2026_06_18_03_18_38.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
