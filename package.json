@@ -53,9 +53,9 @@
     }
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.3.0",
-    "@commitlint/config-conventional": "^17.3.0",
-    "@commitlint/config-lerna-scopes": "^17.2.1",
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
+    "@commitlint/config-lerna-scopes": "^21.0.2",
     "@cspell/dict-html-symbol-entities": "^4.0.0",
     "@cspell/dict-la": "^1.0.0",
     "@cspell/dict-lorem-ipsum": "^4.0.0",
