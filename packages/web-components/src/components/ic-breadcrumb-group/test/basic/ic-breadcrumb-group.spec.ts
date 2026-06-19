@@ -260,6 +260,23 @@ describe("ic-breadcrumb-group", () => {
     expect(page.rootInstance.getLastParentBreadcrumb()).toBeNull();
   });
 
+  it("should warn when backBreadcrumbOnly is used with fewer than two breadcrumbs", async () => {
+    const warnSpy = jest.spyOn(console, "warn").mockImplementation(jest.fn());
+
+    await newSpecPage({
+      components: [BreadcrumbGroup, Breadcrumb],
+      html: `<ic-breadcrumb-group back-breadcrumb-only="true">
+          <ic-breadcrumb current="true" page-title="Breadcrumb 1" href="/breadcrumb-1"></ic-breadcrumb>
+      </ic-breadcrumb-group>`,
+    });
+
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining("backBreadcrumbOnly requires at least two")
+    );
+
+    warnSpy.mockRestore();
+  });
+
   //this test has to go last as it changes the device size
   it("should render collapse on already small devices", async () => {
     const myfunc = jest.fn().mockReturnValue(DEVICE_SIZES.S);
