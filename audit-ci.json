@@ -202,6 +202,13 @@
         "notes": "requires upgrade to 'ws', which is a transitive dependency of storybook. Might be removable after storybook upgrade.",
         "expiry": "27 June 2026"
       }
+    },
+    {
+      "GHSA-64mm-vxmg-q3vj": {
+        "active": true,
+        "notes": "requires upgrade to 'http-proxy-middleware'.",
+        "expiry": "27 June 2026"
+      }
     }
   ]
 }
