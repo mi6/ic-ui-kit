@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{y as t}from"./components-CDP33u_Y.js";import{n,t as r}from"./ic-section-container-59ad5169-CTGBFNSG.js";e((()=>{n(),t()}))();export{r as ic_section_container};
