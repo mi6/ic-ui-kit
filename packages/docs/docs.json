@@ -2343,7 +2343,7 @@
           "mutable": false,
           "attr": "back-breadcrumb-only",
           "reflectToAttr": false,
-          "docs": "If `true`, display only a single breadcrumb for the parent page with a back icon.",
+          "docs": "If `true`, display only a single breadcrumb for the parent page with a back icon.\nRequires at least two `ic-breadcrumb` children, as the displayed breadcrumb\nshows the title of the parent (second-to-last) page.",
           "docsTags": [],
           "default": "false",
           "values": [
