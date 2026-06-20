@@ -2,10 +2,10 @@
   {
     "url": "http://localhost:3001/#/dialog?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-light/localhost--2026_06_19_03_19_20.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-light/localhost--2026_06_19_03_19_20.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-light/localhost--2026_06_20_03_17_09.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-light/localhost--2026_06_20_03_17_09.report.json",
     "summary": {
-      "performance": 1,
+      "performance": 0.99,
       "accessibility": 1,
       "best-practices": 0.96,
       "seo": 0.9
