@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/pagination?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/pagination-light/localhost--2026_06_20_03_22_15.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/pagination-light/localhost--2026_06_20_03_22_15.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/pagination-light/localhost--2026_06_21_03_24_21.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/pagination-light/localhost--2026_06_21_03_24_21.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
