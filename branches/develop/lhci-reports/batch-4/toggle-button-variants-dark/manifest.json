@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/toggle-button-variants?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-variants-dark/localhost--2026_06_20_03_18_42.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-variants-dark/localhost--2026_06_20_03_18_42.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-variants-dark/localhost--2026_06_21_03_21_19.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-variants-dark/localhost--2026_06_21_03_21_19.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
