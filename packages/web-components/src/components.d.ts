@@ -337,7 +337,7 @@ export namespace Components {
     }
     interface IcBreadcrumbGroup {
         /**
-          * If `true`, display only a single breadcrumb for the parent page with a back icon.
+          * If `true`, display only a single breadcrumb for the parent page with a back icon. Requires at least two `ic-breadcrumb` children, as the displayed breadcrumb shows the title of the parent (second-to-last) page.
          */
         "backBreadcrumbOnly": boolean;
         /**
@@ -4235,7 +4235,7 @@ declare namespace LocalJSX {
     }
     interface IcBreadcrumbGroup {
         /**
-          * If `true`, display only a single breadcrumb for the parent page with a back icon.
+          * If `true`, display only a single breadcrumb for the parent page with a back icon. Requires at least two `ic-breadcrumb` children, as the displayed breadcrumb shows the title of the parent (second-to-last) page.
          */
         "backBreadcrumbOnly"?: boolean;
         /**

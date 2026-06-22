@@ -29,6 +29,8 @@ export class BreadcrumbGroup {
 
   /**
    * If `true`, display only a single breadcrumb for the parent page with a back icon.
+   * Requires at least two `ic-breadcrumb` children, as the displayed breadcrumb
+   * shows the title of the parent (second-to-last) page.
    */
   @Prop() backBreadcrumbOnly = false;
   @Watch("backBreadcrumbOnly")
@@ -120,13 +122,10 @@ export class BreadcrumbGroup {
     }
   };
 
-  private setBackBreadcrumbAttr = () => {
-    if (this.lastParentBreadcrumb) {
-      this.lastParentBreadcrumb.classList.add("show");
-      this.lastParentBreadcrumb.setAttribute(this.SHOW_BACK_ICON, "true");
-    }
-  };
-
+  /**
+   * Returns the second-to-last breadcrumb (the "parent" page), or `null`
+   * if fewer than two breadcrumbs are present.
+   */
   private getLastParentBreadcrumb = (): HTMLIcBreadcrumbElement | null => {
     const allBreadcrumbs = this.el.querySelectorAll<HTMLIcBreadcrumbElement>(
       this.IC_BREADCRUMB
@@ -230,11 +229,21 @@ export class BreadcrumbGroup {
 
   private setLastParentCollapsedBackBreadcrumb = () => {
     this.lastParentBreadcrumb = this.getLastParentBreadcrumb();
-    this.setBackBreadcrumbAttr();
-    if (this.lastParentBreadcrumb) {
-      this.lastParentBreadcrumb.classList.remove("hide");
-      this.lastParentBreadcrumb.classList.add("show");
+
+    if (this.lastParentBreadcrumb === null) {
+      console.warn(
+        "ic-breadcrumb-group: backBreadcrumbOnly requires at least two " +
+          "ic-breadcrumb children. The back breadcrumb displays the title " +
+          "of the parent page, so a minimum of two breadcrumbs is needed."
+      );
+
+      return;
     }
+
+    this.lastParentBreadcrumb.classList.add("show");
+    this.lastParentBreadcrumb.classList.remove("hide");
+
+    this.lastParentBreadcrumb.setAttribute(this.SHOW_BACK_ICON, "true");
   };
 
   private revertLastParentCollapsedBreadcrumb = () => {
