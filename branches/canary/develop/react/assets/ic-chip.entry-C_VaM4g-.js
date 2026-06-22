@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{y as t}from"./components-Cxdnmomz.js";import{P as n}from"./helpers-80097ffd-jwryv5q8.js";import{n as r,t as i}from"./ic-chip-a511b3eb-Di21OztF.js";e((()=>{r(),t(),n()}))();export{i as ic_chip};
