@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/hero?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/hero-light/localhost--2026_06_21_03_22_22.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/hero-light/localhost--2026_06_21_03_22_22.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/hero-light/localhost--2026_06_22_03_23_31.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/hero-light/localhost--2026_06_22_03_23_31.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
