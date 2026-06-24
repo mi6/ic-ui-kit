@@ -91,7 +91,7 @@ describe("ic-input-label", () => {
     expect(page.root).toEqualHtml(`
       <ic-input-label for="test-input-id" helper-text="" label="Test label">
         <ic-typography variant="label">
-          <label htmlfor="test-input-id">
+          <label for="test-input-id">
             Test label
           </label>
         </ic-typography>
