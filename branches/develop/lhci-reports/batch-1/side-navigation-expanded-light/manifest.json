@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/side-navigation-expanded?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/side-navigation-expanded-light/localhost--2026_06_23_03_20_38.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/side-navigation-expanded-light/localhost--2026_06_23_03_20_38.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/side-navigation-expanded-light/localhost--2026_06_24_03_20_49.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/side-navigation-expanded-light/localhost--2026_06_24_03_20_49.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
