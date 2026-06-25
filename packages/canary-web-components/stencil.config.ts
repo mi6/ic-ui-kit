@@ -8,7 +8,7 @@ import { excludeComps } from "../web-components/comps-list";
 
 // If timestamp is undefined, it deletes timestamp from the json doc instead of empty string
 interface StencilOverride extends Omit<JsonDocs, "timestamp"> {
-  timestamp: string | undefined
+  timestamp: string | undefined;
 }
 
 export const config: Config = {
@@ -53,7 +53,7 @@ export const config: Config = {
       type: "docs-custom",
       generator: (docs: StencilOverride) => {
         docs.timestamp = undefined;
-      }
+      },
     },
   ],
   testing: {
@@ -81,5 +81,6 @@ export const config: Config = {
   ],
   extras: {
     experimentalImportInjection: true,
+    addGlobalStyleToComponents: false,
   },
 };
