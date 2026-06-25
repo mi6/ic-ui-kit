@@ -65,7 +65,7 @@ exports[`ic-tree-view component should render with tree item data instead of slo
     </div>
     <slot></slot>
   </template>
-  <ic-tree-item context-id="ic-tree-view-12" id="ic-tree-item-23">
+  <ic-tree-item context-id="ic-tree-view-12" id="ic-tree-item-22">
     <template shadowrootmode="open">
       <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
         <ic-typography class="tree-item-label">
@@ -74,7 +74,7 @@ exports[`ic-tree-view component should render with tree item data instead of slo
       </div>
     </template>
   </ic-tree-item>
-  <ic-tree-item context-id="ic-tree-view-12" id="ic-tree-item-24">
+  <ic-tree-item context-id="ic-tree-view-12" id="ic-tree-item-23">
     <template shadowrootmode="open">
       <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
         <ic-typography class="tree-item-label">
@@ -83,7 +83,7 @@ exports[`ic-tree-view component should render with tree item data instead of slo
       </div>
     </template>
   </ic-tree-item>
-  <ic-tree-item class="ic-tree-item-disabled" context-id="ic-tree-view-12" id="ic-tree-item-25">
+  <ic-tree-item class="ic-tree-item-disabled" context-id="ic-tree-view-12" id="ic-tree-item-24">
     <template shadowrootmode="open">
       <div aria-disabled="true" aria-live="polite" class="tree-item-content" tabindex="-1">
         <ic-typography class="tree-item-label">
@@ -105,7 +105,7 @@ exports[`ic-tree-view component should render with tree item data with children 
     </div>
     <slot></slot>
   </template>
-  <ic-tree-item context-id="ic-tree-view-13" id="ic-tree-item-26">
+  <ic-tree-item context-id="ic-tree-view-13" id="ic-tree-item-25">
     <template shadowrootmode="open">
       <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
         <span aria-hidden="true" class="arrow-dropdown">
@@ -116,7 +116,7 @@ exports[`ic-tree-view component should render with tree item data with children 
         </ic-typography>
       </div>
     </template>
-    <ic-tree-item context-id="ic-tree-view-13" id="ic-tree-item-29">
+    <ic-tree-item context-id="ic-tree-view-13" id="ic-tree-item-28">
       <template shadowrootmode="open">
         <div aria-disabled="false" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="0" style="padding-left: calc(var(--ic-space-xs) + 48px);">
           <ic-typography class="tree-item-label">
@@ -125,7 +125,7 @@ exports[`ic-tree-view component should render with tree item data with children 
         </div>
       </template>
     </ic-tree-item>
-    <ic-tree-item context-id="ic-tree-view-13" id="ic-tree-item-30">
+    <ic-tree-item context-id="ic-tree-view-13" id="ic-tree-item-29">
       <template shadowrootmode="open">
         <div aria-disabled="false" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="0" style="padding-left: calc(var(--ic-space-xs) + 48px);">
           <ic-typography class="tree-item-label">
@@ -135,7 +135,7 @@ exports[`ic-tree-view component should render with tree item data with children 
       </template>
     </ic-tree-item>
   </ic-tree-item>
-  <ic-tree-item context-id="ic-tree-view-13" id="ic-tree-item-27">
+  <ic-tree-item context-id="ic-tree-view-13" id="ic-tree-item-26">
     <template shadowrootmode="open">
       <div aria-disabled="false" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="0">
         <div class="icon-container">
@@ -153,7 +153,7 @@ exports[`ic-tree-view component should render with tree item data with children 
       </svg>
     </div>
   </ic-tree-item>
-  <ic-tree-item class="ic-tree-item-disabled" context-id="ic-tree-view-13" id="ic-tree-item-28">
+  <ic-tree-item class="ic-tree-item-disabled" context-id="ic-tree-view-13" id="ic-tree-item-27">
     <template shadowrootmode="open">
       <div aria-disabled="true" aria-live="polite" class="ic-tree-item-single tree-item-content" tabindex="-1">
         <ic-typography class="tree-item-label">

@@ -2,13 +2,13 @@
 
 exports[`ic-date-input component date format conversion should handle US format value - DD/MM/YYYY date format 1`] = `
 <ic-date-input label="Test label" value="07/26/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-14" id="ic-date-input-14-label">
+          <label for="ic-date-input-14" id="ic-date-input-14-label">
             Test label
           </label>
         </ic-typography>
@@ -55,13 +55,13 @@ exports[`ic-date-input component date format conversion should handle US format 
 
 exports[`ic-date-input component date format conversion should handle US format value - MM/DD/YYYY date format 1`] = `
 <ic-date-input date-format="MM/DD/YYYY" label="Test label" value="07/26/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-15" id="ic-date-input-15-label">
+          <label for="ic-date-input-15" id="ic-date-input-15-label">
             Test label
           </label>
         </ic-typography>
@@ -108,13 +108,13 @@ exports[`ic-date-input component date format conversion should handle US format 
 
 exports[`ic-date-input component date format conversion should handle US format value - YYYY/MM/DD date format 1`] = `
 <ic-date-input date-format="YYYY/MM/DD" label="Test label" value="07/26/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-16" id="ic-date-input-16-label">
+          <label for="ic-date-input-16" id="ic-date-input-16-label">
             Test label
           </label>
         </ic-typography>
@@ -161,13 +161,13 @@ exports[`ic-date-input component date format conversion should handle US format 
 
 exports[`ic-date-input component date format conversion should handle ambiguous value - DD/MM/YYYY date format 1`] = `
 <ic-date-input date-format="DD/MM/YYYY" label="Test label" value="07/10/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-17" id="ic-date-input-17-label">
+          <label for="ic-date-input-17" id="ic-date-input-17-label">
             Test label
           </label>
         </ic-typography>
@@ -214,13 +214,13 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
 
 exports[`ic-date-input component date format conversion should handle ambiguous value - MM/DD/YYYY date format 1`] = `
 <ic-date-input date-format="MM/DD/YYYY" label="Test label" value="07/10/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-18" id="ic-date-input-18-label">
+          <label for="ic-date-input-18" id="ic-date-input-18-label">
             Test label
           </label>
         </ic-typography>
@@ -267,13 +267,13 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
 
 exports[`ic-date-input component date format conversion should handle ambiguous value - YYYY/MM/DD date format 1`] = `
 <ic-date-input date-format="YYYY/MM/DD" label="Test label" value="07/10/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-19" id="ic-date-input-19-label">
+          <label for="ic-date-input-19" id="ic-date-input-19-label">
             Test label
           </label>
         </ic-typography>
@@ -320,13 +320,13 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
 
 exports[`ic-date-input component date format conversion should handle single digit day and month 1`] = `
 <ic-date-input label="Test label" value="1/1/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-13" id="ic-date-input-13-label">
+          <label for="ic-date-input-13" id="ic-date-input-13-label">
             Test label
           </label>
         </ic-typography>
@@ -373,13 +373,13 @@ exports[`ic-date-input component date format conversion should handle single dig
 
 exports[`ic-date-input component should render 1`] = `
 <ic-date-input label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-0" id="ic-date-input-0-label">
+          <label for="ic-date-input-0" id="ic-date-input-0-label">
             Test label
           </label>
         </ic-typography>
@@ -424,13 +424,13 @@ exports[`ic-date-input component should render 1`] = `
 
 exports[`ic-date-input component should render as disabled 1`] = `
 <ic-date-input class="ic-date-input-disabled" disabled="" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container disabled="">
       <ic-input-label class="ic-input-label-disabled with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-2">
+          <label for="ic-date-input-2">
             Test label
           </label>
         </ic-typography>
@@ -475,13 +475,13 @@ exports[`ic-date-input component should render as disabled 1`] = `
 
 exports[`ic-date-input component should render as required 1`] = `
 <ic-date-input label="Test label" required="">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-1" id="ic-date-input-1-label">
+          <label for="ic-date-input-1" id="ic-date-input-1-label">
             Test label
             <span aria-hidden="true" id="asterisk-span">
               *
@@ -529,13 +529,13 @@ exports[`ic-date-input component should render as required 1`] = `
 
 exports[`ic-date-input component should render as required: required-prop-false 1`] = `
 <ic-date-input label="Test label" required="">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-1" id="ic-date-input-1-label">
+          <label for="ic-date-input-1" id="ic-date-input-1-label">
             Test label
           </label>
         </ic-typography>
@@ -580,13 +580,13 @@ exports[`ic-date-input component should render as required: required-prop-false 
 
 exports[`ic-date-input component should render correctly with MM/DD/YYYY format 1`] = `
 <ic-date-input date-format="MM/DD/YYYY" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-7" id="ic-date-input-7-label">
+          <label for="ic-date-input-7" id="ic-date-input-7-label">
             Test label
           </label>
         </ic-typography>
@@ -631,13 +631,13 @@ exports[`ic-date-input component should render correctly with MM/DD/YYYY format 
 
 exports[`ic-date-input component should render correctly with YYYY/MM/DD format 1`] = `
 <ic-date-input date-format="YYY/MM/DD" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-8" id="ic-date-input-8-label">
+          <label for="ic-date-input-8" id="ic-date-input-8-label">
             Test label
           </label>
         </ic-typography>
@@ -682,13 +682,13 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
 
 exports[`ic-date-input component should render disabled, with calendar button 1`] = `
 <ic-date-input class="ic-date-input-disabled" disabled="" label="Test label" show-calendar-button="true" value="21/01/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container disabled="">
       <ic-input-label class="ic-input-label-disabled with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-12">
+          <label for="ic-date-input-12">
             Test label
           </label>
         </ic-typography>
@@ -716,7 +716,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
           </div>
           <div class="action-buttons">
             <ic-button class="clear-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
-              <template shadowrootmode="open">
+              <template shadowrootmode="open" shadowrootdelegatesfocus>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" tabindex="0" type="button">
                     <slot></slot>
@@ -728,7 +728,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
             <div class="show-calendar-button-wrapper">
               <div class="divider medium"></div>
               <ic-button class="calendar-button ic-button-disabled ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="calendar-button">
-                <template shadowrootmode="open">
+                <template shadowrootmode="open" shadowrootdelegatesfocus>
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" silent="" target="ic-button-with-tooltip-calendar-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" tabindex="0" type="button">
                       <slot></slot>
@@ -755,13 +755,13 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
 
 exports[`ic-date-input component should render large 1`] = `
 <ic-date-input label="Test label" show-calendar-button="true" size="large">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-4" id="ic-date-input-4-label">
+          <label for="ic-date-input-4" id="ic-date-input-4-label">
             Test label
           </label>
         </ic-typography>
@@ -812,13 +812,13 @@ exports[`ic-date-input component should render large 1`] = `
 
 exports[`ic-date-input component should render small 1`] = `
 <ic-date-input label="Test label" show-calendar-button="true" size="small">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-3" id="ic-date-input-3-label">
+          <label for="ic-date-input-3" id="ic-date-input-3-label">
             Test label
           </label>
         </ic-typography>
@@ -869,13 +869,13 @@ exports[`ic-date-input component should render small 1`] = `
 
 exports[`ic-date-input component should render with custom helper text 1`] = `
 <ic-date-input helper-text="Test helper text" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-5" id="ic-date-input-5-label">
+          <label for="ic-date-input-5" id="ic-date-input-5-label">
             Test label
           </label>
         </ic-typography>
@@ -920,13 +920,13 @@ exports[`ic-date-input component should render with custom helper text 1`] = `
 
 exports[`ic-date-input component should render with custom validation status and text 1`] = `
 <ic-date-input label="Test label" validation-status="error" validation-text="Test error text">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-9" id="ic-date-input-9-label">
+          <label for="ic-date-input-9" id="ic-date-input-9-label">
             Test label
           </label>
         </ic-typography>
@@ -971,13 +971,13 @@ exports[`ic-date-input component should render with custom validation status and
 
 exports[`ic-date-input component should render with helper text hidden 1`] = `
 <ic-date-input hide-helper-text="true" label="Test label">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label>
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-6" id="ic-date-input-6-label">
+          <label for="ic-date-input-6" id="ic-date-input-6-label">
             Test label
           </label>
         </ic-typography>
@@ -1018,13 +1018,13 @@ Use format DD/MM/YYYY.
 
 exports[`ic-date-input component should render with open calendar button 1`] = `
 <ic-date-input label="Test label" show-calendar-button="true" value="21/01/2001">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-11" id="ic-date-input-11-label">
+          <label for="ic-date-input-11" id="ic-date-input-11-label">
             Test label
           </label>
         </ic-typography>
@@ -1052,7 +1052,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
           </div>
           <div class="action-buttons">
             <ic-button class="clear-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="clear-button">
-              <template shadowrootmode="open">
+              <template shadowrootmode="open" shadowrootdelegatesfocus>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" tabindex="0" type="button">
                     <slot></slot>
@@ -1064,7 +1064,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
             <div class="show-calendar-button-wrapper">
               <div class="divider medium"></div>
               <ic-button class="calendar-button ic-button-size-medium ic-button-variant-icon-tertiary ic-theme-dark" exportparts="button" id="calendar-button">
-                <template shadowrootmode="open">
+                <template shadowrootmode="open" shadowrootdelegatesfocus>
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" silent="" target="ic-button-with-tooltip-calendar-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" tabindex="0" type="button">
                       <slot></slot>
@@ -1091,13 +1091,13 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
 
 exports[`ic-date-input component should render with validation-aria-live 1`] = `
 <ic-date-input label="Test label" validation-aria-live="assertive" validation-status="error" validation-text="Test error text">
-  <template shadowrootmode="open">
+  <template shadowrootmode="open" shadowrootdelegatesfocus>
     <ic-input-container>
       <ic-input-label class="with-helper">
         <!---->
-        <slot name="helper-text" slot="helper-text"></slot>
+        <slot hidden="" name="helper-text" slot="helper-text"></slot>
         <ic-typography variant="label">
-          <label htmlfor="ic-date-input-10" id="ic-date-input-10-label">
+          <label for="ic-date-input-10" id="ic-date-input-10-label">
             Test label
           </label>
         </ic-typography>

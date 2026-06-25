@@ -1459,7 +1459,7 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
       </div>
     </template>
     <ic-button class="ic-button-size-medium ic-button-variant-primary" exportparts="button" slot="actions">
-      <template shadowrootmode="open">
+      <template shadowrootmode="open" shadowrootdelegatesfocus>
         <button class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
@@ -4491,7 +4491,7 @@ exports[`ic-data-table should render ic-link if data contains href 1`] = `
                     Name
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -4508,7 +4508,7 @@ exports[`ic-data-table should render ic-link if data contains href 1`] = `
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -4525,7 +4525,7 @@ exports[`ic-data-table should render ic-link if data contains href 1`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -4542,7 +4542,7 @@ exports[`ic-data-table should render ic-link if data contains href 1`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -12751,7 +12751,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                     Name
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -12768,7 +12768,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -12785,7 +12785,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -12802,7 +12802,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13073,7 +13073,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-name">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13090,7 +13090,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13107,7 +13107,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13124,7 +13124,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13395,7 +13395,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                     Name
                   </ic-typography>
                   <ic-button aria-label="Remove sort" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-name">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13412,7 +13412,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13429,7 +13429,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13446,7 +13446,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13717,7 +13717,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13734,7 +13734,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                     Age
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-age">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13751,7 +13751,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -13768,7 +13768,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -15013,37 +15013,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="John Smith" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            John Smith
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              John Smith
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        John Smith
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="John Smith" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            John Smith
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      John Smith
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15053,37 +15041,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="36" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            36
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              36
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        36
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="36" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            36
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      36
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15093,37 +15069,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Accounts &amp; Finance" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Accounts &amp; Finance
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Accounts &amp; Finance
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Accounts &amp; Finance
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Accounts &amp; Finance" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Accounts &amp; Finance
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Accounts &amp; Finance
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15133,37 +15097,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="1" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            1
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              1
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        1
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="1" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            1
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      1
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15173,37 +15125,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Senior Financial Operations and Reporting Analyst" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Senior Financial Operations and Reporting Analyst
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Senior Financial Operations and Reporting Analyst
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Senior Financial Operations and Reporting Analyst
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Senior Financial Operations and Reporting Analyst" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Senior Financial Operations and Reporting Analyst
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Senior Financial Operations and Reporting Analyst
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15215,37 +15155,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Sally Jones" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Sally Jones
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Sally Jones
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Sally Jones
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Sally Jones" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Sally Jones
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Sally Jones
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15255,37 +15183,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="32" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            32
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              32
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        32
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="32" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            32
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      32
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15295,37 +15211,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Engineering" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Engineering
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Engineering
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Engineering
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Engineering" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Engineering
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Engineering
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15335,37 +15239,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="2" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            2
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              2
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        2
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="2" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            2
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      2
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15375,37 +15267,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15417,37 +15297,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Tim Rayes" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Tim Rayes
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Tim Rayes
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Tim Rayes
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Tim Rayes" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Tim Rayes
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Tim Rayes
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15457,37 +15325,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="41" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            41
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              41
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        41
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="41" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            41
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      41
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15497,37 +15353,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Sales and Marketing" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Sales and Marketing
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Sales and Marketing
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Sales and Marketing
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Sales and Marketing" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Sales and Marketing
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Sales and Marketing
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15537,37 +15381,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="3" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            3
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              3
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        3
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="3" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            3
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      3
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15577,37 +15409,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15619,37 +15439,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Luke Fisher" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Luke Fisher
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Luke Fisher
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Luke Fisher
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Luke Fisher" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Luke Fisher
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Luke Fisher
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15659,37 +15467,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="23" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            23
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              23
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        23
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="23" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            23
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      23
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15699,37 +15495,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Engineering (Mobile App Development)" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Engineering (Mobile App Development)
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Engineering (Mobile App Development)
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Engineering (Mobile App Development)
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Engineering (Mobile App Development)" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Engineering (Mobile App Development)
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Engineering (Mobile App Development)
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15739,37 +15523,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="4" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            4
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              4
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        4
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="4" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            4
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      4
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15779,37 +15551,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Junior Tester" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Junior Tester
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Junior Tester
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Junior Tester
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Junior Tester" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Junior Tester
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Junior Tester
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15821,37 +15581,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Jane Lock" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Jane Lock
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Jane Lock
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Jane Lock
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Jane Lock" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Jane Lock
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Jane Lock
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15861,37 +15609,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="34" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            34
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              34
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        34
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="34" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            34
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      34
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15901,37 +15637,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Engineering" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Engineering
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Engineering
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Engineering
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Engineering" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Engineering
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Engineering
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15941,37 +15665,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="5" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            5
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              5
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        5
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="5" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            5
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      5
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -15981,37 +15693,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Junior Product Manager" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Junior Product Manager
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Junior Product Manager
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Junior Product Manager
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Junior Product Manager" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Junior Product Manager
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Junior Product Manager
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -16023,37 +15723,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Margaret Hale" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Margaret Hale
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Margaret Hale
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Margaret Hale
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Margaret Hale" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Margaret Hale
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Margaret Hale
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -16063,37 +15751,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="45" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            45
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              45
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        45
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="45" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            45
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      45
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -16103,37 +15779,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="HR" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            HR
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              HR
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        HR
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="HR" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            HR
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      HR
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -16143,37 +15807,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="6" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            6
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              6
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        6
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="6" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            6
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      6
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -16183,37 +15835,25 @@ exports[`ic-data-table should switch to tooltip truncation pattern 1`] = `
                     <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Junior Human Resource Information Specialist" target="">
                       <template shadowrootmode="open">
                         <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Junior Human Resource Information Specialist
-                          </ic-typography>
+                          <div class="ic-tooltip-content">
+                            <ic-typography class="ic-typography-caption">
+                              <template shadowrootmode="open">
+                                <slot></slot>
+                              </template>
+                              Junior Human Resource Information Specialist
+                            </ic-typography>
+                          </div>
                           <div class="ic-tooltip-arrow"></div>
                         </div>
                         <slot></slot>
                       </template>
+                      <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                        <template shadowrootmode="open">
+                          <slot></slot>
+                        </template>
+                        Junior Human Resource Information Specialist
+                      </ic-typography>
                     </ic-tooltip>
-                    <ic-tooltip class="ic-tooltip ic-tooltip-overflow" label="Junior Human Resource Information Specialist" target="">
-                      <template shadowrootmode="open">
-                        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
-                          <ic-typography class="ic-typography-caption">
-                            <template shadowrootmode="open">
-                              <slot></slot>
-                            </template>
-                            Junior Human Resource Information Specialist
-                          </ic-typography>
-                          <div class="ic-tooltip-arrow"></div>
-                        </div>
-                        <slot></slot>
-                      </template>
-                    </ic-tooltip>
-                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
-                      <template shadowrootmode="open">
-                        <slot></slot>
-                      </template>
-                      Junior Human Resource Information Specialist
-                    </ic-typography>
                   </div>
                 </div>
               </td>
@@ -18416,7 +18056,7 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-name">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -18436,7 +18076,7 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -18456,7 +18096,7 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -18476,7 +18116,7 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     Employee Number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -18496,7 +18136,7 @@ exports[`ic-data-table should update show-hide truncation when data sorted 1`] =
                     Job Title
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-jobTitle">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-jobTitle" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-jobTitle">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-jobTitle" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -19858,7 +19498,7 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button" exportparts="button" id="sort-button-name">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -19878,7 +19518,7 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -19898,7 +19538,7 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-department" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -19918,7 +19558,7 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     Employee Number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
@@ -19938,7 +19578,7 @@ exports[`ic-data-table should update tooltip truncation when data sorted 1`] = `
                     Job Title
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon-tertiary sort-button sort-button-unsorted" exportparts="button" id="sort-button-jobTitle">
-                    <template shadowrootmode="open">
+                    <template shadowrootmode="open" shadowrootdelegatesfocus>
                       <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-jobTitle" label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-jobTitle">
                         <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-jobTitle" aria-label="Sort ascending" class="button" part="button" tabindex="0" type="button">
                           <slot></slot>
