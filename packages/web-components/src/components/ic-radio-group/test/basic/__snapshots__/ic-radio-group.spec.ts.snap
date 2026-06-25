@@ -23,7 +23,7 @@ exports[`ic-radio-group should not have a validation status if disabled: no-vali
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test-test label"></label>
+        <label for="ic-radio-option-test-test label"></label>
       </ic-typography>
     </div>
   </ic-radio-option>
@@ -53,7 +53,7 @@ exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test-test label"></label>
+        <label for="ic-radio-option-test-test label"></label>
       </ic-typography>
     </div>
   </ic-radio-option>
@@ -83,7 +83,7 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test-test label"></label>
+        <label for="ic-radio-option-test-test label"></label>
       </ic-typography>
     </div>
   </ic-radio-option>
@@ -113,7 +113,7 @@ exports[`ic-radio-group should render radio group disabled: disabled-removed 1`]
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test label">
+        <label for="ic-radio-option-test label-test label">
           test label
         </label>
       </ic-typography>
@@ -145,7 +145,7 @@ exports[`ic-radio-group should render radio group disabled: renders-disabled 1`]
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test label">
+        <label for="ic-radio-option-test label-test label">
           test label
         </label>
       </ic-typography>
@@ -177,7 +177,7 @@ exports[`ic-radio-group should render radio option disabled: disabled-removed 1`
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test label">
+        <label for="ic-radio-option-test label-test label">
           test label
         </label>
       </ic-typography>
@@ -209,7 +209,7 @@ exports[`ic-radio-group should render radio option disabled: renders-option-disa
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test label">
+        <label for="ic-radio-option-test label-test label">
           test label
         </label>
       </ic-typography>
@@ -241,7 +241,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test label">
+        <label for="ic-radio-option-test label-test label">
           test label
         </label>
       </ic-typography>
@@ -298,7 +298,7 @@ exports[`ic-radio-group should render with selected option: renders-with-selecte
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test-test label"></label>
+        <label for="ic-radio-option-test-test label"></label>
       </ic-typography>
     </div>
   </ic-radio-option>
@@ -328,7 +328,7 @@ exports[`ic-radio-group should render with selected static additional field: ren
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test label">
+        <label for="ic-radio-option-test label-test label">
           test label
         </label>
       </ic-typography>
@@ -379,7 +379,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test label">
+        <label for="ic-radio-option-test label-test label">
           test label
         </label>
       </ic-typography>
@@ -430,7 +430,7 @@ exports[`ic-radio-group should render with validation status: renders-with-valid
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test-test label"></label>
+        <label for="ic-radio-option-test-test label"></label>
       </ic-typography>
     </div>
   </ic-radio-option>
@@ -460,7 +460,7 @@ exports[`ic-radio-group should render with validation-aria-live: renders-with-va
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test-test label"></label>
+        <label for="ic-radio-option-test-test label"></label>
       </ic-typography>
     </div>
   </ic-radio-option>
@@ -490,7 +490,7 @@ exports[`ic-radio-group should render: renders 1`] = `
         <span class="checkmark"></span>
       </div>
       <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test-test label"></label>
+        <label for="ic-radio-option-test-test label"></label>
       </ic-typography>
     </div>
   </ic-radio-option>
@@ -506,7 +506,7 @@ exports[`ic-radio-group should test radio option as submit on form 1`] = `
       <span class="checkmark"></span>
     </div>
     <ic-typography class="radio-label" variant="body">
-      <label htmlfor="ic-radio-option-IC Radio Test-undefined">
+      <label for="ic-radio-option-IC Radio Test-undefined">
         IC Radio Test
       </label>
     </ic-typography>
