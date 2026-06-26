@@ -226,6 +226,105 @@ export const PopoverWithMenuGroups = () => {
   );
 };
 
+export const PopoverCloseOnClick = () => {
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const togglePopoverOpen = () => setPopoverOpen((value) => !value);
+  const closePopover = () => setPopoverOpen(false);
+
+  return (
+    <div style={{ padding: "1rem" }}>
+      <>
+        <IcButton
+          id="popover-button"
+          dropdown
+          variant="primary"
+          onClick={togglePopoverOpen}
+          dropdownExpanded={popoverOpen}
+        >
+          Button
+        </IcButton>
+        <IcPopoverMenu
+          anchor="popover-button"
+          aria-label="popover"
+          onIcPopoverClosed={closePopover}
+          open={popoverOpen}
+        >
+          <IcMenuItem
+            label="Copy code"
+            close-menu-on-select="false"
+          ></IcMenuItem>
+          <IcMenuItem
+            label="Paste code"
+            close-menu-on-select="false"
+          ></IcMenuItem>
+          <IcMenuItem
+            label="Actions"
+            submenuTriggerFor="actions"
+            id="submenu-trigger-actions"
+          />
+        </IcPopoverMenu>
+        <IcPopoverMenu
+          submenuId="actions"
+          aria-label="popover"
+          close-on-item-select="toggle"
+        >
+          <IcMenuItem label="Edit" />
+          <IcMenuItem label="Auto-save" variant="toggle" />
+          <IcMenuItem label="Find" />
+          <IcMenuItem label="Delete" variant="destructive" />
+        </IcPopoverMenu>
+      </>
+    </div>
+  );
+};
+
+export const PopoverCloseOnItemSelectNever = () => {
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const togglePopoverOpen = () => setPopoverOpen((value) => !value);
+  const closePopover = () => setPopoverOpen(false);
+
+  return (
+    <div style={{ padding: "1rem" }}>
+      <>
+        <IcButton
+          id="popover-button"
+          dropdown
+          variant="primary"
+          onClick={togglePopoverOpen}
+          dropdownExpanded={popoverOpen}
+        >
+          Button
+        </IcButton>
+        <IcPopoverMenu
+          anchor="popover-button"
+          aria-label="popover"
+          onIcPopoverClosed={closePopover}
+          open={popoverOpen}
+          close-on-item-select="never"
+        >
+          <IcMenuItem label="Copy code"></IcMenuItem>
+          <IcMenuItem label="Paste code"></IcMenuItem>
+          <IcMenuItem
+            label="Actions"
+            submenuTriggerFor="actions"
+            id="submenu-trigger-actions"
+          />
+        </IcPopoverMenu>
+        <IcPopoverMenu
+          submenuId="actions"
+          aria-label="popover"
+          close-on-item-select="never"
+        >
+          <IcMenuItem label="Edit" />
+          <IcMenuItem label="Auto-save" variant="toggle" />
+          <IcMenuItem label="Find" />
+          <IcMenuItem label="Delete" variant="destructive" />
+        </IcPopoverMenu>
+      </>
+    </div>
+  );
+};
+
 export const MaxHeight = () => {
   const buttonEl = useRef<any>();
   const popoverEl = useRef<any>();

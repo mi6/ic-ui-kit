@@ -99,6 +99,11 @@ export class MenuItem {
     "default";
 
   /**
+   * If `true`, the menu will close when this menu item is clicked.
+   */
+  @Prop() closeMenuOnSelect?: boolean = true;
+
+  /**
    * @internal Emitted when item loses focus.
    */
   @Event() childBlur: EventEmitter<void>;
