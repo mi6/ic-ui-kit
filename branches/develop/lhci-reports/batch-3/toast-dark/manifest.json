@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/toast?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toast-dark/localhost--2026_06_26_03_19_30.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toast-dark/localhost--2026_06_26_03_19_30.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toast-dark/localhost--2026_06_27_03_17_00.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toast-dark/localhost--2026_06_27_03_17_00.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,

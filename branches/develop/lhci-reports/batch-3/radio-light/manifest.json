@@ -2,10 +2,10 @@
   {
     "url": "http://localhost:3001/#/radio?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-light/localhost--2026_06_26_03_17_41.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-light/localhost--2026_06_26_03_17_41.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-light/localhost--2026_06_27_03_15_24.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-light/localhost--2026_06_27_03_15_24.report.json",
     "summary": {
-      "performance": 0.82,
+      "performance": 1,
       "accessibility": 1,
       "best-practices": 0.96,
       "seo": 0.9
