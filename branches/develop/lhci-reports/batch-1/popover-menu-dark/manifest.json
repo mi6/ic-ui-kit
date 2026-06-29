@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/popover-menu?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/popover-menu-dark/localhost--2026_06_28_03_23_54.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/popover-menu-dark/localhost--2026_06_28_03_23_54.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/popover-menu-dark/localhost--2026_06_29_03_25_33.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/popover-menu-dark/localhost--2026_06_29_03_25_33.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
