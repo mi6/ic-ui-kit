@@ -25,6 +25,11 @@
   --ic-input-label-helper-text-color: var(--ic-date-input-subtitle-disabled);
 }
 
+:host(.ic-date-input-disabled) input,
+:host(.ic-date-input-disabled) .date-inputs {
+  color: var(--ic-text-field-text-disabled);
+}
+
 input {
   border: 0;
   height: 100%;
@@ -146,6 +151,10 @@ ic-input-component-container .focus-indicator {
 
 .clear-button svg {
   color: var(--ic-date-input-clear-icon);
+}
+
+.clear-button.ic-button-disabled svg {
+  color: var(--ic-button-tertiary-icon-disabled-monochrome);
 }
 
 .clear-button:focus svg {
