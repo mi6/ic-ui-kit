@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{y as t}from"./components-OPxZkikh.js";import{n,t as r}from"./ic-tab-panel-a5f27b82-Bz3HhaQH.js";e((()=>{n(),t()}))();export{r as ic_tab_panel};
