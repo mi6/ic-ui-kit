@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/card-vertical?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/card-vertical-dark/localhost--2026_06_28_03_24_58.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/card-vertical-dark/localhost--2026_06_28_03_24_58.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/card-vertical-dark/localhost--2026_06_29_03_26_26.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/card-vertical-dark/localhost--2026_06_29_03_26_26.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
