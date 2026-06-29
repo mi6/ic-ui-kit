@@ -3189,6 +3189,53 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
         });
     });
 
+    it("should test disabled variant with value", () => {
+      mount(
+        <IcDatePicker label={DEFAULT_LABEL} disabled value={DEFAULT_VALUE} />
+      );
+
+      cy.checkHydrated(DATE_PICKER);
+
+      cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+        .shadow()
+        .find(CLEAR_BUTTON_ID)
+        .shadow()
+        .find(BUTTON)
+        .should(BE_DISABLED);
+
+      cy.compareSnapshot({
+        name: "/disabled-with-value",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
+    });
+
+    it("should test disabled variant with value - dark theme", () => {
+      mount(
+        <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+          <IcDatePicker
+            label={DEFAULT_LABEL}
+            disabled
+            value={DEFAULT_VALUE}
+            theme="dark"
+          />
+        </div>
+      );
+
+      cy.checkHydrated(DATE_PICKER);
+
+      cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+        .shadow()
+        .find(CLEAR_BUTTON_ID)
+        .shadow()
+        .find(BUTTON)
+        .should(BE_DISABLED);
+
+      cy.compareSnapshot({
+        name: "/disabled-with-value-dark-theme",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
+    });
+
     it("should test 'showDaysOutsideMonth' and 'startOfWeek' props", () => {
       mount(
         <IcDatePicker
