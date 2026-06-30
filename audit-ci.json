@@ -15,20 +15,6 @@
       }
     },
     {
-      "GHSA-grv7-fg5c-xmjg": {
-        "active": true,
-        "notes": "requires upgrade to 'braces', which is a transitive dependency of storybook. Might be removable after storybook upgrade.",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
-      "GHSA-3h5v-q93c-6h6q": {
-        "active": true,
-        "notes": "requires upgrade to 'ws', which is a transitive dependency of jest, storybook, webpack-dev-server, puppeteer, and cypress-audit.",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
       "GHSA-h5c3-5r3r-rr8q": {
         "active": true,
         "notes": "requires upgrade to '@octokit/plugin-paginate-rest', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
@@ -43,13 +29,6 @@
       }
     },
     {
-      "GHSA-mh29-5h37-fv8m": {
-        "active": true,
-        "notes": "requires upgrade to 'js-yaml', which is a transitive dependency of eslint, @storybook/addon-postcss, remark-cli, lerna, and eslint.",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
       "GHSA-5j98-mcp5-4vw2": {
         "active": true,
         "notes": "requires upgrade to 'glob' v10.2.2 (the v7 dependencies seem okay), which is a transitive dependency of lerna. Might be removable after lerna upgrade.",
@@ -57,30 +36,9 @@
       }
     },
     {
-      "GHSA-8452-54wp-rmv6": {
-        "active": true,
-        "notes": "requires upgrade to 'storybook'. Might be removable after storybook upgrade.",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
-      "GHSA-xxjr-mmjv-4gpg": {
-        "active": true,
-        "notes": "requires upgrade to 'lodash' dependency in root packages (all components package-locks have been updated).",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
       "GHSA-p5wg-g6qr-c7cg": {
         "active": true,
         "notes": "requires upgrade to 'eslint', which requires major version(s) upgrade. This will be partly resolved by ticket #3588",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
-      "GHSA-2g4f-4pwh-qvx6": {
-        "active": true,
-        "notes": "requires upgrade to 'ajv', which is a transitive dependency of commitlint.",
         "expiry": "27 July 2026"
       }
     },
@@ -102,34 +60,6 @@
       "GHSA-23c5-xmqv-rm74": {
         "active": true,
         "notes": "requires upgrade to 'minimatch', which is a transitive dependency of jest. Might be removable after jest upgrade.",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
-      "GHSA-mjf5-7g4m-gx5w": {
-        "active": true,
-        "notes": "requires upgrade to 'storybook'. The upgrade to storybook then requires a breaking change update to typescript. Might be removeable after typescript upgrade.",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
-      "GHSA-5c6j-r48x-rmvq": {
-        "active": true,
-        "notes": "requires upgrade to 'serialize-javascript', which is a transitive dependency of webpack. Might be removable after webpack upgrade.",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
-      "GHSA-v2wj-7wpq-c8vv": {
-        "active": true,
-        "notes": "requires upgrade to 'dompurify', which does not have a patched version as of 5/03/26",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
-      "GHSA-v8jm-5vwx-cfxm": {
-        "active": true,
-        "notes": "requires upgrade to 'dompurify', awaiting patch for above",
         "expiry": "27 July 2026"
       }
     },
@@ -162,13 +92,6 @@
       }
     },
     {
-      "GHSA-2qvq-rjwj-gvw9": {
-        "active": true,
-        "notes": "handlebars vulnerability via dev tooling (webpack/storybook). Flagged during per-package audit. No runtime exposure; expected to be resolved during toolchain upgrades.",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
       "GHSA-w5hq-g745-h8pq": {
         "active": true,
         "notes": "requires upgrade to 'uuid', which is a transitive dependency of lerna. Might be removable after lerna upgrade.",
@@ -193,13 +116,6 @@
       "GHSA-w5hq-g745-h8pq": {
         "active": true,
         "notes": "transitive dependency of @angular-devkit, which has been upgraded to latest minor patch. May fix on future upgrade",
-        "expiry": "27 July 2026"
-      }
-    },
-    {
-      "GHSA-96hv-2xvq-fx4p": {
-        "active": true,
-        "notes": "requires upgrade to 'ws', which is a transitive dependency of storybook. Might be removable after storybook upgrade.",
         "expiry": "27 July 2026"
       }
     }
