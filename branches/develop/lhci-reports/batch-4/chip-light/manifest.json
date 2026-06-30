@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/chip?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/chip-light/localhost--2026_06_29_03_24_26.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/chip-light/localhost--2026_06_29_03_24_26.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/chip-light/localhost--2026_06_30_03_21_54.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/chip-light/localhost--2026_06_30_03_21_54.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
