@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.29.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.27.0...@ukic/web-components@3.29.0) (2026-07-02)
+
+### Bug Fixes
+
+- **web-components:** fixes pagination issue where custom label not applied ([78ccd1b](https://github.com/mi6/ic-ui-kit/commit/78ccd1b3161391d90abec22981c558519db923a1))
+- **web-components:** handle small data list with no heading ([7bda1b1](https://github.com/mi6/ic-ui-kit/commit/7bda1b1651834aa8abeae466dd2763fd2d6eb7bf))
+- **web-components:** use size prop instead of non-existing small prop ([2018913](https://github.com/mi6/ic-ui-kit/commit/201891377a932514915a9021ea1b58c0ddc8b9c9))
+- **web-components:** warn when backBreadcrumbOnly is used with only one item ([44c8901](https://github.com/mi6/ic-ui-kit/commit/44c8901f0593bcb2c35b6768fe9d523b773b7651))
+
+### Features
+
+- **web-components:** add anchor slot to popover menu ([7b7fb72](https://github.com/mi6/ic-ui-kit/commit/7b7fb72749a8d767adf3bbeb1c46a1145c675122)), closes [#2757](https://github.com/mi6/ic-ui-kit/issues/2757)
+- **web-components:** add props to prevent closing of popover when options pressed ([b5e2908](https://github.com/mi6/ic-ui-kit/commit/b5e2908af6f9a99746adcbe8e2acdda3c99dbc0e))
+
 # [3.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.27.0...@ukic/web-components@3.28.0) (2026-06-12)
 
 ### Bug Fixes
