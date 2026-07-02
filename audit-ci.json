@@ -118,6 +118,13 @@
         "notes": "transitive dependency of @angular-devkit, which has been upgraded to latest minor patch. May fix on future upgrade",
         "expiry": "27 July 2026"
       }
+    },
+    {
+      "GHSA-52v5-jr5w-gjxr": {
+        "active": true,
+        "notes": "requires upgrade to 'sigstore' which is a transitive dependency of lerna. Might be removable after lerna upgrade.",
+        "expiry": "27 July 2026"
+      }
     }
   ]
 }
