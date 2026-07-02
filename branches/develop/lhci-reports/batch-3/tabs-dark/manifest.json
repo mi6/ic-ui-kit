@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/tabs?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/tabs-dark/localhost--2026_07_01_03_24_53.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/tabs-dark/localhost--2026_07_01_03_24_53.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/tabs-dark/localhost--2026_07_02_03_21_18.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/tabs-dark/localhost--2026_07_02_03_21_18.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
