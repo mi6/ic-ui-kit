@@ -1,1 +1,0 @@
-import{a as e,i as t,s as n}from"./preload-helper-xPQekRTU.js";import{t as r}from"./react-dom-BRJ7pGZq.js";var i=e({renderElement:()=>o,unmountElement:()=>s}),a,o,s,c=t((()=>{a=n(r(),1),o=async(e,t)=>new Promise(n=>{a.render(e,t,()=>n(null))}),s=e=>{a.unmountComponentAtNode(e)}}));export{s as i,i as n,o as r,c as t};
