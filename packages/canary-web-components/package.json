@@ -1,6 +1,6 @@
 {
   "name": "@ukic/canary-web-components",
-  "version": "3.0.0-canary.44",
+  "version": "3.0.0-canary.45",
   "description": "A web component UI library compiled with StencilJS",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit/issues",
@@ -39,7 +39,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@stencil/core": "4.26.0",
-    "@ukic/web-components": "^3.28.0"
+    "@ukic/web-components": "^3.29.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -51,11 +51,11 @@
     "@open-wc/testing-helpers": "^2.0.2",
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.5.3",
-    "@storybook/addon-a11y": "^10.2.10",
-    "@storybook/addon-docs": "^10.2.10",
-    "@storybook/addon-links": "^10.2.10",
-    "@storybook/web-components": "^10.2.10",
-    "@storybook/web-components-vite": "^10.2.10",
+    "@storybook/addon-a11y": "^10.4.6",
+    "@storybook/addon-docs": "^10.4.6",
+    "@storybook/addon-links": "^10.4.6",
+    "@storybook/web-components": "^10.4.6",
+    "@storybook/web-components-vite": "^10.4.6",
     "@types/autoprefixer": "^10.2.0",
     "@types/jest": "^29.5.14",
     "autoprefixer": "^10.4.2",
@@ -71,12 +71,16 @@
     "react-markdown": "^8.0.7",
     "remark-gfm": "^3.0.1",
     "stencil-inline-svg": "^1.1.0",
-    "storybook": "^10.2.10",
+    "storybook": "^10.4.6",
     "timekeeper": "^2.3.1",
     "ts-jest": "^29.4.9"
   },
   "peerDependencies": {
     "@ukic/fonts": "^3.1.0"
+  },
+  "overrides": {
+    "esbuild": "0.28.1",
+    "js-yaml": "4.2.0"
   },
   "packageManager": "^npm@10.9.2",
   "collection": "dist/collection/collection-manifest.json",

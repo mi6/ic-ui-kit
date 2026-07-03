@@ -1,8 +1,10 @@
-const {
-  utils: { getPackages },
-} = require("@commitlint/config-lerna-scopes");
+import config from "@commitlint/config-lerna-scopes";
 
-module.exports = {
+const {
+  utils: { getProjects },
+} = config;
+
+export default {
   extends: [
     "@commitlint/config-conventional",
     "@commitlint/config-lerna-scopes",
@@ -12,7 +14,7 @@ module.exports = {
     "scope-enum": async (ctx) => [
       2,
       "always",
-      [...(await getPackages(ctx)), "release", "root"],
+      [...(await getProjects(ctx)), "release", "root"],
     ],
   },
 };
