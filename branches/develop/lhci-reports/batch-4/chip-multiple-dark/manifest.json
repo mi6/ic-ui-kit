@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/chip-multiple?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/chip-multiple-dark/localhost--2026_07_05_03_19_57.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/chip-multiple-dark/localhost--2026_07_05_03_19_57.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/chip-multiple-dark/localhost--2026_07_07_03_19_09.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/chip-multiple-dark/localhost--2026_07_07_03_19_09.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
