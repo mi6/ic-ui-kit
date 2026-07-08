@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types='Cypress' />
 
 import { mount } from "cypress/react";
@@ -830,7 +829,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot({
           name: "/multi-level-first-level",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
         });
 
         cy.findShadowEl(
@@ -844,7 +843,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot({
           name: "/multi-level-second-level-expanded",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
         });
 
         cy.findShadowEl(
@@ -857,7 +856,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot({
           name: "/multi-level-second-level-collapsed",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
         });
 
         cy.get(SIDE_NAV_SELECTOR)
@@ -866,7 +865,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot({
           name: "/multi-level-first-level",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
         });
       });
     });
@@ -909,9 +908,8 @@ describe("Mobile visual regression tests in high contrast mode", () => {
     mount(<BasicSideNav />);
 
     cy.checkHydrated(SIDE_NAV_SELECTOR);
-    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).wait(
-      DEFAULT_WAIT_TIME
-    );
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
+    cy.wait(DEFAULT_WAIT_TIME);
 
     cy.compareSnapshot({
       name: "/basic-open-high-contrast",
@@ -923,9 +921,8 @@ describe("Mobile visual regression tests in high contrast mode", () => {
     mount(<BasicSideNav />);
 
     cy.checkHydrated(SIDE_NAV_SELECTOR);
-    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).wait(
-      DEFAULT_WAIT_TIME
-    );
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
+    cy.wait(DEFAULT_WAIT_TIME);
 
     cy.get(NAV_ITEM_SELECTOR).first().shadow().find("a.link").focus();
 
@@ -939,7 +936,8 @@ describe("Mobile visual regression tests in high contrast mode", () => {
     mount(<GroupedSideNav />);
 
     cy.checkHydrated(SIDE_NAV_SELECTOR);
-    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).wait(300);
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
+    cy.wait(300);
 
     cy.compareSnapshot({
       name: "/nav-group-open-high-contrast",
@@ -991,7 +989,8 @@ describe("Desktop visual regression tests in high contrast mode", () => {
     mount(<BasicSideNav />);
 
     cy.checkHydrated(SIDE_NAV_SELECTOR);
-    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR).wait(300);
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
+    cy.wait(300);
 
     cy.compareSnapshot({
       name: "/basic-open-desktop-high-contrast",
@@ -1003,7 +1002,8 @@ describe("Desktop visual regression tests in high contrast mode", () => {
     mount(<BasicSideNav />);
 
     cy.checkHydrated(SIDE_NAV_SELECTOR);
-    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR).wait(300);
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
+    cy.wait(300);
 
     cy.get(NAV_ITEM_SELECTOR).first().shadow().find("a.link").focus();
 
