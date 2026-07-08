@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/radio-variants?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-variants-light/localhost--2026_07_07_03_13_46.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-variants-light/localhost--2026_07_07_03_13_46.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-variants-light/localhost--2026_07_08_03_11_41.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-variants-light/localhost--2026_07_08_03_11_41.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
