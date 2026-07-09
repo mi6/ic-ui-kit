@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/accordion?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/accordion-light/localhost--2026_07_08_03_17_43.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/accordion-light/localhost--2026_07_08_03_17_43.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/accordion-light/localhost--2026_07_09_03_19_23.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/accordion-light/localhost--2026_07_09_03_19_23.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
