@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/data-list?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-light/localhost--2026_07_08_03_15_47.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-light/localhost--2026_07_08_03_15_47.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-light/localhost--2026_07_09_03_19_11.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/data-list-light/localhost--2026_07_09_03_19_11.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
