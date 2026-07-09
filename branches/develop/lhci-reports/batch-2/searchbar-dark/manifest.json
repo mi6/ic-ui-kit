@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/searchbar?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchbar-dark/localhost--2026_07_08_03_17_59.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchbar-dark/localhost--2026_07_08_03_17_59.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchbar-dark/localhost--2026_07_09_03_19_11.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchbar-dark/localhost--2026_07_09_03_19_11.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
