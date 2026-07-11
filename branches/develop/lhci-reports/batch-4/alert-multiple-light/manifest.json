@@ -2,10 +2,10 @@
   {
     "url": "http://localhost:3001/#/alert-multiple?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/alert-multiple-light/localhost--2026_07_10_03_13_28.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/alert-multiple-light/localhost--2026_07_10_03_13_28.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/alert-multiple-light/localhost--2026_07_11_03_10_05.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/alert-multiple-light/localhost--2026_07_11_03_10_05.report.json",
     "summary": {
-      "performance": 0.78,
+      "performance": 1,
       "accessibility": 1,
       "best-practices": 0.96,
       "seo": 0.9
