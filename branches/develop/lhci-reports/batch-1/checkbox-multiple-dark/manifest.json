@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/checkbox-multiple?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-multiple-dark/localhost--2026_07_14_03_12_03.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-multiple-dark/localhost--2026_07_14_03_12_03.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-multiple-dark/localhost--2026_07_15_03_12_25.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-multiple-dark/localhost--2026_07_15_03_12_25.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
