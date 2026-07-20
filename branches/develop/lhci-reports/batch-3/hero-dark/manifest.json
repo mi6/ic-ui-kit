@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/hero?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/hero-dark/localhost--2026_07_19_03_13_54.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/hero-dark/localhost--2026_07_19_03_13_54.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/hero-dark/localhost--2026_07_20_03_15_11.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/hero-dark/localhost--2026_07_20_03_15_11.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
