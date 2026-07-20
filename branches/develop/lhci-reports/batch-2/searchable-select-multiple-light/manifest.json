@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/searchable-select-multiple?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchable-select-multiple-light/localhost--2026_07_19_03_15_18.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchable-select-multiple-light/localhost--2026_07_19_03_15_18.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchable-select-multiple-light/localhost--2026_07_20_03_16_30.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/searchable-select-multiple-light/localhost--2026_07_20_03_16_30.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
