@@ -161,12 +161,14 @@ export class NavigationButton {
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
     mutationList.forEach(({ attributeName }) => {
-      if (attributeName) {
+      if (attributeName && MUTABLE_ATTRIBUTES.includes(attributeName)) {
         const attribute = this.el.getAttribute(attributeName);
-        if (attribute && MUTABLE_ATTRIBUTES.includes(attributeName)) {
+        if (attribute) {
           this.inheritedAttributes[attributeName] = attribute;
-          forceComponentUpdate = true;
+        } else {
+          delete this.inheritedAttributes[attributeName];
         }
+        forceComponentUpdate = true;
       }
     });
     if (forceComponentUpdate) {
