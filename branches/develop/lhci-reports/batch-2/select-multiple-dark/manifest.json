@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/select-multiple?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-multiple-dark/localhost--2026_07_23_03_13_23.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-multiple-dark/localhost--2026_07_23_03_13_23.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-multiple-dark/localhost--2026_07_24_03_13_36.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-multiple-dark/localhost--2026_07_24_03_13_36.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
