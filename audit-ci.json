@@ -141,41 +141,6 @@
       }
     },
     {
-      "GHSA-w8wr-v893-vjvp": {
-        "active": true,
-        "notes": "regex problem in node-tar requires an update to 'tar' itself.",
-        "expiry": "27 August 2026"
-      }
-    },
-    {
-      "GHSA-23hp-3jrh-7fpw": {
-        "active": true,
-        "notes": "decompression problem in node-tar requires an update to 'tar' itself.",
-        "expiry": "27 August 2026"
-      }
-    },
-    {
-      "GHSA-8x88-c5mf-7j5w": {
-        "active": true,
-        "notes": "overflow problem in node-tar requires an update to 'tar' itself.",
-        "expiry": "27 August 2026"
-      }
-    },
-    {
-      "GHSA-gvwx-54wh-qm9j": {
-        "active": true,
-        "notes": "DoS problem in node-tar requires an update to 'tar' itself.",
-        "expiry": "27 August 2026"
-      }
-    },
-    {
-      "GHSA-r292-9mhp-454m": {
-        "active": true,
-        "notes": "recursion overflow problem in node-tar requires an update to 'tar' itself.",
-        "expiry": "27 August 2026"
-      }
-    },
-    {
       "GHSA-6g55-p6wh-862q": {
         "active": true,
         "notes": "sourcemap vulnerability around file reads in 'PostCSS'.",
