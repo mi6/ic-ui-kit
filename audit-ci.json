@@ -178,13 +178,6 @@
     {
       "GHSA-7p8r-x3mc-p8w7": {
         "active": true,
-        "notes": "Transitive dependency which needs to be fixed in peer dependencies.",
-        "expiry": "27 August 2026"
-      }
-    },
-    {
-      "GHSA-7p8r-x3mc-p8w7": {
-        "active": true,
         "notes": "Transitive dependency fast-uri, which needs to be fixed in peer dependencies.",
         "expiry": "27 August 2026"
       }
