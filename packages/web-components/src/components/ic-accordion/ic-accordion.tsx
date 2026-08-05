@@ -131,15 +131,9 @@ export class Accordion {
     property: string,
     delay: string
   ) => {
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.style.transitionDuration = `${duration}ms`;
-      el.style.transitionProperty = property;
-      el.style.transitionDelay = delay;
-    } else {
-      el.style.transitionDuration = "0ms";
-      el.style.transitionProperty = "none";
-      el.style.transitionDelay = "0ms";
-    }
+    el.style.transitionDuration = `${duration}ms`;
+    el.style.transitionProperty = property;
+    el.style.transitionTimingFunction = delay;
   };
 
   private setExpandedContentStyle = (
@@ -165,46 +159,86 @@ export class Accordion {
   };
 
   private animateExpandedContent = () => {
-    if (this.expandedContentEl) {
-      const expandedContentEl = this.expandedContentEl;
-      const elementHeight = expandedContentEl.scrollHeight;
-      if (elementHeight > 0 && this.expanded) {
-        expandedContentEl.style.setProperty(
-          this.CONTENT_VISIBILITY_PROPERTY,
-          "visible"
-        );
-        expandedContentEl.style.height = `${elementHeight}px`;
-        this.setAccordionAnimation(
-          expandedContentEl,
-          "300",
-          "height",
-          "ease-out"
-        );
+    const expandedContentEl = this.expandedContentEl;
+    if (!expandedContentEl) return;
 
-        expandedContentEl.addEventListener(
-          "transitionend",
-          (e: TransitionEvent) => {
-            this.setExpandedContentStyle(e, expandedContentEl);
-          }
-        );
-      } else if (!this.expanded) {
-        const expandedContentEl = this.expandedContentEl;
-        expandedContentEl.style.height = `${expandedContentEl.scrollHeight}px`;
-        if (expandedContentEl.scrollHeight > 0 && !this.expanded) {
-          expandedContentEl.style.height = "0";
-          this.setAccordionAnimation(
-            expandedContentEl,
-            "300",
-            "height",
-            "ease-in"
-          );
-          expandedContentEl.classList.remove(EXPANDED_CONTENT_OPENED_CLASS);
-        }
-        expandedContentEl.addEventListener("transitionend", (e) => {
-          this.hideExpandedContent(e, expandedContentEl);
-        });
-      }
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (this.expanded) {
+      this.expandContent(expandedContentEl, prefersReducedMotion);
+      return;
     }
+
+    this.collapseContent(expandedContentEl, prefersReducedMotion);
+  };
+
+  private expandContent = (
+    expandedContentEl: HTMLDivElement,
+    prefersReducedMotion: boolean
+  ) => {
+    const elementHeight = expandedContentEl.scrollHeight;
+    if (elementHeight <= 0) return;
+
+    expandedContentEl.style.setProperty(
+      this.CONTENT_VISIBILITY_PROPERTY,
+      "visible"
+    );
+
+    if (prefersReducedMotion) {
+      expandedContentEl.classList.add(EXPANDED_CONTENT_OPENED_CLASS);
+      expandedContentEl.style.height = "auto";
+      return;
+    }
+
+    expandedContentEl.style.height = `${elementHeight}px`;
+
+    this.setAccordionAnimation(expandedContentEl, "300", "height", "ease-out");
+
+    expandedContentEl.addEventListener(
+      "transitionend",
+      (e: TransitionEvent) => {
+        this.setExpandedContentStyle(e, expandedContentEl);
+      },
+      { once: true }
+    );
+  };
+
+  private collapseContent = (
+    expandedContentEl: HTMLDivElement,
+    prefersReducedMotion: boolean
+  ) => {
+    const elementHeight = expandedContentEl.scrollHeight;
+
+    if (elementHeight <= 0) return;
+
+    // Set the content panel as pixels from "auto" so it can be animated
+    expandedContentEl.style.height = `${elementHeight}px`;
+
+    if (prefersReducedMotion) {
+      expandedContentEl.style.height = "0";
+      expandedContentEl.classList.remove(EXPANDED_CONTENT_OPENED_CLASS);
+      expandedContentEl.style.setProperty(
+        this.CONTENT_VISIBILITY_PROPERTY,
+        "hidden"
+      );
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      expandedContentEl.style.height = "0";
+    });
+
+    this.setAccordionAnimation(expandedContentEl, "300", "height", "ease-in");
+    expandedContentEl.classList.remove(EXPANDED_CONTENT_OPENED_CLASS);
+    expandedContentEl.addEventListener(
+      "transitionend",
+      (e) => {
+        this.hideExpandedContent(e, expandedContentEl);
+      },
+      { once: true }
+    );
   };
 
   render() {
