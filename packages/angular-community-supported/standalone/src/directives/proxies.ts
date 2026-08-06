@@ -162,7 +162,7 @@ export declare interface IcActionChip extends Components.IcActionChip {}
 })
 export class IcAlert {
   protected el: HTMLIcAlertElement;
-  @Output() icDismiss = new EventEmitter<CustomEvent<void>>();
+  @Output() icDismiss = new EventEmitter<IcAlertCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -170,11 +170,13 @@ export class IcAlert {
 }
 
 
+import type { IcAlertCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcAlert extends Components.IcAlert {
   /**
    * Is emitted when the user dismisses the alert.
    */
-  icDismiss: EventEmitter<CustomEvent<void>>;
+  icDismiss: EventEmitter<IcAlertCustomEvent<void>>;
 }
 
 
@@ -286,9 +288,9 @@ export declare interface IcBreadcrumbGroup extends Components.IcBreadcrumbGroup 
 })
 export class IcButton {
   protected el: HTMLIcButtonElement;
-  @Output() icBlur = new EventEmitter<CustomEvent<void>>();
-  @Output() icFileSelection = new EventEmitter<CustomEvent<FileList>>();
-  @Output() icFocus = new EventEmitter<CustomEvent<void>>();
+  @Output() icBlur = new EventEmitter<IcButtonCustomEvent<void>>();
+  @Output() icFileSelection = new EventEmitter<IcButtonCustomEvent<FileList>>();
+  @Output() icFocus = new EventEmitter<IcButtonCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -296,19 +298,21 @@ export class IcButton {
 }
 
 
+import type { IcButtonCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcButton extends Components.IcButton {
   /**
    * Emitted when button has blur
    */
-  icBlur: EventEmitter<CustomEvent<void>>;
+  icBlur: EventEmitter<IcButtonCustomEvent<void>>;
   /**
    * If `fileUpload` is set to `true`, this will be emitted when a file is selected in the native explorer.
    */
-  icFileSelection: EventEmitter<CustomEvent<FileList>>;
+  icFileSelection: EventEmitter<IcButtonCustomEvent<FileList>>;
   /**
    * Emitted when button has focus
    */
-  icFocus: EventEmitter<CustomEvent<void>>;
+  icFocus: EventEmitter<IcButtonCustomEvent<void>>;
 }
 
 
@@ -375,7 +379,7 @@ export declare interface IcCardVertical extends Components.IcCardVertical {}
 })
 export class IcCheckbox {
   protected el: HTMLIcCheckboxElement;
-  @Output() icCheck = new EventEmitter<CustomEvent<void>>();
+  @Output() icCheck = new EventEmitter<IcCheckboxCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -383,11 +387,13 @@ export class IcCheckbox {
 }
 
 
+import type { IcCheckboxCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcCheckbox extends Components.IcCheckbox {
   /**
    * Emitted when a checkbox has been checked.
    */
-  icCheck: EventEmitter<CustomEvent<void>>;
+  icCheck: EventEmitter<IcCheckboxCustomEvent<void>>;
 }
 
 
@@ -405,7 +411,7 @@ export declare interface IcCheckbox extends Components.IcCheckbox {
 })
 export class IcCheckboxGroup {
   protected el: HTMLIcCheckboxGroupElement;
-  @Output() icChange = new EventEmitter<CustomEvent<IIcCheckboxGroupIcChangeEventDetail>>();
+  @Output() icChange = new EventEmitter<IcCheckboxGroupCustomEvent<IIcCheckboxGroupIcChangeEventDetail>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -413,13 +419,14 @@ export class IcCheckboxGroup {
 }
 
 
+import type { IcCheckboxGroupCustomEvent } from '@ukic/web-components/components';
 import type { IcChangeEventDetail as IIcCheckboxGroupIcChangeEventDetail } from '@ukic/web-components/components';
 
 export declare interface IcCheckboxGroup extends Components.IcCheckboxGroup {
   /**
    * Emitted when a checkbox is checked.
    */
-  icChange: EventEmitter<CustomEvent<IIcCheckboxGroupIcChangeEventDetail>>;
+  icChange: EventEmitter<IcCheckboxGroupCustomEvent<IIcCheckboxGroupIcChangeEventDetail>>;
 }
 
 
@@ -438,7 +445,7 @@ export declare interface IcCheckboxGroup extends Components.IcCheckboxGroup {
 })
 export class IcChip {
   protected el: HTMLIcChipElement;
-  @Output() icDismiss = new EventEmitter<CustomEvent<void>>();
+  @Output() icDismiss = new EventEmitter<IcChipCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -446,11 +453,13 @@ export class IcChip {
 }
 
 
+import type { IcChipCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcChip extends Components.IcChip {
   /**
    * Is emitted when the user dismisses the chip.
    */
-  icDismiss: EventEmitter<CustomEvent<void>>;
+  icDismiss: EventEmitter<IcChipCustomEvent<void>>;
 }
 
 
@@ -538,10 +547,10 @@ export declare interface IcDataRow extends Components.IcDataRow {}
 })
 export class IcDialog {
   protected el: HTMLIcDialogElement;
-  @Output() icDialogCancelled = new EventEmitter<CustomEvent<void>>();
-  @Output() icDialogClosed = new EventEmitter<CustomEvent<void>>();
-  @Output() icDialogConfirmed = new EventEmitter<CustomEvent<void>>();
-  @Output() icDialogOpened = new EventEmitter<CustomEvent<void>>();
+  @Output() icDialogCancelled = new EventEmitter<IcDialogCustomEvent<void>>();
+  @Output() icDialogClosed = new EventEmitter<IcDialogCustomEvent<void>>();
+  @Output() icDialogConfirmed = new EventEmitter<IcDialogCustomEvent<void>>();
+  @Output() icDialogOpened = new EventEmitter<IcDialogCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -549,23 +558,25 @@ export class IcDialog {
 }
 
 
+import type { IcDialogCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcDialog extends Components.IcDialog {
   /**
    * Cancellation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
    */
-  icDialogCancelled: EventEmitter<CustomEvent<void>>;
+  icDialogCancelled: EventEmitter<IcDialogCustomEvent<void>>;
   /**
    * Emitted when dialog has closed.
    */
-  icDialogClosed: EventEmitter<CustomEvent<void>>;
+  icDialogClosed: EventEmitter<IcDialogCustomEvent<void>>;
   /**
    * Confirmation event emitted when default 'Confirm' primary button clicked or 'confirmDialog' method is called.
    */
-  icDialogConfirmed: EventEmitter<CustomEvent<void>>;
+  icDialogConfirmed: EventEmitter<IcDialogCustomEvent<void>>;
   /**
    * Emitted when dialog has opened.
    */
-  icDialogOpened: EventEmitter<CustomEvent<void>>;
+  icDialogOpened: EventEmitter<IcDialogCustomEvent<void>>;
 }
 
 
@@ -930,7 +941,7 @@ export declare interface IcLoadingIndicator extends Components.IcLoadingIndicato
 })
 export class IcMenu {
   protected el: HTMLIcMenuElement;
-  @Output() icClear = new EventEmitter<CustomEvent<void>>();
+  @Output() icClear = new EventEmitter<IcMenuCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -938,11 +949,13 @@ export class IcMenu {
 }
 
 
+import type { IcMenuCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcMenu extends Components.IcMenu {
   /**
    * Emitted when the clear all button is clicked.
    */
-  icClear: EventEmitter<CustomEvent<void>>;
+  icClear: EventEmitter<IcMenuCustomEvent<void>>;
 }
 
 
@@ -983,7 +996,7 @@ export declare interface IcMenuGroup extends Components.IcMenuGroup {}
 })
 export class IcMenuItem {
   protected el: HTMLIcMenuItemElement;
-  @Output() icToggleChecked = new EventEmitter<CustomEvent<{ checked: boolean; }>>();
+  @Output() icToggleChecked = new EventEmitter<IcMenuItemCustomEvent<{ checked: boolean; }>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -991,11 +1004,13 @@ export class IcMenuItem {
 }
 
 
+import type { IcMenuItemCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcMenuItem extends Components.IcMenuItem {
   /**
    * Emitted when the user clicks a menu item that is set to the toggle variant.
    */
-  icToggleChecked: EventEmitter<CustomEvent<{ checked: boolean; }>>;
+  icToggleChecked: EventEmitter<IcMenuItemCustomEvent<{ checked: boolean; }>>;
 }
 
 
@@ -1132,7 +1147,7 @@ export declare interface IcPageHeader extends Components.IcPageHeader {}
 })
 export class IcPagination {
   protected el: HTMLIcPaginationElement;
-  @Output() icPageChange = new EventEmitter<CustomEvent<IIcPaginationIcChangeEventDetail>>();
+  @Output() icPageChange = new EventEmitter<IcPaginationCustomEvent<IIcPaginationIcChangeEventDetail>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1140,13 +1155,14 @@ export class IcPagination {
 }
 
 
+import type { IcPaginationCustomEvent } from '@ukic/web-components/components';
 import type { IcChangeEventDetail as IIcPaginationIcChangeEventDetail } from '@ukic/web-components/components';
 
 export declare interface IcPagination extends Components.IcPagination {
   /**
    * Emitted when a page is selected.
    */
-  icPageChange: EventEmitter<CustomEvent<IIcPaginationIcChangeEventDetail>>;
+  icPageChange: EventEmitter<IcPaginationCustomEvent<IIcPaginationIcChangeEventDetail>>;
 }
 
 
@@ -1164,8 +1180,8 @@ export declare interface IcPagination extends Components.IcPagination {
 })
 export class IcPaginationBar {
   protected el: HTMLIcPaginationBarElement;
-  @Output() icPageChange = new EventEmitter<CustomEvent<IIcPaginationBarIcPageChangeEventDetail>>();
-  @Output() icItemsPerPageChange = new EventEmitter<CustomEvent<IIcPaginationBarIcItemsPerPageChangeEventDetail>>();
+  @Output() icPageChange = new EventEmitter<IcPaginationBarCustomEvent<IIcPaginationBarIcPageChangeEventDetail>>();
+  @Output() icItemsPerPageChange = new EventEmitter<IcPaginationBarCustomEvent<IIcPaginationBarIcItemsPerPageChangeEventDetail>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1173,6 +1189,7 @@ export class IcPaginationBar {
 }
 
 
+import type { IcPaginationBarCustomEvent } from '@ukic/web-components/components';
 import type { IcPageChangeEventDetail as IIcPaginationBarIcPageChangeEventDetail } from '@ukic/web-components/components';
 import type { IcItemsPerPageChangeEventDetail as IIcPaginationBarIcItemsPerPageChangeEventDetail } from '@ukic/web-components/components';
 
@@ -1181,11 +1198,11 @@ export declare interface IcPaginationBar extends Components.IcPaginationBar {
    * Emitted when a page is navigated to via the 'go to' input.
 The `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.
    */
-  icPageChange: EventEmitter<CustomEvent<IIcPaginationBarIcPageChangeEventDetail>>;
+  icPageChange: EventEmitter<IcPaginationBarCustomEvent<IIcPaginationBarIcPageChangeEventDetail>>;
   /**
    * Emitted when the items per page option is changed.
    */
-  icItemsPerPageChange: EventEmitter<CustomEvent<IIcPaginationBarIcItemsPerPageChangeEventDetail>>;
+  icItemsPerPageChange: EventEmitter<IcPaginationBarCustomEvent<IIcPaginationBarIcItemsPerPageChangeEventDetail>>;
 }
 
 
@@ -1226,7 +1243,7 @@ export declare interface IcPaginationItem extends Components.IcPaginationItem {}
 })
 export class IcPopoverMenu {
   protected el: HTMLIcPopoverMenuElement;
-  @Output() icPopoverClosed = new EventEmitter<CustomEvent<HTMLIcMenuItemElement>>();
+  @Output() icPopoverClosed = new EventEmitter<IcPopoverMenuCustomEvent<HTMLIcMenuItemElement>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1234,11 +1251,13 @@ export class IcPopoverMenu {
 }
 
 
+import type { IcPopoverMenuCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcPopoverMenu extends Components.IcPopoverMenu {
   /**
    * Emitted when the popover menu is closed.
    */
-  icPopoverClosed: EventEmitter<CustomEvent<HTMLIcMenuItemElement>>;
+  icPopoverClosed: EventEmitter<IcPopoverMenuCustomEvent<HTMLIcMenuItemElement>>;
 }
 
 
@@ -1256,7 +1275,7 @@ export declare interface IcPopoverMenu extends Components.IcPopoverMenu {
 })
 export class IcRadioGroup {
   protected el: HTMLIcRadioGroupElement;
-  @Output() icChange = new EventEmitter<CustomEvent<IIcRadioGroupIcChangeEventDetail>>();
+  @Output() icChange = new EventEmitter<IcRadioGroupCustomEvent<IIcRadioGroupIcChangeEventDetail>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1264,13 +1283,14 @@ export class IcRadioGroup {
 }
 
 
+import type { IcRadioGroupCustomEvent } from '@ukic/web-components/components';
 import type { IcChangeEventDetail as IIcRadioGroupIcChangeEventDetail } from '@ukic/web-components/components';
 
 export declare interface IcRadioGroup extends Components.IcRadioGroup {
   /**
    * Emitted when a user selects a radio.
    */
-  icChange: EventEmitter<CustomEvent<IIcRadioGroupIcChangeEventDetail>>;
+  icChange: EventEmitter<IcRadioGroupCustomEvent<IIcRadioGroupIcChangeEventDetail>>;
 }
 
 
@@ -1289,8 +1309,8 @@ export declare interface IcRadioGroup extends Components.IcRadioGroup {
 })
 export class IcRadioOption {
   protected el: HTMLIcRadioOptionElement;
-  @Output() icCheck = new EventEmitter<CustomEvent<IIcRadioOptionIcValueEventDetail>>();
-  @Output() icSelectedChange = new EventEmitter<CustomEvent<void>>();
+  @Output() icCheck = new EventEmitter<IcRadioOptionCustomEvent<IIcRadioOptionIcValueEventDetail>>();
+  @Output() icSelectedChange = new EventEmitter<IcRadioOptionCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1298,17 +1318,18 @@ export class IcRadioOption {
 }
 
 
+import type { IcRadioOptionCustomEvent } from '@ukic/web-components/components';
 import type { IcValueEventDetail as IIcRadioOptionIcValueEventDetail } from '@ukic/web-components/components';
 
 export declare interface IcRadioOption extends Components.IcRadioOption {
   /**
    * Emitted when the radio option is selected.
    */
-  icCheck: EventEmitter<CustomEvent<IIcRadioOptionIcValueEventDetail>>;
+  icCheck: EventEmitter<IcRadioOptionCustomEvent<IIcRadioOptionIcValueEventDetail>>;
   /**
    * Emitted when the radio option is selected or deselected.
    */
-  icSelectedChange: EventEmitter<CustomEvent<void>>;
+  icSelectedChange: EventEmitter<IcRadioOptionCustomEvent<void>>;
 }
 
 
@@ -1327,16 +1348,16 @@ export declare interface IcRadioOption extends Components.IcRadioOption {
 })
 export class IcSearchBar {
   protected el: HTMLIcSearchBarElement;
-  @Output() icChange = new EventEmitter<CustomEvent<IIcSearchBarIcValueEventDetail>>();
-  @Output() icClear = new EventEmitter<CustomEvent<void>>();
-  @Output() icInput = new EventEmitter<CustomEvent<IIcSearchBarIcValueEventDetail>>();
-  @Output() icOptionSelect = new EventEmitter<CustomEvent<IIcSearchBarIcOptionSelectEventDetail>>();
-  @Output() icMenuChange = new EventEmitter<CustomEvent<IIcSearchBarIcMenuChangeEventDetail>>();
-  @Output() icRetryLoad = new EventEmitter<CustomEvent<IIcSearchBarIcMultiValueEventDetail>>();
-  @Output() icSubmitSearch = new EventEmitter<CustomEvent<IIcSearchBarIcValueEventDetail>>();
-  @Output() icSearchBarBlur = new EventEmitter<CustomEvent<IIcSearchBarIcSearchBarBlurEventDetail>>();
-  @Output() icSearchBarFocus = new EventEmitter<CustomEvent<IIcSearchBarIcValueEventDetail>>();
-  @Output() icKeydown = new EventEmitter<CustomEvent<{ event: KeyboardEvent }>>();
+  @Output() icChange = new EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcValueEventDetail>>();
+  @Output() icClear = new EventEmitter<IcSearchBarCustomEvent<void>>();
+  @Output() icInput = new EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcValueEventDetail>>();
+  @Output() icOptionSelect = new EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcOptionSelectEventDetail>>();
+  @Output() icMenuChange = new EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcMenuChangeEventDetail>>();
+  @Output() icRetryLoad = new EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcMultiValueEventDetail>>();
+  @Output() icSubmitSearch = new EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcValueEventDetail>>();
+  @Output() icSearchBarBlur = new EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcSearchBarBlurEventDetail>>();
+  @Output() icSearchBarFocus = new EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcValueEventDetail>>();
+  @Output() icKeydown = new EventEmitter<IcSearchBarCustomEvent<{ event: KeyboardEvent }>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1344,6 +1365,7 @@ export class IcSearchBar {
 }
 
 
+import type { IcSearchBarCustomEvent } from '@ukic/web-components/components';
 import type { IcValueEventDetail as IIcSearchBarIcValueEventDetail } from '@ukic/web-components/components';
 import type { IcOptionSelectEventDetail as IIcSearchBarIcOptionSelectEventDetail } from '@ukic/web-components/components';
 import type { IcMenuChangeEventDetail as IIcSearchBarIcMenuChangeEventDetail } from '@ukic/web-components/components';
@@ -1354,43 +1376,43 @@ export declare interface IcSearchBar extends Components.IcSearchBar {
   /**
    * Emitted when the value has changed.
    */
-  icChange: EventEmitter<CustomEvent<IIcSearchBarIcValueEventDetail>>;
+  icChange: EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcValueEventDetail>>;
   /**
    * Emitted when value is cleared with clear button
    */
-  icClear: EventEmitter<CustomEvent<void>>;
+  icClear: EventEmitter<IcSearchBarCustomEvent<void>>;
   /**
    * Emitted when a keyboard input occurred.
    */
-  icInput: EventEmitter<CustomEvent<IIcSearchBarIcValueEventDetail>>;
+  icInput: EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcValueEventDetail>>;
   /**
    * Emitted when option is highlighted within the menu
    */
-  icOptionSelect: EventEmitter<CustomEvent<IIcSearchBarIcOptionSelectEventDetail>>;
+  icOptionSelect: EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcOptionSelectEventDetail>>;
   /**
    * Emitted when the state of the menu changes (i.e. open or close)
    */
-  icMenuChange: EventEmitter<CustomEvent<IIcSearchBarIcMenuChangeEventDetail>>;
+  icMenuChange: EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcMenuChangeEventDetail>>;
   /**
    * Emitted when the 'retry loading' button is clicked
    */
-  icRetryLoad: EventEmitter<CustomEvent<IIcSearchBarIcMultiValueEventDetail>>;
+  icRetryLoad: EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcMultiValueEventDetail>>;
   /**
    * Emitted when the search value has been submitted
    */
-  icSubmitSearch: EventEmitter<CustomEvent<IIcSearchBarIcValueEventDetail>>;
+  icSubmitSearch: EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcValueEventDetail>>;
   /**
    * Emitted when blur is invoked from ic-search-bar
    */
-  icSearchBarBlur: EventEmitter<CustomEvent<IIcSearchBarIcSearchBarBlurEventDetail>>;
+  icSearchBarBlur: EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcSearchBarBlurEventDetail>>;
   /**
    * Emitted when focus is invoked from ic-search-bar
    */
-  icSearchBarFocus: EventEmitter<CustomEvent<IIcSearchBarIcValueEventDetail>>;
+  icSearchBarFocus: EventEmitter<IcSearchBarCustomEvent<IIcSearchBarIcValueEventDetail>>;
   /**
    * Emitted when a keydown event occurred.
    */
-  icKeydown: EventEmitter<CustomEvent<{ event: KeyboardEvent }>>;
+  icKeydown: EventEmitter<IcSearchBarCustomEvent<{ event: KeyboardEvent }>>;
 }
 
 
@@ -1432,16 +1454,16 @@ export declare interface IcSectionContainer extends Components.IcSectionContaine
 })
 export class IcSelect {
   protected el: HTMLIcSelectElement;
-  @Output() icBlur = new EventEmitter<CustomEvent<void>>();
-  @Output() icChange = new EventEmitter<CustomEvent<IIcSelectIcMultiValueEventDetail>>();
-  @Output() icClear = new EventEmitter<CustomEvent<void>>();
-  @Output() icClose = new EventEmitter<CustomEvent<void>>();
-  @Output() icFocus = new EventEmitter<CustomEvent<void>>();
-  @Output() icInput = new EventEmitter<CustomEvent<IIcSelectIcMultiValueEventDetail>>();
-  @Output() icOpen = new EventEmitter<CustomEvent<void>>();
-  @Output() icOptionSelect = new EventEmitter<CustomEvent<IIcSelectIcOptionSelectEventDetail>>();
-  @Output() icOptionDeselect = new EventEmitter<CustomEvent<IIcSelectIcOptionSelectEventDetail>>();
-  @Output() icRetryLoad = new EventEmitter<CustomEvent<IIcSelectIcMultiValueEventDetail>>();
+  @Output() icBlur = new EventEmitter<IcSelectCustomEvent<void>>();
+  @Output() icChange = new EventEmitter<IcSelectCustomEvent<IIcSelectIcMultiValueEventDetail>>();
+  @Output() icClear = new EventEmitter<IcSelectCustomEvent<void>>();
+  @Output() icClose = new EventEmitter<IcSelectCustomEvent<void>>();
+  @Output() icFocus = new EventEmitter<IcSelectCustomEvent<void>>();
+  @Output() icInput = new EventEmitter<IcSelectCustomEvent<IIcSelectIcMultiValueEventDetail>>();
+  @Output() icOpen = new EventEmitter<IcSelectCustomEvent<void>>();
+  @Output() icOptionSelect = new EventEmitter<IcSelectCustomEvent<IIcSelectIcOptionSelectEventDetail>>();
+  @Output() icOptionDeselect = new EventEmitter<IcSelectCustomEvent<IIcSelectIcOptionSelectEventDetail>>();
+  @Output() icRetryLoad = new EventEmitter<IcSelectCustomEvent<IIcSelectIcMultiValueEventDetail>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1449,6 +1471,7 @@ export class IcSelect {
 }
 
 
+import type { IcSelectCustomEvent } from '@ukic/web-components/components';
 import type { IcMultiValueEventDetail as IIcSelectIcMultiValueEventDetail } from '@ukic/web-components/components';
 import type { IcOptionSelectEventDetail as IIcSelectIcOptionSelectEventDetail } from '@ukic/web-components/components';
 
@@ -1456,44 +1479,44 @@ export declare interface IcSelect extends Components.IcSelect {
   /**
    * Emitted when the select loses focus.
    */
-  icBlur: EventEmitter<CustomEvent<void>>;
+  icBlur: EventEmitter<IcSelectCustomEvent<void>>;
   /**
    * Emitted when the value changes.
    */
-  icChange: EventEmitter<CustomEvent<IIcSelectIcMultiValueEventDetail>>;
+  icChange: EventEmitter<IcSelectCustomEvent<IIcSelectIcMultiValueEventDetail>>;
   /**
    * Emitted when the clear or clear all button is clicked.
    */
-  icClear: EventEmitter<CustomEvent<void>>;
+  icClear: EventEmitter<IcSelectCustomEvent<void>>;
   /**
    * Emitted when the select options menu is closed.
    */
-  icClose: EventEmitter<CustomEvent<void>>;
+  icClose: EventEmitter<IcSelectCustomEvent<void>>;
   /**
    * Emitted when the select gains focus.
    */
-  icFocus: EventEmitter<CustomEvent<void>>;
+  icFocus: EventEmitter<IcSelectCustomEvent<void>>;
   /**
    * Emitted when a keyboard input occurred.
    */
-  icInput: EventEmitter<CustomEvent<IIcSelectIcMultiValueEventDetail>>;
+  icInput: EventEmitter<IcSelectCustomEvent<IIcSelectIcMultiValueEventDetail>>;
   /**
    * Emitted when the select options menu is opened.
    */
-  icOpen: EventEmitter<CustomEvent<void>>;
+  icOpen: EventEmitter<IcSelectCustomEvent<void>>;
   /**
    * Emitted when an option is selected.
 Selecting an option will also trigger an `icChange/onIcChange` due to the value being updated.
    */
-  icOptionSelect: EventEmitter<CustomEvent<IIcSelectIcOptionSelectEventDetail>>;
+  icOptionSelect: EventEmitter<IcSelectCustomEvent<IIcSelectIcOptionSelectEventDetail>>;
   /**
    * Emitted when `multiple` is `true` and an option is deselected.
    */
-  icOptionDeselect: EventEmitter<CustomEvent<IIcSelectIcOptionSelectEventDetail>>;
+  icOptionDeselect: EventEmitter<IcSelectCustomEvent<IIcSelectIcOptionSelectEventDetail>>;
   /**
    * Emitted when the 'retry loading' button is clicked for a searchable variant.
    */
-  icRetryLoad: EventEmitter<CustomEvent<IIcSelectIcMultiValueEventDetail>>;
+  icRetryLoad: EventEmitter<IcSelectCustomEvent<IIcSelectIcMultiValueEventDetail>>;
 }
 
 
@@ -1511,7 +1534,7 @@ Selecting an option will also trigger an `icChange/onIcChange` due to the value 
 })
 export class IcSideNavigation {
   protected el: HTMLIcSideNavigationElement;
-  @Output() icSideNavExpanded = new EventEmitter<CustomEvent<IIcSideNavigationIcExpandedDetail>>();
+  @Output() icSideNavExpanded = new EventEmitter<IcSideNavigationCustomEvent<IIcSideNavigationIcExpandedDetail>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1519,13 +1542,14 @@ export class IcSideNavigation {
 }
 
 
+import type { IcSideNavigationCustomEvent } from '@ukic/web-components/components';
 import type { IcExpandedDetail as IIcSideNavigationIcExpandedDetail } from '@ukic/web-components/components';
 
 export declare interface IcSideNavigation extends Components.IcSideNavigation {
   /**
    * Emitted when the side navigation is collapsed and expanded.
    */
-  icSideNavExpanded: EventEmitter<CustomEvent<IIcSideNavigationIcExpandedDetail>>;
+  icSideNavExpanded: EventEmitter<IcSideNavigationCustomEvent<IIcSideNavigationIcExpandedDetail>>;
 }
 
 
@@ -1660,9 +1684,9 @@ export declare interface IcStepper extends Components.IcStepper {}
 })
 export class IcSwitch {
   protected el: HTMLIcSwitchElement;
-  @Output() icBlur = new EventEmitter<CustomEvent<void>>();
-  @Output() icChange = new EventEmitter<CustomEvent<IIcSwitchIcSwitchChangeEventDetail>>();
-  @Output() icFocus = new EventEmitter<CustomEvent<void>>();
+  @Output() icBlur = new EventEmitter<IcSwitchCustomEvent<void>>();
+  @Output() icChange = new EventEmitter<IcSwitchCustomEvent<IIcSwitchIcSwitchChangeEventDetail>>();
+  @Output() icFocus = new EventEmitter<IcSwitchCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1670,21 +1694,22 @@ export class IcSwitch {
 }
 
 
+import type { IcSwitchCustomEvent } from '@ukic/web-components/components';
 import type { IcSwitchChangeEventDetail as IIcSwitchIcSwitchChangeEventDetail } from '@ukic/web-components/components';
 
 export declare interface IcSwitch extends Components.IcSwitch {
   /**
    * Emitted when the toggle loses focus.
    */
-  icBlur: EventEmitter<CustomEvent<void>>;
+  icBlur: EventEmitter<IcSwitchCustomEvent<void>>;
   /**
    * Emitted when the value property has changed.
    */
-  icChange: EventEmitter<CustomEvent<IIcSwitchIcSwitchChangeEventDetail>>;
+  icChange: EventEmitter<IcSwitchCustomEvent<IIcSwitchIcSwitchChangeEventDetail>>;
   /**
    * Emitted when the toggle has focus.
    */
-  icFocus: EventEmitter<CustomEvent<void>>;
+  icFocus: EventEmitter<IcSwitchCustomEvent<void>>;
 }
 
 
@@ -1727,7 +1752,7 @@ export declare interface IcTab extends Components.IcTab {}
 })
 export class IcTabContext {
   protected el: HTMLIcTabContextElement;
-  @Output() icTabSelect = new EventEmitter<CustomEvent<IIcTabContextIcTabSelectEventDetail>>();
+  @Output() icTabSelect = new EventEmitter<IcTabContextCustomEvent<IIcTabContextIcTabSelectEventDetail>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1735,13 +1760,14 @@ export class IcTabContext {
 }
 
 
+import type { IcTabContextCustomEvent } from '@ukic/web-components/components';
 import type { IcTabSelectEventDetail as IIcTabContextIcTabSelectEventDetail } from '@ukic/web-components/components';
 
 export declare interface IcTabContext extends Components.IcTabContext {
   /**
    * Emitted when a user selects a tab.
    */
-  icTabSelect: EventEmitter<CustomEvent<IIcTabContextIcTabSelectEventDetail>>;
+  icTabSelect: EventEmitter<IcTabContextCustomEvent<IIcTabContextIcTabSelectEventDetail>>;
 }
 
 
@@ -1805,12 +1831,12 @@ export declare interface IcTabPanel extends Components.IcTabPanel {}
 })
 export class IcTextField {
   protected el: HTMLIcTextFieldElement;
-  @Output() icBlur = new EventEmitter<CustomEvent<IIcTextFieldIcValueEventDetail>>();
-  @Output() icChange = new EventEmitter<CustomEvent<IIcTextFieldIcValueEventDetail>>();
-  @Output() icFocus = new EventEmitter<CustomEvent<IIcTextFieldIcValueEventDetail>>();
-  @Output() icInput = new EventEmitter<CustomEvent<IIcTextFieldIcValueEventDetail>>();
-  @Output() icKeydown = new EventEmitter<CustomEvent<IIcTextFieldIcTextFieldKeydownEventDetail>>();
-  @Output() icScroll = new EventEmitter<CustomEvent<any>>();
+  @Output() icBlur = new EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcValueEventDetail>>();
+  @Output() icChange = new EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcValueEventDetail>>();
+  @Output() icFocus = new EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcValueEventDetail>>();
+  @Output() icInput = new EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcValueEventDetail>>();
+  @Output() icKeydown = new EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcTextFieldKeydownEventDetail>>();
+  @Output() icScroll = new EventEmitter<IcTextFieldCustomEvent<any>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1818,6 +1844,7 @@ export class IcTextField {
 }
 
 
+import type { IcTextFieldCustomEvent } from '@ukic/web-components/components';
 import type { IcValueEventDetail as IIcTextFieldIcValueEventDetail } from '@ukic/web-components/components';
 import type { IcTextFieldKeydownEventDetail as IIcTextFieldIcTextFieldKeydownEventDetail } from '@ukic/web-components/components';
 
@@ -1825,27 +1852,27 @@ export declare interface IcTextField extends Components.IcTextField {
   /**
    * Emitted when input loses focus.
    */
-  icBlur: EventEmitter<CustomEvent<IIcTextFieldIcValueEventDetail>>;
+  icBlur: EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcValueEventDetail>>;
   /**
    * Emitted when the value has changed.
    */
-  icChange: EventEmitter<CustomEvent<IIcTextFieldIcValueEventDetail>>;
+  icChange: EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcValueEventDetail>>;
   /**
    * Emitted when input gains focus.
    */
-  icFocus: EventEmitter<CustomEvent<IIcTextFieldIcValueEventDetail>>;
+  icFocus: EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcValueEventDetail>>;
   /**
    * Emitted when a keyboard input occurred.
    */
-  icInput: EventEmitter<CustomEvent<IIcTextFieldIcValueEventDetail>>;
+  icInput: EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcValueEventDetail>>;
   /**
    * Emitted when a keydown event occurred.
    */
-  icKeydown: EventEmitter<CustomEvent<IIcTextFieldIcTextFieldKeydownEventDetail>>;
+  icKeydown: EventEmitter<IcTextFieldCustomEvent<IIcTextFieldIcTextFieldKeydownEventDetail>>;
   /**
    * Emitted when the textarea variant is scrolled.
    */
-  icScroll: EventEmitter<CustomEvent<any>>;
+  icScroll: EventEmitter<IcTextFieldCustomEvent<any>>;
 }
 
 
@@ -1863,7 +1890,7 @@ export declare interface IcTextField extends Components.IcTextField {
 })
 export class IcTheme {
   protected el: HTMLIcThemeElement;
-  @Output() icThemeChange = new EventEmitter<CustomEvent<IIcThemeIcThemeSettings>>();
+  @Output() icThemeChange = new EventEmitter<IcThemeCustomEvent<IIcThemeIcThemeSettings>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1871,13 +1898,14 @@ export class IcTheme {
 }
 
 
+import type { IcThemeCustomEvent } from '@ukic/web-components/components';
 import type { IcThemeSettings as IIcThemeIcThemeSettings } from '@ukic/web-components/components';
 
 export declare interface IcTheme extends Components.IcTheme {
   /**
    * Emitted when the theme is changed.
    */
-  icThemeChange: EventEmitter<CustomEvent<IIcThemeIcThemeSettings>>;
+  icThemeChange: EventEmitter<IcThemeCustomEvent<IIcThemeIcThemeSettings>>;
 }
 
 
@@ -1895,7 +1923,7 @@ export declare interface IcTheme extends Components.IcTheme {
 })
 export class IcToast {
   protected el: HTMLIcToastElement;
-  @Output() icDismiss = new EventEmitter<CustomEvent<void>>();
+  @Output() icDismiss = new EventEmitter<IcToastCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1903,11 +1931,13 @@ export class IcToast {
 }
 
 
+import type { IcToastCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcToast extends Components.IcToast {
   /**
    * Is emitted when the user dismisses the toast
    */
-  icDismiss: EventEmitter<CustomEvent<void>>;
+  icDismiss: EventEmitter<IcToastCustomEvent<void>>;
 }
 
 
@@ -1948,7 +1978,7 @@ export declare interface IcToastRegion extends Components.IcToastRegion {}
 })
 export class IcToggleButton {
   protected el: HTMLIcToggleButtonElement;
-  @Output() icToggleChecked = new EventEmitter<CustomEvent<{ checked: boolean; }>>();
+  @Output() icToggleChecked = new EventEmitter<IcToggleButtonCustomEvent<{ checked: boolean; }>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1956,11 +1986,13 @@ export class IcToggleButton {
 }
 
 
+import type { IcToggleButtonCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcToggleButton extends Components.IcToggleButton {
   /**
    * Emitted when the user clicks a toggle button.
    */
-  icToggleChecked: EventEmitter<CustomEvent<{ checked: boolean; }>>;
+  icToggleChecked: EventEmitter<IcToggleButtonCustomEvent<{ checked: boolean; }>>;
 }
 
 
@@ -1978,7 +2010,7 @@ export declare interface IcToggleButton extends Components.IcToggleButton {
 })
 export class IcToggleButtonGroup {
   protected el: HTMLIcToggleButtonGroupElement;
-  @Output() icChange = new EventEmitter<CustomEvent<IIcToggleButtonGroupIcChangeEventDetail>>();
+  @Output() icChange = new EventEmitter<IcToggleButtonGroupCustomEvent<IIcToggleButtonGroupIcChangeEventDetail>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -1986,13 +2018,14 @@ export class IcToggleButtonGroup {
 }
 
 
+import type { IcToggleButtonGroupCustomEvent } from '@ukic/web-components/components';
 import type { IcChangeEventDetail as IIcToggleButtonGroupIcChangeEventDetail } from '@ukic/web-components/components';
 
 export declare interface IcToggleButtonGroup extends Components.IcToggleButtonGroup {
   /**
    * Emitted when a toggle button is selected.
    */
-  icChange: EventEmitter<CustomEvent<IIcToggleButtonGroupIcChangeEventDetail>>;
+  icChange: EventEmitter<IcToggleButtonGroupCustomEvent<IIcToggleButtonGroupIcChangeEventDetail>>;
 }
 
 
@@ -2011,7 +2044,7 @@ export declare interface IcToggleButtonGroup extends Components.IcToggleButtonGr
 })
 export class IcTooltip {
   protected el: HTMLIcTooltipElement;
-  @Output() icTooltipShow = new EventEmitter<CustomEvent<void>>();
+  @Output() icTooltipShow = new EventEmitter<IcTooltipCustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -2019,11 +2052,13 @@ export class IcTooltip {
 }
 
 
+import type { IcTooltipCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcTooltip extends Components.IcTooltip {
   /**
    * Emitted when the tooltip becomes visible.
    */
-  icTooltipShow: EventEmitter<CustomEvent<void>>;
+  icTooltipShow: EventEmitter<IcTooltipCustomEvent<void>>;
 }
 
 
@@ -2041,7 +2076,7 @@ export declare interface IcTooltip extends Components.IcTooltip {
 })
 export class IcTopNavigation {
   protected el: HTMLIcTopNavigationElement;
-  @Output() icTopNavResized = new EventEmitter<CustomEvent<{ size: number }>>();
+  @Output() icTopNavResized = new EventEmitter<IcTopNavigationCustomEvent<{ size: number }>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -2049,11 +2084,13 @@ export class IcTopNavigation {
 }
 
 
+import type { IcTopNavigationCustomEvent } from '@ukic/web-components/components';
+
 export declare interface IcTopNavigation extends Components.IcTopNavigation {
   /**
    * Emitted when the top navigation is resized.
    */
-  icTopNavResized: EventEmitter<CustomEvent<{ size: number }>>;
+  icTopNavResized: EventEmitter<IcTopNavigationCustomEvent<{ size: number }>>;
 }
 
 
