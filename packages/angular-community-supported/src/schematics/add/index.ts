@@ -14,7 +14,6 @@ import {
 import { NodePackageInstallTask } from "@angular-devkit/schematics/tasks";
 import {
   getWorkspace,
-  ProjectDefinition,
 } from "@schematics/angular/utility/workspace";
 
 import { addICDSModuleImportToNgModule } from "../utils/ast";
@@ -58,7 +57,9 @@ function addICDSAngularModuleToAppModule(projectSourceRoot: Path): Rule {
   };
 }
 
-function addICDSStyles(project: ProjectDefinition, projectName: string): Rule {
+type AddStyleProject = Parameters<typeof addStyle>[1];
+
+function addICDSStyles(project: AddStyleProject, projectName: string): Rule {
   return (host: Tree) => {
     const icdsStyles = [
       "node_modules/@ukic/fonts/dist/fonts.css",
@@ -85,7 +86,7 @@ export default function ngAdd(options: IonAddOptions): Rule {
     const workspace = await getWorkspace(host);
 
     const [projectName, config] = getDefaultAngularApp(
-      workspace,
+      workspace as unknown as Parameters<typeof getDefaultAngularApp>[0],
       options?.project,
     );
 
