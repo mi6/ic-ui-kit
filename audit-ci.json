@@ -134,13 +134,6 @@
       }
     },
     {
-      "GHSA-52cp-r559-cp3m": {
-        "active": true,
-        "notes": "transitive dependency 'js-yaml' which exists at root level and in some monorepo packages, no fix available yet.",
-        "expiry": "27 August 2026"
-      }
-    },
-    {
       "GHSA-6g55-p6wh-862q": {
         "active": true,
         "notes": "sourcemap vulnerability around file reads in 'PostCSS'.",
