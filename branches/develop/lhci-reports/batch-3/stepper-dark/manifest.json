@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/stepper?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/stepper-dark/localhost--2026_08_09_02_52_58.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/stepper-dark/localhost--2026_08_09_02_52_58.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/stepper-dark/localhost--2026_08_10_02_56_39.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/stepper-dark/localhost--2026_08_10_02_56_39.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
