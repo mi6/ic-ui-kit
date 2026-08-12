@@ -141,6 +141,13 @@
       }
     },
     {
+      "GHSA-5p4m-2wfm-xmqj": {
+        "active": true,
+        "notes": "transitive dependency 'js-yaml' which exists at root level and in some monorepo packages, no fix available yet.",
+        "expiry": "27 August 2026"
+      }
+    },
+    {
       "GHSA-6g55-p6wh-862q": {
         "active": true,
         "notes": "sourcemap vulnerability around file reads in 'PostCSS'.",
@@ -172,6 +179,48 @@
       "GHSA-jjmj-jmhj-qwj2": {
         "active": true,
         "notes": "XXS vulnerability in redirects using 'React Router'.",
+        "expiry": "27 August 2026"
+      }
+    },
+    {
+      "GHSA-7p8r-x3mc-p8w7": {
+        "active": true,
+        "notes": "Transitive dependency fast-uri, which needs to be fixed in peer dependencies.",
+        "expiry": "27 August 2026"
+      }
+    },
+    {
+      "GHSA-mwp4-54f8-5fhr": {
+        "active": true,
+        "notes": "Transitive dependency ip-address, which needs to be fixed in peer dependencies.",
+        "expiry": "27 August 2026"
+      }
+    },
+    {
+      "GHSA-4xrf-jv44-h6hh": {
+        "active": true,
+        "notes": "Transitive dependency ip-address, which needs to be fixed in peer dependencies.",
+        "expiry": "27 August 2026"
+      }
+    },
+    {
+      "GHSA-22jq-vg5j-6vgg": {
+        "active": true,
+        "notes": "Transitive dependency ip-address, which needs to be fixed in peer dependencies.",
+        "expiry": "27 August 2026"
+      }
+    },
+    {
+      "GHSA-fxqj-rqcc-2cmp": {
+        "active": true,
+        "notes": "sourcemap vulnerability around file reads in 'PostCSS'.",
+        "expiry": "27 August 2026"
+      }
+    },
+    {
+      "GHSA-2v37-7h3g-55p8": {
+        "active": true,
+        "notes": "Transitive dependency nanoid, which needs to be fixed in peer dependencies, overflow on infinite loop.",
         "expiry": "27 August 2026"
       }
     }
