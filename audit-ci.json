@@ -223,6 +223,13 @@
         "notes": "Transitive dependency nanoid, which needs to be fixed in peer dependencies, overflow on infinite loop.",
         "expiry": "27 August 2026"
       }
+    },
+    {
+      "GHSA-jmr9-qjv8-65gv": {
+        "active": true,
+        "notes": "Vulnerability in 'extract-zip', which is a dependency of Cypress and Puppeteer.",
+        "expiry": "27 August 2026"
+      }
     }
   ]
 }
