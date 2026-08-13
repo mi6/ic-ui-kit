@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/empty-state?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/empty-state-light/localhost--2026_08_12_03_05_58.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/empty-state-light/localhost--2026_08_12_03_05_58.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/empty-state-light/localhost--2026_08_13_03_08_21.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/empty-state-light/localhost--2026_08_13_03_08_21.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
