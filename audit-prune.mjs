@@ -32,6 +32,12 @@ function runAudit() {
         shell: isWindows,
         maxBuffer: MAX_BUFFER_SIZE
     });
+    if (result.error) {
+        throw result.error;
+    }
+    if (typeof result.status !== "number") {
+        throw new Error(`\`npm run audit\` did not exit cleanly (signal: ${result.signal ?? "unknown"})`);
+    }
     return result.status === 0;
 }
 
