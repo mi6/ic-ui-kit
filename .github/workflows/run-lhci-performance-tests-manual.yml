@@ -48,7 +48,6 @@ jobs:
         run: |
           google-chrome --version
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: LHCI performance tests - Batch ${{ matrix.batch }}
         if: ${{ needs.check-updates.outputs.core == 'true' }}

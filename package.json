@@ -1,12 +1,14 @@
 {
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "audit": "npm run audit-expiry && audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:bypass-expiry": "audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:fix": "lerna-audit",
     "audit:update": "node update-audit.mjs",
     "audit-expiry": "node check-audit-expiry.mjs",
-    "bootstrap": "lerna bootstrap",
     "build": "lerna run build --scope=@ukic/web-components --scope=@ukic/fonts --scope=@ukic/docs --stream  && lerna run build --scope=@ukic/react --stream && node scripts/combine-canary-core-readme.js",
     "build:all": "npm run build && npm run build:canary && npm run build:community",
     "build:canary": "lerna run build --scope=@ukic/canary-web-components --scope=@ukic/canary-docs --stream  && lerna run build --scope=@ukic/canary-react --stream && node scripts/combine-canary-core-readme.js",
@@ -16,9 +18,9 @@
     "build-storybook:nextjs": "lerna run build-storybook --scope @ukic/nextjs",
     "build-storybook:react": "lerna run build-storybook --scope @ukic/react",
     "build-storybook:web-components": "lerna run build-storybook --scope @ukic/web-components",
-    "clean": "lerna clean -y",
-    "cypress:install:canary-react": "./packages/canary-react/node_modules/cypress/bin/cypress install",
-    "cypress:install:react": "./packages/react/node_modules/cypress/bin/cypress install",
+    "clean": "rimraf \"packages/*/node_modules\"",
+    "cypress:install:canary-react": "npm exec --workspace=@ukic/canary-react -- cypress install",
+    "cypress:install:react": "npm exec --workspace=@ukic/react -- cypress install",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "lint:spelling": "cspell --gitignore --no-must-find-files \"**/*.*\"",
@@ -74,7 +76,7 @@
     "eslint-plugin-sonarjs": "^3.0.5",
     "globals": "^17.0.0",
     "husky": "^9.1.3",
-    "lerna": "^6.0.3",
+    "lerna": "^10.0.0",
     "lerna-audit": "^1.3.3",
     "ncp": "^2.0.0",
     "prettier": "2.5.0",
@@ -95,7 +97,8 @@
   "_dependencyNotes": {
     "lodash": "Security override: fixes advisory requiring >=4.18.0 (transitive via commitizen/lerna). Remove once upstream deps unpin 4.17.21.",
     "picomatch": "Security override: fixes vulnerability in transitive deps (chokidar v3 / cspell). Remove once remark-cli/stylelint are upgraded.",
-    "yaml": "Security override: fixes transitive vulnerability (patched in 1.10.3 / 2.8.3). Sources: lerna v6, stylelint v14."
+    "yaml": "Security override: fixes transitive vulnerability (patched in 1.10.3 / 2.8.3). Sources: lerna v6, stylelint v14.",
+    "brace-expansion": "Security override: forces nx's brace-expansion (5.0.8) up to patched 5.0.9 (GHSA-rgw5-rvv9-x895). Remove once nx ships a patched transitive version."
   },
   "overrides": {
     "lodash": "^4.18.1",
@@ -106,10 +109,11 @@
     "tar": "7.5.22",
     "tmp": "0.2.7",
     "esbuild": "0.28.1",
-    "js-yaml": "4.2.0"
+    "js-yaml": "4.2.0",
+    "brace-expansion@^5.0.0": "5.0.9"
   },
   "packageManager": "^npm@10.9.2",
   "engines": {
-    "node": ">=16.3.0"
+    "node": ">=22.13.0"
   }
 }
