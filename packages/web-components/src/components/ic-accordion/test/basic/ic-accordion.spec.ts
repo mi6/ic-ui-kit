@@ -195,7 +195,7 @@ describe("ic-accordion snapshots", () => {
       page.rootInstance.setAccordionAnimation(div, "300", "height", "ease-out");
       expect(div.style.transitionDuration).toBe("300ms");
       expect(div.style.transitionProperty).toBe("height");
-      expect(div.style.transitionDelay).toBe("ease-out");
+      expect(div.style.transitionTimingFunction).toBe("ease-out");
     });
 
     it("it should call setAccordionAnimation if scroll height > 0 and expanded = true", async () => {
@@ -454,6 +454,50 @@ describe("ic-accordion snapshots", () => {
       page.rootInstance.expandedContentEl.dispatchEvent(event);
 
       expect(hideExpandedContentSpy).toHaveBeenCalled();
+    });
+
+    it("should toggle '.expanded-content-opened' to ic-accordion content (i.e. '.expanded-content') when open/closed and prefers-reduced-motion: reduce", async () => {
+      Object.defineProperty(window, "matchMedia", {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+          matches: query === "(prefers-reduced-motion: reduce)",
+          media: query,
+          onchange: null,
+          addListener: jest.fn(),
+          removeListener: jest.fn(),
+          addEventListener: jest.fn(),
+          removeEventListener: jest.fn(),
+          dispatchEvent: jest.fn(),
+        })),
+      });
+
+      const page = await newSpecPage({
+        components: [Accordion],
+        html: `
+        <ic-accordion heading="Accordion 1" >
+          <ic-typography variant="body">
+            This is an example of the main body text.
+          </ic-typography>
+        </ic-accordion>`,
+      });
+
+      await page.rootInstance.toggleExpanded();
+      await page.waitForChanges();
+
+      const expandedContent = page.root?.shadowRoot?.querySelector(
+        ".expanded-content"
+      ) as HTMLElement;
+
+      expect(
+        expandedContent.classList.contains("expanded-content-opened")
+      ).toBe(true);
+
+      await page.rootInstance.toggleExpanded();
+      await page.waitForChanges();
+
+      expect(
+        expandedContent.classList.contains("expanded-content-opened")
+      ).toBe(false);
     });
   });
 });
