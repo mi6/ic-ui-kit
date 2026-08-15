@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/toggle-button-multiple?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-multiple-dark/localhost--2026_08_14_03_01_08.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-multiple-dark/localhost--2026_08_14_03_01_08.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-multiple-dark/localhost--2026_08_15_02_28_30.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/toggle-button-multiple-dark/localhost--2026_08_15_02_28_30.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
