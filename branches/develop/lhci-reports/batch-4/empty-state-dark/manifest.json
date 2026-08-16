@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/empty-state?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/empty-state-dark/localhost--2026_08_15_02_35_08.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/empty-state-dark/localhost--2026_08_15_02_35_08.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/empty-state-dark/localhost--2026_08_16_02_40_55.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/empty-state-dark/localhost--2026_08_16_02_40_55.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
