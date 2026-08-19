@@ -53,11 +53,10 @@ You can optionally install [nvm](https://github.com/nvm-sh/nvm) to use the corre
 nvm install
 ```
 
-This is a monorepo using [`lerna`](https://github.com/lerna/lerna). To get started is simple:
+This is a monorepo using [`lerna`](https://github.com/lerna/lerna) with npm workspaces. To get started is simple:
 
 ```console
 npm install
-npm run bootstrap
 npm run build
 ```
 

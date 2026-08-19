@@ -58,7 +58,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: Build core components
         if: ${{ needs.check-updates.outputs.canary == 'false' }}
@@ -124,7 +123,6 @@ jobs:
         run: |
           google-chrome --version
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: Cache Cypress Binary
         uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
@@ -222,7 +220,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          npm run bootstrap -- -- --ci
 
       - name: Build core components
         if: ${{ needs.check-updates.outputs.canary == 'false' }}
