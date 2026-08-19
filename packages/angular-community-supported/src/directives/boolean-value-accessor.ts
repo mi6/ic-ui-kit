@@ -7,7 +7,7 @@ import { ValueAccessor } from './value-accessor';
   /* tslint:disable-next-line:directive-selector */
   selector: 'ic-checkbox',
   host: {
-    '(icCheck)': 'handleChangeEvent($event.target?.["checked"])'
+    '(icCheck)': 'handleChangeEvent($any($event.target).checked)'
   },
   providers: [
     {
