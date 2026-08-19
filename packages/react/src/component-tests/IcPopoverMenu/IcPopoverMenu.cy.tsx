@@ -4,6 +4,7 @@ import React from "react";
 import { mount } from "cypress/react";
 import {
   HAVE_BEEN_CALLED_ONCE,
+  HAVE_CSS,
   NOT_BE_CALLED_ONCE,
   BE_VISIBLE,
   NOT_BE_VISIBLE,
@@ -178,6 +179,16 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
       name: "/disabled-focused",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
+  });
+
+  it("should not show the standard button focus outline during keyboard navigation", () => {
+    mount(<PopoverDropdown />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click();
+    cy.realPress("ArrowDown");
+
+    cy.focused().should(HAVE_CSS, "outline-style", "none");
   });
 
   it("should render with button variations", () => {
