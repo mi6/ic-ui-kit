@@ -7,8 +7,8 @@ import { ValueAccessor } from './value-accessor';
   /* tslint:disable-next-line:directive-selector */
   selector: 'ic-radio-group, ic-radio-option',
   host: {
-    '(icChange)': 'handleChangeEvent($event.target?.["value"])',
-    '(icCheck)': 'handleChangeEvent($event.target?.["value"])'
+    '(icChange)': 'handleChangeEvent($any($event).detail.value)',
+    '(icCheck)': 'handleChangeEvent($any($event).detail.value)'
   },
   providers: [
     {

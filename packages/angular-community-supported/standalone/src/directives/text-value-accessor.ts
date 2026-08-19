@@ -7,7 +7,7 @@ import { ValueAccessor } from './value-accessor';
   /* tslint:disable-next-line:directive-selector */
   selector: 'ic-text-field, ic-search-bar, ic-switch, ic-date-input, ic-date-picker',
   host: {
-    '(icChange)': 'handleChangeEvent($event.target?.["value"])'
+    '(icChange)': 'handleChangeEvent($any($event).detail.value)'
   },
   providers: [
     {
