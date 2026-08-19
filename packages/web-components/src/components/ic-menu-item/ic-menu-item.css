@@ -58,6 +58,10 @@
   box-shadow: none;
 }
 
+:host ::part(button):focus-visible {
+  outline: none;
+}
+
 :host ::part(button):focus,
 :host ::part(button):focus-visible {
   color: var(--ic-popover-menu-item-icon-focused);
