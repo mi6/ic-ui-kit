@@ -19,39 +19,39 @@ function copyCSS() {
   }
 }
 
-function buildSchematics(){
-  return new Promise((resolve, reject) => {
-    const cmd = 'tsc';
-    const args = [
-      '--project',
-      path.join(parentDirectory, 'tsconfig.schematics.json'),
-    ];
+// function buildSchematics(){
+//   return new Promise((resolve, reject) => {
+//     const cmd = 'tsc';
+//     const args = [
+//       '--project',
+//       path.join(parentDirectory, 'tsconfig.schematics.json'),
+//     ];
 
-    const p = spawn(cmd, args, { cwd: typescriptPath, stdio: 'inherit', shell: true });
-    p.on('close', (code) => {
-      if (!code) return resolve();
-      console.log(`ng-add build exited with ${code}`);
-      reject();
-    });
-  });
-}
+//     const p = spawn(cmd, args, { cwd: typescriptPath, stdio: 'inherit', shell: true });
+//     p.on('close', (code) => {
+//       if (!code) return resolve();
+//       console.log(`ng-add build exited with ${code}`);
+//       reject();
+//     });
+//   });
+// }
 
-function copySchematicsJson(){
-  const src = path.join(parentSrcDir, 'schematics', 'collection.json');
-  const fileSrc = path.join(parentSrcDir, 'schematics', 'add', 'files');
-  const dst = path.join(parentDistDir,'schematics', 'collection.json');
-  const fileDst = path.join(parentDistDir, 'schematics', 'add', 'files');
-  const schemaSrc = path.join(parentSrcDir, 'schematics', 'add', 'schema.json');
-  const schemaDst = path.join(parentDistDir, 'schematics', 'add', 'schema.json');
+// function copySchematicsJson(){
+//   const src = path.join(parentSrcDir, 'schematics', 'collection.json');
+//   const fileSrc = path.join(parentSrcDir, 'schematics', 'add', 'files');
+//   const dst = path.join(parentDistDir,'schematics', 'collection.json');
+//   const fileDst = path.join(parentDistDir, 'schematics', 'add', 'files');
+//   const schemaSrc = path.join(parentSrcDir, 'schematics', 'add', 'schema.json');
+//   const schemaDst = path.join(parentDistDir, 'schematics', 'add', 'schema.json');
 
-  fs.removeSync(dst);
-  fs.removeSync(fileDst);
-  fs.copySync(src, dst);
-  fs.copySync(fileSrc,fileDst);
-  fs.copySync(schemaSrc, schemaDst);
+//   fs.removeSync(dst);
+//   fs.removeSync(fileDst);
+//   fs.copySync(src, dst);
+//   fs.copySync(fileSrc,fileDst);
+//   fs.copySync(schemaSrc, schemaDst);
 
-}
+// }
 
 copyCSS();
-buildSchematics();
-copySchematicsJson();
+// buildSchematics();
+// copySchematicsJson();
