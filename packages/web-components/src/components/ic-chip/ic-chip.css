@@ -161,8 +161,16 @@ ic-tooltip:focus-within {
 }
 
 .icon {
+  flex: 0 0 var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
   padding: var(--ic-space-xxxs);
   box-sizing: border-box;
+}
+
+.icon ::slotted(svg) {
+  width: 100%;
+  height: 100%;
 }
 
 .icon,
