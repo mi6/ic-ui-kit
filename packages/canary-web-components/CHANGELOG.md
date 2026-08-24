@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.46](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.43...@ukic/canary-web-components@3.0.0-canary.46) (2026-08-24)
+
+### Bug Fixes
+
+- **canary-web-components:** [#4267](https://github.com/mi6/ic-ui-kit/issues/4267) only emit icTimeChange once milliseconds field is completed ([53e031b](https://github.com/mi6/ic-ui-kit/commit/53e031b04ebb2a0ac8adebc94cff3e02a3487fbe))
+- **canary-web-components:** update styling of text and clear button for disabled date picker ([fa12eec](https://github.com/mi6/ic-ui-kit/commit/fa12eec1bfdb8e8c03a98e63afdd67ae9c620f65)), closes [#4146](https://github.com/mi6/ic-ui-kit/issues/4146)
+
+### Features
+
+- **canary-web-components:** component docs for closeMenuOnSelect ([0056b8d](https://github.com/mi6/ic-ui-kit/commit/0056b8d46b8496be8846663587e8b826953d7ccc))
+
 # [3.0.0-canary.45](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.43...@ukic/canary-web-components@3.0.0-canary.45) (2026-07-03)
 
 ### Bug Fixes
