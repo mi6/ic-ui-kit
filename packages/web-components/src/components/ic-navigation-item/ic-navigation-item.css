@@ -528,7 +528,7 @@ svg {
   border-radius: 0;
 }
 
-:host(.navigation-item-page-header).link,
+:host(.navigation-item-page-header) .link,
 :host(.navigation-item-page-header) a,
 :host(.navigation-item-page-header) ::slotted(a) {
   height: 2.5rem !important;
@@ -655,7 +655,7 @@ svg {
   .navigation-item-side-nav-slotted-text,
   :host(.navigation-item-side-nav.navigation-item-selected) .link::before,
   :host(.navigation-item-side-nav) ::slotted(a.active)::before,
-  :host(.navigation-item-page-header).link,
+  :host(.navigation-item-page-header) .link,
   :host(.navigation-item-page-header) a,
   :host(.navigation-item-page-header) ::slotted(a),
   :host(.navigation-item-page-header.navigation-item-selected.with-transition)
