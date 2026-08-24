@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/select?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-light/localhost--2026_08_23_02_35_55.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-light/localhost--2026_08_23_02_35_55.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-light/localhost--2026_08_24_02_36_28.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/select-light/localhost--2026_08_24_02_36_28.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
