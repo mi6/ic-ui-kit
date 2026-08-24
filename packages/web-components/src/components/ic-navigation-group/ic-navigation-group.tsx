@@ -284,7 +284,7 @@ export class NavigationGroup {
     switch (this.navigationType) {
       case "top":
         if (key === " " || key === "Enter") {
-          this.toggleDropdown();
+          this.dropdownOpen ? this.hideDropdown() : this.toggleDropdown();
         } else if (!this.inTopNavSideMenu) {
           this.hideDropdown();
         }
