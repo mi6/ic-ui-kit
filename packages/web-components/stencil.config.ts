@@ -141,6 +141,7 @@ export const config: Config = {
   testing: {
     browserArgs: ["--no-sandbox", "--disable-setuid-sandbox"],
     moduleNameMapper: {
+      "^src/(.*)$": "<rootDir>/src/$1",
       "\\.svg": "<rootDir>/mocks/svgMock.ts",
     },
     coverageThreshold: {

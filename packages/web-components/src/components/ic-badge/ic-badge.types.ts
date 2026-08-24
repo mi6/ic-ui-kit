@@ -1,4 +1,4 @@
-import { IcStatusVariants } from "../../utils/types";
+import { IcStatusVariants } from "src/utils/types";
 
 export type IcBadgeTypes = "dot" | "text" | "icon";
 
