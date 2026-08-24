@@ -1,13 +1,14 @@
-import type { JsonObject } from "@angular-devkit/core";
-import {
-  WorkspaceDefinition,
-  ProjectDefinition,
-} from "@angular-devkit/core/src/workspace";
+import { workspaces } from "@angular-devkit/core";
 import { Tree, SchematicsException } from "@angular-devkit/schematics";
-import type { SchematicOptions } from "@angular/cli/lib/config/workspace-schema";
 import { parse } from "jsonc-parser";
 
 const ANGULAR_JSON_PATH = "angular.json";
+
+type JsonValue = boolean | string | number | JsonArray | JsonObject | null;
+type JsonArray = JsonValue[];
+type JsonObject = { [property: string]: JsonValue };
+type WorkspaceDefinition = workspaces.WorkspaceDefinition;
+type ProjectDefinition = workspaces.ProjectDefinition;
 
 export function readConfig<T extends JsonObject = JsonObject>(host: Tree): T {
   return host.readJson(ANGULAR_JSON_PATH) as T;
@@ -25,16 +26,17 @@ function isAngularBrowserProject(projectConfig: ProjectDefinition): boolean {
     const buildConfig = projectConfig.targets.get("build");
     // Angular 16 and lower
     const legacyAngularBuilder =
-      buildConfig.builder === "@angular-devkit/build-angular:browser";
+      buildConfig?.builder === "@angular-devkit/build-angular:browser";
     // Angular 17+
     const modernAngularBuilder =
-      buildConfig.builder === "@angular-devkit/build-angular:application";
+      buildConfig?.builder === "@angular-devkit/build-angular:application";
     // Angular 20+
     const latestAngularBuilder =
-      buildConfig.builder === "@angular/build:application";
+      buildConfig?.builder === "@angular/build:application";
 
     return legacyAngularBuilder || modernAngularBuilder || latestAngularBuilder;
   }
+  return false;
 }
 
 export function getDefaultAngularApp(
@@ -45,7 +47,7 @@ export function getDefaultAngularApp(
 
   if (projectName) {
     const projectConfig = projects.get(projectName);
-    if (isAngularBrowserProject(projectConfig)) {
+    if (projectConfig && isAngularBrowserProject(projectConfig)) {
       return [projectName, projectConfig];
     }
   }
@@ -53,7 +55,7 @@ export function getDefaultAngularApp(
   const projectNames = projects.keys();
   for (const projectName of projectNames) {
     const projectConfig = projects.get(projectName);
-    if (isAngularBrowserProject(projectConfig)) {
+    if (projectConfig && isAngularBrowserProject(projectConfig)) {
       return [projectName, projectConfig];
     }
   }
@@ -70,12 +72,20 @@ export function addStyle(
   stylePath: string,
 ): void {
   const config = readConfig(host);
-  const stylesList = project.targets.get("build").options.styles as string[];
-  if (!stylesList.includes(stylePath)) {
+  const stylesList = project.targets.get("build")?.options?.styles as string[];
+  if (stylesList && !stylesList.includes(stylePath)) {
     stylesList.push(stylePath);
   }
-  config.projects[projectName].architect.build.options.styles = stylesList;
-  writeConfig(host, config);
+  const projectConfig = (
+    config.projects as unknown as Record<string, JsonObject> | undefined
+  )?.[projectName];
+  const architect = projectConfig?.architect as JsonObject | undefined;
+  const build = architect?.build as JsonObject | undefined;
+  const options = build?.options as JsonObject | undefined;
+  if (options?.styles) {
+    options.styles = stylesList;
+    writeConfig(host, config);
+  }
 }
 
 export function getWorkspacePath(host: Tree): string {

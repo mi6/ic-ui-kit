@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.27.0...@ukic/web-components@3.30.0) (2026-08-24)
+
+### Bug Fixes
+
+- **web-components:** clear inherited aria-label on ic-navigation-button when attribute is removed ([f8927db](https://github.com/mi6/ic-ui-kit/commit/f8927db3e380ad2e2503718c264e27a073da1ed4))
+- **web-components:** fixes pagination issue where custom label not applied ([78ccd1b](https://github.com/mi6/ic-ui-kit/commit/78ccd1b3161391d90abec22981c558519db923a1))
+- **web-components:** handle small data list with no heading ([7bda1b1](https://github.com/mi6/ic-ui-kit/commit/7bda1b1651834aa8abeae466dd2763fd2d6eb7bf))
+- **web-components:** updated IcAccordion to handle prefers-reduced-motion: reduce ([69a722c](https://github.com/mi6/ic-ui-kit/commit/69a722cef8aa06fe525d05fa925aa0b78520b5f7)), closes [#4585](https://github.com/mi6/ic-ui-kit/issues/4585)
+- **web-components:** use size prop instead of non-existing small prop ([2018913](https://github.com/mi6/ic-ui-kit/commit/201891377a932514915a9021ea1b58c0ddc8b9c9))
+- **web-components:** warn when backBreadcrumbOnly is used with only one item ([bb8a972](https://github.com/mi6/ic-ui-kit/commit/bb8a972e01d3e64c25fbf6c550ff9588485ad124))
+
+### Features
+
+- **web-components:** add anchor slot to popover menu ([7b7fb72](https://github.com/mi6/ic-ui-kit/commit/7b7fb72749a8d767adf3bbeb1c46a1145c675122)), closes [#2757](https://github.com/mi6/ic-ui-kit/issues/2757)
+- **web-components:** add props to prevent closing of popover when options pressed ([153a416](https://github.com/mi6/ic-ui-kit/commit/153a416a7d8445bda957dfdb633641452ecacfed))
+
 # [3.29.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.27.0...@ukic/web-components@3.29.0) (2026-07-03)
 
 ### Bug Fixes

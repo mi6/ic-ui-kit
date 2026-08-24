@@ -43,6 +43,7 @@ To install the components, no additional configuration is needed for internal sy
 * Install the [web component package](packages/web-components/README.md) for use standalone, or with [Svelte](https://design.sis.gov.uk/get-started/install-components/svelte), [Vue](https://design.sis.gov.uk/get-started/install-components/vue) and other web component-compatible frameworks.
 * Install the [React component package](packages/react/README.md) for React-based projects.
 * Install the [NextJS component package](packages/nextjs/README.md) for NextJS projects.
+* Install the [Angular (Community Maintained) component package](packages/angular-community-supported/README.md) for Angular-based projects.
 
 ## Developing
 
