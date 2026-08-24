@@ -511,6 +511,9 @@ export class SearchBar {
     this.icKeydown.emit({ event });
     if (this.menu && this.open) {
       this.menu.handleKeyboardOpen(event);
+      if (event.key === "Escape") {
+        this.inputEl?.focus();
+      }
     }
   }
 
