@@ -59,6 +59,8 @@ export const config: Config = {
   testing: {
     browserArgs: ["--no-sandbox", "--disable-setuid-sandbox"],
     moduleNameMapper: {
+      "^src/(.*)$": "<rootDir>/src/$1",
+      "^web-components/(.*)$": "<rootDir>/../web-components/$1",
       "\\.svg": "<rootDir>/mocks/svgMock.ts",
       "lit-html": "<rootDir>/mocks/empty.js",
     },

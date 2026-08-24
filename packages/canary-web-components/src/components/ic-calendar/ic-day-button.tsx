@@ -1,8 +1,8 @@
 import { h, FunctionalComponent } from "@stencil/core";
-import { stringEnumToArray } from "../../utils/helpers";
-import { IcDayNames, IcDateInputMonths } from "../../utils/types";
+import { stringEnumToArray } from "src/utils/helpers";
+import { IcDayNames, IcDateInputMonths } from "src/utils/types";
 
-import "../../../../web-components/src/components/ic-typography/ic-typography";
+import "web-components/src/components/ic-typography/ic-typography";
 
 export type DayButtonProps = {
   focussed: boolean;

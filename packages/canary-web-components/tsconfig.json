@@ -9,7 +9,12 @@
     "allowJs": true,
     "strict": true,
     "strictPropertyInitialization": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "web-components/*": ["../web-components/*"]
+    }
   },
   "include": ["src", "./node.d.ts"],
   "exclude": [
