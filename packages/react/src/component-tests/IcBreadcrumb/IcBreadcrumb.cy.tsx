@@ -13,6 +13,7 @@ import {
   ToggleBackBreadcrumb,
   SlottedLinks,
   SlottedLinksWithBackBreadCrumbOnly,
+  SlottedSVGTheme,
 } from "./IcBreadcrumbTestData";
 import {
   BE_VISIBLE,
@@ -22,10 +23,13 @@ import {
   NOT_HAVE_ATTR,
   NOT_EXIST,
   HAVE_LENGTH,
+  HAVE_CLASS,
+  HAVE_CSS,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const IC_BREADCRUMB_LABEL = "ic-breadcrumb";
+const IC_THEME_LABEL = "ic-theme";
 const DEFAULT_TEST_THRESHOLD = 0.009;
 
 describe("IcBreadcrumb end-to-end tests", () => {
@@ -85,6 +89,24 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
     cy.findShadowEl(IC_BREADCRUMB_LABEL, "svg").should(BE_VISIBLE);
     cy.get('[page-title="Home"]').should(BE_VISIBLE);
+  });
+
+  it("should use the theme foreground colour for a slotted SVG", () => {
+    mount(<SlottedSVGTheme />);
+
+    cy.checkHydrated(IC_THEME_LABEL);
+    cy.get(IC_THEME_LABEL).should(HAVE_CLASS, "ic-theme-light");
+    cy.get("#reusable-slotted-icon")
+      .should(HAVE_ATTR, "fill", "var(--ic-color-text-primary)")
+      .and(HAVE_CSS, "fill", "rgb(11, 12, 12)");
+
+    cy.get(IC_THEME_LABEL).invoke("prop", "theme", "dark");
+    cy.get(IC_THEME_LABEL).should(HAVE_CLASS, "ic-theme-dark");
+    cy.get("#reusable-slotted-icon").should(
+      HAVE_CSS,
+      "fill",
+      "rgb(244, 244, 245)"
+    );
   });
 
   it("should add 'aria-current' when current prop is true and remove it when changed to false", () => {

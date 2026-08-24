@@ -4,16 +4,17 @@ import {
   IcBreadcrumbGroup,
   IcButton,
   IcLink,
+  IcTheme,
 } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const ReusableSlottedIcon = (): ReactElement => (
   <SlottedSVG
+    id="reusable-slotted-icon"
     slot="icon"
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -273,5 +274,15 @@ export const SlottedLinksWithBackBreadCrumbOnly = (): ReactElement => {
         </IcLink>
       </IcBreadcrumb>
     </IcBreadcrumbGroup>
+  );
+};
+
+export const SlottedSVGTheme = (): ReactElement => {
+  return (
+    <IcTheme theme="light">
+      <IcBreadcrumb pageTitle="Home" href="#">
+        <ReusableSlottedIcon />
+      </IcBreadcrumb>
+    </IcTheme>
   );
 };
