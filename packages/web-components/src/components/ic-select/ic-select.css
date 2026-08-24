@@ -255,7 +255,7 @@ select:not([disabled]) {
   border-radius: 0.25rem;
 }
 
-.clear-button:focus,
+.clear-button:focus *,
 .clear-button:active * {
   fill: var(--ic-atoms-input-clear-button-focus);
 }
