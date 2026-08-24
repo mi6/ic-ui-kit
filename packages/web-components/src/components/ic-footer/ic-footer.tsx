@@ -8,6 +8,7 @@ import {
   Listen,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import { IC_DEVICE_SIZES } from "../../utils/constants";
 import {
@@ -87,6 +88,11 @@ export class Footer {
    *  @internal Triggers on page resize and triggers style changes in footer links and link groups
    */
   @Event() footerResized: EventEmitter<void>;
+
+  @Watch("groupLinks")
+  groupLinksChangedHandler(): void {
+    this.footerResized.emit();
+  }
 
   disconnectedCallback(): void {
     if (this.resizeObserver !== null) {
