@@ -14,7 +14,7 @@ jobs:
 
       - name: Get issue urgency
         env:
-          URGENCY_STRING: ${{ fromJSON(steps.parse.outputs.data).urgency-low-medium-or-high }}
+          URGENCY_STRING: ${{ fromJSON(steps.parse.outputs.data).urgency-low-medium-or-high.text }}
         run: |
           case "$URGENCY_STRING" in
             "Low"|"Medium"|"High")
