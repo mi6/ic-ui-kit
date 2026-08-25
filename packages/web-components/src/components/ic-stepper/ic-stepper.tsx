@@ -35,6 +35,10 @@ export class Stepper {
    * The alignment of the default stepper within its container.
    */
   @Prop() aligned?: IcStepperAlignment = "full-width";
+  @Watch("aligned")
+  handleAlignedChange(): void {
+    this.resizeObserverCallback();
+  }
 
   /**
    * The length of the connector between each step in pixels. Minimum length is 100px.
@@ -280,14 +284,15 @@ export class Stepper {
           }
         }
 
+        const stepConnect = step.shadowRoot?.querySelector(
+          ".step > .step-top > .step-connect"
+        ) as HTMLElement;
+
         if (this.aligned === "left" && this.connectorWidth) {
           step.style.width =
             this.connectorWidth > 100
               ? pxToRem(`${this.connectorWidth + 48}px`)
               : pxToRem("148px");
-          const stepConnect = step.shadowRoot?.querySelector(
-            ".step > .step-top > .step-connect"
-          ) as HTMLElement;
 
           if (stepConnect) {
             stepConnect.style.width =
@@ -295,6 +300,8 @@ export class Stepper {
                 ? pxToRem(`${this.connectorWidth}px`)
                 : pxToRem("100px");
           }
+        } else {
+          stepConnect?.style.removeProperty("width");
         }
 
         if (this.hideStepInfo && stepTitleArea !== null) {
