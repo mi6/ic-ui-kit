@@ -188,7 +188,8 @@
     "packagr",
     "ngFactory",
     "ngSummary",
-    "codegen"
+    "codegen",
+    "ghsa"
   ],
   "dictionaries": [
     "npm",
