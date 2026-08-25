@@ -258,6 +258,51 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.get("@icPopoverClosed").should(HAVE_BEEN_CALLED_ONCE);
   });
 
+  it("should stay open without activating an item when a drag starts inside and releases outside", () => {
+    const menuItemClick = cy.stub().as("menuItemClick");
+
+    mount(<PopoverDropdown />);
+
+    cy.get("#popover-button").click();
+    cy.get(POPOVER_SELECTOR).first().should("have.prop", "open", true);
+
+    cy.get(MENU_ITEM_SELECTOR)
+      .first()
+      .then(($menuItem) => {
+        $menuItem.on("handleMenuItemClick", menuItemClick);
+        $menuItem[0].dispatchEvent(
+          new MouseEvent("mousedown", {
+            button: 0,
+            bubbles: true,
+            composed: true,
+          })
+        );
+      });
+
+    cy.get("body").then(($body) => {
+      $body[0].dispatchEvent(
+        new MouseEvent("mouseup", {
+          button: 0,
+          bubbles: true,
+          composed: true,
+        })
+      );
+      $body[0].dispatchEvent(
+        new MouseEvent("click", {
+          button: 0,
+          bubbles: true,
+          composed: true,
+        })
+      );
+    });
+
+    cy.get(POPOVER_SELECTOR).first().should("have.prop", "open", true);
+    cy.get("@menuItemClick").should(NOT_HAVE_BEEN_CALLED);
+
+    cy.get("body").realClick({ position: "bottomRight" });
+    cy.get(POPOVER_SELECTOR).first().should("have.prop", "open", false);
+  });
+
   it("should emit triggerPopoverMenuInstance when submenu trigger button is clicked", () => {
     mount(<PopoverDropdown />);
 
