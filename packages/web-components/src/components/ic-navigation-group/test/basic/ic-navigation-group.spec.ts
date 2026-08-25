@@ -451,4 +451,46 @@ describe("ic-navigation-group", () => {
     // test disconnected callback
     page.setContent("");
   });
+
+  it("remeasures grouped item heights when the side navigation first expands", async () => {
+    jest.useFakeTimers({ legacyFakeTimers: true });
+    let expanded = false;
+    const page = await newSpecPage({
+      components: [NavigationGroup],
+      html: `<ic-navigation-group label="Group" expandable>
+        <ic-navigation-item>One</ic-navigation-item>
+        <ic-navigation-item>Two</ic-navigation-item>
+      </ic-navigation-group>`,
+    });
+
+    jest
+      .spyOn(page.rootInstance as any, "getGroupedNavigationItemsHeight")
+      .mockImplementation(() => (expanded ? "80px" : "160px"));
+
+    jest.advanceTimersByTime(100);
+    await page.waitForChanges();
+
+    const groupedLinks = page.root!.shadowRoot!.querySelector(
+      ".grouped-links-wrapper"
+    ) as HTMLElement;
+    expect(
+      groupedLinks.style.getPropertyValue("--navigation-child-items-height")
+    ).toBe("160px");
+
+    expanded = true;
+    (page.rootInstance as any).sideNavExpandHandler(
+      new CustomEvent("icSideNavExpanded", {
+        detail: { sideNavExpanded: true },
+      })
+    );
+
+    jest.advanceTimersByTime(100);
+    await page.waitForChanges();
+
+    expect(
+      groupedLinks.style.getPropertyValue("--navigation-child-items-height")
+    ).toBe("80px");
+
+    jest.useRealTimers();
+  });
 });
