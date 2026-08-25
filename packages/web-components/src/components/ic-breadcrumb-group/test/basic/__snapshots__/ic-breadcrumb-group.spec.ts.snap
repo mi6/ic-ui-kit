@@ -16,7 +16,9 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="inherit">
-          Breadcrumb 1
+          <span class="page-title">
+            Breadcrumb 1
+          </span>
         </ic-link>
       </div>
     </template>
@@ -28,7 +30,9 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
-          Breadcrumb 2
+          <span class="page-title">
+            Breadcrumb 2
+          </span>
         </ic-link>
       </div>
     </template>
@@ -40,7 +44,9 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
           svg
         </span>
         <span class="current-page-container">
-          Breadcrumb 3
+          <span class="page-title">
+            Breadcrumb 3
+          </span>
         </span>
       </div>
     </template>
@@ -64,7 +70,9 @@ exports[`ic-breadcrumb-group should only render one collapse button when window 
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="inherit">
-          Breadcrumb 1
+          <span class="page-title">
+            Breadcrumb 1
+          </span>
         </ic-link>
       </div>
     </template>
@@ -99,7 +107,9 @@ exports[`ic-breadcrumb-group should only render one collapse button when window 
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
-          Breadcrumb 2
+          <span class="page-title">
+            Breadcrumb 2
+          </span>
         </ic-link>
       </div>
     </template>
@@ -111,7 +121,9 @@ exports[`ic-breadcrumb-group should only render one collapse button when window 
           svg
         </span>
         <span class="current-page-container">
-          Breadcrumb 3
+          <span class="page-title">
+            Breadcrumb 3
+          </span>
         </span>
       </div>
     </template>
@@ -135,7 +147,9 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
           svg
         </span>
         <span class="current-page-container">
-          Breadcrumb 1
+          <span class="page-title">
+            Breadcrumb 1
+          </span>
         </span>
       </div>
     </template>
@@ -147,7 +161,9 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
-          Breadcrumb 2
+          <span class="page-title">
+            Breadcrumb 2
+          </span>
         </ic-link>
       </div>
     </template>
@@ -165,7 +181,9 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
           <div class="back-icon">
             svg
           </div>
-          Breadcrumb 3
+          <span class="page-title">
+            Breadcrumb 3
+          </span>
         </ic-link>
       </div>
     </template>
@@ -177,7 +195,9 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-4" theme="inherit">
-          Breadcrumb 4
+          <span class="page-title">
+            Breadcrumb 4
+          </span>
         </ic-link>
       </div>
     </template>
@@ -202,7 +222,9 @@ exports[`ic-breadcrumb-group should render current theme styling: should render 
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="light">
           <slot name="icon"></slot>
-          Breadcrumb 1
+          <span class="page-title">
+            Breadcrumb 1
+          </span>
         </ic-link>
       </div>
     </template>
@@ -218,7 +240,9 @@ exports[`ic-breadcrumb-group should render current theme styling: should render 
         </span>
         <span class="current-page-container">
           <slot name="icon"></slot>
-          Breadcrumb 2
+          <span class="page-title">
+            Breadcrumb 2
+          </span>
         </span>
       </div>
     </template>
@@ -257,7 +281,9 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="inherit">
-          Breadcrumb 1
+          <span class="page-title">
+            Breadcrumb 1
+          </span>
         </ic-link>
       </div>
     </template>
@@ -292,7 +318,9 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
-          Breadcrumb 2
+          <span class="page-title">
+            Breadcrumb 2
+          </span>
         </ic-link>
       </div>
     </template>
@@ -304,7 +332,9 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
           svg
         </span>
         <span class="current-page-container">
-          Breadcrumb 3
+          <span class="page-title">
+            Breadcrumb 3
+          </span>
         </span>
       </div>
     </template>
@@ -366,7 +396,9 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
           svg
         </span>
         <span class="current-page-container">
-          Breadcrumb 1
+          <span class="page-title">
+            Breadcrumb 1
+          </span>
         </span>
       </div>
     </template>
@@ -401,7 +433,9 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
-          Breadcrumb 2
+          <span class="page-title">
+            Breadcrumb 2
+          </span>
         </ic-link>
       </div>
     </template>
@@ -413,7 +447,9 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-3" theme="inherit">
-          Breadcrumb 3
+          <span class="page-title">
+            Breadcrumb 3
+          </span>
         </ic-link>
       </div>
     </template>
@@ -425,7 +461,9 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
           svg
         </span>
         <ic-link class="breadcrumb-link" href="/breadcrumb-4" theme="inherit">
-          Breadcrumb 4
+          <span class="page-title">
+            Breadcrumb 4
+          </span>
         </ic-link>
       </div>
     </template>
