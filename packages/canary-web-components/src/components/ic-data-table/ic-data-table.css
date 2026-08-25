@@ -312,7 +312,7 @@ td.table-density-spacious {
 .screen-reader-sort-text,
 .table-caption {
   position: absolute;
-  left: -100rem;
+  inset-inline-start: -100rem;
 }
 
 .table-cell,
@@ -466,7 +466,7 @@ td.table-density-spacious {
 
 .sr-only {
   position: absolute;
-  left: -9999px;
+  inset-inline-start: -9999px;
 }
 
 @media (prefers-reduced-motion: reduce) {
