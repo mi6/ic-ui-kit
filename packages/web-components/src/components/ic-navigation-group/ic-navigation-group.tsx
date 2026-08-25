@@ -130,20 +130,22 @@ export class NavigationGroup {
     }
   }
 
-  componentDidLoad(): void {
-    this.allGroupedNavigationItemHeights = `${Array.from(
-      this.el.querySelectorAll(IC_NAVIGATION_ITEM)
-    ).reduce(
+  private getGroupedNavigationItemsHeight = (): string =>
+    `${Array.from(this.el.querySelectorAll(IC_NAVIGATION_ITEM)).reduce(
       (childrenHeights, { offsetHeight }) => childrenHeights + offsetHeight,
       0
     )}px`;
 
+  componentDidLoad(): void {
     /**
      * debounce is required as the incorrect height was retrieved instantly after
      * componentDidLoad is invoked.
      */
     setTimeout(() => {
       if (!this.linkWrapper || !this.expanded) return;
+
+      this.allGroupedNavigationItemHeights =
+        this.getGroupedNavigationItemsHeight();
 
       if (!this.isSideNavExpanded)
         this.collapsedNavItemsHeight = this.allGroupedNavigationItemHeights;
@@ -196,13 +198,16 @@ export class NavigationGroup {
       this.setGroupedLinksElementHeight(navItemsHeight);
     } else {
       setTimeout(() => {
+        const currentHeight = this.getGroupedNavigationItemsHeight();
+        this.allGroupedNavigationItemHeights = currentHeight;
+
         if (this.isSideNavExpanded) {
-          this.expandedNavItemsHeight = this.allGroupedNavigationItemHeights;
+          this.expandedNavItemsHeight = currentHeight;
         } else {
-          this.collapsedNavItemsHeight = this.allGroupedNavigationItemHeights;
+          this.collapsedNavItemsHeight = currentHeight;
         }
 
-        this.setGroupedLinksElementHeight(this.allGroupedNavigationItemHeights);
+        this.setGroupedLinksElementHeight(currentHeight);
       }, DYNAMIC_GROUPED_LINKS_HEIGHT_MS);
     }
   };
