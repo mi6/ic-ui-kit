@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/button-events?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-events-dark/localhost--2026_08_24_02_36_05.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-events-dark/localhost--2026_08_24_02_36_05.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-events-dark/localhost--2026_08_25_02_31_51.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-events-dark/localhost--2026_08_25_02_31_51.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
