@@ -447,33 +447,26 @@ export class DataTable {
     }
 
     if (this.truncationPattern) {
-      this.getTypographyElements().forEach(
-        (typographyEl: HTMLIcTypographyElement) => {
+      const typographyElements = this.getTypographyElements().filter(
+        (typographyEl) => {
           const cellContainer = this.getCellContainer(typographyEl);
-          if (
+          return !!(
             cellContainer &&
             !cellContainer.classList.contains(this.TEXT_WRAP_STRING)
-          ) {
-            this.dataTruncation(typographyEl, cellContainer);
-            this.resizeObserver = new ResizeObserver(
-              // This gets triggered twice due to updated data and see more/see less button
-              dynamicDebounce(
-                () => {
-                  this.dataTruncation(typographyEl, cellContainer);
-
-                  if (!this.isNewDebounceDelaySet) {
-                    this.debounceDelay = 200;
-                    this.isNewDebounceDelaySet = true;
-                  }
-                },
-                () => this.debounceDelay
-              ) as ResizeObserverCallback
-            );
-
-            this.resizeObserver.observe(typographyEl);
-          }
+          );
         }
       );
+
+      if (this.truncationPattern === this.TOOLTIP_STRING) {
+        this.updateTruncationTooltip(false, typographyElements);
+      } else {
+        typographyElements.forEach((typographyEl) => {
+          const cellContainer = this.getCellContainer(typographyEl);
+          if (cellContainer) this.dataTruncation(typographyEl, cellContainer);
+        });
+      }
+
+      this.setupTruncationResizeObserver(typographyElements);
     }
 
     if (this.globalRowHeight !== "auto") {
@@ -484,6 +477,51 @@ export class DataTable {
     this.icColumnsLoaded.emit();
     if (this.data && !this.loading && !this.updating) this.icDataLoaded.emit();
   }
+
+  private setupTruncationResizeObserver = (
+    typographyElements: HTMLIcTypographyElement[]
+  ) => {
+    this.resizeObserver?.disconnect();
+
+    if (typographyElements.length === 0) {
+      this.resizeObserver = null;
+      return;
+    }
+
+    const updateTruncation = dynamicDebounce(
+      () => {
+        const resizedTypography = typographyElements.filter((typographyEl) => {
+          const cellContainer = this.getCellContainer(typographyEl);
+          return !!(
+            cellContainer &&
+            !cellContainer.classList.contains(this.TEXT_WRAP_STRING)
+          );
+        });
+
+        if (this.truncationPattern === this.TOOLTIP_STRING) {
+          this.updateTruncationTooltip(false, resizedTypography);
+        } else {
+          resizedTypography.forEach((typographyEl) => {
+            const cellContainer = this.getCellContainer(typographyEl);
+            if (cellContainer) {
+              this.dataTruncation(typographyEl, cellContainer);
+            }
+          });
+        }
+
+        if (!this.isNewDebounceDelaySet) {
+          this.debounceDelay = 200;
+          this.isNewDebounceDelaySet = true;
+        }
+      },
+      () => this.debounceDelay
+    ) as () => void;
+
+    this.resizeObserver = new ResizeObserver(() => updateTruncation());
+    typographyElements.forEach((typographyEl) =>
+      this.resizeObserver?.observe(typographyEl)
+    );
+  };
 
   componentDidUpdate(): void {
     // truncation updates invoked here once new/updated data has
@@ -831,19 +869,56 @@ export class DataTable {
     }
   };
 
+  private applyShowHideTruncation(
+    typographyEl: HTMLIcTypographyElement,
+    cellContainer: HTMLElement,
+    scrollHeight: number,
+    maxLines: number
+  ) {
+    typographyEl.checkMaxLines(scrollHeight);
+    typographyEl.setAttribute("max-lines", `${maxLines}`);
+    typographyEl.setShowHideExpanded(false);
+    cellContainer.style.setProperty(this.ROW_HEIGHT_CSS_VARIABLE, null);
+  }
+
   private createShowHideTruncation(
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement,
     descriptionHeight = 0
   ) {
-    typographyEl.checkMaxLines(typographyEl.scrollHeight);
-    typographyEl.setAttribute(
-      "max-lines",
-      `${this.getLines(cellContainer.clientHeight - descriptionHeight)}`
+    this.applyShowHideTruncation(
+      typographyEl,
+      cellContainer,
+      typographyEl.scrollHeight,
+      this.getLines(cellContainer.clientHeight - descriptionHeight)
     );
-    typographyEl.setShowHideExpanded(false);
+  }
 
-    cellContainer.style.setProperty(this.ROW_HEIGHT_CSS_VARIABLE, null);
+  private createShowHideTruncationBatch(
+    targets: {
+      typographyEl: HTMLIcTypographyElement;
+      cellContainer: HTMLElement;
+      descriptionHeight: number;
+    }[]
+  ) {
+    const measurements = targets.map(
+      ({ typographyEl, cellContainer, descriptionHeight }) => ({
+        typographyEl,
+        cellContainer,
+        scrollHeight: typographyEl.scrollHeight,
+        maxLines: this.getLines(cellContainer.clientHeight - descriptionHeight),
+      })
+    );
+
+    measurements.forEach(
+      ({ typographyEl, cellContainer, scrollHeight, maxLines }) =>
+        this.applyShowHideTruncation(
+          typographyEl,
+          cellContainer,
+          scrollHeight,
+          maxLines
+        )
+    );
   }
 
   private getLines = (height: number): number =>
@@ -1959,29 +2034,85 @@ export class DataTable {
   private getTooltip = (typographyEl: HTMLIcTypographyElement) =>
     typographyEl.closest<HTMLIcTooltipElement>(this.TOOLTIP);
 
-  private updateTruncationTooltip = (removeTooltipOnly = false) => {
-    this.getTypographyElements().forEach((typographyEl) => {
+  private updateTruncationTooltip = (
+    removeTooltipOnly = false,
+    typographyElements = this.getTypographyElements()
+  ) => {
+    const candidates: {
+      typographyEl: HTMLIcTypographyElement;
+      cellContainer: HTMLElement;
+    }[] = [];
+
+    typographyElements.forEach((typographyEl) => {
       const tooltip = this.getTooltip(typographyEl);
       const cellContainer = this.getCellContainer(typographyEl);
 
-      if (cellContainer) {
-        if (typographyEl.closest(this.TEXT_WRAP_CLASS)) {
-          this.removeTooltip(cellContainer, typographyEl, tooltip);
-          typographyEl.setAttribute(
-            "style",
-            `${this.LINE_CLAMP_CSS_VARIABLE}: 0`
-          );
-          return;
-        }
+      if (!cellContainer) return;
 
-        this.regenerateTooltip(
-          cellContainer,
-          typographyEl,
-          tooltip,
-          removeTooltipOnly
+      if (typographyEl.closest(this.TEXT_WRAP_CLASS)) {
+        this.removeTooltip(cellContainer, typographyEl, tooltip);
+        typographyEl.setAttribute(
+          "style",
+          `${this.LINE_CLAMP_CSS_VARIABLE}: 0`
         );
+        return;
       }
+
+      if (tooltip) {
+        if (this.tableSorted) {
+          tooltip.setAttribute("target", typographyEl.id);
+          tooltip.setAttribute("label", typographyEl.textContent!);
+        } else {
+          this.removeTooltip(cellContainer, typographyEl, tooltip);
+        }
+        if (removeTooltipOnly) return;
+      }
+
+      candidates.push({ typographyEl, cellContainer });
     });
+
+    const updatedDataTargets = candidates.filter(
+      ({ typographyEl }) =>
+        !typographyEl.getAttribute("style") && this.dataUpdated
+    );
+    this.addLineClampCSSBatch(updatedDataTargets);
+
+    if (this.truncationPattern !== this.TOOLTIP_STRING) return;
+
+    const overflowMeasurements = candidates.map(
+      ({ typographyEl, cellContainer }) => ({
+        typographyEl,
+        cellContainer,
+        overflowing: typographyEl.scrollHeight > cellContainer.clientHeight,
+      })
+    );
+
+    const overflowLineClampTargets = overflowMeasurements
+      .filter(
+        ({ typographyEl, overflowing }) =>
+          overflowing &&
+          (!typographyEl.getAttribute("style") ||
+            typographyEl.style.cssText.includes(
+              `${this.LINE_CLAMP_CSS_VARIABLE}: 0;`
+            ))
+      )
+      .map(({ typographyEl, cellContainer }) => ({
+        typographyEl,
+        cellContainer,
+      }));
+
+    this.addLineClampCSSBatch(overflowLineClampTargets);
+
+    overflowMeasurements.forEach(
+      ({ typographyEl, cellContainer, overflowing }) => {
+        if (
+          overflowing &&
+          !cellContainer.querySelector(this.IC_TOOLTIP_STRING)
+        ) {
+          this.createTruncationTooltip(typographyEl, cellContainer);
+        }
+      }
+    );
   };
 
   private updateScrollOffset = () => {
@@ -2015,9 +2146,10 @@ export class DataTable {
   /** Method to update the row heights on cells with descriptions and tooltip truncation */
   private updateCellHeightsWithDescriptions = () => {
     const isXSDevice = deviceSizeMatches(IC_DEVICE_SIZES.XS);
-    this.el.shadowRoot
-      ?.querySelectorAll(this.CELL_DESCRIPTION_STRING)
-      ?.forEach((description) => {
+    const measurements = Array.from(
+      this.el.shadowRoot?.querySelectorAll(this.CELL_DESCRIPTION_STRING) || []
+    )
+      .map((description) => {
         const cellContainer = description.closest<HTMLElement>(
           `.${this.CELL_CONTAINER_WITH_DESCRIPTION_STRING}`
         );
@@ -2027,99 +2159,104 @@ export class DataTable {
           );
 
         if (
-          typography &&
-          cellContainer &&
-          this.globalRowHeight &&
-          this.globalRowHeight !== "auto"
+          !typography ||
+          !cellContainer ||
+          !this.globalRowHeight ||
+          this.globalRowHeight === "auto"
         ) {
-          const descriptionHeight = this.getDescriptionHeight(description);
-          const descriptionHeightPlusLineHeight =
-            descriptionHeight + this.DEFAULT_LINE_HEIGHT;
-          if (
-            !typography.textContent &&
-            descriptionHeightPlusLineHeight > this.globalRowHeight
-          ) {
+          return null;
+        }
+
+        const descriptionHeight = this.getDescriptionHeight(description);
+        const descriptionHeightPlusLineHeight =
+          descriptionHeight + this.DEFAULT_LINE_HEIGHT;
+        const iconHeight =
+          this.truncationPattern === this.TOOLTIP_STRING &&
+          descriptionHeightPlusLineHeight > this.globalRowHeight &&
+          isXSDevice
+            ? cellContainer.querySelector(".icon")?.clientHeight || 0
+            : 0;
+
+        return {
+          typography,
+          cellContainer,
+          descriptionHeight,
+          descriptionHeightPlusLineHeight,
+          iconHeight,
+        };
+      })
+      .filter(
+        (
+          measurement
+        ): measurement is {
+          typography: HTMLIcTypographyElement;
+          cellContainer: HTMLElement;
+          descriptionHeight: number;
+          descriptionHeightPlusLineHeight: number;
+          iconHeight: number;
+        } => measurement !== null
+      );
+
+    const lineClampTargets: {
+      typographyEl: HTMLIcTypographyElement;
+      cellContainer: HTMLElement;
+    }[] = [];
+    const showHideTargets: {
+      typographyEl: HTMLIcTypographyElement;
+      cellContainer: HTMLElement;
+      descriptionHeight: number;
+    }[] = [];
+
+    measurements.forEach(
+      ({
+        typography,
+        cellContainer,
+        descriptionHeight,
+        descriptionHeightPlusLineHeight,
+        iconHeight,
+      }) => {
+        if (
+          !typography.textContent &&
+          descriptionHeightPlusLineHeight > this.globalRowHeight
+        ) {
+          this.updateRowHeightForDescriptions(
+            descriptionHeight,
+            cellContainer
+          );
+        } else if (this.truncationPattern === this.TOOLTIP_STRING) {
+          if (descriptionHeightPlusLineHeight > this.globalRowHeight) {
             this.updateRowHeightForDescriptions(
-              descriptionHeight,
+              descriptionHeightPlusLineHeight + iconHeight,
               cellContainer
-            );
-          } else if (this.truncationPattern === this.TOOLTIP_STRING) {
-            if (descriptionHeightPlusLineHeight > this.globalRowHeight) {
-              const cellIcon = cellContainer.querySelector(".icon");
-              let rowHeight = descriptionHeightPlusLineHeight;
-              if (cellIcon && isXSDevice) {
-                // recalculate descriptionHeight as when a word break occurs this value changes
-                // Additional spacing given for 300-400% zoom
-                rowHeight += cellIcon.clientHeight;
-              }
-              this.updateRowHeightForDescriptions(rowHeight, cellContainer);
-            }
-            this.addLineClampCSS(typography, cellContainer);
-            // Additional case for show/hide truncation for when a description is present, but the text
-            // isn't overflowing the cell to trigger the show more button to appear.
-          } else if (
-            this.truncationPattern === this.SHOW_HIDE_STRING &&
-            descriptionHeightPlusLineHeight > this.globalRowHeight &&
-            typography.style.getPropertyValue("--truncation-max-lines") !==
-              "initial"
-          ) {
-            this.updateRowHeightForDescriptions(
-              descriptionHeightPlusLineHeight,
-              cellContainer
-            );
-            this.createShowHideTruncation(
-              typography,
-              cellContainer,
-              descriptionHeight
             );
           }
+          lineClampTargets.push({
+            typographyEl: typography,
+            cellContainer,
+          });
+        } else if (
+          this.truncationPattern === this.SHOW_HIDE_STRING &&
+          descriptionHeightPlusLineHeight > this.globalRowHeight &&
+          typography.style.getPropertyValue("--truncation-max-lines") !==
+            "initial"
+        ) {
+          this.updateRowHeightForDescriptions(
+            descriptionHeightPlusLineHeight,
+            cellContainer
+          );
+          showHideTargets.push({
+            typographyEl: typography,
+            cellContainer,
+            descriptionHeight,
+          });
         }
-      });
+      }
+    );
+
+    this.addLineClampCSSBatch(lineClampTargets);
+    this.createShowHideTruncationBatch(showHideTargets);
   };
 
-  private regenerateTooltip(
-    cellContainer: HTMLElement,
-    typographyEl: HTMLIcTypographyElement,
-    tooltip: HTMLIcTooltipElement | null,
-    removeTooltipOnly?: boolean
-  ) {
-    // When sorting the table, instead of regenerating the tooltip,
-    // the tooltip details are updated
-
-    if (tooltip) {
-      if (this.tableSorted) {
-        tooltip.setAttribute("target", typographyEl.id);
-        tooltip.setAttribute("label", typographyEl.textContent!);
-      } else {
-        this.removeTooltip(cellContainer, typographyEl, tooltip);
-      }
-      if (removeTooltipOnly) {
-        return;
-      }
-    }
-
-    // This add line clamp to data only when
-    // the data object has been updated
-    if (!typographyEl.getAttribute("style") && this.dataUpdated) {
-      this.addLineClampCSS(typographyEl, cellContainer);
-    }
-
-    if (
-      typographyEl?.scrollHeight > cellContainer?.clientHeight &&
-      this.truncationPattern === this.TOOLTIP_STRING
-    ) {
-      if (
-        !typographyEl.getAttribute("style") ||
-        typographyEl.style.cssText.includes(
-          `${this.LINE_CLAMP_CSS_VARIABLE}: 0;`
-        )
-      ) {
-        this.addLineClampCSS(typographyEl, cellContainer);
-      }
-      if (!cellContainer.querySelector(this.IC_TOOLTIP_STRING))
-        this.createTruncationTooltip(typographyEl, cellContainer);
-    }
-  }
   private setTableDimensions = () => {
     let tableHostDimensions = {};
 
@@ -2165,10 +2302,7 @@ export class DataTable {
     tooltip?.remove();
   }
 
-  private addLineClampCSS(
-    typographyEl: HTMLIcTypographyElement,
-    cellContainer: HTMLElement
-  ) {
+  private getLineClampValue(cellContainer: HTMLElement): number {
     const descriptionCellHeight = cellContainer.querySelector(
       this.CELL_DESCRIPTION_STRING
     )?.clientHeight;
@@ -2184,14 +2318,47 @@ export class DataTable {
     ) {
       const iconHeight =
         (deviceSizeMatches(IC_DEVICE_SIZES.XS) &&
-          cellContainer?.querySelector(".icon")?.clientHeight) ||
+          cellContainer.querySelector(".icon")?.clientHeight) ||
         0;
       totalHeight = totalHeight - descriptionCellHeight - iconHeight;
     }
 
+    return this.getLines(totalHeight || 0);
+  }
+
+  private applyLineClampCSS(
+    typographyEl: HTMLIcTypographyElement,
+    lineClamp: number
+  ) {
     typographyEl.setAttribute(
       "style",
-      `${this.LINE_CLAMP_CSS_VARIABLE}: ${this.getLines(totalHeight || 0)}`
+      `${this.LINE_CLAMP_CSS_VARIABLE}: ${lineClamp}`
+    );
+  }
+
+  private addLineClampCSSBatch(
+    targets: {
+      typographyEl: HTMLIcTypographyElement;
+      cellContainer: HTMLElement;
+    }[]
+  ) {
+    const measurements = targets.map(({ typographyEl, cellContainer }) => ({
+      typographyEl,
+      lineClamp: this.getLineClampValue(cellContainer),
+    }));
+
+    measurements.forEach(({ typographyEl, lineClamp }) =>
+      this.applyLineClampCSS(typographyEl, lineClamp)
+    );
+  }
+
+  private addLineClampCSS(
+    typographyEl: HTMLIcTypographyElement,
+    cellContainer: HTMLElement
+  ) {
+    this.applyLineClampCSS(
+      typographyEl,
+      this.getLineClampValue(cellContainer)
     );
   }
 
