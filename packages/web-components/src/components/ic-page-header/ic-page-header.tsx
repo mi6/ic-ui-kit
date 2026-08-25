@@ -1,4 +1,12 @@
-import { Component, Host, h, Prop, Element, State } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Element,
+  State,
+  Watch,
+} from "@stencil/core";
 
 import { IcAlignment, IcSizesNoLarge, IcThemeMode } from "../../utils/types";
 
@@ -53,6 +61,16 @@ export class PageHeader {
    * If `true`, the reading pattern and tab order will change in the action area for viewport widths of above 576px and when actions have not wrapped.
    */
   @Prop() reverseOrder?: boolean = false;
+  @Watch("reverseOrder")
+  reverseOrderChangedHandler(): void {
+    if (!isSlotUsed(this.el, "actions")) return;
+
+    if (this.reverseOrder) {
+      this.applyReverseOrder();
+    } else if (this.areButtonsReversed) {
+      this.reverseActionContent();
+    }
+  }
 
   /**
    * The size of the page header component.
@@ -108,6 +126,14 @@ export class PageHeader {
     this.resizeObserver.observe(this.el);
   };
 
+  private reverseActionContent = (): void => {
+    this.actionContent = [...this.actionContent].reverse();
+    this.actionContent.forEach((btn: string | Node) => {
+      this.el.append(btn);
+    });
+    this.areButtonsReversed = !this.areButtonsReversed;
+  };
+
   private applyReverseOrder = (): void => {
     const currSize = getCurrentDeviceSize();
     if (currSize !== this.deviceSize) {
@@ -138,14 +164,6 @@ export class PageHeader {
       actionAreaHeight = 0;
     }
 
-    const appendActionContent = () => {
-      this.actionContent = this.actionContent.reverse();
-      this.actionContent.forEach((btn: string | Node) => {
-        this.el.append(btn);
-      });
-      this.areButtonsReversed = !this.areButtonsReversed;
-    };
-
     if (
       (this.deviceSize > DEVICE_SIZES.S &&
         actionAreaHeight <= max &&
@@ -154,7 +172,7 @@ export class PageHeader {
         this.deviceSize <= DEVICE_SIZES.S) &&
         this.areButtonsReversed)
     ) {
-      appendActionContent();
+      this.reverseActionContent();
     }
   };
 
