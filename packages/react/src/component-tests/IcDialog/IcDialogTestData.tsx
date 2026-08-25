@@ -877,3 +877,16 @@ export const DialogWithTooltips = () => {
     </>
   );
 };
+
+export const DynamicScrollableDialog = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <IcDialog open heading="Scrollable dialog" label="Dialog" size="small">
+      <IcButton id="expand-dialog-content" onClick={() => setExpanded(true)}>
+        Add content
+      </IcButton>
+      {expanded && <div style={{ height: "1000px" }}>More content</div>}
+    </IcDialog>
+  );
+};
