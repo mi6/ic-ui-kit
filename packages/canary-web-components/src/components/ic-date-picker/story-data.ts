@@ -1,8 +1,16 @@
 /* eslint-disable */
 export const DATE_PICKER_LABEL = "When would you like to collect your coffee?";
 
+const STORY_DATE_PICKER_SELECTOR =
+  'ic-date-picker[data-story-date-picker="true"]';
+
 export const createDatePickerElement = () => {
+  document
+    .querySelectorAll(STORY_DATE_PICKER_SELECTOR)
+    .forEach((datePicker) => datePicker.remove());
+
   const datePicker = document.createElement("ic-date-picker");
+  datePicker.dataset.storyDatePicker = "true";
   datePicker.label = DATE_PICKER_LABEL;
   return datePicker;
 };
