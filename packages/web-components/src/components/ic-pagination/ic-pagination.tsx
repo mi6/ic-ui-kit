@@ -26,6 +26,8 @@ import {
   shadow: true,
 })
 export class Pagination {
+  private pageToFocus?: number;
+
   @Element() el: HTMLIcPaginationElement;
 
   @State() endEllipsis: boolean = false;
@@ -254,6 +256,17 @@ export class Pagination {
     );
   }
 
+  componentDidRender(): void {
+    if (this.pageToFocus === undefined) return;
+
+    const selectedItem =
+      this.el.shadowRoot?.querySelector<HTMLIcPaginationItemElement>(
+        `#pagination-item-${this.pageToFocus}`
+      );
+    selectedItem?.shadowRoot?.querySelector<HTMLButtonElement>("button")?.focus();
+    this.pageToFocus = undefined;
+  }
+
   /**
    * Prevents focus lingering on a disabled element. If the currently
    * focused element is one of the back buttons (and we reach the first page),
@@ -294,6 +307,7 @@ export class Pagination {
   @Listen("paginationItemClick")
   paginationItemClickHandler(ev: CustomEvent): void {
     const page = ev.detail.page;
+    this.pageToFocus = page;
     this.currentPage = page;
     this.icPageChange.emit({ value: this.currentPage! });
   }
