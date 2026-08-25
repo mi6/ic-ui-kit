@@ -209,6 +209,11 @@ export class RadioGroup {
   };
 
   private checkOrientation() {
+    if (this.initialOrientation === this.RADIO_VERTICAL) {
+      this.currentOrientation = this.RADIO_VERTICAL;
+      return;
+    }
+
     if (this.initialOrientation === this.RADIO_HORIZONTAL) {
       let totalWidth = 0;
       if (Array.isArray(this.radioOptions) && this.radioOptions.length > 0) {
