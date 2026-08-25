@@ -5,9 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [3.4.20](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.4.17...@ukic/docs@3.4.20) (2026-08-24)
 
-### Bug Fixes
-
-- **docs:** update documentation with updated ic-breadcrumb-group description ([ce98b36](https://github.com/mi6/ic-ui-kit/commit/ce98b362796777d9d4168618473464188cda3c6a))
+**Note:** Version bump only for package @ukic/docs
 
 ## [3.4.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.4.17...@ukic/docs@3.4.19) (2026-07-03)
 
