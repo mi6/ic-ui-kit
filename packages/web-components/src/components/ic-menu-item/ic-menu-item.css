@@ -87,14 +87,15 @@ ic-button:focus-within .menu-item-description {
   --ic-typography-color: var(--ic-popover-menu-item-label-disabled) !important;
 }
 
-:host ::part(button):active {
+:host(:not(.ic-menu-item-disabled)) ::part(button):active {
   background-color: var(--ic-popover-background-pressed);
   color: var(--ic-popover-menu-item-label) !important;
 
   --ic-typography-color: var(--ic-popover-menu-item-label) !important;
 }
 
-:host(.ic-menu-item-variant-destructive) ::part(button):active {
+:host(:not(.ic-menu-item-disabled).ic-menu-item-variant-destructive)
+  ::part(button):active {
   background-color: var(--ic-popover-background-pressed);
   color: var(--ic-popover-menu-destructive-item-label) !important;
 
@@ -135,19 +136,21 @@ ic-button:focus-within .menu-item-description {
   letter-spacing: 0.025em;
 }
 
-ic-button:active .menu-item-label {
+:host(:not(.ic-menu-item-disabled)) ic-button:active .menu-item-label {
   --ic-typography-color: var(--ic-popover-menu-item-label);
 }
 
-ic-button:active .menu-item-description {
+:host(:not(.ic-menu-item-disabled)) ic-button:active .menu-item-description {
   --ic-typography-color: var(--ic-popover-menu-item-description);
 }
 
-ic-button:active .shortcut {
+:host(:not(.ic-menu-item-disabled)) ic-button:active .shortcut {
   --ic-typography-color: var(--ic-popover-menu-item-shortcut);
 }
 
-:host(.ic-menu-item-variant-destructive) ic-button:active .menu-item-label {
+:host(:not(.ic-menu-item-disabled).ic-menu-item-variant-destructive)
+  ic-button:active
+  .menu-item-label {
   --ic-typography-color: var(
     --ic-popover-menu-destructive-item-label
   ) !important;
