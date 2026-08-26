@@ -157,7 +157,8 @@
 .option .option-label {
   display: flex;
   flex-direction: row;
-  align-items: top;
+  align-items: flex-start;
+  gap: var(--ic-space-xs);
 }
 
 .option .option-label ic-typography {
@@ -170,10 +171,18 @@
 }
 
 .option .option-icon {
-  height: var(--ic-space-md);
-  width: var(--ic-space-md);
-  margin-top: var(--ic-space-xxs);
-  margin-right: var(--ic-space-xxs);
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  min-width: var(--ic-space-lg);
+}
+
+.option .option-icon > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.option-label:has(.option-icon) + .option-description {
+  margin-left: calc(var(--ic-space-lg) + var(--ic-space-xs));
 }
 
 .option-text-container {
