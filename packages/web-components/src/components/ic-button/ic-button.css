@@ -216,6 +216,12 @@
   background-color: var(
     --ic-button-secondary-background-hover-active
   ) !important;
+  border-color: var(--ic-button-secondary-border-hover) !important;
+  color: var(--ic-button-secondary-text-hover-active) !important;
+
+  --ic-typography-color: var(
+    --ic-button-secondary-text-hover-active
+  ) !important;
 }
 
 :host(.ic-button-variant-secondary) .button:active,
