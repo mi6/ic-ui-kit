@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{s as t}from"./iframe-CYqvfaTZ.js";import{P as n}from"./helpers-80097ffd-BLZWKaS_.js";import{n as r,t as i}from"./ic-accordion-f8d6f20f-s2zCCnBr.js";e((()=>{r(),t(),n()}))();export{i as ic_accordion};
