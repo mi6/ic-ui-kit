@@ -4,7 +4,8 @@
 import React from "react";
 import { IcLink, IcTypography } from "../../components";
 import { mount } from "cypress/react";
-import { HAVE_ATTR } from "../utils/constants";
+import { MemoryRouter, NavLink } from "react-router-dom";
+import { HAVE_ATTR, HAVE_CSS } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const LINK_SELECTOR = "ic-link";
@@ -237,6 +238,30 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/inline",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
+  });
+
+  it("should preserve bold font weight for a slotted React Router link", () => {
+    mount(
+      <MemoryRouter>
+        <style>{`a { font: var(--ic-font-body); }`}</style>
+        <div style={{ margin: "16px" }}>
+          <IcLink>
+            <NavLink to="/" slot="router-item">
+              About our coffees
+            </NavLink>
+          </IcLink>
+        </div>
+      </MemoryRouter>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+    cy.get(`${LINK_SELECTOR} a`).should(HAVE_CSS, "font-weight", "700");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/router-link",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 });

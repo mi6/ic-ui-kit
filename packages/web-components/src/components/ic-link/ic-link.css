@@ -8,6 +8,10 @@
   transition: var(--ic-easing-transition-fast);
 }
 
+:host(.ic-link) ::slotted(a) {
+  font-weight: var(--ic-font-weight-bold) !important;
+}
+
 :host(.ic-link) .link:visited,
 :host(.ic-link) ::slotted(a:visited),
 :host(.ic-link) .link:visited:hover,
