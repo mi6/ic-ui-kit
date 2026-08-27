@@ -525,4 +525,30 @@ describe("ic-radio-group", () => {
 
     expect((radioContainer as any).__listeners.length).toBe(0);
   });
+
+  it("should apply the label as an aria-label when hideLabel is true", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test" hide-label>
+        <ic-radio-option value="test"></ic-radio-option>
+      </ic-radio-group>`,
+    });
+
+    const fieldset = page.root?.shadowRoot?.querySelector("fieldset");
+    expect(fieldset?.querySelector("legend")).toBeNull();
+    expect(fieldset?.getAttribute("aria-label")).toBe("test label");
+  });
+
+  it("should not set an aria-label when the label is visible", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test">
+        <ic-radio-option value="test"></ic-radio-option>
+      </ic-radio-group>`,
+    });
+
+    const fieldset = page.root?.shadowRoot?.querySelector("fieldset");
+    expect(fieldset?.querySelector("legend")).not.toBeNull();
+    expect(fieldset?.hasAttribute("aria-label")).toBe(false);
+  });
 });
