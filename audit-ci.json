@@ -230,6 +230,13 @@
         "notes": "extract-zip dependency vulnerability (path traversal) in unvalidated symlinks, no fix available.",
         "expiry": "27 September 2026"
       }
+    },
+    {
+      "GHSA-w4pp-8pjf-rmxw": {
+        "active": true,
+        "notes": "requires upgrade to 'pacote', which is a transitive dependency of lerna. Might be removable after a lerna upgrade.",
+        "expiry": "27 September 2026"
+      }
     }
   ]
 }
