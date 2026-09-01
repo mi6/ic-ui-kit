@@ -378,6 +378,7 @@ export class RadioGroup {
           role="radiogroup"
           id={this.name}
           aria-required={`${required}`}
+          aria-label={hideLabel ? label : undefined}
         >
           {!hideLabel && (
             <legend>
