@@ -7,7 +7,7 @@ const getCustomElementHandling = (allowICPrefix: boolean) => ({
     tagNameCheck: (tagName: string) =>
       (allowICPrefix && tagName.startsWith("ic-")) ||
       IC_CUSTOM_ALLOWED_COMPONENTS.includes(tagName),
-    attributeNameCheck: /.*/,
+    attributeNameCheck: /^(?!on).+$/i,
   },
 });
 
