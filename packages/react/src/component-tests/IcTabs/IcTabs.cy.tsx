@@ -4,6 +4,12 @@
 import React from "react";
 import { mount } from "cypress/react";
 import {
+  IcTab,
+  IcTabContext,
+  IcTabGroup,
+  IcTabPanel,
+} from "../../components";
+import {
   BE_VISIBLE,
   HAVE_ATTR,
   CONTAIN_TEXT,
@@ -663,5 +669,75 @@ describe("IcTabs visual regression in high contrast mode", () => {
       name: "/inline-prop-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
+  });
+});
+
+const ReflowTabs = () => (
+  <IcTabContext>
+    <IcTabGroup label="Example tab group">
+      <IcTab>Ingredients</IcTab>
+      <IcTab>Preparation method</IcTab>
+      <IcTab>Recipe history</IcTab>
+      <IcTab>Recommended drinks</IcTab>
+      <IcTab>Related recipes</IcTab>
+      <IcTab>Kitchen blog</IcTab>
+    </IcTabGroup>
+    <IcTabPanel>Ingredients</IcTabPanel>
+    <IcTabPanel>Preparation method</IcTabPanel>
+    <IcTabPanel>Recipe history</IcTabPanel>
+    <IcTabPanel>Recommended drinks</IcTabPanel>
+    <IcTabPanel>Related recipes</IcTabPanel>
+    <IcTabPanel>Kitchen blog</IcTabPanel>
+  </IcTabContext>
+);
+
+const ConstrainedReflowTabs = ({ display }: { display: "flex" | "grid" }) => (
+  <div
+    id={`${display}-tabs-container`}
+    style={{ display, width: "320px", maxWidth: "100%" }}
+  >
+    <div style={{ width: "100%" }}>
+      <ReflowTabs />
+    </div>
+  </div>
+);
+
+const checkCompactReflow = (display: "flex" | "grid") => {
+  cy.checkHydrated(IC_TAB_GROUP);
+
+  cy.findShadowEl(IC_TAB_GROUP, "ic-horizontal-scroll").should(
+    "have.class",
+    "ic-horizontal-scroll-visible"
+  );
+
+  cy.get(`#${display}-tabs-container`).then(([container]) => {
+    expect(container.scrollWidth).to.be.at.most(container.clientWidth);
+  });
+
+  cy.checkA11yWithWait();
+  cy.compareSnapshot({
+    name: `/compact-${display}-ancestor`,
+    testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+  });
+};
+
+describe("IcTabs flex/grid reflow", () => {
+  beforeEach(() => {
+    cy.viewport(360, 600);
+    cy.injectAxe();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should enter compact mode inside a flex layout", () => {
+    mount(<ConstrainedReflowTabs display="flex" />);
+    checkCompactReflow("flex");
+  });
+
+  it("should enter compact mode inside a grid layout", () => {
+    mount(<ConstrainedReflowTabs display="grid" />);
+    checkCompactReflow("grid");
   });
 });
