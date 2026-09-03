@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{y as t}from"./components-DfJVBzM2.js";import{P as n}from"./helpers-80097ffd-CweasLHf.js";import{n as r,t as i}from"./ic-switch-bc6b84a7-t_SYCJkA.js";e((()=>{r(),t(),n()}))();export{i as ic_switch};
