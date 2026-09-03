@@ -283,6 +283,10 @@ select:not([disabled]) {
   fill: var(--ic-select-content-text);
 }
 
+:host(.ic-select-disabled) ::slotted([slot="icon"]) {
+  fill: var(--ic-atoms-input-select-content-icon-disabled);
+}
+
 .readonly ::slotted([slot="icon"]) {
   padding: 0.375rem;
   margin-bottom: 0.75rem;
