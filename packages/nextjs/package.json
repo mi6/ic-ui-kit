@@ -64,5 +64,9 @@
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
   },
+  "overrides": {
+    "fast-uri": "3.1.6",
+    "postcss-selector-parser": "7.1.5"
+  },
   "packageManager": "^npm@10.9.2"
 }
