@@ -74,7 +74,7 @@ Developers are able to build and install components locally, enabling effective 
 To get started make sure you are in the top-level directory of `ic-ui-kit` and run:
 
 ```console
-./pack-all-tars.sh
+./scripts/pack-all-tars.sh
 ```
 
 This will build all the components, pack them up and log out the paths of archives of each package in the ui-kit.

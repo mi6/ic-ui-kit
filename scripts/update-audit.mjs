@@ -4,20 +4,20 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const auditFilename = "audit-ci.json";
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const auditPath = path.resolve(__dirname, "..", auditFilename);
 
 function getPrettyDate(date) {
     return date.toLocaleString("en-gb", { day: "2-digit", month: "long", year: "numeric", });
 }
 
 async function getAuditContents() {
-    const __dirname = path.dirname(fileURLToPath(import.meta.url));
-    const auditPath = path.resolve(__dirname, auditFilename);
     const data = await fs.readFile(auditPath, "utf-8");
     return JSON.parse(data);
 }
 
 async function writeAuditFileToDisk(jsonData) {
-    await fs.writeFile(auditFilename, JSON.stringify(jsonData, 0, 2), "utf-8");
+    await fs.writeFile(auditPath, JSON.stringify(jsonData, 0, 2), "utf-8");
     console.info("Audit file updated!");
 }
 
