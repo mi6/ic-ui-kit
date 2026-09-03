@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{y as t}from"./components-Cu-YJfkN.js";import{P as n}from"./helpers-80097ffd-BmRUiGYf.js";import{n as r,t as i}from"./ic-action-chip-2cfea8f5-Mgulo6nC.js";e((()=>{r(),t(),n()}))();export{i as ic_action_chip};
