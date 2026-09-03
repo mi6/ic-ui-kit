@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{s as t}from"./iframe-DZFvaAuU.js";import{n,t as r}from"./ic-skip-link-7e0a4926-097KJI2Z.js";e((()=>{n(),t()}))();export{r as ic_skip_link};
