@@ -1122,19 +1122,17 @@ export class Select {
             readonly={readonly}
             validationStatus={validationStatus}
           >
-            {isSlotUsed(this.el, "icon") &&
-              !disabled &&
-              (!readonly || !!value) && (
-                <span
-                  slot="left-icon"
-                  class={{
-                    readonly,
-                    "has-value": !!value,
-                  }}
-                >
-                  <slot name="icon" />
-                </span>
-              )}
+            {isSlotUsed(this.el, "icon") && (!readonly || !!value) && (
+              <span
+                slot="left-icon"
+                class={{
+                  readonly,
+                  "has-value": !!value,
+                }}
+              >
+                <slot name="icon" />
+              </span>
+            )}
             {isMobileOrTablet() && this.useNativeSelectOnMobile && !multiple ? (
               <NativeSelect />
             ) : readonly ? (
