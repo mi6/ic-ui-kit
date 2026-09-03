@@ -1033,6 +1033,8 @@ export class DataTable {
         }
       }
       this.selectedRows = [];
+      this.selectedIcRowIds = [];
+
     }
 
     if (!this.initialLoad && this.previousPaginationPage !== detail.value) {
@@ -1114,23 +1116,38 @@ export class DataTable {
   }
 
   @Watch("data")
-  async dataHandler(): Promise<void> {
-    this.loadingOptions = {
-      ...this.loadingOptions,
-    };
-    if (this.loading) {
-      !this.hasLoadedForOneSecond
-        ? setTimeout(
-            () => (this.loading = false),
-            this.minimumLoadingDisplayDuration -
-              (Date.now() - this.timerStarted)
-          )
-        : (this.loading = false);
-    }
-    if (this.updating) this.updating = false;
+async dataHandler(): Promise<void> {
+  this.loadingOptions = {
+    ...this.loadingOptions,
+  };
 
-    this.dataUpdated = true;
+  if (this.loading) {
+    !this.hasLoadedForOneSecond
+      ? setTimeout(
+          () => (this.loading = false),
+          this.minimumLoadingDisplayDuration -
+            (Date.now() - this.timerStarted)
+        )
+      : (this.loading = false);
   }
+
+  if (this.updating) {
+    this.updating = false;
+  }
+
+  // Reset selection state
+  this.selectedRows = [];
+  this.selectedIcRowIds = [];
+
+  // Reset row IDs for the new dataset
+  this.rowIdCounter = 0;
+
+  // Reset pagination
+  this.fromRow = 0;
+  this.toRow = this.rowsPerPage;
+
+  this.dataUpdated = true;
+}
 
   @Watch("density")
   async densityHandler(): Promise<void> {
