@@ -96,7 +96,8 @@
   "_dependencyNotes": {
     "lodash": "Security override: fixes advisory requiring >=4.18.0 (transitive via commitizen/lerna). Remove once upstream deps unpin 4.17.21.",
     "picomatch": "Security override: fixes vulnerability in transitive deps (chokidar v3 / cspell). Remove once remark-cli/stylelint are upgraded.",
-    "yaml": "Security override: fixes transitive vulnerability (patched in 1.10.3 / 2.8.3). Sources: lerna v6, stylelint v14."
+    "yaml": "Security override: fixes transitive vulnerability (patched in 1.10.3 / 2.8.3). Sources: lerna v6, stylelint v14.",
+    "fast-uri": "Security override: fixes multiple host-confusion/SSRF advisories, patched in 3.1.6+ (transitive via ajv/table/stylelint). Remove once stylelint is upgraded."
   },
   "overrides": {
     "lodash": "^4.18.1",
@@ -107,7 +108,8 @@
     "tar": "7.5.22",
     "tmp": "0.2.7",
     "esbuild": "0.28.1",
-    "js-yaml": "4.2.0"
+    "js-yaml": "4.2.0",
+    "fast-uri": "3.1.6"
   },
   "packageManager": "^npm@10.9.2",
   "engines": {
