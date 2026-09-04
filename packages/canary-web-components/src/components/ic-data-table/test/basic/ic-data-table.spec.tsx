@@ -1352,6 +1352,62 @@ describe(icDataTable, () => {
     expect(checkbox?.getAttribute("checked")).toBe("");
   });
 
+  it("should clear selected rows when data changes", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          row-selection={true}
+        ></ic-data-table>
+      ),
+    });
+
+    await page.rootInstance.selectAllRows();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.selectedRows.length).toBeGreaterThan(0);
+
+    page.root!.data = [...longData];
+    await page.waitForChanges();
+
+    expect(page.rootInstance.selectedRows).toEqual([]);
+    expect(page.rootInstance.selectedIcRowIds).toEqual([]);
+  });
+
+  it("should clear selected rows when page changes", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, PaginationBar],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={longData}
+          row-selection={true}
+          show-pagination
+        ></ic-data-table>
+      ),
+    });
+
+    await page.rootInstance.selectAllRows();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.selectedRows.length).toBeGreaterThan(0);
+
+    page.rootInstance.handlePageChange({
+      detail: { value: 2 },
+      target: document.createElement("div"),
+    } as any);
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.selectedRows).toEqual([]);
+    expect(page.rootInstance.selectedIcRowIds).toEqual([]);
+  });
+
+
   it("should apply a specified row height to all rows when globalRowHeight is set", async () => {
     const page = await newSpecPage({
       components: [DataTable],
