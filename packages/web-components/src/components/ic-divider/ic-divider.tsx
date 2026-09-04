@@ -46,6 +46,11 @@ export class Divider {
   @Prop() borderStyle?: IcDividerStyles = "solid";
 
   /**
+   * If `true`, a vertical divider will stretch to the height of its flex container.
+   */
+  @Prop() flexItem?: boolean = false;
+
+  /**
    * The label for the divider. The label placement will need to be set for the label to be displayed correctly.
    */
   @Prop() label?: string;
@@ -117,6 +122,7 @@ export class Divider {
   render() {
     const {
       borderStyle,
+      flexItem,
       label,
       labelPlacement,
       monochrome,
@@ -184,6 +190,7 @@ export class Divider {
           [`ic-divider-${orientation}`]: true,
           [`ic-divider-${weight}`]: true,
           [`ic-divider-${borderStyle}`]: true,
+          [`ic-divider-flex-item`]: !!flexItem,
           [`ic-divider-label-${labelPlacement}`]:
             slotHasContent(this.el, "label") || !isEmptyString(label),
         }}
