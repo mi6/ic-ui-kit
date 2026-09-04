@@ -2,6 +2,7 @@
 
 import React from "react";
 import { mount } from "cypress/react";
+import { IcDialog } from "../../components";
 import {
   NoBackgroundClickDialog,
   SimpleDialog,
@@ -802,5 +803,33 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
       name: "/destructive-dialog-controls-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
+  });
+});
+
+describe("IcDialog structured content accessibility", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+  });
+
+  it("should keep slotted links navigable instead of flattening dialog content", () => {
+    mount(
+      <IcDialog heading="Dialog heading" open>
+        <p>
+          Read the <a href="#details">details</a> before continuing.
+        </p>
+      </IcDialog>
+    );
+
+    cy.checkHydrated(DIALOG);
+    cy.get(DIALOG)
+      .shadow()
+      .find("dialog")
+      .should(NOT_HAVE_ATTR, "aria-describedby")
+      .and(HAVE_ATTR, "aria-labelledby", "dialog-label dialog-heading");
+
+    cy.get(DIALOG).find('a[href="#details"]').focus();
+    cy.focused().should(HAVE_ATTR, "href", "#details");
+
+    cy.checkA11yWithWait();
   });
 });
