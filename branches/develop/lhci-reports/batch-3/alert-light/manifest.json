@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/alert?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/alert-light/localhost--2026_09_04_02_37_37.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/alert-light/localhost--2026_09_04_02_37_37.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/alert-light/localhost--2026_09_05_02_27_29.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/alert-light/localhost--2026_09_05_02_27_29.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
