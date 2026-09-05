@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/dialog-slotted-content?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-slotted-content-light/localhost--2026_09_04_02_35_15.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-slotted-content-light/localhost--2026_09_04_02_35_15.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-slotted-content-light/localhost--2026_09_05_02_22_02.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/dialog-slotted-content-light/localhost--2026_09_05_02_22_02.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
