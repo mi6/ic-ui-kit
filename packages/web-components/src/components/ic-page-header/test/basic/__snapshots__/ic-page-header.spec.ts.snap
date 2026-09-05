@@ -410,7 +410,9 @@ exports[`ic-page-header component renders additional functionality should render
             svg
           </span>
           <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="inherit">
-            Breadcrumb 1
+            <span class="page-title">
+              Breadcrumb 1
+            </span>
           </ic-link>
         </div>
       </template>
@@ -422,7 +424,9 @@ exports[`ic-page-header component renders additional functionality should render
             svg
           </span>
           <span class="current-page-container">
-            Breadcrumb 2
+            <span class="page-title">
+              Breadcrumb 2
+            </span>
           </span>
         </div>
       </template>

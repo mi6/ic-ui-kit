@@ -26,7 +26,9 @@ exports[`ic-breadcrumb should render with icon 1`] = `
       </span>
       <span class="current-page-container">
         <slot name="icon"></slot>
-        foo
+        <span class="page-title">
+          foo
+        </span>
       </span>
     </div>
   </template>
@@ -44,7 +46,9 @@ exports[`ic-breadcrumb should render with page-title and href 1`] = `
         svg
       </span>
       <ic-link class="breadcrumb-link" href="/" theme="inherit">
-        foo
+        <span class="page-title">
+          foo
+        </span>
       </ic-link>
     </div>
   </template>
@@ -59,7 +63,9 @@ exports[`ic-breadcrumb should render with page-title, href, current 1`] = `
         svg
       </span>
       <span class="current-page-container">
-        foo
+        <span class="page-title">
+          foo
+        </span>
       </span>
     </div>
   </template>
