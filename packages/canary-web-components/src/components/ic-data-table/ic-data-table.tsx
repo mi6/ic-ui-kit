@@ -1033,6 +1033,7 @@ export class DataTable {
         }
       }
       this.selectedRows = [];
+      this.selectedIcRowIds = [];
     }
 
     if (!this.initialLoad && this.previousPaginationPage !== detail.value) {
@@ -1118,6 +1119,7 @@ export class DataTable {
     this.loadingOptions = {
       ...this.loadingOptions,
     };
+
     if (this.loading) {
       !this.hasLoadedForOneSecond
         ? setTimeout(
@@ -1127,7 +1129,21 @@ export class DataTable {
           )
         : (this.loading = false);
     }
-    if (this.updating) this.updating = false;
+
+    if (this.updating) {
+      this.updating = false;
+    }
+
+    // Reset selection state
+    this.selectedRows = [];
+    this.selectedIcRowIds = [];
+
+    // Reset row IDs for the new dataset
+    this.rowIdCounter = 0;
+
+    // Reset pagination
+    this.fromRow = 0;
+    this.toRow = this.rowsPerPage;
 
     this.dataUpdated = true;
   }
