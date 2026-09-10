@@ -24,6 +24,7 @@
   "scripts": {
     "audit": "echo 'Audit for: @ukic/react' && audit-ci -m --config ../../audit-ci.json",
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
+    "build:perf": "vite build --config vite.config.perf.ts",
     "build-storybook": "rimraf ./storybook-static && storybook build",
     "clean": "rimraf dist",
     "compile": "npm run tsc",
@@ -41,8 +42,16 @@
     "rollup": "rollup -c",
     "storybook": "storybook dev -p 6007",
     "test:performance-lhci": "npm run perf:lhci",
-    "build:perf": "vite build --config vite.config.perf.ts",
     "tsc": "tsc -p ."
+  },
+  "overrides": {
+    "@opentelemetry/core": "2.8.0",
+    "esbuild": "0.28.1",
+    "fast-uri": "3.1.6",
+    "js-yaml": "4.2.0",
+    "postcss-selector-parser": "7.1.5",
+    "qs": "6.16.0",
+    "tmp": "0.2.7"
   },
   "dependencies": {
     "@ukic/web-components": "^3.30.0"
@@ -97,15 +106,6 @@
     "@ukic/fonts": "^3.1.0",
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0 || ^19.0.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0 || ^19.0.0"
-  },
-  "overrides": {
-    "tmp": "0.2.7",
-    "@opentelemetry/core": "2.8.0",
-    "esbuild": "0.28.1",
-    "js-yaml": "4.2.0",
-    "qs": "6.16.0",
-    "fast-uri": "3.1.6",
-    "postcss-selector-parser": "7.1.5"
   },
   "packageManager": "^npm@10.9.2"
 }
