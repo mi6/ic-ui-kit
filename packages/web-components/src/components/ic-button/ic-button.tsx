@@ -37,6 +37,12 @@ import arrowDropdown from "../../assets/arrow-dropdown.svg";
 
 let buttonIds = 0;
 
+const BUTTON_INHERITED_ATTRIBUTES = [
+  ...IC_INHERITED_ARIA,
+  "aria-checked",
+  "role",
+];
+
 /**
  * @slot left-icon - Content will be placed to the left of the button label.
  * @slot right-icon - Content will be placed to the right of the button label.
@@ -281,7 +287,7 @@ export class Button {
       title,
       "aria-label": ariaLabel,
       ...restInheritedAttributes
-    } = inheritAttributes(this.el, [...IC_INHERITED_ARIA, "title"]);
+    } = inheritAttributes(this.el, [...BUTTON_INHERITED_ATTRIBUTES, "title"]);
 
     this.title = title;
     this.ariaLabel = ariaLabel;
@@ -479,7 +485,7 @@ export class Button {
           if (attributeName === "title") this.title = attribute;
           else if (attributeName === "aria-label") this.ariaLabel = attribute;
 
-          if (IC_INHERITED_ARIA.includes(attributeName)) {
+          if (BUTTON_INHERITED_ATTRIBUTES.includes(attributeName)) {
             this.inheritedAttributes[attributeName] = attribute;
             forceComponentUpdate = true;
           }
