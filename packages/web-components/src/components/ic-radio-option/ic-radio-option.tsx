@@ -247,13 +247,29 @@ export class RadioOption {
     this.selected = this.initiallySelected;
   };
 
+  private getRadioOptionId = (): string => {
+    const radioGroups = Array.from(
+      this.el.ownerDocument.querySelectorAll("ic-radio-group")
+    ) as HTMLIcRadioGroupElement[];
+    const matchingGroupLabels = radioGroups.filter(
+      (radioGroup) => radioGroup.label === this.groupLabel
+    ).length;
+    const groupIdentifier =
+      matchingGroupLabels > 1 && this.name
+        ? `${this.groupLabel}-${this.name}`
+        : this.groupLabel;
+
+    return `ic-radio-option-${
+      isPropDefined(this.label) || this.value
+    }-${groupIdentifier}`;
+  };
+
   render() {
     const {
       additionalFieldDisplay,
       disabled,
       dynamicText,
       form,
-      groupLabel,
       handleClick,
       handleKeyDown,
       hasAdditionalField,
@@ -264,7 +280,7 @@ export class RadioOption {
       theme,
     } = this;
 
-    const id = `ic-radio-option-${isPropDefined(label) || value}-${groupLabel}`;
+    const id = this.getRadioOptionId();
 
     return (
       <Host

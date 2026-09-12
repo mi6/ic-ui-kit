@@ -552,3 +552,39 @@ describe("ic-radio-group", () => {
     expect(fieldset?.hasAttribute("aria-label")).toBe(false);
   });
 });
+
+describe("ic-radio-group option ids", () => {
+  it("keeps label targets unique across repeated radio groups", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<div>
+        <ic-radio-group label="Test" name="test-0">
+          <ic-radio-option label="Option A" value="a"></ic-radio-option>
+          <ic-radio-option label="Option B" value="b"></ic-radio-option>
+        </ic-radio-group>
+        <ic-radio-group label="Test" name="test-1">
+          <ic-radio-option label="Option A" value="a"></ic-radio-option>
+          <ic-radio-option label="Option B" value="b"></ic-radio-option>
+        </ic-radio-group>
+      </div>`,
+    });
+
+    await page.waitForChanges();
+
+    const radioOptions = Array.from(
+      page.doc.querySelectorAll("ic-radio-option")
+    );
+    const inputs = radioOptions.map((option) =>
+      option.querySelector<HTMLInputElement>('input[type="radio"]')
+    );
+    const labels = radioOptions.map((option) =>
+      option.querySelector<HTMLLabelElement>("label")
+    );
+    const ids = inputs.map((input) => input?.id);
+
+    expect(new Set(ids).size).toBe(ids.length);
+    labels.forEach((label, index) => {
+      expect(label?.htmlFor).toBe(inputs[index]?.id);
+    });
+  });
+});
