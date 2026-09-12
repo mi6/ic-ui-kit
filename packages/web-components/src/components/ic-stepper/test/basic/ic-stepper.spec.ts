@@ -1034,3 +1034,57 @@ describe("switch between the compact and default stepper depending on whether th
     });
   });
 });
+
+const textResizeStepperMarkup = `
+  <ic-stepper>
+    <ic-step heading="First"></ic-step>
+    <ic-step heading="Second" type="current"></ic-step>
+    <ic-step heading="Third"></ic-step>
+    <ic-step heading="Fourth"></ic-step>
+  </ic-stepper>`;
+
+describe("ic-stepper text resize", () => {
+  const originalFontSize = document.documentElement.style.fontSize;
+
+  afterEach(() => {
+    document.documentElement.style.fontSize = originalFontSize;
+  });
+
+  it("scales the automatic compact breakpoint with the root font size", async () => {
+    document.documentElement.style.fontSize = "32px";
+
+    const page = await newSpecPage({
+      components: [Stepper, Step],
+      html: textResizeStepperMarkup,
+    });
+
+    Object.defineProperty(page.root, "clientWidth", {
+      configurable: true,
+      value: 700,
+    });
+
+    page.rootInstance.getChildren();
+    page.rootInstance.overrideVariant();
+
+    expect(page.rootInstance.variant).toBe("compact");
+  });
+
+  it("keeps the default variant at the same width with the normal root font size", async () => {
+    document.documentElement.style.fontSize = "16px";
+
+    const page = await newSpecPage({
+      components: [Stepper, Step],
+      html: textResizeStepperMarkup,
+    });
+
+    Object.defineProperty(page.root, "clientWidth", {
+      configurable: true,
+      value: 700,
+    });
+
+    page.rootInstance.getChildren();
+    page.rootInstance.overrideVariant();
+
+    expect(page.rootInstance.variant).toBe("default");
+  });
+});
