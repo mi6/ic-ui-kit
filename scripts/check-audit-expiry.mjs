@@ -1,4 +1,9 @@
 import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const auditPath = path.resolve(__dirname, "..", "audit-ci.json");
 
 function isDateFurtherThanAMonth(dateString) {
   const currentDate = new Date();
@@ -11,7 +16,7 @@ function isDateFurtherThanAMonth(dateString) {
 
 async function main() {
   try {
-    const data = await fs.readFile("audit-ci.json", "utf8");
+    const data = await fs.readFile(auditPath, "utf8");
     const jsonData = JSON.parse(data);
     const { allowlist } = jsonData;
     for (const item of allowlist) {

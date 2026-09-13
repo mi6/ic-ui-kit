@@ -173,7 +173,7 @@ This is useful for testing that changes made to the web components are accuratel
 
 From the root of ic-ui-kit
 - Build the components: `npm run build`
-- Pack them: `./pack-all-tars.sh`
+- Pack them: `./scripts/pack-all-tars.sh`
 
 Whenever changes are made to the components or Angular output config this step will need to be run again.
 They can be prepped more efficiently by sitting in the web-components or Angular package folders and running the `npm [build|pack]` commands.
