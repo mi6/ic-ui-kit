@@ -877,6 +877,10 @@ export namespace Components {
          */
         "borderStyle"?: IcDividerStyles;
         /**
+          * If `true`, a vertical divider will stretch to the height of its flex container.
+         */
+        "flexItem"?: boolean;
+        /**
           * The label for the divider. The label placement will need to be set for the label to be displayed correctly.
          */
         "label"?: string;
@@ -4794,6 +4798,10 @@ declare namespace LocalJSX {
           * The line style of the divider.
          */
         "borderStyle"?: IcDividerStyles;
+        /**
+          * If `true`, a vertical divider will stretch to the height of its flex container.
+         */
+        "flexItem"?: boolean;
         /**
           * The label for the divider. The label placement will need to be set for the label to be displayed correctly.
          */

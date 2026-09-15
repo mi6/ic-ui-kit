@@ -12,6 +12,15 @@ describe("ic-divider", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should apply the flex item class when flex-item is true", async () => {
+    const page = await newSpecPage({
+      components: [Divider],
+      html: `<ic-divider orientation="vertical" flex-item="true"></ic-divider>`,
+    });
+
+    expect(page.root).toHaveClass("ic-divider-flex-item");
+  });
+
   it("should render with a slotted label", async () => {
     const page = await newSpecPage({
       components: [Divider],

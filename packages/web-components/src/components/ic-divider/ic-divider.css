@@ -69,9 +69,19 @@ hr {
   border: none;
 }
 
+:host(.ic-divider-vertical.ic-divider-flex-item) {
+  align-self: stretch;
+  height: auto;
+}
+
 :host(.ic-divider-vertical) div.vertical-divider {
   display: flex;
   height: inherit;
+}
+
+:host(.ic-divider-vertical.ic-divider-flex-item) div.vertical-divider {
+  flex-grow: 1;
+  height: auto;
 }
 
 :host(.ic-divider-vertical.ic-divider-label-bottom)::before,
@@ -80,6 +90,14 @@ hr {
 :host(.ic-divider-vertical.ic-divider-label-center)::after {
   content: "";
   height: 100%;
+}
+
+:host(.ic-divider-vertical.ic-divider-flex-item.ic-divider-label-bottom)::before,
+:host(.ic-divider-vertical.ic-divider-flex-item.ic-divider-label-center)::before,
+:host(.ic-divider-vertical.ic-divider-flex-item.ic-divider-label-top)::after,
+:host(.ic-divider-vertical.ic-divider-flex-item.ic-divider-label-center)::after {
+  flex-grow: 1;
+  height: auto;
 }
 
 /* Theme */
