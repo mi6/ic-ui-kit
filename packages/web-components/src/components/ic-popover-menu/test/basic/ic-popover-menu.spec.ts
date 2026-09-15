@@ -440,6 +440,35 @@ describe("ic-popover-menu", () => {
     expect(page.rootInstance.open).toBeFalsy();
   });
 
+  it("should only treat pointer starts from this popover as inside", async () => {
+    const page = await newSpecPage({
+      components: [PopoverMenu, MenuItem],
+      html: `<ic-button id="anchorEl"></ic-button>
+      <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" open="true">
+        <ic-menu-item label="Button 1"></ic-menu-item>
+      </ic-popover-menu>
+      <ic-menu-item id="unrelated-menu-item" label="Outside item"></ic-menu-item>`,
+    });
+
+    jest.spyOn(page.rootInstance, "closeMenu").mockImplementation();
+
+    const outsideClick = new Event("click");
+    Object.defineProperty(outsideClick, "target", { value: document.body });
+
+    page.rootInstance.handleMouseDown({
+      composedPath: () => [page.root, document.body, document, window],
+    } as unknown as Event);
+    page.rootInstance.handleClick(outsideClick);
+    expect(page.rootInstance.closeMenu).not.toHaveBeenCalled();
+
+    const unrelatedMenuItem = document.querySelector("#unrelated-menu-item");
+    page.rootInstance.handleMouseDown({
+      composedPath: () => [unrelatedMenuItem, document.body, document, window],
+    } as unknown as Event);
+    page.rootInstance.handleClick(outsideClick);
+    expect(page.rootInstance.closeMenu).toHaveBeenCalledTimes(1);
+  });
+
   it("should close menu when an element that isn't in the popover is clicked", async () => {
     const page = await newSpecPage({
       components: [PopoverMenu, MenuItem],
