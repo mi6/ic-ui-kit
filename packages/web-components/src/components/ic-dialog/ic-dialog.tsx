@@ -431,7 +431,6 @@ export class Dialog {
           "disable-width-constraint": !!disableWidthConstraint,
         }}
         aria-labelledby="dialog-label dialog-heading"
-        aria-describedby="dialog-alert dialog-content"
         ref={(el) => (this.dialogEl = el)}
       >
         <div tabindex="0" onFocus={this.focusLast} />
