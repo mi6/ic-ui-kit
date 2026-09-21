@@ -1034,3 +1034,61 @@ describe("switch between the compact and default stepper depending on whether th
     });
   });
 });
+
+const textResizeStepperMarkup = `
+  <ic-stepper>
+    <ic-step heading="First"></ic-step>
+    <ic-step heading="Second" type="current"></ic-step>
+    <ic-step heading="Third"></ic-step>
+    <ic-step heading="Fourth"></ic-step>
+  </ic-stepper>`;
+
+describe("ic-stepper text resize", () => {
+  const mockRootFontSize = (fontSize: string) => {
+    jest
+      .spyOn(globalThis, "getComputedStyle")
+      .mockReturnValue({ fontSize } as CSSStyleDeclaration);
+  };
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it("scales the automatic compact breakpoint with the root font size", async () => {
+    const page = await newSpecPage({
+      components: [Stepper, Step],
+      html: textResizeStepperMarkup,
+    });
+
+    mockRootFontSize("32px");
+
+    Object.defineProperty(page.root, "clientWidth", {
+      configurable: true,
+      value: 700,
+    });
+
+    page.rootInstance.getChildren();
+    page.rootInstance.overrideVariant();
+
+    expect(page.rootInstance.variant).toBe("compact");
+  });
+
+  it("keeps the default variant at the same width with the normal root font size", async () => {
+    const page = await newSpecPage({
+      components: [Stepper, Step],
+      html: textResizeStepperMarkup,
+    });
+
+    mockRootFontSize("16px");
+
+    Object.defineProperty(page.root, "clientWidth", {
+      configurable: true,
+      value: 700,
+    });
+
+    page.rootInstance.getChildren();
+    page.rootInstance.overrideVariant();
+
+    expect(page.rootInstance.variant).toBe("default");
+  });
+});
