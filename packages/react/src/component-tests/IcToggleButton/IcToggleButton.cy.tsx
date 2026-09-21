@@ -454,3 +454,42 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
     });
   });
 });
+
+describe("IcToggleButton tooltip visual regression", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should render a tooltip on a default toggle button", () => {
+    mount(
+      <div style={{ padding: "100px 8px" }}>
+        <IcToggleButton
+          label="Toggle"
+          title="Toggle help"
+          tooltipPlacement="top"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
+    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should("not.have.attr", "title");
+
+    cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
+      .shadow()
+      .find("ic-tooltip")
+      .trigger("mouseenter")
+      .shadow()
+      .find(".ic-tooltip-container")
+      .should("be.visible");
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "/default-with-tooltip",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+    });
+  });
+});
