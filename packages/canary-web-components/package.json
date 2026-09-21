@@ -1,6 +1,6 @@
 {
   "name": "@ukic/canary-web-components",
-  "version": "3.0.0-canary.46",
+  "version": "3.0.0-canary.47",
   "description": "A web component UI library compiled with StencilJS",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit/issues",
@@ -39,7 +39,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@stencil/core": "4.26.0",
-    "@ukic/web-components": "^3.30.0"
+    "@ukic/web-components": "^3.31.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -80,7 +80,8 @@
   },
   "overrides": {
     "esbuild": "0.28.1",
-    "js-yaml": "4.2.0"
+    "js-yaml": "4.2.0",
+    "fast-uri": "3.1.6"
   },
   "packageManager": "^npm@10.9.2",
   "collection": "dist/collection/collection-manifest.json",

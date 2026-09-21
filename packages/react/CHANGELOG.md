@@ -3,18 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.27.0...@ukic/react@3.30.0) (2026-08-24)
+# [3.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.28.0...@ukic/react@3.31.0) (2026-09-21)
+
+### Bug Fixes
+
+- **react:** use theme foreground for slotted SVGs ([2251625](https://github.com/mi6/ic-ui-kit/commit/22516253b8b5005098ab2f161e45e198facd56ec))
 
 ### Features
 
-- **react:** add anchor slot to popover menu ([3f28536](https://github.com/mi6/ic-ui-kit/commit/3f285369e2f8a6d7f810489a89e1d06d45b3fe33))
-- **react:** add new story and test to show popover menu not closing on click ([85b2fe7](https://github.com/mi6/ic-ui-kit/commit/85b2fe7def9e9e53af79097e73f7da06a9f5cb93))
+- **react:** add new story and test to show popover menu not closing on click ([b5864c8](https://github.com/mi6/ic-ui-kit/commit/b5864c8b606bbcf8a4fe9fd51f3b8dd5f24d31ae))
+
+# [3.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.27.0...@ukic/react@3.30.0) (2026-08-24)
+
+**Note:** Version bump only for package @ukic/react
 
 # [3.29.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.27.0...@ukic/react@3.29.0) (2026-07-03)
 
 ### Features
 
-- **react:** add anchor slot to popover menu ([3f28536](https://github.com/mi6/ic-ui-kit/commit/3f285369e2f8a6d7f810489a89e1d06d45b3fe33))
 - **react:** add new story and test to show popover menu not closing on click ([db221e0](https://github.com/mi6/ic-ui-kit/commit/db221e0d054819b63bd8d4f7d2cde61f78dc6963))
 
 # [3.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.27.0...@ukic/react@3.28.0) (2026-06-12)

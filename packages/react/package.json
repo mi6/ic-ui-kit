@@ -1,6 +1,6 @@
 {
   "name": "@ukic/react",
-  "version": "3.30.0",
+  "version": "3.31.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "bugs": {
     "url": "https://github.com/mi6/ic-ui-kit",
@@ -45,7 +45,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@ukic/web-components": "^3.30.0"
+    "@ukic/web-components": "^3.31.0"
   },
   "devDependencies": {
     "@ag-grid-community/styles": "^33.0.3",
@@ -102,7 +102,10 @@
     "tmp": "0.2.7",
     "@opentelemetry/core": "2.8.0",
     "esbuild": "0.28.1",
-    "js-yaml": "4.2.0"
+    "js-yaml": "4.2.0",
+    "qs": "6.16.0",
+    "fast-uri": "3.1.6",
+    "postcss-selector-parser": "7.1.5"
   },
   "packageManager": "^npm@10.9.2"
 }

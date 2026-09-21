@@ -1,6 +1,6 @@
 {
   "name": "@ukic/nextjs",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "private": true,
   "description": "React-wrapped web components served on a nextjs storybook",
   "bugs": {
@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "@storybook/addon-a11y": "10.1.11",
-    "@ukic/react": "^3.30.0",
-    "@ukic/web-components": "^3.30.0"
+    "@ukic/react": "^3.31.0",
+    "@ukic/web-components": "^3.31.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -63,6 +63,10 @@
     "@ukic/fonts": "^3.1.0",
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
+  },
+  "overrides": {
+    "fast-uri": "3.1.6",
+    "postcss-selector-parser": "7.1.5"
   },
   "packageManager": "^npm@10.9.2"
 }
