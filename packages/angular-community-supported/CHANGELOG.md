@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/angular-community-supported@3.26.1...@ukic/angular-community-supported@3.31.0) (2026-09-21)
+
+### Bug Fixes
+
+- **angular-community-supported:** comments out broken parts of the angular build to unblock release ([975c087](https://github.com/mi6/ic-ui-kit/commit/975c0879b83c3c1da9e1457be0d0e4c8c32fd86a))
+
+### Features
+
+- **angular-community-supported:** updates angular package dependencies and rebuilds wrappers [@3](https://github.com/3).29 ([d46169a](https://github.com/mi6/ic-ui-kit/commit/d46169af0b062ee17fbf07cb908299b524e7c6a4))
+
 # [3.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/angular-community-supported@3.26.0...@ukic/angular-community-supported@3.30.0) (2026-08-24)
 
 ### Bug Fixes

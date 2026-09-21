@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.28.0...@ukic/react@3.31.0) (2026-09-21)
+
+### Bug Fixes
+
+- **react:** use theme foreground for slotted SVGs ([2251625](https://github.com/mi6/ic-ui-kit/commit/22516253b8b5005098ab2f161e45e198facd56ec))
+
+### Features
+
+- **react:** add new story and test to show popover menu not closing on click ([b5864c8](https://github.com/mi6/ic-ui-kit/commit/b5864c8b606bbcf8a4fe9fd51f3b8dd5f24d31ae))
+
 # [3.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.27.0...@ukic/react@3.30.0) (2026-08-24)
 
 **Note:** Version bump only for package @ukic/react

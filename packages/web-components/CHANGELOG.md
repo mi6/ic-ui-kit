@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.28.0...@ukic/web-components@3.31.0) (2026-09-21)
+
+### Bug Fixes
+
+- **web-components:** align Select option styling with Popover Menu ([1f0900b](https://github.com/mi6/ic-ui-kit/commit/1f0900b67ad251ccebc5866ad59b45c5f53d1fb2)), closes [#4217](https://github.com/mi6/ic-ui-kit/issues/4217)
+- **web-components:** clear inherited aria-label on ic-navigation-button when attribute is removed ([1db8275](https://github.com/mi6/ic-ui-kit/commit/1db8275e375e9245725f8e324b3fd3a936298f65))
+- **web-components:** Fix issue with disabled menu item styling ([ce386a2](https://github.com/mi6/ic-ui-kit/commit/ce386a2823fcd0f16ba382af46c198ef8e607530)), closes [.#4479](https://github.com/./issues/4479)
+- **web-components:** match secondary link hover colours in dark mode ([8b08920](https://github.com/mi6/ic-ui-kit/commit/8b089205a141477d279e63a37d4ddeee34de1777))
+- **web-components:** preserve router link font weight ([7a55823](https://github.com/mi6/ic-ui-kit/commit/7a55823515b6539205e4429b7fd4e2dc3bcdb18e))
+- **web-components:** read out radio group label when it is hidden ([f653e4a](https://github.com/mi6/ic-ui-kit/commit/f653e4a89ea52c678f6cbb122934663fd4463ded)), closes [#4653](https://github.com/mi6/ic-ui-kit/issues/4653)
+- **web-components:** Recalculate navigation group height ([47bd201](https://github.com/mi6/ic-ui-kit/commit/47bd2019142e33cab473d711a97a2ce7191dd3d9)), closes [.#3901](https://github.com/./issues/3901)
+- **web-components:** Remove popover menu focus flash ([278478a](https://github.com/mi6/ic-ui-kit/commit/278478a68d88175f4b43fc09fba006a82db8048d))
+- **web-components:** updated IcAccordion to handle prefers-reduced-motion: reduce ([7c926a1](https://github.com/mi6/ic-ui-kit/commit/7c926a167138d9776775f02e13c8a4567d69d5b2)), closes [#4585](https://github.com/mi6/ic-ui-kit/issues/4585)
+- **web-components:** warn when backBreadcrumbOnly is used with only one item ([bb8a972](https://github.com/mi6/ic-ui-kit/commit/bb8a972e01d3e64c25fbf6c550ff9588485ad124))
+
+### Features
+
+- **web-components:** add props to prevent closing of popover when options pressed ([b800187](https://github.com/mi6/ic-ui-kit/commit/b8001878b73be27becddcde2906a1b6a79efc560))
+- **web-components:** update helper config ([f8a99a9](https://github.com/mi6/ic-ui-kit/commit/f8a99a9175622171eb797fd3df30fe79ff772012)), closes [#4659](https://github.com/mi6/ic-ui-kit/issues/4659)
+
 # [3.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.27.0...@ukic/web-components@3.30.0) (2026-08-24)
 
 ### Bug Fixes
