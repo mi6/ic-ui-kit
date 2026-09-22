@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types="cypress" />
 
 import React from "react";
@@ -480,8 +479,13 @@ describe("IcToggleButton tooltip visual regression", () => {
 
     cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
       .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
+
+    cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
+      .shadow()
       .find("ic-tooltip")
-      .trigger("mouseenter")
       .shadow()
       .find(".ic-tooltip-container")
       .should("be.visible");
