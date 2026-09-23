@@ -337,7 +337,7 @@ export class TreeItem {
 
     if (!typographyEl && slottedContent) {
       const newTypographyEl = document.createElement("ic-typography");
-      newTypographyEl.innerHTML = slottedContent.textContent!;
+      newTypographyEl.textContent = slottedContent.textContent!;
       newTypographyEl.classList.add("tree-item-label");
       slottedContent.replaceChild(newTypographyEl, slottedContent.firstChild!);
       typographyEl = newTypographyEl;
