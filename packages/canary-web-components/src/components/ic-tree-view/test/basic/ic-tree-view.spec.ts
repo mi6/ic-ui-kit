@@ -453,4 +453,42 @@ describe("ic-tree-view component", () => {
     expect(page.rootInstance.truncateTreeItems).toBe(true);
     expect(treeItem.truncateTreeItem).toBe(true);
   });
+
+  it("should strip non-SVG content from icon string in treeItemData", async () => {
+    const page = await newSpecPage({
+      components: [TreeView, TreeItem, Typography],
+      html: `<ic-tree-view></ic-tree-view>`,
+    });
+    page.rootInstance.treeItemData = [
+      {
+        label: "Item 1",
+        icon: '<script>window.__xss=1</script><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z"/></svg>',
+      },
+    ];
+    await page.waitForChanges();
+
+    const iconSlot = page.root?.querySelector("[slot='icon']");
+    expect(iconSlot?.querySelector("script")).toBeNull();
+    expect(
+      (window as unknown as Record<string, unknown>).__xss
+    ).toBeUndefined();
+  });
+
+  it("should strip interactive elements from icon string in treeItemData", async () => {
+    const page = await newSpecPage({
+      components: [TreeView, TreeItem, Typography],
+      html: `<ic-tree-view></ic-tree-view>`,
+    });
+    page.rootInstance.treeItemData = [
+      {
+        label: "Item 1",
+        icon: '<a href="javascript:alert(1)">click</a><svg viewBox="0 0 24 24"><path d="M0 0h24v24H0z"/></svg>',
+      },
+    ];
+    await page.waitForChanges();
+
+    const iconSlot = page.root?.querySelector("[slot='icon']");
+    expect(iconSlot?.querySelector("a")).toBeNull();
+    expect(iconSlot?.querySelector("svg")).not.toBeNull();
+  });
 });
