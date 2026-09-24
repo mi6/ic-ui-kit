@@ -16,5 +16,41 @@ export const sanitizeHTMLString = (html: string): string => {
 };
 
 export const sanitizeHTMLIconString = (html: string): string => {
-  return purifier.sanitize(html, getCustomElementHandling(false));
+  return purifier.sanitize(html, {
+    ALLOWED_TAGS: [
+      "svg",
+      "path",
+      "g",
+      "circle",
+      "rect",
+      "polygon",
+      "polyline",
+      "line",
+      "ellipse",
+    ],
+    ALLOWED_ATTR: [
+      "xmlns",
+      "viewBox",
+      "width",
+      "height",
+      "fill",
+      "stroke",
+      "stroke-width",
+      "stroke-linecap",
+      "stroke-linejoin",
+      "d",
+      "cx",
+      "cy",
+      "r",
+      "rx",
+      "ry",
+      "x",
+      "y",
+      "points",
+      "transform",
+      "opacity",
+      "aria-hidden",
+      "class",
+    ],
+  });
 };
