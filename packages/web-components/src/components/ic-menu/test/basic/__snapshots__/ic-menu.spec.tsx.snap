@@ -5,7 +5,7 @@ exports[`ic-menu in isolation should apply custom option props to the associated
   "body": <body>
   <ic-menu class="ic-menu-medium ic-menu-no-focus ic-menu-open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
     <ul aria-label="input-label pop-up" aria-multiselectable="false" class="menu" id="menu-id" role="listbox" tabindex="-1">
-      <li aria-disabled="false" aria-label="Espresso" aria-selected="true" class="option" data-label="Espresso" data-value="espresso" id="menu-id-espresso" multiple-word-prop="test-value-2" prop="test-value-1" role="option" tabindex="-1">
+      <li aria-disabled="false" aria-label="Espresso" aria-selected="true" class="option" data-label="Espresso" data-value="espresso" id="menu-id-espresso" lang="it" role="option" tabindex="-1">
         <div class="option-text-container show-check-icon">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
