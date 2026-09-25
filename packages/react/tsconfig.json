@@ -4,6 +4,7 @@
     "experimentalDecorators": true,
     "lib": ["dom", "es2015"],
     "module": "es6",
+    "moduleResolution": "bundler",
     "outDir": "dist",
     "target": "es5",
     "noImplicitAny": true,

@@ -64,7 +64,7 @@ const IcTextFieldVariantsPage: React.FC<PageProps> = ({ theme }) => {
             {...textFieldEvents}
             onIcScroll={(ev) => console.log("Scroll event: ", ev)}
           />
-          <IcTextField {...defaultProps} autofocus />
+          <IcTextField {...defaultProps} autoFocus />
           <IcTextField {...defaultProps}>{reusableIcon()}</IcTextField>
           <IcTextField {...defaultProps} rows={4}>
             {reusableIcon()}
