@@ -16,9 +16,8 @@ export const config: Config = {
   globalStyle: "../web-components/src/global/icds.css",
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: "@ukic/canary-web-components",
-      proxiesFile: "../canary-react/src/components.ts",
-      includeDefineCustomElements: true, // TODO: Is this required or can guidance be provided to import @ukic/web-component as a dep
+      outDir: "../canary-react/src",
+      stencilPackageName: "@ukic/canary-web-components",
       excludeComponents: excludeComps,
     }),
     {
@@ -36,6 +35,7 @@ export const config: Config = {
     },
     {
       type: "dist-custom-elements",
+      dir: "dist/components",
     },
     {
       type: "www",
