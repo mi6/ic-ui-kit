@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{s as t}from"./iframe-geHf5AMj.js";import{P as n}from"./helpers-80097ffd-BQleBjV8.js";import{n as r,t as i}from"./ic-side-navigation-3b2763d7-COthOUte.js";e((()=>{r(),t(),n()}))();export{i as ic_side_navigation};
