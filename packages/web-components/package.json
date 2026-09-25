@@ -57,7 +57,7 @@
     "@open-wc/testing-helpers": "^2.0.2",
     "@stencil/angular-output-target": "^1.1.1",
     "@stencil/postcss": "^2.1.0",
-    "@stencil/react-output-target": "^0.5.3",
+    "@stencil/react-output-target": "^0.6.0",
     "@storybook/addon-a11y": "^10.4.6",
     "@storybook/addon-docs": "^10.4.6",
     "@storybook/addon-links": "^10.4.6",

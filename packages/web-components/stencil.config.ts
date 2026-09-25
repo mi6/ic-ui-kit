@@ -60,9 +60,8 @@ export const config: Config = {
   globalStyle: "src/global/icds.css",
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage,
-      proxiesFile: "../react/src/components.ts",
-      includeDefineCustomElements: true,
+      outDir: "../react/src",
+      stencilPackageName: componentCorePackage,
     }),
     {
       type: "dist-hydrate-script",
@@ -87,6 +86,7 @@ export const config: Config = {
     },
     {
       type: "dist-custom-elements",
+      dir: "dist/components",
     },
     {
       type: "dist-custom-elements",
