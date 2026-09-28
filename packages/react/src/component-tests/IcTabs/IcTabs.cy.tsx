@@ -705,7 +705,8 @@ const checkCompactReflow = (display: "flex" | "grid") => {
     "ic-horizontal-scroll-visible"
   );
 
-  cy.get(`#${display}-tabs-container`).then(([container]) => {
+  cy.get(`#${display}-tabs-container`).then(($container) => {
+    const container = $container[0];
     expect(container.scrollWidth).to.be.at.most(container.clientWidth);
   });
 
