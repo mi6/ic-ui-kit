@@ -1,5 +1,7 @@
 :host {
   display: block;
+  contain: inline-size;
+  min-width: 0;
   margin-bottom: var(--ic-space-md);
   border-bottom: var(--ic-space-1px) solid var(--ic-tab-bottom-border);
 }
