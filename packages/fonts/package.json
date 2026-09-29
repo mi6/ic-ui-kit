@@ -28,7 +28,7 @@
     "webpack-cli": "^4.9.2"
   },
   "overrides": {
-    "fast-uri": "3.1.6",
+    "fast-uri": "3.1.7",
     "postcss-selector-parser": "7.1.5"
   },
   "packageManager": "^npm@10.9.2"
