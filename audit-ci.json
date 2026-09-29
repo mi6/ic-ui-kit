@@ -4,147 +4,147 @@
       "GHSA-c2qf-rxjj-qqgw": {
         "active": true,
         "notes": "requires upgrade to 'semver', which is a transitive dependency of lerna. Might be removable after a lerna upgrade, which is a breaking change (for us) as it removes the bootstrap command.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-7fh5-64p2-3v2j": {
         "active": true,
         "notes": "requires upgrade to 'postcss', which is a transitive dependency of @storybook/addon-postcss.  Might be removable after storybook upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-h5c3-5r3r-rr8q": {
         "active": true,
         "notes": "requires upgrade to '@octokit/plugin-paginate-rest', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-xx4v-prfh-6cgc": {
         "active": true,
         "notes": "requires upgrade to '@octokit/request-error', which is a transitive dependency of @lerna/legacy-package-management.  Might be removable after lerna upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-3ppc-4f35-3m26": {
         "active": true,
         "notes": "requires upgrade to 'minimatch', which is a transitive dependency of jest. Might be removable after jest upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-7r86-cg39-jmmj": {
         "active": true,
         "notes": "requires upgrade to 'minimatch', which is a transitive dependency of jest. Might be removable after jest upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-23c5-xmqv-rm74": {
         "active": true,
         "notes": "requires upgrade to 'minimatch', which is a transitive dependency of jest. Might be removable after jest upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-qx2v-qp2m-jg93": {
         "active": true,
         "notes": "requires upgrade to 'postcss', which is a transitive dependency of stencil. Might be removable after stencil upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-w5hq-g745-h8pq": {
         "active": true,
         "notes": "transitive dependency of @angular-devkit, which has been upgraded to latest minor patch. May fix on future upgrade",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-52v5-jr5w-gjxr": {
         "active": true,
         "notes": "requires upgrade to 'sigstore' which is a transitive dependency of lerna. Might be removable after lerna upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-52cp-r559-cp3m": {
         "active": true,
         "notes": "transitive dependency 'js-yaml' which exists at root level and in some monorepo packages, no fix available yet.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-5p4m-2wfm-xmqj": {
         "active": true,
         "notes": "transitive dependency 'js-yaml' which exists at root level and in some monorepo packages, no fix available yet.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-6g55-p6wh-862q": {
         "active": true,
         "notes": "sourcemap vulnerability around file reads in 'PostCSS'.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-r28c-9q8g-f849": {
         "active": true,
         "notes": "path traversal vulnerability around file reads in 'PostCSS'.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-wrjc-x8rr-h8h6": {
         "active": true,
         "notes": "useNavigate redirection vulnerability in 'React Router'.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-337j-9hxr-rhxg": {
         "active": true,
         "notes": "deserialization vulnerability in SSR apps using 'React Router'.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-fxqj-rqcc-2cmp": {
         "active": true,
         "notes": "sourcemap vulnerability around file reads in 'PostCSS'.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-jmr9-qjv8-65gv": {
         "active": true,
         "notes": "extract-zip dependency vulnerability (path traversal) in unvalidated symlinks, no fix available.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-w4pp-8pjf-rmxw": {
         "active": true,
         "notes": "requires upgrade to 'pacote', which is a transitive dependency of lerna. Might be removable after a lerna upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-2883-xcg3-v3hh": {
         "active": true,
         "notes": "requires upgrade to 'js-yaml', which is a transitive dependency of lerna. Might be removable after a lerna and eslint upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     },
     {
       "GHSA-7pqw-9j4j-h8q3": {
         "active": true,
         "notes": "requires upgrade to 'extract-zip', which is a transitive dependency of lerna. Might be removable after a lhci and cypress upgrade.",
-        "expiry": "27 September 2026"
+        "expiry": "27 October 2026"
       }
     }
   ]

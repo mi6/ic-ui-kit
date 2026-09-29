@@ -1237,6 +1237,28 @@ export class Menu {
     }
   };
 
+  private getSafeHtmlProps = (
+    htmlProps: Record<string, any> = {}
+  ): Record<string, any> => {
+    const allowedProps = [
+      "lang",
+      "dir",
+      "title",
+      "data-testid",
+      "data-test-id",
+    ];
+
+    const safeProps: Record<string, any> = {};
+
+    for (const key of allowedProps) {
+      if (key in htmlProps) {
+        safeProps[key] = String(htmlProps[key]);
+      }
+    }
+
+    return safeProps;
+  };
+
   private getSortedOptions = (options: IcMenuOption[]): IcMenuOption[] => {
     let sorted: IcMenuOption[] = [];
     if (options.sort) {
@@ -1465,7 +1487,7 @@ export class Menu {
         onMouseDown={this.handleMouseDown}
         data-value={option[this.valueField]}
         data-label={option[this.labelField]}
-        {...(option.htmlProps ?? {})}
+        {...this.getSafeHtmlProps(option.htmlProps)}
       >
         {option.timedOut ? (
           <Fragment>
