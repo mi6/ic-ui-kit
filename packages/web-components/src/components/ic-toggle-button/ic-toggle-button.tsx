@@ -10,6 +10,7 @@ import {
   Watch,
 } from "@stencil/core";
 import {
+  inheritAttributes,
   isSlotUsed,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
@@ -47,6 +48,8 @@ const TRACKED_ATTRIBUTES = [
   },
 })
 export class ToggleButton {
+  private title = "";
+
   @Element() el: HTMLIcToggleButtonElement;
 
   /**
@@ -127,6 +130,8 @@ export class ToggleButton {
   }>;
 
   componentWillLoad(): void {
+    const { title } = inheritAttributes(this.el, ["title"]);
+    this.title = title;
     this.syncPropsFromToggleButtonGroup();
   }
 
@@ -230,6 +235,7 @@ export class ToggleButton {
       outline,
       size,
       theme,
+      title,
       tooltipPlacement,
       variant,
     } = this;
@@ -255,7 +261,7 @@ export class ToggleButton {
           aria-pressed={`${checked}`}
           variant={iconVariant ? "icon-tertiary" : "secondary"}
           onClick={this.handleClick}
-          title={accessibleLabel}
+          title={title || accessibleLabel}
           aria-label={`${accessibleLabel ? accessibleLabel : label}, ${
             checked ? "ticked" : "unticked"
           }`}
