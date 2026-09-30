@@ -2115,3 +2115,18 @@ describe("ic-select multi", () => {
     expect(button?.textContent).toContain(`${label1}, ${label2}`);
   });
 });
+
+describe("ic-select disabled icon", () => {
+  it("should render with an icon when disabled", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" disabled>
+        <svg slot="icon"></svg>
+      </ic-select>`,
+    });
+
+    expect(
+      page.root?.shadowRoot?.querySelector('slot[name="icon"]')
+    ).not.toBeNull();
+  });
+});
