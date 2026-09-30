@@ -12,17 +12,18 @@ import {
   url,
 } from "@angular-devkit/schematics";
 import { NodePackageInstallTask } from "@angular-devkit/schematics/tasks";
-import {
-  getWorkspace,
-  ProjectDefinition,
-} from "@schematics/angular/utility/workspace";
 
 import { addICDSModuleImportToNgModule } from "../utils/ast";
 
-import { addStyle, getDefaultAngularApp } from "./../utils/config";
+import {
+  getWorkspace,
+  addStyle,
+  getDefaultAngularApp,
+} from "./../utils/config";
 import { addPackageToPackageJson } from "./../utils/package";
 import { Schema as IonAddOptions } from "./schema";
 import { skipLibCheckTsConfig } from "../utils/tsconfig";
+import type { ProjectDefinition } from "../utils/config";
 
 function addICDSAngularToPackageJson(): Rule {
   return (host: Tree) => {
