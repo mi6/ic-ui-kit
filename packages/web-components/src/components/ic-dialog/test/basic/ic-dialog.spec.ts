@@ -829,3 +829,24 @@ describe("ic-dialog component", () => {
     expect(shouldSkipElementResult).toBe(true);
   });
 });
+
+describe("ic-dialog aria description", () => {
+  it("should not flatten structured dialog content into aria-describedby", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: `<ic-dialog heading="Dialog heading">
+        <p>Read the <a href="#details">details</a> before continuing.</p>
+      </ic-dialog>`,
+    });
+
+    const dialog = page.root?.shadowRoot?.querySelector("dialog");
+
+    expect(dialog?.hasAttribute("aria-describedby")).toBe(false);
+    expect(dialog?.getAttribute("aria-labelledby")).toBe(
+      "dialog-label dialog-heading"
+    );
+    expect(page.root?.querySelector("a")?.getAttribute("href")).toBe(
+      "#details"
+    );
+  });
+});
