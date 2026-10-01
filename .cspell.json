@@ -48,6 +48,7 @@
     "keydown",
     "autocorrection",
     "keyup",
+    "mousedown",
     "mouseleave",
     "fontsource",
     "Nunito",
