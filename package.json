@@ -109,7 +109,8 @@
     "tmp": "0.2.7",
     "esbuild": "0.28.1",
     "js-yaml": "4.2.0",
-    "fast-uri": "3.1.8"
+    "fast-uri": "3.1.8",
+    "axios": "1.20.0"
   },
   "packageManager": "^npm@10.9.2",
   "engines": {
