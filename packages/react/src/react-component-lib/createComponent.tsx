@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
 
-import { attachProps, camelToDashCase, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils';
+import { UNSAFE_PROPS, attachProps, camelToDashCase, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils';
 
 export interface HTMLStencilElement extends HTMLElement {
   componentOnReady(): Promise<this>;
@@ -14,8 +14,8 @@ interface StencilReactInternalProps<ElementType> extends React.HTMLAttributes<El
 export const createReactComponent = <
   PropType,
   ElementType extends HTMLStencilElement,
-  ContextStateType = {},
-  ExpandedPropsTypes = {}
+  ContextStateType = object,
+  ExpandedPropsTypes = object
 >(
   tagName: string,
   ReactComponentContext?: React.Context<ContextStateType>,
@@ -60,7 +60,7 @@ export const createReactComponent = <
           if (typeof document !== 'undefined' && isCoveredByReact(eventName)) {
             acc[name] = value;
           }
-        } else {
+        } else if (!UNSAFE_PROPS.has(name) && !/^on/i.test(name)) {
           // we should only render strings, booleans, and numbers as attrs in html.
           // objects, functions, arrays etc get synced via properties on mount.
           const type = typeof value;
