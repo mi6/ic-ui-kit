@@ -27,6 +27,7 @@ export const sanitizeHTMLIconString = (html: string): string => {
       "polyline",
       "line",
       "ellipse",
+      "img",
     ],
     ALLOWED_ATTR: [
       "xmlns",
