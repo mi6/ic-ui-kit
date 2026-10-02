@@ -1,5 +1,7 @@
 import { camelToDashCase } from './case';
 
+export const UNSAFE_PROPS = new Set(['innerHTML', 'outerHTML', 'innerText', 'outerText', 'srcdoc', 'srcDoc']);
+
 export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}) => {
   // some test frameworks don't render DOM elements, so we test here to make sure we are dealing with DOM first
   if (node instanceof Element) {
@@ -28,6 +30,10 @@ export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}
           syncEvent(node, eventNameLc, newProps[name]);
         }
       } else {
+        // Block HTML sinks and inline-handler attributes that bypass React's guards
+        if (UNSAFE_PROPS.has(name) || /^on/i.test(name)) {
+          return;
+        }
         (node as any)[name] = newProps[name];
         const propType = typeof newProps[name];
         if (propType === 'string') {
