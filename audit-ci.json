@@ -146,6 +146,20 @@
         "notes": "requires upgrade to 'extract-zip', which is a transitive dependency of lerna. Might be removable after a lhci and cypress upgrade.",
         "expiry": "27 October 2026"
       }
+    },
+    {
+      "GHSA-vfj7-8cjw-p6xm": {
+        "active": true,
+        "notes": "vulnerability in 'braces', and there is no patched version",
+        "expiry": "27 October 2026"
+      }
+    },
+    {
+      "GHSA-ch52-4w7c-c8xp": {
+        "active": true,
+        "notes": "vulnerability in 'http-cache-semantics', and there is no patched version",
+        "expiry": "27 October 2026"
+      }
     }
   ]
 }
