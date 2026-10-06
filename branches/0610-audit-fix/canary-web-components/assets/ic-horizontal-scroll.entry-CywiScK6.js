@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{s as t}from"./iframe-CNVC65BG.js";import{P as n}from"./helpers-80097ffd-B6awZ0NQ.js";import{n as r,t as i}from"./ic-horizontal-scroll-93a10fb7-9L1CrwPv.js";e((()=>{r(),t(),n()}))();export{i as ic_horizontal_scroll};
