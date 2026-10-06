@@ -320,17 +320,22 @@ export class Stepper {
     });
   };
 
+  private getMinimumDefaultStepperWidth = (): number => {
+    const rootFontSize =
+      parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    const baseStepWidth =
+      this.aligned === "left" &&
+      this.connectorWidth &&
+      this.connectorWidth > 100
+        ? this.connectorWidth + 48
+        : 148;
+
+    return (baseStepWidth / 16) * rootFontSize * this.steps.length;
+  };
+
   private overrideVariant = () => {
     if (this.variantOverride) {
-      let minDefaultStepperWidth = 148 * this.steps.length;
-
-      if (
-        this.aligned === "left" &&
-        this.connectorWidth &&
-        this.connectorWidth > 100
-      ) {
-        minDefaultStepperWidth = (this.connectorWidth + 48) * this.steps.length;
-      }
+      const minDefaultStepperWidth = this.getMinimumDefaultStepperWidth();
       if (this.el.clientWidth < minDefaultStepperWidth) {
         this.variant = "compact";
       } else {
@@ -339,8 +344,13 @@ export class Stepper {
     }
   };
 
+  private observeSteps = () => {
+    this.steps.forEach((step) => this.resizeObserver?.observe(step));
+  };
+
   private resizeObserverCallback = () => {
     this.getChildren();
+    this.observeSteps();
     this.checkStepTitles();
     this.overrideVariant();
     this.setStepperWidth();
@@ -353,6 +363,7 @@ export class Stepper {
       this.resizeObserverCallback();
     });
     this.resizeObserver.observe(this.el);
+    this.observeSteps();
   };
 
   render() {
