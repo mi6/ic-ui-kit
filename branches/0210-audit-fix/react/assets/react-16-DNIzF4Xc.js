@@ -1,1 +1,0 @@
-import{a as e,n as t,r as n}from"./rolldown-runtime-DkW27tQK.js";import{t as r}from"./react-dom-DqsO29u_.js";var i=n({renderElement:()=>o,unmountElement:()=>s}),a,o,s;function c(){return(c=t((()=>{a=e(r(),1),o=async(e,t)=>new Promise(n=>{a.render(e,t,()=>n(null))}),s=e=>{a.unmountComponentAtNode(e)}})))()}export{s as i,i as n,o as r,c as t};

@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";var t;function n(){return(n=e((()=>{t=new URL(`readme-CGlL_Ty0.md`,import.meta.url).href})))()}export{t as n,n as t};
