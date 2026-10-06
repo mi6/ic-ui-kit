@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{y as t}from"./components-BjX9bGA4.js";import{n,t as r}from"./ic-skip-link-7e0a4926-DmYn98Sd.js";e((()=>{n(),t()}))();export{r as ic_skip_link};
