@@ -34,7 +34,8 @@
     "start-storybook": "storybook dev -p 6008",
     "storybook": "concurrently \"npm run build:watch\" \"npm run start-storybook\"",
     "test": "stencil test --spec --passWithNoTests",
-    "test:watch": "stencil test --spec --watchAll"
+    "test:watch": "stencil test --spec --watchAll",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
@@ -50,7 +51,7 @@
     "@mdx-js/react": "^1.6.22",
     "@open-wc/testing-helpers": "^2.0.2",
     "@stencil/postcss": "^2.1.0",
-    "@stencil/react-output-target": "^0.5.3",
+    "@stencil/react-output-target": "0.5.3",
     "@storybook/addon-a11y": "^10.4.6",
     "@storybook/addon-docs": "^10.4.6",
     "@storybook/addon-links": "^10.4.6",
@@ -66,6 +67,7 @@
     "jest-cli": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lit": "^2.0.2",
+    "patch-package": "^8.0.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-markdown": "^8.0.7",
