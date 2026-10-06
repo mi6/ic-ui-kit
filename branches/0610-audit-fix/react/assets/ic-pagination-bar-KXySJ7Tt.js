@@ -1,0 +1,2 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{M as t,c as n,j as r,o as i,s as a}from"./blocks-zxxQ9lfo.js";import{t as o}from"./jsx-runtime-CYvGHIMj.js";import{n as s,t as c}from"./ic-pagination-bar.stories-C02Tk5zP.js";function l(e){return(0,d.jsxs)(d.Fragment,{children:[(0,d.jsx)(i,{of:c}),`
+`,(0,d.jsx)(a,{})]})}function u(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,d.jsx)(n,{...e,children:(0,d.jsx)(l,{...e})}):l(e)}var d;function f(){return(f=e((()=>{d=o(),r(),n(),s()})))()}f();export{u as default};

@@ -1,0 +1,3 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{M as t,a as n,c as r,j as i,o as a,s as o}from"./blocks-zxxQ9lfo.js";import{t as s}from"./jsx-runtime-CYvGHIMj.js";import{n as c,t as l}from"./readme-C4dzyk4c.js";import{n as u,t as d}from"./ic-select_(searchable).stories-BI60l5T5.js";function f(e){return(0,m.jsxs)(m.Fragment,{children:[(0,m.jsx)(a,{of:d}),`
+`,(0,m.jsx)(n,{children:c}),`
+`,(0,m.jsx)(o,{})]})}function p(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,m.jsx)(n,{...e,children:(0,m.jsx)(f,{...e})}):f(e)}var m;function h(){return(h=e((()=>{m=s(),i(),r(),u(),l()})))()}h();export{p as default};
