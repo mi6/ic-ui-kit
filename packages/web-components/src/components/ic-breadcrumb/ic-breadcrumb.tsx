@@ -128,6 +128,10 @@ export class Breadcrumb {
     <div class="back-icon" innerHTML={backIcon}></div>
   );
 
+  private renderPageTitle = () => (
+    <span class="page-title">{this.pageTitle}</span>
+  );
+
   render() {
     const { current, href, monochrome, pageTitle, showBackIcon, theme } = this;
     const describedById = `${pageTitle
@@ -163,7 +167,7 @@ export class Breadcrumb {
           ) : current ? (
             <span class="current-page-container">
               {isSlotUsed(this.el, "icon") && <slot name="icon"></slot>}
-              {pageTitle}
+              {this.renderPageTitle()}
             </span>
           ) : (
             <ic-link
@@ -175,7 +179,7 @@ export class Breadcrumb {
             >
               {showBackIcon && this.renderBackIcon()}
               {isSlotUsed(this.el, "icon") && <slot name="icon"></slot>}
-              {pageTitle}
+              {this.renderPageTitle()}
             </ic-link>
           )}
         </div>
