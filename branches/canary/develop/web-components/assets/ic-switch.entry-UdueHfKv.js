@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-CT_b8DTk.js";import{s as t}from"./iframe-Ds5XjcjK.js";import{P as n}from"./helpers-80097ffd-CKFG3BZp.js";import{n as r,t as i}from"./ic-switch-bc6b84a7-B4XkU337.js";e((()=>{r(),t(),n()}))();export{i as ic_switch};
