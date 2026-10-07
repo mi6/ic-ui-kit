@@ -189,7 +189,8 @@
     "ngFactory",
     "ngSummary",
     "codegen",
-    "ghsa"
+    "ghsa",
+    "srcdoc"
   ],
   "dictionaries": [
     "npm",
