@@ -1,3 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{M as t,a as n,c as r,j as i,o as a,s as o}from"./blocks-zxxQ9lfo.js";import{t as s}from"./jsx-runtime-CYvGHIMj.js";import{i as c,n as l,r as u,t as d}from"./readme-D--v96e2.js";import{n as f,t as p}from"./ic-side-navigation.stories-CaAwQrAM.js";var m;function h(){return(h=e((()=>{m=new URL(`readme-12FZ0lQi.md`,import.meta.url).href})))()}function g(e){return(0,v.jsxs)(v.Fragment,{children:[(0,v.jsx)(a,{of:p}),`
-`,(0,v.jsx)(n,{children:m+c+l}),`
-`,(0,v.jsx)(o,{})]})}function _(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,v.jsx)(n,{...e,children:(0,v.jsx)(g,{...e})}):g(e)}var v;function y(){return(y=e((()=>{v=s(),i(),r(),h(),u(),d(),f()})))()}y();export{_ as default};
