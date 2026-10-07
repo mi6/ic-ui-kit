@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{y as t}from"./components-DQJL4VAF.js";import{P as n}from"./helpers-80097ffd-Cspteirn.js";import{n as r,t as i}from"./ic-menu-group-2cfe0ae7-fPttw_ZU.js";e((()=>{r(),t(),n()}))();export{i as ic_menu_group};
