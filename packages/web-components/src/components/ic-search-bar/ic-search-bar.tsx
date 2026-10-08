@@ -356,6 +356,7 @@ export class SearchBar {
   @Event() icInput: EventEmitter<IcValueEventDetail>;
   private onInput = ({ target }: Event) => {
     this.value = (target as HTMLInputElement).value;
+    this.highlightedValue = undefined;
     this.icInput.emit({ value: this.value });
 
     if (this.options.length > 0) {
@@ -526,6 +527,7 @@ export class SearchBar {
     }
 
     if (ev.key === "Escape") {
+      this.highlightedValue = undefined;
       this.setMenuChange(false);
     }
 
@@ -669,6 +671,8 @@ export class SearchBar {
     this.showMenuWithNoInput() && this.debounceAriaLiveUpdate();
 
     this.icSearchBarFocus.emit();
+
+    this.highlightedValue = undefined;
   };
 
   private handleHostBlur = ({ relatedTarget }: FocusEvent) => {
