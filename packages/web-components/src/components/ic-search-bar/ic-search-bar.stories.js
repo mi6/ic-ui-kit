@@ -38,6 +38,11 @@ export const Basic = {
   render: () =>
     html` <ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
       <script>
+        document
+          .querySelector("ic-search-bar")
+          .addEventListener("icSubmitSearch", (ev) => {
+            console.log(ev.detail.value);
+          });
         document.querySelector("ic-search-bar").options = [
           { label: "Espresso", value: "espresso" },
           { label: "Double Espresso", value: "doubleespresso" },
