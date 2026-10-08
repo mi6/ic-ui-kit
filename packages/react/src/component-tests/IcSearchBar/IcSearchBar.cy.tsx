@@ -426,6 +426,36 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
   });
 
+  it.only("should not submit previously highlighted option after Escape and typing a new query", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(SEARCH_SELECTOR);
+    cy.get(SEARCH_SELECTOR).invoke(
+      "on",
+      "icSubmitSearch",
+      cy.stub().as("icSubmitSearch")
+    );
+
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Cap");
+    cy.realPress("ArrowDown");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
+      .eq(0)
+      .should(CONTAIN_TEXT, "Cappuccino")
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
+    cy.realPress("Escape");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
+
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).focus();
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).type("{selectall}Am");
+    cy.realPress("Enter");
+
+    cy.get(IC_SUBMIT_SEARCH_EVENT_ID).should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(IC_SUBMIT_SEARCH_EVENT_ID).should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).not.to.equal("cappuccino");
+    });
+    cy.get(SEARCH_SELECTOR).should("not.have.value", "cappuccino");
+  });
+
   it("should emit icOptionSelect when a menu option has been selected", () => {
     mount(<Default />);
 
