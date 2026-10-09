@@ -1040,6 +1040,30 @@ export const SelectRowsUsingCheckboxExample = {
   name: "Select rows with checkbox",
 };
 
+export const PaginationSelectWithCheckbox = {
+  render: () => (
+    <IcDataTable
+      caption="Pagination select with checkbox"
+      columns={LONG_COLS}
+      data={LONG_DATA}
+      rowSelection
+      onIcSelectedRowChange={(ev) => console.log(ev.detail)}
+      onIcSelectAllRows={(ev) => console.log(ev.detail)}
+      showPagination
+      paginationBarOptions={{
+        itemsPerPageOptions: [
+          { label: "5", value: "5" },
+          { label: "10", value: "10" },
+          { label: "15", value: "15" },
+        ],
+        showItemsPerPageControl: true,
+        showGoToPageControl: true,
+      }}
+    />
+  ),
+  name: "Pagination select with checkbox",
+};
+
 const TableContent = ({type}) => {
   const strClass = "ic-table" + (type ? " ic-table-" + type : "");
   return (
