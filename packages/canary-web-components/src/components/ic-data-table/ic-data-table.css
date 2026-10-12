@@ -84,6 +84,7 @@ table {
 
 .column-header-inner-container ic-tooltip {
   pointer-events: none;
+  overflow: hidden;
 }
 
 .column-header-inner-container ic-tooltip.show-trunc-tooltip {
