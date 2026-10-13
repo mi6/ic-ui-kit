@@ -1032,8 +1032,20 @@ export class DataTable {
           this.previousRowsPerPage = this.rowsPerPage;
         }
       }
+      const hadSelection =
+        this.selectedRows.length > 0 || this.selectedIcRowIds.length > 0;
+
       this.selectedRows = [];
       this.selectedIcRowIds = [];
+
+      if (hadSelection) {
+        this.icSelectedRowChange.emit({
+          row: null,
+          selectedRows: [],
+          icRowId: null,
+          selectedIcRowIds: [],
+        });
+      }
     }
 
     if (!this.initialLoad && this.previousPaginationPage !== detail.value) {

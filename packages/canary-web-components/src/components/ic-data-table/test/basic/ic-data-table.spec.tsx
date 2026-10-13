@@ -1396,6 +1396,9 @@ describe(icDataTable, () => {
 
     expect(page.rootInstance.selectedRows.length).toBeGreaterThan(0);
 
+    const selectionChanged = jest.fn();
+    page.root!.addEventListener("icSelectedRowChange", selectionChanged);
+
     page.rootInstance.handlePageChange({
       detail: { value: 2 },
       target: document.createElement("div"),
@@ -1405,6 +1408,17 @@ describe(icDataTable, () => {
 
     expect(page.rootInstance.selectedRows).toEqual([]);
     expect(page.rootInstance.selectedIcRowIds).toEqual([]);
+    expect(selectionChanged).toHaveBeenCalledTimes(1);
+    expect(selectionChanged).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: {
+          row: null,
+          selectedRows: [],
+          icRowId: null,
+          selectedIcRowIds: [],
+        },
+      })
+    );
   });
 
   it("should apply a specified row height to all rows when globalRowHeight is set", async () => {
