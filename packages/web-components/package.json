@@ -42,7 +42,7 @@
     "test:coverage-ci": "npm run test:ci -- --coverage",
     "test:watch": "stencil test --spec --watchAll",
     "test-a11y": "jest",
-    "postinstall": "patch-package"
+    "prepare": "patch-package"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
