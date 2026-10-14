@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.48](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.47...@ukic/canary-web-components@3.0.0-canary.48) (2026-10-14)
+
+### Bug Fixes
+
+- **canary-web-components:** add allowlist to ic-tree-view ([6c2d5cf](https://github.com/mi6/ic-ui-kit/commit/6c2d5cf23f834b21863719da21e0bedc4e704f51))
+- **canary-web-components:** add patch-package to prevent overwrite of attachProps fix ([03f53ae](https://github.com/mi6/ic-ui-kit/commit/03f53aea245feee4b3b14b52295126f89744d564))
+- **canary-web-components:** notify selection reset on table page change ([c281718](https://github.com/mi6/ic-ui-kit/commit/c2817187ae67a6ca4ae341aac653f6afc9f5d0bf))
+- **canary-web-components:** update innerHTML for typography el in tree item to textContent instead ([2d7b19c](https://github.com/mi6/ic-ui-kit/commit/2d7b19cbebe82f42f69c811f2d8538821f92e350)), closes [#4674](https://github.com/mi6/ic-ui-kit/issues/4674)
+
 # [3.0.0-canary.47](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.44...@ukic/canary-web-components@3.0.0-canary.47) (2026-09-21)
 
 ### Bug Fixes

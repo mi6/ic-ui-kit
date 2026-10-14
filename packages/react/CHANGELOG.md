@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.31.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.31.0...@ukic/react@3.31.1) (2026-10-14)
+
+### Bug Fixes
+
+- **react:** block innerHTML/on\* prop injection in attachProps and createComponent ([ac36fef](https://github.com/mi6/ic-ui-kit/commit/ac36fef6e3bbcc57bed61761c7477ae43112ef41))
+
 # [3.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.28.0...@ukic/react@3.31.0) (2026-09-21)
 
 ### Bug Fixes

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.48](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.47...@ukic/canary-react@3.0.0-canary.48) (2026-10-14)
+
+### Bug Fixes
+
+- **canary-react:** add story for select all with pagination ([17a47a1](https://github.com/mi6/ic-ui-kit/commit/17a47a11c5ddf647298a65991b7feed5d156bd38))
+- **canary-react:** block innerHTML/on\* prop injection in attachProps and createComponent ([882ef8d](https://github.com/mi6/ic-ui-kit/commit/882ef8d3828e6c037d315cc6141519dcedd9c391))
+
 # [3.0.0-canary.47](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.44...@ukic/canary-react@3.0.0-canary.47) (2026-09-21)
 
 **Note:** Version bump only for package @ukic/canary-react
