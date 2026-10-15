@@ -31,12 +31,18 @@ import Chevron from "../../assets/chevron-icon.svg";
   },
 })
 export class MenuItem {
+  private buttonEl?: HTMLIcButtonElement;
+
   @Element() el: HTMLIcMenuItemElement;
 
   /**
    * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
    */
   @Prop({ mutable: true, reflect: true }) checked?: boolean = false;
+  @Watch("checked")
+  watchCheckedHandler(): void {
+    this.updateButtonAccessibilityAttributes();
+  }
 
   /**
    * The description displayed in the menu item, below the label.
@@ -97,6 +103,10 @@ export class MenuItem {
    */
   @Prop({ mutable: true, reflect: true }) variant?: IcMenuItemVariants =
     "default";
+  @Watch("variant")
+  watchVariantHandler(): void {
+    this.updateButtonAccessibilityAttributes();
+  }
 
   /**
    * If `true`, the menu will close when this menu item is clicked.
@@ -138,7 +148,26 @@ export class MenuItem {
       [{ prop: this.label, propName: "label" }],
       "Menu Item"
     );
+    this.updateButtonAccessibilityAttributes();
   }
+
+  componentDidUpdate(): void {
+    this.updateButtonAccessibilityAttributes();
+  }
+
+  private updateButtonAccessibilityAttributes = (): void => {
+    const button =
+      this.buttonEl?.shadowRoot?.querySelector<HTMLElement>(".button");
+    if (!button) return;
+
+    if (this.variant === "toggle") {
+      button.setAttribute("role", "menuitemcheckbox");
+      button.setAttribute("aria-checked", `${!!this.checked}`);
+    } else {
+      button.removeAttribute("role");
+      button.removeAttribute("aria-checked");
+    }
+  };
 
   @Listen("click", { capture: true })
   handleHostClick(e: Event): void {
@@ -235,16 +264,10 @@ export class MenuItem {
           target={isPropDefined(this.target)}
           rel={isPropDefined(this.rel)}
           referrerpolicy={this.referrerpolicy}
-          role={this.variant === "toggle" ? "menuitemcheckbox" : "menuitem"}
+          role={this.variant === "toggle" ? undefined : "menuitem"}
           aria-disabled={`${this.disabled}`}
-          aria-checked={
-            this.variant === "toggle"
-              ? this.checked
-                ? "true"
-                : "false"
-              : undefined
-          }
           aria-label={this.getMenuItemAriaLabel()}
+          ref={(el) => (this.buttonEl = el)}
           aria-haspopup={
             isPropDefined(this.submenuTriggerFor) ||
             this.el.classList.contains("ic-popover-submenu-back-button")

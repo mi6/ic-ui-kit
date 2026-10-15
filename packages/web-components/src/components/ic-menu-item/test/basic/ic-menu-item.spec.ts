@@ -68,12 +68,23 @@ describe("menu item variants", () => {
     expect(page.rootInstance.variant).toMatch("toggle");
     expect(page.rootInstance.checked).toBeFalsy();
 
-    const button = page.root?.shadowRoot
-      ?.querySelector("li > ic-button")
-      ?.shadowRoot?.querySelector("button");
+    const buttonComponent = page.root?.shadowRoot?.querySelector("ic-button");
+    let button = buttonComponent?.shadowRoot?.querySelector("button");
 
-    button?.click();
-    await page.waitForChanges;
+    expect(button?.getAttribute("role")).toBe("menuitemcheckbox");
+    expect(button?.getAttribute("aria-checked")).toBe("false");
+    expect(
+      page.root?.shadowRoot?.querySelector("ic-button")?.getAttribute("role")
+    ).toBeNull();
+
+    buttonComponent?.click();
+    await page.waitForChanges();
+
+    button = buttonComponent?.shadowRoot?.querySelector("button");
+
+    expect(button?.getAttribute("role")).toBe("menuitemcheckbox");
+    expect(button?.getAttribute("aria-checked")).toBe("true");
+    expect(page.rootInstance.checked).toBeTruthy();
   });
 
   it("should render the destructive variant", async () => {
