@@ -3,6 +3,7 @@
 
 import React from "react";
 import { mount } from "cypress/react";
+import { IcStep, IcStepper } from "../../components";
 import {
   FullWidth,
   Compact,
@@ -316,6 +317,51 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
     cy.compareSnapshot({
       name: "/custom-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
+    });
+  });
+});
+
+describe("IcStepper text resize accessibility regression", () => {
+  afterEach(() => {
+    cy.document().then((doc) => {
+      doc.documentElement.style.fontSize = "";
+    });
+    cy.task("generateReport");
+  });
+
+  it("switches to compact mode at 200% text size without horizontal overflow", () => {
+    cy.viewport(800, 600);
+    cy.injectAxe();
+    mount(
+      <div
+        id="text-resize-stepper-container"
+        style={{ width: "700px", maxWidth: "100%" }}
+      >
+        <IcStepper>
+          <IcStep heading="First step" />
+          <IcStep heading="Second step with a longer heading" type="current" />
+          <IcStep heading="Third step" />
+          <IcStep heading="Fourth step" />
+        </IcStepper>
+      </div>
+    );
+    cy.checkHydrated(STEPPER_SELECTOR);
+
+    cy.document().then((doc) => {
+      doc.documentElement.style.fontSize = "32px";
+    });
+
+    cy.get(STEPPER_SELECTOR).should("have.class", "ic-stepper-compact");
+
+    cy.get("#text-resize-stepper-container").then(($container) => {
+      const container = $container[0];
+      expect(container.scrollWidth).to.be.at.most(container.clientWidth);
+    });
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/text-resize-200-percent",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
 });
