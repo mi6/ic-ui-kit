@@ -311,4 +311,38 @@ describe("IcDivider visual and a11y testing", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.087),
     });
   });
+
+  it("should stretch vertical dividers in a flex container without an explicit height", () => {
+    cy.viewport(700, 320);
+    mount(
+      <div
+        style={{
+          display: "flex",
+          gap: "var(--ic-space-lg)",
+          padding: "var(--ic-space-lg)",
+        }}
+      >
+        <div style={{ width: "160px", padding: "var(--ic-space-md)" }}>
+          <p>Intrinsic content gives this flex container its height.</p>
+        </div>
+        <IcDivider orientation="vertical" flexItem />
+        <IcDivider
+          orientation="vertical"
+          flexItem
+          label="Flex item"
+          labelPlacement="center"
+        />
+        <div style={{ width: "160px", padding: "var(--ic-space-md)" }}>
+          <p>The dividers stretch without an explicit parent height.</p>
+        </div>
+      </div>
+    );
+    cy.checkHydrated(DIVIDER_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/flex-item",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
 });

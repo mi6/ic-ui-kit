@@ -266,6 +266,30 @@ export const LabelPlacement = {
   name: "Label placement",
 };
 
+export const FlexItem = {
+  render: () => html`
+    <div
+      style="display: flex; gap: var(--ic-space-lg); padding: var(--ic-space-lg);"
+    >
+      <div style="width: 10rem; padding: var(--ic-space-md);">
+        <p>Intrinsic content gives this flex container its height.</p>
+      </div>
+      <ic-divider orientation="vertical" flex-item="true"></ic-divider>
+      <ic-divider
+        orientation="vertical"
+        flex-item="true"
+        label="Flex item"
+        label-placement="center"
+      ></ic-divider>
+      <div style="width: 10rem; padding: var(--ic-space-md);">
+        <p>The vertical dividers stretch without an explicit parent height.</p>
+      </div>
+    </div>
+  `,
+
+  name: "Flex item",
+};
+
 export const Playground = {
   render: (args) => {
     const backgroundColor =
