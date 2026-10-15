@@ -40,6 +40,7 @@ export class PopoverMenu {
   private ARIA_LABEL: string = "aria-label";
   private backButton?: HTMLIcMenuItemElement;
   private currentFocus: number;
+  private pointerDownStartedInside = false;
   private popoverMenuEls: HTMLIcMenuItemElement[] = [];
   private popperInstance: PopperInstance | null;
   private menuAriaLabel?: string;
@@ -223,12 +224,24 @@ export class PopoverMenu {
     childEl.parentLabel = target.label;
   }
 
+  @Listen("mousedown", { target: "document" })
+  handleMouseDown(ev: Event): void {
+    const eventPath = ev.composedPath();
+    this.pointerDownStartedInside =
+      eventPath.includes(this.el) ||
+      (!!this.anchorEl && eventPath.includes(this.anchorEl));
+  }
+
   @Listen("click", { target: "document" })
   handleClick(ev: Event): void {
-    if (this.open && this.isNotPopoverMenuEl(ev)) {
-      // If menu is open and the next click on the document is not a popover El, close the popover
+    const clickedOutside = this.isNotPopoverMenuEl(ev);
+
+    if (this.open && clickedOutside && !this.pointerDownStartedInside) {
+      // Close only when the interaction both starts and finishes outside.
       this.closeMenu();
     }
+
+    this.pointerDownStartedInside = false;
   }
 
   // Manages the keyboard navigation in the popover menu
