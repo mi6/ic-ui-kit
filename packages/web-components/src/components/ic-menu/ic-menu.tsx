@@ -541,6 +541,9 @@ export class Menu {
 
     this.keyboardNav = false;
 
+    const getOptionId = (index: number): string =>
+      Array.from(this.host.querySelectorAll("li"))[index]?.id;
+
     switch (event.key) {
       case "ArrowDown": {
         this.keyboardNav = true;
@@ -565,19 +568,37 @@ export class Menu {
         break;
       }
       case "Home": {
+        const startOptionIndex = 0;
+
         this.keyboardNav = true;
         event.preventDefault();
         this.arrowBehaviour(event);
-        this.setNextOptionValue(-1);
-        this.emitOptionId(0);
+        this.setHighlightedOption(startOptionIndex);
+        this.menuOptionId.emit({
+          optionId: getOptionId(startOptionIndex),
+        });
+
+        this.setPreviousOptionValue(0);
+
+        this.lastOptionFocused = startOptionIndex;
+        this.lastOptionSelected = startOptionIndex;
         break;
       }
       case "End": {
+        const endOptionIndex = this.ungroupedOptions.length - 1;
+
         this.keyboardNav = true;
         event.preventDefault();
         this.arrowBehaviour(event);
-        this.setPreviousOptionValue(this.ungroupedOptions.length);
-        this.emitOptionId(this.ungroupedOptions.length - 1);
+        this.setHighlightedOption(endOptionIndex);
+        this.menuOptionId.emit({
+          optionId: getOptionId(endOptionIndex),
+        });
+
+        this.setPreviousOptionValue(endOptionIndex);
+
+        this.lastOptionFocused = endOptionIndex;
+        this.lastOptionSelected = endOptionIndex;
         break;
       }
       case " ":
