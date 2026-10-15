@@ -1,1 +1,0 @@
-import{r}from"./index-O7bxg-80.js";import"./iframe-BRwE2Yak.js";import"./preload-helper-PPVm8Dsz.js";var u=async(e,n)=>new Promise(o=>{r.render(e,n,()=>o(null))}),a=e=>{r.unmountComponentAtNode(e)};export{u as renderElement,a as unmountElement};
