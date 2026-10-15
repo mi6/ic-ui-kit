@@ -35,7 +35,7 @@
     "storybook": "concurrently \"npm run build:watch\" \"npm run start-storybook\"",
     "test": "stencil test --spec --passWithNoTests",
     "test:watch": "stencil test --spec --watchAll",
-    "postinstall": "patch-package"
+    "prepare": "patch-package"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
