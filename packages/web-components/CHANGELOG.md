@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.31.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.31.1...@ukic/web-components@3.31.2) (2026-10-15)
+
+### Bug Fixes
+
+- **web-components:** replace patch-package postinstall with prepare ([255091f](https://github.com/mi6/ic-ui-kit/commit/255091fa4a6d0f7cb9302f3ba66292a7fcbe5858))
+
 ## [3.31.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.31.0...@ukic/web-components@3.31.1) (2026-10-14)
 
 ### Bug Fixes

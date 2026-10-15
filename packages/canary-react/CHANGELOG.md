@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.49](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.48...@ukic/canary-react@3.0.0-canary.49) (2026-10-15)
+
+### Bug Fixes
+
+- **canary-react:** change to keep canary-react package in line with canary-web-components ([8b7118a](https://github.com/mi6/ic-ui-kit/commit/8b7118abc15a1d380bfdd1eff3adcb196ac8ae57))
+
 # [3.0.0-canary.48](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.47...@ukic/canary-react@3.0.0-canary.48) (2026-10-14)
 
 ### Bug Fixes

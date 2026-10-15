@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.49](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.48...@ukic/canary-web-components@3.0.0-canary.49) (2026-10-15)
+
+### Bug Fixes
+
+- **canary-web-components:** replace patch-package postinstall with prepare ([c535e03](https://github.com/mi6/ic-ui-kit/commit/c535e03efb0ec46f9c2344919d582e2b84acaf73))
+
 # [3.0.0-canary.48](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.47...@ukic/canary-web-components@3.0.0-canary.48) (2026-10-14)
 
 ### Bug Fixes
