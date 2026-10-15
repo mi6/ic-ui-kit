@@ -281,7 +281,7 @@ export class Button {
       title,
       "aria-label": ariaLabel,
       ...restInheritedAttributes
-    } = inheritAttributes(this.el, [...IC_INHERITED_ARIA, "title"]);
+    } = inheritAttributes(this.el, [...IC_INHERITED_ARIA, "title", "tabindex"]);
 
     this.title = title;
     this.ariaLabel = ariaLabel;

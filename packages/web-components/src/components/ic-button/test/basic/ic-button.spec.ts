@@ -612,3 +612,21 @@ describe("button component", () => {
     expect(eventSpy).toHaveBeenCalled();
   });
 });
+
+describe("button tab order", () => {
+  it.each([
+    ["button", '<ic-button tabindex="-1">Button</ic-button>', "-1"],
+    ["a", '<ic-button href="/example" tabindex="-1">Link</ic-button>', "-1"],
+    ["button", '<ic-button tabindex="0">Button</ic-button>', "0"],
+    ["button", "<ic-button>Button</ic-button>", "0"],
+  ])(
+    "should forward the tab order to the native %s",
+    async (tag, html, tabIndex) => {
+      const page = await newSpecPage({ components: [Button], html });
+      const control = page.root?.shadowRoot?.querySelector(tag);
+
+      expect(control?.getAttribute("tabindex")).toBe(tabIndex);
+      expect(page.root?.hasAttribute("tabindex")).toBe(false);
+    }
+  );
+});
