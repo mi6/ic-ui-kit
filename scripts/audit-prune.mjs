@@ -9,7 +9,8 @@ const isWindows = process.platform === "win32" ? true : false;
 
 const auditFilename = "audit-ci.json";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const auditPath = path.resolve(__dirname, auditFilename);
+const repoRoot = path.resolve(__dirname, "..");
+const auditPath = path.resolve(repoRoot, auditFilename);
 
 async function readAudit() {
     const data = await fs.readFile(auditPath, "utf-8");
@@ -26,7 +27,7 @@ async function writeAllowlist(jsonData, allowlist) {
 function runAudit() {
     const command = isWindows ? "npm.cmd" : "npm";
     const result = spawnSync(command, ["run", "audit"], {
-        cwd: __dirname,
+        cwd: repoRoot,
         encoding: "utf-8",
         stdio: ["ignore", "pipe", "pipe"],
         shell: isWindows,
