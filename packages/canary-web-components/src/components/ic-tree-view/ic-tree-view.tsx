@@ -332,7 +332,28 @@ export class TreeView {
           this.treeItemTag
         ) as HTMLIcTreeItemElement;
         const { children, icon, ...props } = item;
-        Object.assign(treeItem, props);
+        const SAFE_HREF_SCHEMES = /^(https?|mailto|tel):/i;
+        const allowedKeys: (keyof typeof props)[] = [
+          "label",
+          "disabled",
+          "expanded",
+          "href",
+          "selected",
+          "treeItemId",
+          "theme",
+          "truncateTreeItem",
+        ];
+        allowedKeys.forEach((key) => {
+          if (key in props) {
+            if (key === "href") {
+              const hrefValue = props[key] as string;
+              if (hrefValue && !SAFE_HREF_SCHEMES.test(hrefValue)) {
+                return;
+              }
+            }
+            Object.assign(treeItem, { [key]: props[key] });
+          }
+        });
 
         if (icon) {
           const iconSlot = document.createElement("div");

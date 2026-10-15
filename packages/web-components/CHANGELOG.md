@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.31.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.31.1...@ukic/web-components@3.31.2) (2026-10-15)
+
+### Bug Fixes
+
+- **web-components:** replace patch-package postinstall with prepare ([255091f](https://github.com/mi6/ic-ui-kit/commit/255091fa4a6d0f7cb9302f3ba66292a7fcbe5858))
+
+## [3.31.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.31.0...@ukic/web-components@3.31.1) (2026-10-14)
+
+### Bug Fixes
+
+- **web-components:** add img tag to allowed tags in icon slot ([241db1a](https://github.com/mi6/ic-ui-kit/commit/241db1a23b8178e74baad1ef8305ab10090b63f1))
+- **web-components:** add patch-package to prevent overwrite of attachProps fix ([8a0c2fb](https://github.com/mi6/ic-ui-kit/commit/8a0c2fbf00f8082acba14ab19764641c0153998d))
+- **web-components:** fix highlighted value persisting after escape pressed ([8af1940](https://github.com/mi6/ic-ui-kit/commit/8af194004b92559bc9fd966ff747736df9b3c85c)), closes [#4678](https://github.com/mi6/ic-ui-kit/issues/4678)
+- **web-components:** prevent non icons being slotted into icon slot ([c6adc10](https://github.com/mi6/ic-ui-kit/commit/c6adc1003f59e37a49424f37baa6c38129d2cc01))
+- **web-components:** restrict html props on ic-menu to safe allowlist ([fe8cbfb](https://github.com/mi6/ic-ui-kit/commit/fe8cbfb3b5ba2e51bc8590bb9f842290917a56a4)), closes [#4675](https://github.com/mi6/ic-ui-kit/issues/4675)
+
 # [3.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.28.0...@ukic/web-components@3.31.0) (2026-09-21)
 
 ### Bug Fixes

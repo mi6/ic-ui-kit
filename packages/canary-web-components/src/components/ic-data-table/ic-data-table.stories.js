@@ -26,6 +26,7 @@ import {
   LongCellDescriptions,
   MissingCellData,
   Pagination,
+  PaginationSelectWithCheckbox,
   RowHeaders,
   RowOverrides,
   Scrollable,
@@ -505,6 +506,11 @@ export const MissingCellDataExample = {
 export const SelectRowsUsingCheckboxExample = {
   render: () => SelectWithCheckbox(),
   name: "Select rows with checkbox",
+};
+
+export const PaginationSelectWithCheckboxExample = {
+  render: () => PaginationSelectWithCheckbox(),
+  name: "Pagination select with checkbox",
 };
 
 export const DevAreaExample = {

@@ -50,7 +50,7 @@ export const Default = {
           <div id="content" style={{width:'100%'}}>
             <div style={{height:'100vh', background:'gray'}}>
               <h2>What is a Latte</h2>
-              <p>Lorum ipsum etcetera</p>
+              <p>Lorum ipsum etcetera etcetera</p>
             </div>
             <div style={{height:'100vh', background:'darkgray'}}>
               <h2>Choosing the right milk</h2>

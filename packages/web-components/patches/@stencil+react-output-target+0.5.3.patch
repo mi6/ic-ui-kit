@@ -1,0 +1,55 @@
+diff --git a/node_modules/@stencil/react-output-target/react-component-lib/createComponent.tsx b/node_modules/@stencil/react-output-target/react-component-lib/createComponent.tsx
+index 7c7415a..70c841d 100644
+--- a/node_modules/@stencil/react-output-target/react-component-lib/createComponent.tsx
++++ b/node_modules/@stencil/react-output-target/react-component-lib/createComponent.tsx
+@@ -1,6 +1,6 @@
+ import React, { createElement } from 'react';
+ 
+-import { attachProps, camelToDashCase, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils';
++import { UNSAFE_PROPS, attachProps, camelToDashCase, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils';
+ 
+ export interface HTMLStencilElement extends HTMLElement {
+   componentOnReady(): Promise<this>;
+@@ -14,8 +14,8 @@ interface StencilReactInternalProps<ElementType> extends React.HTMLAttributes<El
+ export const createReactComponent = <
+   PropType,
+   ElementType extends HTMLStencilElement,
+-  ContextStateType = {},
+-  ExpandedPropsTypes = {}
++  ContextStateType = object,
++  ExpandedPropsTypes = object
+ >(
+   tagName: string,
+   ReactComponentContext?: React.Context<ContextStateType>,
+@@ -60,7 +60,7 @@ export const createReactComponent = <
+           if (typeof document !== 'undefined' && isCoveredByReact(eventName)) {
+             acc[name] = value;
+           }
+-        } else {
++        } else if (!UNSAFE_PROPS.has(name) && !/^on/i.test(name)) {
+           // we should only render strings, booleans, and numbers as attrs in html.
+           // objects, functions, arrays etc get synced via properties on mount.
+           const type = typeof value;
+diff --git a/node_modules/@stencil/react-output-target/react-component-lib/utils/attachProps.ts b/node_modules/@stencil/react-output-target/react-component-lib/utils/attachProps.ts
+index 9a1825f..f8ab844 100644
+--- a/node_modules/@stencil/react-output-target/react-component-lib/utils/attachProps.ts
++++ b/node_modules/@stencil/react-output-target/react-component-lib/utils/attachProps.ts
+@@ -1,5 +1,7 @@
+ import { camelToDashCase } from './case';
+ 
++export const UNSAFE_PROPS = new Set(['innerHTML', 'outerHTML', 'innerText', 'outerText', 'srcdoc', 'srcDoc']);
++
+ export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}) => {
+   // some test frameworks don't render DOM elements, so we test here to make sure we are dealing with DOM first
+   if (node instanceof Element) {
+@@ -28,6 +30,10 @@ export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}
+           syncEvent(node, eventNameLc, newProps[name]);
+         }
+       } else {
++        // Block HTML sinks and inline-handler attributes that bypass React's guards
++        if (UNSAFE_PROPS.has(name) || /^on/i.test(name)) {
++          return;
++        }
+         (node as any)[name] = newProps[name];
+         const propType = typeof newProps[name];
+         if (propType === 'string') {

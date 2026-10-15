@@ -7,8 +7,8 @@ const ANGULAR_JSON_PATH = "angular.json";
 type JsonValue = boolean | string | number | JsonArray | JsonObject | null;
 type JsonArray = JsonValue[];
 type JsonObject = { [property: string]: JsonValue };
-type WorkspaceDefinition = workspaces.WorkspaceDefinition;
-type ProjectDefinition = workspaces.ProjectDefinition;
+export type WorkspaceDefinition = workspaces.WorkspaceDefinition;
+export type ProjectDefinition = workspaces.ProjectDefinition;
 
 export function readConfig<T extends JsonObject = JsonObject>(host: Tree): T {
   return host.readJson(ANGULAR_JSON_PATH) as T;

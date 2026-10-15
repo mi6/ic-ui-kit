@@ -797,4 +797,53 @@ describe("ic-search-bar search", () => {
     expect(hiddenFormButton?.getAttribute("type")).toBe("button"); // will not submit form on click
     expect(consoleSpy).toHaveBeenCalledWith("hidden-form-button"); // hidden form button clicked
   });
+
+  it("should not submit previously highlighted option after menu closed with Escape", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, Button, Menu],
+      html: '<ic-search-bar label="Test label"></ic-search-bar>',
+    });
+
+    page.rootInstance.options = menuOptions;
+    page.rootInstance.value = "Ca";
+    await page.waitForChanges();
+
+    page.rootInstance.handleMenuOptionHighlight({
+      detail: { optionId: `${page.rootInstance.menuId}-cappuccino` },
+    });
+    expect(page.rootInstance.highlightedValue).toBe("cappuccino");
+
+    await page.rootInstance.handleKeyUp({ key: "Escape" });
+    expect(page.rootInstance.highlightedValue).toBeUndefined();
+
+    const submitSearchSpy = jest.fn();
+    page.win.addEventListener("icSubmitSearch", submitSearchSpy);
+
+    page.rootInstance.value = "Am";
+    await page.waitForChanges();
+    page.rootInstance.handleSubmitSearch();
+
+    expect(submitSearchSpy).toHaveBeenCalledTimes(1);
+    expect(submitSearchSpy.mock.calls[0][0].detail.value).toBe("Am");
+    expect(page.rootInstance.value).toBe("Am");
+  });
+
+  it("should clear highlighted option when typing a new query", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, Button, Menu],
+      html: '<ic-search-bar label="Test label"></ic-search-bar>',
+    });
+
+    page.rootInstance.options = menuOptions;
+    await page.waitForChanges();
+
+    page.rootInstance.handleMenuOptionHighlight({
+      detail: { optionId: `${page.rootInstance.menuId}-cappuccino` },
+    });
+    expect(page.rootInstance.highlightedValue).toBe("cappuccino");
+
+    page.rootInstance.onInput({ target: { value: "Am" } });
+    expect(page.rootInstance.highlightedValue).toBeUndefined();
+    expect(page.rootInstance.value).toBe("Am");
+  });
 });

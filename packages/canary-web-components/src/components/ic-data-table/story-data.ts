@@ -2210,6 +2210,35 @@ export const SelectWithCheckbox = (): HTMLElement => {
   return dataTable;
 };
 
+export const PaginationSelectWithCheckbox = (): HTMLElement => {
+  const dataTable = createDataTableElement(
+    "pagination-select-with-checkbox",
+    "Pagination-select-with-checkbox",
+    LONG_COLS,
+    LONG_DATA
+  );
+  dataTable.setAttribute("show-pagination", "true");
+  dataTable.setAttribute("row-selection", "true");
+  dataTable.paginationBarOptions = {
+    itemsPerPageOptions: [
+      { label: "5", value: "5" },
+      { label: "10", value: "10" },
+      { label: "15", value: "15" },
+    ],
+    showItemsPerPageControl: true,
+    showGoToPageControl: true,
+  };
+
+  dataTable.addEventListener("icSelectedRowChange", (event: CustomEvent) => {
+    console.log("Selected row changed", event.detail);
+  });
+  dataTable.addEventListener("icSelectAllRows", (event: CustomEvent) => {
+    console.log("Selected all rows", event.detail);
+  });
+
+  return dataTable;
+};
+
 export const DevArea = (): HTMLElement => {
   const existing = document.querySelector(`div#dev-area-wrapper`);
   if (existing) existing.parentElement?.removeChild(existing);

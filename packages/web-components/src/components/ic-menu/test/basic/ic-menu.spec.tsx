@@ -2006,8 +2006,7 @@ describe("ic-menu in isolation", () => {
         label: "Espresso",
         value: "espresso",
         htmlProps: {
-          prop: "test-value-1",
-          "multiple-word-prop": "test-value-2",
+          lang: "it",
         },
       },
     ];
