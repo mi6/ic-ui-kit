@@ -1,5 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { ToggleButton } from "../../ic-toggle-button";
+import { Button } from "../../../ic-button/ic-button";
+import { Tooltip } from "../../../ic-tooltip/ic-tooltip";
 
 describe("ic-toggle-button component", () => {
   it("should render", async () => {
@@ -153,5 +155,40 @@ describe("ic-toggle-button component", () => {
     await page.waitForChanges();
 
     expect(window.alert).not.toHaveBeenCalled;
+  });
+});
+
+describe("ic-toggle-button tooltip", () => {
+  it("should render the standard tooltip for a non-icon toggle button with title", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButton, Button, Tooltip],
+      html: `<ic-toggle-button label="Toggle" title="Toggle help" tooltip-placement="top"></ic-toggle-button>`,
+    });
+
+    expect(page.root?.hasAttribute("title")).toBe(false);
+
+    const button = page.root?.shadowRoot?.querySelector("ic-button");
+    const tooltip = button?.shadowRoot?.querySelector(
+      "ic-tooltip"
+    ) as HTMLIcTooltipElement;
+
+    expect(tooltip).not.toBeNull();
+    expect(tooltip.label).toBe("Toggle help");
+    expect(tooltip.placement).toBe("top");
+  });
+
+  it("should keep the accessible label as the icon variant tooltip fallback", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButton, Button, Tooltip],
+      html: `<ic-toggle-button variant="icon" accessible-label="Refresh the page"></ic-toggle-button>`,
+    });
+
+    const button = page.root?.shadowRoot?.querySelector("ic-button");
+    const tooltip = button?.shadowRoot?.querySelector(
+      "ic-tooltip"
+    ) as HTMLIcTooltipElement;
+
+    expect(tooltip).not.toBeNull();
+    expect(tooltip.label).toBe("Refresh the page");
   });
 });
