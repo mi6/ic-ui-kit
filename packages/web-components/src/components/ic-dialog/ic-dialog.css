@@ -113,6 +113,7 @@
   padding: 0 var(--ic-space-md);
   margin: 0;
   overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 #dialog-content {

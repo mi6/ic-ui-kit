@@ -26,6 +26,7 @@ import {
   ThemeDark,
   DialogWithTooltips,
   SlottedTabsDialog,
+  DynamicScrollableDialog,
 } from "./IcDialogTestData";
 import {
   BE_VISIBLE,
@@ -333,6 +334,31 @@ describe("IcDialog end-to-end tests", () => {
 
     cy.get(DIALOG).should(NOT_HAVE_ATTR, "open");
     cy.get("@icDialogCancelled").should(HAVE_BEEN_CALLED_ONCE);
+  });
+
+  it("keeps the content width stable when vertical overflow appears", () => {
+    mount(<DynamicScrollableDialog />);
+
+    let initialWidth = 0;
+
+    cy.get("ic-dialog")
+      .shadow()
+      .find(".content-area")
+      .then(($contentArea) => {
+        initialWidth = $contentArea[0].clientWidth;
+      });
+
+    cy.get("#expand-dialog-content").click();
+
+    cy.get("ic-dialog")
+      .shadow()
+      .find(".content-area")
+      .should(($contentArea) => {
+        expect($contentArea[0].scrollHeight).to.be.greaterThan(
+          $contentArea[0].clientHeight
+        );
+        expect($contentArea[0].clientWidth).to.equal(initialWidth);
+      });
   });
 });
 
