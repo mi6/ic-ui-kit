@@ -146,7 +146,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
 exports[`ic-popover-menu should render on a dialog 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">

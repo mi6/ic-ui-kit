@@ -3,7 +3,7 @@
 exports[`ic-dialog component should render 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small" heading="Dialog heading" hide-default-controls="true">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -45,7 +45,7 @@ exports[`ic-dialog component should render 1`] = `
 exports[`ic-dialog component should render as large size 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-large" heading="Dialog heading" hide-default-controls="true" size="large">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog large">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog large">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -87,7 +87,7 @@ exports[`ic-dialog component should render as large size 1`] = `
 exports[`ic-dialog component should render as large size and disableWidthConstraint is set 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-large" disable-width-constraint="true" heading="Dialog heading" hide-default-controls="true" size="large">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog disable-width-constraint large">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog disable-width-constraint large">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -129,7 +129,7 @@ exports[`ic-dialog component should render as large size and disableWidthConstra
 exports[`ic-dialog component should render as medium size 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-medium" heading="Dialog heading" hide-default-controls="true" size="medium">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog medium">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog medium">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -171,7 +171,7 @@ exports[`ic-dialog component should render as medium size 1`] = `
 exports[`ic-dialog component should render with a label 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small" heading="Dialog heading" hide-default-controls="true" label="Dialog label">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -215,7 +215,7 @@ exports[`ic-dialog component should render with a label 1`] = `
 exports[`ic-dialog component should render with no buttons 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small" heading="Dialog heading" hide-default-controls="true">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -251,7 +251,7 @@ exports[`ic-dialog component should render with no buttons 1`] = `
 exports[`ic-dialog component should render with slotted content 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small" heading="Dialog heading">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -333,7 +333,7 @@ exports[`ic-dialog component should render with slotted content 1`] = `
 exports[`ic-dialog component should render with slotted controls 1`] = `
 <ic-dialog class="ic-dialog-size-small" heading="Dialog heading" open="">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -386,7 +386,7 @@ exports[`ic-dialog component should render with slotted controls 1`] = `
 exports[`ic-dialog component should render with the close button 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small" heading="Dialog with close button test">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -446,7 +446,7 @@ exports[`ic-dialog component should render with the close button 1`] = `
 exports[`ic-dialog component should render with two default buttons 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small" heading="Dialog heading">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
@@ -506,7 +506,7 @@ exports[`ic-dialog component should render with two default buttons 1`] = `
 exports[`ic-dialog component should render without the close button 1`] = `
 <ic-dialog class="ic-dialog-hidden ic-dialog-size-small" heading="Dialog hide close button test" hide-close-button="true">
   <template shadowrootmode="open">
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+    <dialog aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div tabindex="0"></div>
       <div class="heading-area">
         <div class="heading-content">
