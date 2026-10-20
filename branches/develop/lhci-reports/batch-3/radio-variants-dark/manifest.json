@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/radio-variants?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-variants-dark/localhost--2026_10_19_02_24_55.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-variants-dark/localhost--2026_10_19_02_24_55.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-variants-dark/localhost--2026_10_20_02_21_02.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/radio-variants-dark/localhost--2026_10_20_02_21_02.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
