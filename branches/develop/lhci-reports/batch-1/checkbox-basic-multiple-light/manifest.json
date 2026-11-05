@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/checkbox-basic-multiple?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-basic-multiple-light/localhost--2026_11_04_02_16_08.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-basic-multiple-light/localhost--2026_11_04_02_16_08.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-basic-multiple-light/localhost--2026_11_05_02_17_55.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/checkbox-basic-multiple-light/localhost--2026_11_05_02_17_55.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
