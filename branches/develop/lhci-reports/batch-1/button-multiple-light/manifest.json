@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/button-multiple?theme=light",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-multiple-light/localhost--2026_11_08_02_16_01.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-multiple-light/localhost--2026_11_08_02_16_01.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-multiple-light/localhost--2026_11_09_02_16_52.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/button-multiple-light/localhost--2026_11_09_02_16_52.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
