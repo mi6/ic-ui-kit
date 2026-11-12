@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3001/#/text-field-variants?theme=dark",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/text-field-variants-dark/localhost--2026_11_11_02_18_12.report.html",
-    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/text-field-variants-dark/localhost--2026_11_11_02_18_12.report.json",
+    "htmlPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/text-field-variants-dark/localhost--2026_11_12_02_18_01.report.html",
+    "jsonPath": "/home/runner/work/ic-ui-kit/ic-ui-kit/packages/react/lhci-reports/text-field-variants-dark/localhost--2026_11_12_02_18_01.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
